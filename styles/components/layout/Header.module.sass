@@ -1,6 +1,7 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
+@use '@/styles/layout/onHover' as onHover
 
 .container
   @include m.dye(bg, c.$alpha)
@@ -40,6 +41,8 @@
 .link
   display: flex
   flex-direction: column
+  outline: none
+  @include onHover.highlightWithBottomLine($bottom: f.px(-5))
 
 .linkVal
   font-weight: 700
