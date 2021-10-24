@@ -9,6 +9,7 @@ import getCasedRuMonthString from '@/helpers/getCasedRuMonthString'
 import getCasedRuYearString from '@/helpers/getCasedRuYearString'
 import getCasesRuCourseString from '@/helpers/getCasesRuCourseString'
 import getCasesRuProfessionString from '@/helpers/getCasesRuProfessionString'
+import getClassNames from '@/helpers/getClassNames'
 import getListItemsInnerHtml from '@/helpers/getListItemsInnerHtml'
 import getParagraphInnerHtml from '@/helpers/getParagraphInnerHtml'
 import getProgram from '@/helpers/getProgram'
@@ -32,6 +33,7 @@ export {
   getCasedRuYearString,
   getCasesRuCourseString,
   getCasesRuProfessionString,
+  getClassNames,
   getListItemsInnerHtml,
   getParagraphInnerHtml,
   getProgram,

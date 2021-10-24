@@ -1,5 +1,5 @@
 import Router from 'next/router'
-
+import type { AppProps } from 'next/app'
 import { useEffect, useState, useContext } from 'react'
 import Script from 'next/script'
 import MenuState from '@/context/menu/MenuState'
@@ -25,7 +25,7 @@ import '@/styles/app.sass'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
-function MyApp({ Component, pageProps, router }) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
