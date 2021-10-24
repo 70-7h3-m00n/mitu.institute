@@ -53,9 +53,9 @@ input
 
 section
   @include m.media(phone, tablet)
-    @include m.gap($pb: f.px(50))
+    padding-bottom: f.px(50)
   @include m.media(laptop, desktop)
-    @include m.gap($pb: f.px(115))
+    padding-bottom: f.px(115)
     overflow: hidden
 // body
 //   background-color: #333
@@ -99,7 +99,8 @@ div.popup-content
   @include m.media(laptop, desktop)
     max-width: f.px(708)
   @include m.media(phone, tablet)
-    @include m.gap($plr: f.px(15))
+    padding-right: f.px(15)
+    padding-left: f.px(15)
   border: none
   @include m.dye(bg, transparent)
   animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards

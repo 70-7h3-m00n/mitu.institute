@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap --config next-sitemap.config.js",
+    "generateicons": "npx pwa-asset-generator ./public/assets/imgs/general/icon.png ./public/assets/imgs/icons -p \"0\" -b \"#fff\""
   },
   "dependencies": {
     "axios": "^0.23.0",

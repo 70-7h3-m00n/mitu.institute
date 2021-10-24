@@ -1,0 +1,19 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  padding-top: f.px(4)
+  padding-bottom: f.px(4)
+  @include m.dye(bg, c.$psi)
+
+.wrapper
+  display: flex
+  justify-content: space-between
+
+.link
+  font-size: f.px(14)
+  @include m.dye(c, c.$omega)
+  &:hover,
+  &:focus
+    text-decoration: underline

@@ -1,28 +1,27 @@
-import stls from '@/styles/components/layout/Header.module.sass'
+import stls from '@/styles/components/general/HeaderTop.module.sass'
 import Link from 'next/link'
 import classnames from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { routeLegal } from '@/data/routes'
 import { Wrapper } from '@/components/layout'
-import { HeaderTop, Logo } from '@/components/general'
 import { BtnVisualAccessibility } from '@/components/btns'
 
-type HeaderType = {
+type HeaderTopType = {
   classNames?: string[]
 }
 
-const Header = ({ classNames = [] }: HeaderType) => {
+const HeaderTop = ({ classNames = [] }: HeaderTopType) => {
   const container = getClassNames({ classNames })
   return (
     <div className={classnames([stls.container], container)}>
-      <HeaderTop />
-      <Wrapper>
-        <div className={stls.content}>
-          <Logo />
-        </div>
+      <Wrapper classNames={[stls.wrapper]}>
+        <Link href={routeLegal}>
+          <a className={stls.link}>Сведения об образовательной организации</a>
+        </Link>
+        <BtnVisualAccessibility />
       </Wrapper>
     </div>
   )
 }
 
-export default Header
+export default HeaderTop
