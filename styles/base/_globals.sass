@@ -1,0 +1,109 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+*,
+*:before,
+*:after
+  box-sizing: inherit
+
+html, body
+  overflow-x: hidden
+  @include m.media(phone)
+    font-size: 1rem
+  // font-size: 3vmin
+  // font-size: 30px
+  // font-size: 1.5rem
+  // font-size: 2vw
+  @include m.media(tablet)
+    font-size: 1.2rem
+  @include m.media(laptop)
+    font-size: 0.9rem
+  @include m.media(desktop)
+    font-size: 1rem
+
+html
+  box-sizing: border-box
+  font-family: 'Roboto', sans-serif
+  // scroll-behavior: smooth
+
+h1
+  overflow-wrap: break-word
+
+svg
+  width: 100%
+  height: 100%
+
+a, button
+  cursor: pointer
+
+a, button
+  outline: f.px(1) solid transparent
+  outline-offset: f.px(-1)
+  transition: outline-offset .25s ease-out, outline-color .25s ease-out
+  &:focus-visible
+    outline-offset: f.px(4)
+    @include m.dye(outline, c.$nu)
+
+input
+  border: f.px(2) solid transparent
+  &:focus-visible
+    border: f.px(2) solid 
+    @include m.dye(border, c.$beta)
+
+section
+  @include m.media(phone, tablet)
+    @include m.gap($pb: f.px(50))
+  @include m.media(laptop, desktop)
+    @include m.gap($pb: f.px(115))
+    overflow: hidden
+// body
+//   background-color: #333
+
+// .swiper-container
+//   overflow: visible
+
+// .swiper-wrapper
+//   width: max-content
+
+// .swiper-slide
+//   height: auto
+
+// .swiper-container-horizontal > .swiper-pagination-bullets
+//   bottom: f.px(-20)
+
+// .swiper-pagination-bullet-active
+//   background-color: c.$beta
+
+html #nprogress .bar 
+  background: c.$beta
+
+html #nprogress .spinner-icon 
+  border-top-color: c.$beta
+  border-left-color: c.$beta
+
+
+@keyframes anvil
+  0%
+    transform: scale(1) translateY(0px)
+    opacity: 0
+  1%
+    transform: scale(0.96) translateY(10px)
+    opacity: 0
+  100%
+    transform: scale(1) translateY(0px)
+    opacity: 1
+
+div.popup-content
+  width: 100%
+  @include m.media(laptop, desktop)
+    max-width: f.px(708)
+  @include m.media(phone, tablet)
+    @include m.gap($plr: f.px(15))
+  border: none
+  @include m.dye(bg, transparent)
+  animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards
+
+.popup-overlay
+  overflow-y: auto
+  background-color: rgba(0,0,0, .5)
