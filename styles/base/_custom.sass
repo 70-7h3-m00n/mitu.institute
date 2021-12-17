@@ -1,0 +1,32 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/config/Breakpoints.module.sass' as bp
+  
+// npm package: swiper
+// .swiper-container
+//   overflow: visible
+// .swiper-wrapper
+//   width: max-content !important
+// .swiper-slide
+//   height: auto
+// .swiper-container-horizontal > .swiper-pagination-bullets
+//   bottom: f.px(-20)
+
+// .TrustedBy__Swiper
+//   overflow: visible
+//   & .swiper-wrapper
+//     flex-wrap: wrap
+//   & .swiper-pagination
+//     bottom: f.px(-30)
+
+// .swiper-pagination-bullet-active
+  // @include m.dye(bg, c.$alpha)
+
+// npm package: nprogress
+html #nprogress .bar 
+  background: c.$beta
+
+html #nprogress .spinner-icon 
+  border-top-color: c.$beta
+  border-left-color: c.$beta

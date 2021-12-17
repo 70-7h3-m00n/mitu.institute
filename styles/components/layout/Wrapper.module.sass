@@ -1,0 +1,9 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.gap($plr: f.px(15))
+  @include m.media(desktop, laptop)
+    max-width: f.px(1200)
+    margin: 0 auto
