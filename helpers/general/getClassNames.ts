@@ -1,15 +1,13 @@
 import { TypeClassNames } from '@/types/index'
 
-type TypegetClassNamesProps = {
-  classNames: TypeClassNames
-}
+type TypegetClassNamesProps = TypeClassNames
 
 type TypeGetClassNamesOutput = {
   [key: string]: boolean
 }
 
 const getClassNames = ({
-  classNames
+  classNames = []
 }: TypegetClassNamesProps): TypeGetClassNamesOutput => {
   const output: TypeGetClassNamesOutput = {}
 

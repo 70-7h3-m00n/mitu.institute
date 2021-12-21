@@ -3,14 +3,11 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 
-type TypeFooterProps = {
-  classNames?: TypeClassNames
-}
+type TypeFooterProps = TypeClassNames
 
-const Footer = ({ classNames = [] }: TypeFooterProps) => {
-  const container = getClassNames({ classNames })
+const Footer = ({ classNames }: TypeFooterProps) => {
   return (
-    <footer className={cn([stls.container], container) || undefined}>
+    <footer className={cn(stls.container, getClassNames({ classNames }))}>
       Footer
     </footer>
   )

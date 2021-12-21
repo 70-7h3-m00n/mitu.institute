@@ -3,15 +3,11 @@ import { TypeChildren, TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 
-type TypeWrapperProps = {
-  classNames?: TypeClassNames
-  children: TypeChildren
-}
+type TypeWrapperProps = TypeClassNames & TypeChildren
 
 const Wrapper = ({ classNames = [], children }: TypeWrapperProps) => {
-  const container = getClassNames({ classNames })
   return (
-    <div className={cn([stls.container], container) || undefined}>
+    <div className={cn([stls.container], getClassNames({ classNames }))}>
       {children}
     </div>
   )

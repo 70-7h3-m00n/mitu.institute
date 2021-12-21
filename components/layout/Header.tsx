@@ -3,14 +3,11 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 
-type TypeHeaderProps = {
-  classNames?: TypeClassNames
-}
+type TypeHeaderProps = TypeClassNames
 
-const Header = ({ classNames = [] }: TypeHeaderProps) => {
-  const container = getClassNames({ classNames })
+const Header = ({ classNames }: TypeHeaderProps) => {
   return (
-    <header className={cn([stls.container], container) || undefined}>
+    <header className={cn(stls.container, getClassNames({ classNames }))}>
       Header
     </header>
   )

@@ -1,5 +1,7 @@
 import { ReactNode } from 'react'
 
-type TypeChildren = ReactNode
+type TypeChildren = {
+  children: ReactNode
+}
 
 export default TypeChildren
