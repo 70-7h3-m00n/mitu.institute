@@ -1,7 +1,7 @@
 import { NextRouter } from 'next/router'
 
 type TypeHandleUtmsProps = {
-  router: NextRouter
+  readonly router: NextRouter
 }
 
 const handleUtms = ({ router }: TypeHandleUtmsProps) => {

@@ -7,7 +7,10 @@ type TypeWrapperProps = TypeClassNames & TypeChildren
 
 const Wrapper = ({ classNames = [], children }: TypeWrapperProps) => {
   return (
-    <div className={cn([stls.container], getClassNames({ classNames }))}>
+    <div
+      className={
+        cn([stls.container], getClassNames({ classNames })) || undefined
+      }>
       {children}
     </div>
   )

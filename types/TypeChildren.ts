@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 type TypeChildren = {
-  children: ReactNode
+  readonly children: ReactNode
 }
 
 export default TypeChildren

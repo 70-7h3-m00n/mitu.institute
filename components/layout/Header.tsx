@@ -7,7 +7,10 @@ type TypeHeaderProps = TypeClassNames
 
 const Header = ({ classNames }: TypeHeaderProps) => {
   return (
-    <header className={cn(stls.container, getClassNames({ classNames }))}>
+    <header
+      className={
+        cn(stls.container, getClassNames({ classNames })) || undefined
+      }>
       Header
     </header>
   )

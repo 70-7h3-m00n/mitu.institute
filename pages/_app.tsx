@@ -8,7 +8,7 @@ import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
 import { prod, routesFront } from '@/config/index'
-import handleUtms from '@/helpers/general/handleUtms'
+import { handleUtms } from '@/helpers/index'
 import { Header, Main, Footer } from '@/components/layout'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
