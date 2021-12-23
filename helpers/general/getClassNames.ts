@@ -3,7 +3,7 @@ import { TypeClassNames } from '@/types/index'
 type TypegetClassNamesProps = TypeClassNames
 
 type TypeGetClassNamesOutput = {
-  [key: string]: boolean
+  readonly [key: string]: boolean
 }
 
 const getClassNames = ({
