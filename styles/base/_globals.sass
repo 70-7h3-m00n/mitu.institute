@@ -8,22 +8,18 @@
   box-sizing: inherit
 
 html, body
-  // @include m.media(phone)
-  //   font-size: 1rem
-  //   // font-size: 3vmin
-  //   // font-size: 30px
-  //   // font-size: 1.5rem
-  //   // font-size: 2vw
-  // @include m.media(tablet)
-  //   font-size: 1.2rem
-  // @include m.media(laptop)
-  //   font-size: 0.9rem
-  // @include m.media(desktop)
-  //   font-size: 1rem
+  @include m.media(phone, tablet, desktop)
+    font-size: 1rem
+    // font-size: 3vmin
+    // font-size: 30px
+    // font-size: 1.5rem
+    // font-size: 2vw
+  @include m.media(laptop)
+    font-size: 0.9rem
 
 html
   box-sizing: border-box
-  font-family: sans-serif
+  font-family: Arimo, sans-serif
   // scroll-behavior: smooth
 
 h1

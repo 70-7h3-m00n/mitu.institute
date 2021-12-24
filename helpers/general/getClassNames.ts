@@ -9,6 +9,8 @@ type TypeGetClassNamesOutput = {
 const getClassNames = ({
   classNames = []
 }: TypegetClassNamesProps): TypeGetClassNamesOutput =>
-  classNames.reduce((acc, cur) => cur && { ...acc, [cur]: true }, {})
+  classNames
+    .filter(className => className)
+    .reduce((acc, cur) => ({ ...acc, [cur]: true }), {})
 
 export default getClassNames

@@ -7,13 +7,15 @@ type TypeImgHeroLady = TypeClassNames & TypeImg
 
 const ImgHeroLady = ({ classNames, width, height }: TypeImgHeroLady) => {
   return (
-    <ImgTemplate
-      classNames={classNames}
-      src={src}
-      width={width}
-      height={height}
-      alt={'Девушка улыбается'}
-    />
+    <>
+      <ImgTemplate
+        classNames={classNames}
+        src={src}
+        width={width}
+        height={height}
+        alt={'Девушка улыбается'}
+      />
+    </>
   )
 }
 
