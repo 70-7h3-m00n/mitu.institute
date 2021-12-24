@@ -1,4 +1,6 @@
-type TypeThemeColor = `#${string}`
+import { TypeColor } from '@/types/index'
+
+type TypeThemeColor = TypeColor
 
 const themeColor: TypeThemeColor = '#1143A7'
 
