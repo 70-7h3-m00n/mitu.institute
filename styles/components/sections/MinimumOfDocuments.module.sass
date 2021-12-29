@@ -1,0 +1,98 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as s
+
+.container
+
+.wrapper
+    @include m.media(laptop, desktop)
+        padding-top: f.px(80) 
+        padding-bottom: f.px(50)  
+    @include m.media(tablet)
+        padding-top: f.px(64) 
+        padding-bottom: f.px(40)  
+    @include m.media(phone)
+        padding-top: f.px(80) 
+        padding-bottom: f.px(50)  
+    position: relative
+   
+.iconList
+    @include m.media(desktop)
+        width: f.px(274)
+        top: f.px(165)
+    @include m.media(laptop)
+        top: f.px(225)
+    @include m.media(tablet)
+        top: f.px(130)
+        width: f.px(188)
+    @include m.media(phone)
+        display: none
+    position: absolute
+    right: f.px(15)
+   
+.title
+    @include m.media(desktop, laptop)
+        font-size: f.px(48)
+        margin-bottom: f.px(32)
+    @include m.media(tablet)
+        font-size: f.px(24)
+        margin-bottom: f.px(16)
+    @include m.media(phone)
+        font-size: f.px(30)
+        margin-bottom: f.px(18)
+        width: 100%
+    width: 30ch
+    font-weight: 700
+    line-height: 110%
+
+.highlight
+    @include m.dye(c, c.$beta)
+
+.list
+    @include m.media(desktop, laptop)
+        margin: 0 f.px(416) 0 0
+    @include m.media(tablet)
+        margin: 0 f.px(200) 0 0
+    @include m.media(phone)
+        margin: 0 
+    padding: 0
+  
+.item
+    @include m.media(desktop, laptop)
+        padding: f.px(32) 0
+    @include m.media(tablet)
+        padding: f.px(24) 0
+    @include m.media(phone)
+        padding: f.px(32) 0
+    @include m.flex($ai: center)
+    list-style: none
+    border-bottom: f.px(2) solid c.$delta
+    &:last-child
+        border-bottom: none
+     
+.check
+    position: relative
+    min-width: f.px(40)
+    height: f.px(40)
+    margin-right: f.px(24)
+    @include m.dye(bg, c.$delta)
+    .icon
+        position: absolute
+        left: 50%
+        top: 50%
+        width: f.px(24)
+        height: f.px(24)
+        transform: translate(-50%, -50%)
+
+.text
+    @include m.media(desktop, laptop)
+        font-size: f.px(24)
+    @include m.media(tablet)
+        font-size: f.px(18)
+    @include m.media(phone)
+        font-size: f.px(20)
+    margin: 0
+    line-height: 110%
+  
+
