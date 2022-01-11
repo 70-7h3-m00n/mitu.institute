@@ -4,7 +4,7 @@ import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { SectionHeroPicture, Pros } from '@/components/general'
-import { FormAlpha } from '@/components/forms'
+import { UIFormAlpha } from '@/components/uiforms'
 
 type TypeSectionHeroProps = TypeClassNames
 
@@ -21,7 +21,7 @@ const SectionHero = ({ classNames }: TypeSectionHeroProps) => {
         </h1>
         <SectionHeroPicture classNames={[stls.picture]} />
         <Pros />
-        <FormAlpha />
+        <UIFormAlpha />
       </Wrapper>
     </div>
   )

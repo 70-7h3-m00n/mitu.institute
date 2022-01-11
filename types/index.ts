@@ -1,8 +1,9 @@
 import type TypeChildren from '@/types/TypeChildren'
 import type TypeClassNames from '@/types/TypeClassNames'
 import type TypeColor from '@/types/TypeColor'
-import type TypeFormValuesAlpha from '@/types/TypeFormValuesAlpha'
+import type TypeFormAlphaValues from '@/types/TypeFormAlphaValues'
 import type TypeImg from '@/types/TypeImg'
+import type TypeInput from '@/types/TypeInput'
 import type TypeReferer from '@/types/TypeReferer'
 import type TypeRoute from '@/types/TypeRoute'
 import type TypeUrl from '@/types/TypeUrl'
@@ -12,8 +13,9 @@ export {
   TypeChildren,
   TypeClassNames,
   TypeColor,
-  TypeFormValuesAlpha,
+  TypeFormAlphaValues,
   TypeImg,
+  TypeInput,
   TypeReferer,
   TypeRoute,
   TypeUrl,

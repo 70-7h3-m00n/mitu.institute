@@ -1,8 +1,8 @@
-import { TypeFormValuesAlpha, TypeUtms, TypeReferer } from '@/types/index'
+import { TypeFormAlphaValues, TypeUtms, TypeReferer } from '@/types/index'
 import { hitLeadRoute } from '@/helpers/index'
 
 type onSubmitFormProps = {
-  readonly formValues: TypeFormValuesAlpha
+  readonly formValues: TypeFormAlphaValues
   readonly asPath: string
   readonly programTitle?: string
 }
@@ -34,6 +34,8 @@ onSubmitFormProps) => {
   }
   const req = await hitLeadRoute(lead)
   if (req === 200) {
+    console.log('form is sent')
+
     // handle 200
     // setOpenLoader(false)
     // setOpen(o => !o)

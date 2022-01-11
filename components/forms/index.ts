@@ -1,3 +1,3 @@
-import FormAlpha from '@/components/forms/FormAlpha'
+import FormLead from '@/components/forms/FormLead'
 
-export { FormAlpha }
+export { FormLead }

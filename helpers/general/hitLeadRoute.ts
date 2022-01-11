@@ -1,8 +1,8 @@
-import { TypeFormValuesAlpha, TypeUtms, TypeReferer } from '@/types/index'
+import { TypeFormAlphaValues, TypeUtms, TypeReferer } from '@/types/index'
 import axios from 'axios'
 import { routesFront } from '@/config/index'
 
-type TypeHitLeadRouteProps = TypeFormValuesAlpha & {
+type TypeHitLeadRouteProps = TypeFormAlphaValues & {
   readonly programTitle?: string
   readonly leadPage: string
   readonly utms: TypeUtms
