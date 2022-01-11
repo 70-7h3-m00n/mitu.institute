@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/Pros.module.sass'
-import TypeClassNames from '@/types/TypeClassNames'
+import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { pros } from '@/data/index'
 import { getClassNames } from '@/helpers/index'

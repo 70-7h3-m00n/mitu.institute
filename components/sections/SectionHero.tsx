@@ -1,9 +1,10 @@
 import stls from '@/styles/components/sections/SectionHero.module.sass'
-import TypeClassNames from '@/types/TypeClassNames'
+import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { SectionHeroPicture, Pros } from '@/components/general'
+import { FormAlpha } from '@/components/forms'
 
 type TypeSectionHeroProps = TypeClassNames
 
@@ -20,6 +21,7 @@ const SectionHero = ({ classNames }: TypeSectionHeroProps) => {
         </h1>
         <SectionHeroPicture classNames={[stls.picture]} />
         <Pros />
+        <FormAlpha />
       </Wrapper>
     </div>
   )

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/SectionHeroPicture.module.sass'
-import TypeClassNames from '@/types/TypeClassNames'
+import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { ImgHeroLady } from '@/components/imgs'
