@@ -2,5 +2,6 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
 
-.container
-  @include m.flex
+@mixin laptopDesktop
+  @include m.media(phone, tablet)
+    display: none

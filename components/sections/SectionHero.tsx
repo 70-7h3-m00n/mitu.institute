@@ -15,13 +15,25 @@ const SectionHero = ({ classNames }: TypeSectionHeroProps) => {
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <Wrapper>
-        <h1 className={stls.title}>
-          Обучайся в <span className={stls.highlight}>самом инновационном</span>{' '}
-          ВУЗЕ страны
-        </h1>
-        <SectionHeroPicture classNames={[stls.picture]} />
-        <Pros />
-        <UIFormAlpha />
+        <div className={stls.top}>
+          <h1 className={stls.title}>
+            Обучайся в{' '}
+            <span className={stls.highlight}>самом инновационном</span> ВУЗЕ
+            страны
+          </h1>
+          <SectionHeroPicture
+            classNames={[cn(stls.picture, stls.phoneTablet)]}
+          />
+        </div>
+        <div className={stls.bottom}>
+          <UIFormAlpha classNames={[stls.form]} />
+          <div className={stls.prosAndPicture}>
+            <Pros classNames={[stls.pros]} />
+            <SectionHeroPicture
+              classNames={[stls.picture, stls.laptopDesktop]}
+            />
+          </div>
+        </div>
       </Wrapper>
     </div>
   )

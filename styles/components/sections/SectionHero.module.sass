@@ -3,6 +3,8 @@
 @use '@/styles/themes/default/Colors.module.sass' as c
 @use '@/styles/shared/general' as s
 
+$prosFlexBasis: 58%
+
 .title
   @include m.media(phone)
     font-size: f.px(36)
@@ -12,8 +14,49 @@
     max-width: 17ch
   @include m.media(laptop, desktop)
     max-width: 20ch
+    margin-bottom: f.px(56)
     font-size: f.px(64)
   line-height: 110%
 
 .highlight
   @include s.highlight
+
+.picture
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: 100% - $prosFlexBasis)
+
+.phoneTablet
+  @include s.phoneTablet
+
+.laptopDesktop
+  @include s.laptopDesktop
+
+.top
+  @include m.media(tablet)
+    @include m.flex
+
+.bottom
+  @include m.media(laptop, desktop)
+    @include m.flex($fd: column)
+  @include m.media(laptop)
+    transform: translateY(-12%)
+  @include m.media(desktop)
+    transform: translateY(f.px(-233))
+
+.form
+  @include m.media(laptop, desktop)
+    order: 2
+
+.prosAndPicture
+  @include m.media(laptop, desktop)
+    order: 1
+  @include m.media(laptop)
+    @include m.flex($ai: center)
+  @include m.media(desktop)
+    @include m.flex($ai: flex-end)
+
+.pros
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: $prosFlexBasis)
+  @include m.media(desktop)
+    @include m.gap($mb: 5.3%)
