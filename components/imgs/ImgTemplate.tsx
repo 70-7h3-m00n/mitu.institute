@@ -5,7 +5,7 @@ import cn from 'classnames'
 import { base64pixel } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 
-type TypeImgTemplate = TypeClassNames &
+type TypeImgTemplateProps = TypeClassNames &
   TypeImg & {
     readonly src: StaticImageData | string
     readonly alt: string
@@ -17,7 +17,7 @@ const ImgTemplate = ({
   height,
   src,
   alt
-}: TypeImgTemplate) => {
+}: TypeImgTemplateProps) => {
   return (
     <div
       className={
