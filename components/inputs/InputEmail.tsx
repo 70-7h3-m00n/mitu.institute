@@ -1,11 +1,13 @@
 import stls from '@/styles/components/inputs/InputEmail.module.sass'
 import { TypeClassNames, TypeInput } from '@/types/index'
 import cn from 'classnames'
+import { emailRegex } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 
 type TypeInputEmailProps = TypeClassNames & TypeInput
 
 const InputEmail = ({ classNames, register, error }: TypeInputEmailProps) => {
+  const maxLength = 64
   return (
     <div
       className={
@@ -18,13 +20,12 @@ const InputEmail = ({ classNames, register, error }: TypeInputEmailProps) => {
         aria-label={'Введите Вашу электронную почту'}
         {...register('email', {
           pattern: {
-            value:
-              /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+            value: emailRegex,
             message: 'Пожалуйста, введите корректный email'
           },
           maxLength: {
-            value: 64,
-            message: '*Пожалуйста, введите меньше, чем 64 символа'
+            value: maxLength,
+            message: `*Пожалуйста, введите меньше, чем ${maxLength} символа`
           }
         })}
       />

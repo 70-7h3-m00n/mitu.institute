@@ -6,6 +6,7 @@ import { getClassNames } from '@/helpers/index'
 type TypeInputPhoneProps = TypeClassNames & TypeInput
 
 const InputPhone = ({ classNames, register, error }: TypeInputPhoneProps) => {
+  const minLength = 5
   return (
     <div
       className={
@@ -19,8 +20,8 @@ const InputPhone = ({ classNames, register, error }: TypeInputPhoneProps) => {
         {...register('phone', {
           required: '*Пожалуйста, введите номер телефона',
           minLength: {
-            value: 5,
-            message: '*Пожалуйста, введите больше, чем 5 символов'
+            value: minLength,
+            message: `*Пожалуйста, введите больше, чем ${minLength} символов`
           }
         })}
       />

@@ -8,7 +8,6 @@ import { IconCheck } from '@/components/icons'
 type TypeProsProps = TypeClassNames
 
 const Pros = ({ classNames }: TypeProsProps) => {
-  console.log(pros)
   return (
     <ul
       className={

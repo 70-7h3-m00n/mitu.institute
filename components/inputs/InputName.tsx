@@ -6,6 +6,7 @@ import { getClassNames } from '@/helpers/index'
 type TypeInputNameProps = TypeClassNames & TypeInput
 
 const InputName = ({ classNames, register, error }: TypeInputNameProps) => {
+  const maxLength = 32
   return (
     <div
       className={
@@ -18,8 +19,8 @@ const InputName = ({ classNames, register, error }: TypeInputNameProps) => {
         aria-label={'Введите Ваше имя'}
         {...register('name', {
           maxLength: {
-            value: 32,
-            message: '*Пожалуйста, введите меньше, чем 32 символа'
+            value: maxLength,
+            message: `*Пожалуйста, введите меньше, чем ${maxLength} символа`
           }
         })}
       />

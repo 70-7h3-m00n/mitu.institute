@@ -11,6 +11,8 @@ type TypeInputSubmitProps = TypeClassNames & {
 }
 
 const InputSubmit = ({ classNames, errors }: TypeInputSubmitProps) => {
+  const isError = !!errors.name || !!errors.phone || !!errors.email
+
   return (
     <div
       className={
@@ -18,9 +20,11 @@ const InputSubmit = ({ classNames, errors }: TypeInputSubmitProps) => {
       }>
       <button
         type='submit'
-        className={stls.btn}
+        className={cn(stls.btn, {
+          [stls.disabled]: isError
+        })}
         aria-label={'Оставить заявку'}
-        disabled={!!errors.name || !!errors.phone || !!errors.email}>
+        disabled={isError}>
         Оставить заявку
       </button>
     </div>
