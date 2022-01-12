@@ -17,7 +17,7 @@ $prosFlexBasis: 58%
     max-width: 17ch
   @include m.media(laptop, desktop)
     max-width: 20ch
-    margin-bottom: f.px(56)
+    @include m.gap($mb: f.px(56))
     font-size: f.px(64)
   line-height: 110%
 
