@@ -3,6 +3,11 @@
 @use '@/styles/themes/default/Colors.module.sass' as c
 @use '@/styles/shared/general' as s
 
+$prosFlexBasis: 58%
+
+// .container
+//   margin-bottom: f.px(-100)
+
 .title
   @include m.media(phone)
     font-size: f.px(36)
@@ -12,6 +17,7 @@
     max-width: 17ch
   @include m.media(laptop, desktop)
     max-width: 20ch
+    @include m.gap($mb: f.px(56))
     font-size: f.px(64)
   line-height: 110%
 
@@ -19,53 +25,41 @@
   @include s.highlight
 
 .picture
-  position: relative
-  max-width: f.px(488)
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: 100% - $prosFlexBasis)
 
-.icon
-  max-width: 6.7623%
+.phoneTablet
+  @include s.phoneTablet
 
-.chat
-  position: absolute
-  top: 6%
-  left: 17%
-  transform: rotate(-29deg)
+.laptopDesktop
+  @include s.laptopDesktop
+
+.top
   @include m.media(tablet)
-    & path
-      @include m.dye(fill, c.$beta)
+    @include m.flex
 
-.lightBulb
-  position: absolute
-  top: 11%
-  right: 7%
-  transform: rotate(24deg)
-  z-index: 1
-  & path
-    transition: fill .1s ease-in-out
-  &:hover
-    & path:nth-child(1)
-      @include m.dye(fill, c.$epsilon)
-  @include m.media(tablet)
-    & path:nth-last-child(1)
-      @include m.dye(fill, c.$beta)
+.bottom
+  @include m.media(laptop, desktop)
+    @include m.flex($fd: column)
+  @include m.media(laptop)
+    transform: translateY(-12%)
+  @include m.media(desktop)
+    transform: translateY(f.px(-233))
 
-.graduationHat
-  position: absolute
-  top: 39%
-  right: 12%
-  transform: rotate(-25deg)
+.form
+  @include m.media(laptop, desktop)
+    order: 2
 
-.videoOnStand
-  position: absolute
-  top: 40%
-  left: 17%
-  transform: rotate(15deg)
-  @include m.media(tablet)
-    & path
-      @include m.dye(fill, c.$beta)
+.prosAndPicture
+  @include m.media(laptop, desktop)
+    order: 1
+  @include m.media(laptop)
+    @include m.flex($ai: center)
+  @include m.media(desktop)
+    @include m.flex($ai: flex-end)
 
-.magnifyingGlass
-  position: absolute
-  top: 24%
-  left: 24%
-  transform: rotate(29deg)
+.pros
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: $prosFlexBasis)
+  @include m.media(desktop)
+    @include m.gap($mb: 5.3%)

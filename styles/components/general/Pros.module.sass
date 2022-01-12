@@ -1,0 +1,50 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+  
+.container
+  @include m.flex($fw: wrap)
+  @include m.gap($mt: 0, $p: 0)
+
+.pro
+  @include m.flex($fd: column)
+  @include m.gap($mb: f.px(48))
+  @include m.media(phone)
+    @include m.flex($fb: 46%)
+    &:nth-child(odd)
+      @include m.gap($mr: 4%)
+    // last two elements
+    &:nth-last-of-type(-n+2)
+      @include m.gap($mb: 0)
+  @include m.media(tablet, laptop, desktop)
+    @include m.flex($fb: 23%)
+    @include m.gap($mr: 2.2%)
+    &:nth-child(4n)
+      @include m.gap($mr: 0)
+    // last four elements
+    &:nth-last-of-type(-n+4)
+      @include m.gap($mb: 0)
+
+.icon
+  @include m.flex($d: false, $jc: center, $ai: center)
+  min-width: f.px(40)
+  max-width: f.px(40)
+  max-width: max-content
+  width: 100%
+  min-height: f.px(40)
+  height: 100%
+  max-height: f.px(40)
+  @include m.gap($mb: f.px(16))
+  @include m.dye(bg, c.$zeta)
+  & > *
+    max-width: f.px(16)
+
+.text
+  @include m.media(phone, laptop, desktop)
+    max-width: 22ch
+    font-size: f.px(14)
+  @include m.media(tablet)
+    max-width: 15ch
+    font-size: f.px(13)
+  line-height: 120%
+  @include m.dye(c, c.$psi)
