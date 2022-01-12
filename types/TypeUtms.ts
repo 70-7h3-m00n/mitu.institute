@@ -1,9 +1,9 @@
 type TypeUtms = {
-  utm_source?: string
-  utm_medium?: string
-  utm_utm_campaign?: string
-  utm_content?: string
-  utm_term?: string
+  readonly utm_source?: string
+  readonly utm_medium?: string
+  readonly utm_utm_campaign?: string
+  readonly utm_content?: string
+  readonly utm_term?: string
 }
 
 export default TypeUtms

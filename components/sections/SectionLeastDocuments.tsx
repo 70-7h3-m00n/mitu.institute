@@ -7,10 +7,11 @@ import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 import { IconCheck, IconPaperPage } from '@/components/icons'
 
-type TypeSectionLeastDocuments = TypeClassNames
+type TypeSectionLeastDocumentsProps = TypeClassNames
+
 const SectionLeastDocuments = ({
   classNames = []
-}: TypeSectionLeastDocuments) => {
+}: TypeSectionLeastDocumentsProps) => {
   return (
     <section className={cn(stls.container, getClassNames({ classNames }))}>
       <Wrapper classNames={[stls.wrapper]}>
