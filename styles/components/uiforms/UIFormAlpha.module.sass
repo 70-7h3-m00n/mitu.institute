@@ -1,3 +1,17 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as s
+
+.container
+  @include m.gap($p: f.px(40))
+  @include m.dye(bg, c.$beta)
+  @include m.dye(c, c.$gamma)
+
+.title
+  max-width: 54ch
+  font-size: f.px(24)
+  line-height: 120%
+
+.highlight
+  @include s.highlight($reverse: true)

@@ -16,7 +16,7 @@ const UIFormAlpha = ({ classNames }: TypeUIFormAlphaProps) => {
         <span className={stls.highlight}>Оставьте заявку</span> и получите
         консультацию по программам, а также требования для поступления на курс
       </h2>
-      <FormLead />
+      <FormLead classNames={[stls.form]} />
     </div>
   )
 }
