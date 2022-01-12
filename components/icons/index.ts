@@ -5,6 +5,7 @@ import IconLightBulb from '@/components/icons/IconLightBulb'
 import IconPaperPage from '@/components/icons/IconPaperPage'
 import IconMagnifyingGlass from '@/components/icons/IconMagnifyingGlass'
 import IconVideoOnStand from '@/components/icons/IconVideoOnStand'
+import IconAcademicCap from '@/components/icons/IconAcademicCap'
 
 export {
   IconChat,
@@ -13,5 +14,6 @@ export {
   IconLightBulb,
   IconPaperPage,
   IconMagnifyingGlass,
-  IconVideoOnStand
+  IconVideoOnStand,
+  IconAcademicCap
 }
