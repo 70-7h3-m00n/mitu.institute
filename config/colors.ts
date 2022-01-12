@@ -5,4 +5,4 @@ type TypeColors = {
   [key: string]: TypeColor
 }
 
-export default colors
+export default colors as TypeColors

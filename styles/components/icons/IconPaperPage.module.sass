@@ -1,6 +1,7 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general/icon' as icon
 
-@mixin highlight
-  @include m.dye(c, c.$beta)
+.container
+  @include icon.container

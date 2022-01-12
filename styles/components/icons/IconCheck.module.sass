@@ -1,0 +1,20 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general/icon' as icon
+
+.container
+  @include icon.container
+
+.withBg
+  @include m.flex($d: false, $jc: center, $ai: center)
+  min-width: f.px(40)
+  width: 100%
+  max-width: f.px(40)
+  max-width: max-content
+  min-height: f.px(40)
+  height: 100%
+  max-height: f.px(40)
+  @include m.dye(bg, c.$zeta)
+  & > *
+    max-width: f.px(16)

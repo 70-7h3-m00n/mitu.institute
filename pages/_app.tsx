@@ -8,7 +8,7 @@ import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
 import { prod, routesFront } from '@/config/index'
-import { handleUtms } from '@/helpers/index'
+import { handleUtms, handleReferer } from '@/helpers/index'
 import { Header, Main, Footer } from '@/components/layout'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
@@ -17,14 +17,8 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   useEffect(() => {
     // TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
-    // console.log(document.referrer)
-
     handleUtms({ router })
-
-    const referer = sessionStorage.getItem('referrer')
-    if (!referer) {
-      sessionStorage.setItem('referer', JSON.stringify(document.referrer))
-    }
+    handleReferer()
 
     NProgress.configure({
       showSpinner: false
@@ -56,7 +50,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     <>
       <DefaultSeo {...SEO} />
       <LogoJsonLd
-        logo={`${routesFront.root}/assets/imgs/icons/manifest-icon-512.png`}
+        logo={`${routesFront.root}${routesFront.assetsImgsIconsManifestIcon512}`}
         url={routesFront.root}
       />
       <Header />
