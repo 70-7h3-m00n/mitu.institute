@@ -29,7 +29,7 @@ const SectionLeastDocuments = ({
           </ul>
         </div>
         <div className={stls.right}>
-          <IconPaperPage classNames={[stls.iconList]} />
+          <IconPaperPage classNames={[stls.iconPaperPage]} />
         </div>
       </Wrapper>
     </section>
