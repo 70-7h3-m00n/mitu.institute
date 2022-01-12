@@ -1,4 +1,4 @@
-import stls from '@/styles/components/general/SectionHeroPicture.module.sass'
+import stls from '@/styles/components/general/GeneralSectionHeroPicture.module.sass'
 import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
@@ -11,9 +11,11 @@ import {
   IconMagnifyingGlass
 } from '@/components/icons'
 
-type TypeSectionHeroPictureProps = TypeClassNames
+type TypeGeneralSectionHeroPictureProps = TypeClassNames
 
-const SectionHeroPicture = ({ classNames }: TypeSectionHeroPictureProps) => {
+const GeneralSectionHeroPicture = ({
+  classNames
+}: TypeGeneralSectionHeroPictureProps) => {
   return (
     <div
       className={
@@ -29,4 +31,4 @@ const SectionHeroPicture = ({ classNames }: TypeSectionHeroPictureProps) => {
   )
 }
 
-export default SectionHeroPicture
+export default GeneralSectionHeroPicture

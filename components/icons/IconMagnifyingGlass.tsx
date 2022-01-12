@@ -1,8 +1,8 @@
 import stls from '@/styles/components/icons/IconMagnifyingGlass.module.sass'
 import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
-import { getClassNames } from '@/helpers/index'
 import { colors } from '@/config/index'
+import { getClassNames } from '@/helpers/index'
 
 type TypeIconMagnifyingGlassProps = TypeClassNames
 

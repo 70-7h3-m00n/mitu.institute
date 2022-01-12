@@ -4,13 +4,19 @@ import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 
-type TypeIconCheckProps = TypeClassNames
+type TypeIconCheckProps = TypeClassNames & {
+  withBg?: boolean
+}
 
-const IconCheck = ({ classNames }: TypeIconCheckProps) => {
+const IconCheck = ({ classNames, withBg = false }: TypeIconCheckProps) => {
   return (
     <div
       className={
-        cn(stls.container, getClassNames({ classNames })) || undefined
+        cn(
+          stls.container,
+          { [stls.withBg]: withBg },
+          getClassNames({ classNames })
+        ) || undefined
       }>
       <svg viewBox='0 0 18 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Галочка</title>

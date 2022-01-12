@@ -1,7 +1,4 @@
 import SectionHero from '@/components/sections/SectionHero'
-import MinimumOfDocuments from '@/components/sections/MinimumOfDocuments'
+import SectionLeastDocuments from '@/components/sections/SectionLeastDocuments'
 
-export { 
-    SectionHero,
-    MinimumOfDocuments
-}
+export { SectionHero, SectionLeastDocuments }

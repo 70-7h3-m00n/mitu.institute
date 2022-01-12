@@ -1,13 +1,12 @@
 import stls from '@/styles/pages/Index.module.sass'
 import type { NextPage } from 'next'
-import { SectionHero } from '@/components/sections'
-import { MinimumOfDocuments } from '@/components/sections'
+import { SectionHero, SectionLeastDocuments } from '@/components/sections'
 
 const Home: NextPage = () => {
   return (
     <>
       <SectionHero />
-      <MinimumOfDocuments />
+      <SectionLeastDocuments />
     </>
   )
 }

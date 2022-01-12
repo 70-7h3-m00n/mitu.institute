@@ -3,7 +3,7 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
-import { SectionHeroPicture, Pros } from '@/components/general'
+import { GeneralSectionHeroPicture, GeneralPros } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 
 type TypeSectionHeroProps = TypeClassNames
@@ -21,15 +21,15 @@ const SectionHero = ({ classNames }: TypeSectionHeroProps) => {
             <span className={stls.highlight}>самом инновационном</span> ВУЗЕ
             страны
           </h1>
-          <SectionHeroPicture
+          <GeneralSectionHeroPicture
             classNames={[cn(stls.picture, stls.phoneTablet)]}
           />
         </div>
         <div className={stls.bottom}>
           <UIFormAlpha classNames={[stls.form]} />
           <div className={stls.prosAndPicture}>
-            <Pros classNames={[stls.pros]} />
-            <SectionHeroPicture
+            <GeneralPros classNames={[stls.pros]} />
+            <GeneralSectionHeroPicture
               classNames={[stls.picture, stls.laptopDesktop]}
             />
           </div>

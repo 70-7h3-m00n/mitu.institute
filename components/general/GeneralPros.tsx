@@ -1,13 +1,13 @@
-import stls from '@/styles/components/general/Pros.module.sass'
+import stls from '@/styles/components/general/GeneralPros.module.sass'
 import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { pros } from '@/data/index'
 import { getClassNames } from '@/helpers/index'
 import { IconCheck } from '@/components/icons'
 
-type TypeProsProps = TypeClassNames
+type TypeGeneralProsProps = TypeClassNames
 
-const Pros = ({ classNames }: TypeProsProps) => {
+const GeneralPros = ({ classNames }: TypeGeneralProsProps) => {
   return (
     <ul
       className={
@@ -15,7 +15,7 @@ const Pros = ({ classNames }: TypeProsProps) => {
       }>
       {pros.map(pro => (
         <li key={pro} className={stls.pro}>
-          <IconCheck classNames={[stls.icon]} />
+          <IconCheck classNames={[stls.icon]} withBg />
           <span className={stls.text}>{pro}</span>
         </li>
       ))}
@@ -23,4 +23,4 @@ const Pros = ({ classNames }: TypeProsProps) => {
   )
 }
 
-export default Pros
+export default GeneralPros

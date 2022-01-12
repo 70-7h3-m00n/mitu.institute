@@ -26,18 +26,7 @@
       @include m.gap($mb: 0)
 
 .icon
-  @include m.flex($d: false, $jc: center, $ai: center)
-  min-width: f.px(40)
-  max-width: f.px(40)
-  max-width: max-content
-  width: 100%
-  min-height: f.px(40)
-  height: 100%
-  max-height: f.px(40)
   @include m.gap($mb: f.px(16))
-  @include m.dye(bg, c.$zeta)
-  & > *
-    max-width: f.px(16)
 
 .text
   @include m.media(phone, laptop, desktop)
