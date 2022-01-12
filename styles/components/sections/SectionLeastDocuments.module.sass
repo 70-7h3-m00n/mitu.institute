@@ -1,7 +1,6 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
-@use '@/styles/shared/general' as s
 
 $leftFlexBasis: 68.4%
 $documentPhoneLaptopDesktopPadding: 32
@@ -24,9 +23,6 @@ $documentDeviderHeight: 2
 .title
 	@include m.media(tablet, laptop, desktop)
 		max-width: 27ch
-
-.highlight
-	@include s.highlight
 
 .leastDocuments
 	@include m.gap($m: 0, $p: 0)

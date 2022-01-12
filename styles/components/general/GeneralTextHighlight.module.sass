@@ -2,8 +2,8 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
 
-@mixin highlight($reverse: false)
-  @if $reverse
-    @include m.dye(c, c.$upsilon)
-  @else
-    @include m.dye(c, c.$beta)
+.regular
+  @include m.dye(c, c.$beta)
+
+.reverse
+  @include m.dye(c, c.$upsilon)
