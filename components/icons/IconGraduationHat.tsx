@@ -9,9 +9,8 @@ type TypeIconGraduationHatProps = TypeClassNames
 const IconGraduationHat = ({ classNames }: TypeIconGraduationHatProps) => {
   return (
     <div
-      className={
-        cn(stls.container, getClassNames({ classNames })) || undefined
-      }>
+      className={cn(stls.container, getClassNames({ classNames })) || undefined}
+      aria-hidden={'true'}>
       <svg viewBox='0 0 36 28' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Колпак выпускника</title>
         <path

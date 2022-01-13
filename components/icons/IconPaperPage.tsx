@@ -6,9 +6,11 @@ import { getClassNames } from '@/helpers/index'
 
 type TypeIconPaperPageProps = TypeClassNames
 
-const IconPaperPage = ({ classNames = [] }: TypeIconPaperPageProps) => {
+const IconPaperPage = ({ classNames }: TypeIconPaperPageProps) => {
   return (
-    <div className={cn(stls.container, getClassNames({ classNames }))}>
+    <div
+      className={cn(stls.container, getClassNames({ classNames })) || undefined}
+      aria-hidden={'true'}>
       <svg viewBox='0 0 280 311' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Документ</title>
         <path

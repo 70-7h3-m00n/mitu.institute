@@ -1,0 +1,49 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/btns' as btns
+
+.container
+  @include m.media(phone)
+    display: block
+    min-width: 100%
+    max-width: 100%
+  @include m.gap($ptb: f.px(22))
+  @include m.media(tablet, laptop, desktop)
+    @include m.gap($plr: f.px(56))
+  border: f.px(2, em) solid
+  @include m.dye(border, c.$zeta)
+  @include m.media(phone, laptop, desktop)
+    font-size: f.px(18)
+  @include m.media(tablet)
+    font-size: f.px(16)
+  font-weight: 700
+  line-height: 110%
+  text-align: center
+  cursor: pointer
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      border-style: inset
+      transform: scale(1.02)
+  &:active
+    border-style: solid
+    transform: scale(0.98)
+
+.regular
+  outline: f.px(2, em) solid transparent
+  transition: outline-offset .25s ease
+  @include m.dye(bg, c.$upsilon) 
+  @include m.dye(c, c.$omega)
+  &:focus-visible
+    outline-offset: f.px(-6, em)
+    @include m.dye(outline, c.$omega)
+
+.reverse
+  outline: f.px(2, em) solid transparent
+  outline-offset: f.px(-2, em)
+  transition: outline-offset .25s ease, outline-width .25s ease
+  @include m.dye(c, c.$zeta) 
+  &:focus-visible
+    outline-width: f.px(8, em)
+    outline-offset: f.px(-8, em)
+    @include m.dye(outline, c.$zeta)

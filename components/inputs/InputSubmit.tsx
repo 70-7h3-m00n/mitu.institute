@@ -3,6 +3,7 @@ import { TypeClassNames, TypeFormAlphaValues } from '@/types/index'
 import cn from 'classnames'
 import { FieldError } from 'react-hook-form'
 import { getClassNames } from '@/helpers/index'
+import { BtnAlpha } from '@/components/btns'
 
 type TypeInputSubmitProps = TypeClassNames & {
   errors: {
@@ -18,15 +19,9 @@ const InputSubmit = ({ classNames, errors }: TypeInputSubmitProps) => {
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <button
-        type='submit'
-        className={cn(stls.btn, {
-          [stls.disabled]: isError
-        })}
-        aria-label={'Оставить заявку'}
-        disabled={isError}>
+      <BtnAlpha type='submit' ariaLabel='Оставить заявку'>
         Оставить заявку
-      </button>
+      </BtnAlpha>
     </div>
   )
 }

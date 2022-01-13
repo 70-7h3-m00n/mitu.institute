@@ -17,7 +17,8 @@ const IconCheck = ({ classNames, withBg = false }: TypeIconCheckProps) => {
           { [stls.withBg]: withBg },
           getClassNames({ classNames })
         ) || undefined
-      }>
+      }
+      aria-hidden={'true'}>
       <svg viewBox='0 0 18 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Галочка</title>
         <path

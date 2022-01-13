@@ -9,9 +9,8 @@ type TypeIconLightBulbProps = TypeClassNames
 const IconLightBulb = ({ classNames }: TypeIconLightBulbProps) => {
   return (
     <div
-      className={
-        cn(stls.container, getClassNames({ classNames })) || undefined
-      }>
+      className={cn(stls.container, getClassNames({ classNames })) || undefined}
+      aria-hidden={'true'}>
       <svg
         width='27'
         height='37'

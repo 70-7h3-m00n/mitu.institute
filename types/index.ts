@@ -1,3 +1,7 @@
+import type TypeAriaLabel from '@/types/TypeAriaLabel'
+import type TypeBtnDisabled from '@/types/TypeBtnDisabled'
+import type TypeBtnReverse from '@/types/TypeBtnReverse'
+import type TypeBtnType from '@/types/TypeBtnType'
 import type TypeChildren from '@/types/TypeChildren'
 import type TypeClassNames from '@/types/TypeClassNames'
 import type TypeColor from '@/types/TypeColor'
@@ -10,6 +14,10 @@ import type TypeUrl from '@/types/TypeUrl'
 import type TypeUtms from '@/types/TypeUtms'
 
 export {
+  TypeAriaLabel,
+  TypeBtnDisabled,
+  TypeBtnReverse,
+  TypeBtnType,
   TypeChildren,
   TypeClassNames,
   TypeColor,
