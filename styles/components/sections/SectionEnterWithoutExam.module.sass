@@ -3,65 +3,70 @@
 @use '@/styles/themes/default/Colors.module.sass' as c
 
 .bg
-  position: relative
-  @include m.flex
   @include m.media(phone, tablet)
-    @include m.flex($d: false, $fd: column)
+    @include m.flex($jc: center, $ai: center, $fd: column)
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: center, $ai: center, $fd: column)
   @include m.media(phone)
-    padding: f.px(48) f.px(24)
+    @include m.gap($ptb: f.px(48), $plr: f.px(24))
   @include m.media(tablet)
-    padding: f.px(64) f.px(112)
-  @include m.media(laptop)
-    padding: f.px(85) f.px(164)
-  @include m.media(desktop)
-    padding: f.px(85) f.px(208)
+    @include m.gap($ptb: f.px(64), $plr: 15.4%)
+  @include m.media(tablet, laptop, desktop)
+    overflow: hidden
+    @include m.gap($ptb: f.px(80), $plr: 4%)
   @include m.dye(bg, c.$alpha)
   @include m.dye(c, c.$upsilon)
+
+.left
+  @include m.flex($jc: flex-end, $ai: center, $fb: 46%)
+  @include m.gap($mr: 4%)
+
+.title
+  @include m.media(tablet, laptop, desktop)
+    position: relative
+  @include m.media(phone)
+    font-size: f.px(47)
+  @include m.media(tablet, laptop)
+    font-size: f.px(40)
+  @include m.media(laptop, desktop)
+    max-width: 10ch
+    @include m.gap($mb: 0)
+    font-size: f.px(64)
+  font-weight: 700
+  line-height: 110%
 
 .icon
   @include m.media(phone)
     display: none
   @include m.media(tablet, laptop, desktop)
     position: absolute
+    top: f.px(-30)
+    left: -29%
   @include m.media(tablet)
-    top: f.px(48)
-    left: f.px(64)
-    width: f.px(112)
+    max-width: f.px(112)
   @include m.media(laptop, desktop)
-    top: f.px(56)
-    left: f.px(104)
-    width: f.px(176)
+    max-width: f.px(176)
 
-.title
+.text
   @include m.media(tablet, laptop, desktop)
     position: relative
     z-index: 2
-  font-weight: 700
-  line-height: 110%
-  @include m.media(desktop)
-    margin: 0
-    font-size: f.px(64)
-  @include m.media(laptop, tablet)
-    margin-bottom: f.px(24)
-    font-size: f.px(40)
-  @include m.media(phone)
-    font-size: f.px(47)
 
 .right
+  @include m.flex($d: false, $fb: 46%)
   @include m.media(tablet, laptop, desktop)
     position: relative
     z-index: 2
-  @include m.media(desktop, laptop)
-    margin-left: f.px(33)
 
 .p
-  width: 26ch
-  line-height: 120%
-  @include m.media(desktop)
-    margin-bottom: f.px(40)
-    font-size: f.px(24)
-  @include m.media(laptop, tablet, phone)
-    margin-bottom: f.px(32)
-    font-size: f.px(24)
   @include m.media(phone)
     font-size: f.px(20)
+  @include m.media(tablet)
+    max-width: 34ch
+    font-size: f.px(18)
+  @include m.media(laptop, desktop)
+    max-width: 26ch
+    @include m.gap($mb: f.px(40))
+    font-size: f.px(24)
+  line-height: 120%
+  @include m.dye(c, c.$gamma)

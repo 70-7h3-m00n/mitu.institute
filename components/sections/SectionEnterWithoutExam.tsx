@@ -18,8 +18,12 @@ const SectionEnterWithoutExam = ({
       }>
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.bg}>
-          <IconMortarboard classNames={[stls.icon]} />
-          <h2 className={stls.title}>Можно ли поступить без ЕГЭ?</h2>
+          <div className={stls.left}>
+            <h2 className={stls.title}>
+              <IconMortarboard classNames={[stls.icon]} />
+              <span className={stls.text}>Можно ли поступить без ЕГЭ?</span>
+            </h2>
+          </div>
           <div className={stls.right}>
             <p className={stls.p}>
               Оставь заявку и узнай подробности, как получить высшее образование
