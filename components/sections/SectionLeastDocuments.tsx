@@ -55,7 +55,9 @@ const SectionLeastDocuments = ({
           //   }px)`
           // }}
         >
-          <IconPaperPage classNames={[stls.iconPaperPage]} />
+          <IconPaperPage
+            classNames={[stls.iconPaperPage, stls.tabletLaptopDesktop]}
+          />
         </div>
       </Wrapper>
     </section>

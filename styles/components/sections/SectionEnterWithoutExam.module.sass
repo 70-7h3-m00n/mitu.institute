@@ -1,6 +1,11 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
+@use '@/styles/shared/section' as section
+
+.container
+  @include section.gap
 
 $bg_overflow_tld: hidden
 .bg
@@ -18,12 +23,12 @@ $bg_overflow_tld: hidden
 .left
   @include m.media(laptop, desktop)
     @include m.flex($jc: flex-end, $ai: center, $fb: 46%)
-    @include m.gap($mr: 4%)
+    @include m.gap($mr: 5%)
 
 $icon_pos_tld: absolute
 .icon
-  @include m.media(phone)
-    display: none
+  &.tabletLaptopDesktop
+    @include g.tabletLaptopDesktop
   @include m.media(tablet)
     position: $icon_pos_tld
     top: f.px(-21)

@@ -20,7 +20,9 @@ const SectionEnterWithoutExam = ({
         <div className={stls.bg}>
           <div className={stls.left}>
             <h2 className={stls.title}>
-              <IconMortarboard classNames={[stls.icon]} />
+              <IconMortarboard
+                classNames={[stls.icon, stls.tabletLaptopDesktop]}
+              />
               <span className={stls.text}>
                 Можно ли поступить без&nbsp;ЕГЭ?
               </span>

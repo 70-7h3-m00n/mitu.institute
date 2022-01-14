@@ -1,0 +1,11 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+@mixin gap
+  @include m.media(phone)
+    @include m.gap($ptb: f.px(72))
+  @include m.media(tablet)
+    @include m.gap($ptb: f.px(64))
+  @include m.media(laptop, desktop)
+    @include m.gap($ptb: f.px(80))

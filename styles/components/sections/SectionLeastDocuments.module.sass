@@ -1,6 +1,8 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
+@use '@/styles/shared/section' as section
 
 $leftFlexBasis: 68.4%
 $documentPhoneLaptopDesktopPadding: 32
@@ -8,70 +10,73 @@ $documentTabletPadding: 24
 $documentDeviderHeight: 2
 
 .container
-	@include m.media(tablet)
-		@include m.gap($ptb: f.px(64))
-	@include m.media(laptop, desktop)
-		@include m.gap($ptb: f.px(80))
+  @include section.gap
 
 .wrapper
-	@include m.flex($jc: space-between, $ai: center)
+  @include m.flex($jc: space-between, $ai: center)
 
 .left
-	@include m.media(tablet, laptop, desktop)
-		@include m.flex($d: false, $fb: $leftFlexBasis)
+  @include m.media(tablet, laptop, desktop)
+    @include m.flex($d: false, $fb: $leftFlexBasis)
 
 .title
-	@include m.media(tablet, laptop, desktop)
-		max-width: 27ch
+  @include m.media(tablet, laptop, desktop)
+    max-width: 27ch
+  @include m.media(desktop)
+    @include m.gap($mb: f.px(64))
 
 .leastDocuments
-	@include m.gap($m: 0, $p: 0)
+  @include m.gap($m: 0, $p: 0)
 
 .document
-	position: relative
-	@include m.flex($ai: center)
-	@include m.media(phone, laptop, desktop)
-		@include m.gap($pt: f.px($documentPhoneLaptopDesktopPadding), $pb: f.px($documentPhoneLaptopDesktopPadding + $documentDeviderHeight))
-	@include m.media(tablet)
-		@include m.gap($pt: f.px($documentTabletPadding), $pb: f.px($documentTabletPadding + $documentDeviderHeight))
-	&:nth-child(-n+2)
-		&::after
-			content: ''
-			position: absolute
-			bottom: 0
-			left: 0
-			width: 100%
-			height: f.px($documentDeviderHeight)
-			border-radius: f.px(148)
-			@include m.media(phone)
-				@include m.dye(bg, c.$gamma)
-			@include m.media(tablet, laptop, desktop)
-				@include m.dye(bg, c.$delta)
+  position: relative
+  @include m.flex($ai: center)
+  @include m.media(phone, laptop, desktop)
+    @include m.gap($pt: f.px($documentPhoneLaptopDesktopPadding), $pb: f.px($documentPhoneLaptopDesktopPadding + $documentDeviderHeight))
+  @include m.media(tablet)
+    @include m.gap($pt: f.px($documentTabletPadding), $pb: f.px($documentTabletPadding + $documentDeviderHeight))
+  &:nth-child(-n+2)
+    &::after
+      content: ''
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      height: f.px($documentDeviderHeight)
+      border-radius: f.px(148)
+      @include m.media(phone)
+        @include m.dye(bg, c.$gamma)
+      @include m.media(tablet, laptop, desktop)
+        @include m.dye(bg, c.$delta)
+  &:nth-child(1)
+    @include m.gap($pt: 0)
+  &:nth-last-child(1)
+    @include m.gap($pb: 0)
 
 .iconCheck
-	@include m.media(phone, tablet)
-		@include m.gap($mr: f.px(16))
-	@include m.media(laptop, desktop)
-		@include m.gap($mr: f.px(24))
+  @include m.media(phone, tablet)
+    @include m.gap($mr: f.px(16))
+  @include m.media(laptop, desktop)
+    @include m.gap($mr: f.px(24))
 
 .text
-	@include m.media(phone)
-		font-size: f.px(20)
-	@include m.media(tablet)
-		font-size: f.px(18)
-	@include m.media(desktop, laptop)
-		font-size: f.px(24)
-	font-weight: 500
-	line-height: 110%
+  @include m.media(phone)
+    font-size: f.px(20)
+  @include m.media(tablet)
+    font-size: f.px(18)
+  @include m.media(desktop, laptop)
+    font-size: f.px(24)
+  font-weight: 500
+  line-height: 110%
 
 .right
-	@include m.media(tablet, laptop, desktop)
-		@include m.flex($jc: flex-end, $ai: center, $fb: 100% - $leftFlexBasis - 7%)
+  @include m.media(tablet, laptop, desktop)
+    @include m.flex($jc: flex-end, $ai: center, $fb: 100% - $leftFlexBasis - 7%)
 
 .iconPaperPage
-	@include m.media(phone)
-		display: none
-	@include m.media(tablet)
-	max-width: f.px(192)
-	@include m.media(laptop, desktop)
-	max-width: f.px(280)
+  &.tabletLaptopDesktop
+    @include g.tabletLaptopDesktop
+  @include m.media(tablet)
+    max-width: f.px(192)
+  @include m.media(laptop, desktop)
+    max-width: f.px(280)

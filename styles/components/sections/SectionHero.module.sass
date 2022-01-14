@@ -1,7 +1,7 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
-@use '@/styles/shared/general' as s
+@use '@/styles/shared/general' as g
 
 $prosFlexBasis: 58%
 
@@ -26,10 +26,10 @@ $prosFlexBasis: 58%
     @include m.flex($d: false, $fb: 100% - $prosFlexBasis)
 
 .phoneTablet
-  @include s.phoneTablet
+  @include g.phoneTablet
 
 .laptopDesktop
-  @include s.laptopDesktop
+  @include g.laptopDesktop
 
 .top
   @include m.media(tablet)
