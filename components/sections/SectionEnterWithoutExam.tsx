@@ -21,7 +21,9 @@ const SectionEnterWithoutExam = ({
           <div className={stls.left}>
             <h2 className={stls.title}>
               <IconMortarboard classNames={[stls.icon]} />
-              <span className={stls.text}>Можно ли поступить без ЕГЭ?</span>
+              <span className={stls.text}>
+                Можно ли поступить без&nbsp;ЕГЭ?
+              </span>
             </h2>
           </div>
           <div className={stls.right}>
