@@ -1,0 +1,16 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.container
+  transition: transform 0.25s ease
+  &:focus-visible
+    outline: none
+    transform: scale(1.06)
+  & .logo
+    display: inline-block
+
+.logo
+  position: relative
+  z-index: 1
+  max-width: f.px(135)

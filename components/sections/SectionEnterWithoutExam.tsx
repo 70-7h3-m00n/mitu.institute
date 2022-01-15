@@ -33,7 +33,7 @@ const SectionEnterWithoutExam = ({
               Оставь заявку и узнай подробности, как получить высшее образование
               без ЕГЭ по специальной программе
             </p>
-            <BtnAlpha reverse>Оставить заявку</BtnAlpha>
+            <BtnAlpha variant='alpha-reverse'>Оставить заявку</BtnAlpha>
           </div>
         </div>
       </Wrapper>

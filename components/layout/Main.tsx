@@ -8,6 +8,7 @@ type TypeMainProps = TypeClassNames & TypeChildren
 const Main = ({ classNames, children }: TypeMainProps) => {
   return (
     <main
+      id='main'
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>

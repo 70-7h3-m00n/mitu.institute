@@ -12,7 +12,6 @@
   @include m.media(tablet, laptop, desktop)
     @include m.gap($plr: f.px(56))
   border: f.px(2, em) solid
-  @include m.dye(border, c.$zeta)
   @include m.media(phone, laptop, desktop)
     font-size: f.px(18)
   @include m.media(tablet)
@@ -29,21 +28,34 @@
     border-style: solid
     transform: scale(0.98)
 
-.regular
-  outline: f.px(2, em) solid transparent
-  transition: outline-offset .25s ease
-  @include m.dye(bg, c.$upsilon) 
-  @include m.dye(c, c.$omega)
-  &:focus-visible
-    outline-offset: f.px(-6, em)
-    @include m.dye(outline, c.$omega)
+.alpha
+  @include btns.regular($color1: c.$upsilon, $color2: c.$omega)
 
-.reverse
-  outline: f.px(2, em) solid transparent
-  outline-offset: f.px(-2, em)
-  transition: outline-offset .25s ease, outline-width .25s ease
-  @include m.dye(c, c.$zeta) 
-  &:focus-visible
-    outline-width: f.px(8, em)
-    outline-offset: f.px(-8, em)
-    @include m.dye(outline, c.$zeta)
+.alpha-reverse
+  @include btns.reverse($color: c.$zeta)
+
+.beta
+  @include btns.regular($color1: c.$beta, $color2: c.$upsilon)
+
+.beta-reverse
+  @include btns.reverse($color: c.$beta)
+
+.gamma
+  @include btns.regular($color1: c.$alpha, $color2: c.$upsilon)
+
+.gamma-reverse
+  @include btns.reverse($color: c.$alpha)
+
+.delta
+  @include m.gap($ptb: f.px(18))
+  @include m.media(tablet, laptop, desktop)
+    @include m.gap($plr: f.px(23))
+  font-size: f.px(16)
+  @include btns.regular($color1: c.$alpha, $color2: c.$upsilon)
+
+.delta-reverse
+  @include m.gap($ptb: f.px(18))
+  @include m.media(tablet, laptop, desktop)
+    @include m.gap($plr: f.px(23))
+  font-size: f.px(16)
+  @include btns.reverse($color: c.$alpha)

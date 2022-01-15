@@ -9,6 +9,7 @@ type TypeImgTemplateProps = TypeClassNames &
   TypeImg & {
     readonly src: StaticImageData | string
     readonly alt: string
+    readonly title?: string
   }
 
 const ImgTemplate = ({
@@ -16,13 +17,15 @@ const ImgTemplate = ({
   width,
   height,
   src,
-  alt
+  alt,
+  title
 }: TypeImgTemplateProps) => {
   return (
     <div
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
-      }>
+      }
+      title={title}>
       <Image
         src={src}
         alt={alt}

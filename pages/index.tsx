@@ -1,4 +1,4 @@
-import stls from '@/styles/pages/Index.module.sass'
+import stls from '@/styles/pages/PageHome.module.sass'
 import type { NextPage } from 'next'
 import {
   SectionHero,
@@ -6,7 +6,7 @@ import {
   SectionEnterWithoutExam
 } from '@/components/sections'
 
-const Home: NextPage = () => {
+const PageHome: NextPage = () => {
   return (
     <>
       <SectionHero />
@@ -16,4 +16,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default PageHome

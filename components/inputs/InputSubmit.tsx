@@ -19,7 +19,7 @@ const InputSubmit = ({ classNames, errors }: TypeInputSubmitProps) => {
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <BtnAlpha type='submit' ariaLabel='Оставить заявку'>
+      <BtnAlpha type='submit' variant='alpha' ariaLabel='Оставить заявку'>
         Оставить заявку
       </BtnAlpha>
     </div>

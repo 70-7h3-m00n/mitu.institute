@@ -1,4 +1,44 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
 
+$container_pt_p: f.px(24)
+$container_pt_tld: f.px(32)
+.container
+  position: relative
+  @include m.media(phone)
+    @include m.gap($pt: $container_pt_p, $pb: f.px(72))
+  @include m.media(tablet)
+    @include m.gap($pt: $container_pt_tld, $pb: f.px(32))
+  @include m.media(laptop, desktop)
+    @include m.gap($pt: $container_pt_tld, $pb: f.px(95))
+
+.content
+  @include m.flex($jc: space-between, $ai: flex-start)
+  @include m.media(tablet)
+    @include m.gap($mb: f.px(32))
+
+.contactNav
+  @include m.flex($fd: column, $jc: center, $ai: center, $fg: 1)
+  @media screen and (max-width: 540px)
+    display: none
+  @include m.media(tablet, laptop)
+    @include m.gap($plr: 4.5%)
+  @include m.media(laptop)
+    max-width: f.px(700)
+  @include m.media(desktop)
+    @include m.gap($plr: 9%)
+
+.phoneAddress
+  width: 100%
+  @include m.flex($jc: space-between)
+  @include m.gap($mb: f.px(16))
+
+.address
+  &.laptopDesktop
+    @include g.laptopDesktop
+
+.btn
+  &.tabletLaptopDesktop
+    @include g.tabletLaptopDesktop

@@ -1,0 +1,33 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+@mixin highlightWithBottomLine($bottom: f.px(-5), $color: c.$alpha)
+  position: relative
+  outline: none
+  &::before,
+  &::after
+    content: '',
+    position: absolute
+    bottom: $bottom
+    width: 0
+    height: f.px(2)
+    @include m.gap($mt: f.px(3))
+    transition: all 0.2s ease-in-out
+    opacity: 0
+    background-color: red
+    @include m.dye(bg, rgba($color, .9))
+  &::before 
+    left: 50%
+    border-top-right-radius: f.px(40)
+    border-bottom-right-radius: f.px(40)
+  &::after
+    right: 50%
+    border-top-left-radius: f.px(40)
+    border-bottom-left-radius: f.px(40)
+  &:focus-visible
+    @include m.dye(c, $color)
+    &::before,
+    &::after
+      width: 50%
+      opacity: 1

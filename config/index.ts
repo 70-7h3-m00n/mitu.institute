@@ -1,3 +1,4 @@
+import address from '@/config/address'
 import base64pixel from '@/config/base64pixel'
 import breakpoints from '@/config/breakpoints'
 import colors from '@/config/colors'
@@ -11,6 +12,7 @@ import routesFront from '@/config/routesFront'
 import themeColor from '@/config/themeColor'
 
 export {
+  address,
   base64pixel,
   breakpoints,
   colors,

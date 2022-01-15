@@ -1,49 +1,47 @@
 import stls from '@/styles/components/btns/BtnAlpha.module.sass'
-import {
-  TypeClassNames,
-  TypeChildren,
-  TypeBtnType,
-  TypeBtnDisabled,
-  TypeAriaLabel,
-  TypeBtnReverse
-} from '@/types/index'
+import { TypeBtn } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 
-type TypeBtnAlphaProps = TypeClassNames &
-  TypeChildren &
-  TypeBtnType &
-  TypeBtnDisabled &
-  TypeAriaLabel &
-  TypeBtnReverse
+type TypeBtnAlphaProps = TypeBtn
 
 const BtnAlpha = ({
   classNames,
   children,
+  tag = 'button',
+  href,
   type,
   disabled,
   ariaLabel,
-  reverse
+  variant
 }: TypeBtnAlphaProps) => {
+  const ParentElement = tag
   return (
-    <button
+    <ParentElement
       className={
         cn(
           stls.container,
           {
-            [stls.regular]: !reverse,
-            [stls.reverse]: reverse,
+            [stls.alpha]: variant === 'alpha',
+            [stls['alpha-reverse']]: variant === 'alpha-reverse',
+            [stls.beta]: variant === 'beta',
+            [stls['beta-reverse']]: variant === 'beta-reverse',
+            [stls.gamma]: variant === 'gamma',
+            [stls['gamma-reverse']]: variant === 'gamma-reverse',
+            [stls.delta]: variant === 'delta',
+            [stls['delta-reverse']]: variant === 'delta-reverse',
             [stls.disabled]: disabled
           },
           getClassNames({ classNames })
         ) || undefined
       }
       type={type}
+      href={href}
       aria-label={ariaLabel}
       disabled={disabled}
       aria-disabled={disabled}>
       {children}
-    </button>
+    </ParentElement>
   )
 }
 
