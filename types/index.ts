@@ -13,6 +13,7 @@ import type TypeClassNames from '@/types/general/TypeClassNames'
 import type TypeColor from '@/types/general/TypeColor'
 import type TypeColorsKeys from '@/types/general/TypeColorsKeys'
 import type TypeFormAlphaValues from '@/types/general/TypeFormAlphaValues'
+import type TypeLeadClientValues from '@/types/general/TypeLeadClientValues'
 import type TypeImg from '@/types/general/TypeImg'
 import type TypeInput from '@/types/general/TypeInput'
 import type TypeReferer from '@/types/general/TypeReferer'
@@ -36,6 +37,7 @@ export {
   TypeColor,
   TypeColorsKeys,
   TypeFormAlphaValues,
+  TypeLeadClientValues,
   TypeImg,
   TypeInput,
   TypeReferer,

@@ -2,10 +2,19 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
 
-@mixin gap
+@mixin gap($bottomOnly: false)
   @include m.media(phone)
-    @include m.gap($ptb: f.px(72))
+    @if $bottomOnly
+      @include m.gap($pb: f.px(72))
+    @else
+      @include m.gap($ptb: f.px(72))
   @include m.media(tablet)
-    @include m.gap($ptb: f.px(64))
+    @if $bottomOnly
+      @include m.gap($pb: f.px(64))
+    @else
+      @include m.gap($ptb: f.px(64))
   @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(80))
+    @if $bottomOnly
+      @include m.gap($pb: f.px(80))
+    @else
+      @include m.gap($ptb: f.px(80))

@@ -1,4 +1,9 @@
-import { TypeFormAlphaValues, TypeUtms, TypeReferer } from '@/types/index'
+import {
+  TypeFormAlphaValues,
+  TypeUtms,
+  TypeReferer,
+  TypeLeadClientValues
+} from '@/types/index'
 import { hitLeadRoute } from '@/helpers/index'
 
 type onSubmitFormProps = {
@@ -22,7 +27,7 @@ onSubmitFormProps) => {
   )
   sessionStorage.removeItem('utms')
   sessionStorage.removeItem('referer')
-  const lead = {
+  const lead: TypeLeadClientValues = {
     ...formValues,
     leadPage: asPath,
     programTitle,
@@ -32,7 +37,7 @@ onSubmitFormProps) => {
     },
     referer
   }
-  const req: any = await hitLeadRoute(lead)
+  const req = await hitLeadRoute({ lead })
   console.log(req)
   if (req.status === 200) {
     console.log('form is sent')

@@ -14,7 +14,7 @@ type TypeSectionHeroProps = TypeClassNames
 
 const SectionHero = ({ classNames }: TypeSectionHeroProps) => {
   return (
-    <div
+    <section
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
@@ -39,7 +39,7 @@ const SectionHero = ({ classNames }: TypeSectionHeroProps) => {
           </div>
         </div>
       </Wrapper>
-    </div>
+    </section>
   )
 }
 
