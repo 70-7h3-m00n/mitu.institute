@@ -32,9 +32,21 @@ const FormLead = ({ classNames }: TypeFormLeadProps) => {
         onSubmitForm({ formValues, asPath })
       )}>
       <div className={stls.inputs}>
-        <InputName register={register} error={errors.name} />
-        <InputPhone register={register} error={errors.phone} />
-        <InputEmail register={register} error={errors.email} />
+        <InputName
+          register={register}
+          error={errors.name}
+          classNames={[stls.input]}
+        />
+        <InputPhone
+          register={register}
+          error={errors.phone}
+          classNames={[stls.input]}
+        />
+        <InputEmail
+          register={register}
+          error={errors.email}
+          classNames={[stls.input]}
+        />
         <InputSubmit errors={errors} />
       </div>
       <p className={stls.agreement}>

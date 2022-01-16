@@ -1,0 +1,30 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+@mixin container
+  position: relative
+  &::after
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    height: f.px(2)
+    @include m.dye(bg, c.$upsilon)
+
+@mixin input
+  min-width: 100%
+  max-width: 100%
+  @include m.gap($pt: f.px(24), $pb: f.px(20))
+  border: none
+  border-bottom: f.px(4) solid transparent
+  line-height: 110%
+  transition: scale 0.25s ease
+  @include m.dye(bg, transparent)
+  @include m.dye(c, c.$upsilon)
+  &::placeholder
+    @include m.dye(c, c.$gamma)
+  &:focus-visible
+    outline: none
+    @include m.dye(border, c.$upsilon)

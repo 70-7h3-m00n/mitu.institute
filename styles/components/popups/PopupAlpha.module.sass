@@ -1,0 +1,25 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.container
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 99
+  overflow-y: auto
+  @include m.dye(bg, rgba(#000, .5))
+
+.isClosed
+  display: none
+
+.isOpen
+  @include m.flex
+
+.wrapper
+  @include m.flex
+
+.form
+  @include m.gap($m: auto)

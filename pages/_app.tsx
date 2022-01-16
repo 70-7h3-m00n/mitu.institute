@@ -11,6 +11,7 @@ import { prod, routesFront } from '@/config/index'
 import { handleUtms, handleReferer } from '@/helpers/index'
 import { ContextPopupState } from '@/context/index'
 import { Header, Main, Footer } from '@/components/layout'
+import { PopupAlpha } from '@/components/popups'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false)
@@ -58,6 +59,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         <Header />
         <Main>
           <Component {...pageProps} />
+          <PopupAlpha />
         </Main>
         <Footer />
       </ContextPopupState>
