@@ -1,9 +1,11 @@
 import stls from '@/styles/components/forms/FormLead.module.sass'
 import { TypeClassNames, TypeFormAlphaValues } from '@/types/index'
 import { useRouter } from 'next/router'
+import { useContext, useEffect } from 'react'
 import cn from 'classnames'
 import { useForm } from 'react-hook-form'
 import { getClassNames, onSubmitForm } from '@/helpers/index'
+import { ContextPopupContext } from '@/context/index'
 import {
   InputName,
   InputPhone,
@@ -15,12 +17,18 @@ type TypeFormLeadProps = TypeClassNames
 
 const FormLead = ({ classNames }: TypeFormLeadProps) => {
   const { asPath } = useRouter()
+  const { popupAlphaIsOpen } = useContext(ContextPopupContext)
   const {
     register,
     handleSubmit,
     reset,
+    setFocus,
     formState: { errors }
   } = useForm<TypeFormAlphaValues>()
+
+  useEffect(() => {
+    popupAlphaIsOpen && setFocus('name')
+  }, [popupAlphaIsOpen, setFocus])
 
   return (
     <form
@@ -45,9 +53,9 @@ const FormLead = ({ classNames }: TypeFormLeadProps) => {
         <InputEmail
           register={register}
           error={errors.email}
-          classNames={[stls.input]}
+          classNames={[stls.input, stls.inputEmail]}
         />
-        <InputSubmit errors={errors} />
+        <InputSubmit errors={errors} classNames={[stls.input, stls.submit]} />
       </div>
       <p className={stls.agreement}>
         Отправляя заявку, Вы соглашаетесь с политикой конфиденциальности и

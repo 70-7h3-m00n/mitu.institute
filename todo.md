@@ -9,3 +9,5 @@
 - Improve types of BtnAlpha in ./components/btns/BtnAlpha.tsx
 - Improve styles for BtnSkipNav in ./components/btns/BtnSkipNav.tsx
 - Improve typescript in context
+- Improve outline for close btn in ./components/popups/PopupAlpha.tsx
+- Add fade-in fade-out animations for PopupAlpha in ./components/popups/PopupAlpha.tsx

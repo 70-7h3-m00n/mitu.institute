@@ -12,18 +12,20 @@ const InputName = ({ classNames, register, error }: TypeInputNameProps) => {
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <input
-        type='text'
-        className={stls.input}
-        placeholder='Имя'
-        aria-label={'Введите Ваше имя'}
-        {...register('name', {
-          maxLength: {
-            value: maxLength,
-            message: `*Пожалуйста, введите меньше, чем ${maxLength} символа`
-          }
-        })}
-      />
+      <div className={cn(stls.inputGroup, { [stls.inputGroupError]: error })}>
+        <input
+          type='text'
+          className={cn(stls.input, { [stls.inputError]: error })}
+          placeholder='Имя'
+          aria-label={'Введите Ваше имя'}
+          {...register('name', {
+            maxLength: {
+              value: maxLength,
+              message: `*Пожалуйста, введите меньше, чем ${maxLength} символа`
+            }
+          })}
+        />
+      </div>
       <p className={stls.error}>{error && error.message}</p>
     </div>
   )

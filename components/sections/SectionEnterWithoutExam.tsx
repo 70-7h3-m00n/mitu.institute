@@ -3,7 +3,7 @@ import { TypeClassNames } from '@/types/index'
 import { useContext } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
-import { contextPopupContext } from '@/context/index'
+import { ContextPopupContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { BtnAlpha } from '@/components/btns'
 import { IconMortarboard } from '@/components/icons'
@@ -13,7 +13,7 @@ type TypeProgramWithoutExamProps = TypeClassNames
 const SectionEnterWithoutExam = ({
   classNames
 }: TypeProgramWithoutExamProps) => {
-  const { popupAlphaOpen, popupAlphaToggle } = useContext(contextPopupContext)
+  const { popupAlphaOpen, popupAlphaToggle } = useContext(ContextPopupContext)
 
   return (
     <section

@@ -1,3 +1,44 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
+
+.inputs
+  @include m.gap($mb: f.px(16))
+  @include m.media(tablet)
+    @include m.flex($fw: wrap, $jc: space-between)
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: space-between)
+  
+
+.input
+  @include m.media(tablet)
+    @include m.flex($d: false, $fb: 46%)
+    max-width: 46%
+    &:nth-child(-n+2)
+      @include m.gap($mb: f.px(32))
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: 23%)
+    max-width: 23%
+
+.inputEmail
+  @include m.media(phone)
+    @include m.gap($mb: f.px(40))
+
+.submit
+  @include m.media(tablet)
+    & > button
+      min-width: 100%
+      max-width: 100%
+      @include m.gap($plr: 10%)
+  @include m.media(laptop, desktop)
+    & > button
+      min-width: 100%
+      max-width: 100%
+      @include m.gap($plr: 4.5%)
+
+.agreement
+  @include m.media(phone)
+    max-width: 42ch
+  @include m.gap($m: 0)
+  font-size: f.px(12)
+  line-height: 110%

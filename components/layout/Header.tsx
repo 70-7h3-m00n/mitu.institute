@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import cn from 'classnames'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { contextPopupContext } from '@/context/index'
+import { ContextPopupContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralLogo,
@@ -18,7 +18,7 @@ import { BtnAlpha, BtnSkipNav } from '@/components/btns'
 type TypeHeaderProps = TypeClassNames
 
 const Header = ({ classNames }: TypeHeaderProps) => {
-  const { popupAlphaOpen } = useContext(contextPopupContext)
+  const { popupAlphaOpen } = useContext(ContextPopupContext)
 
   const links = [
     {
@@ -43,7 +43,7 @@ const Header = ({ classNames }: TypeHeaderProps) => {
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
           <BtnSkipNav />
-          <GeneralLogo />
+          <GeneralLogo classNames={[stls.logo]} />
           <div className={stls.contactNav}>
             <div className={stls.phoneAddress}>
               <GeneralPhoneNumber withIcon withLabel />
@@ -56,9 +56,10 @@ const Header = ({ classNames }: TypeHeaderProps) => {
           </div>
           <BtnAlpha
             variant='delta-reverse'
-            classNames={[stls.btn, stls.tabletLaptopDesktop]}
+            classNames={[stls.btn, stls.btnAlpha]}
             onClick={popupAlphaOpen}>
-            Заказать звонок
+            <span className={stls.btnTextAlt}>Связаться</span>
+            <span className={stls.btnText}>Заказать звонок</span>
           </BtnAlpha>
         </div>
         <GeneralNavTablet links={links} />

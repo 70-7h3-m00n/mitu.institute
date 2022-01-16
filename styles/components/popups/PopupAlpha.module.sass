@@ -21,5 +21,14 @@
 .wrapper
   @include m.flex
 
-.form
+.content
+  position: relative
   @include m.gap($m: auto)
+
+.btnClose
+  position: absolute
+  top: 0
+  right: 0
+  transform: translateY(-200%)
+  max-width: f.px(24)
+  cursor: pointer

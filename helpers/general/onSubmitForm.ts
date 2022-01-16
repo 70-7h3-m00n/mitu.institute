@@ -33,7 +33,8 @@ onSubmitFormProps) => {
     referer
   }
   const req = await hitLeadRoute(lead)
-  if (req === 200) {
+  console.log(req)
+  if (req.status === 200) {
     console.log('form is sent')
 
     // handle 200

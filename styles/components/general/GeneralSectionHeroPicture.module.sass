@@ -26,12 +26,13 @@
   z-index: 1
   & path
     transition: fill .1s ease-in-out
-  &:hover
-    & path:nth-child(1)
-      @include m.dye(fill, c.$epsilon)
   @include m.media(tablet)
     & path:nth-last-child(1)
       @include m.dye(fill, c.$beta)
+
+.isTurnedOn
+  & path:nth-child(1)
+      @include m.dye(fill, c.$epsilon)
 
 .graduationHat
   position: absolute

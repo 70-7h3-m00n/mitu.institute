@@ -15,10 +15,7 @@ const hitLeadRoute = async (values: TypeHitLeadRouteProps) => {
       `${routesFront.root}${routesFront.apiLead}`,
       values
     )
-    let output
-    res.status === 200 && (output = 200)
-    res.status === 500 && (output = 500)
-    return output
+    return res
   } catch (err) {
     console.log(err)
     return err

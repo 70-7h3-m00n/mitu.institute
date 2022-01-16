@@ -5,8 +5,7 @@ import {
   POPUP_ALPHA_TOGGLE
 } from '@/context/types'
 import { useReducer } from 'react'
-import ContextPopupContext from '@/context/popup/contextPopupContext'
-import contextPopupReducer from '@/context/popup/contextPopupReducer'
+import { ContextPopupContext, contextPopupReducer } from '@/context/index'
 
 type TypeContextPopupStateProps = TypeChildren
 

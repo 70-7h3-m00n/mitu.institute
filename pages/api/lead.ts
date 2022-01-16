@@ -6,7 +6,7 @@ type Data = {
 
 const lead = (req: NextApiRequest, res: NextApiResponse<Data>) => {
   // handle lead
-  res.status(200).json({ name: 'John Doe' })
+  res.status(200).json(req.body)
 }
 
 export default lead

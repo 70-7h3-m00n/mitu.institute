@@ -10,7 +10,7 @@ $container_pt_tld: f.px(32)
   @include m.media(phone)
     @include m.gap($pt: $container_pt_p, $pb: f.px(72))
   @include m.media(tablet)
-    @include m.gap($pt: $container_pt_tld, $pb: f.px(32))
+    @include m.gap($pt: $container_pt_tld, $pb: f.px(49))
   @include m.media(laptop, desktop)
     @include m.gap($pt: $container_pt_tld, $pb: f.px(95))
 
@@ -18,6 +18,10 @@ $container_pt_tld: f.px(32)
   @include m.flex($jc: space-between, $ai: flex-start)
   @include m.media(tablet)
     @include m.gap($mb: f.px(32))
+
+.logo
+  @include m.media(phone)
+    @include m.gap($mr: 6%)
 
 .contactNav
   @include m.flex($fd: column, $jc: center, $ai: center, $fg: 1)
@@ -40,5 +44,15 @@ $container_pt_tld: f.px(32)
     @include g.laptopDesktop
 
 .btn
-  &.tabletLaptopDesktop
-    @include g.tabletLaptopDesktop
+  &.btnAlpha
+    @include m.media(phone)
+      min-width: auto
+      @include m.gap($plr: f.px(23))
+
+.btnText
+  @media screen and (max-width: 369px)
+    display: none
+
+.btnTextAlt
+  @media screen and (min-width: 370px)
+    display: none

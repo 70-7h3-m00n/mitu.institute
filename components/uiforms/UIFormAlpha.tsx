@@ -1,5 +1,5 @@
 import stls from '@/styles/components/uiforms/UIFormAlpha.module.sass'
-import { TypeClassNames, TypeFormAlphaValues } from '@/types/index'
+import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { GeneralTextHighlight } from '@/components/general'

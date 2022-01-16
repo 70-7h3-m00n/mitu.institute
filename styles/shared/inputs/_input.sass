@@ -2,7 +2,7 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
 
-@mixin container
+@mixin inputGroup
   position: relative
   &::after
     content: ''
@@ -12,6 +12,10 @@
     width: 100%
     height: f.px(2)
     @include m.dye(bg, c.$upsilon)
+
+@mixin inputGroupError
+  &::after
+    @include m.dye(bg, c.$iota)
 
 @mixin input
   min-width: 100%
@@ -28,3 +32,12 @@
   &:focus-visible
     outline: none
     @include m.dye(border, c.$upsilon)
+
+@mixin inputError
+  &:focus-visible
+    @include m.dye(border, c.$iota)
+
+@mixin error
+  @include m.gap($mt: f.px(8))
+  line-height: 110%
+  @include m.dye(c, c.$iota)

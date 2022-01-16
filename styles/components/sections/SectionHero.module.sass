@@ -10,8 +10,10 @@ $prosFlexBasis: 58%
 
 .title
   @include m.media(phone)
+    @include m.gap($mb: f.px(40))
     font-size: f.px(36)
   @include m.media(tablet)
+    @include m.gap($mb: f.px(49))
     font-size: f.px(32)
   @include m.media(phone, tablet)
     max-width: 17ch
@@ -37,13 +39,15 @@ $prosFlexBasis: 58%
 
 .top
   @include m.media(tablet)
-    @include m.flex
+    @include m.flex($ai: center)
 
 .bottom
   @include m.media(laptop, desktop)
     @include m.flex($fd: column)
 
 .form
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(40))
   @include m.media(laptop, desktop)
     order: 2
 
