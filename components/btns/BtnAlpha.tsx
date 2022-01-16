@@ -13,7 +13,8 @@ const BtnAlpha = ({
   type,
   disabled,
   ariaLabel,
-  variant
+  variant,
+  onClick
 }: TypeBtnAlphaProps) => {
   const ParentElement = tag
   return (
@@ -39,7 +40,8 @@ const BtnAlpha = ({
       href={href}
       aria-label={ariaLabel}
       disabled={disabled}
-      aria-disabled={disabled}>
+      aria-disabled={disabled}
+      onClick={onClick}>
       {children}
     </ParentElement>
   )

@@ -4,16 +4,17 @@
 @use '@/styles/shared/btns' as btns
 
 .container
-  position: absolute
-  top: 0
   @include m.media(phone)
-    left: 0
-  left: f.px(32)
-  z-index: 2
-  transform: translateY(-120%)
-  transition: transform .25s ease-in-out
-  &.skipNavLink
-    &:hover
-      transform: none
-    &:focus-visible
-      transform: translateY(f.px(32))
+    display: none
+  @include m.media(tablet, laptop, desktop)
+    position: absolute
+    top: 0
+    left: f.px(32)
+    z-index: 2
+    transform: translateY(-120%)
+    transition: transform .25s ease-in-out
+    &.skipNavLink
+      &:hover
+        transform: none
+      &:focus-visible
+        transform: translateY(f.px(32))

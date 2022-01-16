@@ -1,8 +1,10 @@
 import stls from '@/styles/components/layout/Header.module.sass'
 import { TypeClassNames } from '@/types/index'
+import { useContext } from 'react'
 import cn from 'classnames'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { contextPopupContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralLogo,
@@ -16,6 +18,8 @@ import { BtnAlpha, BtnSkipNav } from '@/components/btns'
 type TypeHeaderProps = TypeClassNames
 
 const Header = ({ classNames }: TypeHeaderProps) => {
+  const { popupAlphaOpen } = useContext(contextPopupContext)
+
   const links = [
     {
       href: routesFront.home,
@@ -52,7 +56,8 @@ const Header = ({ classNames }: TypeHeaderProps) => {
           </div>
           <BtnAlpha
             variant='delta-reverse'
-            classNames={[stls.btn, stls.tabletLaptopDesktop]}>
+            classNames={[stls.btn, stls.tabletLaptopDesktop]}
+            onClick={popupAlphaOpen}>
             Заказать звонок
           </BtnAlpha>
         </div>

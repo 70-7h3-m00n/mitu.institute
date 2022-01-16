@@ -4,6 +4,7 @@ import {
   TypeBtnTag,
   TypeBtnType,
   TypeBtnHref,
+  TypeBtnOnClick,
   TypeBtnDisabled,
   TypeAriaLabel,
   TypeBtnVariant
@@ -14,6 +15,7 @@ type TypeBtn = TypeClassNames &
   TypeBtnTag &
   TypeBtnType &
   TypeBtnHref &
+  TypeBtnOnClick &
   TypeBtnDisabled &
   TypeAriaLabel &
   TypeBtnVariant

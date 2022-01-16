@@ -8,3 +8,4 @@
 - Improve efficiency of applying styles to btns in ./styles/components/btns/BtnAlpha.module.sass
 - Improve types of BtnAlpha in ./components/btns/BtnAlpha.tsx
 - Improve styles for BtnSkipNav in ./components/btns/BtnSkipNav.tsx
+- Improve typescript in context

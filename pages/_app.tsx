@@ -9,6 +9,7 @@ import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
 import { prod, routesFront } from '@/config/index'
 import { handleUtms, handleReferer } from '@/helpers/index'
+import { ContextPopupState } from '@/context/index'
 import { Header, Main, Footer } from '@/components/layout'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
@@ -53,11 +54,13 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         logo={`${routesFront.root}${routesFront.assetsImgsIconsManifestIcon512}`}
         url={routesFront.root}
       />
-      <Header />
-      <Main>
-        <Component {...pageProps} />
-      </Main>
-      <Footer />
+      <ContextPopupState>
+        <Header />
+        <Main>
+          <Component {...pageProps} />
+        </Main>
+        <Footer />
+      </ContextPopupState>
     </>
   )
 }
