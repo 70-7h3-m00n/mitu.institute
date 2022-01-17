@@ -1,7 +1,7 @@
 import { TypeRoute } from '@/types/index'
 
 type TypeLinks = {
-  links: {
+  readonly links: {
     href: TypeRoute
     val: string
   }[]

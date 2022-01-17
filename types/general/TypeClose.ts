@@ -1,7 +1,7 @@
 import { MouseEventHandler } from 'react'
 
 type TypeClose = {
-  close: MouseEventHandler
+  readonly close: MouseEventHandler
 }
 
 export default TypeClose

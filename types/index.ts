@@ -22,6 +22,7 @@ import type TypeInput from '@/types/general/TypeInput'
 import type TypeIsPopup from '@/types/general/TypeIsPopup'
 import type TypeReferer from '@/types/general/TypeReferer'
 import type TypeRoute from '@/types/general/TypeRoute'
+import type TypeStyle from '@/types/general/TypeStyle'
 import type TypeUrl from '@/types/general/TypeUrl'
 import type TypeUtms from '@/types/general/TypeUtms'
 
@@ -50,6 +51,7 @@ export {
   TypeIsPopup,
   TypeReferer,
   TypeRoute,
+  TypeStyle,
   TypeUrl,
   TypeUtms
 }

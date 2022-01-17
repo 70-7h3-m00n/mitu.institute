@@ -24,7 +24,8 @@ const GeneralPhoneNumber = ({
           getClassNames({ classNames })
         ) || undefined
       }
-      href={phoneNumber.href}>
+      href={phoneNumber.href}
+      title='Позвонить'>
       <div className={stls.iconAndVal}>
         {withIcon && <IconPhone classNames={[stls.icon]} />}
         <span>{phoneNumber.val}</span>

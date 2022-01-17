@@ -1,5 +1,5 @@
 type TypeIsPopup = {
-  isPopup?: boolean
+  readonly isPopup?: boolean
 }
 
 export default TypeIsPopup

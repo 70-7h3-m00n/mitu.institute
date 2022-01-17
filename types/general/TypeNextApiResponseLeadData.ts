@@ -1,6 +1,6 @@
 type TypeNextApiResponseLeadData = {
-  err?: unknown
-  msg: string
+  readonly err?: unknown
+  readonly msg: string
 }
 
 export default TypeNextApiResponseLeadData

@@ -42,10 +42,10 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       Router.events.off('routeChangeComplete', end)
       Router.events.off('routeChangeError', end)
     }
-  }, [])
+  }, [router])
 
   if (prod) {
-    console.log = function () {}
+    console.log = () => {}
   }
 
   return (

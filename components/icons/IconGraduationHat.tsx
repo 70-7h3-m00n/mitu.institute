@@ -1,15 +1,19 @@
 import stls from '@/styles/components/icons/IconGraduationHat.module.sass'
-import { TypeClassNames } from '@/types/index'
+import { TypeClassNames, TypeStyle } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 
-type TypeIconGraduationHatProps = TypeClassNames
+type TypeIconGraduationHatProps = TypeClassNames & TypeStyle
 
-const IconGraduationHat = ({ classNames }: TypeIconGraduationHatProps) => {
+const IconGraduationHat = ({
+  classNames,
+  style
+}: TypeIconGraduationHatProps) => {
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
+      style={style}
       aria-hidden={'true'}>
       <svg viewBox='0 0 36 28' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Колпак выпускника</title>

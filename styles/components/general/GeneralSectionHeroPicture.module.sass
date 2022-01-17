@@ -34,6 +34,12 @@
   & path:nth-child(1)
       @include m.dye(fill, c.$epsilon)
 
+.magnifyingGlass
+  position: absolute
+  top: 24%
+  left: 24%
+  transform: rotate(29deg)
+  
 .graduationHat
   position: absolute
   top: 39%
@@ -48,9 +54,3 @@
   @include m.media(tablet)
     & path
       @include m.dye(fill, c.$beta)
-
-.magnifyingGlass
-  position: absolute
-  top: 24%
-  left: 24%
-  transform: rotate(29deg)
