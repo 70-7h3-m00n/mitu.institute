@@ -1,17 +1,17 @@
 import '@/styles/app.sass'
+import 'reactjs-popup/dist/index.css'
 import type { AppProps } from 'next/app'
 import Router from 'next/router'
 import Script from 'next/script'
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
 import { prod, routesFront } from '@/config/index'
 import { handleUtms, handleReferer } from '@/helpers/index'
-import { ContextPopupState } from '@/context/index'
+import { ContextPopupUIFormAlphaState } from '@/context/index'
 import { Header, Main, Footer } from '@/components/layout'
-import { PopupAlpha } from '@/components/popups'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false)
@@ -55,14 +55,13 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         logo={`${routesFront.root}${routesFront.assetsImgsIconsManifestIcon512}`}
         url={routesFront.root}
       />
-      <ContextPopupState>
+      <ContextPopupUIFormAlphaState>
         <Header />
         <Main>
           <Component {...pageProps} />
-          <PopupAlpha />
         </Main>
         <Footer />
-      </ContextPopupState>
+      </ContextPopupUIFormAlphaState>
     </>
   )
 }

@@ -5,11 +5,12 @@ import type TypeBtnOnClick from '@/types/btn/TypeBtnOnClick'
 import type TypeBtnTag from '@/types/btn/TypeBtnTag'
 import type TypeBtnType from '@/types/btn/TypeBtnType'
 import type TypeBtnVariant from '@/types/btn/TypeBtnVariant'
-import type TypeContextPopup from '@/types/context/TypeContextPopup'
+import type TypeContextPopupUIFormAlpha from '@/types/context/TypeContextPopupUIFormAlpha'
 import type TypeAnchor from '@/types/general/TypeAnchor'
 import type TypeAriaLabel from '@/types/general/TypeAriaLabel'
 import type TypeChildren from '@/types/general/TypeChildren'
 import type TypeClassNames from '@/types/general/TypeClassNames'
+import type TypeClose from '@/types/general/TypeClose'
 import type TypeColor from '@/types/general/TypeColor'
 import type TypeColorsKeys from '@/types/general/TypeColorsKeys'
 import type TypeFormAlphaValues from '@/types/general/TypeFormAlphaValues'
@@ -17,6 +18,7 @@ import type TypeLeadClientValues from '@/types/general/TypeLeadClientValues'
 import type TypeNextApiResponseLeadData from '@/types/general/TypeNextApiResponseLeadData'
 import type TypeImg from '@/types/general/TypeImg'
 import type TypeInput from '@/types/general/TypeInput'
+import type TypeIsPopup from '@/types/general/TypeIsPopup'
 import type TypeReferer from '@/types/general/TypeReferer'
 import type TypeRoute from '@/types/general/TypeRoute'
 import type TypeUrl from '@/types/general/TypeUrl'
@@ -32,9 +34,10 @@ export {
   TypeBtnTag,
   TypeBtnType,
   TypeBtnVariant,
-  TypeContextPopup,
+  TypeContextPopupUIFormAlpha,
   TypeChildren,
   TypeClassNames,
+  TypeClose,
   TypeColor,
   TypeColorsKeys,
   TypeFormAlphaValues,
@@ -42,6 +45,7 @@ export {
   TypeNextApiResponseLeadData,
   TypeImg,
   TypeInput,
+  TypeIsPopup,
   TypeReferer,
   TypeRoute,
   TypeUrl,

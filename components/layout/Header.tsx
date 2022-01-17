@@ -1,10 +1,10 @@
 import stls from '@/styles/components/layout/Header.module.sass'
 import { TypeClassNames } from '@/types/index'
-import { useContext } from 'react'
+import { MouseEventHandler } from 'react'
 import cn from 'classnames'
+import Popup from 'reactjs-popup'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { ContextPopupContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralLogo,
@@ -13,13 +13,12 @@ import {
   GeneralNavLaptopDesktop,
   GeneralNavTablet
 } from '@/components/general'
+import { PopupUIFormAlpha } from '@/components/popups'
 import { BtnAlpha, BtnSkipNav } from '@/components/btns'
 
 type TypeHeaderProps = TypeClassNames
 
 const Header = ({ classNames }: TypeHeaderProps) => {
-  const { popupAlphaOpen } = useContext(ContextPopupContext)
-
   const links = [
     {
       href: routesFront.home,
@@ -54,13 +53,23 @@ const Header = ({ classNames }: TypeHeaderProps) => {
             </div>
             <GeneralNavLaptopDesktop links={links} />
           </div>
-          <BtnAlpha
-            variant='delta-reverse'
-            classNames={[stls.btn, stls.btnAlpha]}
-            onClick={popupAlphaOpen}>
-            <span className={stls.btnTextAlt}>Связаться</span>
-            <span className={stls.btnText}>Заказать звонок</span>
-          </BtnAlpha>
+
+          <Popup
+            trigger={open => (
+              <BtnAlpha
+                variant='delta-reverse'
+                classNames={[stls.btn, stls.btnAlpha]}>
+                <span className={stls.btnTextAlt}>Связаться</span>
+                <span className={stls.btnText}>Заказать звонок</span>
+              </BtnAlpha>
+            )}
+            closeOnDocumentClick
+            modal
+            nested>
+            {(close: MouseEventHandler) => (
+              <PopupUIFormAlpha close={close} isPopup />
+            )}
+          </Popup>
         </div>
         <GeneralNavTablet links={links} />
       </Wrapper>

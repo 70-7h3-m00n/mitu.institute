@@ -1,13 +1,13 @@
 import stls from '@/styles/components/uiforms/UIFormAlpha.module.sass'
-import { TypeClassNames } from '@/types/index'
+import { TypeClassNames, TypeIsPopup } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { GeneralTextHighlight } from '@/components/general'
 import { FormLead } from '@/components/forms'
 
-type TypeUIFormAlphaProps = TypeClassNames
+type TypeUIFormAlphaProps = TypeClassNames & TypeIsPopup
 
-const UIFormAlpha = ({ classNames }: TypeUIFormAlphaProps) => {
+const UIFormAlpha = ({ classNames, isPopup }: TypeUIFormAlphaProps) => {
   return (
     <div
       className={
@@ -18,7 +18,7 @@ const UIFormAlpha = ({ classNames }: TypeUIFormAlphaProps) => {
         получите консультацию по программам, а также требования для поступления
         на курс
       </h2>
-      <FormLead classNames={[stls.form]} />
+      <FormLead classNames={[stls.form]} isPopup={isPopup} />
     </div>
   )
 }

@@ -1,11 +1,10 @@
 import stls from '@/styles/components/forms/FormLead.module.sass'
-import { TypeClassNames, TypeFormAlphaValues } from '@/types/index'
+import { TypeClassNames, TypeFormAlphaValues, TypeIsPopup } from '@/types/index'
 import { useRouter } from 'next/router'
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import cn from 'classnames'
 import { useForm } from 'react-hook-form'
 import { getClassNames, onSubmitForm } from '@/helpers/index'
-import { ContextPopupContext } from '@/context/index'
 import {
   InputName,
   InputPhone,
@@ -13,11 +12,10 @@ import {
   InputSubmit
 } from '@/components/inputs'
 
-type TypeFormLeadProps = TypeClassNames
+type TypeFormLeadProps = TypeClassNames & TypeIsPopup
 
-const FormLead = ({ classNames }: TypeFormLeadProps) => {
+const FormLead = ({ classNames, isPopup }: TypeFormLeadProps) => {
   const { asPath } = useRouter()
-  const { popupAlphaIsOpen } = useContext(ContextPopupContext)
   const {
     register,
     handleSubmit,
@@ -27,8 +25,8 @@ const FormLead = ({ classNames }: TypeFormLeadProps) => {
   } = useForm<TypeFormAlphaValues>()
 
   useEffect(() => {
-    popupAlphaIsOpen && setFocus('name')
-  }, [popupAlphaIsOpen, setFocus])
+    isPopup && setFocus('name')
+  }, [isPopup, setFocus])
 
   return (
     <form

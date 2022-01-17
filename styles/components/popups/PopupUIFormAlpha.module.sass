@@ -1,0 +1,32 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+// .container
+//   position: fixed
+//   top: 0
+//   right: 0
+//   bottom: 0
+//   left: 0
+//   z-index: 99
+//   @include m.flex
+//   overflow-y: auto
+//   @include m.dye(bg, rgba(#000, .5))
+
+// .wrapper
+//   @include m.flex
+
+.content
+  position: relative
+  // padding-top: f.px(44)
+  // transform: translateY(f.px(44))
+
+.btnClose
+  position: absolute
+  @include m.media(phone)
+    top: f.px(-38)
+  @include m.media(tablet, laptop, desktop)
+  top: f.px(-30)
+  right: 0
+  max-width: f.px(24)
+  cursor: pointer

@@ -1,3 +1,3 @@
-import PopupAlpha from '@/components/popups/PopupAlpha'
+import PopupUIFormAlpha from '@/components/popups/PopupUIFormAlpha'
 
-export { PopupAlpha }
+export { PopupUIFormAlpha }

@@ -1,5 +1,7 @@
+import { MouseEventHandler } from 'react'
+
 type TypeBtnOnClick = {
-  readonly onClick?: () => void
+  readonly onClick?: MouseEventHandler
 }
 
 export default TypeBtnOnClick
