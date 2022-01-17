@@ -55,7 +55,7 @@ const Header = ({ classNames }: TypeHeaderProps) => {
           </div>
 
           <Popup
-            trigger={open => (
+            trigger={() => (
               <BtnAlpha
                 variant='delta-reverse'
                 classNames={[stls.btn, stls.btnAlpha]}>

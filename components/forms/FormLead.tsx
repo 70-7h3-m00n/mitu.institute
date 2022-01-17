@@ -35,7 +35,7 @@ const FormLead = ({ classNames, isPopup }: TypeFormLeadProps) => {
         cn([stls.container], getClassNames({ classNames })) || undefined
       }
       onSubmit={handleSubmit(formValues =>
-        onSubmitForm({ formValues, asPath })
+        onSubmitForm({ formValues, asPath, reset })
       )}>
       <div className={stls.inputs}>
         <InputName

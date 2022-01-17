@@ -1,15 +1,10 @@
 import stls from '@/styles/components/general/GeneralNavLaptopDesktop.module.sass'
-import { TypeClassNames, TypeRoute } from '@/types/index'
+import { TypeClassNames, TypeLinks } from '@/types/index'
 import Link from 'next/link'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 
-type TypeGeneralNavLaptopDesktopProps = TypeClassNames & {
-  links: {
-    href: TypeRoute
-    val: string
-  }[]
-}
+type TypeGeneralNavLaptopDesktopProps = TypeClassNames & TypeLinks
 
 const GeneralNavLaptopDesktop = ({
   classNames,
