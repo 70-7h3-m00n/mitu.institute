@@ -4,6 +4,7 @@ import {
   TypeReferer,
   TypeLeadClientValues
 } from '@/types/index'
+
 import { hitLeadRoute } from '@/helpers/index'
 
 type onSubmitFormProps = {
@@ -38,16 +39,16 @@ onSubmitFormProps) => {
     referer
   }
   const req = await hitLeadRoute({ lead })
-  console.log(req)
   if (req.status === 200) {
-    console.log('form is sent')
+    console.log(req.data.msg)
 
     // handle 200
     // setOpenLoader(false)
     // setOpen(o => !o)
     // reset()
   } else {
-    console.log('err')
+    console.log(req.data.msg)
+    console.log(req.data.err)
   }
 }
 

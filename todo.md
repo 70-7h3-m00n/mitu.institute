@@ -12,3 +12,4 @@
 - Improve outline for close btn in ./components/popups/PopupAlpha.tsx
 - Add fade-in fade-out animations for PopupAlpha in ./components/popups/PopupAlpha.tsx
 - Add trigger for history api on AlphaPopupOpen so it could be closed on mobile devices with back button at ./components/popups/PopupAlpha.tsx
+- Improve logic of lead email submission by better & more efficiently modifying data in ./pages/lead.ts

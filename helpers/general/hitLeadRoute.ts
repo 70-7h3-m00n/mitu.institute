@@ -1,22 +1,22 @@
-import { TypeLeadClientValues } from '@/types/index'
-import axios from 'axios'
+import {
+  TypeLeadClientValues,
+  TypeNextApiResponseLeadData
+} from '@/types/index'
+import axios, { AxiosResponse } from 'axios'
 import { routesFront } from '@/config/index'
 
 type TypeHitLeadRouteProps = {
   lead: TypeLeadClientValues
 }
 
-const hitLeadRoute = async ({ lead }: TypeHitLeadRouteProps) => {
-  try {
-    const res = await axios.post(
-      `${routesFront.root}${routesFront.apiLead}`,
-      lead
-    )
-    return res
-  } catch (err) {
-    console.log(err)
-    return err
-  }
-}
+const hitLeadRoute = async ({
+  lead
+}: TypeHitLeadRouteProps): Promise<
+  AxiosResponse<TypeNextApiResponseLeadData>
+> =>
+  await axios.post<TypeNextApiResponseLeadData>(
+    `${routesFront.root}${routesFront.apiLead}`,
+    lead
+  )
 
 export default hitLeadRoute

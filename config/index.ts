@@ -5,6 +5,7 @@ import colors from '@/config/colors'
 import companyName from '@/config/companyName'
 import dev from '@/config/dev'
 import emailRegex from '@/config/emailRegex'
+import env from '@/config/env'
 import phoneNumber from '@/config/phoneNumber'
 import prod from '@/config/prod'
 import routesBack from '@/config/routesBack'
@@ -19,6 +20,7 @@ export {
   companyName,
   dev,
   emailRegex,
+  env,
   phoneNumber,
   prod,
   routesBack,
