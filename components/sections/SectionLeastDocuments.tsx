@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/SectionLeastDocuments.module.sass'
 import { TypeClassNames } from '@/types/index'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import cn from 'classnames'
 import { leastDocuments } from '@/data/index'
 import { getClassNames } from '@/helpers/index'
@@ -13,19 +13,19 @@ type TypeSectionLeastDocumentsProps = TypeClassNames
 const SectionLeastDocuments = ({
   classNames
 }: TypeSectionLeastDocumentsProps) => {
-  const [offsetY, setOffsetY] = useState(0)
-  const [scrollHeight, setScollHeight] = useState(0)
-  const handleScroll = () => {
-    setOffsetY(window.pageYOffset)
-    setScollHeight(document.body.scrollHeight)
-  }
+  // const [offsetY, setOffsetY] = useState(0)
+  // const [scrollHeight, setScollHeight] = useState(0)
+  // const handleScroll = () => {
+  //   setOffsetY(window.pageYOffset)
+  //   setScollHeight(document.body.scrollHeight)
+  // }
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScroll)
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll)
+  //   }
+  // }, [])
 
   return (
     <section
@@ -49,11 +49,12 @@ const SectionLeastDocuments = ({
         </div>
         <div
           className={stls.right}
-          style={{
-            transform: `translateY(${
-              (-offsetY + (scrollHeight * 50) / 100) * 0.3
-            }px)`
-          }}>
+          // style={{
+          //   transform: `translateY(${
+          //     (-offsetY + (scrollHeight * 25) / 100) * 0.3
+          //   }px)`
+          // }}
+        >
           <IconPaperPage
             classNames={[stls.iconPaperPage, stls.tabletLaptopDesktop]}
           />

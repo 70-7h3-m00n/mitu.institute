@@ -7,15 +7,7 @@
 
 .container 
     @include section.gap
-    @include m.dye(bg, c.$delta)
-
-.title
-    @include m.media(phone)
-        @include m.gap($mb: f.px(48))
-    @include m.media(tablet)
-        @include m.gap($mb: f.px(40))
-    @include m.media(laptop, desktop)
-        @include m.gap($mb: f.px(64))
+    @include m.dye(bg, c.$zeta)
 
 .content
     @include m.media(phone, tablet)
@@ -52,10 +44,3 @@
     @include m.media(laptop, desktop)
         min-width: f.px(384)
         @include m.gap($plr: f.px(40), $ptb: f.px(40))
-    
-        
-  
-
-
-
-

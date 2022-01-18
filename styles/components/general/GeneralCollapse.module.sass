@@ -1,13 +1,13 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
-     
+
 .toggle
     @include m.flex($jc: space-between, $ai: center)
     @include m.gap($plr: f.px(16), $ptb: f.px(17))
     @include m.dye(bg, c.$upsilon)
     cursor: pointer
-    transition: all .3s
+    // transition: all .3s
     @include m.media(laptop, desktop)
         &:hover
             @include m.dye(bg, c.$beta) 
@@ -35,14 +35,15 @@
 .cross
     position: relative
     display: block
-    &::before, &::after 
+    &::before, 
+    &::after 
         content: '',
         position: absolute
         right: 0
         width: f.px(14)
         height: f.px(2)
         @include m.dye(bg, c.$omega)
-        transition: all .3s
+        // transition: all .3s
     &::before
         transform: rotate(90deg)
     &::after
@@ -51,13 +52,13 @@
 .content
     position: relative
     overflow: hidden
-                 
+
 .block
     @include m.gap($plr: f.px(16), $ptb: f.px(16))
     @include m.gap($mt: -1000%)
-    transition: all .3s 
+    // transition: all .3s 
     &.open
         @include m.gap($mt: f.px(0))
-   
+
 
 

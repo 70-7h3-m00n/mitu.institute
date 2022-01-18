@@ -14,3 +14,4 @@
 - Add trigger for history api on AlphaGeneralPopupOpen so it could be closed on mobile devices with back button at ./components/general/GeneralPopup.tsx
 - Improve logic of lead email submission by better & more efficiently modifying data in ./pages/lead.ts
 - Add generic padding based on % for btns, removed hardcoded plr for them in other places
+- Go thought website content and change all pronouns to either one form `ты` or the other `вы`

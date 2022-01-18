@@ -6,7 +6,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
-import { GeneralPopup } from '@/components/general'
+import { GeneralSectionTitle, GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
 import { ImgPersonStudying } from '@/components/imgs'
@@ -48,7 +48,9 @@ const SectionTrainingFormat = ({
   return (
     <section className={cn(stls.container, getClassNames({ classNames }))}>
       <Wrapper>
-        <h1 className={stls.title}>Формат обучения</h1>
+        <GeneralSectionTitle classNames={[stls.title]}>
+          Формат обучения
+        </GeneralSectionTitle>
         <div className={stls.content}>
           <div className={stls.nav}>
             <button

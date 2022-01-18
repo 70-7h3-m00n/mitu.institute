@@ -3,16 +3,6 @@
 @use '@/styles/themes/default/Colors.module.sass' as c
 @use '@/styles/shared/general' as s
 
-.container 
-
-.title
-    @include m.media(phone)
-        margin-bottom: f.px(48)
-    @include m.media(tablet)
-        margin-bottom: f.px(40)
-    @include m.media(laptop, desktop)
-        margin-bottom: f.px(64)
-
 .content
     @include m.media(laptop, desktop)
         box-shadow: 0px 0px 30px -5px rgba(196, 196, 196, 0.3)
