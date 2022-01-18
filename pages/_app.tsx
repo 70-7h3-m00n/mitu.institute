@@ -1,14 +1,16 @@
 import '@/styles/app.sass'
+import 'reactjs-popup/dist/index.css'
 import type { AppProps } from 'next/app'
 import Router from 'next/router'
 import Script from 'next/script'
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
 import { prod, routesFront } from '@/config/index'
-import { handleUtms } from '@/helpers/index'
+import { handleUtms, handleReferer } from '@/helpers/index'
+// import { ContextGeneralPopupState } from '@/context/index'
 import { Header, Main, Footer } from '@/components/layout'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
@@ -17,14 +19,8 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   useEffect(() => {
     // TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
-    // console.log(document.referrer)
-
     handleUtms({ router })
-
-    const referer = sessionStorage.getItem('referrer')
-    if (!referer) {
-      sessionStorage.setItem('referer', JSON.stringify(document.referrer))
-    }
+    handleReferer()
 
     NProgress.configure({
       showSpinner: false
@@ -46,24 +42,26 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       Router.events.off('routeChangeComplete', end)
       Router.events.off('routeChangeError', end)
     }
-  }, [])
+  }, [router])
 
   if (prod) {
-    console.log = function () {}
+    console.log = () => {}
   }
 
   return (
     <>
       <DefaultSeo {...SEO} />
       <LogoJsonLd
-        logo={`${routesFront.root}/assets/imgs/icons/manifest-icon-512.png`}
+        logo={`${routesFront.root}${routesFront.assetsImgsIconsManifestIcon512}`}
         url={routesFront.root}
       />
+      {/* <ContextGeneralPopupState> */}
       <Header />
       <Main>
         <Component {...pageProps} />
       </Main>
       <Footer />
+      {/* </ContextGeneralPopupState> */}
     </>
   )
 }

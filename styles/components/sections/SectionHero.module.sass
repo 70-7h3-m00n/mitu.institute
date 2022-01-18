@@ -1,71 +1,64 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
-@use '@/styles/shared/general' as s
+@use '@/styles/shared/general' as g
+@use '@/styles/shared/section' as section
+
+$prosFlexBasis: 58%
+
+.container
+  @include section.gap($bottomOnly: true)
 
 .title
   @include m.media(phone)
+    @include m.gap($mb: f.px(40))
     font-size: f.px(36)
   @include m.media(tablet)
+    @include m.gap($mb: f.px(49))
     font-size: f.px(32)
   @include m.media(phone, tablet)
     max-width: 17ch
   @include m.media(laptop, desktop)
     max-width: 20ch
+    @include m.gap($mb: f.px(56))
     font-size: f.px(64)
   line-height: 110%
 
-.highlight
-  @include s.highlight
-
 .picture
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: 100% - $prosFlexBasis)
+    position: absolute
+    bottom: 0
+    right: 0
+    max-width: 100% - $prosFlexBasis
+
+.phoneTablet
+  @include g.phoneTablet
+
+.laptopDesktop
+  @include g.laptopDesktop
+
+.top
+  @include m.media(tablet)
+    @include m.flex($ai: center)
+
+.bottom
+  @include m.media(laptop, desktop)
+    @include m.flex($fd: column)
+
+.form
+  @include m.media(phone, tablet)
+    @include m.gap($mb: f.px(40))
+  @include m.media(laptop, desktop)
+    order: 2
+
+.prosAndPicture
   position: relative
-  max-width: f.px(488)
+  @include m.media(laptop, desktop)
+    order: 1
+    @include m.flex($ai: flex-start)
 
-.icon
-  max-width: 6.7623%
-
-.chat
-  position: absolute
-  top: 6%
-  left: 17%
-  transform: rotate(-29deg)
-  @include m.media(tablet)
-    & path
-      @include m.dye(fill, c.$beta)
-
-.lightBulb
-  position: absolute
-  top: 11%
-  right: 7%
-  transform: rotate(24deg)
-  z-index: 1
-  & path
-    transition: fill .1s ease-in-out
-  &:hover
-    & path:nth-child(1)
-      @include m.dye(fill, c.$epsilon)
-  @include m.media(tablet)
-    & path:nth-last-child(1)
-      @include m.dye(fill, c.$beta)
-
-.graduationHat
-  position: absolute
-  top: 39%
-  right: 12%
-  transform: rotate(-25deg)
-
-.videoOnStand
-  position: absolute
-  top: 40%
-  left: 17%
-  transform: rotate(15deg)
-  @include m.media(tablet)
-    & path
-      @include m.dye(fill, c.$beta)
-
-.magnifyingGlass
-  position: absolute
-  top: 24%
-  left: 24%
-  transform: rotate(29deg)
+.pros
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: $prosFlexBasis)
+    @include m.gap($mb: f.px(56))

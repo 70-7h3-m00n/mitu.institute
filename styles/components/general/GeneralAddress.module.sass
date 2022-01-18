@@ -1,0 +1,20 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.container
+  font-size: f.px(14)
+  font-style: normal
+  line-height: 110%
+  @include m.dye(c, c.$alpha)
+
+.withIcon
+  @include m.flex($jc: center, $ai: center)
+
+.icon
+  max-width: f.px(18)
+  @include m.gap($mr: f.px(16))
+
+.br
+  @media screen and (min-width: 840px)
+    display: none

@@ -16,11 +16,19 @@ html, body
     // font-size: 2vw
   @include m.media(laptop)
     font-size: 0.9rem
+  &::-webkit-scrollbar
+    width: f.px(10)
+  // &::-webkit-scrollbar-track 
+  //   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+  &::-webkit-scrollbar-thumb
+    // outline: 1px solid
+    // @include m.dye(outline, c.$gamma)
+    @include m.dye(bg, c.$chi)
 
 html
   box-sizing: border-box
   font-family: Arimo, sans-serif
-  // scroll-behavior: smooth
+  scroll-behavior: smooth
 
 h1
   overflow-wrap: break-word

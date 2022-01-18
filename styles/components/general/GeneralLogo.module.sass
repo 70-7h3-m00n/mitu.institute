@@ -1,0 +1,32 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.container
+  position: relative
+  transition: transform 0.25s ease
+  &::after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    z-index: -1
+    transform: translate(-50%, -50%)
+    @include m.flex
+    width: 123%
+    height: 123%
+    border: f.px(2) solid transparent
+    border-radius: f.px(3)
+    transition: border-color 0.25s ease
+  &:focus-visible
+    outline: none
+    transform: scale(1.06)
+    &::after
+      @include m.dye(border, rgba(c.$alpha, .17))
+  & .logo
+    display: inline-block
+
+.logo
+  position: relative
+  z-index: 1
+  max-width: f.px(135)

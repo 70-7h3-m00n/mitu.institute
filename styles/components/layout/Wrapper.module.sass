@@ -3,12 +3,10 @@
 @use '@/styles/themes/default/Colors.module.sass' as c
 
 .container
-  margin: 0 auto
-  @include m.gap($plr: f.px(15))
+  @include m.gap($mlr: auto, $plr: f.px(15))
+  @include m.media(phone)
+    min-width: f.px(320)
+  @include m.media(tablet)
+    max-width: f.px(640)
   @include m.media(laptop, desktop)
     max-width: f.px(1200)
-
-  @include m.media(tablet)
-    max-width: f.px(670)
-  
-  

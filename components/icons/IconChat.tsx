@@ -1,17 +1,17 @@
 import stls from '@/styles/components/icons/IconChat.module.sass'
+import { TypeClassNames, TypeStyle } from '@/types/index'
 import cn from 'classnames'
-import { getClassNames } from '@/helpers/index'
-import { TypeClassNames } from '@/types/index'
 import { colors } from '@/config/index'
+import { getClassNames } from '@/helpers/index'
 
-type TypeIconChatProps = TypeClassNames
+type TypeIconChatProps = TypeClassNames & TypeStyle
 
-const IconChat = ({ classNames }: TypeIconChatProps) => {
+const IconChat = ({ classNames, style }: TypeIconChatProps) => {
   return (
     <div
-      className={
-        cn(stls.container, getClassNames({ classNames })) || undefined
-      }>
+      className={cn(stls.container, getClassNames({ classNames })) || undefined}
+      style={style}
+      aria-hidden={'true'}>
       <svg viewBox='0 0 34 34' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Общение</title>
         <path

@@ -1,0 +1,16 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.container
+  @include m.media(phone)
+    @include m.gap($mb: f.px(48))
+    font-size: f.px(30)
+  @include m.media(tablet)
+    margin-bottom: f.px(40)
+    font-size: f.px(24)
+  @include m.media(laptop, desktop)
+    @include m.gap($mb: f.px(64))
+    font-size: f.px(48)
+  font-weight: 700
+  line-height: 110%

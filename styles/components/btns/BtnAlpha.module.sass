@@ -1,0 +1,61 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/btns' as btns
+
+.container
+  @include m.media(phone)
+    display: block
+    min-width: 100%
+    max-width: 100%
+  @include m.gap($ptb: f.px(22))
+  @include m.media(tablet, laptop, desktop)
+    @include m.gap($plr: f.px(56))
+  border: f.px(2, em) solid
+  @include m.media(phone, laptop, desktop)
+    font-size: f.px(18)
+  @include m.media(tablet)
+    font-size: f.px(16)
+  font-weight: 700
+  line-height: 110%
+  text-align: center
+  cursor: pointer
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      border-style: inset
+      transform: scale(1.02)
+  &:active
+    border-style: solid
+    transform: scale(0.98)
+
+.alpha
+  @include btns.regular($color1: c.$upsilon, $color2: c.$omega)
+
+.alpha-reverse
+  @include btns.reverse($color: c.$zeta)
+
+.beta
+  @include btns.regular($color1: c.$beta, $color2: c.$upsilon)
+
+.beta-reverse
+  @include btns.reverse($color: c.$beta)
+
+.gamma
+  @include btns.regular($color1: c.$alpha, $color2: c.$upsilon)
+
+.gamma-reverse
+  @include btns.reverse($color: c.$alpha)
+
+.delta
+  @include m.gap($ptb: f.px(18))
+  @include m.media(tablet, laptop, desktop)
+    @include m.gap($plr: f.px(23))
+  font-size: f.px(16)
+  @include btns.regular($color1: c.$alpha, $color2: c.$upsilon)
+
+.delta-reverse
+  @include m.gap($ptb: f.px(18))
+  @include m.media(tablet, laptop, desktop)
+    @include m.gap($plr: f.px(23))
+  font-size: f.px(16)
+  @include btns.reverse($color: c.$alpha)

@@ -1,0 +1,23 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.container
+  @include m.flex($fd: column, $jc: center, $ai: center)
+  @include m.gap($ptb: f.px(58))
+  @include m.dye(bg, c.$alpha)
+
+.icon
+  max-width: f.px(100)
+  @include m.gap($mb: f.px(28))
+
+.p
+  font-size: f.px(18)
+  line-height: 120%
+  @include m.dye(c, c.$upsilon)
+
+.pTop
+  @include m.gap($mb: f.px(9))
+
+.pBottom
+  @include m.gap($mb: 0)

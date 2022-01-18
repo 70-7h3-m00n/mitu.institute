@@ -1,0 +1,82 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
+@use '@/styles/shared/section' as section
+
+.container
+  @include section.gap
+
+$bg_overflow_tld: hidden
+.bg
+  @include m.media(phone)
+    @include m.gap($ptb: f.px(48), $plr: f.px(24))
+  @include m.media(tablet)
+    @include m.gap($ptb: f.px(64), $plr: 15.4%)
+    overflow: $bg_overflow_tld
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: center, $ai: center)
+    @include m.gap($ptb: f.px(80), $plr: 4%)
+    overflow: $bg_overflow_tld
+  @include m.dye(bg, c.$alpha)
+
+.left
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: flex-end, $ai: center, $fb: 46%)
+    @include m.gap($mr: 5%)
+
+$icon_pos_tld: absolute
+.icon
+  &.tabletLaptopDesktop
+    @include g.tabletLaptopDesktop
+  @include m.media(tablet)
+    position: $icon_pos_tld
+    top: f.px(-21)
+    left: -15%
+    max-width: f.px(112)
+  @include m.media(laptop, desktop)
+    position: $icon_pos_tld
+    top: f.px(-30)
+    left: -29%
+    max-width: f.px(176)
+
+$title_pos_tld: relative
+.title
+  @include m.media(phone)
+    @include m.gap($mb: f.px(32))
+    max-width: 10ch
+    font-size: f.px(47)
+  @include m.media(tablet)
+    position: $title_pos_tld
+    @include m.gap($mb: f.px(24))
+    font-size: f.px(48)
+  @include m.media(laptop, desktop)
+    position: $title_pos_tld
+    max-width: 10ch
+    @include m.gap($mb: 0)
+    font-size: f.px(64)
+  @include m.dye(c, c.$upsilon)
+
+.text
+  @include m.media(tablet, laptop, desktop)
+    position: relative
+    z-index: 2
+
+.right
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: 46%)
+
+.p
+  @include m.media(phone)
+    max-width: 26ch
+    @include m.gap($mb: f.px(48))
+    font-size: f.px(20)
+  @include m.media(tablet)
+    max-width: 32ch
+    @include m.gap($mb: f.px(32))
+    font-size: f.px(18)
+  @include m.media(laptop, desktop)
+    max-width: 26ch
+    @include m.gap($mb: f.px(40))
+    font-size: f.px(24)
+  @include m.dye(c, c.$gamma)
