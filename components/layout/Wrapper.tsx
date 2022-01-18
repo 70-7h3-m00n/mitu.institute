@@ -5,7 +5,7 @@ import { getClassNames } from '@/helpers/index'
 
 type TypeWrapperProps = TypeClassNames & TypeChildren
 
-const Wrapper = ({ classNames = [], children }: TypeWrapperProps) => {
+const Wrapper = ({ classNames, children }: TypeWrapperProps) => {
   return (
     <div
       className={

@@ -1,17 +1,20 @@
 import stls from '@/styles/components/icons/IconMagnifyingGlass.module.sass'
+import { TypeClassNames, TypeStyle } from '@/types/index'
 import cn from 'classnames'
-import { getClassNames } from '@/helpers/index'
-import { TypeClassNames } from '@/types/index'
 import { colors } from '@/config/index'
+import { getClassNames } from '@/helpers/index'
 
-type TypeIconMagnifyingGlassProps = TypeClassNames
+type TypeIconMagnifyingGlassProps = TypeClassNames & TypeStyle
 
-const IconMagnifyingGlass = ({ classNames }: TypeIconMagnifyingGlassProps) => {
+const IconMagnifyingGlass = ({
+  classNames,
+  style
+}: TypeIconMagnifyingGlassProps) => {
   return (
     <div
-      className={
-        cn(stls.container, getClassNames({ classNames })) || undefined
-      }>
+      className={cn(stls.container, getClassNames({ classNames })) || undefined}
+      style={style}
+      aria-hidden={'true'}>
       <svg viewBox='0 0 34 34' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Лупа</title>
         <path

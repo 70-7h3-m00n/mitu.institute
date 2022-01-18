@@ -1,5 +1,5 @@
 type TypeClassNames = {
-  readonly classNames?: string[]
+  classNames?: string[]
 }
 
 export default TypeClassNames

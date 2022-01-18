@@ -1,0 +1,43 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/onFocusVisible' as onFocusVisible
+
+.container
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: center, $ai: center)
+  font-size: f.px(14)
+  font-style: normal
+  line-height: 120%
+  @include m.dye(c, c.$alpha)
+  @include m.media(tablet, laptop, desktop)
+    transition: transform .25s ease
+    &:hover
+      transform: scale(1.02)
+  @include onFocusVisible.highlightWithBottomLine
+
+.withIcon
+  @include m.media(laptop)
+    @include m.flex($fd: column, $jc: flex-start, $ai: flex-start)
+  @include m.media(desktop)
+    @include m.flex($jc: center, $ai: center)
+
+.iconAndVal
+  @include m.media(laptop)
+    margin-bottom: f.px(3)
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: center, $ai: center)
+
+.icon
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    max-width: f.px(24)
+    margin-right: f.px(16)
+
+.label
+  @include m.media(desktop)
+    margin-left: f.px(8)
+  @include m.dye(c, c.$gamma)

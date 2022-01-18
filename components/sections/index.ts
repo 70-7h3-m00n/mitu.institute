@@ -1,4 +1,11 @@
+import SectionEnterWithoutExam from '@/components/sections/SectionEnterWithoutExam'
 import SectionHero from '@/components/sections/SectionHero'
-import AboutUniversity from '@/components/sections/AboutUniversity'
+import SectionHowTrainingGoes from '@/components/sections/SectionHowTrainingGoes'
+import SectionLeastDocuments from '@/components/sections/SectionLeastDocuments'
 
-export { SectionHero, AboutUniversity }
+export {
+  SectionEnterWithoutExam,
+  SectionHero,
+  SectionHowTrainingGoes,
+  SectionLeastDocuments
+}
