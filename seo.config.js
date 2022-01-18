@@ -3,7 +3,7 @@ const seo = {
     type: 'website',
     locale: 'ru',
     url: 'https://mitu.msk.ru',
-    site_name: 'MITU'
+    site_name: 'Московский Институт Технологий и Управления'
   },
   // twitter: {
   //   handle: '@handle',

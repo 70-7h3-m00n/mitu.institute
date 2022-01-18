@@ -6,6 +6,6 @@ import SectionLeastDocuments from '@/components/sections/SectionLeastDocuments'
 export {
   SectionEnterWithoutExam,
   SectionHero,
-  SectionLeastDocuments,
-  SectionHowTrainingGoes
+  SectionHowTrainingGoes,
+  SectionLeastDocuments
 }
