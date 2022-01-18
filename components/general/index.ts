@@ -8,6 +8,7 @@ import GeneralSectionHeroPicture from '@/components/general/GeneralSectionHeroPi
 import GeneralPros from '@/components/general/GeneralPros'
 import GeneralSectionTitle from '@/components/general/GeneralSectionTitle'
 import GeneralTextHighlight from '@/components/general/GeneralTextHighlight'
+import GeneralCollapse from '@/components/general/GeneralCollapse'
 
 export {
   GeneralAddress,
@@ -19,5 +20,6 @@ export {
   GeneralSectionHeroPicture,
   GeneralPros,
   GeneralSectionTitle,
-  GeneralTextHighlight
+  GeneralTextHighlight,
+  GeneralCollapse
 }
