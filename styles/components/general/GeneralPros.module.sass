@@ -1,0 +1,38 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+  
+.container
+  @include m.flex($fw: wrap, $jc: space-between)
+  margin: 0
+  padding: 0
+
+.pro
+  @include m.flex($fd: column)
+  margin-bottom: f.px(48)
+  @include m.media(phone)
+    @include m.flex($fb: 46%)
+    &:nth-child(odd)
+      margin-right: 4%
+    &:nth-last-of-type(-n+2)
+      margin-bottom: 0
+  @include m.media(tablet, laptop, desktop)
+    @include m.flex($fb: 23%)
+    margin-right: 2.2%
+    &:nth-child(4n)
+      margin-right: 0
+    &:nth-last-of-type(-n+4)
+      margin-bottom: 0
+
+.icon
+  margin-bottom: f.px(16)
+
+.text
+  @include m.media(phone, laptop, desktop)
+    max-width: 22ch
+    font-size: f.px(14)
+  @include m.media(tablet)
+    max-width: 15ch
+    font-size: f.px(13)
+  line-height: 120%
+  @include m.dye(c, c.$psi)

@@ -1,0 +1,13 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.regular
+  @include m.dye(c, c.$beta)
+
+.alt
+  font-weight: 700
+  @include m.dye(c, c.$alpha)
+
+.reverse
+  @include m.dye(c, c.$upsilon)

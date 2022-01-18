@@ -1,0 +1,85 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
+@use '@/styles/shared/section' as section
+
+$leftFlexBasis: 68.4%
+$documentPhoneLaptopDesktopPadding: 32
+$documentTabletPadding: 24
+$documentDeviderHeight: 2
+
+.container
+  @include section.gap
+
+.wrapper
+  @include m.flex($jc: space-between, $ai: center)
+
+.left
+  @include m.media(tablet, laptop, desktop)
+    @include m.flex($d: false, $fb: $leftFlexBasis)
+
+.title
+  @include m.media(tablet, laptop, desktop)
+    max-width: 27ch
+  @include m.media(desktop)
+    margin-bottom: f.px(64)
+
+.leastDocuments
+  margin: 0
+  padding: 0
+
+.document
+  position: relative
+  @include m.flex($ai: center)
+  @include m.media(phone, laptop, desktop)
+    padding-top: f.px($documentPhoneLaptopDesktopPadding)
+    padding-bottom: f.px($documentPhoneLaptopDesktopPadding + $documentDeviderHeight)
+  @include m.media(tablet)
+    padding-top: f.px($documentTabletPadding)
+    padding-bottom: f.px($documentTabletPadding + $documentDeviderHeight)
+  &:nth-child(-n+2)
+    &::after
+      content: ''
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      height: f.px($documentDeviderHeight)
+      border-radius: f.px(148)
+      @include m.media(phone)
+        @include m.dye(bg, c.$gamma)
+      @include m.media(tablet, laptop, desktop)
+        @include m.dye(bg, c.$delta)
+  &:nth-child(1)
+    padding-top: 0
+  &:nth-last-child(1)
+    padding-bottom: 0
+
+.iconCheck
+  @include m.media(phone, tablet)
+    margin-right: f.px(16)
+  @include m.media(laptop, desktop)
+    margin-right: f.px(24)
+
+.text
+  @include m.media(phone)
+    font-size: f.px(20)
+  @include m.media(tablet)
+    font-size: f.px(18)
+  @include m.media(desktop, laptop)
+    font-size: f.px(24)
+  font-weight: 500
+  line-height: 110%
+
+.right
+  @include m.media(tablet, laptop, desktop)
+    @include m.flex($jc: flex-end, $ai: center, $fb: 100% - $leftFlexBasis - 7%)
+
+.iconPaperPage
+  &.tabletLaptopDesktop
+    @include g.tabletLaptopDesktop
+  @include m.media(tablet)
+    max-width: f.px(192)
+  @include m.media(laptop, desktop)
+    max-width: f.px(280)

@@ -3,9 +3,9 @@ import { TypeClassNames, TypeImg } from '@/types/index'
 import { ImgTemplate } from '@/components/imgs'
 import src from '@/public/assets/imgs/general/hero-lady.png'
 
-type TypeImgHeroLady = TypeClassNames & TypeImg
+type TypeImgHeroLadyProps = TypeClassNames & TypeImg
 
-const ImgHeroLady = ({ classNames, width, height }: TypeImgHeroLady) => {
+const ImgHeroLady = ({ classNames, width, height }: TypeImgHeroLadyProps) => {
   return (
     <>
       <ImgTemplate

@@ -1,14 +1,23 @@
-import stls from '@/styles/pages/Index.module.sass'
+import stls from '@/styles/pages/PageHome.module.sass'
 import type { NextPage } from 'next'
-import { SectionHero, TrainingFormat } from '@/components/sections'
+import {
+  SectionHero,
+  SectionLeastDocuments,
+  SectionEnterWithoutExam,
+  SectionHowTrainingGoes,
+  SectionAboutUniversity
+} from '@/components/sections'
 
-const Home: NextPage = () => {
+const PageHome: NextPage = () => {
   return (
     <>
       <SectionHero />
-      <TrainingFormat/>
+      <SectionLeastDocuments />
+      <SectionEnterWithoutExam />
+      <SectionHowTrainingGoes />
+      <SectionAboutUniversity />
     </>
   )
 }
 
-export default Home
+export default PageHome

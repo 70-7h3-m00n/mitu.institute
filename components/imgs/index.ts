@@ -1,5 +1,5 @@
 import ImgHeroLady from '@/components/imgs/general/ImgHeroLady'
+import ImgLogo from '@/components/imgs/general/ImgLogo'
 import ImgTemplate from '@/components/imgs/ImgTemplate'
-import ImgStudent from '@/components/imgs/general/ImgStudent'
 
-export { ImgHeroLady, ImgTemplate, ImgStudent }
+export { ImgHeroLady, ImgLogo, ImgTemplate }

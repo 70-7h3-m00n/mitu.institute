@@ -1,0 +1,23 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+@mixin gap($bottomOnly: false)
+  @include m.media(phone)
+    @if $bottomOnly
+      padding-bottom: f.px(72)
+    @else
+      padding-top: f.px(72)
+      padding-bottom: f.px(72)
+  @include m.media(tablet)
+    @if $bottomOnly
+      padding-bottom: f.px(64)
+    @else
+      padding-top: f.px(64)
+      padding-bottom: f.px(64)
+  @include m.media(laptop, desktop)
+    @if $bottomOnly
+      padding-bottom: f.px(80)
+    @else
+      padding-top: f.px(80)
+      padding-bottom: f.px(80)
