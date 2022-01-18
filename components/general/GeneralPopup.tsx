@@ -1,7 +1,7 @@
 import stls from '@/styles/components/general/GeneralPopup.module.sass'
 import { TypeClassNames, TypeChildren, TypeClose } from '@/types/index'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+// import { useRouter } from 'next/router'
+// import { useEffect } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
@@ -11,13 +11,15 @@ type TypeGeneralPopupProps = TypeClassNames &
   TypeChildren &
   TypeClose & {
     slighter?: boolean
+    img?: boolean
   }
 
 const GeneralPopup = ({
   classNames,
   children,
   close,
-  slighter
+  slighter,
+  img
 }: TypeGeneralPopupProps) => {
   // const router = useRouter()
 
@@ -38,7 +40,7 @@ const GeneralPopup = ({
       className={
         cn(
           [stls.container],
-          { [stls.slighter]: slighter },
+          { [stls.slighter]: slighter, [stls.img]: img },
           getClassNames({ classNames })
         ) || undefined
       }>

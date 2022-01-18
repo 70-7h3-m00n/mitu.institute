@@ -1,0 +1,39 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/btns' as btns
+
+.container
+  @include m.flex($fd: column)
+  cursor: pointer
+  transition: transform 0.25s ease
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      transform: scale(1.02)
+      & .label
+        @include m.dye(c, c.$beta)
+  &:active
+    transform: scale(0.98)
+  &:focus-visible
+    outline: none
+    & .img
+      @include m.dye(border, c.$beta)
+    & .label
+      @include m.dye(c, c.$beta)
+
+.img
+  border: 2px inset transparent
+  transition: border-color 0.25s ease
+
+.label
+  @include m.media(phone)
+    margin-top: f.px(24)
+    font-size: f.px(20)
+  @include m.media(tablet)
+    margin-top: f.px(16)
+    font-size: f.px(18)
+  @include m.media(laptop, desktop)
+    margin-top: f.px(32)
+    font-size: f.px(24)
+  line-height: 110%
+  transition: color 0.25s ease
