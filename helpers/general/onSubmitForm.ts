@@ -5,6 +5,7 @@ import {
   TypeLeadClientValues
 } from '@/types/index'
 
+import { Dispatch, SetStateAction } from 'react'
 import { hitLeadRoute } from '@/helpers/index'
 import { UseFormReset } from 'react-hook-form'
 
@@ -13,17 +14,19 @@ type onSubmitFormProps = {
   readonly asPath: string
   readonly programTitle?: string
   reset: UseFormReset<TypeFormAlphaValues>
+  setLoaderIsOpen: Dispatch<SetStateAction<boolean>>
+  setThanksIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
 const onSubmitForm = async ({
   formValues,
   asPath,
   programTitle,
-  reset
-}: // setOpenLoader,
-// setOpen,
-onSubmitFormProps) => {
-  // setOpenLoader(o => !o)
+  reset,
+  setLoaderIsOpen,
+  setThanksIsOpen
+}: onSubmitFormProps) => {
+  setLoaderIsOpen(true)
   const utms: TypeUtms = JSON.parse(sessionStorage.getItem('utms') || '{}')
   const referer: TypeReferer = JSON.parse(
     sessionStorage.getItem('referer') || '{}'
@@ -46,9 +49,8 @@ onSubmitFormProps) => {
   const req = await hitLeadRoute({ lead })
   if (req.status === 200) {
     console.log(req.data.msg)
-
-    // setOpenLoader(false)
-    // setOpen(o => !o)
+    setLoaderIsOpen(false)
+    setThanksIsOpen(true)
     reset()
   } else {
     console.log(req.data.msg)

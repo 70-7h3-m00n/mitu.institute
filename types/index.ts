@@ -1,11 +1,11 @@
 import type TypeBtn from '@/types/btn/TypeBtn'
 import type TypeBtnDisabled from '@/types/btn/TypeBtnDisabled'
 import type TypeBtnHref from '@/types/btn/TypeBtnHref'
-import type TypeBtnOnClick from '@/types/btn/TypeBtnOnClick'
+import type TypeOnClick from '@/types/general/TypeOnClick'
 import type TypeBtnTag from '@/types/btn/TypeBtnTag'
 import type TypeBtnType from '@/types/btn/TypeBtnType'
 import type TypeBtnVariant from '@/types/btn/TypeBtnVariant'
-import type TypeContextPopupUIFormAlpha from '@/types/context/TypeContextPopupUIFormAlpha'
+import type TypeContextGeneralPopup from '@/types/context/TypeContextGeneralPopup'
 import type TypeAnchor from '@/types/general/TypeAnchor'
 import type TypeAriaLabel from '@/types/general/TypeAriaLabel'
 import type TypeChildren from '@/types/general/TypeChildren'
@@ -32,11 +32,11 @@ export {
   TypeBtn,
   TypeBtnDisabled,
   TypeBtnHref,
-  TypeBtnOnClick,
+  TypeOnClick,
   TypeBtnTag,
   TypeBtnType,
   TypeBtnVariant,
-  TypeContextPopupUIFormAlpha,
+  TypeContextGeneralPopup,
   TypeChildren,
   TypeClassNames,
   TypeClose,

@@ -1,5 +1,5 @@
-type TypeContextPopupUIFormAlpha = {
+type TypeContextGeneralPopup = {
   popupUIFormAlphaIsOpen: boolean
 }
 
-export default TypeContextPopupUIFormAlpha
+export default TypeContextGeneralPopup

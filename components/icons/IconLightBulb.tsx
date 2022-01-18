@@ -1,6 +1,6 @@
 import stls from '@/styles/components/icons/IconLightBulb.module.sass'
 import { TypeClassNames, TypeStyle } from '@/types/index'
-import { MouseEventHandler } from 'react'
+import { MouseEventHandler, TouchEventHandler } from 'react'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
@@ -8,11 +8,13 @@ import { getClassNames } from '@/helpers/index'
 type TypeIconLightBulbProps = TypeClassNames &
   TypeStyle & {
     onMouseEnter?: MouseEventHandler
+    onTouchStart?: TouchEventHandler
   }
 
 const IconLightBulb = ({
   classNames,
   style,
+  onTouchStart,
   onMouseEnter
 }: TypeIconLightBulbProps) => {
   return (
@@ -20,6 +22,7 @@ const IconLightBulb = ({
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       style={style}
       aria-hidden={'true'}
+      onTouchStart={onTouchStart}
       onMouseEnter={onMouseEnter}>
       <svg viewBox='0 0 27 37' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path

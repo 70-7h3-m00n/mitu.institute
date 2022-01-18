@@ -1,3 +1,4 @@
-import PopupUIFormAlpha from '@/components/popups/PopupUIFormAlpha'
+import PopupLoader from '@/components/popups/PopupLoader'
+import PopupThankyou from '@/components/popups/PopupThankyou'
 
-export { PopupUIFormAlpha }
+export { PopupLoader, PopupThankyou }

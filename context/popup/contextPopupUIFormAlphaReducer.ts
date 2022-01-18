@@ -1,13 +1,13 @@
-import { TypeContextPopupUIFormAlpha } from '@/types/index'
+import { TypeContextGeneralPopup } from '@/types/index'
 import {
   SET_POPUP_UIFORM_ALPHA_OPEN,
   SET_POPUP_UIFORM_ALPHA_CLOSE,
   SET_POPUP_UIFORM_ALPHA_TOGGLE
 } from '@/context/types'
 
-type contextPopupUIFormAlphaReducerState = TypeContextPopupUIFormAlpha
+type contextGeneralPopupReducerState = TypeContextGeneralPopup
 
-type contextPopupUIFormAlphaReducerAction = {
+type contextGeneralPopupReducerAction = {
   payload: boolean
   type:
     | typeof SET_POPUP_UIFORM_ALPHA_OPEN
@@ -15,9 +15,9 @@ type contextPopupUIFormAlphaReducerAction = {
     | typeof SET_POPUP_UIFORM_ALPHA_TOGGLE
 }
 
-const contextPopupUIFormAlphaReducer = (
-  state: contextPopupUIFormAlphaReducerState,
-  action: contextPopupUIFormAlphaReducerAction
+const contextGeneralPopupReducer = (
+  state: contextGeneralPopupReducerState,
+  action: contextGeneralPopupReducerAction
 ) => {
   switch (action.type) {
     case SET_POPUP_UIFORM_ALPHA_OPEN:
@@ -40,4 +40,4 @@ const contextPopupUIFormAlphaReducer = (
   }
 }
 
-export default contextPopupUIFormAlphaReducer
+export default contextGeneralPopupReducer

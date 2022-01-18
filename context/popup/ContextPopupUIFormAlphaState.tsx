@@ -1,4 +1,4 @@
-import { TypeChildren, TypeContextPopupUIFormAlpha } from '@/types/index'
+import { TypeChildren, TypeContextGeneralPopup } from '@/types/index'
 import {
   SET_POPUP_UIFORM_ALPHA_OPEN,
   SET_POPUP_UIFORM_ALPHA_CLOSE,
@@ -6,33 +6,30 @@ import {
 } from '@/context/types'
 import { useReducer } from 'react'
 import {
-  ContextPopupUIFormAlphaContext,
-  contextPopupUIFormAlphaReducer
+  ContextGeneralPopupContext,
+  contextGeneralPopupReducer
 } from '@/context/index'
 
-type TypeContextPopupUIFormAlphaStateProps = TypeChildren
+type TypeContextGeneralPopupStateProps = TypeChildren
 
-const ContextPopupUIFormAlphaState = ({
+const ContextGeneralPopupState = ({
   children
-}: TypeContextPopupUIFormAlphaStateProps) => {
-  const initialState: TypeContextPopupUIFormAlpha = {
+}: TypeContextGeneralPopupStateProps) => {
+  const initialState: TypeContextGeneralPopup = {
     popupUIFormAlphaIsOpen: false
   }
 
-  const [state, dispatch] = useReducer(
-    contextPopupUIFormAlphaReducer,
-    initialState
-  )
+  const [state, dispatch] = useReducer(contextGeneralPopupReducer, initialState)
 
-  const setPopupUIFormAlphaOpen = () => {
+  const setGeneralPopupOpen = () => {
     dispatch({ type: SET_POPUP_UIFORM_ALPHA_OPEN, payload: true })
   }
 
-  const setPopupUIFormAlphaClose = () => {
+  const setGeneralPopupClose = () => {
     dispatch({ type: SET_POPUP_UIFORM_ALPHA_CLOSE, payload: false })
   }
 
-  const setPopupUIFormAlphaToggle = () => {
+  const setGeneralPopupToggle = () => {
     dispatch({
       type: SET_POPUP_UIFORM_ALPHA_TOGGLE,
       payload: !state.popupUIFormAlphaIsOpen
@@ -40,16 +37,16 @@ const ContextPopupUIFormAlphaState = ({
   }
 
   return (
-    <ContextPopupUIFormAlphaContext.Provider
+    <ContextGeneralPopupContext.Provider
       value={{
         popupUIFormAlphaIsOpen: state.popupUIFormAlphaIsOpen,
-        setPopupUIFormAlphaOpen,
-        setPopupUIFormAlphaClose,
-        setPopupUIFormAlphaToggle
+        setGeneralPopupOpen,
+        setGeneralPopupClose,
+        setGeneralPopupToggle
       }}>
       {children}
-    </ContextPopupUIFormAlphaContext.Provider>
+    </ContextGeneralPopupContext.Provider>
   )
 }
 
-export default ContextPopupUIFormAlphaState
+export default ContextGeneralPopupState

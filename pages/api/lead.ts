@@ -18,7 +18,7 @@ const lead = async (
   process.env.TZ = 'Europe/Moscow'
 
   const protocol = req.headers['x-forwarded-proto']
-  const rootPath = protocol + '://' + req.headers.host
+  const rootPath = `${protocol ? `${protocol}://` : ''}${req.headers.host}`
   const ip =
     req.headers['x-forwarded-for']?.toString() ||
     req.socket.remoteAddress?.toString() ||

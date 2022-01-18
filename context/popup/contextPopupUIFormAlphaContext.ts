@@ -1,10 +1,10 @@
 import { createContext } from 'react'
 
-const contextPopupUIFormAlphaContext = createContext({
+const contextGeneralPopupContext = createContext({
   popupUIFormAlphaIsOpen: false,
-  setPopupUIFormAlphaOpen: () => {},
-  setPopupUIFormAlphaClose: () => {},
-  setPopupUIFormAlphaToggle: () => {}
+  setGeneralPopupOpen: () => {},
+  setGeneralPopupClose: () => {},
+  setGeneralPopupToggle: () => {}
 })
 
-export default contextPopupUIFormAlphaContext
+export default contextGeneralPopupContext

@@ -8,7 +8,7 @@ import {
   IconChat,
   IconLightBulb,
   IconVideoOnStand,
-  IconGraduationHat,
+  IconMortarboardAlt,
   IconMagnifyingGlass
 } from '@/components/icons'
 
@@ -58,6 +58,7 @@ const GeneralSectionHeroPicture = ({
           }px) rotate(24deg)`
         }}
         onMouseEnter={() => setIsTurnedOn(!isTurnedOn)}
+        onTouchStart={() => setIsTurnedOn(!isTurnedOn)}
       />
       <IconMagnifyingGlass
         classNames={[stls.icon, stls.magnifyingGlass]}
@@ -75,7 +76,7 @@ const GeneralSectionHeroPicture = ({
           }px) rotate(-25deg)`
         }}
       />
-      <IconGraduationHat
+      <IconMortarboardAlt
         classNames={[stls.icon, stls.graduationHat]}
         style={{
           transform: `translateY(${

@@ -11,9 +11,10 @@ import {
   GeneralPhoneNumber,
   GeneralAddress,
   GeneralNavLaptopDesktop,
-  GeneralNavTablet
+  GeneralNavTablet,
+  GeneralPopup
 } from '@/components/general'
-import { PopupUIFormAlpha } from '@/components/popups'
+import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha, BtnSkipNav } from '@/components/btns'
 
 type TypeHeaderProps = TypeClassNames
@@ -55,7 +56,7 @@ const Header = ({ classNames }: TypeHeaderProps) => {
           </div>
 
           <Popup
-            trigger={open => (
+            trigger={() => (
               <BtnAlpha
                 variant='delta-reverse'
                 classNames={[stls.btn, stls.btnAlpha]}>
@@ -67,7 +68,9 @@ const Header = ({ classNames }: TypeHeaderProps) => {
             modal
             nested>
             {(close: MouseEventHandler) => (
-              <PopupUIFormAlpha close={close} isPopup />
+              <GeneralPopup close={close}>
+                <UIFormAlpha isPopup />
+              </GeneralPopup>
             )}
           </Popup>
         </div>

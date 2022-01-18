@@ -1,9 +1,9 @@
-import ContextPopupUIFormAlphaContext from '@/context/popup/contextPopupUIFormAlphaContext'
-import contextPopupUIFormAlphaReducer from '@/context/popup/contextPopupUIFormAlphaReducer'
-import ContextPopupUIFormAlphaState from '@/context/popup/ContextPopupUIFormAlphaState'
+import ContextGeneralPopupContext from '@/context/popup/contextGeneralPopupContext'
+import contextGeneralPopupReducer from '@/context/popup/contextGeneralPopupReducer'
+import ContextGeneralPopupState from '@/context/popup/ContextGeneralPopupState'
 
 export {
-  ContextPopupUIFormAlphaContext,
-  contextPopupUIFormAlphaReducer,
-  ContextPopupUIFormAlphaState
+  ContextGeneralPopupContext,
+  contextGeneralPopupReducer,
+  ContextGeneralPopupState
 }

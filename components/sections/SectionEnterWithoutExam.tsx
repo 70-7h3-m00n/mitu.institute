@@ -5,7 +5,8 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
-import { PopupUIFormAlpha } from '@/components/popups'
+import { GeneralPopup } from '@/components/general'
+import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
 import { IconMortarboard } from '@/components/icons'
 
@@ -37,14 +38,16 @@ const SectionEnterWithoutExam = ({
               без ЕГЭ по специальной программе
             </p>
             <Popup
-              trigger={open => (
+              trigger={() => (
                 <BtnAlpha variant='alpha-reverse'>Оставить заявку</BtnAlpha>
               )}
               closeOnDocumentClick
               modal
               nested>
               {(close: MouseEventHandler) => (
-                <PopupUIFormAlpha close={close} isPopup />
+                <GeneralPopup close={close}>
+                  <UIFormAlpha isPopup />
+                </GeneralPopup>
               )}
             </Popup>
           </div>
