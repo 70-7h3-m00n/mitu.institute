@@ -1,24 +1,27 @@
 import stls from '@/styles/components/layout/Header.module.sass'
 import { TypeClassNames } from '@/types/index'
-import { useContext } from 'react'
+import { useRouter } from 'next/router'
+import { MouseEventHandler } from 'react'
 import cn from 'classnames'
+import Popup from 'reactjs-popup'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { ContextPopupContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralLogo,
   GeneralPhoneNumber,
   GeneralAddress,
   GeneralNavLaptopDesktop,
-  GeneralNavTablet
+  GeneralNavTablet,
+  GeneralPopup
 } from '@/components/general'
+import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha, BtnSkipNav } from '@/components/btns'
 
 type TypeHeaderProps = TypeClassNames
 
 const Header = ({ classNames }: TypeHeaderProps) => {
-  const { popupAlphaOpen } = useContext(ContextPopupContext)
+  const router = useRouter()
 
   const links = [
     {
@@ -54,13 +57,41 @@ const Header = ({ classNames }: TypeHeaderProps) => {
             </div>
             <GeneralNavLaptopDesktop links={links} />
           </div>
-          <BtnAlpha
-            variant='delta-reverse'
-            classNames={[stls.btn, stls.btnAlpha]}
-            onClick={popupAlphaOpen}>
-            <span className={stls.btnTextAlt}>Связаться</span>
-            <span className={stls.btnText}>Заказать звонок</span>
-          </BtnAlpha>
+
+          <Popup
+            // onOpen={() => {
+            //   router.push(router.asPath, '?popupIsOpen=true', { shallow: true })
+            // }}
+            // onClose={() => {
+            //   router.push(router.asPath, '?popupIsOpen=false', {
+            //     shallow: true
+            //   })
+            // }}
+            trigger={open => {
+              // console.log(open)
+              return (
+                <BtnAlpha
+                  variant='delta-reverse'
+                  classNames={[stls.btn, stls.btnAlpha]}>
+                  <span className={stls.btnTextAlt}>Связаться</span>
+                  <span className={stls.btnText}>Заказать звонок</span>
+                </BtnAlpha>
+              )
+            }}
+            modal
+            lockScroll
+            nested
+            closeOnDocumentClick>
+            {(close: MouseEventHandler) => {
+              // router.isReady && router.query.popupIsOpen === 'true' && close()
+              // router.isReady && close()
+              return (
+                <GeneralPopup close={close}>
+                  <UIFormAlpha isPopup />
+                </GeneralPopup>
+              )
+            }}
+          </Popup>
         </div>
         <GeneralNavTablet links={links} />
       </Wrapper>

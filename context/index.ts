@@ -1,5 +1,9 @@
-import ContextPopupContext from '@/context/popup/contextPopupContext'
-import contextPopupReducer from '@/context/popup/contextPopupReducer'
-import ContextPopupState from '@/context/popup/ContextPopupState'
+import ContextGeneralPopupContext from '@/context/popup/contextGeneralPopupContext'
+import contextGeneralPopupReducer from '@/context/popup/contextGeneralPopupReducer'
+import ContextGeneralPopupState from '@/context/popup/ContextGeneralPopupState'
 
-export { ContextPopupContext, contextPopupReducer, ContextPopupState }
+export {
+  ContextGeneralPopupContext,
+  contextGeneralPopupReducer,
+  ContextGeneralPopupState
+}

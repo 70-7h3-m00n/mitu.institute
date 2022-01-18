@@ -4,7 +4,9 @@ import {
   SectionHero,
   SectionLeastDocuments,
   SectionEnterWithoutExam,
-  SectionFrequentlyAskedQuestions
+  SectionHowTrainingGoes,
+  SectionAboutUniversity,
+  SectionTrainingFormat
 } from '@/components/sections'
 
 const PageHome: NextPage = () => {
@@ -13,7 +15,9 @@ const PageHome: NextPage = () => {
       <SectionHero />
       <SectionLeastDocuments />
       <SectionEnterWithoutExam />
-      <SectionFrequentlyAskedQuestions/>
+      <SectionHowTrainingGoes />
+      <SectionAboutUniversity />
+      <SectionTrainingFormat />
     </>
   )
 }

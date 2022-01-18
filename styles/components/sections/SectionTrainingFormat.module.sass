@@ -1,0 +1,82 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as s
+
+.container 
+
+.title
+    @include m.media(phone)
+        margin-bottom: f.px(48)
+    @include m.media(tablet)
+        margin-bottom: f.px(40)
+    @include m.media(laptop, desktop)
+        margin-bottom: f.px(64)
+
+.content
+    @include m.media(laptop, desktop)
+        box-shadow: 0px 0px 30px -5px rgba(196, 196, 196, 0.3)
+
+.nav
+    @include m.media(phone ,tablet)
+        margin-bottom: f.px(32)
+    @include m.media(laptop, desktop)
+        margin-bottom: f.px(56)
+
+.btn
+    width: 50%
+    font-weight: 700
+    &.active
+        @include m.dye(bg, c.$alpha)
+        @include m.dye(c, c.$upsilon)
+        transition: all .3s
+        border: none
+    @include m.media(phone, tablet)
+        padding: f.px(19) f.px(17)
+        border: 1px solid c.$delta
+    @include m.media(laptop, desktop)
+        padding: f.px(16)
+
+.hide
+    @include m.media(phone, tablet)
+        display: none       
+
+.block
+    @include m.media(phone, tablet)
+        padding: 0 0 f.px(40) 0
+    @include m.media(laptop, desktop)
+        padding: 0 f.px(40) f.px(40) f.px(40)
+        @include m.flex($jc: space-between)
+
+.img
+    width: 50%  
+    @include m.media(tablet, phone)
+        display: none
+      
+.list 
+    @include m.media(phone, tablet)
+        padding: 0
+        margin: 0
+    @include m.media(laptop, desktop)
+        padding: 0
+        margin: 0 f.px(40) 0 0
+    list-style: none          
+
+.item
+    position: relative
+    padding-left: f.px(24)
+    margin-bottom: f.px(16)
+    line-height: 110%
+    &:last-child
+        margin-bottom: 0
+    &::before
+        content: ''
+        position: absolute
+        top: 50%
+        left: 0
+        transform: translateY(-50%)
+        width: f.px(16)
+        height: f.px(16)
+        border-radius: 50%
+        @include m.dye(bg, c.$beta)
+

@@ -1,0 +1,33 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as s
+@use '@/styles/shared/section' as section
+
+.container 
+  @include section.gap
+
+.content
+  @include m.media(laptop, desktop)
+    @include m.flex($ai: center, $jc: space-between)
+
+.left
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: 48.5%)
+
+.pgroup
+  margin-bottom: f.px(64)
+
+.pTop
+  margin-bottom: f.px(16)
+
+.p
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+  @include m.media(laptop, desktop)
+    font-size: f.px(20)
+  line-height: 120%
+
+.right
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: 48.5%)

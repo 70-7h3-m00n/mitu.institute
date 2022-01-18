@@ -1,0 +1,26 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.container
+  @include m.flex($fd: column, $jc: center, $ai: center)
+  padding-top: f.px(58)
+  padding-bottom: f.px(58)
+  @include m.dye(bg, c.$alpha)
+
+.thankyou
+  margin-bottom: f.px(20)
+  font-size: f.px(39)
+  line-height: 120%
+  @include m.dye(c, c.$upsilon)
+
+.p
+  font-size: f.px(18)
+  line-height: 120%
+  @include m.dye(c, c.$upsilon)
+
+.pTop
+  margin-bottom: f.px(9)
+
+.pBottom
+  margin-bottom: f.px(30)

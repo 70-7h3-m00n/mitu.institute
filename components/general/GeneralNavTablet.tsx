@@ -1,15 +1,10 @@
 import stls from '@/styles/components/general/GeneralNavTablet.module.sass'
-import { TypeClassNames, TypeRoute } from '@/types/index'
+import { TypeClassNames, TypeLinks } from '@/types/index'
 import Link from 'next/link'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 
-type TypeGeneralNavTabletProps = TypeClassNames & {
-  links: {
-    href: TypeRoute
-    val: string
-  }[]
-}
+type TypeGeneralNavTabletProps = TypeClassNames & TypeLinks
 
 const GeneralNavTablet = ({ classNames, links }: TypeGeneralNavTabletProps) => {
   return (

@@ -1,25 +1,22 @@
-import { TypeFormAlphaValues, TypeUtms, TypeReferer } from '@/types/index'
-import axios from 'axios'
+import {
+  TypeLeadClientValues,
+  TypeNextApiResponseLeadData
+} from '@/types/index'
+import axios, { AxiosResponse } from 'axios'
 import { routesFront } from '@/config/index'
 
-type TypeHitLeadRouteProps = TypeFormAlphaValues & {
-  readonly programTitle?: string
-  readonly leadPage: string
-  readonly utms: TypeUtms
-  readonly referer: TypeReferer
+type TypeHitLeadRouteProps = {
+  lead: TypeLeadClientValues
 }
 
-const hitLeadRoute = async (values: TypeHitLeadRouteProps) => {
-  try {
-    const res = await axios.post(
-      `${routesFront.root}${routesFront.apiLead}`,
-      values
-    )
-    return res
-  } catch (err) {
-    console.log(err)
-    return err
-  }
-}
+const hitLeadRoute = async ({
+  lead
+}: TypeHitLeadRouteProps): Promise<
+  AxiosResponse<TypeNextApiResponseLeadData>
+> =>
+  await axios.post<TypeNextApiResponseLeadData>(
+    `${routesFront.root}${routesFront.apiLead}`,
+    lead
+  )
 
 export default hitLeadRoute

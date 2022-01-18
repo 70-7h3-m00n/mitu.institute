@@ -6,19 +6,25 @@ import { getClassNames } from '@/helpers/index'
 type TypeGeneralTextHighlightProps = TypeClassNames &
   TypeChildren & {
     reverse?: boolean
+    alt?: boolean
   }
 
 const GeneralTextHighlight = ({
   classNames,
   children,
-  reverse = false
+  reverse = false,
+  alt = false
 }: TypeGeneralTextHighlightProps) => {
   return (
     <span
       className={
         cn(
           [stls.container],
-          { [stls.regular]: !reverse, [stls.reverse]: reverse },
+          {
+            [stls.regular]: !reverse && !alt,
+            [stls.reverse]: reverse,
+            [stls.alt]: alt
+          },
           getClassNames({ classNames })
         ) || undefined
       }>

@@ -26,7 +26,7 @@
 
 .iconAndVal
   @include m.media(laptop)
-    @include m.gap($mb: f.px(3))
+    margin-bottom: f.px(3)
   @include m.media(laptop, desktop)
     @include m.flex($jc: center, $ai: center)
 
@@ -35,9 +35,9 @@
     display: none
   @include m.media(laptop, desktop)
     max-width: f.px(24)
-    @include m.gap($mr: f.px(16))
+    margin-right: f.px(16)
 
 .label
   @include m.media(desktop)
-    @include m.gap($ml: f.px(8))
+    margin-left: f.px(8)
   @include m.dye(c, c.$gamma)

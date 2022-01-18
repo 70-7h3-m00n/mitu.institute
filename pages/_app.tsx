@@ -1,17 +1,17 @@
 import '@/styles/app.sass'
+import 'reactjs-popup/dist/index.css'
 import type { AppProps } from 'next/app'
 import Router from 'next/router'
 import Script from 'next/script'
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
 import { prod, routesFront } from '@/config/index'
 import { handleUtms, handleReferer } from '@/helpers/index'
-import { ContextPopupState } from '@/context/index'
+// import { ContextGeneralPopupState } from '@/context/index'
 import { Header, Main, Footer } from '@/components/layout'
-import { PopupAlpha } from '@/components/popups'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false)
@@ -42,10 +42,10 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       Router.events.off('routeChangeComplete', end)
       Router.events.off('routeChangeError', end)
     }
-  }, [])
+  }, [router])
 
   if (prod) {
-    console.log = function () {}
+    console.log = () => {}
   }
 
   return (
@@ -55,14 +55,13 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         logo={`${routesFront.root}${routesFront.assetsImgsIconsManifestIcon512}`}
         url={routesFront.root}
       />
-      <ContextPopupState>
-        <Header />
-        <Main>
-          <Component {...pageProps} />
-          <PopupAlpha />
-        </Main>
-        <Footer />
-      </ContextPopupState>
+      {/* <ContextGeneralPopupState> */}
+      <Header />
+      <Main>
+        <Component {...pageProps} />
+      </Main>
+      <Footer />
+      {/* </ContextGeneralPopupState> */}
     </>
   )
 }

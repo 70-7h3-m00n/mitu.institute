@@ -8,9 +8,11 @@
     display: block
     min-width: 100%
     max-width: 100%
-  @include m.gap($ptb: f.px(22))
+  padding-top: f.px(22)
+  padding-bottom: f.px(22)
   @include m.media(tablet, laptop, desktop)
-    @include m.gap($plr: f.px(56))
+    padding-right: f.px(56)
+    padding-left: f.px(56)
   border: f.px(2, em) solid
   @include m.media(phone, laptop, desktop)
     font-size: f.px(18)
@@ -47,15 +49,19 @@
   @include btns.reverse($color: c.$alpha)
 
 .delta
-  @include m.gap($ptb: f.px(18))
+  padding-top: f.px(18)
+  padding-bottom: f.px(18)
   @include m.media(tablet, laptop, desktop)
-    @include m.gap($plr: f.px(23))
+    padding-right: f.px(23)
+    padding-left: f.px(23)
   font-size: f.px(16)
   @include btns.regular($color1: c.$alpha, $color2: c.$upsilon)
 
 .delta-reverse
-  @include m.gap($ptb: f.px(18))
+  padding-top: f.px(18)
+  padding-bottom: f.px(18)
   @include m.media(tablet, laptop, desktop)
-    @include m.gap($plr: f.px(23))
+    padding-left: f.px(23)
+    padding-right: f.px(23)
   font-size: f.px(16)
   @include btns.reverse($color: c.$alpha)
