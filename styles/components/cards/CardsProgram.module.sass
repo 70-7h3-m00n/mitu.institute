@@ -1,0 +1,176 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.container
+  @include m.flex($fw: wrap, $jc: space-between)
+  padding: 0
+  margin: 0
+
+.card
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $jc: space-between, $fb: 100%)
+    &:nth-last-child(1)
+      margin-bottom: 0
+  @include m.media(laptop)
+    @include m.flex($fd: column, $jc: space-between, $fb: 48.5%)
+    &:nth-last-child(-n+2)
+      margin-bottom: 0
+  @include m.media(desktop)
+    @include m.flex($fd: column, $jc: space-between, $fb: 31.9%)
+    &:nth-last-child(-n+3)
+      margin-bottom: 0
+  min-height: f.px(320)
+  margin-bottom: f.px(38)
+
+.btn
+  position: relative
+  @include m.flex($fd: column, $jc: space-between, $fb: 100%)
+  @include m.media(phone)
+    padding-right: 7%
+    padding-left: 7%
+  @include m.media(tablet)
+    padding-right: 5%
+    padding-left: 5%
+  @include m.media(laptop)
+    padding-right: 6%
+    padding-left: 6%
+  @include m.media(desktop)
+    padding-right: 9%
+    padding-left: 9%
+  padding-top: f.px(40)
+  padding-bottom: f.px(40)
+  border: f.px(2) solid
+  @include m.dye(border, c.$delta)
+  text-align: left
+  cursor: pointer
+  transition: transform 0.1s ease, border-color 0.25s ease
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      @include m.dye(border, c.$beta)
+      transform: scale(1.02)
+      & .label
+        @include m.dye(c, c.$alpha)
+      & .title
+        @include m.dye(c, c.$beta)
+      & .desc
+        @include m.dye(c, c.$omega)
+      & .learnMore
+        transform: scale(1.05)
+      & .learnMoreLabel
+        @include m.dye(c, c.$beta)
+        &::before,
+        &::after
+          width: 51%
+          opacity: 1
+      & .iconArrowTopRight
+        & path
+          @include m.dye(fill, c.$beta)
+  &:active
+    transform: scale(0.97)
+  &:focus-visible
+    @include m.dye(outline, c.$beta)
+    @include m.dye(border, c.$beta)
+    transform: scale(1.02)
+    & .label
+      @include m.dye(c, c.$alpha)
+    & .title
+      @include m.dye(c, c.$beta)
+    & .desc
+      @include m.dye(c, c.$omega)
+    & .learnMore
+      transform: scale(1.05)
+    & .learnMoreLabel
+      @include m.dye(c, c.$beta)
+      &::before,
+      &::after
+        width: 51%
+        opacity: 1
+    & .iconArrowTopRight
+      & path
+        @include m.dye(fill, c.$beta)
+
+.label
+  position: absolute
+  top: 0
+  left: 7%
+  transform: translateY(-50%)
+  max-width: 86%
+  padding: 8px
+  border: f.px(8) solid
+  @include m.dye(border, c.$upsilon)
+  font-size: f.px(12)
+  font-weight: 700
+  line-height: 110%
+  text-transform: uppercase
+  transition: color 0.25s ease
+  @include m.dye(bg, c.$zeta)
+  @include m.dye(c, c.$gamma)
+
+.title
+  margin-bottom: f.px(16)
+  @include m.media(phone, laptop, desktop)
+    font-size: f.px(24)
+  @include m.media(tablet)
+    font-size: f.px(18)
+  word-break: break-word
+  transition: color 0.25s ease
+
+.desc
+  @include m.media(phone, laptop, desktop)
+    font-size: f.px(14)
+  @include m.media(tablet)
+    font-size: f.px(13)
+  margin-bottom: f.px(32)
+  line-height: 120%
+  transition: color 0.25s ease
+  @include m.dye(c, c.$psi)
+
+.bottom
+  @include m.flex($jc: space-between, $ai: center)
+  min-width: 100%
+  max-width: 100%
+
+.studyDuration
+  @include m.flex($jc: center, $ai: center)
+  font-weight: 700
+  line-height: 110%
+  @include m.dye(c, c.$alpha)
+
+.iconClock
+  max-width: f.px(24)
+  margin-right: f.px(8)
+
+.learnMore
+  @include m.flex
+  font-size: f.px(14)
+  transition: color 0.25s ease, transform 0.1s ease-in-out
+  @include m.dye(c, c.$gamma)
+
+.learnMoreLabel
+  position: relative
+  &::before,
+  &::after
+    content: '',
+    position: absolute
+    bottom: f.px(-4)
+    width: 0
+    height: f.px(1)
+    margin-top: f.px(3)
+    transition: opacity 0.1s ease, width 0.1s ease
+    opacity: 0
+    @include m.dye(bg, rgba(c.$beta, .9))
+  &::before 
+    left: 50%
+    border-top-right-radius: f.px(40)
+    border-bottom-right-radius: f.px(40)
+  &::after
+    right: 50%
+    border-top-left-radius: f.px(40)
+    border-bottom-left-radius: f.px(40)
+
+.iconArrowTopRight
+  max-width: f.px(10)
+  margin-left: f.px(17)
+  & path
+    transition: fill 0.25s ease
