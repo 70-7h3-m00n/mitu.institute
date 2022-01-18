@@ -1,0 +1,189 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as s
+
+.container 
+    position: relative
+
+.title
+    @include m.media(phone)
+        margin-bottom: f.px(48)
+    @include m.media(tablet)
+        margin-bottom: f.px(40)
+    @include m.media(laptop, desktop)
+        margin-bottom: f.px(64)
+.content
+    @include m.media(phone)
+        @include m.flex($fd: column-reverse)
+    @include m.media(laptop, tablet)
+        @include m.flex($fd: row-reverse)
+    @include m.media(desktop)
+        @include m.flex($ai: center)
+        margin-bottom: f.px(64)
+
+.column
+    width: 50%
+    &:first-child
+        @include m.media(phone)
+            width: 100%
+        @include m.media(laptop, teblet, phone)
+          
+        @include m.media(desktop)
+            padding-right: f.px(16)
+    &:last-child
+        &:first-child
+            @include m.media(phone)
+                width: 100%
+        @include m.media(laptop, teblet)
+            max-width: 100%
+            @include m.flex($fd: column, $jc: space-between)
+            padding-right: f.px(16)
+        @include m.media(desktop, phone)
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-between
+            @include m.media(phone)
+                width: 100%
+                grid-row-gap: f.px(32)
+                grid-column-gap: f.px(16)
+                margin-bottom: f.px(64)
+            @include m.media(desktop)
+                padding-left: f.px(16)
+                grid-row-gap: f.px(64)
+    
+.icon
+    position: absolute
+    top: 0
+    left: -23px
+    width: 123px
+    height: 100%
+
+.strong
+    @include m.dye(c, c.$alpha)
+
+.text 
+    @include m.media(tablet, phone)
+        margin-bottom: f.px(64)
+    @include m.media(laptop)
+        margin-left: f.px(16)
+    @include m.media(laptop, desktop)
+        font-size: f.px(20)
+    line-height: 120%
+
+.accreditation
+    &.bottom   
+        @include m.media(tablet, phone)
+            display: none
+        @include m.media(laptop, desktop)
+            @include m.flex()
+    &.top
+        @include m.media(phone)
+            overflow: auto
+            position: relative
+            width: 100%
+            display: flex
+
+        @include m.media(tablet)
+            display: block
+        @include m.media(laptop, desktop)
+            display: none
+
+.document
+    @include m.media(phone)
+        min-width: 70%
+        padding: f.px(24) f.px(84) f.px(24) f.px(24)
+        &:first-child
+            margin-right: f.px(16)
+    @include m.media(tablet) 
+        padding: f.px(26) f.px(112) f.px(26) f.px(24)
+        &:first-child
+            margin-bottom: f.px(24)
+    @include m.media(laptop, desktop)
+        width: 50%
+        padding: f.px(40) f.px(104) f.px(40) f.px(40)
+        font-size: f.px(18)
+        &:first-child
+            margin-right: f.px(16)
+        &:last-child
+            margin-left: f.px(16)
+    &:first-child
+            @include m.dye(bg, #EEF3FF)
+            .arrow
+                border-color: c.$alpha
+                &::before
+                    @include m.dye(bg, c.$alpha)
+    &:last-child
+        @include m.dye(bg, c.$beta)
+        .strong
+            @include m.dye(c, c.$upsilon)
+        .icon
+            svg
+                path
+                    fill: c.$alpha
+        .arrow
+            border-color: c.$upsilon
+            &::before
+                @include m.dye(bg, c.$upsilon)                
+    position: relative
+    overflow: hidden
+    @include m.flex($ai: center)
+    .strong
+        position: relative
+        z-index: 1
+        margin-bottom: 0    
+
+.arrow
+    @include m.media(phone)
+        right: f.px(16)
+    @include m.media(tablet)
+        right: f.px(40)
+    @include m.media(laptop, desktop)
+        right: f.px(56)
+    position: absolute
+   
+    top: 50%
+    transform: translateY(-50%)
+    width: f.px(24)
+    height: f.px(24)
+    border-right: f.px(2) solid 
+    border-top: f.px(2) solid 
+    &::before
+        content: ''
+        position: absolute
+        top: f.px(10)
+        left: f.px(-5)
+        width: f.px(32)
+        height: f.px(1.5)
+        transform: rotate(-45deg)
+
+.item
+    @include m.media(phone)
+        width: f.px(160)
+    @include m.media(laptop, tablet)
+        margin-bottom: f.px(32)
+    @include m.media(desktop)
+        width: f.px(280)
+    @include m.dye(c, c.$alpha)
+
+.subtitle  
+    @include m.media(laptop, tablet, phone)
+        font-size: f.px(36)
+    @include m.media(desktop)
+        font-size: f.px(72)
+    margin-bottom: f.px(16)
+
+.description
+    @include m.media(laptop, tablet, phone)
+        font-size: f.px(18)
+        margin-right: f.px(16)
+    @include m.media(desktop)
+        font-size: f.px(24)
+    margin-bottom: 0
+
+
+
+
+
+
+
