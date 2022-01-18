@@ -8,36 +8,41 @@ $container_pt_tld: f.px(32)
 .container
   position: relative
   @include m.media(phone)
-    @include m.gap($pt: $container_pt_p, $pb: f.px(72))
+    padding-top: $container_pt_p
+    padding-bottom: f.px(72)
   @include m.media(tablet)
-    @include m.gap($pt: $container_pt_tld, $pb: f.px(49))
+    padding-top: $container_pt_tld
+    padding-bottom: f.px(49)
   @include m.media(laptop, desktop)
-    @include m.gap($pt: $container_pt_tld, $pb: f.px(95))
+    padding-top: $container_pt_tld
+    padding-bottom: f.px(95)
 
 .content
   @include m.flex($jc: space-between, $ai: flex-start)
   @include m.media(tablet)
-    @include m.gap($mb: f.px(32))
+    margin-bottom: f.px(32)
 
 .logo
   @include m.media(phone)
-    @include m.gap($mr: 6%)
+    margin-right: 6%
 
 .contactNav
   @include m.flex($fd: column, $jc: center, $ai: center, $fg: 1)
   @media screen and (max-width: 540px)
     display: none
   @include m.media(tablet, laptop)
-    @include m.gap($plr: 4.5%)
+    padding-right: 4.5%
+    padding-left: 4.5%
   @include m.media(laptop)
     max-width: f.px(700)
   @include m.media(desktop)
-    @include m.gap($plr: 8.7%)
+    padding-right: 8.7%
+    padding-left: 8.7%
 
 .phoneAddress
   width: 100%
   @include m.flex($jc: space-between)
-  @include m.gap($mb: f.px(16))
+  margin-bottom: f.px(16)
 
 .address
   &.laptopDesktop
@@ -47,7 +52,8 @@ $container_pt_tld: f.px(32)
   &.btnAlpha
     @include m.media(phone)
       min-width: auto
-      @include m.gap($plr: f.px(23))
+      padding-right: f.px(23)
+      padding-left: f.px(23)
 
 .btnText
   @media screen and (max-width: 369px)

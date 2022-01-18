@@ -11,16 +11,16 @@ $prosFlexBasis: 58%
 
 .title
   @include m.media(phone)
-    @include m.gap($mb: f.px(40))
+    margin-bottom: f.px(40)
     font-size: f.px(36)
   @include m.media(tablet)
-    @include m.gap($mb: f.px(49))
+    margin-bottom: f.px(49)
     font-size: f.px(32)
   @include m.media(phone, tablet)
     max-width: 17ch
   @include m.media(laptop, desktop)
     max-width: 20ch
-    @include m.gap($mb: f.px(56))
+    margin-bottom: f.px(56)
     font-size: f.px(64)
   line-height: 110%
 
@@ -48,7 +48,7 @@ $prosFlexBasis: 58%
 
 .form
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(40))
+    margin-bottom: f.px(40)
   @include m.media(laptop, desktop)
     order: 2
 
@@ -61,4 +61,4 @@ $prosFlexBasis: 58%
 .pros
   @include m.media(laptop, desktop)
     @include m.flex($d: false, $fb: $prosFlexBasis)
-    @include m.gap($mb: f.px(56))
+    margin-bottom: f.px(56)

@@ -4,29 +4,28 @@
   
 .container
   @include m.flex($fw: wrap, $jc: space-between)
-  @include m.gap($m: 0, $p: 0)
+  margin: 0
+  padding: 0
 
 .pro
   @include m.flex($fd: column)
-  @include m.gap($mb: f.px(48))
+  margin-bottom: f.px(48)
   @include m.media(phone)
     @include m.flex($fb: 46%)
     &:nth-child(odd)
-      @include m.gap($mr: 4%)
-    // last two elements
+      margin-right: 4%
     &:nth-last-of-type(-n+2)
-      @include m.gap($mb: 0)
+      margin-bottom: 0
   @include m.media(tablet, laptop, desktop)
     @include m.flex($fb: 23%)
-    @include m.gap($mr: 2.2%)
+    margin-right: 2.2%
     &:nth-child(4n)
-      @include m.gap($mr: 0)
-    // last four elements
+      margin-right: 0
     &:nth-last-of-type(-n+4)
-      @include m.gap($mb: 0)
+      margin-bottom: 0
 
 .icon
-  @include m.gap($mb: f.px(16))
+  margin-bottom: f.px(16)
 
 .text
   @include m.media(phone, laptop, desktop)

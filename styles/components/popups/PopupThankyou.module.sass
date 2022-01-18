@@ -4,11 +4,12 @@
 
 .container
   @include m.flex($fd: column, $jc: center, $ai: center)
-  @include m.gap($ptb: f.px(58))
+  padding-top: f.px(58)
+  padding-bottom: f.px(58)
   @include m.dye(bg, c.$alpha)
 
 .thankyou
-  @include m.gap($mb: f.px(20))
+  margin-bottom: f.px(20)
   font-size: f.px(39)
   line-height: 120%
   @include m.dye(c, c.$upsilon)
@@ -19,7 +20,7 @@
   @include m.dye(c, c.$upsilon)
 
 .pTop
-  @include m.gap($mb: f.px(9))
+  margin-bottom: f.px(9)
 
 .pBottom
-  @include m.gap($mb: f.px(30))
+  margin-bottom: f.px(30)

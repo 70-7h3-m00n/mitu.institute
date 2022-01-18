@@ -4,22 +4,22 @@
 
 .container
   @include m.media(phone)
-    @include m.gap($p: f.px(24))
+    padding: f.px(24)
   @include m.media(tablet, laptop, desktop)
-    @include m.gap($p: f.px(40))
+    padding: f.px(40)
   @include m.dye(bg, c.$beta)
   @include m.dye(c, c.$gamma)
 
 .title
   @include m.media(phone)
     max-width: 29ch
-    @include m.gap($mb: f.px(16))
+    margin-bottom: f.px(16)
     font-size: f.px(20)
   @include m.media(tablet)
-    @include m.gap($mb: f.px(16))
+    margin-bottom: f.px(16)
     font-size: f.px(18)
   @include m.media(laptop, desktop)
     max-width: 54ch
-    @include m.gap($mb: f.px(24))
+    margin-bottom: f.px(24)
     font-size: f.px(24)
   line-height: 120%

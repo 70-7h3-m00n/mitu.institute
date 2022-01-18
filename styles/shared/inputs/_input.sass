@@ -20,7 +20,8 @@
 @mixin input
   min-width: 100%
   max-width: 100%
-  @include m.gap($pt: f.px(24), $pb: f.px(20))
+  padding-top: f.px(24)
+  padding-bottom: f.px(20)
   border: none
   border-bottom: f.px(4) solid transparent
   line-height: 110%
@@ -38,6 +39,6 @@
     @include m.dye(border, c.$iota)
 
 @mixin error
-  @include m.gap($mt: f.px(8))
+  margin-top: f.px(8)
   line-height: 110%
   @include m.dye(c, c.$iota)

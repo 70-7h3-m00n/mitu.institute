@@ -12,31 +12,35 @@ $topWithoutBorder: -$top - $borderWidth
 
 .cards
   @include m.flex($fw: wrap, $jc: space-between)
-  @include m.gap($mtb: 0, $pt: f.px($topWithoutBorder), $plr: 0, $pb: 0)
-    
+  margin-top: 0
+  margin-bottom: 0
+  padding: f.px($topWithoutBorder) 0 0
+
 .card    
   position: relative
   @include m.flex($fd: column)
   @include m.media(phone)
     @include m.flex($d: false, $fb: 100%)
     &:nth-last-child(1)
-      @include m.gap($mb: 0)
+      margin-bottom: 0
   @include m.media(tablet)
     @include m.flex($d: false, $fb: 48.5%)
     &:nth-last-child(-n+2)
-      @include m.gap($mb: 0)
+      margin-bottom: 0
   @include m.media(phone, tablet)
-    @include m.gap($mb: f.px(32 + $topWithoutBorder), $ptb: f.px(40), $plr: 4.3%)
+    margin-bottom: f.px(32 + $topWithoutBorder)
+    padding: f.px(40) 4.3%
   @include m.media(laptop)
     @include m.flex($d: false, $fb: 49%)
     &:nth-last-child(-n+2)
-      @include m.gap($mb: 0)
+      margin-bottom: 0
   @include m.media(desktop)
     @include m.flex($d: false, $fb: 32%)
     &:nth-last-child(-n+3)
-      @include m.gap($mb: 0)
+      margin-bottom: 0
   @include m.media(laptop, desktop)
-    @include m.gap($mb: f.px(32 + $topWithoutBorder), $p: f.px(40))
+    margin-bottom: f.px(32 + $topWithoutBorder)
+    padding: f.px(40)
   border: f.px(2) solid
   @include m.dye(border, c.$delta)
 
@@ -45,7 +49,7 @@ $topWithoutBorder: -$top - $borderWidth
   top: f.px($top)
   left: f.px(40)
   min-width: f.px(40 + $borderWidth*2)
-  @include m.gap($p: f.px(6))
+  padding: f.px(6)
   border: f.px($borderWidth) solid
   @include m.dye(border, c.$upsilon)
   font-size: f.px(24)
@@ -54,7 +58,7 @@ $topWithoutBorder: -$top - $borderWidth
   @include m.dye(c, c.$beta)
 
 .title
-  @include m.gap($mb: f.px(16))
+  margin-bottom: f.px(16)
   @include m.media(phone, laptop, desktop)
     font-size: f.px(24)
   @include m.media(tablet)

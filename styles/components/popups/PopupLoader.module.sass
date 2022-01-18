@@ -4,12 +4,13 @@
 
 .container
   @include m.flex($fd: column, $jc: center, $ai: center)
-  @include m.gap($ptb: f.px(58))
+  padding-top: f.px(58)
+  padding-bottom: f.px(58)
   @include m.dye(bg, c.$alpha)
 
 .icon
   max-width: f.px(100)
-  @include m.gap($mb: f.px(28))
+  margin-bottom: f.px(28)
 
 .p
   font-size: f.px(18)
@@ -17,7 +18,7 @@
   @include m.dye(c, c.$upsilon)
 
 .pTop
-  @include m.gap($mb: f.px(9))
+  margin-bottom: f.px(9)
 
 .pBottom
-  @include m.gap($mb: 0)
+  margin-bottom: 0

@@ -5,16 +5,19 @@
 @mixin gap($bottomOnly: false)
   @include m.media(phone)
     @if $bottomOnly
-      @include m.gap($pb: f.px(72))
+      padding-bottom: f.px(72)
     @else
-      @include m.gap($ptb: f.px(72))
+      padding-top: f.px(72)
+      padding-bottom: f.px(72)
   @include m.media(tablet)
     @if $bottomOnly
-      @include m.gap($pb: f.px(64))
+      padding-bottom: f.px(64)
     @else
-      @include m.gap($ptb: f.px(64))
+      padding-top: f.px(64)
+      padding-bottom: f.px(64)
   @include m.media(laptop, desktop)
     @if $bottomOnly
-      @include m.gap($pb: f.px(80))
+      padding-bottom: f.px(80)
     @else
-      @include m.gap($ptb: f.px(80))
+      padding-top: f.px(80)
+      padding-bottom: f.px(80)
