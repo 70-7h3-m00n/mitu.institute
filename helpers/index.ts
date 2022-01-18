@@ -1,4 +1,8 @@
 import buildUserLocation from '@/helpers/general/buildUserLocation'
+import getCasedRuMonthString from '@/helpers/general/getCasedRuMonthString'
+import getCasedRuYearString from '@/helpers/general/getCasedRuYearString'
+import getCasesRuCourseString from '@/helpers/general/getCasesRuCourseString'
+import getCasesRuProfessionString from '@/helpers/general/getCasesRuProfessionString'
 import getClassNames from '@/helpers/general/getClassNames'
 import handleReferer from '@/helpers/general/handleReferer'
 import handleUtms from '@/helpers/general/handleUtms'
@@ -10,8 +14,12 @@ import buildLeadEmailTbodyTrs from '@/helpers/lead/buildLeadEmailTbodyTrs'
 import createLeadEmailTr from '@/helpers/lead/createLeadEmailTr'
 
 export {
-  getClassNames,
   buildUserLocation,
+  getCasedRuMonthString,
+  getCasedRuYearString,
+  getCasesRuCourseString,
+  getCasesRuProfessionString,
+  getClassNames,
   handleReferer,
   handleUtms,
   hitLeadRoute,

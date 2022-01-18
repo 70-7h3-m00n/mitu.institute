@@ -5,7 +5,7 @@
 @mixin regular($color1, $color2)
   @include m.dye(border, $color1)
   outline: f.px(2, em) solid transparent
-  transition: outline-offset .25s ease
+  transition: outline-offset .25s ease, transform .05s ease
   @include m.dye(bg, $color1) 
   @include m.dye(c, $color2)
   &:focus-visible
@@ -16,7 +16,7 @@
   @include m.dye(border, $color)
   outline: f.px(2, em) solid transparent
   outline-offset: f.px(-2, em)
-  transition: outline-offset .25s ease, outline-width .25s ease
+  transition: outline-offset .25s ease, outline-width .25s ease, transform .05s ease
   @include m.dye(c, $color) 
   &:focus-visible
     outline-width: f.px(8, em)
