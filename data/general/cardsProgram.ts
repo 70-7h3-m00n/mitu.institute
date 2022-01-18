@@ -56,8 +56,8 @@ const cardsProgram: TypeCardsProgram = [
   },
   {
     faculty: {
-      type: 'management',
-      label: 'Факультет управления'
+      type: 'cybersport',
+      label: 'Факультет киберспорта'
     },
     title: 'Управление организацией',
     desc: 'Займите свое место в одной из самых успешных отраслей страны. Научитесь строить экономические модели',

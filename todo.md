@@ -15,3 +15,4 @@
 - Improve logic of lead email submission by better & more efficiently modifying data in ./pages/lead.ts
 - Add generic padding based on % for btns, removed hardcoded plr for them in other places
 - Go thought website content and change all pronouns to either one form `ты` or the other `вы`
+- Replace `justify-content: space-between` with 3/2/1 per row on desktop&laptop/tablet/phone layout to a better than that won't brake in case of uneven items count (i.e. 8 instad of 9 or 5 instead of 6 etc)

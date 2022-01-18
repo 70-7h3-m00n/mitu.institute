@@ -23,7 +23,11 @@ const SectionOurPrograms = ({ classNames }: TypeSectionOurProgramsProps) => {
           Наши направления
         </GeneralSectionTitle>
         <div className={stls.content}>
-          <div className={stls.btns}>btns</div>
+          <div className={stls.btns}>
+            <h3>btn</h3>
+            <h3>btn</h3>
+            <h3>btn</h3>
+          </div>
           <CardsProgram />
           <Popup
             trigger={() => (
