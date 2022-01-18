@@ -10,6 +10,7 @@
 - Improve styles for BtnSkipNav in ./components/btns/BtnSkipNav.tsx
 - Improve typescript in context
 - Improve outline for close btn in ./components/popups/GeneralPopup.tsx
-- Add fade-in fade-out animations for GeneralPopup in ./components/popups/GeneralPopup.tsx
-- Add trigger for history api on AlphaGeneralPopupOpen so it could be closed on mobile devices with back button at ./components/popups/GeneralPopup.tsx
+- Add fade-in fade-out animations for GeneralPopup in ./components/general/GeneralPopup.tsx
+- Add trigger for history api on AlphaGeneralPopupOpen so it could be closed on mobile devices with back button at ./components/general/GeneralPopup.tsx
 - Improve logic of lead email submission by better & more efficiently modifying data in ./pages/lead.ts
+- Add generic padding based on % for btns, removed hardcoded plr for them in other places

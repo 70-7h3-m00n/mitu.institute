@@ -1,5 +1,6 @@
 import stls from '@/styles/components/layout/Header.module.sass'
 import { TypeClassNames } from '@/types/index'
+import { useRouter } from 'next/router'
 import { MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
@@ -20,6 +21,8 @@ import { BtnAlpha, BtnSkipNav } from '@/components/btns'
 type TypeHeaderProps = TypeClassNames
 
 const Header = ({ classNames }: TypeHeaderProps) => {
+  const router = useRouter()
+
   const links = [
     {
       href: routesFront.home,
@@ -56,22 +59,38 @@ const Header = ({ classNames }: TypeHeaderProps) => {
           </div>
 
           <Popup
-            trigger={() => (
-              <BtnAlpha
-                variant='delta-reverse'
-                classNames={[stls.btn, stls.btnAlpha]}>
-                <span className={stls.btnTextAlt}>Связаться</span>
-                <span className={stls.btnText}>Заказать звонок</span>
-              </BtnAlpha>
-            )}
-            closeOnDocumentClick
+            // onOpen={() => {
+            //   router.push(router.asPath, '?popupIsOpen=true', { shallow: true })
+            // }}
+            // onClose={() => {
+            //   router.push(router.asPath, '?popupIsOpen=false', {
+            //     shallow: true
+            //   })
+            // }}
+            trigger={open => {
+              // console.log(open)
+              return (
+                <BtnAlpha
+                  variant='delta-reverse'
+                  classNames={[stls.btn, stls.btnAlpha]}>
+                  <span className={stls.btnTextAlt}>Связаться</span>
+                  <span className={stls.btnText}>Заказать звонок</span>
+                </BtnAlpha>
+              )
+            }}
             modal
-            nested>
-            {(close: MouseEventHandler) => (
-              <GeneralPopup close={close}>
-                <UIFormAlpha isPopup />
-              </GeneralPopup>
-            )}
+            lockScroll
+            nested
+            closeOnDocumentClick>
+            {(close: MouseEventHandler) => {
+              // router.isReady && router.query.popupIsOpen === 'true' && close()
+              // router.isReady && close()
+              return (
+                <GeneralPopup close={close}>
+                  <UIFormAlpha isPopup />
+                </GeneralPopup>
+              )
+            }}
           </Popup>
         </div>
         <GeneralNavTablet links={links} />

@@ -41,9 +41,10 @@ const FormLead = ({ classNames, isPopup }: TypeFormLeadProps) => {
     <>
       <Popup
         open={loaderIsOpen}
-        closeOnDocumentClick
         modal
+        lockScroll
         nested
+        closeOnDocumentClick
         onClose={() => setLoaderIsOpen(false)}>
         <GeneralPopup close={() => setLoaderIsOpen(false)} slighter>
           <PopupLoader />
@@ -51,12 +52,13 @@ const FormLead = ({ classNames, isPopup }: TypeFormLeadProps) => {
       </Popup>
       <Popup
         open={thanksIsOpen}
-        closeOnDocumentClick
         modal
+        lockScroll
         nested
+        closeOnDocumentClick
         onClose={() => setThanksIsOpen(false)}>
         <GeneralPopup close={() => setThanksIsOpen(false)} slighter>
-          <PopupThankyou />
+          <PopupThankyou close={() => setThanksIsOpen(false)} />
         </GeneralPopup>
       </Popup>
       <form

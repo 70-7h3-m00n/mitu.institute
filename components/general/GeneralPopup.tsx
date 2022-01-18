@@ -1,5 +1,7 @@
 import stls from '@/styles/components/general/GeneralPopup.module.sass'
 import { TypeClassNames, TypeChildren, TypeClose } from '@/types/index'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
@@ -17,6 +19,20 @@ const GeneralPopup = ({
   close,
   slighter
 }: TypeGeneralPopupProps) => {
+  // const router = useRouter()
+
+  // useEffect(() => {
+  //   const handleClose = () => {
+  //     console.log('test')
+  //     close()
+  //   }
+
+  //   window.addEventListener('popstate', () => handleClose())
+  //   return () => {
+  //     window.removeEventListener('popstate', handleClose)
+  //   }
+  // }, [close])
+
   return (
     <div
       className={

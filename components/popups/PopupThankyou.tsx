@@ -1,11 +1,12 @@
 import stls from '@/styles/components/popups/PopupThankyou.module.sass'
-import { TypeClassNames, TypeIsPopup } from '@/types/index'
+import { TypeClassNames, TypeClose } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
+import { BtnAlpha } from '@/components/btns'
 
-type TypePopupThankyouProps = TypeClassNames & TypeIsPopup
+type TypePopupThankyouProps = TypeClassNames & TypeClose
 
-const PopupThankyou = ({ classNames }: TypePopupThankyouProps) => {
+const PopupThankyou = ({ classNames, close }: TypePopupThankyouProps) => {
   // @todo handle marketing triggers
   // useEffect(() => {
   //   const tagManagerArgs = {
@@ -46,6 +47,9 @@ const PopupThankyou = ({ classNames }: TypePopupThankyouProps) => {
       <p className={cn(stls.p, stls.pBottom)}>
         Мы свяжемся с Вами в ближайшее время!
       </p>
+      <BtnAlpha variant='alpha' onClick={close}>
+        Закрыть
+      </BtnAlpha>
     </div>
   )
 }

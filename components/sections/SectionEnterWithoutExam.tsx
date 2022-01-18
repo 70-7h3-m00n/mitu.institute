@@ -41,9 +41,10 @@ const SectionEnterWithoutExam = ({
               trigger={() => (
                 <BtnAlpha variant='alpha-reverse'>Оставить заявку</BtnAlpha>
               )}
-              closeOnDocumentClick
               modal
-              nested>
+              lockScroll
+              nested
+              closeOnDocumentClick>
               {(close: MouseEventHandler) => (
                 <GeneralPopup close={close}>
                   <UIFormAlpha isPopup />

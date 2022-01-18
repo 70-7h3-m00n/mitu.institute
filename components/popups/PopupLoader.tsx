@@ -1,10 +1,10 @@
 import stls from '@/styles/components/popups/PopupLoader.module.sass'
-import { TypeClassNames, TypeIsPopup } from '@/types/index'
+import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { IconLoader } from '@/components/icons'
 
-type TypePopupLoaderProps = TypeClassNames & TypeIsPopup
+type TypePopupLoaderProps = TypeClassNames
 
 const PopupLoader = ({ classNames }: TypePopupLoaderProps) => {
   return (
