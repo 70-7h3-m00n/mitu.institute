@@ -80,17 +80,3 @@
         border-radius: 50%
         @include m.dye(bg, c.$beta)
 
-.details
-    @include m.media(phone, tablet)
-        margin: f.px(0) auto f.px(64) auto
-    @include m.media(laptop, desktop)
-        margin: f.px(56) auto f.px(80) auto
-    display: block
-    width: f.px(240)
-    @include m.flex($jc: center)
-    padding: f.px(22) f.px(17)
-    border: 2px solid c.$alpha
-    font-weight: 700
-    @include m.dye(c, c.$alpha)
-
-
