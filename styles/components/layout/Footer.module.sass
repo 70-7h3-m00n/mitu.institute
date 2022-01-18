@@ -1,3 +1,40 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
+
+
+.container 
+    
+    @include m.dye(bg, c.$omega)
+
+.wrapper
+    @include m.gap($ptb: f.px(40))
+
+.content
+    position: relative
+    @include m.flex($jc: space-between, $ai: center) 
+    @include m.gap($mb: f.px(40))
+
+.agreement
+    @include m.gap($mt: f.px(140))
+
+.link
+    display: block
+    @include m.gap($pb: f.px(24))
+    font-size: f.px(12)
+
+
+
+.logo
+    position: absolute
+    top: 0
+    left: 0
+
+
+
+
+
+.owner
+    @include m.gap($mtb: f.px(0))
+    @include m.dye(c, c.$psi)
+    text-align: center
