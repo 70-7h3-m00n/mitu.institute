@@ -6,3 +6,8 @@
 
 .container
   @include section.gap
+  @include m.media(phone, tablet, laptop, desktop)
+    padding-top: 0
+  @include m.media(phone)
+    padding-bottom: 0
+    @include m.dye(bg, c.$beta)
