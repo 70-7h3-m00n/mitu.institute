@@ -13,6 +13,7 @@ import IconMortarboardAlt from '@/components/icons/IconMortarboardAlt'
 import IconPaperPage from '@/components/icons/IconPaperPage'
 import IconPhone from '@/components/icons/IconPhone'
 import IconVideoOnStand from '@/components/icons/IconVideoOnStand'
+import IconWave from '@/components/icons/IconWave'
 
 export {
   IconArrowTopRight,
@@ -29,5 +30,6 @@ export {
   IconMortarboardAlt,
   IconPaperPage,
   IconPhone,
-  IconVideoOnStand
+  IconVideoOnStand,
+  IconWave
 }
