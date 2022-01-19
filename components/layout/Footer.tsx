@@ -2,17 +2,16 @@ import stls from '@/styles/components/layout/Footer.module.sass'
 import { TypeClassNames } from '@/types/index'
 import Link from 'next/link'
 import cn from 'classnames'
+import routesFront from '@/config/routesFront'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
-
-import { GeneralAddress, GeneralLogo, GeneralNavLaptopDesktop, GeneralPhoneNumber } from '../general'
-import routesFront from '@/config/routesFront'
+import { GeneralAddress, GeneralPhoneNumber } from '@/components/general'
+import { IconInstagram, IconYoutube, IconVK, IconFacebook } from '@/components/icons'
 
 
 type TypeFooterProps = TypeClassNames
 
 const Footer = ({ classNames }: TypeFooterProps) => {
-
   const links = [
     {
       href: routesFront.home,
@@ -36,21 +35,19 @@ const Footer = ({ classNames }: TypeFooterProps) => {
     }
   ]
 
-
   return (
     <footer className={cn(stls.container, getClassNames({ classNames })) || undefined}>
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
-          <GeneralLogo classNames={[stls.logo]} />
+          <div className={stls.logo}>LOGO</div>
           <div className={stls.agreement}>
             <Link href={'#'}>
-              <a className={stls.link}>Политика кофиденциальности</a>
+              <a className={cn(stls.link, stls.underline)}>Политика кофиденциальности</a>
             </Link>
             <Link href={'#'}>
-              <a className={stls.link}>Политика кофиденциальности</a>
+              <a className={cn(stls.link, stls.underline)}>Пользовательское соглашение</a>
             </Link>
           </div>
-
           <ul className={stls.list}>
             {links.map(({ href, val }, idx) => (
               <li key={val + idx} className={stls.item}>
@@ -60,18 +57,34 @@ const Footer = ({ classNames }: TypeFooterProps) => {
               </li>
             ))}
           </ul>
-
           <div className={stls.contacts}>
-            <GeneralPhoneNumber classNames={[stls.phone]}/>
-            <GeneralAddress classNames={[stls.address]} withIcon/>
+            <GeneralPhoneNumber classNames={[stls.phone]} />
+            <GeneralAddress classNames={[stls.address]} withIcon />
             <div className={stls.icons}>
-
+              <Link href={'#'}>
+                <a className={stls.icon}>
+                  <IconInstagram />
+                </a>
+              </Link>
+              <Link href={'#'}>
+                <a className={stls.icon}>
+                  <IconVK />
+                </a>
+              </Link>
+              <Link href={'#'}>
+                <a className={stls.icon}>
+                  <IconFacebook />
+                </a>
+              </Link>
+              <Link href={'#'}>
+                <a className={stls.icon}>
+                  <IconYoutube />
+                </a>
+              </Link>
             </div>
           </div>
-
         </div>
         <p className={stls.owner}>Московский институт технологий и управления, 2021</p>
-
       </Wrapper>
     </footer>
   )
