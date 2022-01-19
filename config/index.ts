@@ -8,6 +8,7 @@ import emailRegex from '@/config/emailRegex'
 import env from '@/config/env'
 import phoneNumber from '@/config/phoneNumber'
 import prod from '@/config/prod'
+import revalidate from '@/config/revalidate'
 import routesBack from '@/config/routesBack'
 import routesFront from '@/config/routesFront'
 import themeColor from '@/config/themeColor'
@@ -23,6 +24,7 @@ export {
   env,
   phoneNumber,
   prod,
+  revalidate,
   routesBack,
   routesFront,
   themeColor

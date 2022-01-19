@@ -1,3 +1,4 @@
+import handleGetStaticProps from '@/helpers/data/handleGetStaticProps'
 import buildUserLocation from '@/helpers/general/buildUserLocation'
 import getCasedRuMonthString from '@/helpers/general/getCasedRuMonthString'
 import getCasedRuYearString from '@/helpers/general/getCasedRuYearString'
@@ -14,6 +15,7 @@ import buildLeadEmailTbodyTrs from '@/helpers/lead/buildLeadEmailTbodyTrs'
 import createLeadEmailTr from '@/helpers/lead/createLeadEmailTr'
 
 export {
+  handleGetStaticProps,
   buildUserLocation,
   getCasedRuMonthString,
   getCasedRuYearString,

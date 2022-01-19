@@ -16,3 +16,6 @@
 - Add generic padding based on % for btns, removed hardcoded plr for them in other places
 - Go thought website content and change all pronouns to either one form `ты` or the other `вы`
 - Replace `justify-content: space-between` with 3/2/1 per row on desktop&laptop/tablet/phone layout to a better than that won't brake in case of uneven items count (i.e. 8 instad of 9 or 5 instead of 6 etc)
+- Improve styles at ./components/sections/SectionOurPrograms.tsx for category btns and program cards, right now there are almost the same styles that duplicates in two places, need to use shared mixin instead
+- Improve typescript for handleGetStaticProps props, it should only take pages routes & not all frontend routes
+- Improve typescript for handleGetStaticProps in ./helpers/data/handleGetStaticProps
