@@ -8,6 +8,8 @@ type TypeBtnVariant = {
     | 'gamma-reverse'
     | 'delta'
     | 'delta-reverse'
+    | 'epsilon'
+    | 'epsilon-reverse'
 }
 
 export default TypeBtnVariant

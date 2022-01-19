@@ -25,6 +25,7 @@ import type TypeRoute from '@/types/general/TypeRoute'
 import type TypeStyle from '@/types/general/TypeStyle'
 import type TypeUrl from '@/types/general/TypeUrl'
 import type TypeUtms from '@/types/general/TypeUtms'
+import type TypeProgramCategory from '@/types/program/TypeProgramCategory'
 
 export {
   TypeAnchor,
@@ -53,5 +54,6 @@ export {
   TypeRoute,
   TypeStyle,
   TypeUrl,
-  TypeUtms
+  TypeUtms,
+  TypeProgramCategory
 }

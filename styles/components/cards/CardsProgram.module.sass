@@ -10,18 +10,18 @@
 .card
   @include m.media(phone, tablet)
     @include m.flex($fd: column, $jc: space-between, $fb: 100%)
-    &:nth-last-child(1)
-      margin-bottom: 0
+    &:nth-child(1)
+      margin-top: 0
   @include m.media(laptop)
     @include m.flex($fd: column, $jc: space-between, $fb: 48.5%)
-    &:nth-last-child(-n+2)
-      margin-bottom: 0
+    &:nth-child(-n+2)
+      margin-top: 0
   @include m.media(desktop)
     @include m.flex($fd: column, $jc: space-between, $fb: 31.9%)
-    &:nth-last-child(-n+3)
-      margin-bottom: 0
+    &:nth-child(-n+3)
+      margin-top: 0
   min-height: f.px(320)
-  margin-bottom: f.px(38)
+  margin-top: f.px(38)
 
 .btn
   position: relative

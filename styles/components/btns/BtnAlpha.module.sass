@@ -65,3 +65,20 @@
     padding-right: f.px(23)
   font-size: f.px(16)
   @include btns.reverse($color: c.$alpha)
+
+.epsilon
+  @include btns.regular($color1: c.$alpha, $color2: c.$upsilon)
+  padding-top: f.px(18)
+  padding-bottom: f.px(18)
+  @include m.media(tablet, laptop, desktop)
+    padding-left: 2.5%
+    padding-right: 2.5%
+
+.epsilon-reverse
+  @include btns.reverse($color: c.$alpha)
+  padding-top: f.px(18)
+  padding-bottom: f.px(18)
+  @include m.media(tablet, laptop, desktop)
+    padding-left: 2.5%
+    padding-right: 2.5%
+  @include m.dye(border, c.$delta)

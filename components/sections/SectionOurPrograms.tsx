@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/SectionOurPrograms.module.sass'
-import { TypeClassNames } from '@/types/index'
-import { MouseEventHandler } from 'react'
+import { TypeClassNames, TypeProgramCategory } from '@/types/index'
+import { MouseEventHandler, useState } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
@@ -13,6 +13,8 @@ import { BtnAlpha } from '@/components/btns'
 type TypeSectionOurProgramsProps = TypeClassNames
 
 const SectionOurPrograms = ({ classNames }: TypeSectionOurProgramsProps) => {
+  const [category, setCategory] = useState<TypeProgramCategory>('master')
+
   return (
     <section
       className={
@@ -24,14 +26,31 @@ const SectionOurPrograms = ({ classNames }: TypeSectionOurProgramsProps) => {
         </GeneralSectionTitle>
         <div className={stls.content}>
           <div className={stls.btns}>
-            <h3>btn</h3>
-            <h3>btn</h3>
-            <h3>btn</h3>
+            <BtnAlpha
+              variant={category === 'master' ? 'epsilon' : 'epsilon-reverse'}
+              classNames={[stls.btn]}
+              onClick={() => setCategory('master')}>
+              Бакалавриат
+            </BtnAlpha>
+            <BtnAlpha
+              variant={category === 'bachelor' ? 'epsilon' : 'epsilon-reverse'}
+              classNames={[stls.btn]}
+              onClick={() => setCategory('bachelor')}>
+              Магистратура
+            </BtnAlpha>
+            <BtnAlpha
+              variant={
+                category === 'additional' ? 'epsilon' : 'epsilon-reverse'
+              }
+              classNames={[stls.btn]}
+              onClick={() => setCategory('additional')}>
+              Дополнительное образование
+            </BtnAlpha>
           </div>
-          <CardsProgram />
+          <CardsProgram category={category} />
           <Popup
             trigger={() => (
-              <BtnAlpha variant='beta' classNames={[stls.btn]}>
+              <BtnAlpha variant='beta' classNames={[stls.btnShowMore]}>
                 Показать ещё
               </BtnAlpha>
             )}

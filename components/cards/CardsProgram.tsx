@@ -1,5 +1,5 @@
 import stls from '@/styles/components/cards/CardsProgram.module.sass'
-import { TypeClassNames } from '@/types/index'
+import { TypeClassNames, TypeProgramCategory } from '@/types/index'
 import { MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
@@ -10,22 +10,28 @@ import { UIFormAlpha } from '@/components/uiforms'
 import { ProgramStudyDuration } from '@/components/program'
 import { IconClock, IconArrowTopRight } from '@/components/icons'
 
-type TypeCardsProgramProps = TypeClassNames
+type TypeCardsProgramProps = TypeClassNames & {
+  category?: TypeProgramCategory
+}
 
-const CardsProgram = ({ classNames }: TypeCardsProgramProps) => {
+const CardsProgram = ({ classNames, category }: TypeCardsProgramProps) => {
+  const cards = category
+    ? cardsProgram.filter(card => card.category === category)
+    : cardsProgram
+
   return (
     <ul
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      {cardsProgram.map((card, idx) => (
+      {cards.map((card, idx) => (
         <li key={card.title + idx} className={stls.card}>
           <Popup
             trigger={() => (
               <button className={stls.btn}>
                 <div className={stls.label}>{card.faculty.label}</div>
                 <div className={stls.top}>
-                  <h4 className={stls.title}>{card.title}</h4>
+                  <h3 className={stls.title}>{card.title}</h3>
                   <p className={stls.desc}>{card.desc}</p>
                 </div>
                 <div className={stls.bottom}>

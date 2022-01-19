@@ -31,6 +31,8 @@ const BtnAlpha = ({
             [stls['gamma-reverse']]: variant === 'gamma-reverse',
             [stls.delta]: variant === 'delta',
             [stls['delta-reverse']]: variant === 'delta-reverse',
+            [stls.epsilon]: variant === 'epsilon',
+            [stls['epsilon-reverse']]: variant === 'epsilon-reverse',
             [stls.disabled]: disabled
           },
           getClassNames({ classNames })
