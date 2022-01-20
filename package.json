@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "next lint",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
-    "makeicons": "npx pwa-asset-generator ./public/assets/images/icon.png ./public/assets/images/icons -p \"0\" -b \"#1143A7\""
+    "makeicons": "npx pwa-asset-generator ./public/assets/imgs/icon.png ./public/assets/imgs/icons -p \"0\" -b \"#1143A7\""
   },
   "dependencies": {
     "@maxmind/geoip2-node": "^3.3.0",

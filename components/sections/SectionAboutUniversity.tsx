@@ -5,6 +5,7 @@ import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 import { IconCoatOfArmsRussia } from '@/components/icons'
+import { BtnBeta } from '@/components/btns'
 
 type TypeSectionAboutUniversityProps = TypeClassNames
 
@@ -38,35 +39,55 @@ const SectionAboutUniversity = ({
       <Wrapper>
         <GeneralSectionTitle>Об университете</GeneralSectionTitle>
         <div className={stls.content}>
-          <div className={stls.left}>
-            <div className={stls.pgroup}>
-              <p className={cn(stls.p, stls.pTop)}>
-                Наш университет за современный подход в образовании. Мы
-                постоянно берем обратную связь от работодателей и адаптируем
-                учебные программы
-              </p>
-              <p className={stls.p}>
-                <GeneralTextHighlight alt>Наша миссия</GeneralTextHighlight> —
-                создать систему образования, которая будет доступна каждому.
-                Дистанционное обучение полностью отвечает поставленным целям и
-                задачам, поэтому инновационные технологии — неотъемлемая часть
-                образовательного процесса в нашем институте
-              </p>
+          <div className={stls.top}>
+            <div className={stls.left}>
+              <div className={stls.pgroup}>
+                <p className={cn(stls.p, stls.pTop)}>
+                  Наш университет за современный подход в образовании. Мы
+                  постоянно берем обратную связь от работодателей и адаптируем
+                  учебные программы
+                </p>
+                <p className={cn(stls.p, stls.pBottom)}>
+                  <GeneralTextHighlight alt>Наша миссия</GeneralTextHighlight> —
+                  создать систему образования, которая будет доступна каждому.
+                  Дистанционное обучение полностью отвечает поставленным целям и
+                  задачам, поэтому инновационные технологии — неотъемлемая часть
+                  образовательного процесса в нашем институте
+                </p>
+              </div>
+              <div className={cn(stls.btns, stls.btnsPhoneTabletLaptop)}>
+                <BtnBeta variant='alpha' classNames={[stls.btn, stls.btnLeft]}>
+                  Государственная лицензия на право ведения образовательной
+                  деятельности
+                </BtnBeta>
+                <BtnBeta variant='beta' classNames={[stls.btn]}>
+                  Свидетельство о государственной аккредитации
+                </BtnBeta>
+              </div>
             </div>
-            <button>
+            <div className={stls.right}>
+              <ul className={stls.testimonials}>
+                {testimonials.map((testimonial, idx) => (
+                  <li
+                    key={testimonial.title + idx}
+                    className={stls.testimonial}>
+                    <h3 className={stls.testimonialTitle}>
+                      {testimonial.title}
+                    </h3>
+                    <p className={stls.testimonialP}>{testimonial.subtitle}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className={cn(stls.btns, stls.btnsDesktop)}>
+            <BtnBeta variant='alpha' classNames={[stls.btn, stls.btnLeft]}>
               Государственная лицензия на право ведения образовательной
               деятельности
-            </button>
-          </div>
-          <div className={stls.right}>
-            <ul className={stls.testimonials}>
-              {testimonials.map((testimonial, idx) => (
-                <li key={testimonial.title + idx} className={stls.testimonial}>
-                  <h3 className={stls.testimonialTitle}>{testimonial.title}</h3>
-                  <p className={stls.testimonialP}>{testimonial.subtitle}</p>
-                </li>
-              ))}
-            </ul>
+            </BtnBeta>
+            <BtnBeta variant='beta' classNames={[stls.btn]}>
+              Свидетельство о государственной аккредитации
+            </BtnBeta>
           </div>
         </div>
       </Wrapper>

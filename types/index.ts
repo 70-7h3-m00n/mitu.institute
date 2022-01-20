@@ -1,10 +1,12 @@
 //btn
 import type TypeBtn from '@/types/btn/TypeBtn'
+import type TypeBtnAlphaVariant from '@/types/btn/TypeBtnAlphaVariant'
+import type TypeBtnBeta from '@/types/btn/TypeBtnBeta'
+import type TypeBtnBetaVariant from '@/types/btn/TypeBtnBetaVariant'
 import type TypeBtnDisabled from '@/types/btn/TypeBtnDisabled'
 import type TypeBtnHref from '@/types/btn/TypeBtnHref'
 import type TypeBtnTag from '@/types/btn/TypeBtnTag'
 import type TypeBtnType from '@/types/btn/TypeBtnType'
-import type TypeBtnVariant from '@/types/btn/TypeBtnVariant'
 
 // context
 import type TypeContextGeneralPopup from '@/types/context/TypeContextGeneralPopup'
@@ -40,14 +42,16 @@ import type TypePagePromoProps from '@/types/page/TypePagePromoProps'
 import type TypeProgramCategory from '@/types/program/TypeProgramCategory'
 
 export {
-  TypeAnchor,
-  TypeAriaLabel,
   TypeBtn,
+  TypeBtnAlphaVariant,
+  TypeBtnBeta,
+  TypeBtnBetaVariant,
   TypeBtnDisabled,
   TypeBtnHref,
   TypeBtnTag,
   TypeBtnType,
-  TypeBtnVariant,
+  TypeAnchor,
+  TypeAriaLabel,
   TypeContextGeneralPopup,
   TypeChildren,
   TypeClassNames,

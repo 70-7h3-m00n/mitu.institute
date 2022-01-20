@@ -7,7 +7,7 @@ import {
   TypeOnClick,
   TypeBtnDisabled,
   TypeAriaLabel,
-  TypeBtnAlphaVariant
+  TypeBtnBetaVariant
 } from '@/types/index'
 
 type TypeBtn = TypeClassNames &
@@ -18,6 +18,6 @@ type TypeBtn = TypeClassNames &
   TypeOnClick &
   TypeBtnDisabled &
   TypeAriaLabel &
-  TypeBtnAlphaVariant
+  TypeBtnBetaVariant
 
 export default TypeBtn

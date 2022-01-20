@@ -1,4 +1,5 @@
 import IconArrowTopRight from '@/components/icons/IconArrowTopRight'
+import IconArrowTopRightAlt from '@/components/icons/IconArrowTopRightAlt'
 import IconChat from '@/components/icons/IconChat'
 import IconCheck from '@/components/icons/IconCheck'
 import IconClock from '@/components/icons/IconClock'
@@ -16,6 +17,7 @@ import IconVideoOnStand from '@/components/icons/IconVideoOnStand'
 
 export {
   IconArrowTopRight,
+  IconArrowTopRightAlt,
   IconChat,
   IconCheck,
   IconClock,

@@ -1,4 +1,4 @@
-type TypeBtnVariant = {
+type TypeBtnAlphaVariant = {
   variant:
     | 'alpha'
     | 'alpha-reverse'
@@ -12,4 +12,4 @@ type TypeBtnVariant = {
     | 'epsilon-reverse'
 }
 
-export default TypeBtnVariant
+export default TypeBtnAlphaVariant
