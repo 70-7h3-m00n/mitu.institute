@@ -6,8 +6,12 @@ import routesFront from '@/config/routesFront'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralAddress, GeneralPhoneNumber } from '@/components/general'
-import { IconInstagram, IconYoutube, IconVK, IconFacebook } from '@/components/icons'
-
+import {
+  IconInstagram,
+  IconYoutube,
+  IconVK,
+  IconFacebook
+} from '@/components/icons'
 
 type TypeFooterProps = TypeClassNames
 
@@ -36,16 +40,23 @@ const Footer = ({ classNames }: TypeFooterProps) => {
   ]
 
   return (
-    <footer className={cn(stls.container, getClassNames({ classNames })) || undefined}>
+    <footer
+      className={
+        cn(stls.container, getClassNames({ classNames })) || undefined
+      }>
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
           <div className={stls.logo}>LOGO</div>
           <div className={stls.agreement}>
             <Link href={'#'}>
-              <a className={cn(stls.link, stls.underline)}>Политика кофиденциальности</a>
+              <a className={cn(stls.link, stls.underline)}>
+                Политика кофиденциальности
+              </a>
             </Link>
             <Link href={'#'}>
-              <a className={cn(stls.link, stls.underline)}>Пользовательское соглашение</a>
+              <a className={cn(stls.link, stls.underline)}>
+                Пользовательское соглашение
+              </a>
             </Link>
           </div>
           <ul className={stls.list}>
@@ -84,7 +95,9 @@ const Footer = ({ classNames }: TypeFooterProps) => {
             </div>
           </div>
         </div>
-        <p className={stls.owner}>Московский институт технологий и управления, 2021</p>
+        <p className={stls.owner}>
+          Московский институт технологий и управления, 2021
+        </p>
       </Wrapper>
     </footer>
   )
