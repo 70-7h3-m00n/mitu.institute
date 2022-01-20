@@ -25,3 +25,4 @@
 - Improve focus & hover state for `BtnBeta` in `./components/btns/BtnBeta.tsx`
 - Improve a way to style & generalize styling for FormLead in `./components/forms/FormLead.tsx`, avoid styling collision for current beta variant
 - Improve styles & markup for `SectionTrainingFormat` in `./components/sections/SectionTrainingFormat.tsx`
+- Improve focus-visible & hover for `SectionQna` qna items in `./components/sections/SectionQna.tsx`
