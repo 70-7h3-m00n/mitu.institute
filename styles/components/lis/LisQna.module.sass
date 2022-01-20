@@ -1,0 +1,11 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as s
+@use '@/styles/shared/section' as section
+
+.btn
+  padding: f.px(17)
+  text-align: left
+  @include m.dye(bg, c.$upsilon)
+  @include m.dye(c, c.$omega)
