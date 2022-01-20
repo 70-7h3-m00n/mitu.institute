@@ -1,0 +1,48 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
+@use '@/styles/shared/section' as section
+
+
+.container 
+
+.content 
+    margin-bottom: f.px(65)
+
+.title
+    font-weight: 700
+    font-size: f.px(20)
+    margin-bottom: f.px(50)
+
+.list 
+    list-style: none
+    padding: 0
+    margin: 0
+
+.item
+    margin-bottom: f.px(36)
+
+.icon
+    width: f.px(16)
+    
+
+.subitem
+    position: relative
+    padding: 0 0 0 f.px(56)
+    margin-bottom: f.px(20)
+    @include m.flex($ai: center)
+    &::before
+        content: ''
+        position: absolute
+        left: 0
+        width: f.px(16)
+        height: f.px(16)
+        border-radius: 50%
+        @include m.dye(bg, c.$beta)
+
+
+.link
+    font-size: f.px(14)
+    text-decoration: underline
+    @include m.dye(c, c.$omega)

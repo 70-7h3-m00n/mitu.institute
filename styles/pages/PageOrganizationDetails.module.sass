@@ -1,0 +1,73 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/section' as section
+
+
+.wrapper
+    @include section.gap
+
+.title
+    font-weight: 700
+    font-size: f.px(64)
+
+.content
+    @include m.flex($jc: space-between)
+
+.list
+    list-style: none
+    padding: 0
+    @include m.media(phone)
+   
+    @include m.media(tablet)
+   
+    @include m.media(phone, tablet)
+    
+    @include m.media(laptop)
+    
+    @include m.media(desktop)
+   
+    @include m.media(laptop, desktop)
+        margin-right: f.px(136)
+        max-width: f.px(280)
+        text-align: start
+    
+
+
+.item
+    &:first-child
+        padding-top: 0
+    &:last-child
+        padding-bottom: 0
+        border: none
+
+    @include m.media(phone)
+   
+    @include m.media(tablet)
+   
+    @include m.media(phone, tablet)
+    
+    @include m.media(laptop)
+    
+    @include m.media(desktop)
+        @include m.flex($jc: flex-start)
+        padding: f.px(24) 0
+        border-bottom: f.px(2) solid c.$delta
+
+
+
+.btn
+    font-size: f.px(18)
+    font-weight: 600
+    text-align: start
+    &.active
+        @include m.dye(c, c.$beta)
+    @include m.media(laptop, desktop)
+        transition: all .3s
+        &:hover
+            @include m.dye(c, c.$beta)
+
+
+
+.component
+

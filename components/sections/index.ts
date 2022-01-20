@@ -8,6 +8,9 @@ import SectionOurPrograms from '@/components/sections/SectionOurPrograms'
 import SectionTrainingFormat from '@/components/sections/SectionTrainingFormat'
 import SectionUIFormAlpha from '@/components/sections/SectionUIFormAlpha'
 import SectionYourFutureDiploma from '@/components/sections/SectionYourFutureDiploma'
+import SectionOrganizationList from '@/components/sections/SectionOrganizationList'
+import SectionEducationTable from '@/components/sections/SectionEducationTable'
+import SectionManagementTable from '@/components/sections/SectionManagementTable'
 
 export {
   SectionAboutUniversity,
@@ -19,5 +22,8 @@ export {
   SectionOurPrograms,
   SectionTrainingFormat,
   SectionUIFormAlpha,
-  SectionYourFutureDiploma
+  SectionYourFutureDiploma,
+  SectionOrganizationList,
+  SectionEducationTable,
+  SectionManagementTable
 }
