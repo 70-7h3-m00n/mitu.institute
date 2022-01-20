@@ -5,6 +5,7 @@ import IconCheck from '@/components/icons/IconCheck'
 import IconClock from '@/components/icons/IconClock'
 import IconCoatOfArmsRussia from '@/components/icons/IconCoatOfArmsRussia'
 import IconCross from '@/components/icons/IconCross'
+import IconCrossAlt from '@/components/icons/IconCrossAlt'
 import IconLightBulb from '@/components/icons/IconLightBulb'
 import IconLoader from '@/components/icons/IconLoader'
 import IconLocation from '@/components/icons/IconLocation'
@@ -23,6 +24,7 @@ export {
   IconClock,
   IconCoatOfArmsRussia,
   IconCross,
+  IconCrossAlt,
   IconLightBulb,
   IconLoader,
   IconLocation,

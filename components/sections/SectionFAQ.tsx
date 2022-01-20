@@ -23,6 +23,7 @@ const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
               <LisQna
                 key={qna.question + idx}
                 qna={qna}
+                idx={idx}
                 classNames={[stls.qna]}
               />
             ))}

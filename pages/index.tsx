@@ -7,7 +7,6 @@ import {
   SectionEnterWithoutExam,
   SectionHowTrainingGoes,
   SectionAboutUniversity,
-  SectionTrainingFormat,
   SectionFAQ,
   SectionYourFutureDiploma,
   SectionUIFormAlpha
@@ -22,7 +21,6 @@ const PageHome: NextPage = () => {
       <SectionEnterWithoutExam />
       <SectionHowTrainingGoes />
       <SectionAboutUniversity />
-      <SectionTrainingFormat />
       <SectionFAQ />
       <SectionYourFutureDiploma />
       <SectionUIFormAlpha />

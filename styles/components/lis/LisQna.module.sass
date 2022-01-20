@@ -5,7 +5,36 @@
 @use '@/styles/shared/section' as section
 
 .btn
+  @include m.flex($jc: space-between, $ai: center)
   padding: f.px(17)
+  font-size: f.px(18)
+  font-weight: 600
   text-align: left
+  transition: background-color 0.1s ease, color .1s ease
   @include m.dye(bg, c.$upsilon)
   @include m.dye(c, c.$omega)
+  &.isOpen
+    @include m.dye(bg, c.$beta)
+    @include m.dye(c, c.$upsilon)
+    & .cross
+      transform: rotate(45deg)
+      & path
+        @include m.dye(stroke, c.$upsilon)
+    & ~ .answer
+      display: block
+      margin: 0
+      padding-top: f.px(16)
+      padding-left: f.px(7)
+      line-height: 120%
+      @include m.dye(c, c.$psi)
+      @include m.media(tablet)
+        font-size: f.px(14)
+
+.cross
+  max-width: f.px(16)
+  transition: transform 0.2s ease
+  & path
+    @include m.dye(stroke, c.$omega)
+
+.answer
+  display: none
