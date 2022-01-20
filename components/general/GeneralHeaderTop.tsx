@@ -2,19 +2,18 @@ import stls from '@/styles/components/general/GeneralHeaderTop.module.sass'
 import { TypeClassNames } from '@/types/index'
 import { MouseEventHandler } from 'react'
 import Link from 'next/link'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
 import { contextAccessibilityContext } from '@/context/index'
 import { BtnAlpha } from '@/components/btns'
+import { IconEye } from '@/components/icons'
 
 type TypeGeneralHeaderTopProps = TypeClassNames
 
 const GeneralHeaderTop = ({ classNames }: TypeGeneralHeaderTopProps) => {
   const contextAccessibility = useContext(contextAccessibilityContext)
-
-  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     if (contextAccessibility.fontSm)
@@ -61,7 +60,8 @@ const GeneralHeaderTop = ({ classNames }: TypeGeneralHeaderTopProps) => {
       Сведения об образовательной организации
       <Popup
         trigger={() => (
-          <button onClick={() => setIsOpen(!isOpen)}>
+          <button className={stls.btnAccessibilityTrigger}>
+            <IconEye classNames={[stls.icon]} />
             Версия для слабовидящих
           </button>
         )}

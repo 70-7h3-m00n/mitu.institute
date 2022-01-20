@@ -46,7 +46,7 @@ const Header = ({ classNames }: TypeHeaderProps) => {
       }>
       <Wrapper>
         <BtnSkipNav />
-        <GeneralHeaderTop />
+        <GeneralHeaderTop classNames={[stls.top]} />
         <div className={stls.bottom}>
           <div className={stls.content}>
             <GeneralLogo classNames={[stls.logo]} />

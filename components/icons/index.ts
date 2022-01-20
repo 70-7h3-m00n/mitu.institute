@@ -6,6 +6,7 @@ import IconClock from '@/components/icons/IconClock'
 import IconCoatOfArmsRussia from '@/components/icons/IconCoatOfArmsRussia'
 import IconCross from '@/components/icons/IconCross'
 import IconCrossAlt from '@/components/icons/IconCrossAlt'
+import IconEye from '@/components/icons/IconEye'
 import IconFacebook from '@/components/icons/IconFacebook'
 import IconInstagram from '@/components/icons/IconInstagram'
 import IconLightBulb from '@/components/icons/IconLightBulb'
@@ -29,6 +30,7 @@ export {
   IconCoatOfArmsRussia,
   IconCross,
   IconCrossAlt,
+  IconEye,
   IconInstagram,
   IconFacebook,
   IconLightBulb,

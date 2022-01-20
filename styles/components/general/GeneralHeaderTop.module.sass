@@ -5,6 +5,26 @@
 .container
   @include m.flex($jc: space-between)
 
+.btnAccessibilityTrigger
+  @include m.flex($jc: center, $ai: center)
+  outline: none
+  font-size: f.px(14)
+  line-height: 110%
+  @include m.dye(c, c.$alpha)
+  transition: transform 0.1s ease
+  &:active
+    transform: scale(0.98)
+  &:focus-visible
+    transform: scale(1.02)
+    text-decoration: underline
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      transform: scale(1.02)
+
+.icon
+  max-width: f.px(24)
+  margin-right: f.px(8)
+
 .accessibilityControls
   @include m.flex($fw: wrap, $jc: space-evenly, $ai: center)
   padding: f.px(40)
