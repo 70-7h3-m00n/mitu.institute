@@ -27,3 +27,4 @@
 - Improve styles & markup for `SectionTrainingFormat` in `./components/sections/SectionTrainingFormat.tsx`
 - Improve focus-visible & hover for `SectionQna` qna items in `./components/sections/SectionQna.tsx`
 - Improve a total mess at `./context/accessibility`
+- Improve selectors and routes types at `./config/index/selectors.ts`

@@ -7,7 +7,8 @@ const routesFront: TypeRoutesFront = {
   promo: '/promo',
   apiLead: '/api/lead',
   assetsImgsIconsManifestIcon512: '/assets/imgs/icons/manifest-icon-512.png',
-  anchorMain: '#main'
+  anchorMain: '#main',
+  anchorPrograms: '#programs'
 }
 
 export default routesFront

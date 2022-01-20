@@ -10,6 +10,7 @@ import type TypeBtnType from '@/types/btn/TypeBtnType'
 
 // context
 import type TypeContextAccessibility from '@/types/context/TypeContextAccessibility'
+import type TypeContextCategory from '@/types/context/TypeContextCategory'
 import type TypeContextGeneralPopup from '@/types/context/TypeContextGeneralPopup'
 
 // general
@@ -23,6 +24,7 @@ import type TypeColorsKeys from '@/types/general/TypeColorsKeys'
 import type TypeFormAlphaValues from '@/types/general/TypeFormAlphaValues'
 import type TypeLeadClientValues from '@/types/general/TypeLeadClientValues'
 import type TypeLinks from '@/types/general/TypeLinks'
+import type TypeLinksHeaderAlt from '@/types/general/TypeLinksHeaderAlt'
 import type TypeNextApiResponseLeadData from '@/types/general/TypeNextApiResponseLeadData'
 import type TypeOnClick from '@/types/general/TypeOnClick'
 import type TypePageData from '@/types/general/TypePageData'
@@ -55,6 +57,7 @@ export {
   TypeAnchor,
   TypeAriaLabel,
   TypeContextAccessibility,
+  TypeContextCategory,
   TypeContextGeneralPopup,
   TypeChildren,
   TypeClassNames,
@@ -64,6 +67,7 @@ export {
   TypeFormAlphaValues,
   TypeLeadClientValues,
   TypeLinks,
+  TypeLinksHeaderAlt,
   TypeNextApiResponseLeadData,
   TypeOnClick,
   TypePageData,

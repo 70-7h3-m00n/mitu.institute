@@ -1,17 +1,22 @@
 import stls from '@/styles/components/layout/HeaderAlt.module.sass'
-import { TypeClassNames } from '@/types/index'
+import {
+  TypeLinksHeaderAlt,
+  TypeClassNames,
+  TypeProgramCategory
+} from '@/types/index'
 import { useRouter } from 'next/router'
-import { MouseEventHandler } from 'react'
+import { MouseEventHandler, useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { ContextCategoryContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralLogo,
   GeneralPhoneNumber,
   GeneralAddress,
-  GeneralNavLaptopDesktop,
+  GeneralNavAltLaptopDesktop,
   GeneralNavTablet,
   GeneralPopup
 } from '@/components/general'
@@ -23,18 +28,23 @@ type TypeHeaderAltProps = TypeClassNames
 const HeaderAlt = ({ classNames }: TypeHeaderAltProps) => {
   const router = useRouter()
 
-  const links = [
+  const { category, setCategory } = useContext(ContextCategoryContext)
+
+  const links: TypeLinksHeaderAlt = [
     {
-      href: routesFront.home,
-      val: 'Бакалавриат'
+      href: routesFront.anchorPrograms,
+      val: 'Бакалавриат',
+      payload: 'bachelor'
     },
     {
-      href: routesFront.home,
-      val: 'Магистратура'
+      href: routesFront.anchorPrograms,
+      val: 'Магистратура',
+      payload: 'master'
     },
     {
-      href: routesFront.home,
-      val: 'Дополнительное образование'
+      href: routesFront.anchorPrograms,
+      val: 'Дополнительное образование',
+      payload: 'additional'
     }
   ]
 
@@ -55,9 +65,8 @@ const HeaderAlt = ({ classNames }: TypeHeaderAltProps) => {
                 withIcon
               />
             </div>
-            <GeneralNavLaptopDesktop links={links} />
+            <GeneralNavAltLaptopDesktop links={links} />
           </div>
-
           <Popup
             // onOpen={() => {
             //   router.push(router.asPath, '?popupIsOpen=true', { shallow: true })

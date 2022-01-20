@@ -1,7 +1,7 @@
 import GeneralAddress from '@/components/general/GeneralAddress'
 import GeneralHeaderTop from '@/components/general/GeneralHeaderTop'
 import GeneralLogo from '@/components/general/GeneralLogo'
-import GeneralNavLaptopDesktop from '@/components/general/GeneralNavLaptopDesktop'
+import GeneralNavAltLaptopDesktop from '@/components/general/GeneralNavAltLaptopDesktop'
 import GeneralNavTablet from '@/components/general/GeneralNavTablet'
 import GeneralPhoneNumber from '@/components/general/GeneralPhoneNumber'
 import GeneralPopup from '@/components/general/GeneralPopup'
@@ -14,7 +14,7 @@ export {
   GeneralAddress,
   GeneralHeaderTop,
   GeneralLogo,
-  GeneralNavLaptopDesktop,
+  GeneralNavAltLaptopDesktop,
   GeneralNavTablet,
   GeneralPhoneNumber,
   GeneralPopup,

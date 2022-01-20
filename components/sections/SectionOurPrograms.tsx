@@ -1,9 +1,11 @@
 import stls from '@/styles/components/sections/SectionOurPrograms.module.sass'
-import { TypeClassNames, TypeProgramCategory } from '@/types/index'
-import { MouseEventHandler, useState } from 'react'
+import { TypeClassNames } from '@/types/index'
+import { MouseEventHandler, useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
+import { selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { ContextCategoryContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -13,10 +15,11 @@ import { BtnAlpha } from '@/components/btns'
 type TypeSectionOurProgramsProps = TypeClassNames
 
 const SectionOurPrograms = ({ classNames }: TypeSectionOurProgramsProps) => {
-  const [category, setCategory] = useState<TypeProgramCategory>('master')
+  const { category, setCategory } = useContext(ContextCategoryContext)
 
   return (
     <section
+      id={selectors.programs}
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
@@ -27,15 +30,15 @@ const SectionOurPrograms = ({ classNames }: TypeSectionOurProgramsProps) => {
         <div className={stls.content}>
           <div className={stls.btns}>
             <BtnAlpha
-              variant={category === 'master' ? 'epsilon' : 'epsilon-reverse'}
+              variant={category === 'bachelor' ? 'epsilon' : 'epsilon-reverse'}
               classNames={[stls.btn]}
-              onClick={() => setCategory('master')}>
+              onClick={() => setCategory({ payload: 'bachelor' })}>
               Бакалавриат
             </BtnAlpha>
             <BtnAlpha
-              variant={category === 'bachelor' ? 'epsilon' : 'epsilon-reverse'}
+              variant={category === 'master' ? 'epsilon' : 'epsilon-reverse'}
               classNames={[stls.btn]}
-              onClick={() => setCategory('bachelor')}>
+              onClick={() => setCategory({ payload: 'master' })}>
               Магистратура
             </BtnAlpha>
             <BtnAlpha
@@ -43,7 +46,7 @@ const SectionOurPrograms = ({ classNames }: TypeSectionOurProgramsProps) => {
                 category === 'additional' ? 'epsilon' : 'epsilon-reverse'
               }
               classNames={[stls.btn]}
-              onClick={() => setCategory('additional')}>
+              onClick={() => setCategory({ payload: 'additional' })}>
               Дополнительное образование
             </BtnAlpha>
           </div>

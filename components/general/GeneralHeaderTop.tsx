@@ -6,14 +6,14 @@ import { useContext, useEffect } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
-import { contextAccessibilityContext } from '@/context/index'
+import { ContextAccessibilityContext } from '@/context/index'
 import { BtnAlpha } from '@/components/btns'
 import { IconEye } from '@/components/icons'
 
 type TypeGeneralHeaderTopProps = TypeClassNames
 
 const GeneralHeaderTop = ({ classNames }: TypeGeneralHeaderTopProps) => {
-  const contextAccessibility = useContext(contextAccessibilityContext)
+  const contextAccessibility = useContext(ContextAccessibilityContext)
 
   useEffect(() => {
     if (contextAccessibility.fontSm)

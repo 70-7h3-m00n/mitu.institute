@@ -1,8 +1,8 @@
-import { TypeRoute } from '@/types/index'
+import { TypeRoute, TypeAnchor } from '@/types/index'
 
 type TypeLinks = {
   readonly links: {
-    href: TypeRoute
+    href: TypeRoute | TypeAnchor
     val: string
   }[]
 }

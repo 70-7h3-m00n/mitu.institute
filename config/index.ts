@@ -11,6 +11,7 @@ import prod from '@/config/prod'
 import revalidate from '@/config/revalidate'
 import routesBack from '@/config/routesBack'
 import routesFront from '@/config/routesFront'
+import selectors from '@/config/selectors'
 import themeColor from '@/config/themeColor'
 
 export {
@@ -27,5 +28,6 @@ export {
   revalidate,
   routesBack,
   routesFront,
+  selectors,
   themeColor
 }

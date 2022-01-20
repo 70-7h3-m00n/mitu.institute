@@ -24,7 +24,7 @@ import {
 } from '@/context/types'
 import { useReducer } from 'react'
 import {
-  contextAccessibilityContext,
+  ContextAccessibilityContext,
   contextAccessibilityReducer
 } from '@/context/index'
 
@@ -200,7 +200,7 @@ const ContextAccessibilityState = ({
   }
 
   return (
-    <contextAccessibilityContext.Provider
+    <ContextAccessibilityContext.Provider
       value={{
         fontSm: state.fontSm,
         fontMd: state.fontMd,
@@ -232,7 +232,7 @@ const ContextAccessibilityState = ({
         setHiddenImgsToggle
       }}>
       {children}
-    </contextAccessibilityContext.Provider>
+    </ContextAccessibilityContext.Provider>
   )
 }
 

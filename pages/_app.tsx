@@ -12,22 +12,15 @@ import { prod, routesFront } from '@/config/index'
 import { handleUtms, handleReferer } from '@/helpers/index'
 import {
   ContextAccessibilityState,
-  contextAccessibilityContext
+  ContextCategoryState
 } from '@/context/index'
 import { Header, HeaderAlt, Main, Footer } from '@/components/layout'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false)
 
-  const contextAccessibility = useContext(contextAccessibilityContext)
-
   useEffect(() => {
     // TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
-
-    if (contextAccessibility.fontSm) {
-      console.log('test')
-      document.body.classList.add('fontSm')
-    }
 
     handleUtms({ router })
     handleReferer()
@@ -52,7 +45,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       Router.events.off('routeChangeComplete', end)
       Router.events.off('routeChangeError', end)
     }
-  }, [router, contextAccessibility])
+  }, [router])
 
   if (prod) {
     console.log = () => {}
@@ -67,11 +60,13 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       />
       {/* <ContextGeneralPopupState> */}
       <ContextAccessibilityState>
-        {router.route === routesFront.promo ? <HeaderAlt /> : <Header />}
-        <Main>
-          <Component {...pageProps} />
-        </Main>
-        <Footer />
+        <ContextCategoryState>
+          {router.route === routesFront.promo ? <HeaderAlt /> : <Header />}
+          <Main>
+            <Component {...pageProps} />
+          </Main>
+          <Footer />
+        </ContextCategoryState>
       </ContextAccessibilityState>
       {/* </ContextGeneralPopupState> */}
     </>

@@ -12,7 +12,7 @@ import {
   GeneralHeaderTop,
   GeneralPhoneNumber,
   GeneralAddress,
-  GeneralNavLaptopDesktop,
+  GeneralNavAltLaptopDesktop,
   GeneralNavTablet,
   GeneralPopup
 } from '@/components/general'
@@ -26,15 +26,15 @@ const Header = ({ classNames }: TypeHeaderProps) => {
 
   const links = [
     {
-      href: routesFront.home,
+      href: routesFront.anchorPrograms,
       val: 'Бакалавриат'
     },
     {
-      href: routesFront.home,
+      href: routesFront.anchorPrograms,
       val: 'Магистратура'
     },
     {
-      href: routesFront.home,
+      href: routesFront.anchorPrograms,
       val: 'Дополнительное образование'
     }
   ]
@@ -58,7 +58,7 @@ const Header = ({ classNames }: TypeHeaderProps) => {
                   withIcon
                 />
               </div>
-              <GeneralNavLaptopDesktop links={links} />
+              <GeneralNavAltLaptopDesktop links={links} />
             </div>
 
             <Popup
