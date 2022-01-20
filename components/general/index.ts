@@ -1,4 +1,5 @@
 import GeneralAddress from '@/components/general/GeneralAddress'
+import GeneralHeaderTop from '@/components/general/GeneralHeaderTop'
 import GeneralLogo from '@/components/general/GeneralLogo'
 import GeneralNavLaptopDesktop from '@/components/general/GeneralNavLaptopDesktop'
 import GeneralNavTablet from '@/components/general/GeneralNavTablet'
@@ -11,6 +12,7 @@ import GeneralTextHighlight from '@/components/general/GeneralTextHighlight'
 
 export {
   GeneralAddress,
+  GeneralHeaderTop,
   GeneralLogo,
   GeneralNavLaptopDesktop,
   GeneralNavTablet,

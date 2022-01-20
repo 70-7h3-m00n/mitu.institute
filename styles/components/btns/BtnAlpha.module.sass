@@ -82,3 +82,21 @@
     padding-left: 2.5%
     padding-right: 2.5%
   @include m.dye(border, c.$delta)
+
+.zeta
+  padding-top: f.px(16)
+  padding-bottom: f.px(16)
+  @include m.media(tablet, laptop, desktop)
+    padding-right: f.px(16)
+    padding-left: f.px(16)
+  font-size: f.px(16)
+  @include btns.regular($color1: c.$alpha, $color2: c.$upsilon)
+
+.zeta-reverse
+  padding-top: f.px(16)
+  padding-bottom: f.px(16)
+  @include m.media(tablet, laptop, desktop)
+    padding-left: f.px(16)
+    padding-right: f.px(16)
+  font-size: f.px(16)
+  @include btns.reverse($color: c.$alpha)

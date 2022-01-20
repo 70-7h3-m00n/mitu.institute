@@ -9,6 +9,7 @@ import type TypeBtnTag from '@/types/btn/TypeBtnTag'
 import type TypeBtnType from '@/types/btn/TypeBtnType'
 
 // context
+import type TypeContextAccessibility from '@/types/context/TypeContextAccessibility'
 import type TypeContextGeneralPopup from '@/types/context/TypeContextGeneralPopup'
 
 // general
@@ -53,6 +54,7 @@ export {
   TypeBtnType,
   TypeAnchor,
   TypeAriaLabel,
+  TypeContextAccessibility,
   TypeContextGeneralPopup,
   TypeChildren,
   TypeClassNames,

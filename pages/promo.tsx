@@ -10,7 +10,6 @@ import {
   SectionEnterWithoutExam,
   SectionHowTrainingGoes,
   SectionAboutUniversity,
-  SectionTrainingFormat,
   SectionFAQ,
   SectionYourFutureDiploma,
   SectionUIFormAlpha
@@ -25,7 +24,6 @@ const PagePromo: NextPage<TypePagePromoProps> = () => {
       <SectionEnterWithoutExam />
       <SectionHowTrainingGoes />
       <SectionAboutUniversity />
-      <SectionTrainingFormat />
       <SectionFAQ />
       <SectionYourFutureDiploma />
       <SectionUIFormAlpha />

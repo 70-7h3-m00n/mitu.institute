@@ -1,0 +1,45 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.container
+  @include m.flex($jc: space-between)
+
+.accessibilityControls
+  @include m.flex($fw: wrap, $jc: space-evenly, $ai: center)
+  padding: f.px(40)
+  @include m.dye(bg, c.$upsilon)
+
+.btnGroup
+  @include m.flex
+
+.btnDefault,
+.btn,
+.setHiddenImgsToggle,
+.closeAccessibilityControls
+  margin-right: f.px(12)
+  margin-bottom: f.px(12)
+
+.btn
+  @include m.flex($jc: center, $ai: center)
+  min-height: f.px(54)
+  min-width: f.px(54)
+  padding: 0
+
+.fontSm
+  font-size: f.px(18)
+
+.fontMd
+  font-size: f.px(22)
+
+.fontLg
+  font-size: f.px(26)
+
+.letterSpacingSm
+  letter-spacing: f.px(4)
+
+.letterSpacingMd
+  letter-spacing: f.px(6)
+
+.letterSpacingLg
+  letter-spacing: f.px(8)
