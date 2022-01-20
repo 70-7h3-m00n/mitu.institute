@@ -26,15 +26,15 @@ const Header = ({ classNames }: TypeHeaderProps) => {
 
   const links = [
     {
-      href: routesFront.anchorPrograms,
+      href: routesFront.home,
       val: 'Бакалавриат'
     },
     {
-      href: routesFront.anchorPrograms,
+      href: routesFront.home,
       val: 'Магистратура'
     },
     {
-      href: routesFront.anchorPrograms,
+      href: routesFront.home,
       val: 'Дополнительное образование'
     }
   ]
