@@ -23,3 +23,4 @@
 - Improve outline on focus-visible for `BtnBeta` in `./components/btns/BtnBeta.tsx`
 - Improve styles for `SectionAboutIniversity.tsx`, it's currently a mess
 - Improve focus & hover state for `BtnBeta` in `./components/btns/BtnBeta.tsx`
+- Improve a way to style & generalize styling for FormLead in `./components/forms/FormLead.tsx`

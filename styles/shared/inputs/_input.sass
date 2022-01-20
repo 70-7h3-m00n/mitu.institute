@@ -2,6 +2,25 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
 
+@mixin containerVariantBeta
+  & .inputGroup
+    &::after
+      @include m.dye(bg, c.$omega)
+  & .inputGroupError
+    &::after
+      @include m.dye(bg, c.$theta)
+  & .input
+    @include m.dye(c, c.$omega)
+    &::placeholder
+      @include m.dye(c, c.$chi)
+    &:focus-visible
+      @include m.dye(border, c.$omega)
+  & .inputError
+    &:focus-visible
+      @include m.dye(border, c.$theta)
+  & .error
+      @include m.dye(c, c.$theta)
+
 @mixin inputGroup
   position: relative
   &::after
@@ -10,7 +29,7 @@
     bottom: 0
     left: 0
     width: 100%
-    height: f.px(2)
+    height: 2px
     @include m.dye(bg, c.$upsilon)
 
 @mixin inputGroupError
@@ -39,6 +58,7 @@
     @include m.dye(border, c.$iota)
 
 @mixin error
+  margin-bottom: 0
   margin-top: f.px(8)
   line-height: 110%
   @include m.dye(c, c.$iota)

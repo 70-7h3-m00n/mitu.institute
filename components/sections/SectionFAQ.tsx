@@ -5,6 +5,7 @@ import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralCollapse } from '@/components/general'
 import { FormLead } from '@/components/forms'
+import { UIFormAlpha } from '../uiforms'
 
 type TypeSectionFAQProps = TypeClassNames
 
@@ -51,7 +52,13 @@ const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
               )
             })}
           </div>
-          <FormLead classNames={[stls.form]} />
+          <UIFormAlpha
+            classNames={[stls.form]}
+            variant='beta'
+            title={
+              <>Остались вопросы? Получите консультацию приемной комиссии</>
+            }
+          />
         </div>
       </Wrapper>
     </section>

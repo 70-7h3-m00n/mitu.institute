@@ -4,43 +4,46 @@
 @use '@/styles/shared/general' as g
 @use '@/styles/shared/section' as section
 
-
 .container 
-    @include section.gap
-    @include m.dye(bg, c.$zeta)
+  @include section.gap
+  @include m.dye(bg, c.$zeta)
 
 .content
-    @include m.media(phone, tablet)
-        @include m.flex($fd: column)
-    @include m.media(laptop, desktop)
-        @include m.flex()
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column)
+  @include m.media(laptop, desktop)
+    @include m.flex
 
 .questions
-    @include m.media(phone)
-        @include m.gap($mr: f.px(0), $mb: f.px(48))
-    @include m.media(tablet)
-        @include m.gap($mr: f.px(0), $mb: f.px(64))
-    @include m.media(laptop, desktop)
-        @include m.gap($mr: f.px(32))
+  @include m.media(phone)
+    margin-right: 0
+    margin-bottom: f.px(48)
+  @include m.media(tablet)
+    margin-right: 0
+    margin-bottom: f.px(64)
+  @include m.media(laptop, desktop)
+    margin-right: f.px(32)
     
 .collapse
-    @include m.gap($mtb: f.px(24))
-    &:first-child
-        @include m.gap($mt: f.px(0))
-    &:last-child
-        @include m.gap($mb: f.px(0))
+  margin-top: f.px(24)
+  margin-bottom: f.px(24)
+  &:first-child
+    @include m.gap($mt: f.px(0))
+    margin-top: 0
+  &:last-child
+    margin-bottom: 0
 
 .text
-    @include m.gap($mb: f.px(0))
-    @include m.dye(c, c.$psi)
-    font-size: f.px(16)
-    line-height: 120%
+  margin-bottom: 0
+  font-size: f.px(16)
+  line-height: 120%
+  @include m.dye(c, c.$psi)
 
 .form
-    @include m.dye(bg, c.$upsilon)
-    @include m.media(phone, tablet)
-        min-width: 100%
-        @include m.gap($plr: f.px(24), $ptb: f.px(24))
-    @include m.media(laptop, desktop)
-        min-width: f.px(384)
-        @include m.gap($plr: f.px(40), $ptb: f.px(40))
+  @include m.media(phone, tablet)
+    min-width: 100%
+    padding: f.px(24)
+  @include m.media(laptop, desktop)
+    min-width: f.px(384)
+    padding: f.px(40)
+  @include m.dye(bg, c.$upsilon)

@@ -1,17 +1,26 @@
 import stls from '@/styles/components/inputs/InputEmail.module.sass'
-import { TypeClassNames, TypeInput } from '@/types/index'
+import { TypeClassNames, TypeInput, TypeVariantForm } from '@/types/index'
 import cn from 'classnames'
 import { emailRegex } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 
-type TypeInputEmailProps = TypeClassNames & TypeInput
+type TypeInputEmailProps = TypeClassNames & TypeInput & TypeVariantForm
 
-const InputEmail = ({ classNames, register, error }: TypeInputEmailProps) => {
+const InputEmail = ({
+  classNames,
+  register,
+  error,
+  variant
+}: TypeInputEmailProps) => {
   const maxLength = 64
   return (
     <div
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(
+          [stls.container],
+          { [stls.containerVariantBeta]: variant === 'beta' },
+          getClassNames({ classNames })
+        ) || undefined
       }>
       <div className={cn(stls.inputGroup, { [stls.inputGroupError]: error })}>
         <input

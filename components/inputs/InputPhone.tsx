@@ -1,16 +1,25 @@
 import stls from '@/styles/components/inputs/InputPhone.module.sass'
-import { TypeClassNames, TypeInput, TypeFormAlphaValues } from '@/types/index'
+import { TypeClassNames, TypeInput, TypeVariantForm } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 
-type TypeInputPhoneProps = TypeClassNames & TypeInput
+type TypeInputPhoneProps = TypeClassNames & TypeInput & TypeVariantForm
 
-const InputPhone = ({ classNames, register, error }: TypeInputPhoneProps) => {
+const InputPhone = ({
+  classNames,
+  register,
+  error,
+  variant
+}: TypeInputPhoneProps) => {
   const minLength = 5
   return (
     <div
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(
+          [stls.container],
+          { [stls.containerVariantBeta]: variant === 'beta' },
+          getClassNames({ classNames })
+        ) || undefined
       }>
       <div className={cn(stls.inputGroup, { [stls.inputGroupError]: error })}>
         <input

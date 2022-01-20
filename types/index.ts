@@ -34,6 +34,7 @@ import type TypeRoutesFront from '@/types/general/TypeRoutesFront'
 import type TypeStyle from '@/types/general/TypeStyle'
 import type TypeUrl from '@/types/general/TypeUrl'
 import type TypeUtms from '@/types/general/TypeUtms'
+import type TypeVariantForm from '@/types/general/TypeVariantForm'
 
 // pages
 import type TypePagePromoProps from '@/types/page/TypePagePromoProps'
@@ -73,6 +74,7 @@ export {
   TypeStyle,
   TypeUrl,
   TypeUtms,
+  TypeVariantForm,
   TypePagePromoProps,
   TypeProgramCategory
 }

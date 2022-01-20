@@ -10,6 +10,10 @@
   @include m.dye(bg, c.$beta)
   @include m.dye(c, c.$gamma)
 
+.containerVariantBeta
+  @include m.dye(bg, c.$upsilon)
+  @include m.dye(c, c.$omega)
+
 .title
   @include m.media(phone)
     max-width: 29ch
@@ -27,3 +31,11 @@
   @include m.media(phone, laptop, desktop)
     &.propTitle
       max-width: 100%
+
+.titleVariantBeta
+  @include m.media(laptop, desktop)
+    max-width: 23ch
+    &.propTitle
+      max-width: 23ch
+  margin-bottom: f.px(16)
+  font-weight: 500
