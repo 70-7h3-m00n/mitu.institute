@@ -2,7 +2,7 @@ import stls from '@/styles/components/imgs/general/ImgLogo.module.sass'
 import { TypeClassNames, TypeImg } from '@/types/index'
 import { companyName } from '@/config/index'
 import { ImgTemplate } from '@/components/imgs'
-import src from '@/public/assets/imgs/general/logo-536.png'
+import src from '@/public/assets/imgs/icons/manifest-icon-512.png'
 
 type TypeImgLogoProps = TypeClassNames & TypeImg
 
