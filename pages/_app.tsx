@@ -10,7 +10,7 @@ import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from 'seo.config'
 import { prod, routesFront, selectors, gtm } from '@/config/index'
-import { handleUtms, handleReferer, pageView } from '@/helpers/index'
+import { handleUtms, handleReferer, pageview } from '@/helpers/index'
 import {
   ContextAccessibilityState,
   ContextCategoryState
@@ -37,7 +37,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     const end = (url: TypeRoute) => {
       NProgress.done()
       setLoading(false)
-      pageView({ url })
+      pageview({ url })
     }
     Router.events.on('routeChangeStart', start)
     Router.events.on('routeChangeComplete', end)

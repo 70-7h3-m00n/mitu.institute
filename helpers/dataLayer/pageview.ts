@@ -1,14 +1,14 @@
 import { TypeRoute } from '@/types/index'
 
-type TypePageViewProps = {
+type TypePageviewProps = {
   url: TypeRoute
 }
 
-const pageView = ({ url }: TypePageViewProps) => {
+const pageview = ({ url }: TypePageviewProps) => {
   window.dataLayer?.push({
     event: 'pageview',
     page: url
   })
 }
 
-export default pageView
+export default pageview
