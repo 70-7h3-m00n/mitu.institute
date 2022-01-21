@@ -6,9 +6,17 @@
 
 
 .container 
+    padding: 0
+
+.wrapper
+    padding: 0
 
 .content 
-    margin-bottom: f.px(65)
+    margin-bottom: f.px(69)
+    &:last-child
+        margin-bottom: f.px(0)
+    @include m.media(desktop)
+        padding-left: f.px(136)
 
 .title
     font-weight: 700
@@ -21,17 +29,31 @@
     margin: 0
 
 .item
-    margin-bottom: f.px(36)
+    position: relative
+    padding: 0 0 0 f.px(28)
+    
+    @include m.flex($ai: center)
+    .icon
+        left: f.px(0)
+    @include m.media(phone)
+        margin-bottom: f.px(25)
+    @include m.media(tablet)
+        margin-bottom: f.px(34)
+    @include m.media(laptop, desktop)
+        margin-bottom: f.px(41)
 
 .icon
+    position: absolute
     width: f.px(16)
     
-
 .subitem
     position: relative
     padding: 0 0 0 f.px(56)
-    margin-bottom: f.px(20)
+    margin-bottom: f.px(26)
     @include m.flex($ai: center)
+
+    .icon
+        left: f.px(28)
     &::before
         content: ''
         position: absolute

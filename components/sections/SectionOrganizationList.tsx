@@ -109,7 +109,7 @@ const SectionOrganizationList = ({ classNames, type }: TypeSectionOrganizationLi
 
     return (
         <section className={cn(stls.container, getClassNames({ classNames }))}>
-            <Wrapper>
+            <Wrapper classNames={[stls.wrapper]}>
                 {
                     data.length > 0 && data.map((el, idx) => {
                         return (
@@ -120,7 +120,7 @@ const SectionOrganizationList = ({ classNames, type }: TypeSectionOrganizationLi
                                        el.items.map((item, i) => {
                                            return (
                                                <li key={i} className={stls.item}>
-                                                   {/* <Link href={'#'}> */}
+                                                   {/* <Link href={item.src}> */}
                                                        <IconDoc classNames={[stls.icon]}/>
                                                     <a className={stls.link}>{item.subtitle}</a>
                                                    {/* </Link> */}
@@ -134,7 +134,7 @@ const SectionOrganizationList = ({ classNames, type }: TypeSectionOrganizationLi
                                         el.subitems.map((subitem, i) => {
                                             return (
                                                 <li key={i} className={stls.subitem}>
-                                                    {/* <Link href={'#'}> */}
+                                                    {/* <Link href={subitem.src}> */}
                                                         <IconDoc classNames={[stls.icon]}/>
                                                      <a className={stls.link}>{subitem.subtitle}</a>
                                                     {/* </Link> */}

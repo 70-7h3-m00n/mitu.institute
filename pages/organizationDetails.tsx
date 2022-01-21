@@ -7,8 +7,6 @@ import { SectionEducationTable, SectionManagementTable, SectionOrganizationList 
 
 
 
-
-
 export const dataNavbar = [
     {
         title: 'Основные сведения',
@@ -65,7 +63,8 @@ export const dataNavbar = [
 
 
 const PageOrganizationDetails: NextPage = () => {
-    const [content, setContent] = useState<any>(dataNavbar[0].type)
+    const [content, setContent] = useState<{ title: string, type: string }>(dataNavbar[0])
+    const [openFilter, setOpenFilter] = useState<boolean>(false)
 
 
     return (
@@ -73,21 +72,23 @@ const PageOrganizationDetails: NextPage = () => {
             <Wrapper classNames={[stls.wrapper]}>
                 <h1 className={stls.title}>Сведения об организации</h1>
                 <div className={stls.content}>
-                    <ul className={stls.list}>
+                    <button className={stls.filter} onClick={() => setOpenFilter(!openFilter)}>{openFilter ? 'Свернуть фильтры' : 'Показать фильтры'}</button>
+                    <ul className={cn(stls.list, {[stls.hide]: !openFilter})}>
                         {
                             dataNavbar.length > 0 && dataNavbar.map((item, idx) => {
                                 return (
                                     <li key={idx} className={stls.item}>
-                                        <button className={cn(stls.btn, {[stls.active]: item.type === content})} onClick={() => setContent(item.type)}>{item.title}</button>
+                                        <button className={cn(stls.btn, { [stls.active]: item.type === content.type })} onClick={() => setContent(item)}>{item.title}</button>
                                     </li>
                                 )
                             })
                         }
                     </ul>
                     <div className={stls.component}>
-                       <SectionOrganizationList type={content}/>
-                       <SectionEducationTable type={content}/>
-                       <SectionManagementTable type={content}/>
+                        <h2 className={stls.programTitle}>{content.title}</h2>
+                        <SectionOrganizationList type={content.type} />
+                        <SectionEducationTable type={content.type} />
+                        <SectionManagementTable type={content.type} />
                     </div>
                 </div>
             </Wrapper>

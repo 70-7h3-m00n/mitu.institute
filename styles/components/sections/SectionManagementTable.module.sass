@@ -3,3 +3,30 @@
 @use '@/styles/themes/default/Colors.module.sass' as c
 @use '@/styles/shared/general' as g
 @use '@/styles/shared/section' as section
+
+.container
+    padding: 0
+
+.wrapper
+    position: relative
+    padding: 0
+    overflow-x: auto 
+   
+.table
+    border-collapse: collapse
+   
+.tbody
+    &:nth-child(2n)
+        @include m.dye(bg, c.$delta)
+
+.item
+    width: f.px(210)
+    padding: f.px(8)
+    text-align: start
+    vertical-align: top
+    font-size: f.px(12)
+    font-weight: 500
+    white-space: nowrap
+    
+.tilte
+    font-weight: 800
