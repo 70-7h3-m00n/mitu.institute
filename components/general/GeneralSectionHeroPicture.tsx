@@ -34,58 +34,60 @@ const GeneralSectionHeroPicture = ({
   }, [])
 
   return (
-    <div
-      className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
-      }>
-      <IconChat
-        classNames={[stls.icon, stls.chat]}
-        style={{
-          transform: `translateY(${
-            (-offsetY + scrollHeight / 100) * 0.14
-          }px) rotate(-29deg)`
-        }}
-      />
-      <IconLightBulb
-        classNames={[
-          stls.icon,
-          stls.lightBulb,
-          cn({ [stls.isTurnedOn]: isTurnedOn })
-        ]}
-        style={{
-          transform: `translateY(${
-            (-offsetY + scrollHeight / 100) * 0.12
-          }px) rotate(24deg)`
-        }}
-        onMouseEnter={() => setIsTurnedOn(!isTurnedOn)}
-        onTouchStart={() => setIsTurnedOn(!isTurnedOn)}
-      />
-      <IconMagnifyingGlass
-        classNames={[stls.icon, stls.magnifyingGlass]}
-        style={{
-          transform: `translateY(${
-            (-offsetY + scrollHeight / 100) * 0.26
-          }px) rotate(29deg)`
-        }}
-      />
-      <IconVideoOnStand
-        classNames={[stls.icon, stls.videoOnStand]}
-        style={{
-          transform: `translateY(${
-            (-offsetY + scrollHeight / 100) * 0.21
-          }px) rotate(-25deg)`
-        }}
-      />
-      <IconMortarboardAlt
-        classNames={[stls.icon, stls.graduationHat]}
-        style={{
-          transform: `translateY(${
-            (-offsetY + scrollHeight / 100) * 0.23
-          }px) rotate(15deg)`
-        }}
-      />
-      <ImgHeroLady />
-    </div>
+    <>
+      <div
+        className={
+          cn([stls.container], getClassNames({ classNames })) || undefined
+        }>
+        <IconChat
+          classNames={[stls.icon, stls.chat]}
+          style={{
+            transform: `translateY(${
+              (-offsetY + scrollHeight / 100) * 0.14
+            }px) rotate(-29deg)`
+          }}
+        />
+        <IconLightBulb
+          classNames={[
+            stls.icon,
+            stls.lightBulb,
+            cn({ [stls.isTurnedOn]: isTurnedOn })
+          ]}
+          style={{
+            transform: `translateY(${
+              (-offsetY + scrollHeight / 100) * 0.12
+            }px) rotate(24deg)`
+          }}
+          onMouseEnter={() => setIsTurnedOn(!isTurnedOn)}
+          onTouchStart={() => setIsTurnedOn(!isTurnedOn)}
+        />
+        <IconMagnifyingGlass
+          classNames={[stls.icon, stls.magnifyingGlass]}
+          style={{
+            transform: `translateY(${
+              (-offsetY + scrollHeight / 100) * 0.26
+            }px) rotate(29deg)`
+          }}
+        />
+        <IconVideoOnStand
+          classNames={[stls.icon, stls.videoOnStand]}
+          style={{
+            transform: `translateY(${
+              (-offsetY + scrollHeight / 100) * 0.21
+            }px) rotate(-25deg)`
+          }}
+        />
+        <IconMortarboardAlt
+          classNames={[stls.icon, stls.graduationHat]}
+          style={{
+            transform: `translateY(${
+              (-offsetY + scrollHeight / 100) * 0.23
+            }px) rotate(15deg)`
+          }}
+        />
+        <ImgHeroLady />
+      </div>
+    </>
   )
 }
 

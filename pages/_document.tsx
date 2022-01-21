@@ -19,7 +19,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta charSet='UTF-8' />
-          <link rel='preconnect' href='https://fonts.googleapis.com' />
+          <link href='https://fonts.googleapis.com' />
           <link
             rel='preconnect'
             href='https://fonts.gstatic.com' /* crossOrigin */
@@ -28,6 +28,8 @@ class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap'
             rel='stylesheet'
           />
+          <link rel='preconnect' href='/assets/imgs/general/hero-lady.png' />
+          <link rel='dns-prefetch' href='/assets/imgs/general/hero-lady.png' />
           <meta name='application-name' content={companyName} />
           <meta name='apple-mobile-web-app-capable' content='yes' />
           <meta
