@@ -30,3 +30,4 @@
 - Improve selectors and routes types at `./config/index/selectors.ts`
 - Improve styles & structure for Accessibility popup
 - Improve Loader & set a timer and if in 5 seconds the lead is not submited and thank you is not shown, then display a number to call
+- Generalize styles for 404 & 505 and _offline pages
