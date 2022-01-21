@@ -1,0 +1,34 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.content
+  @include m.media(phone)
+    margin-bottom: f.px(72)
+  @include m.media(tablet)
+    margin-bottom: f.px(64)
+  @include m.media(laptop, desktop)
+    max-width: f.px(800)
+    margin: 0 auto
+    margin-bottom: f.px(80)
+
+.title
+  margin-bottom: f.px(40)
+  @include m.media(phone)
+    font-size: f.px(96)
+  @include m.media(tablet)
+    font-size: f.px(144)
+  @include m.media(laptop, desktop)
+    font-size: f.px(208)
+  line-height: 110%
+  @include m.dye(c, c.$beta)
+
+.p
+  margin-bottom: f.px(24)
+  @include m.media(phone)
+    font-size: f.px(20)
+  @include m.media(tablet)
+    font-size: f.px(18)
+  @include m.media(laptop, desktop)
+    font-size: f.px(24)
+  line-height: 110%
