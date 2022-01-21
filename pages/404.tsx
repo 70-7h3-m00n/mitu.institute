@@ -17,10 +17,7 @@ const Page404 = () => {
             Также возможно, Вы допустили небольшую опечатку при вводе адреса —
             такое&nbsp;случается
           </p>
-          <BtnAlpha
-            variant='beta'
-            href={routesFront.home}
-            classNames={[stls.btn]}>
+          <BtnAlpha variant='beta' href={routesFront.home} tag='Link'>
             Вернуться на главную
           </BtnAlpha>
         </div>
