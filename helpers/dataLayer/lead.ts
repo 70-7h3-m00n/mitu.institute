@@ -1,7 +1,7 @@
 type TypeLeadProps = {}
 
 const lead = () => {
-  window.dataLayer.push({
+  window.dataLayer?.push({
     event: 'lead',
     ecommerce: {
       add: {
