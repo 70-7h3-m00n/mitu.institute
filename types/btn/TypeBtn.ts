@@ -1,7 +1,7 @@
 import {
   TypeClassNames,
   TypeChildren,
-  TypeBtnTag,
+  TypeBtnTagWithLink,
   TypeBtnType,
   TypeBtnHref,
   TypeOnClick,
@@ -12,7 +12,7 @@ import {
 
 type TypeBtn = TypeClassNames &
   TypeChildren &
-  TypeBtnTag &
+  TypeBtnTagWithLink &
   TypeBtnType &
   TypeBtnHref &
   TypeOnClick &

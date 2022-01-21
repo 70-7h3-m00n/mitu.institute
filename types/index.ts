@@ -6,6 +6,7 @@ import type TypeBtnBetaVariant from '@/types/btn/TypeBtnBetaVariant'
 import type TypeBtnDisabled from '@/types/btn/TypeBtnDisabled'
 import type TypeBtnHref from '@/types/btn/TypeBtnHref'
 import type TypeBtnTag from '@/types/btn/TypeBtnTag'
+import type TypeBtnTagWithLink from '@/types/btn/TypeBtnTagWithLink'
 import type TypeBtnType from '@/types/btn/TypeBtnType'
 
 // context
@@ -53,6 +54,7 @@ export {
   TypeBtnDisabled,
   TypeBtnHref,
   TypeBtnTag,
+  TypeBtnTagWithLink,
   TypeBtnType,
   TypeAnchor,
   TypeAriaLabel,
