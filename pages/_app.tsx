@@ -1,6 +1,6 @@
 import '@/styles/app.sass'
 import 'reactjs-popup/dist/index.css'
-import type { AppProps } from 'next/app'
+import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import Router from 'next/router'
 import Script from 'next/script'
 import { useContext, useEffect, useState } from 'react'
@@ -71,6 +71,10 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       {/* </ContextGeneralPopupState> */}
     </>
   )
+}
+
+export function reportWebVitals(metric: NextWebVitalsMetric) {
+  // console.log(metric)
 }
 
 export default App

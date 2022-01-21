@@ -4,6 +4,8 @@ type TypeRoutesFront = {
   root: 'http://localhost:3000' | 'https://mitu.msk.ru'
   home: '/'
   promo: '/promo'
+  contact: '/contact'
+  payment: '/payment'
   legal: '/legal'
   programs: '/programs'
   programsAdditional: '/programs/additional'
