@@ -1,6 +1,8 @@
 import { TypeRoutesFront } from '@/types/index'
 import { TypePagePromoProps } from '@/types/index'
 import axios, { AxiosResponse } from 'axios'
+import { gql } from '@apollo/client'
+import apolloClient from 'apolloClient'
 import { routesFront, routesBack, revalidate } from '@/config/index'
 
 type TypeHandleGetStaticPropsProps = {
@@ -12,20 +14,36 @@ const handleGetStaticProps = async ({
 }: TypeHandleGetStaticPropsProps) => {
   switch (page) {
     case routesFront.promo:
-      const resLand = await axios.get<unknown>(
-        `${routesBack.root}${routesBack.land}`
-      )
-      const resPrograms = await axios.get<unknown>(
-        `${routesBack.root}${routesBack.programs}`
-      )
-      const props: TypePagePromoProps = {
-        land: resLand.data,
-        programs: resPrograms.data
-      }
+      const res = await apolloClient.query({
+        query: gql`
+          query GetPrograms {
+            programs {
+              title
+              slug
+              description
+            }
+          }
+        `
+      })
+
       return {
-        props,
-        revalidate: revalidate.default
+        props: res.data
       }
+
+    //   const resLand = await axios.get<unknown>(
+    //     `${routesBack.root}${routesBack.land}`
+    //   )
+    //   const resPrograms = await axios.get<unknown>(
+    //     `${routesBack.root}${routesBack.programs}`
+    //   )
+    //   const props: TypePagePromoProps = {
+    //     land: resLand.data,
+    //     programs: resPrograms.data
+    //   }
+    // return {
+    //   props,
+    //   revalidate: revalidate.default
+    // }
   }
 }
 

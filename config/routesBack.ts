@@ -4,6 +4,7 @@ import { dev } from '@/config/index'
 type TypeRoutesBack = {
   root: 'http://localhost:1337' | 'https://api-mitu-msk-ru.herokuapp.com'
   home: '/'
+  graphql: '/graphql'
   land: '/land'
   programs: '/programs'
 }
@@ -11,6 +12,7 @@ type TypeRoutesBack = {
 const routesBack: TypeRoutesBack = {
   root: dev ? 'http://localhost:1337' : 'https://api-mitu-msk-ru.herokuapp.com',
   home: '/',
+  graphql: '/graphql',
   land: '/land',
   programs: '/programs'
 }
