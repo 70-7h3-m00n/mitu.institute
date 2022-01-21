@@ -28,3 +28,4 @@
 - Improve focus-visible & hover for `SectionQna` qna items in `./components/sections/SectionQna.tsx`
 - Improve a total mess at `./context/accessibility`
 - Improve selectors and routes types at `./config/index/selectors.ts`
+- Improve styles & structure for Accessibility popup

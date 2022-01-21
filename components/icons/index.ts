@@ -8,6 +8,7 @@ import IconCross from '@/components/icons/IconCross'
 import IconCrossAlt from '@/components/icons/IconCrossAlt'
 import IconEye from '@/components/icons/IconEye'
 import IconFacebook from '@/components/icons/IconFacebook'
+import IconHamburger from '@/components/icons/IconHamburger'
 import IconInstagram from '@/components/icons/IconInstagram'
 import IconLightBulb from '@/components/icons/IconLightBulb'
 import IconLoader from '@/components/icons/IconLoader'
@@ -33,6 +34,7 @@ export {
   IconEye,
   IconInstagram,
   IconFacebook,
+  IconHamburger,
   IconLightBulb,
   IconLoader,
   IconLocation,

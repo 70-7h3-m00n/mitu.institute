@@ -1,0 +1,7 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+@mixin tablet
+  @include m.media(phone, laptop, desktop)
+    display: none

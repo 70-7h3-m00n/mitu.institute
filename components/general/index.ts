@@ -1,8 +1,10 @@
 import GeneralAddress from '@/components/general/GeneralAddress'
+import GeneralHeaderBottom from '@/components/general/GeneralHeaderBottom'
+import GeneralHeaderMiddle from '@/components/general/GeneralHeaderMiddle'
 import GeneralHeaderTop from '@/components/general/GeneralHeaderTop'
 import GeneralLogo from '@/components/general/GeneralLogo'
 import GeneralNavAltLaptopDesktop from '@/components/general/GeneralNavAltLaptopDesktop'
-import GeneralNavTablet from '@/components/general/GeneralNavTablet'
+import GeneralNavAltTablet from '@/components/general/GeneralNavAltTablet'
 import GeneralPhoneNumber from '@/components/general/GeneralPhoneNumber'
 import GeneralPopup from '@/components/general/GeneralPopup'
 import GeneralSectionHeroPicture from '@/components/general/GeneralSectionHeroPicture'
@@ -12,10 +14,12 @@ import GeneralTextHighlight from '@/components/general/GeneralTextHighlight'
 
 export {
   GeneralAddress,
+  GeneralHeaderBottom,
+  GeneralHeaderMiddle,
   GeneralHeaderTop,
   GeneralLogo,
   GeneralNavAltLaptopDesktop,
-  GeneralNavTablet,
+  GeneralNavAltTablet,
   GeneralPhoneNumber,
   GeneralPopup,
   GeneralSectionHeroPicture,

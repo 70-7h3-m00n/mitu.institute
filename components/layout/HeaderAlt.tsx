@@ -17,7 +17,7 @@ import {
   GeneralPhoneNumber,
   GeneralAddress,
   GeneralNavAltLaptopDesktop,
-  GeneralNavTablet,
+  GeneralNavAltTablet,
   GeneralPopup
 } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -102,7 +102,7 @@ const HeaderAlt = ({ classNames }: TypeHeaderAltProps) => {
             }}
           </Popup>
         </div>
-        <GeneralNavTablet links={links} />
+        <GeneralNavAltTablet links={links} />
       </Wrapper>
     </header>
   )
