@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    dataLayer: Record<string, any>[]
+  }
+}
+
 //btn
 import type TypeBtn from '@/types/btn/TypeBtn'
 import type TypeBtnAlphaVariant from '@/types/btn/TypeBtnAlphaVariant'

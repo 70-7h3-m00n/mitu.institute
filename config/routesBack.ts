@@ -1,8 +1,8 @@
 import { TypeUrl, TypeRoute } from '@/types/index'
-import { dev } from '@/config/index'
+import { dev, env } from '@/config/index'
 
 type TypeRoutesBack = {
-  root: 'http://localhost:1337' | 'https://api-mitu-msk-ru.herokuapp.com'
+  root: 'http://localhost:1337' | typeof env.backRouteRoot
   home: '/'
   graphql: '/graphql'
   land: '/land'
@@ -10,7 +10,7 @@ type TypeRoutesBack = {
 }
 
 const routesBack: TypeRoutesBack = {
-  root: dev ? 'http://localhost:1337' : 'https://api-mitu-msk-ru.herokuapp.com',
+  root: dev ? 'http://localhost:1337' : env.backRouteRoot,
   home: '/',
   graphql: '/graphql',
   land: '/land',

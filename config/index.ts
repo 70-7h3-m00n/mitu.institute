@@ -6,6 +6,7 @@ import companyName from '@/config/companyName'
 import dev from '@/config/dev'
 import emailRegex from '@/config/emailRegex'
 import env from '@/config/env'
+import gtm from '@/config/gtm'
 import phoneNumber from '@/config/phoneNumber'
 import prod from '@/config/prod'
 import revalidate from '@/config/revalidate'
@@ -23,6 +24,7 @@ export {
   dev,
   emailRegex,
   env,
+  gtm,
   phoneNumber,
   prod,
   revalidate,

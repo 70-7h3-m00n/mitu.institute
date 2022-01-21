@@ -9,6 +9,7 @@ import handleReferer from '@/helpers/general/handleReferer'
 import handleUtms from '@/helpers/general/handleUtms'
 import hitLeadRoute from '@/helpers/general/hitLeadRoute'
 import onSubmitForm from '@/helpers/general/onSubmitForm'
+import pageView from '@/helpers/general/pageView'
 import buildLeadData from '@/helpers/lead/buildLeadData'
 import createLeadEmailBody from '@/helpers/lead/createLeadEmailBody'
 import buildLeadEmailTbodyTrs from '@/helpers/lead/buildLeadEmailTbodyTrs'
@@ -26,6 +27,7 @@ export {
   handleUtms,
   hitLeadRoute,
   onSubmitForm,
+  pageView,
   buildLeadData,
   createLeadEmailBody,
   buildLeadEmailTbodyTrs,

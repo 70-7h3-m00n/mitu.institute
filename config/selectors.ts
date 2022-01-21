@@ -1,11 +1,13 @@
 type TypeSelectors = {
-  main: 'main'
-  programs: 'programs'
+  readonly main: 'main'
+  readonly programs: 'programs'
+  readonly gtm: 'google-tag-manager'
 }
 
 const selectors: TypeSelectors = {
   main: 'main',
-  programs: 'programs'
+  programs: 'programs',
+  gtm: 'google-tag-manager'
 }
 
 export default selectors
