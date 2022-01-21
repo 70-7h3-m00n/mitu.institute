@@ -1,7 +1,7 @@
 import stls from '@/styles/components/general/GeneralNavLaptopDesktop.module.sass'
 import {
   TypeClassNames,
-  TypeLinksHeaderAlt,
+  TypeLinksHeaderPromo,
   TypeProgramCategory
 } from '@/types/index'
 import Link from 'next/link'
@@ -11,7 +11,7 @@ import { getClassNames } from '@/helpers/index'
 import { ContextCategoryContext } from '@/context/index'
 
 type TypeGeneralNavLaptopDesktopProps = TypeClassNames & {
-  links: TypeLinksHeaderAlt
+  links: TypeLinksHeaderPromo
 }
 
 const GeneralNavLaptopDesktop = ({

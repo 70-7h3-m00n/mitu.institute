@@ -1,9 +1,9 @@
 import { TypeAnchor, TypeProgramCategory } from '@/types/index'
 
-type TypeLinksHeaderAlt = {
+type TypeLinksHeaderPromo = {
   readonly href: TypeAnchor
   readonly val: string
   readonly payload: TypeProgramCategory
 }[]
 
-export default TypeLinksHeaderAlt
+export default TypeLinksHeaderPromo

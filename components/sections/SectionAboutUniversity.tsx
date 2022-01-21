@@ -32,7 +32,7 @@ const SectionAboutUniversity = ({
   ]
 
   return (
-    <div
+    <section
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
@@ -91,7 +91,7 @@ const SectionAboutUniversity = ({
           </div>
         </div>
       </Wrapper>
-    </div>
+    </section>
   )
 }
 

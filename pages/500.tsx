@@ -1,7 +1,6 @@
 import stls from '@/styles/pages/Page500.module.sass'
 import { Wrapper } from '@/components/layout'
-import { routesFront, phoneNumber } from '@/config/index'
-import { BtnAlpha } from '@/components/btns'
+import { phoneNumber } from '@/config/index'
 
 const Page500 = () => {
   return (
@@ -18,9 +17,6 @@ const Page500 = () => {
               {phoneNumber.val}
             </a>
           </p>
-          <BtnAlpha variant='beta' href={routesFront.home} tag='Link'>
-            Вернуться на главную
-          </BtnAlpha>
         </div>
       </Wrapper>
     </>

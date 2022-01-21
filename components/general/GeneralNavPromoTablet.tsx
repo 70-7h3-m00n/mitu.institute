@@ -1,19 +1,19 @@
-import stls from '@/styles/components/general/GeneralNavAltTablet.module.sass'
-import { TypeClassNames, TypeLinksHeaderAlt } from '@/types/index'
+import stls from '@/styles/components/general/GeneralNavPromoTablet.module.sass'
+import { TypeClassNames, TypeLinksHeaderPromo } from '@/types/index'
 import Link from 'next/link'
 import { useContext } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { ContextCategoryContext } from '@/context/index'
 
-type TypeGeneralNavAltTabletProps = TypeClassNames & {
-  links: TypeLinksHeaderAlt
+type TypeGeneralNavPromoTabletProps = TypeClassNames & {
+  links: TypeLinksHeaderPromo
 }
 
-const GeneralNavAltTablet = ({
+const GeneralNavPromoTablet = ({
   classNames,
   links
-}: TypeGeneralNavAltTabletProps) => {
+}: TypeGeneralNavPromoTabletProps) => {
   const { setCategory } = useContext(ContextCategoryContext)
 
   return (
@@ -37,4 +37,4 @@ const GeneralNavAltTablet = ({
   )
 }
 
-export default GeneralNavAltTablet
+export default GeneralNavPromoTablet

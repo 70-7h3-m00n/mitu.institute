@@ -1,6 +1,6 @@
-import stls from '@/styles/components/layout/HeaderAlt.module.sass'
+import stls from '@/styles/components/layout/HeaderPromo.module.sass'
 import {
-  TypeLinksHeaderAlt,
+  TypeLinksHeaderPromo,
   TypeClassNames,
   TypeProgramCategory
 } from '@/types/index'
@@ -16,21 +16,21 @@ import {
   GeneralLogo,
   GeneralPhoneNumber,
   GeneralAddress,
-  GeneralNavAltLaptopDesktop,
-  GeneralNavAltTablet,
+  GeneralNavPromoLaptopDesktop,
+  GeneralNavPromoTablet,
   GeneralPopup
 } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha, BtnSkipNav } from '@/components/btns'
 
-type TypeHeaderAltProps = TypeClassNames
+type TypeHeaderPromoProps = TypeClassNames
 
-const HeaderAlt = ({ classNames }: TypeHeaderAltProps) => {
+const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
   const router = useRouter()
 
   const { category, setCategory } = useContext(ContextCategoryContext)
 
-  const links: TypeLinksHeaderAlt = [
+  const links: TypeLinksHeaderPromo = [
     {
       href: routesFront.anchorPrograms,
       val: 'Бакалавриат',
@@ -65,7 +65,7 @@ const HeaderAlt = ({ classNames }: TypeHeaderAltProps) => {
                 withIcon
               />
             </div>
-            <GeneralNavAltLaptopDesktop links={links} />
+            <GeneralNavPromoLaptopDesktop links={links} />
           </div>
           <Popup
             // onOpen={() => {
@@ -102,10 +102,10 @@ const HeaderAlt = ({ classNames }: TypeHeaderAltProps) => {
             }}
           </Popup>
         </div>
-        <GeneralNavAltTablet links={links} />
+        <GeneralNavPromoTablet links={links} />
       </Wrapper>
     </header>
   )
 }
 
-export default HeaderAlt
+export default HeaderPromo

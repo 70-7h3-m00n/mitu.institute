@@ -14,8 +14,8 @@ import {
   GeneralHeaderBottom,
   GeneralPhoneNumber,
   GeneralAddress,
-  GeneralNavAltLaptopDesktop,
-  GeneralNavAltTablet,
+  GeneralNavPromoLaptopDesktop,
+  GeneralNavPromoTablet,
   GeneralPopup
 } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'

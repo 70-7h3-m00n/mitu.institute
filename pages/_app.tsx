@@ -14,7 +14,7 @@ import {
   ContextAccessibilityState,
   ContextCategoryState
 } from '@/context/index'
-import { Header, HeaderAlt, Main, Footer } from '@/components/layout'
+import { Header, HeaderPromo, Main, Footer } from '@/components/layout'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false)
@@ -61,7 +61,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       {/* <ContextGeneralPopupState> */}
       <ContextAccessibilityState>
         <ContextCategoryState>
-          {router.route === routesFront.promo ? <HeaderAlt /> : <Header />}
+          {router.route === routesFront.promo ? <HeaderPromo /> : <Header />}
           <Main>
             <Component {...pageProps} />
           </Main>
