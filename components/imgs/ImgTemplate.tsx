@@ -11,6 +11,7 @@ type TypeImgTemplateProps = TypeClassNames &
     readonly alt: string
     readonly title?: string
     readonly faded?: boolean
+    readonly priority?: boolean
   }
 
 const ImgTemplate = ({
@@ -20,7 +21,8 @@ const ImgTemplate = ({
   src,
   alt,
   title,
-  faded
+  faded,
+  priority
 }: TypeImgTemplateProps) => {
   return (
     <div
@@ -45,6 +47,7 @@ const ImgTemplate = ({
         className={stls.img}
         placeholder='blur'
         blurDataURL={base64pixel}
+        priority={priority}
       />
     </div>
   )
