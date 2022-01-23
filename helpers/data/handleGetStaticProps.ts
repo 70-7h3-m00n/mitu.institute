@@ -1,5 +1,4 @@
 import { TypeRoutesFront } from '@/types/index'
-import { TypePagePromoProps } from '@/types/index'
 import axios, { AxiosResponse } from 'axios'
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
@@ -16,11 +15,23 @@ const handleGetStaticProps = async ({
     case routesFront.promo:
       const res = await apolloClient.query({
         query: gql`
-          query GetPrograms {
+          query GetPagePromoData {
             programs {
               title
-              slug
-              description
+              shortDescription
+              study_field {
+                label
+              }
+              category {
+                type
+              }
+              timenprice {
+                studyMonthsDuration
+              }
+            }
+            categories {
+              label
+              type
             }
           }
         `
@@ -29,21 +40,6 @@ const handleGetStaticProps = async ({
       return {
         props: res.data
       }
-
-    //   const resLand = await axios.get<unknown>(
-    //     `${routesBack.root}${routesBack.land}`
-    //   )
-    //   const resPrograms = await axios.get<unknown>(
-    //     `${routesBack.root}${routesBack.programs}`
-    //   )
-    //   const props: TypePagePromoProps = {
-    //     land: resLand.data,
-    //     programs: resPrograms.data
-    //   }
-    // return {
-    //   props,
-    //   revalidate: revalidate.default
-    // }
   }
 }
 

@@ -89,6 +89,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
 }
 
 export function reportWebVitals(metric: NextWebVitalsMetric) {
+  // console.log(window.dataLayer)
   // console.log(metric)
 }
 

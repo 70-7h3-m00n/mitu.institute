@@ -1,5 +1,5 @@
-import stls from '@/styles/components/sections/SectionOurPrograms.module.sass'
-import { TypeClassNames } from '@/types/index'
+import stls from '@/styles/components/sections/SectionOurProgramsPromo.module.sass'
+import { TypeClassNames, TypePagePromoPrograms } from '@/types/index'
 import { MouseEventHandler, useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
@@ -12,9 +12,12 @@ import { UIFormAlpha } from '@/components/uiforms'
 import { CardsProgram } from '@/components/cards'
 import { BtnAlpha } from '@/components/btns'
 
-type TypeSectionOurProgramsProps = TypeClassNames
+type TypeSectionOurProgramsPromoProps = TypeClassNames & TypePagePromoPrograms
 
-const SectionOurPrograms = ({ classNames }: TypeSectionOurProgramsProps) => {
+const SectionOurProgramsPromo = ({
+  classNames,
+  programs
+}: TypeSectionOurProgramsPromoProps) => {
   const { category, setCategory } = useContext(ContextCategoryContext)
 
   return (
@@ -73,4 +76,4 @@ const SectionOurPrograms = ({ classNames }: TypeSectionOurProgramsProps) => {
   )
 }
 
-export default SectionOurPrograms
+export default SectionOurProgramsPromo

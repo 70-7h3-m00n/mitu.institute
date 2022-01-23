@@ -2,7 +2,7 @@ import stls from '@/styles/pages/PageHome.module.sass'
 import type { NextPage } from 'next'
 import {
   SectionHero,
-  SectionOurPrograms,
+  SectionOurProgramsPromo,
   SectionLeastDocuments,
   SectionEnterWithoutExam,
   SectionHowTrainingGoes,
@@ -16,7 +16,7 @@ const PageHome: NextPage = () => {
   return (
     <>
       <SectionHero />
-      <SectionOurPrograms />
+      <SectionOurProgramsPromo />
       <SectionLeastDocuments />
       <SectionEnterWithoutExam />
       <SectionHowTrainingGoes />

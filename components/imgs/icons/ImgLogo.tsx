@@ -1,4 +1,4 @@
-import stls from '@/styles/components/imgs/general/ImgLogo.module.sass'
+import stls from '@/styles/components/imgs/icons/ImgLogo.module.sass'
 import { TypeClassNames, TypeImg } from '@/types/index'
 import { companyName } from '@/config/index'
 import { ImgTemplate } from '@/components/imgs'

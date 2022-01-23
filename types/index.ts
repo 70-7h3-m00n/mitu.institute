@@ -46,13 +46,14 @@ import type TypeUrl from '@/types/general/TypeUrl'
 import type TypeUtms from '@/types/general/TypeUtms'
 import type TypeVariantForm from '@/types/general/TypeVariantForm'
 
-// pages
-import type TypePagePromoProps from '@/types/page/TypePagePromoProps'
+// page
+import type TypePagePromoPrograms from '@/types/page/TypePagePromoPrograms'
 
 // program
 import type TypeProgramCategory from '@/types/program/TypeProgramCategory'
 
 export {
+  // btns
   TypeBtn,
   TypeBtnAlphaVariant,
   TypeBtnBeta,
@@ -62,11 +63,13 @@ export {
   TypeBtnTag,
   TypeBtnTagWithLink,
   TypeBtnType,
-  TypeAnchor,
-  TypeAriaLabel,
+  // context
   TypeContextAccessibility,
   TypeContextCategory,
   TypeContextGeneralPopup,
+  // general
+  TypeAnchor,
+  TypeAriaLabel,
   TypeChildren,
   TypeClassNames,
   TypeClose,
@@ -89,6 +92,8 @@ export {
   TypeUrl,
   TypeUtms,
   TypeVariantForm,
-  TypePagePromoProps,
+  // page
+  TypePagePromoPrograms,
+  // program
   TypeProgramCategory
 }
