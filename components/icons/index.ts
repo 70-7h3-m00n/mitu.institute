@@ -1,3 +1,4 @@
+import IconAlarm from '@/components/icons/IconAlarm'
 import IconArrowTopRight from '@/components/icons/IconArrowTopRight'
 import IconArrowTopRightAlt from '@/components/icons/IconArrowTopRightAlt'
 import IconChat from '@/components/icons/IconChat'
@@ -23,6 +24,7 @@ import IconVK from '@/components/icons/IconVK'
 import IconYoutube from '@/components/icons/IconYoutube'
 
 export {
+  IconAlarm,
   IconArrowTopRight,
   IconArrowTopRightAlt,
   IconChat,

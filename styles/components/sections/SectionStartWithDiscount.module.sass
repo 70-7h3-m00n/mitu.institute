@@ -4,4 +4,125 @@
 @use '@/styles/shared/section' as section
 
 .container
-  @include section.gap
+  padding-bottom: 0
+
+.content
+  position: relative
+  z-index: 1
+  overflow: hidden
+  @include m.media(phone)
+    padding: f.px(48) f.px(24)
+  @include m.media(tablet)
+    padding-top: f.px(64)
+    padding-right: f.px(48)
+    padding-bottom: f.px(64)
+    padding-left: 30%
+  @include m.media(laptop, desktop)
+    padding: f.px(64) f.px(24)
+  @include m.dye(bg, c.$alpha)
+  @include m.dye(c, c.$upsilon)
+
+.icon
+  @include m.media(phone, tablet, desktop)
+    position: absolute
+    z-index: -1
+  @include m.media(laptop)
+    display: none
+
+.icon1
+  @include m.media(phone)
+    bottom: 0
+    left: 0
+    max-width: f.px(140)
+    max-height: f.px(152)
+    transform: translate(f.px(24), f.px(-160))
+  @include m.media(tablet)
+    top: 0
+    left: 0
+    max-width: f.px(136)
+    max-height: f.px(148)
+    transform: translate(7%, f.px(24))
+  @include m.media(desktop)
+    top: 0
+    left: 0
+    max-width: f.px(136)
+    max-height: f.px(148)
+    transform: translate(f.px(-27), f.px(-41))
+
+.icon2
+  @include m.media(phone)
+    bottom: 0
+    right: 0
+    max-width: f.px(83)
+    max-height: f.px(91)
+    transform: translate(f.px(9), f.px(-221)) matrix(-1, 0, 0, 1, 0, 0)
+  @include m.media(tablet)
+    top: 0
+    right: 0
+    max-width: f.px(72)
+    max-height: f.px(78)
+    transform: translate(f.px(-40), f.px(40))
+  @include m.media(desktop)
+    top: 0
+    right: 0
+    max-width: f.px(72)
+    max-height: f.px(78)
+    transform: translate(f.px(-70), f.px(22))
+
+.icon3
+  @include m.media(phone)
+    display: none
+  @include m.media(tablet)
+    bottom: 0
+    left: 0
+    max-width: f.px(82)
+    max-height: f.px(91)
+    transform: translate(50%, f.px(-20)) matrix(0.48, -0.95, 0.78, 0.54, 0, 0)
+  @include m.media(desktop)
+    bottom: 0
+    left: 50%
+    max-width: f.px(104)
+    max-height: f.px(113)
+    transform: translate(50%, f.px(40)) rotate(-59.48deg)
+
+.inner
+  @include m.media(laptop, desktop)
+    max-width: f.px(748)
+    margin-right: auto
+    margin-left: auto
+
+.title
+  @include m.media(phone)
+    margin-bottom: f.px(32)
+    max-width: 10ch
+    font-size: f.px(47)
+  @include m.media(tablet)
+    margin-bottom: f.px(32)
+    max-width: 10ch
+    font-size: f.px(40)
+  @include m.media(laptop, desktop)
+    margin-bottom: f.px(16)
+    font-size: f.px(48)
+  line-height: 110%
+
+.p
+  margin: 0
+  @include m.media(phone)
+    font-size: f.px(20)
+    line-height: 120%
+  @include m.media(tablet)
+    max-width: 33ch
+    font-size: f.px(18)
+    line-height: 110%
+  @include m.media(laptop, desktop)
+    font-size: f.px(24)
+    line-height: 110%
+  @include m.dye(c, c.$gamma)
+
+.btn
+  @include m.media(phone)
+    margin-top: f.px(248)
+  @include m.media(tablet)
+    margin-top: f.px(24)
+  @include m.media(laptop, desktop)
+    margin-top: f.px(32)
