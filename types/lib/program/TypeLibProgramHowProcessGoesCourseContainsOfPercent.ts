@@ -1,0 +1,3 @@
+type TypeLibProgramHowProcessGoesCourseContainsOfPercent = string
+
+export default TypeLibProgramHowProcessGoesCourseContainsOfPercent

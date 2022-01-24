@@ -1,10 +1,13 @@
+import {
+  TypeLibProgramHowProcessGoesTitle,
+  TypeLibProgramHowProcessGoesDescription,
+  TypeLibProgramHowProcessGoesCourseContainsOf
+} from '@/types/index'
+
 type TypeLibProgramHowProcessGoes = {
-  title?: string
-  description?: string
-  courseContainsOf?: {
-    title?: string
-    percent?: string
-  }[]
+  title?: TypeLibProgramHowProcessGoesTitle
+  description?: TypeLibProgramHowProcessGoesDescription
+  courseContainsOf?: TypeLibProgramHowProcessGoesCourseContainsOf
 }
 
 export default TypeLibProgramHowProcessGoes

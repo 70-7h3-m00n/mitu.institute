@@ -1,0 +1,3 @@
+type TypeLibProgramHowProcessGoesCourseContainsOfTitle = string
+
+export default TypeLibProgramHowProcessGoesCourseContainsOfTitle

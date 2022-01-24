@@ -69,6 +69,11 @@ import type TypeLibProgramDescription from '@/types/lib/program/TypeLibProgramDe
 import type TypeLibProgramForWhom from '@/types/lib/program/TypeLibProgramForWhom'
 import type TypeLibProgramForWhomDesc from '@/types/lib/program/TypeLibProgramForWhomDesc'
 import type TypeLibProgramHowProcessGoes from '@/types/lib/program/TypeLibProgramHowProcessGoes'
+import type TypeLibProgramHowProcessGoesCourseContainsOf from '@/types/lib/program/TypeLibProgramHowProcessGoesCourseContainsOf'
+import type TypeLibProgramHowProcessGoesCourseContainsOfPercent from '@/types/lib/program/TypeLibProgramHowProcessGoesCourseContainsOfPercent'
+import type TypeLibProgramHowProcessGoesCourseContainsOfTitle from '@/types/lib/program/TypeLibProgramHowProcessGoesCourseContainsOfTitle'
+import type TypeLibProgramHowProcessGoesDescription from '@/types/lib/program/TypeLibProgramHowProcessGoesDescription'
+import type TypeLibProgramHowProcessGoesTitle from '@/types/lib/program/TypeLibProgramHowProcessGoesTitle'
 import type TypeLibProgramShortContents from '@/types/lib/program/TypeLibProgramShortContents'
 import type TypeLibProgramShortContentsTitle from '@/types/lib/program/TypeLibProgramShortContentsTitle'
 import type TypeLibProgramSlug from '@/types/lib/program/TypeLibProgramSlug'
@@ -156,6 +161,11 @@ export {
   TypeLibProgramForWhom,
   TypeLibProgramForWhomDesc,
   TypeLibProgramHowProcessGoes,
+  TypeLibProgramHowProcessGoesCourseContainsOf,
+  TypeLibProgramHowProcessGoesCourseContainsOfPercent,
+  TypeLibProgramHowProcessGoesCourseContainsOfTitle,
+  TypeLibProgramHowProcessGoesDescription,
+  TypeLibProgramHowProcessGoesTitle,
   TypeLibProgramShortContents,
   TypeLibProgramShortContentsTitle,
   TypeLibProgramSlug,
