@@ -5,6 +5,7 @@ import ImgHeroLady from '@/components/imgs/general/ImgHeroLady'
 import ImgPersonStudying from '@/components/imgs/general/ImgPersonStudying'
 import ImgTemplate from '@/components/imgs/ImgTemplate'
 import ImgLogo from '@/components/imgs/icons/ImgLogo'
+import ImgPaymentCard from '@/components/imgs/general/ImgPaymentCard'
 
 export {
   ImgDiploma1,
@@ -13,5 +14,6 @@ export {
   ImgHeroLady,
   ImgPersonStudying,
   ImgTemplate,
-  ImgLogo
+  ImgLogo,
+  ImgPaymentCard
 }

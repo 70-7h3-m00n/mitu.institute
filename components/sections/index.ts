@@ -8,6 +8,7 @@ import SectionOurProgramsPromo from '@/components/sections/SectionOurProgramsPro
 import SectionTrainingFormat from '@/components/sections/SectionTrainingFormat'
 import SectionUIFormAlpha from '@/components/sections/SectionUIFormAlpha'
 import SectionYourFutureDiploma from '@/components/sections/SectionYourFutureDiploma'
+import SectionPayment from '@/components/sections/SectionPayment'
 
 export {
   SectionAboutUniversity,
@@ -19,5 +20,6 @@ export {
   SectionOurProgramsPromo,
   SectionTrainingFormat,
   SectionUIFormAlpha,
-  SectionYourFutureDiploma
+  SectionYourFutureDiploma,
+  SectionPayment
 }
