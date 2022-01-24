@@ -17,7 +17,8 @@ import {
   ContextStudyFieldState,
   ContextProgramState
 } from '@/context/index'
-import { Header, HeaderPromo, Main, Footer } from '@/components/layout'
+import { Header, Main, Footer } from '@/components/layout'
+import { HeaderPromo } from '@/components/promo'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false)

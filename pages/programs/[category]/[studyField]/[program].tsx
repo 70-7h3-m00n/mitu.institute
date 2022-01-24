@@ -27,7 +27,7 @@ import {
 
 const PageProgramsCategoryStudyFieldProgram = ({
   categories,
-  programs,
+  program,
   gspContextParamsCategory,
   gspContextParamsStudyField,
   gspContextParamsProgram
@@ -36,12 +36,11 @@ const PageProgramsCategoryStudyFieldProgram = ({
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { setProgram } = useContext(ContextProgramContext)
 
-  const program = programs?.[0] || null
-
+  console.log(program)
   useEffect(() => {
     setCategory({ payload: gspContextParamsCategory })
     setStudyField({ payload: gspContextParamsStudyField })
-    setProgram({ payload: program })
+    setProgram({ payload: program || null })
   }, [gspContextParamsCategory, gspContextParamsStudyField, program])
 
   return (

@@ -1,4 +1,4 @@
-import stls from '@/styles/components/general/GeneralNavPromoTablet.module.sass'
+import stls from '@/styles/components/promo/GeneralNavPromoLaptopDesktop.module.sass'
 import { TypeClassNames, TypeLinksHeaderPromo } from '@/types/index'
 import Link from 'next/link'
 import { useContext } from 'react'
@@ -6,14 +6,14 @@ import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { ContextCategoryContext } from '@/context/index'
 
-type TypeGeneralNavPromoTabletProps = TypeClassNames & {
+type TypeGeneralNavPromoLaptopDesktopProps = TypeClassNames & {
   links: TypeLinksHeaderPromo
 }
 
-const GeneralNavPromoTablet = ({
+const GeneralNavPromoLaptopDesktop = ({
   classNames,
   links
-}: TypeGeneralNavPromoTabletProps) => {
+}: TypeGeneralNavPromoLaptopDesktopProps) => {
   const { setCategory } = useContext(ContextCategoryContext)
 
   return (
@@ -37,4 +37,4 @@ const GeneralNavPromoTablet = ({
   )
 }
 
-export default GeneralNavPromoTablet
+export default GeneralNavPromoLaptopDesktop

@@ -3,8 +3,6 @@ import GeneralHeaderBottom from '@/components/general/GeneralHeaderBottom'
 import GeneralHeaderMiddle from '@/components/general/GeneralHeaderMiddle'
 import GeneralHeaderTop from '@/components/general/GeneralHeaderTop'
 import GeneralLogo from '@/components/general/GeneralLogo'
-import GeneralNavPromoLaptopDesktop from '@/components/general/GeneralNavPromoLaptopDesktop'
-import GeneralNavPromoTablet from '@/components/general/GeneralNavPromoTablet'
 import GeneralPhoneNumber from '@/components/general/GeneralPhoneNumber'
 import GeneralPopup from '@/components/general/GeneralPopup'
 import GeneralSectionHeroPicture from '@/components/general/GeneralSectionHeroPicture'
@@ -18,8 +16,6 @@ export {
   GeneralHeaderMiddle,
   GeneralHeaderTop,
   GeneralLogo,
-  GeneralNavPromoLaptopDesktop,
-  GeneralNavPromoTablet,
   GeneralPhoneNumber,
   GeneralPopup,
   GeneralSectionHeroPicture,

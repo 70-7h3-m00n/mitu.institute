@@ -1,25 +1,15 @@
 import stls from '@/styles/components/layout/Header.module.sass'
 import { TypeClassNames } from '@/types/index'
 import { useRouter } from 'next/router'
-import { MouseEventHandler } from 'react'
 import cn from 'classnames'
-import Popup from 'reactjs-popup'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { Wrapper } from '@/components/layout'
 import {
-  GeneralLogo,
   GeneralHeaderTop,
   GeneralHeaderMiddle,
-  GeneralHeaderBottom,
-  GeneralPhoneNumber,
-  GeneralAddress,
-  GeneralNavPromoLaptopDesktop,
-  GeneralNavPromoTablet,
-  GeneralPopup
+  GeneralHeaderBottom
 } from '@/components/general'
-import { UIFormAlpha } from '@/components/uiforms'
-import { BtnAlpha, BtnSkipNav } from '@/components/btns'
+import { BtnSkipNav } from '@/components/btns'
 
 type TypeHeaderProps = TypeClassNames
 

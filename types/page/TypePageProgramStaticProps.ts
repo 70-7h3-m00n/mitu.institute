@@ -6,7 +6,8 @@ type TypePageProgramStaticProps = {
     slug?: string
     label?: string
   }[]
-  readonly programs?: TypeProgram[]
+  readonly programs?: TypeProgram[] | null
+  readonly program?: TypeProgram | null
   readonly gspContextParamsCategory: string | string[] | null
   readonly gspContextParamsStudyField: string | string[] | null
   readonly gspContextParamsProgram: string | string[] | null

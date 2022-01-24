@@ -1,4 +1,4 @@
-import stls from '@/styles/components/layout/HeaderPromo.module.sass'
+import stls from '@/styles/components/promo/HeaderPromo.module.sass'
 import {
   TypeLinksHeaderPromo,
   TypeClassNames,
@@ -15,10 +15,12 @@ import {
   GeneralLogo,
   GeneralPhoneNumber,
   GeneralAddress,
-  GeneralNavPromoLaptopDesktop,
-  GeneralNavPromoTablet,
   GeneralPopup
 } from '@/components/general'
+import {
+  GeneralNavPromoLaptopDesktop,
+  GeneralNavPromoTablet
+} from '@/components/promo'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha, BtnSkipNav } from '@/components/btns'
 
