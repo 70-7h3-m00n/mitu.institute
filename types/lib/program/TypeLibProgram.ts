@@ -6,6 +6,9 @@ import {
   TypeLibProgramStudyForm,
   TypeLibProgramForWhom,
   TypeLibGeneralPicture,
+  TypeLibProgramWhatYouWillLearn,
+  TypeLibProgramHowProcessGoes,
+  TypeLibProgramShortContents,
   TypeLibProgramStudyField,
   TypeLibProgramCategory
 } from '@/types/index'
@@ -18,20 +21,9 @@ type TypeLibProgram = {
   study_form?: TypeLibProgramStudyForm
   forWhom?: TypeLibProgramForWhom
   forWhomPicture?: TypeLibGeneralPicture
-  whatYouWillLearn?: {
-    item?: string
-  }[]
-  howProcessGoes?: {
-    title?: string
-    description?: string
-    courseContainsOf?: {
-      title?: string
-      percent?: string
-    }[]
-  }
-  shortContents?: {
-    title?: string
-  }[]
+  whatYouWillLearn?: TypeLibProgramWhatYouWillLearn
+  howProcessGoes?: TypeLibProgramHowProcessGoes
+  shortContents?: TypeLibProgramShortContents
   jobTitles?: {
     picture?: {
       url?: string

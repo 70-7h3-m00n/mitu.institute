@@ -1,0 +1,3 @@
+type TypeLibProgramShortContentsTitle = string
+
+export default TypeLibProgramShortContentsTitle

@@ -68,6 +68,9 @@ import type TypeLibProgramCategoryType from '@/types/lib/program/TypeLibProgramC
 import type TypeLibProgramDescription from '@/types/lib/program/TypeLibProgramDescription'
 import type TypeLibProgramForWhom from '@/types/lib/program/TypeLibProgramForWhom'
 import type TypeLibProgramForWhomDesc from '@/types/lib/program/TypeLibProgramForWhomDesc'
+import type TypeLibProgramHowProcessGoes from '@/types/lib/program/TypeLibProgramHowProcessGoes'
+import type TypeLibProgramShortContents from '@/types/lib/program/TypeLibProgramShortContents'
+import type TypeLibProgramShortContentsTitle from '@/types/lib/program/TypeLibProgramShortContentsTitle'
 import type TypeLibProgramSlug from '@/types/lib/program/TypeLibProgramSlug'
 import type TypeLibProgramStudyField from '@/types/lib/program/TypeLibProgramStudyField'
 import type TypeLibProgramStudyFieldSlug from '@/types/lib/program/TypeLibProgramStudyFieldSlug'
@@ -79,6 +82,8 @@ import type TypeLibProgramTimenpriceDiscount from '@/types/lib/program/TypeLibPr
 import type TypeLibProgramTimenpricePrice from '@/types/lib/program/TypeLibProgramTimenpricePrice'
 import type TypeLibProgramTimenpriceStudyMonthsDuration from '@/types/lib/program/TypeLibProgramTimenpriceStudyMonthsDuration'
 import type TypeLibProgramTitle from '@/types/lib/program/TypeLibProgramTitle'
+import type TypeLibProgramWhatYouWillLearn from '@/types/lib/program/TypeLibProgramWhatYouWillLearn'
+import type TypeLibProgramWhatYouWillLearnItem from '@/types/lib/program/TypeLibProgramWhatYouWillLearnItem'
 
 // page
 import type TypePageProgramsStaticPaths from '@/types/page/TypePageProgramsStaticPaths'
@@ -150,6 +155,9 @@ export {
   TypeLibProgramDescription,
   TypeLibProgramForWhom,
   TypeLibProgramForWhomDesc,
+  TypeLibProgramHowProcessGoes,
+  TypeLibProgramShortContents,
+  TypeLibProgramShortContentsTitle,
   TypeLibProgramSlug,
   TypeLibProgramStudyField,
   TypeLibProgramStudyFieldSlug,
@@ -161,6 +169,8 @@ export {
   TypeLibProgramTimenpricePrice,
   TypeLibProgramTimenpriceStudyMonthsDuration,
   TypeLibProgramTitle,
+  TypeLibProgramWhatYouWillLearn,
+  TypeLibProgramWhatYouWillLearnItem,
   // page
   TypePageProgramsStaticPaths,
   TypePageProgramsStaticProps,
