@@ -25,6 +25,7 @@ const getStaticPropsPagePrograms = async ({
         programs {
           title
           shortDescription
+          slug
           study_field {
             type
             label

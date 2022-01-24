@@ -12,6 +12,7 @@ const PageProgramsCategoryStudyField = ({
   gspContextParamsCategory,
   gspContextParamsStudyField
 }: TypePageProgramsStaticProps) => {
+  console.log(programs)
   return (
     <>
       <Wrapper>Программы и направления</Wrapper>
@@ -22,7 +23,7 @@ const PageProgramsCategoryStudyField = ({
 export default PageProgramsCategoryStudyField
 
 export const getStaticPaths: GetStaticPaths = async () =>
-  await handleGetStaticPaths({ page: routesFront.programs })
+  await handleGetStaticPaths({ page: routesFront.programsCategoryStudyField })
 
 export const getStaticProps: GetStaticProps = async context =>
   await handleGetStaticProps({ page: routesFront.programs, context })

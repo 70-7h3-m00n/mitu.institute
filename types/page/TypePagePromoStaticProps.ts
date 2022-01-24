@@ -11,7 +11,7 @@ type TypePagePromoStaticProps = {
       type?: TypeProgramCategory
     }
     timenprice?: {
-      studyMonthsDuration?: number
+      studyMonthsDuration?: string
     }[]
   }
   // readonly land?: unknown

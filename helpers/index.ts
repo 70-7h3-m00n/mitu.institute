@@ -18,7 +18,13 @@ import handleUtms from '@/helpers/general/handleUtms'
 import hitLeadRoute from '@/helpers/general/hitLeadRoute'
 import onSubmitForm from '@/helpers/general/onSubmitForm'
 
+// getStaticPaths
+import getStaticPathsPageProgram from '@/helpers/getStaticPaths/getStaticPathsPageProgram'
+import getStaticPathsPagePrograms from '@/helpers/getStaticPaths/getStaticPathsPagePrograms'
+import getStaticPathsPageStudyField from '@/helpers/getStaticPaths/getStaticPathsPageStudyField'
+
 // getStaticProps
+import getStaticPropsPageProgram from '@/helpers/getStaticProps/getStaticPropsPageProgram'
 import getStaticPropsPagePrograms from '@/helpers/getStaticProps/getStaticPropsPagePrograms'
 import getStaticPropsPagePromo from '@/helpers/getStaticProps/getStaticPropsPagePromo'
 
@@ -46,7 +52,12 @@ export {
   handleUtms,
   hitLeadRoute,
   onSubmitForm,
+  // getStaticPaths
+  getStaticPathsPageProgram,
+  getStaticPathsPagePrograms,
+  getStaticPathsPageStudyField,
   // getStaticProps
+  getStaticPropsPageProgram,
   getStaticPropsPagePrograms,
   getStaticPropsPagePromo,
   // lead

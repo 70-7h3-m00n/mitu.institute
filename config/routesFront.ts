@@ -13,6 +13,9 @@ const routesFront: TypeRoutesFront = {
   programsAdditional: '/programs/additional',
   programsBachelor: '/programs/bachelor',
   programsMaster: '/programs/master',
+  programsCategoryStudyField: '/programs/[category]/[studyField]',
+  programsCategoryStudyFieldProgram:
+    '/programs/[category]/[studyField]/[program]',
   apiLead: '/api/lead',
   assetsImgsIconsManifestIcon512: '/assets/imgs/icons/manifest-icon-512.png',
   anchorMain: '#main',

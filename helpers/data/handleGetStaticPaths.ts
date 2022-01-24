@@ -1,7 +1,16 @@
-import { TypePageProgramsStaticPaths, TypeRoutesFront } from '@/types/index'
+import {
+  TypePageProgramsStaticPaths,
+  TypeRoutesFront,
+  TypeHandleGetStaticPaths
+} from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
 import { routesFront, routesBack, revalidate } from '@/config/index'
+import {
+  getStaticPathsPagePrograms,
+  getStaticPathsPageStudyField,
+  getStaticPathsPageProgram
+} from '@/helpers/index'
 
 type TypehandleGetStaticPathsProps = {
   page: TypeRoutesFront[keyof TypeRoutesFront]
@@ -9,30 +18,17 @@ type TypehandleGetStaticPathsProps = {
 
 const handleGetStaticPaths = async ({
   page
-}: TypehandleGetStaticPathsProps): Promise<{
-  paths: {
-    params: Record<'category', string>
-  }[]
-  fallback: boolean | 'blocking'
-}> => {
+}: TypehandleGetStaticPathsProps): Promise<TypeHandleGetStaticPaths> => {
   switch (page) {
     case routesFront.programs:
-      const res = await apolloClient.query<TypePageProgramsStaticPaths>({
-        query: gql`
-          query GetStaticPathsPageCategory {
-            categories {
-              slug
-            }
-          }
-        `
-      })
+      return await getStaticPathsPagePrograms()
 
-      return {
-        paths: res.data.categories.map(category => ({
-          params: { category: category.slug }
-        })),
-        fallback: 'blocking'
-      }
+    case routesFront.programsCategoryStudyField:
+      return await getStaticPathsPageStudyField()
+
+    case routesFront.programsCategoryStudyFieldProgram:
+      return await getStaticPathsPageProgram()
+
     default:
       return {
         paths: [],

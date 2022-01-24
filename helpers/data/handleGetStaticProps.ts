@@ -2,12 +2,14 @@ import {
   TypeRoutesFront,
   TypePagePromoStaticProps,
   TypePageProgramsStaticProps,
+  TypePageProgramStaticProps,
   TypeGetStaticPropsContext
 } from '@/types/index'
 import { routesFront, revalidate } from '@/config/index'
 import {
   getStaticPropsPagePromo,
-  getStaticPropsPagePrograms
+  getStaticPropsPagePrograms,
+  getStaticPropsPageProgram
 } from '@/helpers/index'
 
 type TypeHandleGetStaticPropsProps = {
@@ -18,7 +20,10 @@ const handleGetStaticProps = async ({
   page,
   context
 }: TypeHandleGetStaticPropsProps & TypeGetStaticPropsContext): Promise<{
-  props: TypePagePromoStaticProps | TypePageProgramsStaticProps
+  props:
+    | TypePagePromoStaticProps
+    | TypePageProgramsStaticProps
+    | TypePageProgramStaticProps
   revalidate: number
 }> => {
   switch (page) {
@@ -27,6 +32,9 @@ const handleGetStaticProps = async ({
 
     case routesFront.programs:
       return await getStaticPropsPagePrograms({ context })
+
+    case routesFront.programsCategoryStudyFieldProgram:
+      return await getStaticPropsPageProgram({ context })
 
     default:
       return {

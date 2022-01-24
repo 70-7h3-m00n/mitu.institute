@@ -30,6 +30,7 @@ import type TypeColor from '@/types/general/TypeColor'
 import type TypeColorsKeys from '@/types/general/TypeColorsKeys'
 import type TypeFormAlphaValues from '@/types/general/TypeFormAlphaValues'
 import type TypeGetStaticPropsContext from '@/types/general/TypeGetStaticPropsContext'
+import type TypeHandleGetStaticPaths from '@/types/general/TypeHandleGetStaticPaths'
 import type TypeLeadClientValues from '@/types/general/TypeLeadClientValues'
 import type TypeLinks from '@/types/general/TypeLinks'
 import type TypeLinksHeaderPromo from '@/types/general/TypeLinksHeaderPromo'
@@ -50,7 +51,10 @@ import type TypeVariantForm from '@/types/general/TypeVariantForm'
 // page
 import type TypePageProgramsStaticPaths from '@/types/page/TypePageProgramsStaticPaths'
 import type TypePageProgramsStaticProps from '@/types/page/TypePageProgramsStaticProps'
+import type TypePageProgramStaticPaths from '@/types/page/TypePageProgramStaticPaths'
+import type TypePageProgramStaticProps from '@/types/page/TypePageProgramStaticProps'
 import type TypePagePromoStaticProps from '@/types/page/TypePagePromoStaticProps'
+import type TypePageStudyFieldStaticPaths from '@/types/page/TypePageStudyFieldStaticPaths'
 
 // program
 import type TypeProgramCategory from '@/types/program/TypeProgramCategory'
@@ -80,6 +84,7 @@ export {
   TypeColorsKeys,
   TypeFormAlphaValues,
   TypeGetStaticPropsContext,
+  TypeHandleGetStaticPaths,
   TypeLeadClientValues,
   TypeLinks,
   TypeLinksHeaderPromo,
@@ -99,7 +104,10 @@ export {
   // page
   TypePageProgramsStaticPaths,
   TypePageProgramsStaticProps,
+  TypePageProgramStaticPaths,
+  TypePageProgramStaticProps,
   TypePagePromoStaticProps,
+  TypePageStudyFieldStaticPaths,
   // program
   TypeProgramCategory
 }

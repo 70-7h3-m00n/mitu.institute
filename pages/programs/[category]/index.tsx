@@ -11,6 +11,7 @@ const PageProgramsCategory = ({
   programs,
   gspContextParamsCategory
 }: TypePageProgramsStaticProps) => {
+  console.log(studyFields)
   return (
     <>
       <Wrapper>

@@ -14,6 +14,7 @@ type TypePageProgramsStaticProps = {
   readonly programs?: {
     title?: string
     shortDescription?: string
+    slug?: string
     study_field?: {
       type?: string
       label?: string
@@ -22,7 +23,7 @@ type TypePageProgramsStaticProps = {
       type?: TypeProgramCategory
     }
     timenprice?: {
-      studyMonthsDuration?: number
+      studyMonthsDuration?: string
     }[]
   }[]
   readonly gspContextParamsCategory: string | string[] | null
