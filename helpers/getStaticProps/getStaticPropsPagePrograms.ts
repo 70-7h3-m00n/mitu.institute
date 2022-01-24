@@ -43,7 +43,7 @@ const getStaticPropsPagePrograms = async ({
 
   return {
     props: {
-      ...res.data,
+      ...(res.data || null),
       gspContextParamsCategory: context?.params?.category || null,
       gspContextParamsStudyField: context?.params?.studyField || null
     },

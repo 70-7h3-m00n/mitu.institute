@@ -108,7 +108,11 @@ const getStaticPropsPageProgram = async ({
 
   return {
     props: {
-      ...{ ...res.data, programs: null, program: res.data.programs?.[0] },
+      ...{
+        ...(res.data || null),
+        programs: null,
+        program: res.data.programs?.[0] || null
+      },
       gspContextParamsCategory: context?.params?.category || null,
       gspContextParamsStudyField: context?.params?.studyField || null,
       gspContextParamsProgram: context?.params?.program || null

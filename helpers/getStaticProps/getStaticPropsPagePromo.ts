@@ -34,7 +34,7 @@ const getStaticPropsPagePromo = async ({
   })
 
   return {
-    props: res.data,
+    props: res.data || null,
     revalidate: revalidate.default
   }
 }
