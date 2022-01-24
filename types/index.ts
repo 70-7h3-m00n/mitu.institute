@@ -85,6 +85,9 @@ import type TypeLibProgramStudyFieldSlug from '@/types/lib/program/TypeLibProgra
 import type TypeLibProgramStudyFieldType from '@/types/lib/program/TypeLibProgramStudyFieldType'
 import type TypeLibProgramStudyForm from '@/types/lib/program/TypeLibProgramStudyForm'
 import type TypeLibProgramStudyFormLabel from '@/types/lib/program/TypeLibProgramStudyFormLabel'
+import type TypeLibProgramTeachers from '@/types/lib/program/TypeLibProgramTeachers'
+import type TypeLibProgramTeachersName from '@/types/lib/program/TypeLibProgramTeachersName'
+import type TypeLibProgramTeachersSpecialization from '@/types/lib/program/TypeLibProgramTeachersSpecialization'
 import type TypeLibProgramTimenprice from '@/types/lib/program/TypeLibProgramTimenprice'
 import type TypeLibProgramTimenpriceDiscount from '@/types/lib/program/TypeLibProgramTimenpriceDiscount'
 import type TypeLibProgramTimenpricePrice from '@/types/lib/program/TypeLibProgramTimenpricePrice'
@@ -92,6 +95,9 @@ import type TypeLibProgramTimenpriceStudyMonthsDuration from '@/types/lib/progra
 import type TypeLibProgramTitle from '@/types/lib/program/TypeLibProgramTitle'
 import type TypeLibProgramWhatYouWillLearn from '@/types/lib/program/TypeLibProgramWhatYouWillLearn'
 import type TypeLibProgramWhatYouWillLearnItem from '@/types/lib/program/TypeLibProgramWhatYouWillLearnItem'
+import type TypeLibProgramQuestions from '@/types/lib/program/TypeLibProgramQuestions'
+import type TypeLibProgramQuestionsAnswer from '@/types/lib/program/TypeLibProgramQuestionsAnswer'
+import type TypeLibProgramQuestionsQuestion from '@/types/lib/program/TypeLibProgramQuestionsQuestion'
 
 // page
 import type TypePageProgramsStaticPaths from '@/types/page/TypePageProgramsStaticPaths'
@@ -180,6 +186,9 @@ export {
   TypeLibProgramStudyFieldType,
   TypeLibProgramStudyForm,
   TypeLibProgramStudyFormLabel,
+  TypeLibProgramTeachers,
+  TypeLibProgramTeachersName,
+  TypeLibProgramTeachersSpecialization,
   TypeLibProgramTimenprice,
   TypeLibProgramTimenpriceDiscount,
   TypeLibProgramTimenpricePrice,
@@ -187,6 +196,9 @@ export {
   TypeLibProgramTitle,
   TypeLibProgramWhatYouWillLearn,
   TypeLibProgramWhatYouWillLearnItem,
+  TypeLibProgramQuestions,
+  TypeLibProgramQuestionsAnswer,
+  TypeLibProgramQuestionsQuestion,
   // page
   TypePageProgramsStaticPaths,
   TypePageProgramsStaticProps,

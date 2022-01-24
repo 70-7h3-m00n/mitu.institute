@@ -1,0 +1,3 @@
+type TypeLibProgramQuestionsQuestion = string
+
+export default TypeLibProgramQuestionsQuestion
