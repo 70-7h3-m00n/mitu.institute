@@ -4,6 +4,8 @@ import {
   TypeLibProgramDescription,
   TypeLibProgramTimenprice,
   TypeLibProgramStudyForm,
+  TypeLibProgramForWhom,
+  TypeLibGeneralPicture,
   TypeLibProgramStudyField,
   TypeLibProgramCategory
 } from '@/types/index'
@@ -14,18 +16,8 @@ type TypeLibProgram = {
   description?: TypeLibProgramDescription
   timenprice?: TypeLibProgramTimenprice
   study_form?: TypeLibProgramStudyForm
-  forWhom?: {
-    title?: {
-      titlePart: string
-      highlight: boolean
-    }[]
-    desc?: string
-  }[]
-  forWhomPicture?: {
-    url?: string
-    width?: number
-    height?: number
-  }
+  forWhom?: TypeLibProgramForWhom
+  forWhomPicture?: TypeLibGeneralPicture
   whatYouWillLearn?: {
     item?: string
   }[]

@@ -1,8 +1,6 @@
-import { TypeProgramCategory } from '@/types/index'
-
 type TypePageProgramsStaticProps = {
   readonly categories?: {
-    type?: TypeProgramCategory
+    type?: string
     slug?: string
     label?: string
   }[]
@@ -20,7 +18,7 @@ type TypePageProgramsStaticProps = {
       label?: string
     }
     category?: {
-      type?: TypeProgramCategory
+      type?: string
     }
     timenprice?: {
       studyMonthsDuration?: string

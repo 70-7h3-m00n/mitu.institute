@@ -16,7 +16,7 @@ import {
   SectionProgramWhatWillYouLearn,
   SectionProgramHowProcessGoes,
   SectionProgramContents,
-  SectionProgramYourDiploma,
+  SectionYourFutureDiploma,
   SectionProgramJobTitles,
   SectionUIFormAlpha,
   SectionProgramTeachers,
@@ -50,7 +50,7 @@ const PageProgramsCategoryStudyFieldProgram = ({
       <SectionProgramWhatWillYouLearn />
       <SectionProgramHowProcessGoes />
       <SectionProgramContents />
-      <SectionProgramYourDiploma />
+      <SectionYourFutureDiploma />
       <SectionProgramJobTitles />
       <SectionUIFormAlpha />
       <SectionProgramTeachers />

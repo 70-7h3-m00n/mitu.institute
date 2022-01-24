@@ -51,13 +51,23 @@ import type TypeUrl from '@/types/general/TypeUrl'
 import type TypeUtms from '@/types/general/TypeUtms'
 import type TypeVariantForm from '@/types/general/TypeVariantForm'
 
-// lib
+// lib/general
+import type TypeLibGeneralPicture from '@/types/lib/general/TypeLibGeneralPicture'
+import type TypeLibGeneralPictureHeight from '@/types/lib/general/TypeLibGeneralPictureHeight'
+import type TypeLibGeneralPictureUrl from '@/types/lib/general/TypeLibGeneralPictureUrl'
+import type TypeLibGeneralPictureWidth from '@/types/lib/general/TypeLibGeneralPictureWidth'
+import type TypeLibGeneralTitle from '@/types/lib/general/TypeLibGeneralTitle'
+import type TypeLibGeneralTitleHighlight from '@/types/lib/general/TypeLibGeneralTitleHighlight'
+import type TypeLibGeneralTitleTitlePart from '@/types/lib/general/TypeLibGeneralTitleTitlePart'
+// lib/program
 import type TypeLibProgram from '@/types/lib/program/TypeLibProgram'
 import type TypeLibProgramCategory from '@/types/lib/program/TypeLibProgramCategory'
 import type TypeLibProgramCategoryLabel from '@/types/lib/program/TypeLibProgramCategoryLabel'
 import type TypeLibProgramCategorySlug from '@/types/lib/program/TypeLibProgramCategorySlug'
 import type TypeLibProgramCategoryType from '@/types/lib/program/TypeLibProgramCategoryType'
 import type TypeLibProgramDescription from '@/types/lib/program/TypeLibProgramDescription'
+import type TypeLibProgramForWhom from '@/types/lib/program/TypeLibProgramForWhom'
+import type TypeLibProgramForWhomDesc from '@/types/lib/program/TypeLibProgramForWhomDesc'
 import type TypeLibProgramSlug from '@/types/lib/program/TypeLibProgramSlug'
 import type TypeLibProgramStudyField from '@/types/lib/program/TypeLibProgramStudyField'
 import type TypeLibProgramStudyFieldSlug from '@/types/lib/program/TypeLibProgramStudyFieldSlug'
@@ -77,11 +87,6 @@ import type TypePageProgramStaticPaths from '@/types/page/TypePageProgramStaticP
 import type TypePageProgramStaticProps from '@/types/page/TypePageProgramStaticProps'
 import type TypePagePromoStaticProps from '@/types/page/TypePagePromoStaticProps'
 import type TypePageStudyFieldStaticPaths from '@/types/page/TypePageStudyFieldStaticPaths'
-
-// program
-import type TypeProgramCategories from '@/types/program/TypeProgramCategories'
-import type TypeProgramCategory from '@/types/program/TypeProgramCategory'
-import type TypeProgramStudyField from '@/types/program/TypeProgramStudyField'
 
 export {
   // btns
@@ -128,13 +133,23 @@ export {
   TypeUrl,
   TypeUtms,
   TypeVariantForm,
-  // lib
+  // lib/general
+  TypeLibGeneralPicture,
+  TypeLibGeneralPictureHeight,
+  TypeLibGeneralPictureUrl,
+  TypeLibGeneralPictureWidth,
+  TypeLibGeneralTitle,
+  TypeLibGeneralTitleHighlight,
+  TypeLibGeneralTitleTitlePart,
+  // lib/program
   TypeLibProgram,
   TypeLibProgramCategory,
   TypeLibProgramCategoryLabel,
   TypeLibProgramCategorySlug,
   TypeLibProgramCategoryType,
   TypeLibProgramDescription,
+  TypeLibProgramForWhom,
+  TypeLibProgramForWhomDesc,
   TypeLibProgramSlug,
   TypeLibProgramStudyField,
   TypeLibProgramStudyFieldSlug,
@@ -152,9 +167,5 @@ export {
   TypePageProgramStaticPaths,
   TypePageProgramStaticProps,
   TypePagePromoStaticProps,
-  TypePageStudyFieldStaticPaths,
-  // program
-  TypeProgramCategories,
-  TypeProgramCategory,
-  TypeProgramStudyField
+  TypePageStudyFieldStaticPaths
 }

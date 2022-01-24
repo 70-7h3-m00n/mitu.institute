@@ -1,5 +1,3 @@
-import { TypePageProgramsStaticPaths } from '@/types/index'
-
 type TypePageStudyFieldStaticPaths = {
   readonly programs: {
     readonly category?: {
