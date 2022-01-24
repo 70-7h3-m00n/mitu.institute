@@ -1,7 +1,9 @@
+import { TypeProgramCategory } from '@/types/index'
+
 type TypeHandleGetStaticPaths = {
   paths: {
     params: {
-      category: string
+      category: TypeProgramCategory
       studyField?: string
       program?: string
     }
