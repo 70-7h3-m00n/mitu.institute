@@ -31,17 +31,17 @@ const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
     {
       href: routesFront.anchorPrograms,
       val: 'Бакалавриат',
-      payload: 'bachelor'
+      payload: 'bakalavriat'
     },
     {
       href: routesFront.anchorPrograms,
       val: 'Магистратура',
-      payload: 'master'
+      payload: 'magistratura'
     },
     {
       href: routesFront.anchorPrograms,
       val: 'Дополнительное образование',
-      payload: 'additional'
+      payload: 'dopolnitelnoe'
     }
   ]
 

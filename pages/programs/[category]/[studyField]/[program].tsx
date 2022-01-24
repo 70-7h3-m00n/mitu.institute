@@ -1,9 +1,29 @@
 import stls from '@/styles/pages/PageProgramsCategory.module.sass'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { TypePageProgramStaticProps } from '@/types/index'
+import { useContext, useEffect } from 'react'
 import { routesFront } from '@/config/index'
 import { handleGetStaticProps, handleGetStaticPaths } from '@/helpers/index'
+import {
+  ContextCategoryContext,
+  ContextStudyFieldContext,
+  ContextProgramContext
+} from '@/context/index'
 import { Wrapper } from '@/components/layout'
+import {
+  SectionProgramHero,
+  SectionProgramForWhom,
+  SectionProgramWhatWillYouLearn,
+  SectionProgramHowProcessGoes,
+  SectionProgramContents,
+  SectionProgramYourDiploma,
+  SectionProgramJobTitles,
+  SectionUIFormAlpha,
+  SectionProgramTeachers,
+  SectionStartWithDiscount,
+  SectionProgramStudyCost,
+  SectionProgramQna
+} from '@/components/sections'
 
 const PageProgramsCategoryStudyFieldProgram = ({
   categories,
@@ -12,11 +32,32 @@ const PageProgramsCategoryStudyFieldProgram = ({
   gspContextParamsStudyField,
   gspContextParamsProgram
 }: TypePageProgramStaticProps) => {
-  const program = programs?.[0]
-  console.log(program)
+  const { setCategory } = useContext(ContextCategoryContext)
+  const { setStudyField } = useContext(ContextStudyFieldContext)
+  const { setProgram } = useContext(ContextProgramContext)
+
+  const program = programs?.[0] || null
+
+  useEffect(() => {
+    setCategory({ payload: gspContextParamsCategory })
+    setStudyField({ payload: gspContextParamsStudyField })
+    setProgram({ payload: program })
+  }, [gspContextParamsCategory, gspContextParamsStudyField, program])
+
   return (
     <>
-      <Wrapper>Программа</Wrapper>
+      <SectionProgramHero />
+      <SectionProgramForWhom />
+      <SectionProgramWhatWillYouLearn />
+      <SectionProgramHowProcessGoes />
+      <SectionProgramContents />
+      <SectionProgramYourDiploma />
+      <SectionProgramJobTitles />
+      <SectionUIFormAlpha />
+      <SectionProgramTeachers />
+      <SectionStartWithDiscount />
+      <SectionProgramStudyCost />
+      <SectionProgramQna />
     </>
   )
 }

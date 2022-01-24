@@ -11,7 +11,7 @@ type TypeContextCategoryStateProps = TypeChildren
 
 const ContextCategoryState = ({ children }: TypeContextCategoryStateProps) => {
   const initialState: TypeContextCategory = {
-    category: 'bachelor'
+    category: null
   }
 
   const [state, dispatch] = useReducer(contextCategoryReducer, initialState)

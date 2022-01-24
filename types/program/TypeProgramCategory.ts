@@ -1,3 +1,3 @@
-type TypeProgramCategory = 'master' | 'bachelor' | 'additional'
+type TypeProgramCategory = string | string[] | null
 
 export default TypeProgramCategory

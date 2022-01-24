@@ -19,6 +19,8 @@ import type TypeBtnType from '@/types/btn/TypeBtnType'
 import type TypeContextAccessibility from '@/types/context/TypeContextAccessibility'
 import type TypeContextCategory from '@/types/context/TypeContextCategory'
 import type TypeContextGeneralPopup from '@/types/context/TypeContextGeneralPopup'
+import type TypeContextProgram from '@/types/context/TypeContextProgram'
+import type TypeContextStudyField from '@/types/context/TypeContextStudyField'
 
 // general
 import type TypeAnchor from '@/types/general/TypeAnchor'
@@ -57,7 +59,9 @@ import type TypePagePromoStaticProps from '@/types/page/TypePagePromoStaticProps
 import type TypePageStudyFieldStaticPaths from '@/types/page/TypePageStudyFieldStaticPaths'
 
 // program
+import type TypeProgram from '@/types/program/TypeProgram'
 import type TypeProgramCategory from '@/types/program/TypeProgramCategory'
+import type TypeProgramStudyField from '@/types/program/TypeProgramStudyField'
 
 export {
   // btns
@@ -74,6 +78,8 @@ export {
   TypeContextAccessibility,
   TypeContextCategory,
   TypeContextGeneralPopup,
+  TypeContextProgram,
+  TypeContextStudyField,
   // general
   TypeAnchor,
   TypeAriaLabel,
@@ -109,5 +115,7 @@ export {
   TypePagePromoStaticProps,
   TypePageStudyFieldStaticPaths,
   // program
-  TypeProgramCategory
+  TypeProgram,
+  TypeProgramCategory,
+  TypeProgramStudyField
 }

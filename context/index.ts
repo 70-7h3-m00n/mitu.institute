@@ -7,6 +7,12 @@ import ContextAccessibilityState from '@/context/accessibility/ContextAccessibil
 import ContextGeneralPopupContext from '@/context/popup/contextGeneralPopupContext'
 import contextGeneralPopupReducer from '@/context/popup/contextGeneralPopupReducer'
 import ContextGeneralPopupState from '@/context/popup/ContextGeneralPopupState'
+import ContextProgramContext from '@/context/program/contextProgramContext'
+import contextProgramReducer from '@/context/program/contextProgramReducer'
+import ContextProgramState from '@/context/program/ContextProgramState'
+import ContextStudyFieldContext from '@/context/studyField/contextStudyFieldContext'
+import contextStudyFieldReducer from '@/context/studyField/contextStudyFieldReducer'
+import ContextStudyFieldState from '@/context/studyField/ContextStudyFieldState'
 
 export {
   ContextCategoryContext,
@@ -17,5 +23,11 @@ export {
   ContextAccessibilityState,
   ContextGeneralPopupContext,
   contextGeneralPopupReducer,
-  ContextGeneralPopupState
+  ContextGeneralPopupState,
+  ContextProgramContext,
+  contextProgramReducer,
+  ContextProgramState,
+  ContextStudyFieldContext,
+  contextStudyFieldReducer,
+  ContextStudyFieldState
 }

@@ -34,23 +34,27 @@ const SectionOurProgramsPromo = ({
         <div className={stls.content}>
           <div className={stls.btns}>
             <BtnAlpha
-              variant={category === 'bachelor' ? 'epsilon' : 'epsilon-reverse'}
+              variant={
+                category === 'bakalavriat' ? 'epsilon' : 'epsilon-reverse'
+              }
               classNames={[stls.btn]}
-              onClick={() => setCategory({ payload: 'bachelor' })}>
+              onClick={() => setCategory({ payload: 'bakalavriat' })}>
               Бакалавриат
             </BtnAlpha>
             <BtnAlpha
-              variant={category === 'master' ? 'epsilon' : 'epsilon-reverse'}
+              variant={
+                category === 'magistratura' ? 'epsilon' : 'epsilon-reverse'
+              }
               classNames={[stls.btn]}
-              onClick={() => setCategory({ payload: 'master' })}>
+              onClick={() => setCategory({ payload: 'magistratura' })}>
               Магистратура
             </BtnAlpha>
             <BtnAlpha
               variant={
-                category === 'additional' ? 'epsilon' : 'epsilon-reverse'
+                category === 'dopolnitelnoe' ? 'epsilon' : 'epsilon-reverse'
               }
               classNames={[stls.btn]}
-              onClick={() => setCategory({ payload: 'additional' })}>
+              onClick={() => setCategory({ payload: 'dopolnitelnoe' })}>
               Дополнительное образование
             </BtnAlpha>
           </div>

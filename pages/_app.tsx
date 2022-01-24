@@ -13,7 +13,9 @@ import { prod, routesFront, selectors, gtm } from '@/config/index'
 import { handleUtms, handleReferer, pageview } from '@/helpers/index'
 import {
   ContextAccessibilityState,
-  ContextCategoryState
+  ContextCategoryState,
+  ContextStudyFieldState,
+  ContextProgramState
 } from '@/context/index'
 import { Header, HeaderPromo, Main, Footer } from '@/components/layout'
 
@@ -52,6 +54,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   if (prod) {
     console.log = () => {}
   }
+
   return (
     <>
       <DefaultSeo {...SEO} />
@@ -62,11 +65,19 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       {/* <ContextGeneralPopupState> */}
       <ContextAccessibilityState>
         <ContextCategoryState>
-          {router.route === routesFront.promo ? <HeaderPromo /> : <Header />}
-          <Main>
-            <Component {...pageProps} />
-          </Main>
-          <Footer />
+          <ContextStudyFieldState>
+            <ContextProgramState>
+              {router.route === routesFront.promo ? (
+                <HeaderPromo />
+              ) : (
+                <Header />
+              )}
+              <Main>
+                <Component {...pageProps} />
+              </Main>
+              <Footer />
+            </ContextProgramState>
+          </ContextStudyFieldState>
         </ContextCategoryState>
       </ContextAccessibilityState>
       {/* </ContextGeneralPopupState> */}
