@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/SectionHero.module.sass'
+import stls from '@/styles/components/sections/SectionProgramForWhom.module.sass'
 import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'

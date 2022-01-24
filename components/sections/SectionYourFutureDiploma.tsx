@@ -38,7 +38,7 @@ const SectionYourFutureDiploma = ({
       }>
       <Wrapper classNames={[stls.wrapper]}>
         <GeneralSectionTitle classNames={[stls.title]}>
-          Твой будущий диплом
+          Ваш будущий диплом
         </GeneralSectionTitle>
         <ul className={stls.diplomas}>
           {diplomas.map((diploma, idx) => (

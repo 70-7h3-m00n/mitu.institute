@@ -1,9 +1,9 @@
-import stls from '@/styles/components/sections/SectionHero.module.sass'
+import stls from '@/styles/components/sections/SectionProgramQna.module.sass'
 import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
-import { GeneralPros, GeneralTextHighlight } from '@/components/general'
+import { GeneralSectionTitle } from '@/components/general'
 
 type TypeSectionProgramQnaProps = TypeClassNames & {
   title?: string
@@ -18,7 +18,10 @@ const SectionProgramQna = ({
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <Wrapper>Начните обучаться со скидкой</Wrapper>
+      <Wrapper>
+        {' '}
+        <GeneralSectionTitle>Нас часто спрашивают</GeneralSectionTitle>
+      </Wrapper>
     </section>
   )
 }

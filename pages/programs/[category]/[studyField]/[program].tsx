@@ -21,8 +21,8 @@ import {
   SectionUIFormAlpha,
   SectionProgramTeachers,
   SectionStartWithDiscount,
-  SectionProgramStudyCost,
-  SectionProgramQna
+  SectionProgramQna,
+  SectionProgramStudyCost
 } from '@/components/sections'
 
 const PageProgramsCategoryStudyFieldProgram = ({
@@ -52,11 +52,11 @@ const PageProgramsCategoryStudyFieldProgram = ({
       <SectionProgramContents />
       <SectionYourFutureDiploma />
       <SectionProgramJobTitles />
-      <SectionUIFormAlpha />
+      <SectionUIFormAlpha title='Получить бесплатную консультацию' />
       <SectionProgramTeachers />
       <SectionStartWithDiscount />
-      <SectionProgramStudyCost />
       <SectionProgramQna />
+      <SectionProgramStudyCost />
     </>
   )
 }
