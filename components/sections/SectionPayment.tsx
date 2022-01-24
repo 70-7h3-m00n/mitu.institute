@@ -6,10 +6,10 @@ import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { ImgPaymentCard } from '@/components/imgs'
-import { BtnAlpha } from '../btns'
+import { BtnAlpha } from '@/components/btns'
 import routesFront from '@/config/routesFront'
-import { GeneralPopup } from '../general'
-import { UIFormAlpha } from '../uiforms'
+import { GeneralPopup } from '@/components/general'
+import { UIFormAlpha } from '@/components/uiforms'
 
 
 
