@@ -5,11 +5,12 @@ import {
   TypeProgramCategory
 } from '@/types/index'
 import { useRouter } from 'next/router'
-import { MouseEventHandler } from 'react'
+import { MouseEventHandler, useContext, useEffect } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { ContextCategoriesContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralLogo,
@@ -28,24 +29,16 @@ type TypeHeaderPromoProps = TypeClassNames
 
 const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
   const router = useRouter()
+  const { categories } = useContext(ContextCategoriesContext)
 
-  const links: TypeLinksHeaderPromo = [
-    {
+  console.log(categories)
+
+  const links: TypeLinksHeaderPromo =
+    categories?.map(category => ({
       href: routesFront.anchorPrograms,
-      val: 'Бакалавриат',
-      payload: 'bakalavriat'
-    },
-    {
-      href: routesFront.anchorPrograms,
-      val: 'Магистратура',
-      payload: 'magistratura'
-    },
-    {
-      href: routesFront.anchorPrograms,
-      val: 'Дополнительное образование',
-      payload: 'dopolnitelnoe'
-    }
-  ]
+      val: category.label,
+      payload: category.type
+    })) || null
 
   return (
     <header

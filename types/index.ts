@@ -17,6 +17,7 @@ import type TypeBtnType from '@/types/btn/TypeBtnType'
 
 // context
 import type TypeContextAccessibility from '@/types/context/TypeContextAccessibility'
+import type TypeContextCategories from '@/types/context/TypeContextCategories'
 import type TypeContextCategory from '@/types/context/TypeContextCategory'
 import type TypeContextGeneralPopup from '@/types/context/TypeContextGeneralPopup'
 import type TypeContextProgram from '@/types/context/TypeContextProgram'
@@ -60,6 +61,7 @@ import type TypePageStudyFieldStaticPaths from '@/types/page/TypePageStudyFieldS
 
 // program
 import type TypeProgram from '@/types/program/TypeProgram'
+import type TypeProgramCategories from '@/types/program/TypeProgramCategories'
 import type TypeProgramCategory from '@/types/program/TypeProgramCategory'
 import type TypeProgramStudyField from '@/types/program/TypeProgramStudyField'
 
@@ -76,6 +78,7 @@ export {
   TypeBtnType,
   // context
   TypeContextAccessibility,
+  TypeContextCategories,
   TypeContextCategory,
   TypeContextGeneralPopup,
   TypeContextProgram,
@@ -116,6 +119,7 @@ export {
   TypePageStudyFieldStaticPaths,
   // program
   TypeProgram,
+  TypeProgramCategories,
   TypeProgramCategory,
   TypeProgramStudyField
 }

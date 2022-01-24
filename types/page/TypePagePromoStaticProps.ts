@@ -18,7 +18,7 @@ type TypePagePromoStaticProps = {
   readonly categories?: {
     label?: string
     type?: string
-  }
+  }[]
 }
 
 export default TypePagePromoStaticProps

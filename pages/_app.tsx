@@ -13,6 +13,7 @@ import { prod, routesFront, selectors, gtm } from '@/config/index'
 import { handleUtms, handleReferer, pageview } from '@/helpers/index'
 import {
   ContextAccessibilityState,
+  ContextCategoriesState,
   ContextCategoryState,
   ContextStudyFieldState,
   ContextProgramState
@@ -65,21 +66,23 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       />
       {/* <ContextGeneralPopupState> */}
       <ContextAccessibilityState>
-        <ContextCategoryState>
-          <ContextStudyFieldState>
-            <ContextProgramState>
-              {router.route === routesFront.promo ? (
-                <HeaderPromo />
-              ) : (
-                <Header />
-              )}
-              <Main>
-                <Component {...pageProps} />
-              </Main>
-              <Footer />
-            </ContextProgramState>
-          </ContextStudyFieldState>
-        </ContextCategoryState>
+        <ContextCategoriesState>
+          <ContextCategoryState>
+            <ContextStudyFieldState>
+              <ContextProgramState>
+                {router.route === routesFront.promo ? (
+                  <HeaderPromo />
+                ) : (
+                  <Header />
+                )}
+                <Main>
+                  <Component {...pageProps} />
+                </Main>
+                <Footer />
+              </ContextProgramState>
+            </ContextStudyFieldState>
+          </ContextCategoryState>
+        </ContextCategoriesState>
       </ContextAccessibilityState>
       {/* </ContextGeneralPopupState> */}
 

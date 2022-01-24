@@ -1,9 +1,12 @@
-import ContextCategoryContext from '@/context/category/contextCategoryContext'
-import contextCategoryReducer from '@/context/category/contextCategoryReducer'
-import ContextCategoryState from '@/context/category/ContextCategoryState'
 import ContextAccessibilityContext from '@/context/accessibility/contextAccessibilityContext'
 import contextAccessibilityReducer from '@/context/accessibility/contextAccessibilityReducer'
 import ContextAccessibilityState from '@/context/accessibility/ContextAccessibilityState'
+import ContextCategoriesContext from '@/context/categories/contextCategoriesContext'
+import contextCategoriesReducer from '@/context/categories/contextCategoriesReducer'
+import ContextCategoriesState from '@/context/categories/ContextCategoriesState'
+import ContextCategoryContext from '@/context/category/contextCategoryContext'
+import contextCategoryReducer from '@/context/category/contextCategoryReducer'
+import ContextCategoryState from '@/context/category/ContextCategoryState'
 import ContextGeneralPopupContext from '@/context/popup/contextGeneralPopupContext'
 import contextGeneralPopupReducer from '@/context/popup/contextGeneralPopupReducer'
 import ContextGeneralPopupState from '@/context/popup/ContextGeneralPopupState'
@@ -18,6 +21,9 @@ export {
   ContextCategoryContext,
   contextCategoryReducer,
   ContextCategoryState,
+  ContextCategoriesContext,
+  contextCategoriesReducer,
+  ContextCategoriesState,
   ContextAccessibilityContext,
   contextAccessibilityReducer,
   ContextAccessibilityState,

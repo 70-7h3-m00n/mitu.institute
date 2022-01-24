@@ -1,11 +1,18 @@
 import stls from '@/styles/components/sections/SectionOurProgramsPromo.module.sass'
-import { TypeClassNames, TypePagePromoStaticProps } from '@/types/index'
+import {
+  TypeBtnAlphaVariant,
+  TypeClassNames,
+  TypePagePromoStaticProps
+} from '@/types/index'
 import { MouseEventHandler, useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { ContextCategoryContext } from '@/context/index'
+import {
+  ContextCategoriesContext,
+  ContextCategoryContext
+} from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -20,6 +27,15 @@ const SectionOurProgramsPromo = ({
   programs
 }: TypeSectionOurProgramsPromoProps) => {
   const { category, setCategory } = useContext(ContextCategoryContext)
+  const { categories } = useContext(ContextCategoriesContext)
+
+  console.log(categories)
+
+  const btns = categories?.map(category => ({
+    variantType: category.type,
+    onClick: () => setCategory({ payload: category.type || null }),
+    label: category.label
+  }))
 
   return (
     <section
@@ -33,30 +49,17 @@ const SectionOurProgramsPromo = ({
         </GeneralSectionTitle>
         <div className={stls.content}>
           <div className={stls.btns}>
-            <BtnAlpha
-              variant={
-                category === 'bakalavriat' ? 'epsilon' : 'epsilon-reverse'
-              }
-              classNames={[stls.btn]}
-              onClick={() => setCategory({ payload: 'bakalavriat' })}>
-              Бакалавриат
-            </BtnAlpha>
-            <BtnAlpha
-              variant={
-                category === 'magistratura' ? 'epsilon' : 'epsilon-reverse'
-              }
-              classNames={[stls.btn]}
-              onClick={() => setCategory({ payload: 'magistratura' })}>
-              Магистратура
-            </BtnAlpha>
-            <BtnAlpha
-              variant={
-                category === 'dopolnitelnoe' ? 'epsilon' : 'epsilon-reverse'
-              }
-              classNames={[stls.btn]}
-              onClick={() => setCategory({ payload: 'dopolnitelnoe' })}>
-              Дополнительное образование
-            </BtnAlpha>
+            {btns?.map((btn, idx) => (
+              <BtnAlpha
+                key={(btn.label || 'btn') + idx}
+                variant={
+                  category === btn.variantType ? 'epsilon' : 'epsilon-reverse'
+                }
+                classNames={[stls.btn]}
+                onClick={btn.onClick}>
+                {btn.label}
+              </BtnAlpha>
+            ))}
           </div>
           <CardsProgram category={category} />
           <Popup
