@@ -1,8 +1,8 @@
 import { TypeProgramCategory } from '@/types/index'
 
 type TypePageProgramsStaticPaths = {
-  readonly categories: {
-    readonly slug: TypeProgramCategory
+  readonly categories?: {
+    readonly slug?: string | string[]
   }[]
 }
 

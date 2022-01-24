@@ -1,11 +1,11 @@
-import { TypeProgramCategory } from '@/types/index'
+import { TypeProgramCategory, TypeProgramStudyField } from '@/types/index'
 
 type TypeHandleGetStaticPaths = {
   paths: {
     params: {
-      category: TypeProgramCategory
-      studyField?: string
-      program?: string
+      category?: string | string[]
+      studyField?: string | string[]
+      program?: string | string[]
     }
   }[]
   fallback: boolean | 'blocking'

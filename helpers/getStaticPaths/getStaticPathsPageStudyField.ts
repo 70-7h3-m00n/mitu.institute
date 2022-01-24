@@ -27,8 +27,8 @@ const getStaticPathsPageStudyField =
         new Set(
           res.data.programs.map(program => ({
             params: {
-              category: program.category?.slug || 'category',
-              studyField: program.study_field?.slug || 'studyField'
+              category: program.category?.slug?.toString() || 'category',
+              studyField: program.study_field?.slug?.toString() || 'studyField'
             }
           }))
         )

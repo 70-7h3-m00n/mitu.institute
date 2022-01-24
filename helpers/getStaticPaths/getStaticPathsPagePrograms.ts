@@ -19,9 +19,13 @@ const getStaticPathsPagePrograms =
     })
 
     return {
-      paths: res.data.categories.map(category => ({
-        params: { category: category.slug }
-      })),
+      paths: Array.from(
+        new Set(
+          res.data.categories?.map(category => ({
+            params: { category: category.slug?.toString() || 'category' }
+          }))
+        )
+      ),
       fallback: 'blocking'
     }
   }
