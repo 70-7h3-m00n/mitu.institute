@@ -5,6 +5,7 @@ import { useContext, useEffect } from 'react'
 import { routesFront } from '@/config/index'
 import { handleGetStaticProps } from '@/helpers/index'
 import {
+  ContextCategoriesContext,
   ContextCategoryContext,
   ContextStudyFieldContext,
   ContextProgramContext
@@ -18,12 +19,14 @@ const PagePrograms = ({
   gspContextParamsCategory,
   gspContextParamsStudyField
 }: TypePageProgramsStaticProps) => {
+  const { setCategories } = useContext(ContextCategoriesContext)
   const { setCategory } = useContext(ContextCategoryContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { setProgram } = useContext(ContextProgramContext)
 
   useEffect(() => {
-    setCategory({ payload: null })
+    setCategories({ payload: categories || null })
+    setCategory({ payload: categories?.[0] || null })
     setStudyField({ payload: null })
     setProgram({ payload: null })
   }, [])

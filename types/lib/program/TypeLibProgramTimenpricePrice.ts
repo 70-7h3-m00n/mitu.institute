@@ -1,0 +1,3 @@
+type TypeLibProgramTimenpricePrice = string
+
+export default TypeLibProgramTimenpricePrice

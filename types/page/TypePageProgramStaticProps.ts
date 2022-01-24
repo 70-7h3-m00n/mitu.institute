@@ -1,4 +1,4 @@
-import { TypeProgramCategory, TypeProgram } from '@/types/index'
+import { TypeProgramCategory, TypeLibProgram } from '@/types/index'
 
 type TypePageProgramStaticProps = {
   readonly categories?: {
@@ -7,7 +7,7 @@ type TypePageProgramStaticProps = {
     label?: string
   }[]
   readonly programs?: TypeProgram[] | null
-  readonly program?: TypeProgram | null
+  readonly program?: TypeLibProgram | null
   readonly gspContextParamsCategory: string | string[] | null
   readonly gspContextParamsStudyField: string | string[] | null
   readonly gspContextParamsProgram: string | string[] | null

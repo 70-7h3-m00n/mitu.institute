@@ -1,4 +1,4 @@
-import { TypeChildren, TypeContextProgram, TypeProgram } from '@/types/index'
+import { TypeChildren, TypeContextProgram, TypeLibProgram } from '@/types/index'
 import { SET_PROGRAM } from '@/context/types'
 import { useReducer } from 'react'
 import { ContextProgramContext, contextProgramReducer } from '@/context/index'
@@ -12,7 +12,7 @@ const ContextProgramState = ({ children }: TypeContextProgramStateProps) => {
 
   const [state, dispatch] = useReducer(contextProgramReducer, initialState)
 
-  const setProgram = ({ payload }: { payload: TypeProgram }) => {
+  const setProgram = ({ payload }: { payload: TypeLibProgram }) => {
     dispatch({ type: SET_PROGRAM, payload })
   }
 

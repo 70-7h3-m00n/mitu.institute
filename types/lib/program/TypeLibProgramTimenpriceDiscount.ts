@@ -1,0 +1,3 @@
+type TypeLibProgramTimenpriceDiscount = string
+
+export default TypeLibProgramTimenpriceDiscount

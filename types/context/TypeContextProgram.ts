@@ -1,7 +1,7 @@
-import { TypeProgram } from '@/types/index'
+import { TypeLibProgram } from '@/types/index'
 
 type TypeContextProgram = {
-  program: TypeProgram | null
+  program: TypeLibProgram | null
 }
 
 export default TypeContextProgram

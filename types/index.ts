@@ -51,6 +51,25 @@ import type TypeUrl from '@/types/general/TypeUrl'
 import type TypeUtms from '@/types/general/TypeUtms'
 import type TypeVariantForm from '@/types/general/TypeVariantForm'
 
+// lib
+import type TypeLibProgram from '@/types/lib/program/TypeLibProgram'
+import type TypeLibProgramCategory from '@/types/lib/program/TypeLibProgramCategory'
+import type TypeLibProgramCategoryLabel from '@/types/lib/program/TypeLibProgramCategoryLabel'
+import type TypeLibProgramCategorySlug from '@/types/lib/program/TypeLibProgramCategorySlug'
+import type TypeLibProgramCategoryType from '@/types/lib/program/TypeLibProgramCategoryType'
+import type TypeLibProgramDescription from '@/types/lib/program/TypeLibProgramDescription'
+import type TypeLibProgramSlug from '@/types/lib/program/TypeLibProgramSlug'
+import type TypeLibProgramStudyField from '@/types/lib/program/TypeLibProgramStudyField'
+import type TypeLibProgramStudyFieldSlug from '@/types/lib/program/TypeLibProgramStudyFieldSlug'
+import type TypeLibProgramStudyFieldType from '@/types/lib/program/TypeLibProgramStudyFieldType'
+import type TypeLibProgramStudyForm from '@/types/lib/program/TypeLibProgramStudyForm'
+import type TypeLibProgramStudyFormLabel from '@/types/lib/program/TypeLibProgramStudyFormLabel'
+import type TypeLibProgramTimenprice from '@/types/lib/program/TypeLibProgramTimenprice'
+import type TypeLibProgramTimenpriceDiscount from '@/types/lib/program/TypeLibProgramTimenpriceDiscount'
+import type TypeLibProgramTimenpricePrice from '@/types/lib/program/TypeLibProgramTimenpricePrice'
+import type TypeLibProgramTimenpriceStudyMonthsDuration from '@/types/lib/program/TypeLibProgramTimenpriceStudyMonthsDuration'
+import type TypeLibProgramTitle from '@/types/lib/program/TypeLibProgramTitle'
+
 // page
 import type TypePageProgramsStaticPaths from '@/types/page/TypePageProgramsStaticPaths'
 import type TypePageProgramsStaticProps from '@/types/page/TypePageProgramsStaticProps'
@@ -60,7 +79,6 @@ import type TypePagePromoStaticProps from '@/types/page/TypePagePromoStaticProps
 import type TypePageStudyFieldStaticPaths from '@/types/page/TypePageStudyFieldStaticPaths'
 
 // program
-import type TypeProgram from '@/types/program/TypeProgram'
 import type TypeProgramCategories from '@/types/program/TypeProgramCategories'
 import type TypeProgramCategory from '@/types/program/TypeProgramCategory'
 import type TypeProgramStudyField from '@/types/program/TypeProgramStudyField'
@@ -110,6 +128,24 @@ export {
   TypeUrl,
   TypeUtms,
   TypeVariantForm,
+  // lib
+  TypeLibProgram,
+  TypeLibProgramCategory,
+  TypeLibProgramCategoryLabel,
+  TypeLibProgramCategorySlug,
+  TypeLibProgramCategoryType,
+  TypeLibProgramDescription,
+  TypeLibProgramSlug,
+  TypeLibProgramStudyField,
+  TypeLibProgramStudyFieldSlug,
+  TypeLibProgramStudyFieldType,
+  TypeLibProgramStudyForm,
+  TypeLibProgramStudyFormLabel,
+  TypeLibProgramTimenprice,
+  TypeLibProgramTimenpriceDiscount,
+  TypeLibProgramTimenpricePrice,
+  TypeLibProgramTimenpriceStudyMonthsDuration,
+  TypeLibProgramTitle,
   // page
   TypePageProgramsStaticPaths,
   TypePageProgramsStaticProps,
@@ -118,7 +154,6 @@ export {
   TypePagePromoStaticProps,
   TypePageStudyFieldStaticPaths,
   // program
-  TypeProgram,
   TypeProgramCategories,
   TypeProgramCategory,
   TypeProgramStudyField

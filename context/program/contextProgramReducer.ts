@@ -1,4 +1,4 @@
-import { TypeContextProgram, TypeProgram } from '@/types/index'
+import { TypeContextProgram, TypeLibProgram } from '@/types/index'
 import { SET_PROGRAM } from '@/context/types'
 
 type contextProgramReducerState = TypeContextProgram

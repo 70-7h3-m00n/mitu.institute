@@ -1,17 +1,19 @@
-import { TypeProgramCategory } from '@/types/index'
+import {
+  TypeLibProgramTitle,
+  TypeLibProgramSlug,
+  TypeLibProgramDescription,
+  TypeLibProgramTimenprice,
+  TypeLibProgramStudyForm,
+  TypeLibProgramStudyField,
+  TypeLibProgramCategory
+} from '@/types/index'
 
-type TypeProgram = {
-  title?: string
-  slug?: string
-  description?: string
-  timenprice?: {
-    studyMonthsDuration?: string
-    price?: string
-    discount?: string
-  }[]
-  study_form?: {
-    label?: string
-  }
+type TypeLibProgram = {
+  title?: TypeLibProgramTitle
+  slug?: TypeLibProgramSlug
+  description?: TypeLibProgramDescription
+  timenprice?: TypeLibProgramTimenprice
+  study_form?: TypeLibProgramStudyForm
   forWhom?: {
     title?: {
       titlePart: string
@@ -60,15 +62,8 @@ type TypeProgram = {
     question?: string
     answer?: string
   }[]
-  study_field?: {
-    type?: string
-    slug?: string
-  }
-  category: {
-    type?: TypeProgramCategory
-    slug?: string
-    label?: string
-  }
+  study_field?: TypeLibProgramStudyField
+  category?: TypeLibProgramCategory
 } | null
 
-export default TypeProgram
+export default TypeLibProgram
