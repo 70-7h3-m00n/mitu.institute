@@ -5,6 +5,12 @@
 
 .container
   padding-bottom: 0
+  @include m.media(phone)
+    margin-bottom: f.px(72)
+  @include m.media(tablet)
+    margin-bottom: f.px(64)
+  @include m.media(laptop, desktop)
+    margin-bottom: f.px(80)
 
 .content
   position: relative
