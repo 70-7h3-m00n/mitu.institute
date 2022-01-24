@@ -1,0 +1,3 @@
+type TypeLibProgramJobTitlesPosition = string
+
+export default TypeLibProgramJobTitlesPosition

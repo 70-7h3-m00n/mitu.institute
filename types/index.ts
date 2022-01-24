@@ -74,6 +74,9 @@ import type TypeLibProgramHowProcessGoesCourseContainsOfPercent from '@/types/li
 import type TypeLibProgramHowProcessGoesCourseContainsOfTitle from '@/types/lib/program/TypeLibProgramHowProcessGoesCourseContainsOfTitle'
 import type TypeLibProgramHowProcessGoesDescription from '@/types/lib/program/TypeLibProgramHowProcessGoesDescription'
 import type TypeLibProgramHowProcessGoesTitle from '@/types/lib/program/TypeLibProgramHowProcessGoesTitle'
+import type TypeLibProgramJobTitles from '@/types/lib/program/TypeLibProgramJobTitles'
+import type TypeLibProgramJobTitlesPosition from '@/types/lib/program/TypeLibProgramJobTitlesPosition'
+import type TypeLibProgramJobTitlesSalary from '@/types/lib/program/TypeLibProgramJobTitlesSalary'
 import type TypeLibProgramShortContents from '@/types/lib/program/TypeLibProgramShortContents'
 import type TypeLibProgramShortContentsTitle from '@/types/lib/program/TypeLibProgramShortContentsTitle'
 import type TypeLibProgramSlug from '@/types/lib/program/TypeLibProgramSlug'
@@ -166,6 +169,9 @@ export {
   TypeLibProgramHowProcessGoesCourseContainsOfTitle,
   TypeLibProgramHowProcessGoesDescription,
   TypeLibProgramHowProcessGoesTitle,
+  TypeLibProgramJobTitles,
+  TypeLibProgramJobTitlesPosition,
+  TypeLibProgramJobTitlesSalary,
   TypeLibProgramShortContents,
   TypeLibProgramShortContentsTitle,
   TypeLibProgramSlug,

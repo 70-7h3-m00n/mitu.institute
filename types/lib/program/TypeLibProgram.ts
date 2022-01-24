@@ -9,6 +9,7 @@ import {
   TypeLibProgramWhatYouWillLearn,
   TypeLibProgramHowProcessGoes,
   TypeLibProgramShortContents,
+  TypeLibProgramJobTitles,
   TypeLibProgramStudyField,
   TypeLibProgramCategory
 } from '@/types/index'
@@ -24,15 +25,7 @@ type TypeLibProgram = {
   whatYouWillLearn?: TypeLibProgramWhatYouWillLearn
   howProcessGoes?: TypeLibProgramHowProcessGoes
   shortContents?: TypeLibProgramShortContents
-  jobTitles?: {
-    picture?: {
-      url?: string
-      width?: number
-      height?: number
-    }
-    position?: string
-    salary?: string
-  }[]
+  jobTitles?: TypeLibProgramJobTitles
   teachers?: {
     portrait?: {
       url?: string
