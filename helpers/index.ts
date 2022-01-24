@@ -1,4 +1,5 @@
 // data
+import handleGetStaticPaths from '@/helpers/data/handleGetStaticPaths'
 import handleGetStaticProps from '@/helpers/data/handleGetStaticProps'
 
 // dataLayer
@@ -17,6 +18,10 @@ import handleUtms from '@/helpers/general/handleUtms'
 import hitLeadRoute from '@/helpers/general/hitLeadRoute'
 import onSubmitForm from '@/helpers/general/onSubmitForm'
 
+// getStaticProps
+import getStaticPropsPagePrograms from '@/helpers/getStaticProps/getStaticPropsPagePrograms'
+import getStaticPropsPagePromo from '@/helpers/getStaticProps/getStaticPropsPagePromo'
+
 // lead
 import buildLeadData from '@/helpers/lead/buildLeadData'
 import createLeadEmailBody from '@/helpers/lead/createLeadEmailBody'
@@ -25,6 +30,7 @@ import createLeadEmailTr from '@/helpers/lead/createLeadEmailTr'
 
 export {
   // data
+  handleGetStaticPaths,
   handleGetStaticProps,
   // dataLayer
   pageview,
@@ -40,6 +46,9 @@ export {
   handleUtms,
   hitLeadRoute,
   onSubmitForm,
+  // getStaticProps
+  getStaticPropsPagePrograms,
+  getStaticPropsPagePromo,
   // lead
   buildLeadData,
   createLeadEmailBody,

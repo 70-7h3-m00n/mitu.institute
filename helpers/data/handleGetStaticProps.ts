@@ -1,44 +1,37 @@
-import { TypeRoutesFront } from '@/types/index'
-import axios, { AxiosResponse } from 'axios'
-import { gql } from '@apollo/client'
-import apolloClient from 'apolloClient'
-import { routesFront, routesBack, revalidate } from '@/config/index'
+import {
+  TypeRoutesFront,
+  TypePagePromoStaticProps,
+  TypePageProgramsStaticProps,
+  TypeGetStaticPropsContext
+} from '@/types/index'
+import { routesFront, revalidate } from '@/config/index'
+import {
+  getStaticPropsPagePromo,
+  getStaticPropsPagePrograms
+} from '@/helpers/index'
 
 type TypeHandleGetStaticPropsProps = {
   page: TypeRoutesFront[keyof TypeRoutesFront]
 }
 
 const handleGetStaticProps = async ({
-  page
-}: TypeHandleGetStaticPropsProps) => {
+  page,
+  context
+}: TypeHandleGetStaticPropsProps & TypeGetStaticPropsContext): Promise<{
+  props: TypePagePromoStaticProps | TypePageProgramsStaticProps
+  revalidate: number
+}> => {
   switch (page) {
     case routesFront.promo:
-      const res = await apolloClient.query({
-        query: gql`
-          query GetPagePromoData {
-            programs {
-              title
-              shortDescription
-              study_field {
-                label
-              }
-              category {
-                type
-              }
-              timenprice {
-                studyMonthsDuration
-              }
-            }
-            categories {
-              label
-              type
-            }
-          }
-        `
-      })
+      return await getStaticPropsPagePromo({ context })
 
+    case routesFront.programs:
+      return await getStaticPropsPagePrograms({ context })
+
+    default:
       return {
-        props: res.data
+        props: {},
+        revalidate: revalidate.default
       }
   }
 }

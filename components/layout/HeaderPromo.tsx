@@ -5,12 +5,11 @@ import {
   TypeProgramCategory
 } from '@/types/index'
 import { useRouter } from 'next/router'
-import { MouseEventHandler, useContext } from 'react'
+import { MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { ContextCategoryContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralLogo,
@@ -27,8 +26,6 @@ type TypeHeaderPromoProps = TypeClassNames
 
 const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
   const router = useRouter()
-
-  const { category, setCategory } = useContext(ContextCategoryContext)
 
   const links: TypeLinksHeaderPromo = [
     {

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/SectionOurProgramsPromo.module.sass'
-import { TypeClassNames, TypePagePromoPrograms } from '@/types/index'
+import { TypeClassNames, TypePagePromoStaticProps } from '@/types/index'
 import { MouseEventHandler, useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
@@ -12,7 +12,8 @@ import { UIFormAlpha } from '@/components/uiforms'
 import { CardsProgram } from '@/components/cards'
 import { BtnAlpha } from '@/components/btns'
 
-type TypeSectionOurProgramsPromoProps = TypeClassNames & TypePagePromoPrograms
+type TypeSectionOurProgramsPromoProps = TypeClassNames &
+  TypePagePromoStaticProps
 
 const SectionOurProgramsPromo = ({
   classNames,

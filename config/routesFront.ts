@@ -1,4 +1,4 @@
-import { TypeRoutesFront } from '@/types/index'
+import { TypeRoutesFront, TypeProgramCategory } from '@/types/index'
 import { dev } from '@/config/index'
 
 const routesFront: TypeRoutesFront = {
@@ -9,6 +9,7 @@ const routesFront: TypeRoutesFront = {
   payment: '/payment',
   legal: '/legal',
   programs: '/programs',
+  programsCategory: '/programs/[category]',
   programsAdditional: '/programs/additional',
   programsBachelor: '/programs/bachelor',
   programsMaster: '/programs/master',

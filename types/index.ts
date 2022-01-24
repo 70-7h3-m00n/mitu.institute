@@ -29,6 +29,7 @@ import type TypeClose from '@/types/general/TypeClose'
 import type TypeColor from '@/types/general/TypeColor'
 import type TypeColorsKeys from '@/types/general/TypeColorsKeys'
 import type TypeFormAlphaValues from '@/types/general/TypeFormAlphaValues'
+import type TypeGetStaticPropsContext from '@/types/general/TypeGetStaticPropsContext'
 import type TypeLeadClientValues from '@/types/general/TypeLeadClientValues'
 import type TypeLinks from '@/types/general/TypeLinks'
 import type TypeLinksHeaderPromo from '@/types/general/TypeLinksHeaderPromo'
@@ -47,7 +48,9 @@ import type TypeUtms from '@/types/general/TypeUtms'
 import type TypeVariantForm from '@/types/general/TypeVariantForm'
 
 // page
-import type TypePagePromoPrograms from '@/types/page/TypePagePromoPrograms'
+import type TypePageProgramsStaticPaths from '@/types/page/TypePageProgramsStaticPaths'
+import type TypePageProgramsStaticProps from '@/types/page/TypePageProgramsStaticProps'
+import type TypePagePromoStaticProps from '@/types/page/TypePagePromoStaticProps'
 
 // program
 import type TypeProgramCategory from '@/types/program/TypeProgramCategory'
@@ -76,6 +79,7 @@ export {
   TypeColor,
   TypeColorsKeys,
   TypeFormAlphaValues,
+  TypeGetStaticPropsContext,
   TypeLeadClientValues,
   TypeLinks,
   TypeLinksHeaderPromo,
@@ -93,7 +97,9 @@ export {
   TypeUtms,
   TypeVariantForm,
   // page
-  TypePagePromoPrograms,
+  TypePageProgramsStaticPaths,
+  TypePageProgramsStaticProps,
+  TypePagePromoStaticProps,
   // program
   TypeProgramCategory
 }

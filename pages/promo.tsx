@@ -1,6 +1,6 @@
 import stls from '@/styles/pages/PagePromo.module.sass'
 import type { NextPage } from 'next'
-import { TypePagePromoPrograms } from '@/types/index'
+import { TypePagePromoStaticProps } from '@/types/index'
 import { routesFront } from '@/config/index'
 import { handleGetStaticProps } from '@/helpers/index'
 import {
@@ -15,15 +15,10 @@ import {
   SectionUIFormAlpha
 } from '@/components/sections'
 
-type TypePagePromoProps = TypePagePromoPrograms & {
-  // readonly land?: unknown
-  readonly categories?: {
-    label?: string
-    type?: string
-  }
-}
-
-const PagePromo: NextPage<TypePagePromoProps> = ({ programs, categories }) => {
+const PagePromo: NextPage<TypePagePromoStaticProps> = ({
+  programs,
+  categories
+}) => {
   return (
     <>
       <SectionHero />
