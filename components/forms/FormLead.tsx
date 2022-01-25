@@ -1,5 +1,10 @@
 import stls from '@/styles/components/forms/FormLead.module.sass'
-import { TypeClassNames, TypeFormAlphaValues, TypeIsPopup } from '@/types/index'
+import {
+  TypeClassNames,
+  TypeFormAlphaValues,
+  TypeIsPopup,
+  TypeVariantForm
+} from '@/types/index'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import cn from 'classnames'
@@ -15,9 +20,9 @@ import {
   InputSubmit
 } from '@/components/inputs'
 
-type TypeFormLeadProps = TypeClassNames & TypeIsPopup
+type TypeFormLeadProps = TypeClassNames & TypeIsPopup & TypeVariantForm
 
-const FormLead = ({ classNames, isPopup }: TypeFormLeadProps) => {
+const FormLead = ({ classNames, isPopup, variant }: TypeFormLeadProps) => {
   const { asPath } = useRouter()
 
   const [loaderIsOpen, setLoaderIsOpen] = useState(false)
@@ -77,25 +82,55 @@ const FormLead = ({ classNames, isPopup }: TypeFormLeadProps) => {
             setThanksIsOpen
           })
         })}>
-        <div className={stls.inputs}>
+        <div
+          className={cn(stls.inputs, {
+            [stls.inputsVariantBeta]: variant === 'beta'
+          })}>
           <InputName
             register={register}
             error={errors.name}
-            classNames={[stls.input]}
+            classNames={[
+              stls.input,
+              cn({ [stls.inputVariantBeta]: variant === 'beta' })
+            ]}
+            variant={variant}
           />
           <InputPhone
             register={register}
             error={errors.phone}
-            classNames={[stls.input]}
+            classNames={[
+              stls.input,
+              cn({ [stls.inputVariantBeta]: variant === 'beta' })
+            ]}
+            variant={variant}
           />
           <InputEmail
             register={register}
             error={errors.email}
-            classNames={[stls.input, stls.inputEmail]}
+            classNames={[
+              stls.input,
+              stls.inputEmail,
+              cn({ [stls.inputVariantBeta]: variant === 'beta' })
+            ]}
+            variant={variant}
           />
-          <InputSubmit errors={errors} classNames={[stls.input, stls.submit]} />
+          <InputSubmit
+            errors={errors}
+            classNames={[
+              stls.input,
+              stls.submit,
+              cn({
+                [stls.inputVariantBeta]: variant === 'beta',
+                [stls.inputSubmitVariantBeta]: variant === 'beta'
+              })
+            ]}
+            variant={variant}
+          />
         </div>
-        <p className={stls.agreement}>
+        <p
+          className={cn(stls.agreement, {
+            [stls.agreementVariantBeta]: variant === 'beta'
+          })}>
           Отправляя заявку, Вы соглашаетесь с политикой конфиденциальности и
           условиями обработки персональных данных
         </p>

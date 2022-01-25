@@ -5,7 +5,7 @@ import Document, {
   NextScript,
   DocumentContext
 } from 'next/document'
-import { themeColor, companyName } from '@/config/index'
+import { themeColor, companyName, prod, gtm } from '@/config/index'
 import { MetaIcons, MetaOg, MetaTwitter } from '@/components/meta'
 
 class MyDocument extends Document {
@@ -18,8 +18,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta charSet='UTF-8' />
-          <link rel='preconnect' href='https://fonts.googleapis.com' />
+          {/* <meta charSet='UTF-8' /> */}
+          <link href='https://fonts.googleapis.com' />
           <link
             rel='preconnect'
             href='https://fonts.gstatic.com' /* crossOrigin */
@@ -53,6 +53,16 @@ class MyDocument extends Document {
           <MetaOg />
         </Head>
         <body>
+          {prod && (
+            <noscript>
+              <iframe
+                src={`https://www.googletagmanager.com/ns.html?id=${gtm}`}
+                height='0'
+                width='0'
+                style={{ display: 'none', visibility: 'hidden' }}></iframe>
+            </noscript>
+          )}
+
           <Main />
           <NextScript />
         </body>

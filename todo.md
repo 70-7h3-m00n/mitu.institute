@@ -1,18 +1,33 @@
 # Obvious improvements
 
-- Improve logic & types of ./helpers/general/handleUtms.ts
-- Improve logic & types of ./helpers/general/handeReferer.ts
-- Improve logic & types of ./helpers/general/onSubmitForm.ts
-- Improve logic & types of ./helpers/general/hitLeadRoute.ts
-- Improve logic & types of ./pages/api/lead.ts
-- Improve efficiency of applying styles to btns in ./styles/components/btns/BtnAlpha.module.sass
-- Improve types of BtnAlpha in ./components/btns/BtnAlpha.tsx
-- Improve styles for BtnSkipNav in ./components/btns/BtnSkipNav.tsx
+- Improve logic & types of `./helpers/general/handleUtms.ts`
+- Improve logic & types of `./helpers/general/handeReferer.ts`
+- Improve logic & types of `./helpers/general/onSubmitForm.ts`
+- Improve logic & types of `./helpers/general/hitLeadRoute.ts`
+- Improve logic & types of `./pages/api/lead.ts`
+- Improve efficiency of applying styles to btns in `./styles/components/btns/BtnAlpha.module.sass`
+- Improve types of `BtnAlpha.tsx` in `./components/btns/BtnAlpha.tsx`
+- Improve styles for `BtnSkipNav.tsx` in `./components/btns/BtnSkipNav.tsx`
 - Improve typescript in context
-- Improve outline for close btn in ./components/popups/GeneralPopup.tsx
-- Add fade-in fade-out animations for GeneralPopup in ./components/general/GeneralPopup.tsx
-- Add trigger for history api on AlphaGeneralPopupOpen so it could be closed on mobile devices with back button at ./components/general/GeneralPopup.tsx
-- Improve logic of lead email submission by better & more efficiently modifying data in ./pages/lead.ts
+- Improve outline for close btn in `./components/popups/GeneralPopup.tsx`
+- Add fade-out animations for `GeneralPopup.tsx` in `./components/general/GeneralPopup.tsx`
+- Add trigger for history api on `AlphaGeneralPopupOpen.tsx` so it could be closed on mobile devices with back button at `./components/general/GeneralPopup.tsx`
+- Improve logic of lead email submission by better & more efficiently modifying data in `./pages/lead.ts`
 - Add generic padding based on % for btns, removed hardcoded plr for them in other places
-- Go thought website content and change all pronouns to either one form `ты` or the other `вы`
-- Replace `justify-content: space-between` with 3/2/1 per row on desktop&laptop/tablet/phone layout to a better than that won't brake in case of uneven items count (i.e. 8 instad of 9 or 5 instead of 6 etc)
+- Replace `justify-content: space-between` with 3/2/1 per row on desktop&laptop/tablet/phone layout to a better than that won't brake in case of uneven items count (i.e. 8 instad of 9 or 5 instead of 6 etc) in all places
+- Improve styles at `./components/sections/SectionOurProgramsPromo.tsx` for category btns and program cards, right now there are almost the same styles that duplicates in two places, need to use shared mixin instead
+- Improve typescript for `handleGetStaticProps.ts` in `./helpers/data/handleGetStaticProps.ts` props, it should only take pages routes & not all frontend routes
+- Improve typescript & responses for `handleGetStaticProps.ts` in `./helpers/data/handleGetStaticProps.ts`
+- Improve & generalize `BtnAlpha` & `BtnBeta` styles & jsx duplicates in `./components/btns`
+- Improve outline on focus-visible for `BtnBeta` in `./components/btns/BtnBeta.tsx`
+- Improve styles for `SectionAboutIniversity.tsx`, it's currently a mess
+- Improve focus & hover state for `BtnBeta` in `./components/btns/BtnBeta.tsx`
+- Improve a way to style & generalize styling for FormLead in `./components/forms/FormLead.tsx`, avoid styling collision for current beta variant
+- Improve styles & markup for `SectionTrainingFormat` in `./components/sections/SectionTrainingFormat.tsx`
+- Improve focus-visible & hover for `SectionQna` qna items in `./components/sections/SectionQna.tsx`
+- Improve a total mess at `./context/accessibility`
+- Improve selectors and routes types at `./config/index/selectors.ts`
+- Improve styles & structure for Accessibility popup
+- Improve Loader & set a timer and if in 5 seconds the lead is not submited and thank you is not shown, then display a number to call
+- Generalize styles for 404 & 505 and _offline pages
+- Figure out ts mess in data fetching

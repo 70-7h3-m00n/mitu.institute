@@ -1,0 +1,41 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
+
+.container
+  padding-top: f.px(32)
+  padding-bottom: f.px(32)
+  @include m.dye(bg, c.$zeta)
+
+.content
+  @include m.flex($jc: space-between, $ai: center)
+
+.logo
+  @include m.media(phone)
+    margin-right: 6%
+
+.phoneAddress
+  @include m.flex($fd: column)
+  margin-left: auto
+  margin-right: 5%
+
+.address
+  margin-top: f.px(32)
+  &.laptopDesktop
+    @include g.laptopDesktop
+
+.btn
+  &.btnAlpha
+    @include m.media(phone)
+      min-width: auto
+      padding-right: f.px(23)
+      padding-left: f.px(23)
+
+.btnText
+  @media screen and (max-width: 390px)
+    display: none
+
+.btnTextAlt
+  @media screen and (min-width: 391px)
+    display: none

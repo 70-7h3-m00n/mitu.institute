@@ -1,0 +1,34 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/section' as section
+
+.container
+  @include section.gap
+
+.content
+  @include m.flex($fd: column, $jc: center, $ai: center)
+
+.btns
+  @include m.flex($fw: wrap, $jc: space-between)
+  width: 100%
+  margin-bottom: f.px(76)
+
+.btn
+  @include m.media(phone, tablet)
+    @include m.flex($d: false, $fb: 100%)
+    &:nth-child(1)
+      margin-top: 0
+  @include m.media(laptop)
+    @include m.flex($d: false, $fb: 48.5%)
+    &:nth-child(-n+2)
+      margin-top: 0
+  @include m.media(desktop)
+    @include m.flex($d: false, $fb: 31.9%)
+    &:nth-child(-n+3)
+      margin-top: 0
+  margin-top: f.px(32)
+  
+
+.btnShowMore
+  margin-top: f.px(56)

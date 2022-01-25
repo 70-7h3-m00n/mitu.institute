@@ -8,14 +8,6 @@
   box-sizing: inherit
 
 html, body
-  @include m.media(phone, tablet, desktop)
-    font-size: 1rem
-    // font-size: 3vmin
-    // font-size: 30px
-    // font-size: 1.5rem
-    // font-size: 2vw
-  @include m.media(laptop)
-    font-size: 0.9rem
   &::-webkit-scrollbar
     width: f.px(10)
   // &::-webkit-scrollbar-track 
@@ -29,6 +21,35 @@ html
   box-sizing: border-box
   font-family: Arimo, sans-serif
   scroll-behavior: smooth
+  &.letterSpacingSm
+    letter-spacing: 0.1em
+  &.letterSpacingMd
+    letter-spacing: 0.2em
+  &.letterSpacingLg
+    letter-spacing: 0.3em
+  &.hiddenImgs
+    & img
+      visibility: hidden !important
+  @include m.media(phone, tablet, desktop)
+    font-size: 1rem
+    // font-size: 3vmin
+    // font-size: 30px
+    // font-size: 1.5rem
+    // font-size: 2vw
+    &.fontSm
+      font-size: 1.1rem
+    &.fontMd
+      font-size: 1.2rem
+    &.fontLg
+      font-size: 1.3rem
+  @include m.media(laptop)
+    font-size: 0.9rem
+    &.fontSm
+      font-size: 1rem
+    &.fontMd
+      font-size: 1.1rem
+    &.fontLg
+      font-size: 1.2rem
 
 h1
   overflow-wrap: break-word

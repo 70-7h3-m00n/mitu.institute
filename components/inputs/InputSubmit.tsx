@@ -1,17 +1,22 @@
 import stls from '@/styles/components/inputs/InputSubmit.module.sass'
-import { TypeClassNames, TypeFormAlphaValues } from '@/types/index'
+import {
+  TypeClassNames,
+  TypeVariantForm,
+  TypeFormAlphaValues
+} from '@/types/index'
 import cn from 'classnames'
 import { FieldError } from 'react-hook-form'
 import { getClassNames } from '@/helpers/index'
 import { BtnAlpha } from '@/components/btns'
 
-type TypeInputSubmitProps = TypeClassNames & {
-  errors: {
-    [key in keyof TypeFormAlphaValues]?: FieldError | undefined
+type TypeInputSubmitProps = TypeClassNames &
+  TypeVariantForm & {
+    errors: {
+      [key in keyof TypeFormAlphaValues]?: FieldError | undefined
+    }
   }
-}
 
-const InputSubmit = ({ classNames, errors }: TypeInputSubmitProps) => {
+const InputSubmit = ({ classNames, variant, errors }: TypeInputSubmitProps) => {
   const isError = !!errors.name || !!errors.phone || !!errors.email
 
   return (
@@ -19,7 +24,10 @@ const InputSubmit = ({ classNames, errors }: TypeInputSubmitProps) => {
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <BtnAlpha type='submit' variant='alpha' ariaLabel='Оставить заявку'>
+      <BtnAlpha
+        type='submit'
+        variant={variant === 'beta' ? 'gamma-reverse' : 'alpha'}
+        ariaLabel='Оставить заявку'>
         Оставить заявку
       </BtnAlpha>
     </div>

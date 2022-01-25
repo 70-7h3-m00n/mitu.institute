@@ -1,0 +1,3 @@
+type TypeLibProgramJobTitlesSalary = string
+
+export default TypeLibProgramJobTitlesSalary

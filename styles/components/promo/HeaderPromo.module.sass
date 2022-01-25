@@ -1,0 +1,64 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
+
+$container_pt_p: f.px(24)
+$container_pt_tld: f.px(32)
+.container
+  position: relative
+  @include m.media(phone)
+    padding-top: $container_pt_p
+    padding-bottom: f.px(72)
+  @include m.media(tablet)
+    padding-top: $container_pt_tld
+    padding-bottom: f.px(49)
+  @include m.media(laptop, desktop)
+    padding-top: $container_pt_tld
+    padding-bottom: f.px(95)
+
+.content
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.media(tablet)
+    margin-bottom: f.px(32)
+
+.logo
+  @include m.media(phone)
+    margin-right: 6%
+
+.contactNav
+  @include m.flex($fd: column, $jc: center, $ai: center, $fg: 1)
+  @media screen and (max-width: 540px)
+    display: none
+  @include m.media(tablet, laptop)
+    padding-right: 4.5%
+    padding-left: 4.5%
+  @include m.media(laptop)
+    max-width: f.px(700)
+  @include m.media(desktop)
+    padding-right: 8.7%
+    padding-left: 8.7%
+
+.phoneAddress
+  width: 100%
+  @include m.flex($jc: space-between)
+  margin-bottom: f.px(16)
+
+.address
+  &.laptopDesktop
+    @include g.laptopDesktop
+
+.btn
+  &.btnAlpha
+    @include m.media(phone)
+      min-width: auto
+      padding-right: f.px(23)
+      padding-left: f.px(23)
+
+.btnText
+  @media screen and (max-width: 390px)
+    display: none
+
+.btnTextAlt
+  @media screen and (min-width: 389px)
+    display: none

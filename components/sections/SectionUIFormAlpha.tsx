@@ -6,9 +6,14 @@ import { GeneralTextHighlight } from '@/components/general'
 import { Wrapper } from '@/components/layout'
 import { UIFormAlpha } from '@/components/uiforms'
 
-type TypeSectionUIFormAlphaProps = TypeClassNames
+type TypeSectionUIFormAlphaProps = TypeClassNames & {
+  title?: string
+}
 
-const SectionUIFormAlpha = ({ classNames }: TypeSectionUIFormAlphaProps) => {
+const SectionUIFormAlpha = ({
+  classNames,
+  title
+}: TypeSectionUIFormAlphaProps) => {
   return (
     <section
       className={
@@ -20,7 +25,8 @@ const SectionUIFormAlpha = ({ classNames }: TypeSectionUIFormAlphaProps) => {
           title={
             <>
               <GeneralTextHighlight reverse>
-                Оставьте заявку и узнайте минимальный проходной балл в 2021 году
+                {title ||
+                  'Оставьте заявку и узнайте минимальный проходной балл в 2021 году'}
               </GeneralTextHighlight>
             </>
           }

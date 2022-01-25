@@ -14,6 +14,7 @@ const ImgHeroLady = ({ classNames, width, height }: TypeImgHeroLadyProps) => {
         width={width}
         height={height}
         alt={'Девушка улыбается'}
+        priority
       />
     </>
   )

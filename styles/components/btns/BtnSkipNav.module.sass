@@ -3,7 +3,7 @@
 @use '@/styles/themes/default/Colors.module.sass' as c
 @use '@/styles/shared/btns' as btns
 
-.container
+.container.skipNavLink
   @include m.media(phone)
     display: none
   @include m.media(tablet, laptop, desktop)
@@ -13,8 +13,7 @@
     z-index: 2
     transform: translateY(-120%)
     transition: transform .25s ease-in-out
-    &.skipNavLink
-      &:hover
-        transform: none
-      &:focus-visible
-        transform: translateY(f.px(32))
+    &:hover
+      transform: none
+    &:focus-visible
+      transform: translateY(f.px(32))

@@ -1,0 +1,3 @@
+type TypeLibProgramHowProcessGoesDescription = string
+
+export default TypeLibProgramHowProcessGoesDescription

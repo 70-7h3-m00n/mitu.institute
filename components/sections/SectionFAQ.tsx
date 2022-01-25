@@ -1,37 +1,16 @@
 import stls from '@/styles/components/sections/SectionFAQ.module.sass'
 import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
+import { qnas } from '@/data/index'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
-import { GeneralSectionTitle, GeneralCollapse } from '@/components/general'
-import { FormLead } from '@/components/forms'
+import { GeneralSectionTitle } from '@/components/general'
+import { UIFormAlpha } from '@/components/uiforms'
+import { LisQna } from '@/components/lis'
 
 type TypeSectionFAQProps = TypeClassNames
 
 const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
-  const qna = [
-    {
-      title: 'Как у вас дела?',
-      text: 'Есть ощущение «что ходите по кругу», ситуации повторяются, вы не знаете что делать.Есть ощущение «что ходите по кругу», ситуации повторяются, вы не знаете что делать. '
-    },
-    {
-      title: 'Как у вас дела?',
-      text: 'Есть ощущение «что ходите по кругу», ситуации повторяются, вы не знаете что делать.Есть ощущение «что ходите по кругу», ситуации повторяются, вы не знаете что делать. '
-    },
-    {
-      title: 'Как у вас дела?',
-      text: 'Есть ощущение «что ходите по кругу», ситуации повторяются, вы не знаете что делать.Есть ощущение «что ходите по кругу», ситуации повторяются, вы не знаете что делать. '
-    },
-    {
-      title: 'Как у вас дела?',
-      text: 'Есть ощущение «что ходите по кругу», ситуации повторяются, вы не знаете что делать.Есть ощущение «что ходите по кругу», ситуации повторяются, вы не знаете что делать. '
-    },
-    {
-      title: 'Как у вас дела?',
-      text: 'Есть ощущение «что ходите по кругу», ситуации повторяются, вы не знаете что делать.'
-    }
-  ]
-
   return (
     <section className={cn(stls.container, getClassNames({ classNames }))}>
       <Wrapper>
@@ -39,19 +18,23 @@ const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
           Нас часто спрашивают
         </GeneralSectionTitle>
         <div className={stls.content}>
-          <div className={stls.questions}>
-            {qna.map((item, idx) => {
-              return (
-                <GeneralCollapse
-                  key={idx}
-                  classNames={[stls.collapse]}
-                  title={item.title}>
-                  <p className={stls.text}>{item.text}</p>
-                </GeneralCollapse>
-              )
-            })}
-          </div>
-          <FormLead classNames={[stls.form]} />
+          <ul className={stls.qnas}>
+            {qnas.map((qna, idx) => (
+              <LisQna
+                key={qna.question + idx}
+                qna={qna}
+                idx={idx}
+                classNames={[stls.qna]}
+              />
+            ))}
+          </ul>
+          <UIFormAlpha
+            classNames={[stls.form]}
+            variant='beta'
+            title={
+              <>Остались вопросы? Получите консультацию приемной комиссии</>
+            }
+          />
         </div>
       </Wrapper>
     </section>

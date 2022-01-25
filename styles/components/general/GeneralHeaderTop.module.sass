@@ -1,0 +1,99 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
+
+.wrapper
+  @include m.flex($jc: space-between)
+
+.linkLegal
+  @include m.flex($ai: center)
+  outline: none
+  font-size: f.px(14)
+  transition: transform 0.2s ease
+  @include m.dye(c, c.$psi)
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      transform: scale(1.02)
+      text-decoration: underline
+  &:active
+    transform: scale(0.98)
+  &:focus-visible
+    transform: scale(1.02)
+    text-decoration: underline
+
+.btnAccessibilityTrigger
+  @include m.flex($jc: center, $ai: center)
+  outline: none
+  font-size: f.px(14)
+  line-height: 110%
+  @include m.dye(c, c.$alpha)
+  transition: transform 0.1s ease
+  &:active
+    transform: scale(0.98)
+  &:focus-visible
+    transform: scale(1.02)
+    text-decoration: underline
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      transform: scale(1.02)
+
+.icon
+  max-width: f.px(24)
+  min-width: f.px(24)
+
+.btnAccessibilityTriggerLabel
+  margin-left: f.px(8)
+
+.accessibilityControls
+  @include m.flex($fw: wrap, $jc: space-evenly, $ai: center)
+  padding: f.px(40)
+  @include m.media(phone)
+    @include m.flex($d: false, $fd: column)
+  @include m.dye(bg, c.$upsilon)
+
+.btnGroup
+  @include m.flex($jc: space-between)
+  @include m.media(phone)
+    & .btn
+      min-width: f.px(54)
+
+.btnDefault,
+.btn,
+.setHiddenImgsToggle,
+.closeAccessibilityControls
+  margin-right: f.px(12)
+  margin-bottom: f.px(12)
+
+.btn
+  @include m.flex($jc: center, $ai: center)
+  min-height: f.px(54)
+  min-width: f.px(54)
+  padding: 0
+  &.fontSm
+    font-size: f.px(16)
+  &.fontMd
+    font-size: f.px(18)
+  &.fontLg
+    font-size: f.px(20)
+  &.letterSpacingSm
+    letter-spacing: f.px(4)
+  &.letterSpacingMd
+    letter-spacing: f.px(6)
+  &.letterSpacingLg
+    letter-spacing: f.px(8)
+
+.phone
+  @include g.phone
+
+.tablet
+  @include g.tablet
+
+.phoneTablet
+  @include g.phoneTablet
+
+.laptopDesktop
+  @include g.laptopDesktop
+
+.tabletLaptopDesktop
+  @include g.tabletLaptopDesktop

@@ -1,0 +1,60 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/btns' as btns
+
+.container
+  position: relative
+  z-index: 1
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.media(phone)
+    min-width: 100%
+    max-width: 100%
+  @include m.media(phone, tablet)
+    padding: f.px(26)
+  @include m.media(laptop, desktop)
+    padding: f.px(40)
+  border: f.px(2, em) solid
+  @include m.media(phone, laptop, desktop)
+    font-size: f.px(18)
+  @include m.media(tablet)
+    font-size: f.px(16)
+  overflow: hidden
+  font-weight: 700
+  line-height: 120%
+  text-align: left
+  cursor: pointer
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      border-style: inset
+      transform: scale(1.02)
+  &:active
+    border-style: solid
+    transform: scale(0.98)
+
+.alpha
+  @include btns.regular($color1: c.$zeta, $color2: c.$alpha)
+
+.beta
+  @include btns.regular($color1: c.$beta, $color2: c.$upsilon)
+
+.iconCoatOfArms
+  position: absolute
+  top: 0
+  left: 0
+  z-index: -1
+  transform: translateX(-40%)
+  max-width: f.px(123)
+
+.iconCoatOfArmsBeta
+  & path
+    @include m.dye(fill, c.$alpha)
+
+.iconArrowTopRight
+  margin-left: f.px(20)
+  max-width: f.px(23)
+
+.iconArrowTopRightBeta
+  & path
+    @include m.dye(stroke, c.$upsilon)
+  

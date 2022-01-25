@@ -1,4 +1,5 @@
 type TypeCardsProgram = {
+  category: string | null
   faculty: {
     type: string
     label: string
@@ -10,6 +11,7 @@ type TypeCardsProgram = {
 
 const cardsProgram: TypeCardsProgram = [
   {
+    category: 'master',
     faculty: {
       type: 'computer science',
       label: 'Факультет компьютерных наук'
@@ -19,6 +21,7 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 16
   },
   {
+    category: 'master',
     faculty: {
       type: 'management',
       label: 'Факультет управления'
@@ -28,6 +31,7 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 12
   },
   {
+    category: 'master',
     faculty: {
       type: 'psychology',
       label: 'Факультет психологии'
@@ -37,6 +41,7 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 8
   },
   {
+    category: 'master',
     faculty: {
       type: 'computer science',
       label: 'Факультет компьютерных наук'
@@ -46,6 +51,7 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 16
   },
   {
+    category: 'master',
     faculty: {
       type: 'management',
       label: 'Факультет управления'
@@ -55,9 +61,70 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 12
   },
   {
+    category: 'master',
     faculty: {
       type: 'cybersport',
       label: 'Факультет киберспорта'
+    },
+    title: 'Управление организацией',
+    desc: 'Займите свое место в одной из самых успешных отраслей страны. Научитесь строить экономические модели',
+    studyMonths: 12
+  },
+  {
+    category: 'bachelor',
+    faculty: {
+      type: 'cybersport',
+      label: 'Факультет киберспорта'
+    },
+    title: 'Управление организацией',
+    desc: 'Займите свое место в одной из самых успешных отраслей страны. Научитесь строить экономические модели',
+    studyMonths: 12
+  },
+  {
+    category: 'bachelor',
+    faculty: {
+      type: 'cybersport',
+      label: 'Факультет киберспорта'
+    },
+    title: 'Управление организацией',
+    desc: 'Займите свое место в одной из самых успешных отраслей страны. Научитесь строить экономические модели',
+    studyMonths: 12
+  },
+  {
+    category: 'bachelor',
+    faculty: {
+      type: 'cybersport',
+      label: 'Факультет киберспорта'
+    },
+    title: 'Управление организацией',
+    desc: 'Займите свое место в одной из самых успешных отраслей страны. Научитесь строить экономические модели',
+    studyMonths: 12
+  },
+  {
+    category: 'additional',
+    faculty: {
+      type: 'cybersport',
+      label: 'Факультет киберспорта'
+    },
+    title: 'Управление организацией',
+    desc: 'Займите свое место в одной из самых успешных отраслей страны. Научитесь строить экономические модели',
+    studyMonths: 12
+  },
+  {
+    category: 'additional',
+    faculty: {
+      type: 'cybersport',
+      label: 'Факультет киберспорта'
+    },
+    title: 'Управление организацией',
+    desc: 'Займите свое место в одной из самых успешных отраслей страны. Научитесь строить экономические модели',
+    studyMonths: 12
+  },
+  {
+    category: 'additional',
+    faculty: {
+      type: 'cybersport',
+      label: 'Факультет психологии'
     },
     title: 'Управление организацией',
     desc: 'Займите свое место в одной из самых успешных отраслей страны. Научитесь строить экономические модели',

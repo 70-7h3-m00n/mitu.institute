@@ -1,23 +1,23 @@
 import {
   TypeClassNames,
   TypeChildren,
-  TypeBtnTag,
+  TypeBtnTagWithLink,
   TypeBtnType,
   TypeBtnHref,
   TypeOnClick,
   TypeBtnDisabled,
   TypeAriaLabel,
-  TypeBtnVariant
+  TypeBtnAlphaVariant
 } from '@/types/index'
 
 type TypeBtn = TypeClassNames &
   TypeChildren &
-  TypeBtnTag &
+  TypeBtnTagWithLink &
   TypeBtnType &
   TypeBtnHref &
   TypeOnClick &
   TypeBtnDisabled &
   TypeAriaLabel &
-  TypeBtnVariant
+  TypeBtnAlphaVariant
 
 export default TypeBtn

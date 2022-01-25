@@ -1,0 +1,3 @@
+type TypeLibProgramTimenpriceStudyMonthsDuration = string
+
+export default TypeLibProgramTimenpriceStudyMonthsDuration

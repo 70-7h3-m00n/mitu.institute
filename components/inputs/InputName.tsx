@@ -1,16 +1,25 @@
 import stls from '@/styles/components/inputs/InputName.module.sass'
-import { TypeClassNames, TypeInput } from '@/types/index'
+import { TypeClassNames, TypeInput, TypeVariantForm } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 
-type TypeInputNameProps = TypeClassNames & TypeInput
+type TypeInputNameProps = TypeClassNames & TypeInput & TypeVariantForm
 
-const InputName = ({ classNames, register, error }: TypeInputNameProps) => {
+const InputName = ({
+  classNames,
+  register,
+  error,
+  variant
+}: TypeInputNameProps) => {
   const maxLength = 32
   return (
     <div
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(
+          [stls.container],
+          { [stls.containerVariantBeta]: variant === 'beta' },
+          getClassNames({ classNames })
+        ) || undefined
       }>
       <div className={cn(stls.inputGroup, { [stls.inputGroupError]: error })}>
         <input

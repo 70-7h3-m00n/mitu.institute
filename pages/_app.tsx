@@ -1,17 +1,25 @@
 import '@/styles/app.sass'
 import 'reactjs-popup/dist/index.css'
-import type { AppProps } from 'next/app'
+import type { AppProps, NextWebVitalsMetric } from 'next/app'
+import { TypeRoute } from '@/types/index'
 import Router from 'next/router'
 import Script from 'next/script'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
-import SEO from '../seo.config'
-import { prod, routesFront } from '@/config/index'
-import { handleUtms, handleReferer } from '@/helpers/index'
-// import { ContextGeneralPopupState } from '@/context/index'
+import SEO from 'seo.config'
+import { prod, routesFront, selectors, gtm } from '@/config/index'
+import { handleUtms, handleReferer, pageview } from '@/helpers/index'
+import {
+  ContextAccessibilityState,
+  ContextCategoriesState,
+  ContextCategoryState,
+  ContextStudyFieldState,
+  ContextProgramState
+} from '@/context/index'
 import { Header, Main, Footer } from '@/components/layout'
+import { HeaderPromo } from '@/components/promo'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false)
@@ -30,9 +38,10 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       NProgress.start()
       setLoading(true)
     }
-    const end = () => {
+    const end = (url: TypeRoute) => {
       NProgress.done()
       setLoading(false)
+      pageview({ url })
     }
     Router.events.on('routeChangeStart', start)
     Router.events.on('routeChangeComplete', end)
@@ -56,14 +65,47 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         url={routesFront.root}
       />
       {/* <ContextGeneralPopupState> */}
-      <Header />
-      <Main>
-        <Component {...pageProps} />
-      </Main>
-      <Footer />
+      <ContextAccessibilityState>
+        <ContextCategoriesState>
+          <ContextCategoryState>
+            <ContextStudyFieldState>
+              <ContextProgramState>
+                {router.route === routesFront.promo ? (
+                  <HeaderPromo />
+                ) : (
+                  <Header />
+                )}
+                <Main>
+                  <Component {...pageProps} />
+                </Main>
+                <Footer />
+              </ContextProgramState>
+            </ContextStudyFieldState>
+          </ContextCategoryState>
+        </ContextCategoriesState>
+      </ContextAccessibilityState>
       {/* </ContextGeneralPopupState> */}
+
+      {prod && (
+        <Script
+          id={selectors.gtm}
+          dangerouslySetInnerHTML={{
+            __html: `
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${gtm}');`
+          }}
+        />
+      )}
     </>
   )
+}
+
+export function reportWebVitals(metric: NextWebVitalsMetric) {
+  // console.log(window.dataLayer)
+  // console.log(metric)
 }
 
 export default App

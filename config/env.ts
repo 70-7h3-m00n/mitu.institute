@@ -9,6 +9,7 @@ type TypeEnv = {
   geo2UderId?: string
   geo2ApiKey?: string
   geo2Host?: string
+  backRouteRoot?: string
 }
 
 const env: TypeEnv = {
@@ -21,7 +22,8 @@ const env: TypeEnv = {
   smtpToEmailProd: process.env.SMTP_TO_EMAIL_PROD,
   geo2UderId: process.env.GEO2_USER_ID,
   geo2ApiKey: process.env.GEO2_APIKEY,
-  geo2Host: process.env.GEO2_HOST
+  geo2Host: process.env.GEO2_HOST,
+  backRouteRoot: process.env.BACK_ROUTE_ROOT
 }
 
 export default env

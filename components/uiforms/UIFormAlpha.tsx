@@ -1,5 +1,5 @@
 import stls from '@/styles/components/uiforms/UIFormAlpha.module.sass'
-import { TypeClassNames, TypeIsPopup } from '@/types/index'
+import { TypeClassNames, TypeIsPopup, TypeVariantForm } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { GeneralTextHighlight } from '@/components/general'
@@ -7,17 +7,31 @@ import { FormLead } from '@/components/forms'
 import { ReactNode } from 'react'
 
 type TypeUIFormAlphaProps = TypeClassNames &
-  TypeIsPopup & {
+  TypeIsPopup &
+  TypeVariantForm & {
     title?: ReactNode
   }
 
-const UIFormAlpha = ({ classNames, isPopup, title }: TypeUIFormAlphaProps) => {
+const UIFormAlpha = ({
+  classNames,
+  isPopup,
+  variant,
+  title
+}: TypeUIFormAlphaProps) => {
   return (
     <div
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(
+          [stls.container],
+          { [stls.containerVariantBeta]: variant === 'beta' },
+          getClassNames({ classNames })
+        ) || undefined
       }>
-      <h2 className={cn(stls.title, { [stls.propTitle]: title })}>
+      <h2
+        className={cn(stls.title, {
+          [stls.propTitle]: title,
+          [stls.titleVariantBeta]: variant === 'beta'
+        })}>
         {title || (
           <>
             <GeneralTextHighlight reverse>Оставьте заявку</GeneralTextHighlight>{' '}
@@ -26,7 +40,7 @@ const UIFormAlpha = ({ classNames, isPopup, title }: TypeUIFormAlphaProps) => {
           </>
         )}
       </h2>
-      <FormLead classNames={[stls.form]} isPopup={isPopup} />
+      <FormLead classNames={[stls.form]} isPopup={isPopup} variant={variant} />
     </div>
   )
 }

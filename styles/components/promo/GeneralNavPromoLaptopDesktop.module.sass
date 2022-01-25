@@ -1,0 +1,40 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/onFocusVisible' as onFocusVisible
+
+.container
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    width: 100%
+
+.links
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: space-between)
+    margin: 0
+    padding: 0
+
+.linkItem
+  @include m.media(laptop, desktop)
+    @include m.flex    
+    @media screen and (max-width: 800px)
+      @include m.flex($d: false, $fb: 30%)
+      max-width: 14ch
+      overflow: hidden
+      white-space: nowrap
+
+.link
+  @include m.media(laptop, desktop)
+    line-height: 110%
+    @include m.dye(c, c.$omega)
+    @include m.media(laptop, desktop)
+      transition: color .25s ease
+      &:hover
+        @include m.dye(c, c.$alpha)
+    @include onFocusVisible.highlightWithBottomLine
+    @media screen and (max-width: 800px)
+      @include m.flex($d: false, $fb: 30%)
+      text-overflow: ellipsis
+      &:focus-visible
+        text-decoration: underline

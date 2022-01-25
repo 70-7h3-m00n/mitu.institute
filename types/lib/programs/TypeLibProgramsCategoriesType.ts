@@ -1,0 +1,3 @@
+type TypeLibProgramsCategoriesType = string
+
+export default TypeLibProgramsCategoriesType
