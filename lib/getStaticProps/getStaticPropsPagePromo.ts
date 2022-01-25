@@ -24,6 +24,8 @@ const getStaticPropsPagePromo = async ({
           }
           category {
             type
+            slug
+            label
           }
           timenprice {
             studyMonthsDuration

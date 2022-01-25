@@ -1,8 +1,4 @@
-import {
-  TypeChildren,
-  TypeContextStudyField,
-  TypeProgramStudyField
-} from '@/types/index'
+import { TypeChildren } from '@/types/index'
 import { SET_STUDY_FIELD } from '@/context/types'
 import { useReducer } from 'react'
 import {
@@ -15,13 +11,15 @@ type TypeContextStudyFieldStateProps = TypeChildren
 const ContextStudyFieldState = ({
   children
 }: TypeContextStudyFieldStateProps) => {
-  const initialState: TypeContextStudyField = {
+  const initialState: {
+    studyField: string | null
+  } = {
     studyField: null
   }
 
   const [state, dispatch] = useReducer(contextStudyFieldReducer, initialState)
 
-  const setStudyField = ({ payload }: { payload: TypeProgramStudyField }) => {
+  const setStudyField = ({ payload }: { payload: string | null }) => {
     dispatch({ type: SET_STUDY_FIELD, payload })
   }
 

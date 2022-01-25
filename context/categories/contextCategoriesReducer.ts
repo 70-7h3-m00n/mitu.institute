@@ -1,10 +1,23 @@
-import { TypeContextCategories, TypeProgramCategories } from '@/types/index'
 import { SET_CATEGORIES } from '@/context/types'
 
-type contextCategoriesReducerState = TypeContextCategories
+type contextCategoriesReducerState = {
+  categories:
+    | {
+        label: string | null
+        type: string | null
+        slug: string | null
+      }[]
+    | null
+}
 
 type contextCategoriesReducerAction = {
-  payload: TypeProgramCategories
+  payload:
+    | {
+        label: string | null
+        type: string | null
+        slug: string | null
+      }[]
+    | null
   type: typeof SET_CATEGORIES
 }
 

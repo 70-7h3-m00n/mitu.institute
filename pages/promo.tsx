@@ -39,7 +39,7 @@ const PagePromo: NextPage<TypePagePromoProps> = ({ programs, categories }) => {
   return (
     <>
       <SectionHero />
-      <SectionOurProgramsPromo programs={programs} />
+      <SectionOurProgramsPromo />
       <SectionLeastDocuments />
       <SectionEnterWithoutExam />
       <SectionHowTrainingGoes />

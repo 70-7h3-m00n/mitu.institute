@@ -1,7 +1,5 @@
-import { TypeProgramCategory } from '@/types/index'
-
 type TypeCardsProgram = {
-  category: TypeProgramCategory
+  category: string | null
   faculty: {
     type: string
     label: string

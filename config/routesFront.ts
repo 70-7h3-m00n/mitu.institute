@@ -1,4 +1,4 @@
-import { TypeRoutesFront, TypeProgramCategory } from '@/types/index'
+import { TypeRoutesFront } from '@/types/index'
 import { dev } from '@/config/index'
 
 const routesFront: TypeRoutesFront = {

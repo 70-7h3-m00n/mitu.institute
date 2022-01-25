@@ -19,11 +19,10 @@ import { UIFormAlpha } from '@/components/uiforms'
 import { CardsProgram } from '@/components/cards'
 import { BtnAlpha } from '@/components/btns'
 
-type TypeSectionOurProgramsPromoProps = TypeClassNames & TypePagePromoProps
+type TypeSectionOurProgramsPromoProps = TypeClassNames
 
 const SectionOurProgramsPromo = ({
-  classNames,
-  programs
+  classNames
 }: TypeSectionOurProgramsPromoProps) => {
   const { category, setCategory } = useContext(ContextCategoryContext)
   const { categories } = useContext(ContextCategoriesContext)

@@ -25,7 +25,7 @@ const GeneralNavPromoLaptopDesktop = ({
         {links?.map(({ href, val, payload }, idx) => (
           <li key={val || '' + idx} className={stls.linkItem}>
             <a
-              href={href}
+              href={href || '#'}
               className={stls.link}
               onClick={() => setCategory({ payload: payload || null })}>
               {val}

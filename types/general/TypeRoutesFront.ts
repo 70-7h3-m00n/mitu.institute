@@ -1,9 +1,4 @@
-import {
-  TypeProgramCategory,
-  TypeUrl,
-  TypeRoute,
-  TypeAnchor
-} from '@/types/index'
+import { TypeUrl, TypeRoute, TypeAnchor } from '@/types/index'
 
 type TypeRoutesFront = {
   root: 'http://localhost:3000' | 'https://mitu.msk.ru'

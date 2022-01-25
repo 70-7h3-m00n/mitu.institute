@@ -1,8 +1,4 @@
-import {
-  TypeChildren,
-  TypeContextCategory,
-  TypeProgramCategory
-} from '@/types/index'
+import { TypeChildren } from '@/types/index'
 import { SET_CATEGORY } from '@/context/types'
 import { useReducer } from 'react'
 import { ContextCategoryContext, contextCategoryReducer } from '@/context/index'
@@ -10,13 +6,15 @@ import { ContextCategoryContext, contextCategoryReducer } from '@/context/index'
 type TypeContextCategoryStateProps = TypeChildren
 
 const ContextCategoryState = ({ children }: TypeContextCategoryStateProps) => {
-  const initialState: TypeContextCategory = {
+  const initialState: {
+    category: string | null
+  } = {
     category: null
   }
 
   const [state, dispatch] = useReducer(contextCategoryReducer, initialState)
 
-  const setCategory = ({ payload }: { payload: TypeProgramCategory }) => {
+  const setCategory = ({ payload }: { payload: string | null }) => {
     dispatch({ type: SET_CATEGORY, payload })
   }
 

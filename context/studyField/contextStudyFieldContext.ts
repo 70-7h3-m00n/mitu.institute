@@ -1,9 +1,8 @@
-import { TypeProgramStudyField } from '@/types/index'
 import { createContext } from 'react'
 
 const contextStudyFieldContext = createContext<{
-  studyField: TypeProgramStudyField
-  setStudyField: ({ payload }: { payload: TypeProgramStudyField }) => void
+  studyField: string | null
+  setStudyField: ({ payload }: { payload: string | null }) => void
 }>({
   studyField: null,
   setStudyField: () => {}

@@ -1,10 +1,11 @@
-import { TypeContextStudyField, TypeProgramStudyField } from '@/types/index'
 import { SET_STUDY_FIELD } from '@/context/types'
 
-type contextStudyFieldReducerState = TypeContextStudyField
+type contextStudyFieldReducerState = {
+  studyField: string | null
+}
 
 type contextStudyFieldReducerAction = {
-  payload: TypeProgramStudyField
+  payload: string | null
   type: typeof SET_STUDY_FIELD
 }
 

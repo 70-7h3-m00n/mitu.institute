@@ -1,9 +1,5 @@
 import stls from '@/styles/components/promo/HeaderPromo.module.sass'
-import {
-  TypeLinksHeaderPromo,
-  TypeClassNames,
-  TypeProgramCategory
-} from '@/types/index'
+import { TypeLinksHeaderPromo, TypeClassNames } from '@/types/index'
 import { useRouter } from 'next/router'
 import { MouseEventHandler, useContext, useEffect } from 'react'
 import cn from 'classnames'

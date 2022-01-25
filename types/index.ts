@@ -17,11 +17,8 @@ import type TypeBtnType from '@/types/btn/TypeBtnType'
 
 // context
 import type TypeContextAccessibility from '@/types/context/TypeContextAccessibility'
-import type TypeContextCategories from '@/types/context/TypeContextCategories'
-import type TypeContextCategory from '@/types/context/TypeContextCategory'
 import type TypeContextGeneralPopup from '@/types/context/TypeContextGeneralPopup'
 import type TypeContextProgram from '@/types/context/TypeContextProgram'
-import type TypeContextStudyField from '@/types/context/TypeContextStudyField'
 
 // general
 import type TypeAnchor from '@/types/general/TypeAnchor'
@@ -136,11 +133,8 @@ export {
   TypeBtnType,
   // context
   TypeContextAccessibility,
-  TypeContextCategories,
-  TypeContextCategory,
   TypeContextGeneralPopup,
   TypeContextProgram,
-  TypeContextStudyField,
   // general
   TypeAnchor,
   TypeAriaLabel,

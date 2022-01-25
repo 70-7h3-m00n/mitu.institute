@@ -1,9 +1,24 @@
-import { TypeProgramCategories } from '@/types/index'
 import { createContext } from 'react'
 
 const contextCategoriesContext = createContext<{
-  categories: TypeProgramCategories
-  setCategories: ({ payload }: { payload: TypeProgramCategories }) => void
+  categories:
+    | {
+        label: string | null
+        type: string | null
+        slug: string | null
+      }[]
+    | null
+  setCategories: ({
+    payload
+  }: {
+    payload:
+      | {
+          label: string | null
+          type: string | null
+          slug: string | null
+        }[]
+      | null
+  }) => void
 }>({
   categories: null,
   setCategories: () => {}
