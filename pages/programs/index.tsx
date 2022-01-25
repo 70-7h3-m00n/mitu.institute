@@ -26,7 +26,7 @@ const PagePrograms = ({
 
   useEffect(() => {
     setCategories({ payload: categories || null })
-    setCategory({ payload: categories?.[0] || null })
+    setCategory({ payload: categories?.[0].type || null })
     setStudyField({ payload: null })
     setProgram({ payload: null })
   }, [])

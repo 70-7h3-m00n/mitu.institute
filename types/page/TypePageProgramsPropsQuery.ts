@@ -1,33 +1,35 @@
 type TypePageProgramsPropsQuery = {
   readonly categories:
     | {
-        type?: string
-        slug?: string
-        label?: string
+        type: string | null
+        slug: string | null
+        label: string | null
       }[]
     | null
   readonly studyFields:
     | {
-        type?: string
-        slug?: string
-        title?: string
+        type: string | null
+        slug: string | null
+        title: string | null
       }[]
     | null
   readonly programs:
     | {
-        title?: string
-        shortDescription?: string
-        slug?: string
-        study_field?: {
-          type?: string
-          label?: string
-        }
-        category?: {
-          type?: string
-        }
-        timenprice?: {
-          studyMonthsDuration?: string
-        }[]
+        title: string | null
+        shortDescription: string | null
+        slug: string | null
+        study_field: {
+          type: string | null
+          label: string | null
+        } | null
+        category: {
+          type: string | null
+        } | null
+        timenprice:
+          | {
+              studyMonthsDuration: string | null
+            }[]
+          | null
       }[]
     | null
 }

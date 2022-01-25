@@ -3,9 +3,9 @@ import { TypeLibProgram } from '@/types/index'
 type TypePageProgramProps = {
   readonly categories:
     | {
-        type?: string
-        slug?: string
-        label?: string
+        type: string | null
+        slug: string | null
+        label: string | null
       }[]
     | null
   readonly programs: TypeLibProgram[] | null

@@ -1,24 +1,26 @@
 type TypePagePromoPropsQuery = {
   readonly programs:
     | {
-        title?: string
-        shortDescription?: string
-        study_field?: {
-          label?: string
-        }
-        category?: {
-          type?: string
-        }
-        timenprice?: {
-          studyMonthsDuration?: string
-        }[]
+        title: string | null
+        shortDescription: string | null
+        study_field: {
+          label: string | null
+        } | null
+        category: {
+          type: string
+        } | null
+        timenprice:
+          | {
+              studyMonthsDuration: string | null
+            }[]
+          | null
       }[]
     | null
-  // readonly land?: unknown
+  // readonly land: unknown
   readonly categories:
     | {
-        label?: string
-        type?: string
+        label: string | null
+        type: string | null
       }[]
     | null
 }
