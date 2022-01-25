@@ -5,14 +5,3 @@
 
 .container
   @include icon.container
-
-.desktop
-    @include m.media(tablet, phone)
-        display: none
-.tablet
-    @include m.media(laptop, desktop, phone)
-        display: none
-.phone
-    @include m.media(laptop, desktop, tablet)
-        display: none
-

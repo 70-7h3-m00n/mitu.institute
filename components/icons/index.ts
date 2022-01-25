@@ -21,6 +21,7 @@ import IconPaperPage from '@/components/icons/IconPaperPage'
 import IconPhone from '@/components/icons/IconPhone'
 import IconVideoOnStand from '@/components/icons/IconVideoOnStand'
 import IconVK from '@/components/icons/IconVK'
+import IconWave from '@/components/icons/IconWave'
 import IconYoutube from '@/components/icons/IconYoutube'
 
 export {
@@ -47,5 +48,6 @@ export {
   IconPhone,
   IconVideoOnStand,
   IconVK,
+  IconWave,
   IconYoutube
 }

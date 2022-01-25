@@ -1,7 +1,7 @@
 import stls from '@/styles/components/imgs/general/ImgApplause.module.sass'
 import { TypeClassNames, TypeImg } from '@/types/index'
 import { ImgTemplate } from '@/components/imgs'
-import src from '@/public/assets/imgs/general/applause.png'
+import src from '@/public/assets/imgs/general/applause.jpg'
 
 type TypeImgApplauseProps = TypeClassNames & TypeImg
 

@@ -1,7 +1,86 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
 @use '@/styles/shared/section' as section
 
-.container
+.container 
   @include section.gap
+
+.content
+  position: relative
+  @include m.media(phone)
+    @include m.gap($pt: f.px(27))
+  @include m.media(tablet)
+    @include m.gap($pt: f.px(19))
+  @include m.media(laptop, desktop)
+    @include m.flex
+    @include m.gap($pt: f.px(40))
+
+.description
+  @include m.media(laptop)
+    @include m.gap($mr: f.px(64))
+  @include m.media(desktop)
+    @include m.gap($mr: f.px(32))
+
+.text
+  line-height: 120%
+  @include m.gap($mb: f.px(32))
+  @include m.media(phone)
+    font-size: f.px(18)
+  @include m.media(tablet)
+    font-size: f.px(16)
+  @include m.media(laptop)
+    font-size: f.px(18)
+  @include m.media(desktop)
+    font-size: f.px(18)
+    width: 65ch
+
+.icon
+  @include m.media(laptop)
+    margin-top: f.px(50)
+  @include m.media(desktop)
+    max-width: f.px(572)
+
+.img
+  @include m.media(tablet)
+    position: static
+  @include m.media(laptop, desktop)
+    position: absolute
+    bottom: 0
+    width: 50%
+
+.list
+  list-style: none 
+  @include m.media(phone)
+    @include m.gap($pl: f.px(0), $mtb: f.px(48))
+  @include m.media(tablet)
+    @include m.gap($pl: f.px(0), $mt: f.px(31), $mb: f.px(64))    
+  @include m.media(laptop, desktop)
+    @include m.gap($pl: f.px(0), $mtb: f.px(0))    
+
+.item
+  border-bottom: f.px(1.5) solid c.$zeta
+  @include m.gap($ptb: f.px(32))  
+  &:first-child
+    @include m.gap($pt: f.px(0))
+  &:last-child
+    @include m.gap($pb: f.px(0))
+    border-bottom: none
+
+.subtitle
+  font-size: f.px(24)
+  font-weight: 700
+  @include m.gap($mb: f.px(16))
+
+.colored
+  @include m.dye(c, c.$beta)
+
+.paragraph
+  line-height: 120%
+  @include m.gap($mb: f.px(0)) 
+  @include m.dye(c, c.$psi)
+  @include m.media(tablet)
+    font-size: f.px(13)
+  @include m.media(laptop, desktop, phone)
+    font-size: f.px(14)
