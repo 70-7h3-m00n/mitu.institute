@@ -54,12 +54,12 @@ const SectionProgramJobTitles = ({
                   <h3 className={stls.position}>{jobTitle.position}</h3>
 
                   <div className={stls.price}>
-                    <div className={stls.priceLabel}>з/п</div>
+                    <p className={stls.priceLabel}>з/п</p>
                     {jobTitle.salary && (
-                      <div className={stls.salary}>
+                      <p className={stls.salary}>
                         {' '}
                         от {addSpacesToNumber(jobTitle.salary)} &#8381;
-                      </div>
+                      </p>
                     )}
                   </div>
                 </div>
