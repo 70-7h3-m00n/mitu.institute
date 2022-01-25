@@ -6,6 +6,7 @@ import ImgDiploma3 from '@/components/imgs/diplomas/ImgDiploma3'
 // general
 import ImgApplause from '@/components/imgs/general/ImgApplause'
 import ImgHeroLady from '@/components/imgs/general/ImgHeroLady'
+import ImgJobTitle from '@/components/imgs/general/ImgJobTitle'
 import ImgPersonStudying from '@/components/imgs/general/ImgPersonStudying'
 
 // icons
@@ -21,6 +22,7 @@ export {
   // general
   ImgApplause,
   ImgHeroLady,
+  ImgJobTitle,
   ImgPersonStudying,
   // icons
   ImgLogo,

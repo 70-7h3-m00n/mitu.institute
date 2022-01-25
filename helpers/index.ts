@@ -4,6 +4,7 @@ import lead from '@/helpers/dataLayer/lead'
 
 // general
 import buildUserLocation from '@/helpers/general/buildUserLocation'
+import addSpacesToNumber from '@/helpers/general/addSpacesToNumber'
 import getCasedRuMonthString from '@/helpers/general/getCasedRuMonthString'
 import getCasedRuYearString from '@/helpers/general/getCasedRuYearString'
 import getCasesRuCourseString from '@/helpers/general/getCasesRuCourseString'
@@ -26,6 +27,7 @@ export {
   lead,
   // general
   buildUserLocation,
+  addSpacesToNumber,
   getCasedRuMonthString,
   getCasedRuYearString,
   getCasesRuCourseString,

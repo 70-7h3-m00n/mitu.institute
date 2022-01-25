@@ -7,13 +7,10 @@ import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle } from '@/components/general'
 
-type TypeSectionProgramWhatWillYouLearnProps = TypeClassNames & {
-  title?: string
-}
+type TypeSectionProgramWhatWillYouLearnProps = TypeClassNames
 
 const SectionProgramWhatWillYouLearn = ({
-  classNames,
-  title
+  classNames
 }: TypeSectionProgramWhatWillYouLearnProps) => {
   const { program } = useContext(ContextProgramContext)
 
@@ -27,14 +24,16 @@ const SectionProgramWhatWillYouLearn = ({
       <Wrapper>
         <GeneralSectionTitle>Чему Вы научитесь?</GeneralSectionTitle>
         <ul className={stls.items}>
-          {program?.whatYouWillLearn?.map((item, idx) => (
-            <li
-              key={(item.item || 'WhatWillYouLearnItem') + idx}
-              className={stls.item}>
-              <div className={stls.dot}></div>
-              <p className={stls.p}>{item.item}</p>
-            </li>
-          ))}
+          {program.whatYouWillLearn
+            .filter(item => item?.item)
+            .map((item, idx) => (
+              <li
+                key={(item.item || 'WhatWillYouLearnItem') + idx}
+                className={stls.item}>
+                <div className={stls.dot}></div>
+                <p className={stls.p}>{item.item}</p>
+              </li>
+            ))}
         </ul>
       </Wrapper>
     </section>

@@ -1,3 +1,3 @@
-type TypeLibProgramJobTitlesSalary = string
+type TypeLibProgramJobTitlesSalary = number
 
 export default TypeLibProgramJobTitlesSalary

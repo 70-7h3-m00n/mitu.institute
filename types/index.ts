@@ -37,6 +37,7 @@ import type TypeNextApiResponseLeadData from '@/types/general/TypeNextApiRespons
 import type TypeOnClick from '@/types/general/TypeOnClick'
 import type TypePageData from '@/types/general/TypePageData'
 import type TypeImg from '@/types/general/TypeImg'
+import type TypeImgExtended from '@/types/general/TypeImgExtended'
 import type TypeInput from '@/types/general/TypeInput'
 import type TypeIsPopup from '@/types/general/TypeIsPopup'
 import type TypeReferer from '@/types/general/TypeReferer'
@@ -152,6 +153,7 @@ export {
   TypeOnClick,
   TypePageData,
   TypeImg,
+  TypeImgExtended,
   TypeInput,
   TypeIsPopup,
   TypeReferer,
