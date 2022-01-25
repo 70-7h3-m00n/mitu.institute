@@ -18,6 +18,7 @@ import SectionStartWithDiscount from '@/components/sections/SectionStartWithDisc
 import SectionTrainingFormat from '@/components/sections/SectionTrainingFormat'
 import SectionUIFormAlpha from '@/components/sections/SectionUIFormAlpha'
 import SectionYourFutureDiploma from '@/components/sections/SectionYourFutureDiploma'
+import SectionWhoIsThisProgram from '@/components/sections/SectionWhoIsThisProgram'
 
 export {
   SectionAboutUniversity,
@@ -39,5 +40,6 @@ export {
   SectionStartWithDiscount,
   SectionTrainingFormat,
   SectionUIFormAlpha,
-  SectionYourFutureDiploma
+  SectionYourFutureDiploma,
+  SectionWhoIsThisProgram
 }

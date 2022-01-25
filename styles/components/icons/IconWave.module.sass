@@ -1,0 +1,18 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general/icon' as icon
+
+.container
+  @include icon.container
+
+.desktop
+    @include m.media(tablet, phone)
+        display: none
+.tablet
+    @include m.media(laptop, desktop, phone)
+        display: none
+.phone
+    @include m.media(laptop, desktop, tablet)
+        display: none
+

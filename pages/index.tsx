@@ -9,7 +9,8 @@ import {
   SectionAboutUniversity,
   SectionFAQ,
   SectionYourFutureDiploma,
-  SectionUIFormAlpha
+  SectionUIFormAlpha,
+  SectionWhoIsThisProgram
 } from '@/components/sections'
 
 const PageHome: NextPage = () => {
@@ -24,6 +25,7 @@ const PageHome: NextPage = () => {
       <SectionFAQ />
       <SectionYourFutureDiploma />
       <SectionUIFormAlpha />
+      <SectionWhoIsThisProgram/>
     </>
   )
 }
