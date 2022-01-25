@@ -30,7 +30,10 @@ const PagePromo: NextPage<TypePagePromoProps> = ({ programs, categories }) => {
   const { setProgram } = useContext(ContextProgramContext)
 
   useEffect(() => {
-    setCategories({ payload: categories || null })
+    setCategories({
+      payload:
+        categories?.map(category => ({ ...category, slug: null })) || null
+    })
     setCategory({ payload: categories?.[0].type || null })
     setStudyField({ payload: null })
     setProgram({ payload: null })
