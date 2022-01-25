@@ -1,8 +1,8 @@
 import {
   TypeRoutesFront,
-  TypePagePromoStaticProps,
-  TypePageProgramsStaticProps,
-  TypePageProgramStaticProps,
+  TypePagePromoProps,
+  TypePageProgramsProps,
+  TypePageProgramProps,
   TypeGetStaticPropsContext
 } from '@/types/index'
 import { routesFront, revalidate } from '@/config/index'
@@ -10,20 +10,17 @@ import {
   getStaticPropsPagePromo,
   getStaticPropsPagePrograms,
   getStaticPropsPageProgram
-} from '@/helpers/index'
+} from '@/lib/index'
 
 type TypeHandleGetStaticPropsProps = {
   page: TypeRoutesFront[keyof TypeRoutesFront]
-}
+} & TypeGetStaticPropsContext
 
 const handleGetStaticProps = async ({
   page,
   context
-}: TypeHandleGetStaticPropsProps & TypeGetStaticPropsContext): Promise<{
-  props:
-    | TypePagePromoStaticProps
-    | TypePageProgramsStaticProps
-    | TypePageProgramStaticProps
+}: TypeHandleGetStaticPropsProps): Promise<{
+  props: TypePagePromoProps | TypePageProgramsProps | TypePageProgramProps | {}
   revalidate: number
 }> => {
   switch (page) {

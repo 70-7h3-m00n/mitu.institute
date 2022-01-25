@@ -1,0 +1,3 @@
+type TypeLibProgramsCategoriesLabel = string
+
+export default TypeLibProgramsCategoriesLabel

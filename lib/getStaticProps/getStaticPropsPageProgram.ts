@@ -1,6 +1,7 @@
 import {
   TypeGetStaticPropsContext,
-  TypePageProgramStaticProps
+  TypePageProgramProps,
+  TypePageProgramPropsQuery
 } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
@@ -8,8 +9,11 @@ import { revalidate } from '@/config/index'
 
 const getStaticPropsPageProgram = async ({
   context
-}: TypeGetStaticPropsContext) => {
-  const res = await apolloClient.query<TypePageProgramStaticProps>({
+}: TypeGetStaticPropsContext): Promise<{
+  props: TypePageProgramProps
+  revalidate: number
+}> => {
+  const res = await apolloClient.query<TypePageProgramPropsQuery>({
     query: gql`
       query GetStaticPropsPageProgram(
         $category: String!
@@ -108,14 +112,13 @@ const getStaticPropsPageProgram = async ({
 
   return {
     props: {
-      ...{
-        ...(res.data || null),
-        programs: null,
-        program: res.data.programs?.[0] || null
-      },
-      gspContextParamsCategory: context?.params?.category || null,
-      gspContextParamsStudyField: context?.params?.studyField || null,
-      gspContextParamsProgram: context?.params?.program || null
+      ...res.data,
+      programs: null,
+      program: res.data.programs?.[0] || null,
+      gspContextParamsCategory: context?.params?.category?.toString() || null,
+      gspContextParamsStudyField:
+        context?.params?.studyField?.toString() || null,
+      gspContextParamsProgram: context?.params?.program?.toString() || null
     },
     revalidate: revalidate.default
   }

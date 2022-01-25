@@ -1,6 +1,8 @@
 import {
-  TypePageProgramsStaticPaths,
   TypeRoutesFront,
+  TypePageProgramsPaths,
+  TypePageStudyFieldPaths,
+  TypePageProgramPaths,
   TypeHandleGetStaticPaths
 } from '@/types/index'
 import { gql } from '@apollo/client'
@@ -10,15 +12,22 @@ import {
   getStaticPathsPagePrograms,
   getStaticPathsPageStudyField,
   getStaticPathsPageProgram
-} from '@/helpers/index'
+} from '@/lib/index'
 
-type TypehandleGetStaticPathsProps = {
+type TypeHandleGetStaticPathsProps = {
   page: TypeRoutesFront[keyof TypeRoutesFront]
 }
 
 const handleGetStaticPaths = async ({
   page
-}: TypehandleGetStaticPathsProps): Promise<TypeHandleGetStaticPaths> => {
+}: TypeHandleGetStaticPathsProps): Promise<{
+  paths:
+    | TypePageProgramsPaths
+    | TypePageStudyFieldPaths
+    | TypePageProgramPaths
+    | []
+  fallback: boolean | 'blocking'
+}> => {
   switch (page) {
     case routesFront.programs:
       return await getStaticPathsPagePrograms()

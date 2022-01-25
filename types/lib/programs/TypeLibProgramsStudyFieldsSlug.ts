@@ -1,0 +1,3 @@
+type TypeLibProgramsStudyFieldsSlug = string
+
+export default TypeLibProgramsStudyFieldsSlug

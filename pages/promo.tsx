@@ -1,9 +1,10 @@
 import stls from '@/styles/pages/PagePromo.module.sass'
 import type { NextPage } from 'next'
-import { TypePagePromoStaticProps } from '@/types/index'
+import { GetStaticProps } from 'next'
+import { TypePagePromoProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { routesFront } from '@/config/index'
-import { handleGetStaticProps } from '@/helpers/index'
+import { handleGetStaticProps } from '@/lib/index'
 import {
   ContextCategoriesContext,
   ContextCategoryContext,
@@ -22,10 +23,7 @@ import {
   SectionUIFormAlpha
 } from '@/components/sections'
 
-const PagePromo: NextPage<TypePagePromoStaticProps> = ({
-  programs,
-  categories
-}) => {
+const PagePromo: NextPage<TypePagePromoProps> = ({ programs, categories }) => {
   const { setCategories } = useContext(ContextCategoriesContext)
   const { setCategory } = useContext(ContextCategoryContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
@@ -55,5 +53,5 @@ const PagePromo: NextPage<TypePagePromoStaticProps> = ({
 
 export default PagePromo
 
-export const getStaticProps = async () =>
+export const getStaticProps: GetStaticProps = async () =>
   await handleGetStaticProps({ page: routesFront.promo })

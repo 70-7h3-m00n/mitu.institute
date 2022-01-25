@@ -1,7 +1,3 @@
-// data
-import handleGetStaticPaths from '@/helpers/data/handleGetStaticPaths'
-import handleGetStaticProps from '@/helpers/data/handleGetStaticProps'
-
 // dataLayer
 import pageview from '@/helpers/dataLayer/pageview'
 import lead from '@/helpers/dataLayer/lead'
@@ -18,16 +14,6 @@ import handleUtms from '@/helpers/general/handleUtms'
 import hitLeadRoute from '@/helpers/general/hitLeadRoute'
 import onSubmitForm from '@/helpers/general/onSubmitForm'
 
-// getStaticPaths
-import getStaticPathsPageProgram from '@/helpers/getStaticPaths/getStaticPathsPageProgram'
-import getStaticPathsPagePrograms from '@/helpers/getStaticPaths/getStaticPathsPagePrograms'
-import getStaticPathsPageStudyField from '@/helpers/getStaticPaths/getStaticPathsPageStudyField'
-
-// getStaticProps
-import getStaticPropsPageProgram from '@/helpers/getStaticProps/getStaticPropsPageProgram'
-import getStaticPropsPagePrograms from '@/helpers/getStaticProps/getStaticPropsPagePrograms'
-import getStaticPropsPagePromo from '@/helpers/getStaticProps/getStaticPropsPagePromo'
-
 // lead
 import buildLeadData from '@/helpers/lead/buildLeadData'
 import createLeadEmailBody from '@/helpers/lead/createLeadEmailBody'
@@ -35,9 +21,6 @@ import buildLeadEmailTbodyTrs from '@/helpers/lead/buildLeadEmailTbodyTrs'
 import createLeadEmailTr from '@/helpers/lead/createLeadEmailTr'
 
 export {
-  // data
-  handleGetStaticPaths,
-  handleGetStaticProps,
   // dataLayer
   pageview,
   lead,
@@ -52,14 +35,6 @@ export {
   handleUtms,
   hitLeadRoute,
   onSubmitForm,
-  // getStaticPaths
-  getStaticPathsPageProgram,
-  getStaticPathsPagePrograms,
-  getStaticPathsPageStudyField,
-  // getStaticProps
-  getStaticPropsPageProgram,
-  getStaticPropsPagePrograms,
-  getStaticPropsPagePromo,
   // lead
   buildLeadData,
   createLeadEmailBody,

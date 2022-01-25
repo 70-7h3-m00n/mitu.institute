@@ -1,6 +1,7 @@
 import {
   TypeGetStaticPropsContext,
-  TypePagePromoStaticProps
+  TypePagePromoProps,
+  TypePagePromoPropsQuery
 } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
@@ -8,8 +9,11 @@ import { revalidate } from '@/config/index'
 
 const getStaticPropsPagePromo = async ({
   context
-}: TypeGetStaticPropsContext) => {
-  const res = await apolloClient.query<TypePagePromoStaticProps>({
+}: TypeGetStaticPropsContext): Promise<{
+  props: TypePagePromoProps
+  revalidate: number
+}> => {
+  const res = await apolloClient.query<TypePagePromoPropsQuery>({
     query: gql`
       query GetStaticPropsPagePromo {
         programs {
@@ -34,7 +38,7 @@ const getStaticPropsPagePromo = async ({
   })
 
   return {
-    props: res.data || null,
+    props: res.data,
     revalidate: revalidate.default
   }
 }

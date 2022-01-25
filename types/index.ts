@@ -33,7 +33,6 @@ import type TypeColor from '@/types/general/TypeColor'
 import type TypeColorsKeys from '@/types/general/TypeColorsKeys'
 import type TypeFormAlphaValues from '@/types/general/TypeFormAlphaValues'
 import type TypeGetStaticPropsContext from '@/types/general/TypeGetStaticPropsContext'
-import type TypeHandleGetStaticPaths from '@/types/general/TypeHandleGetStaticPaths'
 import type TypeLeadClientValues from '@/types/general/TypeLeadClientValues'
 import type TypeLinks from '@/types/general/TypeLinks'
 import type TypeLinksHeaderPromo from '@/types/general/TypeLinksHeaderPromo'
@@ -59,6 +58,7 @@ import type TypeLibGeneralPictureWidth from '@/types/lib/general/TypeLibGeneralP
 import type TypeLibGeneralTitle from '@/types/lib/general/TypeLibGeneralTitle'
 import type TypeLibGeneralTitleHighlight from '@/types/lib/general/TypeLibGeneralTitleHighlight'
 import type TypeLibGeneralTitleTitlePart from '@/types/lib/general/TypeLibGeneralTitleTitlePart'
+
 // lib/program
 import type TypeLibProgram from '@/types/lib/program/TypeLibProgram'
 import type TypeLibProgramCategory from '@/types/lib/program/TypeLibProgramCategory'
@@ -99,13 +99,29 @@ import type TypeLibProgramQuestions from '@/types/lib/program/TypeLibProgramQues
 import type TypeLibProgramQuestionsAnswer from '@/types/lib/program/TypeLibProgramQuestionsAnswer'
 import type TypeLibProgramQuestionsQuestion from '@/types/lib/program/TypeLibProgramQuestionsQuestion'
 
+// lib/programs
+import type TypeLibProgramsCategories from '@/types/lib/programs/TypeLibProgramsCategories'
+import type TypeLibProgramsCategoriesLabel from '@/types/lib/programs/TypeLibProgramsCategoriesLabel'
+import type TypeLibProgramsCategoriesSlug from '@/types/lib/programs/TypeLibProgramsCategoriesSlug'
+import type TypeLibProgramsCategoriesType from '@/types/lib/programs/TypeLibProgramsCategoriesType'
+import type TypeLibProgramsStudyFields from '@/types/lib/programs/TypeLibProgramsStudyFields'
+import type TypeLibProgramsStudyFieldsSlug from '@/types/lib/programs/TypeLibProgramsStudyFieldsSlug'
+import type TypeLibProgramsStudyFieldsTitle from '@/types/lib/programs/TypeLibProgramsStudyFieldsTitle'
+import type TypeLibProgramsStudyFieldsType from '@/types/lib/programs/TypeLibProgramsStudyFieldsType'
+
 // page
-import type TypePageProgramsStaticPaths from '@/types/page/TypePageProgramsStaticPaths'
-import type TypePageProgramsStaticProps from '@/types/page/TypePageProgramsStaticProps'
-import type TypePageProgramStaticPaths from '@/types/page/TypePageProgramStaticPaths'
-import type TypePageProgramStaticProps from '@/types/page/TypePageProgramStaticProps'
-import type TypePagePromoStaticProps from '@/types/page/TypePagePromoStaticProps'
-import type TypePageStudyFieldStaticPaths from '@/types/page/TypePageStudyFieldStaticPaths'
+import type TypePageProgramPaths from '@/types/page/TypePageProgramPaths'
+import type TypePageProgramPathsQuery from '@/types/page/TypePageProgramPathsQuery'
+import type TypePageProgramProps from '@/types/page/TypePageProgramProps'
+import type TypePageProgramPropsQuery from '@/types/page/TypePageProgramPropsQuery'
+import type TypePageProgramsPaths from '@/types/page/TypePageProgramsPaths'
+import type TypePageProgramsPathsQuery from '@/types/page/TypePageProgramsPathsQuery'
+import type TypePageProgramsProps from '@/types/page/TypePageProgramsProps'
+import type TypePageProgramsPropsQuery from '@/types/page/TypePageProgramsPropsQuery'
+import type TypePagePromoProps from '@/types/page/TypePagePromoProps'
+import type TypePagePromoPropsQuery from '@/types/page/TypePagePromoPropsQuery'
+import type TypePageStudyFieldPaths from '@/types/page/TypePageStudyFieldPaths'
+import type TypePageStudyFieldPathsQuery from '@/types/page/TypePageStudyFieldPathsQuery'
 
 export {
   // btns
@@ -135,7 +151,6 @@ export {
   TypeColorsKeys,
   TypeFormAlphaValues,
   TypeGetStaticPropsContext,
-  TypeHandleGetStaticPaths,
   TypeLeadClientValues,
   TypeLinks,
   TypeLinksHeaderPromo,
@@ -199,11 +214,26 @@ export {
   TypeLibProgramQuestions,
   TypeLibProgramQuestionsAnswer,
   TypeLibProgramQuestionsQuestion,
+  // lib/programs
+  TypeLibProgramsCategories,
+  TypeLibProgramsCategoriesLabel,
+  TypeLibProgramsCategoriesSlug,
+  TypeLibProgramsCategoriesType,
+  TypeLibProgramsStudyFields,
+  TypeLibProgramsStudyFieldsSlug,
+  TypeLibProgramsStudyFieldsTitle,
+  TypeLibProgramsStudyFieldsType,
   // page
-  TypePageProgramsStaticPaths,
-  TypePageProgramsStaticProps,
-  TypePageProgramStaticPaths,
-  TypePageProgramStaticProps,
-  TypePagePromoStaticProps,
-  TypePageStudyFieldStaticPaths
+  TypePageProgramPaths,
+  TypePageProgramPathsQuery,
+  TypePageProgramProps,
+  TypePageProgramPropsQuery,
+  TypePageProgramsPaths,
+  TypePageProgramsPathsQuery,
+  TypePageProgramsProps,
+  TypePageProgramsPropsQuery,
+  TypePagePromoProps,
+  TypePagePromoPropsQuery,
+  TypePageStudyFieldPaths,
+  TypePageStudyFieldPathsQuery
 }

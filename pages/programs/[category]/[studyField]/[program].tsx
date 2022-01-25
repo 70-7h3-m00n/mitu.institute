@@ -1,9 +1,9 @@
 import stls from '@/styles/pages/PageProgramsCategory.module.sass'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { TypePageProgramStaticProps } from '@/types/index'
+import { TypePageProgramProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { routesFront } from '@/config/index'
-import { handleGetStaticProps, handleGetStaticPaths } from '@/helpers/index'
+import { handleGetStaticProps, handleGetStaticPaths } from '@/lib/index'
 import {
   ContextCategoryContext,
   ContextStudyFieldContext,
@@ -31,7 +31,7 @@ const PageProgramsCategoryStudyFieldProgram = ({
   gspContextParamsCategory,
   gspContextParamsStudyField,
   gspContextParamsProgram
-}: TypePageProgramStaticProps) => {
+}: TypePageProgramProps) => {
   const { setCategory } = useContext(ContextCategoryContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { setProgram } = useContext(ContextProgramContext)

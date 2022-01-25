@@ -1,0 +1,3 @@
+type TypeLibProgramsCategoriesSlug = string
+
+export default TypeLibProgramsCategoriesSlug

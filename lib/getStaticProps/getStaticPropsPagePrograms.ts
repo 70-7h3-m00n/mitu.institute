@@ -1,6 +1,7 @@
 import {
   TypeGetStaticPropsContext,
-  TypePageProgramsStaticProps
+  TypePageProgramsProps,
+  TypePageProgramsPropsQuery
 } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
@@ -8,8 +9,11 @@ import { revalidate } from '@/config/index'
 
 const getStaticPropsPagePrograms = async ({
   context
-}: TypeGetStaticPropsContext) => {
-  const res = await apolloClient.query<TypePageProgramsStaticProps>({
+}: TypeGetStaticPropsContext): Promise<{
+  props: TypePageProgramsProps
+  revalidate: number
+}> => {
+  const res = await apolloClient.query<TypePageProgramsPropsQuery>({
     query: gql`
       query GetStaticPropsPageCategory {
         categories {
@@ -43,9 +47,10 @@ const getStaticPropsPagePrograms = async ({
 
   return {
     props: {
-      ...(res.data || null),
-      gspContextParamsCategory: context?.params?.category || null,
-      gspContextParamsStudyField: context?.params?.studyField || null
+      ...res.data,
+      gspContextParamsCategory: context?.params?.category?.toString() || null,
+      gspContextParamsStudyField:
+        context?.params?.studyField?.toString() || null
     },
     revalidate: revalidate.default
   }

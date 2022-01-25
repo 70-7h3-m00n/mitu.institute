@@ -2,7 +2,7 @@ import stls from '@/styles/components/sections/SectionOurProgramsPromo.module.sa
 import {
   TypeBtnAlphaVariant,
   TypeClassNames,
-  TypePagePromoStaticProps
+  TypePagePromoProps
 } from '@/types/index'
 import { MouseEventHandler, useContext } from 'react'
 import cn from 'classnames'
@@ -19,8 +19,7 @@ import { UIFormAlpha } from '@/components/uiforms'
 import { CardsProgram } from '@/components/cards'
 import { BtnAlpha } from '@/components/btns'
 
-type TypeSectionOurProgramsPromoProps = TypeClassNames &
-  TypePagePromoStaticProps
+type TypeSectionOurProgramsPromoProps = TypeClassNames & TypePagePromoProps
 
 const SectionOurProgramsPromo = ({
   classNames,
