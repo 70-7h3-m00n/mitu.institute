@@ -2,7 +2,11 @@ import stls from '@/styles/components/sections/SectionProgramJobTitles.module.sa
 import { TypeClassNames } from '@/types/index'
 import { useContext } from 'react'
 import cn from 'classnames'
-import { addSpacesToNumber, getClassNames } from '@/helpers/index'
+import {
+  addSpacesToNumber,
+  getClassNames,
+  getImageHeight
+} from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle } from '@/components/general'
@@ -35,23 +39,29 @@ const SectionProgramJobTitles = ({
                 className={stls.jobTitle}>
                 <ImgJobTitle
                   src={jobTitle.picture?.url}
-                  width={jobTitle.picture?.width}
-                  height={jobTitle.picture?.height}
+                  width={90}
+                  height={getImageHeight({
+                    width: 90,
+                    widthInitial: jobTitle.picture?.width,
+                    heightInitial: jobTitle.picture?.height
+                  })}
+                  alt={jobTitle.position}
+                  title={jobTitle.position}
                   classNames={[stls.img]}
                 />
                 <div className={stls.content}>
-                  <span className={stls.label}>Должность</span>
+                  <p className={stls.label}>Должность:</p>
                   <h3 className={stls.position}>{jobTitle.position}</h3>
 
-                  <p>
-                    <span className={stls.priceLabel}>з/п</span>
+                  <div className={stls.price}>
+                    <div className={stls.priceLabel}>з/п</div>
                     {jobTitle.salary && (
-                      <span className={stls.price}>
+                      <div className={stls.salary}>
                         {' '}
                         от {addSpacesToNumber(jobTitle.salary)} &#8381;
-                      </span>
+                      </div>
                     )}
-                  </p>
+                  </div>
                 </div>
               </li>
             ))}

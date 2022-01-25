@@ -51,9 +51,9 @@ const getStaticPropsPageProgram = async ({
             desc
           }
           forWhomPicture {
+            url
             width
             height
-            url
           }
           whatYouWillLearn {
             item
@@ -80,9 +80,9 @@ const getStaticPropsPageProgram = async ({
           }
           teachers {
             portrait {
+              url
               width
               height
-              url
             }
             name
             specialization
