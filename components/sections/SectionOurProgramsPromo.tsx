@@ -27,8 +27,6 @@ const SectionOurProgramsPromo = ({
   const { category, setCategory } = useContext(ContextCategoryContext)
   const { categories } = useContext(ContextCategoriesContext)
 
-  console.log(categories)
-
   const btns = categories?.map(category => ({
     variantType: category.type,
     onClick: () => setCategory({ payload: category.type || null }),

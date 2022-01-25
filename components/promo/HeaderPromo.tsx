@@ -27,8 +27,6 @@ const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
   const router = useRouter()
   const { categories } = useContext(ContextCategoriesContext)
 
-  console.log(categories)
-
   const links: TypeLinksHeaderPromo =
     categories?.map(category => ({
       href: routesFront.anchorPrograms,
