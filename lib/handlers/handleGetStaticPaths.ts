@@ -2,8 +2,7 @@ import {
   TypeRoutesFront,
   TypePageProgramsPaths,
   TypePageStudyFieldPaths,
-  TypePageProgramPaths,
-  TypeHandleGetStaticPaths
+  TypePageProgramPaths
 } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
