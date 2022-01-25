@@ -12,7 +12,7 @@
   padding: 0
   margin: 0
 
-$item_td_mr: 5.3%
+$item_tld_mr: 5.3%
 .item
   @include m.media(phone)
     @include m.flex
@@ -20,16 +20,16 @@ $item_td_mr: 5.3%
     &:nth-child(1)
       margin-top: 0
   @include m.media(tablet)
-    @include m.flex($fb: (100% - $item_td_mr) / 2)
+    @include m.flex($fb: (100% - $item_tld_mr) / 2)
     margin-top: f.px(32)
     &:nth-child(odd)
-      margin-right: $item_td_mr
+      margin-right: $item_tld_mr
     &:nth-child(-n+2)
       margin-top: 0
   @include m.media(laptop, desktop)
-    @include m.flex($fb: (100% - $item_td_mr * 2) / 3)
+    @include m.flex($fb: (100% - $item_tld_mr * 2) / 3)
     margin-top: f.px(32)
-    margin-right: $item_td_mr
+    margin-right: $item_tld_mr
     &:nth-child(3n)
       margin-right: 0
     &:nth-child(-n+3)
