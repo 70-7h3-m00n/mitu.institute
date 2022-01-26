@@ -21,8 +21,6 @@ const SectionProgramJobTitles = ({
 
   if (!program?.jobTitles) return <></>
 
-  console.log(program.jobTitles)
-
   return (
     <section
       className={

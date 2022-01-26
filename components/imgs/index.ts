@@ -8,6 +8,7 @@ import ImgApplause from '@/components/imgs/general/ImgApplause'
 import ImgHeroLady from '@/components/imgs/general/ImgHeroLady'
 import ImgJobTitle from '@/components/imgs/general/ImgJobTitle'
 import ImgPersonStudying from '@/components/imgs/general/ImgPersonStudying'
+import ImgTeacher from '@/components/imgs/general/ImgTeacher'
 
 // icons
 import ImgLogo from '@/components/imgs/icons/ImgLogo'
@@ -24,6 +25,7 @@ export {
   ImgHeroLady,
   ImgJobTitle,
   ImgPersonStudying,
+  ImgTeacher,
   // icons
   ImgLogo,
   ImgTemplate

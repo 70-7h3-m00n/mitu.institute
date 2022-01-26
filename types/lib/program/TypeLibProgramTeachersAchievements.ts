@@ -1,0 +1,3 @@
+type TypeLibProgramTeachersAchievements = string
+
+export default TypeLibProgramTeachersAchievements

@@ -1,3 +1,0 @@
-type TypeLibProgramTeachersSpecialization = string
-
-export default TypeLibProgramTeachersSpecialization

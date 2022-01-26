@@ -84,8 +84,8 @@ import type TypeLibProgramStudyFieldType from '@/types/lib/program/TypeLibProgra
 import type TypeLibProgramStudyForm from '@/types/lib/program/TypeLibProgramStudyForm'
 import type TypeLibProgramStudyFormLabel from '@/types/lib/program/TypeLibProgramStudyFormLabel'
 import type TypeLibProgramTeachers from '@/types/lib/program/TypeLibProgramTeachers'
+import type TypeLibProgramTeachersAchievements from '@/types/lib/program/TypeLibProgramTeachersAchievements'
 import type TypeLibProgramTeachersName from '@/types/lib/program/TypeLibProgramTeachersName'
-import type TypeLibProgramTeachersSpecialization from '@/types/lib/program/TypeLibProgramTeachersSpecialization'
 import type TypeLibProgramTimenprice from '@/types/lib/program/TypeLibProgramTimenprice'
 import type TypeLibProgramTimenpriceDiscount from '@/types/lib/program/TypeLibProgramTimenpriceDiscount'
 import type TypeLibProgramTimenpricePrice from '@/types/lib/program/TypeLibProgramTimenpricePrice'
@@ -198,8 +198,8 @@ export {
   TypeLibProgramStudyForm,
   TypeLibProgramStudyFormLabel,
   TypeLibProgramTeachers,
+  TypeLibProgramTeachersAchievements,
   TypeLibProgramTeachersName,
-  TypeLibProgramTeachersSpecialization,
   TypeLibProgramTimenprice,
   TypeLibProgramTimenpriceDiscount,
   TypeLibProgramTimenpricePrice,

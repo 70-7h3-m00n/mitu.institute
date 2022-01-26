@@ -85,7 +85,7 @@ const getStaticPropsPageProgram = async ({
               height
             }
             name
-            specialization
+            achievements
           }
           questions {
             question

@@ -1,13 +1,13 @@
 import {
   TypeLibGeneralPicture,
   TypeLibProgramTeachersName,
-  TypeLibProgramTeachersSpecialization
+  TypeLibProgramTeachersAchievements
 } from '@/types/index'
 
 type TypeLibProgramTeachers = {
   portrait?: TypeLibGeneralPicture
   name?: TypeLibProgramTeachersName
-  specialization?: TypeLibProgramTeachersSpecialization
+  achievements?: TypeLibProgramTeachersAchievements
 }[]
 
 export default TypeLibProgramTeachers
