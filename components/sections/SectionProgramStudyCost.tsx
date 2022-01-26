@@ -10,7 +10,11 @@ import {
   ContextProgramContext
 } from '@/context/index'
 import { Wrapper } from '@/components/layout'
-import { GeneralSectionTitle, GeneralPopup } from '@/components/general'
+import {
+  GeneralSectionTitle,
+  GeneralPopup,
+  GeneralTextHighlight
+} from '@/components/general'
 import { ProgramStudyDuration, ProgramAdmission } from '@/components/program'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
@@ -26,7 +30,7 @@ const SectionProgramStudyCost = ({
 
   if (!program?.timenprice?.[0]) return <></>
 
-  console.log(program)
+  console.log(program.timenprice[0])
 
   const testimonials = [
     {
@@ -69,9 +73,25 @@ const SectionProgramStudyCost = ({
       <Wrapper>
         <GeneralSectionTitle>Стоимость обучения</GeneralSectionTitle>
         <div className={stls.content}>
-          <div className={stls.left}>cost</div>
+          <div className={stls.left}>
+            <h3 className={stls.h3}>Оплата за один семестр</h3>
+            <div className={stls.prices}>
+              <p className={stls.priceRegular}>36 200 ₽</p>
+              <p className={stls.priceDiscounted}>25 000 ₽</p>
+            </div>
+            <h3 className={cn(stls.h3, stls.h3Mx)}>
+              Беспроцентная рассрочка на{' '}
+              <GeneralTextHighlight>12 месяцев</GeneralTextHighlight>
+            </h3>
+            <div className={stls.prices}>
+              <p className={stls.priceRegular}>11 300 ₽</p>
+              <p className={stls.priceDiscounted}>7 900 ₽</p>
+            </div>
+          </div>
           <div className={stls.right}>
-            {curCategory?.label}
+            {curCategory?.label && (
+              <h3 className={stls.h3}>{curCategory.label}</h3>
+            )}
             <ul className={stls.testimonials}>
               {testimonials.map((testimonial, idx) => (
                 <li key={testimonial.id} className={stls.testimonialItem}>
@@ -85,22 +105,22 @@ const SectionProgramStudyCost = ({
                 </li>
               ))}
             </ul>
-            <ImgStudyCost classNames={[stls.img, stls.phone]} />
-            <Popup
-              trigger={() => (
-                <BtnAlpha variant='gamma'>Оставить заявку</BtnAlpha>
-              )}
-              modal
-              lockScroll
-              nested
-              closeOnDocumentClick>
-              {(close: MouseEventHandler) => (
-                <GeneralPopup close={close}>
-                  <UIFormAlpha isPopup />
-                </GeneralPopup>
-              )}
-            </Popup>
           </div>
+        </div>
+        <ImgStudyCost classNames={[stls.imgPhone]} />
+        <div className={cn(stls.btnPhone)}>
+          <Popup
+            trigger={() => <BtnAlpha variant='gamma'>Оставить заявку</BtnAlpha>}
+            modal
+            lockScroll
+            nested
+            closeOnDocumentClick>
+            {(close: MouseEventHandler) => (
+              <GeneralPopup close={close}>
+                <UIFormAlpha isPopup />
+              </GeneralPopup>
+            )}
+          </Popup>
         </div>
       </Wrapper>
     </section>

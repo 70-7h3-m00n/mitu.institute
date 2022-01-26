@@ -11,16 +11,64 @@
 .content
   @include m.media(phone)
     padding-top: f.px(48)
-    padding-left: f.px(24)
     padding-right: f.px(24)
+    padding-bottom: f.px(32)
+    padding-left: f.px(24)
   @include m.dye(bg, c.$upsilon)
 
+.h3
+  @include m.media(phone)
+    margin-bottom: f.px(32)
+    font-size: f.px(24)
+  @include m.media(tablet)
+    margin-bottom: f.px(24)
+    font-size: f.px(20)
+  @include m.media(laptop, desktop)
+    margin-bottom: f.px(32)
+    font-size: f.px(20)
+
+.prices
+  @include m.media(phone)
+    margin-bottom: f.px(48)
+
+.priceRegular
+  position: relative
+  display: inline-block
+  @include m.media(phone)
+    margin-bottom: f.px(8)
+    font-size: f.px(48)
+    line-height: 120%
+    @include m.dye(c, c.$delta)
+  &::after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translateY(-50%)
+    height: 2px
+    width: 100%
+    @include m.dye(bg, c.$omega)
+
+.priceDiscounted
+  margin-bottom: 0
+  @include m.media(phone)
+    font-size: f.px(72)
+    font-weight: 700
+    line-height: 120%
+
+.h3Mx
+  @include m.media(phone)
+    max-width: 15ch
+  
 .testimonials
   margin: 0
   padding: 0
 
 .testimonialItem
-  @include m.flex
+  @include m.flex($ai: center)
+  margin-top: f.px(16)
+  &:nth-child(1)
+    margin-top: 0
 
 .testimonialDot
   min-width: f.px(16)
@@ -31,12 +79,19 @@
   border-radius: 50%
   @include m.dye(bg, c.$beta)
 
+.testimonial
+  line-height: 120%
+
 .highlight
   font-weight: 700
 
-.img
-  @include m.media(phone)
-    margin-top: f.px(32)
-
-.phone
+.btnPhone,
+.imgPhone
   @include g.phone
+
+.btnPhone
+  @include m.media(phone)
+    max-width: f.px(240)
+    margin-top: f.px(48)
+    margin-right: auto
+    margin-left: auto
