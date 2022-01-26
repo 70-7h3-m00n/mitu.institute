@@ -70,6 +70,21 @@ const SectionProgramStudyCost = ({
     }
   ]
 
+  const btn = (
+    <Popup
+      trigger={() => <BtnAlpha variant='gamma'>Оставить заявку</BtnAlpha>}
+      modal
+      lockScroll
+      nested
+      closeOnDocumentClick>
+      {(close: MouseEventHandler) => (
+        <GeneralPopup close={close}>
+          <UIFormAlpha isPopup />
+        </GeneralPopup>
+      )}
+    </Popup>
+  )
+
   return (
     <section
       className={
@@ -101,10 +116,10 @@ const SectionProgramStudyCost = ({
               </p>
             </div>
             <h3 className={cn(stls.h3, stls.h3Mx)}>
-              Беспроцентная рассрочка на{' '}
-              <GeneralTextHighlight>12 месяцев</GeneralTextHighlight>
+              Беспроцентная рассрочка на&nbsp;
+              <GeneralTextHighlight>12&nbsp;месяцев</GeneralTextHighlight>
             </h3>
-            <div className={stls.prices}>
+            <div className={cn(stls.prices, stls.pricesBottom)}>
               <p className={stls.priceRegular}>
                 <ProgramCost
                   price={Number(program.timenprice[0].price)}
@@ -125,39 +140,34 @@ const SectionProgramStudyCost = ({
             </div>
           </div>
           <div className={stls.right}>
-            {curCategory?.label && (
-              <h3 className={stls.h3}>{curCategory.label}</h3>
-            )}
-            <ul className={stls.testimonials}>
-              {testimonials.map((testimonial, idx) => (
-                <li key={testimonial.id} className={stls.testimonialItem}>
-                  <div className={stls.testimonialDot}></div>
-                  <div
-                    className={cn(stls.testimonial, {
-                      [stls.highlight]: testimonial.highlight
-                    })}>
-                    {testimonial.item}
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <div className={stls.rightContent}>
+              <div className={stls.rightContentHeading}>
+                {curCategory?.label && (
+                  <h3 className={stls.h3}>{curCategory.label}</h3>
+                )}
+                <ul className={stls.testimonials}>
+                  {testimonials.map((testimonial, idx) => (
+                    <li key={testimonial.id} className={stls.testimonialItem}>
+                      <div className={stls.testimonialDot}></div>
+                      <div
+                        className={cn(stls.testimonial, {
+                          [stls.highlight]: testimonial.highlight
+                        })}>
+                        {testimonial.item}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className={cn(stls.btnTabletLaptopDesktop)}>{btn}</div>
+            </div>
+            <div className={stls.imgTabletLaptopDesktopContainer}>
+              <ImgStudyCost classNames={[stls.imgTabletLaptopDesktop]} />
+            </div>
           </div>
         </div>
         <ImgStudyCost classNames={[stls.imgPhone]} />
-        <div className={cn(stls.btnPhone)}>
-          <Popup
-            trigger={() => <BtnAlpha variant='gamma'>Оставить заявку</BtnAlpha>}
-            modal
-            lockScroll
-            nested
-            closeOnDocumentClick>
-            {(close: MouseEventHandler) => (
-              <GeneralPopup close={close}>
-                <UIFormAlpha isPopup />
-              </GeneralPopup>
-            )}
-          </Popup>
-        </div>
+        <div className={cn(stls.btnPhone)}>{btn}</div>
       </Wrapper>
     </section>
   )
