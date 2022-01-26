@@ -2,7 +2,41 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
 @use '@/styles/shared/section' as section
+@use '@/styles/shared/general' as g
 
 .container
   @include section.gap
   @include m.dye(bg, c.$zeta)
+
+.content
+  @include m.media(phone)
+    padding-top: f.px(48)
+    padding-left: f.px(24)
+    padding-right: f.px(24)
+  @include m.dye(bg, c.$upsilon)
+
+.testimonials
+  margin: 0
+  padding: 0
+
+.testimonialItem
+  @include m.flex
+
+.testimonialDot
+  min-width: f.px(16)
+  max-width: f.px(16)
+  min-height: f.px(16)
+  max-height: f.px(16)
+  margin-right: f.px(8)
+  border-radius: 50%
+  @include m.dye(bg, c.$beta)
+
+.highlight
+  font-weight: 700
+
+.img
+  @include m.media(phone)
+    margin-top: f.px(32)
+
+.phone
+  @include g.phone

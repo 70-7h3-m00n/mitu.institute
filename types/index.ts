@@ -17,6 +17,7 @@ import type TypeBtnType from '@/types/btn/TypeBtnType'
 
 // context
 import type TypeContextAccessibility from '@/types/context/TypeContextAccessibility'
+import type TypeContextCategories from '@/types/context/TypeContextCategories'
 import type TypeContextGeneralPopup from '@/types/context/TypeContextGeneralPopup'
 import type TypeContextProgram from '@/types/context/TypeContextProgram'
 
@@ -30,16 +31,16 @@ import type TypeColor from '@/types/general/TypeColor'
 import type TypeColorsKeys from '@/types/general/TypeColorsKeys'
 import type TypeFormAlphaValues from '@/types/general/TypeFormAlphaValues'
 import type TypeGetStaticPropsContext from '@/types/general/TypeGetStaticPropsContext'
+import type TypeImg from '@/types/general/TypeImg'
+import type TypeImgExtended from '@/types/general/TypeImgExtended'
+import type TypeInput from '@/types/general/TypeInput'
+import type TypeIsPopup from '@/types/general/TypeIsPopup'
 import type TypeLeadClientValues from '@/types/general/TypeLeadClientValues'
 import type TypeLinks from '@/types/general/TypeLinks'
 import type TypeLinksHeaderPromo from '@/types/general/TypeLinksHeaderPromo'
 import type TypeNextApiResponseLeadData from '@/types/general/TypeNextApiResponseLeadData'
 import type TypeOnClick from '@/types/general/TypeOnClick'
 import type TypePageData from '@/types/general/TypePageData'
-import type TypeImg from '@/types/general/TypeImg'
-import type TypeImgExtended from '@/types/general/TypeImgExtended'
-import type TypeInput from '@/types/general/TypeInput'
-import type TypeIsPopup from '@/types/general/TypeIsPopup'
 import type TypeReferer from '@/types/general/TypeReferer'
 import type TypeRoute from '@/types/general/TypeRoute'
 import type TypeRoutesFront from '@/types/general/TypeRoutesFront'
@@ -134,6 +135,7 @@ export {
   TypeBtnType,
   // context
   TypeContextAccessibility,
+  TypeContextCategories,
   TypeContextGeneralPopup,
   TypeContextProgram,
   // general
@@ -146,7 +148,6 @@ export {
   TypeColorsKeys,
   TypeFormAlphaValues,
   TypeGetStaticPropsContext,
-  TypeLeadClientValues,
   TypeLinks,
   TypeLinksHeaderPromo,
   TypeNextApiResponseLeadData,
@@ -156,6 +157,7 @@ export {
   TypeImgExtended,
   TypeInput,
   TypeIsPopup,
+  TypeLeadClientValues,
   TypeReferer,
   TypeRoute,
   TypeRoutesFront,

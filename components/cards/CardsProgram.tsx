@@ -1,5 +1,5 @@
 import stls from '@/styles/components/cards/CardsProgram.module.sass'
-import { TypeClassNames } from '@/types/index'
+import { TypeClassNames, TypeLibProgramCategory } from '@/types/index'
 import { MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
@@ -11,12 +11,12 @@ import { ProgramStudyDuration } from '@/components/program'
 import { IconClock, IconArrowTopRight } from '@/components/icons'
 
 type TypeCardsProgramProps = TypeClassNames & {
-  category: string | null
+  curCategory: TypeLibProgramCategory | null
 }
 
-const CardsProgram = ({ classNames, category }: TypeCardsProgramProps) => {
-  const cards = category
-    ? cardsProgram.filter(card => card.category === category)
+const CardsProgram = ({ classNames, curCategory }: TypeCardsProgramProps) => {
+  const cards = curCategory
+    ? cardsProgram.filter(card => card.category.type === curCategory.type)
     : cardsProgram
 
   return (

@@ -21,7 +21,6 @@ const SectionProgramTeachers = ({
 
   if (!program?.teachers) return <></>
 
-  console.log(program.teachers)
   return (
     <section
       className={
@@ -47,7 +46,9 @@ const SectionProgramTeachers = ({
                   classNames={[stls.img]}
                 />
                 <h3 className={stls.name}>{teacher.name}</h3>
-                <p className={stls.achievements}>{teacher.achievements}</p>
+                {teacher.achievements && (
+                  <p className={stls.achievements}>{teacher.achievements}</p>
+                )}
               </li>
             ))}
         </ul>

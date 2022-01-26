@@ -1,11 +1,7 @@
+import { TypeLibProgramsCategories } from '@/types/index'
+
 type TypePageProgramsPropsQuery = {
-  readonly categories:
-    | {
-        type: string | null
-        slug: string | null
-        label: string | null
-      }[]
-    | null
+  readonly categories: TypeLibProgramsCategories | null
   readonly studyFields:
     | {
         type: string | null

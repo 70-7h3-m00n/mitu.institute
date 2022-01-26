@@ -1,26 +1,26 @@
+import {
+  TypeLibProgramCategory,
+  TypeLibProgramCategorySlug,
+  TypeLibProgramsCategories
+} from '@/types/index'
 import { createContext } from 'react'
 
 const contextCategoriesContext = createContext<{
-  categories:
-    | {
-        label: string | null
-        type: string | null
-        slug: string | null
-      }[]
-    | null
+  categories: TypeLibProgramsCategories | null
+  curCategory: TypeLibProgramCategory | null
+  curCategorySlug: TypeLibProgramCategorySlug | null
   setCategories: ({
     payload
   }: {
-    payload:
-      | {
-          label: string | null
-          type: string | null
-          slug: string | null
-        }[]
-      | null
+    payload: {
+      categories: TypeLibProgramsCategories | null
+      curCategorySlug: TypeLibProgramCategorySlug | null
+    } | null
   }) => void
 }>({
   categories: null,
+  curCategory: null,
+  curCategorySlug: null,
   setCategories: () => {}
 })
 

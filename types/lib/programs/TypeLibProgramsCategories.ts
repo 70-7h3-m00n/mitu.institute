@@ -1,13 +1,5 @@
-import {
-  TypeLibProgramsCategoriesType,
-  TypeLibProgramsCategoriesSlug,
-  TypeLibProgramsCategoriesLabel
-} from '@/types/index'
+import { TypeLibProgramCategory } from '@/types/index'
 
-type TypeLibProgramsCategories = {
-  type?: TypeLibProgramsCategoriesType
-  slug?: TypeLibProgramsCategoriesSlug
-  label?: TypeLibProgramsCategoriesLabel
-}[]
+type TypeLibProgramsCategories = TypeLibProgramCategory[]
 
 export default TypeLibProgramsCategories

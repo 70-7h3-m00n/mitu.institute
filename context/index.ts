@@ -4,9 +4,6 @@ import ContextAccessibilityState from '@/context/accessibility/ContextAccessibil
 import ContextCategoriesContext from '@/context/categories/contextCategoriesContext'
 import contextCategoriesReducer from '@/context/categories/contextCategoriesReducer'
 import ContextCategoriesState from '@/context/categories/ContextCategoriesState'
-import ContextCategoryContext from '@/context/category/contextCategoryContext'
-import contextCategoryReducer from '@/context/category/contextCategoryReducer'
-import ContextCategoryState from '@/context/category/ContextCategoryState'
 import ContextGeneralPopupContext from '@/context/popup/contextGeneralPopupContext'
 import contextGeneralPopupReducer from '@/context/popup/contextGeneralPopupReducer'
 import ContextGeneralPopupState from '@/context/popup/ContextGeneralPopupState'
@@ -18,15 +15,12 @@ import contextStudyFieldReducer from '@/context/studyField/contextStudyFieldRedu
 import ContextStudyFieldState from '@/context/studyField/ContextStudyFieldState'
 
 export {
-  ContextCategoryContext,
-  contextCategoryReducer,
-  ContextCategoryState,
-  ContextCategoriesContext,
-  contextCategoriesReducer,
-  ContextCategoriesState,
   ContextAccessibilityContext,
   contextAccessibilityReducer,
   ContextAccessibilityState,
+  ContextCategoriesContext,
+  contextCategoriesReducer,
+  ContextCategoriesState,
   ContextGeneralPopupContext,
   contextGeneralPopupReducer,
   ContextGeneralPopupState,

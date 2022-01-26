@@ -1,23 +1,21 @@
 import { SET_CATEGORIES } from '@/context/types'
+import {
+  TypeLibProgramsCategories,
+  TypeLibProgramCategory,
+  TypeLibProgramCategorySlug
+} from '@/types/index'
 
 type contextCategoriesReducerState = {
-  categories:
-    | {
-        label: string | null
-        type: string | null
-        slug: string | null
-      }[]
-    | null
+  categories: TypeLibProgramsCategories | null
+  curCategory: TypeLibProgramCategory | null
+  curCategorySlug: TypeLibProgramCategorySlug | null
 }
 
 type contextCategoriesReducerAction = {
-  payload:
-    | {
-        label: string | null
-        type: string | null
-        slug: string | null
-      }[]
-    | null
+  payload: {
+    categories: TypeLibProgramsCategories | null
+    curCategorySlug: TypeLibProgramCategorySlug | null
+  } | null
   type: typeof SET_CATEGORIES
 }
 
@@ -29,7 +27,12 @@ const contextCategoriesReducer = (
     case SET_CATEGORIES:
       return {
         ...state,
-        categories: action.payload
+        categories: action.payload?.categories || null,
+        curCategory:
+          action.payload?.categories?.filter(
+            category => category.slug === action.payload?.curCategorySlug
+          )?.[0] || null,
+        curCategorySlug: action.payload?.curCategorySlug || null
       }
     default:
       return state

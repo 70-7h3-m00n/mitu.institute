@@ -5,11 +5,10 @@ import { useContext, useEffect } from 'react'
 import { routesFront } from '@/config/index'
 import { handleGetStaticProps, handleGetStaticPaths } from '@/lib/index'
 import {
-  ContextCategoryContext,
+  ContextCategoriesContext,
   ContextStudyFieldContext,
   ContextProgramContext
 } from '@/context/index'
-import { Wrapper } from '@/components/layout'
 import {
   SectionProgramHero,
   SectionProgramForWhom,
@@ -32,12 +31,14 @@ const PageProgramsCategoryStudyFieldProgram = ({
   gspContextParamsStudyField,
   gspContextParamsProgram
 }: TypePageProgramProps) => {
-  const { setCategory } = useContext(ContextCategoryContext)
+  const { setCategories } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { setProgram } = useContext(ContextProgramContext)
 
   useEffect(() => {
-    setCategory({ payload: gspContextParamsCategory })
+    setCategories({
+      payload: { categories, curCategorySlug: gspContextParamsCategory }
+    })
     setStudyField({ payload: gspContextParamsStudyField })
     setProgram({ payload: program || null })
   }, [gspContextParamsCategory, gspContextParamsStudyField, program])

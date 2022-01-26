@@ -7,7 +7,6 @@ import { routesFront } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import {
   ContextCategoriesContext,
-  ContextCategoryContext,
   ContextStudyFieldContext,
   ContextProgramContext
 } from '@/context/index'
@@ -25,16 +24,13 @@ import {
 
 const PagePromo: NextPage<TypePagePromoProps> = ({ programs, categories }) => {
   const { setCategories } = useContext(ContextCategoriesContext)
-  const { setCategory } = useContext(ContextCategoryContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { setProgram } = useContext(ContextProgramContext)
 
   useEffect(() => {
     setCategories({
-      payload:
-        categories?.map(category => ({ ...category, slug: null })) || null
+      payload: { categories, curCategorySlug: categories?.[0].slug || null }
     })
-    setCategory({ payload: categories?.[0].type || null })
     setStudyField({ payload: null })
     setProgram({ payload: null })
   }, [categories])

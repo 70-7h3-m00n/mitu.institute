@@ -1,3 +1,5 @@
+import { TypeLibProgramsCategories } from '@/types/index'
+
 type TypePagePromoPropsQuery = {
   readonly programs:
     | {
@@ -17,12 +19,7 @@ type TypePagePromoPropsQuery = {
       }[]
     | null
   // readonly land: unknown
-  readonly categories:
-    | {
-        label: string | null
-        type: string | null
-      }[]
-    | null
+  readonly categories: TypeLibProgramsCategories | null
 }
 
 export default TypePagePromoPropsQuery

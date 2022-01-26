@@ -9,10 +9,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import {
-  ContextCategoriesContext,
-  ContextCategoryContext
-} from '@/context/index'
+import { ContextCategoriesContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -24,12 +21,16 @@ type TypeSectionOurProgramsPromoProps = TypeClassNames
 const SectionOurProgramsPromo = ({
   classNames
 }: TypeSectionOurProgramsPromoProps) => {
-  const { category, setCategory } = useContext(ContextCategoryContext)
-  const { categories } = useContext(ContextCategoriesContext)
+  const { categories, curCategory, setCategories } = useContext(
+    ContextCategoriesContext
+  )
 
   const btns = categories?.map(category => ({
     variantType: category.type,
-    onClick: () => setCategory({ payload: category.type || null }),
+    onClick: () =>
+      setCategories({
+        payload: { categories, curCategorySlug: category.slug || null }
+      }),
     label: category.label
   }))
 
@@ -49,7 +50,9 @@ const SectionOurProgramsPromo = ({
               <BtnAlpha
                 key={(btn.label || 'btn') + idx}
                 variant={
-                  category === btn.variantType ? 'epsilon' : 'epsilon-reverse'
+                  curCategory === btn.variantType
+                    ? 'epsilon'
+                    : 'epsilon-reverse'
                 }
                 classNames={[stls.btn]}
                 onClick={btn.onClick}>
@@ -57,7 +60,7 @@ const SectionOurProgramsPromo = ({
               </BtnAlpha>
             ))}
           </div>
-          <CardsProgram category={category} />
+          <CardsProgram curCategory={curCategory} />
           <Popup
             trigger={() => (
               <BtnAlpha variant='beta' classNames={[stls.btnShowMore]}>

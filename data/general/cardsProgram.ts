@@ -1,5 +1,7 @@
+import { TypeLibProgramCategory } from '@/types/index'
+
 type TypeCardsProgram = {
-  category: string | null
+  category: TypeLibProgramCategory
   faculty: {
     type: string
     label: string

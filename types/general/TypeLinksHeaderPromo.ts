@@ -1,10 +1,17 @@
-import { TypeAnchor } from '@/types/index'
+import {
+  TypeAnchor,
+  TypeLibProgramsCategories,
+  TypeLibProgramCategorySlug
+} from '@/types/index'
 
 type TypeLinksHeaderPromo =
   | {
       readonly href: TypeAnchor | null
-      readonly val: string | null
-      readonly payload: string | null
+      readonly val?: string | null
+      readonly payload: {
+        categories: TypeLibProgramsCategories | null
+        curCategorySlug: TypeLibProgramCategorySlug | null
+      } | null
     }[]
   | null
 

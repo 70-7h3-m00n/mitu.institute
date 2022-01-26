@@ -1,4 +1,9 @@
-import { TypeChildren } from '@/types/index'
+import {
+  TypeChildren,
+  TypeLibProgramsCategories,
+  TypeLibProgramCategory,
+  TypeLibProgramCategorySlug
+} from '@/types/index'
 import { SET_CATEGORIES } from '@/context/types'
 import { useReducer } from 'react'
 import {
@@ -12,15 +17,13 @@ const ContextCategoriesState = ({
   children
 }: TypeContextCategoriesStateProps) => {
   const initialState: {
-    categories:
-      | {
-          label: string | null
-          type: string | null
-          slug: string | null
-        }[]
-      | null
+    categories: TypeLibProgramsCategories | null
+    curCategory: TypeLibProgramCategory | null
+    curCategorySlug: TypeLibProgramCategorySlug | null
   } = {
-    categories: null
+    categories: null,
+    curCategory: null,
+    curCategorySlug: null
   }
 
   const [state, dispatch] = useReducer(contextCategoriesReducer, initialState)
@@ -28,13 +31,10 @@ const ContextCategoriesState = ({
   const setCategories = ({
     payload
   }: {
-    payload:
-      | {
-          label: string | null
-          type: string | null
-          slug: string | null
-        }[]
-      | null
+    payload: {
+      categories: TypeLibProgramsCategories | null
+      curCategorySlug: TypeLibProgramCategorySlug | null
+    } | null
   }) => {
     dispatch({ type: SET_CATEGORIES, payload })
   }
@@ -43,6 +43,8 @@ const ContextCategoriesState = ({
     <ContextCategoriesContext.Provider
       value={{
         categories: state.categories,
+        curCategory: state.curCategory,
+        curCategorySlug: state.curCategorySlug,
         setCategories
       }}>
       {children}

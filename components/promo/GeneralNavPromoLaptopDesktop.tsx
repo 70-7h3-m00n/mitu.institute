@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useContext } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
-import { ContextCategoryContext } from '@/context/index'
+import { ContextCategoriesContext } from '@/context/index'
 
 type TypeGeneralNavPromoLaptopDesktopProps = TypeClassNames & {
   links: TypeLinksHeaderPromo
@@ -14,7 +14,7 @@ const GeneralNavPromoLaptopDesktop = ({
   classNames,
   links
 }: TypeGeneralNavPromoLaptopDesktopProps) => {
-  const { setCategory } = useContext(ContextCategoryContext)
+  const { setCategories } = useContext(ContextCategoriesContext)
 
   return (
     <nav
@@ -27,7 +27,7 @@ const GeneralNavPromoLaptopDesktop = ({
             <a
               href={href || '#'}
               className={stls.link}
-              onClick={() => setCategory({ payload: payload || null })}>
+              onClick={() => setCategories({ payload })}>
               {val}
             </a>
           </li>
