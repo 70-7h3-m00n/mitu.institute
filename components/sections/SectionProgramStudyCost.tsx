@@ -15,7 +15,11 @@ import {
   GeneralPopup,
   GeneralTextHighlight
 } from '@/components/general'
-import { ProgramStudyDuration, ProgramAdmission } from '@/components/program'
+import {
+  ProgramStudyDuration,
+  ProgramAdmission,
+  ProgramCost
+} from '@/components/program'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
 import { ImgStudyCost } from '@/components/imgs'
@@ -28,7 +32,8 @@ const SectionProgramStudyCost = ({
   const { program } = useContext(ContextProgramContext)
   const { curCategory } = useContext(ContextCategoriesContext)
 
-  if (!program?.timenprice?.[0]) return <></>
+  if (!program?.timenprice?.[0]?.price || !program?.timenprice?.[0]?.discount)
+    return <></>
 
   console.log(program.timenprice[0])
 
@@ -76,16 +81,47 @@ const SectionProgramStudyCost = ({
           <div className={stls.left}>
             <h3 className={stls.h3}>Оплата за один семестр</h3>
             <div className={stls.prices}>
-              <p className={stls.priceRegular}>36 200 ₽</p>
-              <p className={stls.priceDiscounted}>25 000 ₽</p>
+              <p className={stls.priceRegular}>
+                {' '}
+                <ProgramCost
+                  price={Number(program.timenprice[0].price)}
+                  discount={Number(program.timenprice[0].discount)}
+                  isRegular
+                  isHalf
+                  withRubSign
+                />
+              </p>
+              <p className={stls.priceDiscounted}>
+                <ProgramCost
+                  price={Number(program.timenprice[0].price)}
+                  discount={Number(program.timenprice[0].discount)}
+                  isHalf
+                  withRubSign
+                />
+              </p>
             </div>
             <h3 className={cn(stls.h3, stls.h3Mx)}>
               Беспроцентная рассрочка на{' '}
               <GeneralTextHighlight>12 месяцев</GeneralTextHighlight>
             </h3>
             <div className={stls.prices}>
-              <p className={stls.priceRegular}>11 300 ₽</p>
-              <p className={stls.priceDiscounted}>7 900 ₽</p>
+              <p className={stls.priceRegular}>
+                <ProgramCost
+                  price={Number(program.timenprice[0].price)}
+                  discount={Number(program.timenprice[0].discount)}
+                  isRegular
+                  isOneTwelfth
+                  withRubSign
+                />
+              </p>
+              <p className={stls.priceDiscounted}>
+                <ProgramCost
+                  price={Number(program.timenprice[0].price)}
+                  discount={Number(program.timenprice[0].discount)}
+                  isOneTwelfth
+                  withRubSign
+                />
+              </p>
             </div>
           </div>
           <div className={stls.right}>
