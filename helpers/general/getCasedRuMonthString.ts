@@ -3,11 +3,11 @@ type TypeGetCasedRuMonthString = {
 }
 
 const getCasedRuMonthString = ({ months }: TypeGetCasedRuMonthString) => {
-  if (+months === 1) return `${months} Месяц`
+  if (+months === 1) return `${months} месяц`
 
-  if (+months > 1 && +months < 5) return `${months} Месяца`
+  if (+months > 1 && +months < 5) return `${months} месяца`
 
-  if (+months >= 5) return `${months} Месяцев`
+  if (+months >= 5) return `${months} месяцев`
 
   return ''
 }

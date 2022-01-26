@@ -20,16 +20,6 @@ const ProgramStudyDuration = ({
   const years = Math.floor(+studyDurationMonths / 12)
   const months = +studyDurationMonths - 12 * years
 
-  if (monthsOnly)
-    return (
-      <span
-        className={
-          cn(stls.container, getClassNames({ classNames })) || undefined
-        }>
-        {getCasedRuMonthString({ months: studyDurationMonths })}
-      </span>
-    )
-
   return (
     <span
       className={
