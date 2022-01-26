@@ -9,9 +9,15 @@ import { IconCrossAlt } from '@/components/icons'
 type TypeLisQnaProps = TypeClassNames & {
   qna: typeof qnas[number]
   idx: number
+  variant?: 'alpha' | 'beta'
 }
 
-const LisQna = ({ classNames, qna, idx }: TypeLisQnaProps) => {
+const LisQna = ({
+  classNames,
+  qna,
+  idx,
+  variant = 'alpha'
+}: TypeLisQnaProps) => {
   const [isOpen, setIsOpen] = useState(idx === 0)
 
   return (
@@ -20,7 +26,10 @@ const LisQna = ({ classNames, qna, idx }: TypeLisQnaProps) => {
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <button
-        className={cn(stls.btn, { [stls.isOpen]: isOpen })}
+        className={cn(stls.btn, {
+          [stls.isOpen]: isOpen,
+          [stls.btnVariantBeta]: variant === 'beta'
+        })}
         onClick={() => setIsOpen(!isOpen)}>
         {qna.question}
         <IconCrossAlt classNames={[stls.cross]} />

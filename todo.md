@@ -31,3 +31,8 @@
 - Improve Loader & set a timer and if in 5 seconds the lead is not submited and thank you is not shown, then display a number to call
 - Generalize styles for 404 & 505 and _offline pages
 - Figure out ts mess in data fetching
+- Generalize layout & styles for SectionProgramQna and SectionFAQ
+- Fix a mess of styles & layout in StudyCost
+- Generalize styles for n column layout throughout webapp (particulary at SectionProgramJobTitles and SectionProgramWhatWillYouLearn)
+- Figure out a better way to do context & improve categories context
+- Create and use types for graphql queries

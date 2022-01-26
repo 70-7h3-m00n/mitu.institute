@@ -29,6 +29,17 @@
       @include m.dye(c, c.$psi)
       @include m.media(tablet)
         font-size: f.px(14)
+    &.btnVariantBeta
+      & ~ .answer
+        padding-left: f.px(16)
+        @include m.dye(c, c.$omega)
+
+.btnVariantBeta
+  padding: f.px(15)
+  border: 2px solid
+  @include m.dye(border, c.$delta)
+  &.isOpen
+    @include m.dye(border, c.$beta)
 
 .cross
   max-width: f.px(16)
