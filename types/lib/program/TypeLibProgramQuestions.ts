@@ -1,11 +1,5 @@
-import {
-  TypeLibProgramQuestionsQuestion,
-  TypeLibProgramQuestionsAnswer
-} from '@/types/index'
+import { TypeLibProgramQuestion } from '@/types/index'
 
-type TypeLibProgramQuestions = {
-  question?: TypeLibProgramQuestionsAnswer
-  answer?: TypeLibProgramQuestionsQuestion
-}[]
+type TypeLibProgramQuestions = TypeLibProgramQuestion[]
 
 export default TypeLibProgramQuestions

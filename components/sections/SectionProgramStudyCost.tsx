@@ -35,8 +35,6 @@ const SectionProgramStudyCost = ({
   if (!program?.timenprice?.[0]?.price || !program?.timenprice?.[0]?.discount)
     return <></>
 
-  console.log(program.timenprice[0])
-
   const testimonials = [
     {
       id: 'SectionProgramStudyCostStudyDuration',

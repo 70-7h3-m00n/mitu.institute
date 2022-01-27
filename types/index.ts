@@ -94,9 +94,10 @@ import type TypeLibProgramTimenpriceStudyMonthsDuration from '@/types/lib/progra
 import type TypeLibProgramTitle from '@/types/lib/program/TypeLibProgramTitle'
 import type TypeLibProgramWhatYouWillLearn from '@/types/lib/program/TypeLibProgramWhatYouWillLearn'
 import type TypeLibProgramWhatYouWillLearnItem from '@/types/lib/program/TypeLibProgramWhatYouWillLearnItem'
+import type TypeLibProgramQuestion from '@/types/lib/program/TypeLibProgramQuestion'
+import type TypeLibProgramQuestionAnswer from '@/types/lib/program/TypeLibProgramQuestionAnswer'
+import type TypeLibProgramQuestionQuestion from '@/types/lib/program/TypeLibProgramQuestionQuestion'
 import type TypeLibProgramQuestions from '@/types/lib/program/TypeLibProgramQuestions'
-import type TypeLibProgramQuestionsAnswer from '@/types/lib/program/TypeLibProgramQuestionsAnswer'
-import type TypeLibProgramQuestionsQuestion from '@/types/lib/program/TypeLibProgramQuestionsQuestion'
 
 // lib/programs
 import type TypeLibProgramsCategories from '@/types/lib/programs/TypeLibProgramsCategories'
@@ -209,9 +210,10 @@ export {
   TypeLibProgramTitle,
   TypeLibProgramWhatYouWillLearn,
   TypeLibProgramWhatYouWillLearnItem,
+  TypeLibProgramQuestion,
+  TypeLibProgramQuestionAnswer,
+  TypeLibProgramQuestionQuestion,
   TypeLibProgramQuestions,
-  TypeLibProgramQuestionsAnswer,
-  TypeLibProgramQuestionsQuestion,
   // lib/programs
   TypeLibProgramsCategories,
   TypeLibProgramsCategoriesLabel,

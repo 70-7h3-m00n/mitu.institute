@@ -1,13 +1,12 @@
 import stls from '@/styles/components/lis/LisQna.module.sass'
-import { TypeClassNames } from '@/types/index'
+import { TypeClassNames, TypeLibProgramQuestion } from '@/types/index'
 import { useState } from 'react'
-import { qnas } from '@/data/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { IconCrossAlt } from '@/components/icons'
 
 type TypeLisQnaProps = TypeClassNames & {
-  qna: typeof qnas[number]
+  qna: TypeLibProgramQuestion
   idx: number
   variant?: 'alpha' | 'beta'
 }
