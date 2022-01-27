@@ -4,8 +4,7 @@ import cn from 'classnames'
 import { qnas } from '@/data/index'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
-import { GeneralSectionTitle } from '@/components/general'
-import { UIFormAlpha } from '@/components/uiforms'
+import { GeneralSectionTitle, GeneralAskQuestion } from '@/components/general'
 import { LisQna } from '@/components/lis'
 
 type TypeSectionProgramQnaProps = TypeClassNames
@@ -30,13 +29,7 @@ const SectionProgramQna = ({ classNames }: TypeSectionProgramQnaProps) => {
               />
             ))}
           </ul>
-          <UIFormAlpha
-            classNames={[stls.form]}
-            variant='beta'
-            title={
-              <>Остались вопросы? Получите консультацию приемной комиссии</>
-            }
-          />
+          <GeneralAskQuestion />
         </div>
       </Wrapper>
     </section>

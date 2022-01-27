@@ -18,6 +18,7 @@ import IconMagnifyingGlass from '@/components/icons/IconMagnifyingGlass'
 import IconMortarboard from '@/components/icons/IconMortarboard'
 import IconMortarboardAlt from '@/components/icons/IconMortarboardAlt'
 import IconPaperPage from '@/components/icons/IconPaperPage'
+import IconPen from '@/components/icons/IconPen'
 import IconPhone from '@/components/icons/IconPhone'
 import IconVideoOnStand from '@/components/icons/IconVideoOnStand'
 import IconVK from '@/components/icons/IconVK'
@@ -45,6 +46,7 @@ export {
   IconMortarboard,
   IconMortarboardAlt,
   IconPaperPage,
+  IconPen,
   IconPhone,
   IconVideoOnStand,
   IconVK,
