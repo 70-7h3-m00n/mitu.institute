@@ -7,9 +7,14 @@ import { IconLocation } from '@/components/icons'
 
 type TypeGeneralAddressProps = TypeClassNames & {
   withIcon?: boolean
+  withoutBr?: boolean
 }
 
-const GeneralAddress = ({ classNames, withIcon }: TypeGeneralAddressProps) => {
+const GeneralAddress = ({
+  classNames,
+  withIcon,
+  withoutBr
+}: TypeGeneralAddressProps) => {
   return (
     <address
       className={
@@ -22,7 +27,7 @@ const GeneralAddress = ({ classNames, withIcon }: TypeGeneralAddressProps) => {
       {withIcon && <IconLocation classNames={[stls.icon]} />}
       <div>
         <span className='locality'>г.&nbsp;{address.city}</span>,{' '}
-        <br className={stls.br} />
+        {!withoutBr && <br className={stls.br} />}
         <span className='street-address'>
           {address.street}, д.&nbsp;{address.house}
         </span>

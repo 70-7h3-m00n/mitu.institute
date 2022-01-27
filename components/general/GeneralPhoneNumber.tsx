@@ -8,19 +8,25 @@ import { IconPhone } from '@/components/icons'
 type TypeGeneralPhoneNumberProps = TypeClassNames & {
   withIcon?: boolean
   withLabel?: boolean
+  onFocusReverse?: boolean
 }
 
 const GeneralPhoneNumber = ({
   classNames,
   withIcon,
-  withLabel
+  withLabel,
+  onFocusReverse
 }: TypeGeneralPhoneNumberProps) => {
   return (
     <a
       className={
         cn(
           [stls.container],
-          { [stls.withIcon]: withIcon },
+          {
+            [stls.withIcon]: withIcon,
+            [stls.onFocusRegular]: !onFocusReverse,
+            [stls.onFocusReverse]: onFocusReverse
+          },
           getClassNames({ classNames })
         ) || undefined
       }

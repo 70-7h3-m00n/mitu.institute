@@ -1,11 +1,17 @@
 import stls from '@/styles/components/layout/Footer.module.sass'
 import { TypeClassNames } from '@/types/index'
+import { useContext } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
-import routesFront from '@/config/routesFront'
+import { routesFront, companyName } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { ContextCategoriesContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
-import { GeneralAddress, GeneralPhoneNumber } from '@/components/general'
+import {
+  GeneralLogo,
+  GeneralAddress,
+  GeneralPhoneNumber
+} from '@/components/general'
 import {
   IconInstagram,
   IconYoutube,
@@ -16,26 +22,30 @@ import {
 type TypeFooterProps = TypeClassNames
 
 const Footer = ({ classNames }: TypeFooterProps) => {
-  const links = [
+  const { categories } = useContext(ContextCategoriesContext)
+
+  console.log(categories)
+
+  const navLinks = categories?.map(category => ({
+    href: `${routesFront.programs}/${category.slug}`,
+    val: category.label
+  }))
+
+  const smLinks = [
     {
-      href: routesFront.home,
-      val: 'Бакалавриат'
+      href: '#',
+      val: <IconInstagram classNames={[stls.instagram, stls.smIcon]} />
+    }
+  ]
+
+  const privacyLinks = [
+    {
+      href: '#',
+      val: 'Политика кофиденциальности'
     },
     {
-      href: routesFront.home,
-      val: 'Магистратура'
-    },
-    {
-      href: routesFront.home,
-      val: 'Дополнительное образование'
-    },
-    {
-      href: routesFront.home,
-      val: 'Часто задаваемые вопросы'
-    },
-    {
-      href: routesFront.home,
-      val: 'Поступление без ЕГЭ'
+      href: '#',
+      val: 'Пользовательское соглашение'
     }
   ]
 
@@ -45,58 +55,54 @@ const Footer = ({ classNames }: TypeFooterProps) => {
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <Wrapper classNames={[stls.wrapper]}>
-        <div className={stls.content}>
-          <div className={stls.logo}>LOGO</div>
-          <div className={stls.agreement}>
-            <Link href={'#'}>
-              <a className={cn(stls.link, stls.underline)}>
-                Политика кофиденциальности
-              </a>
-            </Link>
-            <Link href={'#'}>
-              <a className={cn(stls.link, stls.underline)}>
-                Пользовательское соглашение
-              </a>
-            </Link>
+        <div className={stls.top}>
+          <GeneralLogo classNames={[stls.logo, stls.phone]} />
+          <div className={stls.logoNPrivacy}>
+            <GeneralLogo classNames={[stls.logo, stls.tabletLaptopDesktop]} />
+            <ul className={stls.privacyLinks}>
+              {privacyLinks.map(({ href, val }, idx) => (
+                <li key={href + idx} className={stls.privacyLinkItem}>
+                  <Link href={href}>
+                    <a className={stls.privacyLink}>{val}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className={stls.list}>
-            {links.map(({ href, val }, idx) => (
-              <li key={val + idx} className={stls.item}>
+          <ul className={stls.navLinks}>
+            {navLinks?.map(({ href, val }, idx) => (
+              <li
+                key={(val || 'FooterLinks_link') + idx}
+                className={stls.navLinkItem}>
                 <Link href={href}>
-                  <a className={stls.link}>{val}</a>
+                  <a className={stls.navLink}>{val}</a>
                 </Link>
               </li>
             ))}
           </ul>
           <div className={stls.contacts}>
-            <GeneralPhoneNumber classNames={[stls.phone]} />
-            <GeneralAddress classNames={[stls.address]} withIcon />
-            <div className={stls.icons}>
-              <Link href={'#'}>
-                <a className={stls.icon}>
-                  <IconInstagram />
-                </a>
-              </Link>
-              <Link href={'#'}>
-                <a className={stls.icon}>
-                  <IconVK />
-                </a>
-              </Link>
-              <Link href={'#'}>
-                <a className={stls.icon}>
-                  <IconFacebook />
-                </a>
-              </Link>
-              <Link href={'#'}>
-                <a className={stls.icon}>
-                  <IconYoutube />
-                </a>
-              </Link>
-            </div>
+            <GeneralPhoneNumber
+              classNames={[stls.phoneNumber, stls.generalPhoneNumber]}
+              onFocusReverse
+            />
+            <GeneralAddress
+              classNames={[stls.address, stls.generalAddress]}
+              withIcon
+              withoutBr
+            />
+            <ul className={stls.smLinks}>
+              {smLinks.map(({ href, val }, idx) => (
+                <li key={href + idx} className={stls.smLinkItem}>
+                  <Link href={href}>
+                    <a className={stls.smLink}>{val}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <p className={stls.owner}>
-          Московский институт технологий и управления, 2021
+        <p className={stls.copy}>
+          &copy; {companyName}, {new Date().getFullYear()}
         </p>
       </Wrapper>
     </footer>

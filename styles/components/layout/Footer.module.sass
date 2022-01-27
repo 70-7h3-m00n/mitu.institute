@@ -1,127 +1,149 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
+@use '@/styles/shared/onFocusVisible' as onFocusVisible
 
 .container 
+  @include m.media(phone)
+    padding-top: f.px(72)
+    padding-bottom: f.px(72)
   @include m.dye(bg, c.$omega)
-
-.wrapper
-  @include m.media(phone)
-    @include m.gap($ptb: f.px(72))
-  @include m.media(tablet)
-    @include m.gap($ptb: f.px(64))
-  @include m.media(laptop, desktop)
-    @include m.gap($ptb: f.px(40))
-
-.content
-  position: relative
-  @include m.media(phone)
-    @include m.flex($fd: column-reverse) 
-    @include m.gap($pb: f.px(24))
-  @include m.media(tablet, laptop, desktop)
-    @include m.flex($jc: space-between) 
-    @include m.gap($pb: f.px(16))
-    
-.agreement
-  @include m.media(phone)
-    @include m.gap($mt: f.px(0))
-  @include m.media(tablet, laptop, desktop)
-    @include m.gap($mt: f.px(96))
-      
-.list 
-  @include m.media(phone)
-    @include m.gap($mb: f.px(28), $mt: f.px(50), $plr: f.px(0))
-  @include m.media(tablet, laptop, desktop)
-    @include m.gap($mtb: f.px(0), $plr: f.px(10))
-
-.item
-  list-style: none
-
-.link
-  display: block
-  font-size: f.px(14)
-  transition: color .3s
-  @include m.gap($pb: f.px(24))
   @include m.dye(c, c.$upsilon)
-  @include m.media(phone, tablet)
-  @include m.media(laptop, desktop)
-    &:hover
-      @include m.dye(c, c.$beta)
 
-.underline
-  text-decoration: underline
-  @include m.media(phone, tablet)
-    font-size: f.px(12)
-  @include m.media(laptop, desktop)
-    font-size: f.px(13)
-    
+.top
+  @include m.media(phone)
+    @include m.flex($fd: column)
+
 .logo
-  position: absolute
-  top: 0
-  left: 0
-  width: f.px(176)
-  height: f.px(56)
-  font-size: f.px(48)
-  font-weight: 700
-  text-align: center
-  @include m.dye(c, c.$psi)
-  @include m.dye(bg, c.$upsilon)
+  &.phone
+    @include m.media(phone)
+      & > *
+        max-width: 100%
+    max-width: max-content
+  filter: brightness(0) invert(1)
+
+.logoNPrivacy
+  @include m.flex($fd: column)
+  @include m.media(phone)
+    order: 3
+    margin-top: f.px(48)
+
+.privacyLinks
+  margin: 0
+  padding: 0
+
+.privacyLinkItem
+  @include m.flex
+  @include m.media(phone)
+    margin-top: f.px(24 - 3 - 3)
+    &:nth-child(1)
+      margin-top: 0
+
+.privacyLink
+  @include m.media(phone)
+    padding-top: f.px(3)
+    padding-bottom: f.px(3)
+  @include m.dye(c, c.$upsilon)
+  transition: transform 0.1s ease-out
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      text-decoration: underline
+  &:active
+    transform: scale(0.98)
+  @include onFocusVisible.highlightWithBottomLine($color: c.$upsilon)
+
+.navLinks
+  padding: 0
+  margin: 0
+  @include m.media(phone)
+    order: 2
+    margin-top: f.px(48)
+
+.navLinkItem
+  @include m.flex
+  @include m.media(phone)
+    margin-top: f.px(24 - 3 - 3)
+    &:nth-child(1)
+      margin-top: 0
+
+.navLink
+  @include m.media(phone)
+    padding-top: f.px(3)
+    padding-bottom: f.px(3)
+  @include m.dye(c, c.$upsilon)
+  transition: transform 0.1s ease-out
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      text-decoration: underline
+  &:active
+    transform: scale(0.98)
+  @include onFocusVisible.highlightWithBottomLine($color: c.$upsilon)
+
 
 .contacts
-  @include m.flex($fd: column, $ai: flex-start)
-
-.phone
-  @include m.dye(c, c.$upsilon)
   @include m.media(phone)
-    font-size: f.px(30)
-    @include m.gap($mt: f.px(96), $mb: f.px(28))
-  @include m.media(tablet)
-    font-size: f.px(18)
-    @include m.gap($mb: f.px(25))
-  @include m.media(laptop, desktop)
-    font-size: f.px(24)
-    transition: color .3s
-    @include m.gap($mb: f.px(25))
-    &:hover
-      @include m.dye(c, c.$beta)
+    @include m.flex($fd: column, $ai: flex-start)
+    order: 1
+    margin-top: f.px(48)
+
+.phoneNumber
+  &.generalPhoneNumber
+    @include m.media(phone)
+      font-size: f.px(30)
+    line-height: 120%
+    @include m.dye(c, c.$upsilon)
 
 .address
-  @include m.gap($mb: f.px(27))
-  @include m.dye(c, c.$upsilon)
-  path
-    @include m.dye(stroke, c.$upsilon)
+  &.generalAddress
+    @include m.media(phone)
+      margin-top: f.px(24)
+      font-size: f.px(14)
+    line-height: 110% 
+    @include m.dye(c, c.$upsilon)
+    & path
+      @include m.dye(stroke, c.$upsilon)
+
+.smLinks
+  margin: 0
   @include m.media(phone)
-    font-size: f.px(14)
-  @include m.media(tablet)
-    font-size: f.px(12)
-  @include m.media(laptop, desktop)
-    font-size: f.px(14)
+    margin-top: f.px(24)
+  padding: 0
 
-.icons
-  @include m.flex($ai: center) 
+.smLinkItem
+  @include m.flex
 
-.icon   
-  @include m.gap($mr: f.px(20))
-  &:last-child
-    @include m.gap($mr: f.px(0))
-  @include m.media(laptop, desktop)
+.smIcon
+  min-width: f.px(24)
+  max-width: f.px(24)
+
+.smLink
+  outline: none
+  transition: transform 0.1s ease-out
+  & path
+    transition: stroke 0.15s ease-out
+  @include m.media(tablet, laptop, desktop)
     &:hover
-      path
+      transform: scale(1.02)
+      & path
         @include m.dye(stroke, c.$beta)
-        transition: all .3s
-  @include m.media(phone, tablet)
-    width: f.px(20)
-  @include m.media(laptop, desktop)
-    width: f.px(24)
-    
-.owner
-  @include m.gap($mtb: f.px(0))
-  @include m.dye(c, c.$psi)
+  &:focus-visible
+    transform: scale(1.02)
+    & path
+      @include m.dye(stroke, c.$beta)
+  &:active
+    transform: scale(0.98)
+
+
+.copy
   @include m.media(phone)
-    text-align: start
-  @include m.media(phone, tablet)
+    margin-top: f.px(48)
     font-size: f.px(12)
-    text-align: center
-  @include m.media(laptop, desktop)
-    font-size: f.px(13)
-    text-align: center
+    line-height: 110%
+    @include m.dye(c, c.$psi)
+
+.phone
+  @include g.phone
+
+.tabletLaptopDesktop
+  @include g.tabletLaptopDesktop

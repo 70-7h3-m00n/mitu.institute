@@ -16,7 +16,11 @@
     transition: transform .25s ease
     &:hover
       transform: scale(1.02)
-  @include onFocusVisible.highlightWithBottomLine
+  &.onFocusRegular
+    @include onFocusVisible.highlightWithBottomLine
+  &.onFocusReverse
+    @include onFocusVisible.highlightWithBottomLine($color: c.$upsilon)
+
 
 .withIcon
   @include m.media(laptop)
