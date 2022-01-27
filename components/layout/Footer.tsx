@@ -24,12 +24,12 @@ type TypeFooterProps = TypeClassNames
 const Footer = ({ classNames }: TypeFooterProps) => {
   const { categories } = useContext(ContextCategoriesContext)
 
-  console.log(categories)
-
-  const navLinks = categories?.map(category => ({
-    href: `${routesFront.programs}/${category.slug}`,
-    val: category.label
-  }))
+  const navLinks = categories
+    ?.filter(category => category.slug && category.label)
+    .map(category => ({
+      href: `${routesFront.programs}/${category.slug}`,
+      val: category.label
+    }))
 
   const smLinks = [
     {
@@ -56,9 +56,13 @@ const Footer = ({ classNames }: TypeFooterProps) => {
       }>
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.top}>
-          <GeneralLogo classNames={[stls.logo, stls.phone]} />
+          <GeneralLogo
+            classNames={[stls.logo, stls.generalLogo, stls.phoneTablet]}
+          />
           <div className={stls.logoNPrivacy}>
-            <GeneralLogo classNames={[stls.logo, stls.tabletLaptopDesktop]} />
+            <GeneralLogo
+              classNames={[stls.logo, stls.generalLogo, stls.laptopDesktop]}
+            />
             <ul className={stls.privacyLinks}>
               {privacyLinks.map(({ href, val }, idx) => (
                 <li key={href + idx} className={stls.privacyLinkItem}>
