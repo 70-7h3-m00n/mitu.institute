@@ -4,4 +4,59 @@
 @use '@/styles/shared/section' as section
 
 .container
-  @include section.gap
+  @include section.gap($bottomOnly: true)
+
+.top
+  @include m.media(laptop, desktop)
+    @include m.flex($ai: flex-start)
+
+.heading
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: 68%)
+    margin-right: 100% - 68% - 25%
+
+.img
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: 25%)
+
+.title
+  margin: 0
+  max-width: 30ch
+  @include m.media(phone, tablet)
+    font-size: f.px(36)
+  @include m.media(laptop, desktop)
+    font-size: f.px(64)
+  line-height: 110%
+  @include m.dye(c, c.$beta)
+
+.description
+  margin-bottom: 0
+  @include m.media(phone)
+    margin-top: f.px(24)
+    font-size: f.px(18)
+  @include m.media(tablet)
+    margin-top: f.px(24)
+    font-size: f.px(16)
+  @include m.media(laptop, desktop)
+    margin-top: f.px(32)
+    font-size: f.px(18)
+  font-weight: 500
+  line-height: 130%
+
+.btns
+  @include m.media(phone)
+    margin-top: f.px(48)
+  @include m.media(tablet)
+    @include m.flex($fd: column)
+    margin-top: f.px(40)
+  @include m.media(laptop, desktop)
+    @include m.flex
+    margin-top: f.px(56)
+
+.btn
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(24)
+  @include m.media(laptop, desktop)
+    min-width: f.px(263)
+    &:nth-child(1)
+      margin-right: f.px(49)

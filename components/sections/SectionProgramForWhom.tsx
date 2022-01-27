@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/SectionProgramForWhom.module.sass'
 import { TypeClassNames } from '@/types/index'
-import { useContext } from 'react'
+import { Fragment, useContext } from 'react'
 import cn from 'classnames'
 import { getClassNames, getImageHeight } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
@@ -17,9 +17,6 @@ const SectionProgramForWhom = ({
   const { program } = useContext(ContextProgramContext)
 
   if (!program?.forWhom) return <></>
-
-  console.log(program?.forWhom)
-  console.log(program?.forWhomPicture)
 
   return (
     <section
@@ -55,21 +52,28 @@ const SectionProgramForWhom = ({
           <div className={stls.right}>
             <ul className={stls.forWhom}>
               {program.forWhom
-                .filter(item => item.title)
+                .filter(item => item.title?.[0].titlePart)
                 .map((item, idx) => (
                   <li
-                    key={item.desc || 'SectionProgramForWhom_item' + idx}
+                    key={
+                      item.title?.reduce(
+                        (acc, cur) => acc + cur.titlePart,
+                        ''
+                      ) || 'SectionProgramForWhom_item' + idx
+                    }
                     className={stls.forWhomItem}>
                     <h3 className={stls.itemTitle}>
-                      {item.title?.map(part =>
-                        part.highlight ? (
-                          <GeneralTextHighlight>
-                            {part.titlePart}
-                          </GeneralTextHighlight>
-                        ) : (
-                          part.titlePart + ' '
-                        )
-                      )}
+                      {item.title?.map((part, idx) => (
+                        <Fragment key={part.titlePart + idx}>
+                          {part.highlight ? (
+                            <GeneralTextHighlight>
+                              {part.titlePart}
+                            </GeneralTextHighlight>
+                          ) : (
+                            part.titlePart + ' '
+                          )}
+                        </Fragment>
+                      ))}
                     </h3>
                     <p className={stls.itemDesc}>{item.desc}</p>
                   </li>

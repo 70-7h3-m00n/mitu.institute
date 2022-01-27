@@ -20,6 +20,7 @@ type TypeLibProgram = {
   title?: TypeLibProgramTitle
   slug?: TypeLibProgramSlug
   description?: TypeLibProgramDescription
+  picture?: TypeLibGeneralPicture
   timenprice?: TypeLibProgramTimenprice
   study_form?: TypeLibProgramStudyForm
   forWhom?: TypeLibProgramForWhom

@@ -35,6 +35,11 @@ const getStaticPropsPageProgram = async ({
           title
           slug
           description
+          picture {
+            url
+            width
+            height
+          }
           timenprice {
             studyMonthsDuration
             price

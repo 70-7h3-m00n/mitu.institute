@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { MouseEventHandler, useContext, useState, useEffect } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
-import { cardsProgram } from '@/data/index'
 import { getClassNames } from '@/helpers/index'
 import { GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -25,8 +24,6 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
   const { curCategory } = useContext(ContextCategoriesContext)
   const [cards, setCards] = useState<TypeLibPrograms | null>(null)
 
-  console.log(curCategory?.type)
-
   useEffect(() => {
     curCategory?.type
       ? setCards(
@@ -38,8 +35,6 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
   }, [curCategory, programs])
 
   if (!programs) return <></>
-
-  console.log(programs)
 
   return (
     <ul

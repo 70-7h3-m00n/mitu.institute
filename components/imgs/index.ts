@@ -8,6 +8,7 @@ import ImgForWhom from '@/components/imgs/general/ImgForWhom'
 import ImgHeroLady from '@/components/imgs/general/ImgHeroLady'
 import ImgJobTitle from '@/components/imgs/general/ImgJobTitle'
 import ImgPersonStudying from '@/components/imgs/general/ImgPersonStudying'
+import ImgProgramHero from '@/components/imgs/general/ImgProgramHero'
 import ImgStudyCost from '@/components/imgs/general/ImgStudyCost'
 import ImgTeacher from '@/components/imgs/general/ImgTeacher'
 
@@ -26,6 +27,7 @@ export {
   ImgHeroLady,
   ImgJobTitle,
   ImgPersonStudying,
+  ImgProgramHero,
   ImgStudyCost,
   ImgTeacher,
   // icons
