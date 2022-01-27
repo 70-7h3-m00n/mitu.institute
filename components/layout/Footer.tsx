@@ -24,12 +24,13 @@ type TypeFooterProps = TypeClassNames
 const Footer = ({ classNames }: TypeFooterProps) => {
   const { categories } = useContext(ContextCategoriesContext)
 
-  const navLinks = categories
-    ?.filter(category => category.slug && category.label)
-    .map(category => ({
-      href: `${routesFront.programs}/${category.slug}`,
-      val: category.label
-    }))
+  const navLinks =
+    categories
+      ?.filter(category => category.slug && category.label)
+      .map(category => ({
+        href: `${routesFront.programs}/${category.slug}`,
+        val: category.label
+      })) || null
 
   const smLinks = [
     {

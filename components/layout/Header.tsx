@@ -1,9 +1,11 @@
 import stls from '@/styles/components/layout/Header.module.sass'
 import { TypeClassNames } from '@/types/index'
 import { useRouter } from 'next/router'
+import { useContext } from 'react'
 import cn from 'classnames'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { ContextCategoriesContext } from '@/context/index'
 import {
   GeneralHeaderTop,
   GeneralHeaderMiddle,
@@ -15,21 +17,15 @@ type TypeHeaderProps = TypeClassNames
 
 const Header = ({ classNames }: TypeHeaderProps) => {
   const router = useRouter()
+  const { categories } = useContext(ContextCategoriesContext)
 
-  const links = [
-    {
-      href: routesFront.programsBachelor,
-      val: 'Бакалавриат'
-    },
-    {
-      href: routesFront.programsMaster,
-      val: 'Магистратура'
-    },
-    {
-      href: routesFront.programsAdditional,
-      val: 'Дополнительное образование'
-    }
-  ]
+  const links =
+    categories
+      ?.filter(category => category.slug && category.label)
+      .map(category => ({
+        href: `${routesFront.programs}/${category.slug}` || '#',
+        val: category.label || ''
+      })) || null
 
   return (
     <header

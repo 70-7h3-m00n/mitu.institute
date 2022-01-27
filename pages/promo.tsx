@@ -8,11 +8,12 @@ import { handleGetStaticProps } from '@/lib/index'
 import {
   ContextCategoriesContext,
   ContextStudyFieldContext,
+  ContextProgramsContext,
   ContextProgramContext
 } from '@/context/index'
 import {
   SectionHero,
-  SectionOurProgramsPromo,
+  SectionOurPrograms,
   SectionLeastDocuments,
   SectionEnterWithoutExam,
   SectionHowTrainingGoes,
@@ -25,6 +26,7 @@ import {
 const PagePromo: NextPage<TypePagePromoProps> = ({ programs, categories }) => {
   const { setCategories } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
+  const { setPrograms } = useContext(ContextProgramsContext)
   const { setProgram } = useContext(ContextProgramContext)
 
   useEffect(() => {
@@ -32,13 +34,14 @@ const PagePromo: NextPage<TypePagePromoProps> = ({ programs, categories }) => {
       payload: { categories, curCategorySlug: categories?.[0].slug || null }
     })
     setStudyField({ payload: null })
+    setPrograms({ payload: programs || null })
     setProgram({ payload: null })
   }, [categories])
 
   return (
     <>
       <SectionHero />
-      <SectionOurProgramsPromo />
+      <SectionOurPrograms promo />
       <SectionLeastDocuments />
       <SectionEnterWithoutExam />
       <SectionHowTrainingGoes />

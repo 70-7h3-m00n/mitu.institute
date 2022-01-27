@@ -15,6 +15,7 @@ import {
   ContextAccessibilityState,
   ContextCategoriesState,
   ContextStudyFieldState,
+  ContextProgramsState,
   ContextProgramState
 } from '@/context/index'
 import { Header, Main, Footer } from '@/components/layout'
@@ -67,17 +68,19 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <ContextAccessibilityState>
         <ContextCategoriesState>
           <ContextStudyFieldState>
-            <ContextProgramState>
-              {router.route === routesFront.promo ? (
-                <HeaderPromo />
-              ) : (
-                <Header />
-              )}
-              <Main>
-                <Component {...pageProps} />
-              </Main>
-              <Footer />
-            </ContextProgramState>
+            <ContextProgramsState>
+              <ContextProgramState>
+                {router.route === routesFront.promo ? (
+                  <HeaderPromo />
+                ) : (
+                  <Header />
+                )}
+                <Main>
+                  <Component {...pageProps} />
+                </Main>
+                <Footer />
+              </ContextProgramState>
+            </ContextProgramsState>
           </ContextStudyFieldState>
         </ContextCategoriesState>
       </ContextAccessibilityState>

@@ -7,7 +7,7 @@ const getImageHeight = ({
   widthInitial?: number
   heightInitial?: number
 }) => {
-  if (!widthInitial || !heightInitial) return width
+  if (!widthInitial || !heightInitial) return undefined
 
   const ratio = widthInitial / heightInitial
   const output = Math.round(width / ratio)

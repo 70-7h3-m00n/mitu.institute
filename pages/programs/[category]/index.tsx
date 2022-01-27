@@ -1,4 +1,5 @@
 import stls from '@/styles/pages/PageProgramsCategory.module.sass'
+import type { NextPage } from 'next'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { TypePageProgramsProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
@@ -7,19 +8,21 @@ import { handleGetStaticProps, handleGetStaticPaths } from '@/lib/index'
 import {
   ContextCategoriesContext,
   ContextStudyFieldContext,
+  ContextProgramsContext,
   ContextProgramContext
 } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 
-const PageProgramsCategory = ({
+const PageProgramsCategory: NextPage<TypePageProgramsProps> = ({
   categories,
   studyFields,
   programs,
   gspContextParamsCategory,
   gspContextParamsStudyField
-}: TypePageProgramsProps) => {
+}) => {
   const { setCategories } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
+  const { setPrograms } = useContext(ContextProgramsContext)
   const { setProgram } = useContext(ContextProgramContext)
 
   useEffect(() => {
@@ -27,6 +30,7 @@ const PageProgramsCategory = ({
       payload: { categories, curCategorySlug: gspContextParamsCategory }
     })
     setStudyField({ payload: null })
+    setPrograms({ payload: programs })
     setProgram({ payload: null })
   }, [gspContextParamsCategory])
 

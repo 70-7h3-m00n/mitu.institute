@@ -1,3 +1,4 @@
+import CardProgram from '@/components/cards/CardsProgram'
 import CardsProgram from '@/components/cards/CardsProgram'
 
-export { CardsProgram }
+export { CardProgram, CardsProgram }

@@ -39,12 +39,16 @@ const SectionProgramForWhom = ({
             <ImgForWhom
               classNames={[stls.img, stls.laptopDesktop]}
               src={program.forWhomPicture?.url}
-              width={592}
-              height={getImageHeight({
-                width: 592,
-                widthInitial: program.forWhomPicture?.width,
-                heightInitial: program.forWhomPicture?.height
-              })}
+              width={program.forWhomPicture?.url ? 592 : undefined}
+              height={
+                program.forWhomPicture?.url
+                  ? getImageHeight({
+                      width: 592,
+                      widthInitial: program.forWhomPicture?.width,
+                      heightInitial: program.forWhomPicture?.height
+                    })
+                  : undefined
+              }
               filter
             />
           </div>
@@ -74,12 +78,16 @@ const SectionProgramForWhom = ({
             <ImgForWhom
               classNames={[stls.img, stls.phoneTablet]}
               src={program.forWhomPicture?.url}
-              width={640}
-              height={getImageHeight({
-                width: 640,
-                widthInitial: program.forWhomPicture?.width,
-                heightInitial: program.forWhomPicture?.height
-              })}
+              width={program.forWhomPicture?.url ? 640 : undefined}
+              height={
+                program.forWhomPicture?.url
+                  ? getImageHeight({
+                      width: 640,
+                      widthInitial: program.forWhomPicture?.width,
+                      heightInitial: program.forWhomPicture?.height
+                    })
+                  : undefined
+              }
               filter
             />
           </div>

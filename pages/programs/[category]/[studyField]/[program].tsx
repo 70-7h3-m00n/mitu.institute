@@ -1,4 +1,5 @@
 import stls from '@/styles/pages/PageProgramsCategory.module.sass'
+import type { NextPage } from 'next'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { TypePageProgramProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
@@ -24,13 +25,13 @@ import {
   SectionProgramQna
 } from '@/components/sections'
 
-const PageProgramsCategoryStudyFieldProgram = ({
+const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
   categories,
   program,
   gspContextParamsCategory,
   gspContextParamsStudyField,
   gspContextParamsProgram
-}: TypePageProgramProps) => {
+}) => {
   const { setCategories } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { setProgram } = useContext(ContextProgramContext)

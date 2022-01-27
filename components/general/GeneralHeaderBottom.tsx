@@ -27,7 +27,7 @@ const GeneralHeaderBottom = ({
               </a>
             </Link>
           </li>
-          {links.map((link, idx) => (
+          {links?.map((link, idx) => (
             <li key={link.val + idx} className={stls.linkItem}>
               <Link href={link.href}>
                 <a className={stls.link}>{link.val}</a>

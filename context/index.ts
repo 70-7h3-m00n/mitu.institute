@@ -10,6 +10,9 @@ import ContextGeneralPopupState from '@/context/popup/ContextGeneralPopupState'
 import ContextProgramContext from '@/context/program/contextProgramContext'
 import contextProgramReducer from '@/context/program/contextProgramReducer'
 import ContextProgramState from '@/context/program/ContextProgramState'
+import ContextProgramsContext from '@/context/programs/contextProgramsContext'
+import contextProgramsReducer from '@/context/programs/contextProgramsReducer'
+import ContextProgramsState from '@/context/programs/ContextProgramsState'
 import ContextStudyFieldContext from '@/context/studyField/contextStudyFieldContext'
 import contextStudyFieldReducer from '@/context/studyField/contextStudyFieldReducer'
 import ContextStudyFieldState from '@/context/studyField/ContextStudyFieldState'
@@ -27,6 +30,9 @@ export {
   ContextProgramContext,
   contextProgramReducer,
   ContextProgramState,
+  ContextProgramsContext,
+  contextProgramsReducer,
+  ContextProgramsState,
   ContextStudyFieldContext,
   contextStudyFieldReducer,
   ContextStudyFieldState

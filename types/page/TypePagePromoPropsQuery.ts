@@ -5,11 +5,16 @@ type TypePagePromoPropsQuery = {
     | {
         title: string | null
         shortDescription: string | null
+        slug: string | null
         study_field: {
+          slug: string | null
+          type: string | null
           label: string | null
         } | null
         category: {
-          type: string
+          slug: string | null
+          type: string | null
+          label: string | null
         } | null
         timenprice:
           | {

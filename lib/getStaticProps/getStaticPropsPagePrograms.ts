@@ -31,11 +31,14 @@ const getStaticPropsPagePrograms = async ({
           shortDescription
           slug
           study_field {
+            slug
             type
             label
           }
           category {
+            slug
             type
+            label
           }
           timenprice {
             studyMonthsDuration

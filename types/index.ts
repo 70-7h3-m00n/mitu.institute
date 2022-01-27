@@ -20,6 +20,7 @@ import type TypeContextAccessibility from '@/types/context/TypeContextAccessibil
 import type TypeContextCategories from '@/types/context/TypeContextCategories'
 import type TypeContextGeneralPopup from '@/types/context/TypeContextGeneralPopup'
 import type TypeContextProgram from '@/types/context/TypeContextProgram'
+import type TypeContextPrograms from '@/types/context/TypeContextPrograms'
 
 // general
 import type TypeAnchor from '@/types/general/TypeAnchor'
@@ -100,6 +101,7 @@ import type TypeLibProgramQuestionQuestion from '@/types/lib/program/TypeLibProg
 import type TypeLibProgramQuestions from '@/types/lib/program/TypeLibProgramQuestions'
 
 // lib/programs
+import type TypeLibPrograms from '@/types/lib/programs/TypeLibPrograms'
 import type TypeLibProgramsCategories from '@/types/lib/programs/TypeLibProgramsCategories'
 import type TypeLibProgramsCategoriesLabel from '@/types/lib/programs/TypeLibProgramsCategoriesLabel'
 import type TypeLibProgramsCategoriesSlug from '@/types/lib/programs/TypeLibProgramsCategoriesSlug'
@@ -139,6 +141,7 @@ export {
   TypeContextCategories,
   TypeContextGeneralPopup,
   TypeContextProgram,
+  TypeContextPrograms,
   // general
   TypeAnchor,
   TypeAriaLabel,
@@ -215,6 +218,7 @@ export {
   TypeLibProgramQuestionQuestion,
   TypeLibProgramQuestions,
   // lib/programs
+  TypeLibPrograms,
   TypeLibProgramsCategories,
   TypeLibProgramsCategoriesLabel,
   TypeLibProgramsCategoriesSlug,

@@ -13,7 +13,9 @@ type TypeCardsProgram = {
 
 const cardsProgram: TypeCardsProgram = [
   {
-    category: 'master',
+    category: {
+      type: 'master'
+    },
     faculty: {
       type: 'computer science',
       label: 'Факультет компьютерных наук'
@@ -23,7 +25,9 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 16
   },
   {
-    category: 'master',
+    category: {
+      type: 'master'
+    },
     faculty: {
       type: 'management',
       label: 'Факультет управления'
@@ -33,7 +37,9 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 12
   },
   {
-    category: 'master',
+    category: {
+      type: 'master'
+    },
     faculty: {
       type: 'psychology',
       label: 'Факультет психологии'
@@ -43,7 +49,9 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 8
   },
   {
-    category: 'master',
+    category: {
+      type: 'master'
+    },
     faculty: {
       type: 'computer science',
       label: 'Факультет компьютерных наук'
@@ -53,7 +61,9 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 16
   },
   {
-    category: 'master',
+    category: {
+      type: 'master'
+    },
     faculty: {
       type: 'management',
       label: 'Факультет управления'
@@ -63,7 +73,9 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 12
   },
   {
-    category: 'master',
+    category: {
+      type: 'master'
+    },
     faculty: {
       type: 'cybersport',
       label: 'Факультет киберспорта'
@@ -73,7 +85,9 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 12
   },
   {
-    category: 'bachelor',
+    category: {
+      type: 'bachelor'
+    },
     faculty: {
       type: 'cybersport',
       label: 'Факультет киберспорта'
@@ -83,7 +97,9 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 12
   },
   {
-    category: 'bachelor',
+    category: {
+      type: 'bachelor'
+    },
     faculty: {
       type: 'cybersport',
       label: 'Факультет киберспорта'
@@ -93,7 +109,9 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 12
   },
   {
-    category: 'bachelor',
+    category: {
+      type: 'bachelor'
+    },
     faculty: {
       type: 'cybersport',
       label: 'Факультет киберспорта'
@@ -103,7 +121,9 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 12
   },
   {
-    category: 'additional',
+    category: {
+      type: 'additional'
+    },
     faculty: {
       type: 'cybersport',
       label: 'Факультет киберспорта'
@@ -113,7 +133,9 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 12
   },
   {
-    category: 'additional',
+    category: {
+      type: 'additional'
+    },
     faculty: {
       type: 'cybersport',
       label: 'Факультет киберспорта'
@@ -123,7 +145,9 @@ const cardsProgram: TypeCardsProgram = [
     studyMonths: 12
   },
   {
-    category: 'additional',
+    category: {
+      type: 'additional'
+    },
     faculty: {
       type: 'cybersport',
       label: 'Факультет психологии'

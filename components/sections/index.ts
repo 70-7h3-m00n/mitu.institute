@@ -4,7 +4,7 @@ import SectionFAQ from '@/components/sections/SectionFAQ'
 import SectionHero from '@/components/sections/SectionHero'
 import SectionHowTrainingGoes from '@/components/sections/SectionHowTrainingGoes'
 import SectionLeastDocuments from '@/components/sections/SectionLeastDocuments'
-import SectionOurProgramsPromo from '@/components/sections/SectionOurProgramsPromo'
+import SectionOurPrograms from '@/components/sections/SectionOurPrograms'
 import SectionProgramContents from '@/components/sections/SectionProgramContents'
 import SectionProgramForWhom from '@/components/sections/SectionProgramForWhom'
 import SectionProgramHero from '@/components/sections/SectionProgramHero'
@@ -26,7 +26,7 @@ export {
   SectionHero,
   SectionHowTrainingGoes,
   SectionLeastDocuments,
-  SectionOurProgramsPromo,
+  SectionOurPrograms,
   SectionProgramContents,
   SectionProgramForWhom,
   SectionProgramHero,

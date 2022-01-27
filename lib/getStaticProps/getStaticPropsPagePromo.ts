@@ -20,11 +20,13 @@ const getStaticPropsPagePromo = async ({
           title
           shortDescription
           study_field {
+            slug
+            type
             label
           }
           category {
-            type
             slug
+            type
             label
           }
           timenprice {

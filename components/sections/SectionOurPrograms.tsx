@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/SectionOurProgramsPromo.module.sass'
+import stls from '@/styles/components/sections/SectionOurPrograms.module.sass'
 import {
   TypeBtnAlphaVariant,
   TypeClassNames,
@@ -16,11 +16,14 @@ import { UIFormAlpha } from '@/components/uiforms'
 import { CardsProgram } from '@/components/cards'
 import { BtnAlpha } from '@/components/btns'
 
-type TypeSectionOurProgramsPromoProps = TypeClassNames
+type TypeSectionOurProgramsProps = TypeClassNames & {
+  promo?: boolean
+}
 
-const SectionOurProgramsPromo = ({
-  classNames
-}: TypeSectionOurProgramsPromoProps) => {
+const SectionOurPrograms = ({
+  classNames,
+  promo
+}: TypeSectionOurProgramsProps) => {
   const { categories, curCategory, setCategories } = useContext(
     ContextCategoriesContext
   )
@@ -50,7 +53,7 @@ const SectionOurProgramsPromo = ({
               <BtnAlpha
                 key={(btn.label || 'btn') + idx}
                 variant={
-                  curCategory === btn.variantType
+                  curCategory?.type === btn.variantType
                     ? 'epsilon'
                     : 'epsilon-reverse'
                 }
@@ -60,7 +63,7 @@ const SectionOurProgramsPromo = ({
               </BtnAlpha>
             ))}
           </div>
-          <CardsProgram curCategory={curCategory} />
+          <CardsProgram promo={promo} />
           <Popup
             trigger={() => (
               <BtnAlpha variant='beta' classNames={[stls.btnShowMore]}>
@@ -83,4 +86,4 @@ const SectionOurProgramsPromo = ({
   )
 }
 
-export default SectionOurProgramsPromo
+export default SectionOurPrograms
