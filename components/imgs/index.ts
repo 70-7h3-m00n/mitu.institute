@@ -4,7 +4,7 @@ import ImgDiploma2 from '@/components/imgs/diplomas/ImgDiploma2'
 import ImgDiploma3 from '@/components/imgs/diplomas/ImgDiploma3'
 
 // general
-import ImgApplause from '@/components/imgs/general/ImgApplause'
+import ImgForWhom from '@/components/imgs/general/ImgForWhom'
 import ImgHeroLady from '@/components/imgs/general/ImgHeroLady'
 import ImgJobTitle from '@/components/imgs/general/ImgJobTitle'
 import ImgPersonStudying from '@/components/imgs/general/ImgPersonStudying'
@@ -22,7 +22,7 @@ export {
   ImgDiploma2,
   ImgDiploma3,
   // general
-  ImgApplause,
+  ImgForWhom,
   ImgHeroLady,
   ImgJobTitle,
   ImgPersonStudying,

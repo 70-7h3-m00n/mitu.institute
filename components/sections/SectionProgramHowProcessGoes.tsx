@@ -5,13 +5,10 @@ import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle } from '@/components/general'
 
-type TypeSectionProgramHowProcessGoesProps = TypeClassNames & {
-  title?: string
-}
+type TypeSectionProgramHowProcessGoesProps = TypeClassNames
 
 const SectionProgramHowProcessGoes = ({
-  classNames,
-  title
+  classNames
 }: TypeSectionProgramHowProcessGoesProps) => {
   return (
     <section

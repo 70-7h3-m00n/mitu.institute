@@ -15,8 +15,6 @@ const SectionProgramQna = ({ classNames }: TypeSectionProgramQnaProps) => {
 
   if (!program?.questions) return <></>
 
-  console.log(program?.questions)
-
   return (
     <section
       className={

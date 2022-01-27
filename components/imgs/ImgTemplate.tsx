@@ -11,6 +11,7 @@ type TypeImgTemplateProps = TypeClassNames &
     readonly alt: string
     readonly title?: string
     readonly faded?: boolean
+    readonly filter?: boolean
     readonly priority?: boolean
   }
 
@@ -22,6 +23,7 @@ const ImgTemplate = ({
   alt,
   title,
   faded,
+  filter,
   priority
 }: TypeImgTemplateProps) => {
   return (
@@ -29,7 +31,8 @@ const ImgTemplate = ({
       className={
         cn(
           [stls.container],
-          { [stls.faded]: faded },
+          { [stls.containerFaded]: faded },
+          { [stls.containerFilter]: filter },
           getClassNames({ classNames })
         ) || undefined
       }
@@ -37,7 +40,8 @@ const ImgTemplate = ({
       <div
         className={cn({
           [stls.faded]: faded,
-          [stls.isHidden]: !faded
+          [stls.filter]: filter,
+          [stls.isHidden]: !faded && !filter
         })}></div>
       <Image
         src={src}

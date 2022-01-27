@@ -1,5 +1,3 @@
-type TypeLibProgramForWhomDesc = {
-  desc: string
-}
+type TypeLibProgramForWhomDesc = string
 
 export default TypeLibProgramForWhomDesc

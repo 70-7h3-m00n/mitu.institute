@@ -1,17 +1,26 @@
 import stls from '@/styles/components/sections/SectionProgramForWhom.module.sass'
 import { TypeClassNames } from '@/types/index'
+import { useContext } from 'react'
 import cn from 'classnames'
-import { getClassNames } from '@/helpers/index'
+import { getClassNames, getImageHeight } from '@/helpers/index'
+import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
-import { GeneralSectionTitle } from '@/components/general'
+import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 import { IconWave } from '@/components/icons'
-import { ImgApplause } from '@/components/imgs'
+import { ImgForWhom } from '@/components/imgs'
 
 type TypeSectionProgramForWhomProps = TypeClassNames
 
 const SectionProgramForWhom = ({
   classNames
 }: TypeSectionProgramForWhomProps) => {
+  const { program } = useContext(ContextProgramContext)
+
+  if (!program?.forWhom) return <></>
+
+  console.log(program?.forWhom)
+  console.log(program?.forWhomPicture)
+
   return (
     <section
       className={
@@ -20,54 +29,60 @@ const SectionProgramForWhom = ({
       <Wrapper>
         <GeneralSectionTitle>Для кого эта программа?</GeneralSectionTitle>
         <div className={stls.content}>
-          <div className={stls.description}>
-            <p className={stls.text}>
+          <div className={stls.left}>
+            <p className={stls.desc}>
               Образовательные программы института сертифицированы и имеют
-              аккредитацию. По окончании обучения выдается диплом о высшем
-              образовании государственного образца.
+              аккуредитацию. По окончании обучения выдается диплом о высшем
+              образовании государственного образца
             </p>
             <IconWave classNames={[stls.icon]} />
+            <ImgForWhom
+              classNames={[stls.img, stls.laptopDesktop]}
+              src={program.forWhomPicture?.url}
+              width={592}
+              height={getImageHeight({
+                width: 592,
+                widthInitial: program.forWhomPicture?.width,
+                heightInitial: program.forWhomPicture?.height
+              })}
+              filter
+            />
           </div>
-          <ul className={stls.list}>
-            <li className={stls.item}>
-              <p className={stls.subtitle}>
-                Для тех, кто окончил{' '}
-                <span className={stls.colored}>11 классов</span>
-              </p>
-              <p className={stls.paragraph}>
-                Вы изучите опыт других компаний, попробуете себя в
-                играх-симуляциях, получите знания, которые помогут вам стать
-                эффективным руководителем. Сможете запустить стартап или развить
-                и масштабировать текущий бизнес.
-              </p>
-            </li>
-            <li className={stls.item}>
-              <p className={stls.subtitle}>
-                Для выпускников <span className={stls.colored}>колледжей</span>
-              </p>
-              <p className={stls.paragraph}>
-                Вы изучите опыт других компаний, попробуете себя в
-                играх-симуляциях, получите знания, которые помогут вам стать
-                эффективным руководителем. Сможете запустить стартап или развить
-                и масштабировать текущий бизнес.
-              </p>
-            </li>
-            <li className={stls.item}>
-              <p className={stls.subtitle}>
-                Для тех, кто хочет{' '}
-                <span className={stls.colored}>
-                  перевестись из другого ВУЗа
-                </span>
-              </p>
-              <p className={stls.paragraph}>
-                Вы изучите опыт других компаний, попробуете себя в
-                играх-симуляциях, получите знания, которые помогут вам стать
-                эффективным руководителем. Сможете запустить стартап или развить
-                и масштабировать текущий бизнес.
-              </p>
-            </li>
-          </ul>
-          <ImgApplause classNames={[stls.img]} />
+          <div className={stls.right}>
+            <ul className={stls.forWhom}>
+              {program.forWhom
+                .filter(item => item.title)
+                .map((item, idx) => (
+                  <li
+                    key={item.desc || 'SectionProgramForWhom_item' + idx}
+                    className={stls.forWhomItem}>
+                    <h3 className={stls.itemTitle}>
+                      {item.title?.map(part =>
+                        part.highlight ? (
+                          <GeneralTextHighlight>
+                            {part.titlePart}
+                          </GeneralTextHighlight>
+                        ) : (
+                          part.titlePart + ' '
+                        )
+                      )}
+                    </h3>
+                    <p className={stls.itemDesc}>{item.desc}</p>
+                  </li>
+                ))}
+            </ul>
+            <ImgForWhom
+              classNames={[stls.img, stls.phoneTablet]}
+              src={program.forWhomPicture?.url}
+              width={640}
+              height={getImageHeight({
+                width: 640,
+                widthInitial: program.forWhomPicture?.width,
+                heightInitial: program.forWhomPicture?.height
+              })}
+              filter
+            />
+          </div>
         </div>
       </Wrapper>
     </section>

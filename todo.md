@@ -36,3 +36,4 @@
 - Generalize styles for n column layout throughout webapp (particulary at SectionProgramJobTitles and SectionProgramWhatWillYouLearn)
 - Figure out a better way to do context & improve categories context
 - Create and use types for graphql queries
+- Improve picture layout & styles in SectionProgramForWhom
