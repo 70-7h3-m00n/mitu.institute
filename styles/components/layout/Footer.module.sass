@@ -60,10 +60,10 @@ $item_ld_mr: 7%
 
 .privacyLinkItem
   @include m.flex
-  @include m.media(phone, tablet)
-    margin-top: f.px(24 - 3 - 3)
-    &:nth-child(1)
-      margin-top: 0
+  margin-top: f.px(24 - 3 - 3)
+  font-size: f.px(14)
+  &:nth-child(1)
+    margin-top: f.px(40 - 3)
 
 .privacyLink
   @include m.media(phone, tablet)
@@ -87,10 +87,10 @@ $item_ld_mr: 7%
 
 .navLinkItem
   @include m.flex
-  @include m.media(phone, tablet)
-    margin-top: f.px(24 - 3 - 3)
-    &:nth-child(1)
-      margin-top: 0
+  margin-top: f.px(24 - 3 - 3)
+  font-size: f.px(14)
+  &:nth-child(1)
+    margin-top: 0
 
 .navLink
   @include m.media(phone, tablet)
@@ -105,7 +105,6 @@ $item_ld_mr: 7%
     transform: scale(0.98)
   @include onFocusVisible.highlightWithBottomLine($color: c.$upsilon)
 
-
 .contacts
   @include m.media(phone, tablet)
     @include m.flex($fd: column, $ai: flex-start)
@@ -118,6 +117,8 @@ $item_ld_mr: 7%
   &.generalPhoneNumber
     @include m.media(phone, tablet)
       font-size: f.px(30)
+    @include m.media(laptop, desktop)
+      font-size: f.px(24)
     line-height: 120%
     @include m.dye(c, c.$upsilon)
 
@@ -125,15 +126,18 @@ $item_ld_mr: 7%
   &.generalAddress
     @include m.media(phone, tablet)
       margin-top: f.px(24)
-      font-size: f.px(14)
+    @include m.media(laptop, desktop)
+      margin-top: f.px(28)
+    font-size: f.px(14)
     line-height: 110% 
     @include m.dye(c, c.$upsilon)
     & path
       @include m.dye(stroke, c.$upsilon)
 
 .smLinks
-  @include m.media(phone, tablet)
-    margin-top: f.px(24)
+  margin: 0
+  padding: 0
+  margin-top: f.px(24)
 
 .smLinkItem
   @include m.flex

@@ -92,6 +92,7 @@ const Footer = ({ classNames }: TypeFooterProps) => {
             <GeneralAddress
               classNames={[stls.address, stls.generalAddress]}
               withIcon
+              biggerIcon
               withoutBr
             />
             <ul className={stls.smLinks}>
