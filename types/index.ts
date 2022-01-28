@@ -21,6 +21,7 @@ import type TypeContextCategories from '@/types/context/TypeContextCategories'
 import type TypeContextGeneralPopup from '@/types/context/TypeContextGeneralPopup'
 import type TypeContextProgram from '@/types/context/TypeContextProgram'
 import type TypeContextPrograms from '@/types/context/TypeContextPrograms'
+import type TypeContextQuestions from '@/types/context/TypeContextQuestions'
 
 // general
 import type TypeAnchor from '@/types/general/TypeAnchor'
@@ -112,6 +113,8 @@ import type TypeLibProgramsStudyFieldsTitle from '@/types/lib/programs/TypeLibPr
 import type TypeLibProgramsStudyFieldsType from '@/types/lib/programs/TypeLibProgramsStudyFieldsType'
 
 // page
+import type TypePageHomeProps from '@/types/page/TypePageHomeProps'
+import type TypePageHomePropsQuery from '@/types/page/TypePageHomePropsQuery'
 import type TypePageProgramPaths from '@/types/page/TypePageProgramPaths'
 import type TypePageProgramPathsQuery from '@/types/page/TypePageProgramPathsQuery'
 import type TypePageProgramProps from '@/types/page/TypePageProgramProps'
@@ -142,6 +145,7 @@ export {
   TypeContextGeneralPopup,
   TypeContextProgram,
   TypeContextPrograms,
+  TypeContextQuestions,
   // general
   TypeAnchor,
   TypeAriaLabel,
@@ -228,6 +232,8 @@ export {
   TypeLibProgramsStudyFieldsTitle,
   TypeLibProgramsStudyFieldsType,
   // page
+  TypePageHomeProps,
+  TypePageHomePropsQuery,
   TypePageProgramPaths,
   TypePageProgramPathsQuery,
   TypePageProgramProps,

@@ -13,6 +13,9 @@ import ContextProgramState from '@/context/program/ContextProgramState'
 import ContextProgramsContext from '@/context/programs/contextProgramsContext'
 import contextProgramsReducer from '@/context/programs/contextProgramsReducer'
 import ContextProgramsState from '@/context/programs/ContextProgramsState'
+import ContextQuestionsContext from '@/context/questions/contextQuestionsContext'
+import contextQuestionsReducer from '@/context/questions/contextQuestionsReducer'
+import ContextQuestionsState from '@/context/questions/ContextQuestionsState'
 import ContextStudyFieldContext from '@/context/studyField/contextStudyFieldContext'
 import contextStudyFieldReducer from '@/context/studyField/contextStudyFieldReducer'
 import ContextStudyFieldState from '@/context/studyField/ContextStudyFieldState'
@@ -33,6 +36,9 @@ export {
   ContextProgramsContext,
   contextProgramsReducer,
   ContextProgramsState,
+  ContextQuestionsContext,
+  contextQuestionsReducer,
+  ContextQuestionsState,
   ContextStudyFieldContext,
   contextStudyFieldReducer,
   ContextStudyFieldState

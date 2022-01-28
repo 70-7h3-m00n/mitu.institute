@@ -1,6 +1,6 @@
 import stls from '@/styles/pages/PageHome.module.sass'
 import type { NextPage } from 'next'
-import { TypePageProgramsProps } from '@/types/index'
+import { TypePageHomeProps } from '@/types/index'
 import { GetStaticProps } from 'next'
 import { useContext, useEffect } from 'react'
 import { routesFront } from '@/config/index'
@@ -9,6 +9,7 @@ import {
   ContextCategoriesContext,
   ContextStudyFieldContext,
   ContextProgramsContext,
+  ContextQuestionsContext,
   ContextProgramContext
 } from '@/context/index'
 import {
@@ -23,16 +24,15 @@ import {
   SectionUIFormAlpha
 } from '@/components/sections'
 
-const PageHome: NextPage<TypePageProgramsProps> = ({
+const PageHome: NextPage<TypePageHomeProps> = ({
   categories,
-  studyFields,
   programs,
-  gspContextParamsCategory,
-  gspContextParamsStudyField
+  questions
 }) => {
   const { setCategories } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { setPrograms } = useContext(ContextProgramsContext)
+  const { setQuestions } = useContext(ContextQuestionsContext)
   const { setProgram } = useContext(ContextProgramContext)
 
   useEffect(() => {
@@ -41,6 +41,7 @@ const PageHome: NextPage<TypePageProgramsProps> = ({
     })
     setStudyField({ payload: null })
     setPrograms({ payload: programs })
+    setQuestions({ payload: questions })
     setProgram({ payload: null })
   }, [categories, programs])
 
@@ -62,4 +63,4 @@ const PageHome: NextPage<TypePageProgramsProps> = ({
 export default PageHome
 
 export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ page: routesFront.programs, context })
+  await handleGetStaticProps({ page: routesFront.home, context })

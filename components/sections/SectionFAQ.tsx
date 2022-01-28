@@ -1,8 +1,9 @@
 import stls from '@/styles/components/sections/SectionFAQ.module.sass'
 import { TypeClassNames } from '@/types/index'
+import { useContext } from 'react'
 import cn from 'classnames'
-import { qnas } from '@/data/index'
 import { getClassNames } from '@/helpers/index'
+import { ContextQuestionsContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -11,6 +12,10 @@ import { LisQna } from '@/components/lis'
 type TypeSectionFAQProps = TypeClassNames
 
 const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
+  const { questions } = useContext(ContextQuestionsContext)
+
+  if (!questions) return <></>
+
   return (
     <section className={cn(stls.container, getClassNames({ classNames }))}>
       <Wrapper>
@@ -19,9 +24,9 @@ const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
         </GeneralSectionTitle>
         <div className={stls.content}>
           <ul className={stls.qnas}>
-            {qnas.map((qna, idx) => (
+            {questions.map((qna, idx) => (
               <LisQna
-                key={qna.question + idx}
+                key={(qna.question || 'SectionFAQ_qna') + idx}
                 qna={qna}
                 idx={idx}
                 classNames={[stls.qna]}

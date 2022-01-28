@@ -1,5 +1,6 @@
 import {
   TypeRoutesFront,
+  TypePageHomeProps,
   TypePagePromoProps,
   TypePageProgramsProps,
   TypePageProgramProps,
@@ -7,6 +8,7 @@ import {
 } from '@/types/index'
 import { routesFront, revalidate } from '@/config/index'
 import {
+  getStaticPropsPageHome,
   getStaticPropsPagePromo,
   getStaticPropsPagePrograms,
   getStaticPropsPageProgram
@@ -20,10 +22,18 @@ const handleGetStaticProps = async ({
   page,
   context
 }: TypeHandleGetStaticPropsProps): Promise<{
-  props: TypePagePromoProps | TypePageProgramsProps | TypePageProgramProps | {}
+  props:
+    | TypePageHomeProps
+    | TypePagePromoProps
+    | TypePageProgramsProps
+    | TypePageProgramProps
+    | {}
   revalidate: number
 }> => {
   switch (page) {
+    case routesFront.home:
+      return await getStaticPropsPageHome({ context })
+
     case routesFront.promo:
       return await getStaticPropsPagePromo({ context })
 
