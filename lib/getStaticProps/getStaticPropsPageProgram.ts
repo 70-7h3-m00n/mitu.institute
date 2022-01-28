@@ -32,6 +32,7 @@ const getStaticPropsPageProgram = async ({
             slug: $program
           }
         ) {
+          id
           title
           slug
           description

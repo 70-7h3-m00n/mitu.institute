@@ -4,6 +4,7 @@ import {
   TypeReferer,
   TypeLeadClientValues
 } from '@/types/index'
+import { v4 as uuidv4 } from 'uuid'
 
 import { Dispatch, SetStateAction } from 'react'
 import { hitLeadRoute } from '@/helpers/index'
@@ -11,6 +12,7 @@ import { UseFormReset } from 'react-hook-form'
 
 type onSubmitFormProps = {
   readonly formValues: TypeFormAlphaValues
+  readonly id: string
   readonly asPath: string
   readonly programTitle?: string
   reset: UseFormReset<TypeFormAlphaValues>
@@ -20,6 +22,7 @@ type onSubmitFormProps = {
 
 const onSubmitForm = async ({
   formValues,
+  id,
   asPath,
   programTitle,
   reset,
@@ -37,6 +40,7 @@ const onSubmitForm = async ({
 
   const lead: TypeLeadClientValues = {
     ...formValues,
+    id,
     leadPage: asPath,
     programTitle,
     utms: {
@@ -48,7 +52,7 @@ const onSubmitForm = async ({
 
   const req = await hitLeadRoute({ lead })
   if (req.status === 200) {
-    console.log(req.data.msg)
+    // console.log(req.data.msg)
     setLoaderIsOpen(false)
     setThanksIsOpen(true)
     reset()

@@ -17,6 +17,7 @@ import {
 } from '@/types/index'
 
 type TypeLibProgram = {
+  id?: string
   title?: TypeLibProgramTitle
   slug?: TypeLibProgramSlug
   description?: TypeLibProgramDescription

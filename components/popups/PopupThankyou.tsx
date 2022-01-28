@@ -1,15 +1,23 @@
 import stls from '@/styles/components/popups/PopupThankyou.module.sass'
 import { TypeClassNames, TypeClose } from '@/types/index'
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import cn from 'classnames'
 import { getClassNames, lead } from '@/helpers/index'
+import { ContextProgramContext } from '@/context/index'
 import { BtnAlpha } from '@/components/btns'
 
-type TypePopupThankyouProps = TypeClassNames & TypeClose
+type TypePopupThankyouProps = TypeClassNames &
+  TypeClose & {
+    id: string
+  }
 
-const PopupThankyou = ({ classNames, close }: TypePopupThankyouProps) => {
+const PopupThankyou = ({ classNames, close, id }: TypePopupThankyouProps) => {
+  const { program } = useContext(ContextProgramContext)
+
   useEffect(() => {
-    lead()
+    // @ts-expect-error
+    const googleClientId = ga?.getAll()?.[0]?.get('clientId')
+    lead({ id, program, googleClientId })
   }, [])
 
   return (

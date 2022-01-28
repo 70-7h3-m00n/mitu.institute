@@ -13,6 +13,7 @@ const buildLeadData = ({
   name,
   phone,
   email,
+  id,
   programTitle,
   leadPage,
   utms,
@@ -24,7 +25,7 @@ const buildLeadData = ({
   const now = new Date()
 
   const output = {
-    id: uuidv4(),
+    id: id || uuidv4(),
     date: format(now, 'dd-MM-yyyy'),
     time: format(now, 'HH:mm:ss'),
     utc: format(now, 'z'),
