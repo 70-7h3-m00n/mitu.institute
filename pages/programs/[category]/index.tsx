@@ -11,7 +11,7 @@ import {
   ContextProgramsContext,
   ContextProgramContext
 } from '@/context/index'
-import { Wrapper } from '@/components/layout'
+import { PagesPagePrograms } from '@/components/pages'
 
 const PageProgramsCategory: NextPage<TypePageProgramsProps> = ({
   categories,
@@ -36,13 +36,7 @@ const PageProgramsCategory: NextPage<TypePageProgramsProps> = ({
 
   return (
     <>
-      <Wrapper>
-        Программы{' '}
-        {categories?.map(
-          category =>
-            category.slug === gspContextParamsCategory && category.label
-        )}
-      </Wrapper>
+      <PagesPagePrograms />
     </>
   )
 }

@@ -11,7 +11,7 @@ import {
   ContextProgramsContext,
   ContextProgramContext
 } from '@/context/index'
-import { Wrapper } from '@/components/layout'
+import { PagesPagePrograms } from '@/components/pages'
 
 const PageProgramsCategoryStudyField: NextPage<TypePageProgramsProps> = ({
   categories,
@@ -36,7 +36,7 @@ const PageProgramsCategoryStudyField: NextPage<TypePageProgramsProps> = ({
 
   return (
     <>
-      <Wrapper>Программы и направления</Wrapper>
+      <PagesPagePrograms />
     </>
   )
 }
