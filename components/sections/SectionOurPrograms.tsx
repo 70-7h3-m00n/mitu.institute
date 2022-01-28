@@ -18,11 +18,13 @@ import { BtnAlpha } from '@/components/btns'
 
 type TypeSectionOurProgramsProps = TypeClassNames & {
   promo?: boolean
+  atPrograms?: boolean
 }
 
 const SectionOurPrograms = ({
   classNames,
-  promo
+  promo,
+  atPrograms
 }: TypeSectionOurProgramsProps) => {
   const { categories, curCategory, setCategories } = useContext(
     ContextCategoriesContext
@@ -45,7 +47,7 @@ const SectionOurPrograms = ({
       }>
       <Wrapper classNames={[stls.wrapper]}>
         <GeneralSectionTitle classNames={[stls.title]}>
-          Наши направления
+          {atPrograms ? 'Программы' : 'Наши направления'}
         </GeneralSectionTitle>
         <div className={stls.content}>
           <div className={stls.btns}>
@@ -64,22 +66,24 @@ const SectionOurPrograms = ({
             ))}
           </div>
           <CardsProgram promo={promo} />
-          <Popup
-            trigger={() => (
-              <BtnAlpha variant='beta' classNames={[stls.btnShowMore]}>
-                Показать ещё
-              </BtnAlpha>
-            )}
-            modal
-            lockScroll
-            nested
-            closeOnDocumentClick>
-            {(close: MouseEventHandler) => (
-              <GeneralPopup close={close}>
-                <UIFormAlpha isPopup />
-              </GeneralPopup>
-            )}
-          </Popup>
+          {!atPrograms && (
+            <Popup
+              trigger={() => (
+                <BtnAlpha variant='beta' classNames={[stls.btnShowMore]}>
+                  Показать ещё
+                </BtnAlpha>
+              )}
+              modal
+              lockScroll
+              nested
+              closeOnDocumentClick>
+              {(close: MouseEventHandler) => (
+                <GeneralPopup close={close}>
+                  <UIFormAlpha isPopup />
+                </GeneralPopup>
+              )}
+            </Popup>
+          )}
         </div>
       </Wrapper>
     </section>

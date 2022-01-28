@@ -11,7 +11,7 @@ import {
   ContextProgramsContext,
   ContextProgramContext
 } from '@/context/index'
-import { Wrapper } from '@/components/layout'
+import { PagesPagePrograms } from '@/components/pages'
 
 const PagePrograms: NextPage<TypePageProgramsProps> = ({
   categories,
@@ -36,7 +36,7 @@ const PagePrograms: NextPage<TypePageProgramsProps> = ({
 
   return (
     <>
-      <Wrapper>Программы</Wrapper>
+      <PagesPagePrograms />
     </>
   )
 }
