@@ -1,108 +1,32 @@
+@use 'sass:math'
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
 
 .container
-  @include m.flex($fw: wrap, $jc: space-between)
+  @include m.media(tablet, laptop, desktop)
+    @include m.flex($fw: wrap)
   width: 100%
   padding: 0
   margin: 0
 
+$item_ld_mr: 2.75%
 .card
   @include m.media(phone, tablet)
-    @include m.flex($fd: column, $jc: space-between, $fb: 100%)
+    @include m.flex($fb: 100%)
     &:nth-child(1)
       margin-top: 0
   @include m.media(laptop)
-    @include m.flex($fd: column, $jc: space-between, $fb: 48.5%)
+    @include m.flex($fb: math.div((100% - $item_ld_mr), 2))
+    &:nth-child(odd)
+      margin-right: $item_ld_mr
     &:nth-child(-n+2)
       margin-top: 0
   @include m.media(desktop)
-    @include m.flex($fd: column, $jc: space-between, $fb: 31.9%)
-    &:nth-child(-n+3)
-      margin-top: 0
-  min-height: f.px(320)
-  margin-top: f.px(38)
-
-.btn
-  position: relative
-  @include m.flex($fd: column, $jc: space-between, $fb: 100%)
-  @include m.media(phone)
-    padding-right: 7%
-    padding-left: 7%
-  @include m.media(tablet)
-    padding-right: 5%
-    padding-left: 5%
-  @include m.media(laptop)
-    padding-right: 6%
-    padding-left: 6%
-  @include m.media(desktop)
-    padding-right: 9%
-    padding-left: 9%
-  padding-top: f.px(40)
-  padding-bottom: f.px(40)
-  border: f.px(2) solid
-  @include m.dye(border, c.$delta)
-  text-align: left
-  cursor: pointer
-  transition: transform 0.1s ease, border-color 0.25s ease
-  @include m.dye(c, c.$omega)
-  @include m.media(tablet, laptop, desktop)
-    &:hover
-      @include m.dye(border, c.$beta)
-      transform: scale(1.02)
-      & .label
-        @include m.dye(c, c.$alpha)
-      & .title
-        @include m.dye(c, c.$beta)
-      & .desc
-        @include m.dye(c, c.$omega)
-      & .learnMore
-        transform: scale(1.05)
-      & .learnMoreLabel
-        @include m.dye(c, c.$beta)
-        &::before,
-        &::after
-          width: 51%
-          opacity: 1
-      & .iconArrowTopRight
-        & path
-          @include m.dye(fill, c.$beta)
-  &:active
-    transform: scale(0.97)
-  &:focus-visible
-    @include m.dye(outline, c.$beta)
-    @include m.dye(border, c.$beta)
-    transform: scale(1.02)
-    & .label
-      @include m.dye(c, c.$alpha)
-    & .title
-      @include m.dye(c, c.$beta)
-    & .desc
-      @include m.dye(c, c.$omega)
-    & .learnMore
-      transform: scale(1.05)
-    & .learnMoreLabel
-      @include m.dye(c, c.$beta)
-      &::before,
-      &::after
-        width: 51%
-        opacity: 1
-    & .iconArrowTopRight
-      & path
-        @include m.dye(fill, c.$beta)
-
-.card
-  @include m.media(phone, tablet)
-    @include m.flex($fd: column, $jc: space-between, $fb: 100%)
-    &:nth-child(1)
-      margin-top: 0
-  @include m.media(laptop)
-    @include m.flex($fd: column, $jc: space-between, $fb: 48.5%)
-    &:nth-child(-n+2)
-      margin-top: 0
-  @include m.media(desktop)
-    @include m.flex($fd: column, $jc: space-between, $fb: 31.9%)
+    @include m.flex($fb: math.div((100% - $item_ld_mr * 2), 3))
+    margin-right: $item_ld_mr
+    &:nth-child(3n)
+      margin-right: 0
     &:nth-child(-n+3)
       margin-top: 0
   min-height: f.px(320)

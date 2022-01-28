@@ -24,14 +24,16 @@ const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
         </GeneralSectionTitle>
         <div className={stls.content}>
           <ul className={stls.qnas}>
-            {questions.map((qna, idx) => (
-              <LisQna
-                key={(qna.question || 'SectionFAQ_qna') + idx}
-                qna={qna}
-                idx={idx}
-                classNames={[stls.qna]}
-              />
-            ))}
+            {questions
+              .filter((qna, idx) => idx <= 8)
+              .map((qna, idx) => (
+                <LisQna
+                  key={(qna.question || 'SectionFAQ_qna') + idx}
+                  qna={qna}
+                  idx={idx}
+                  classNames={[stls.qna]}
+                />
+              ))}
           </ul>
           <UIFormAlpha
             classNames={[stls.form]}

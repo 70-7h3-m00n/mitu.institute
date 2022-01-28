@@ -1,3 +1,4 @@
+@use 'sass:math'
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
@@ -10,21 +11,28 @@
   @include m.flex($fd: column, $jc: center, $ai: center)
 
 .btns
-  @include m.flex($fw: wrap, $jc: space-between)
+  @include m.media(tablet, laptop, desktop)
+    @include m.flex($fw: wrap)
   width: 100%
   margin-bottom: f.px(76)
 
+$item_ld_mr: 2.75%
 .btn
   @include m.media(phone, tablet)
     @include m.flex($d: false, $fb: 100%)
     &:nth-child(1)
       margin-top: 0
   @include m.media(laptop)
-    @include m.flex($d: false, $fb: 48.5%)
+    @include m.flex($fb: math.div((100% - $item_ld_mr), 2))
+    &:nth-child(odd)
+      margin-right: $item_ld_mr
     &:nth-child(-n+2)
       margin-top: 0
   @include m.media(desktop)
-    @include m.flex($d: false, $fb: 31.9%)
+    @include m.flex($d: false, $fb: math.div((100% - $item_ld_mr * 2), 3))
+    margin-right: $item_ld_mr
+    &:nth-child(3n)
+      margin-right: 0
     &:nth-child(-n+3)
       margin-top: 0
   margin-top: f.px(32)
