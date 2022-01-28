@@ -19,7 +19,7 @@ const lead = ({ id, program, googleClientId }: TypeLeadProps) => {
           {
             id: program?.id,
             name: program?.title,
-            price: program?.timenprice?.[0].price,
+            price: program?.timenprice?.[0]?.price,
             category: program?.category?.label,
             studyField: program?.study_field?.type
           }
