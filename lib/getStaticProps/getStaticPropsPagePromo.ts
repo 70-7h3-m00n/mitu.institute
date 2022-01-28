@@ -16,6 +16,11 @@ const getStaticPropsPagePromo = async ({
   const res = await apolloClient.query<TypePagePromoPropsQuery>({
     query: gql`
       query GetStaticPropsPagePromo {
+        categories {
+          label
+          type
+          slug
+        }
         programs {
           title
           shortDescription
@@ -32,11 +37,6 @@ const getStaticPropsPagePromo = async ({
           timenprice {
             studyMonthsDuration
           }
-        }
-        categories {
-          label
-          type
-          slug
         }
       }
     `

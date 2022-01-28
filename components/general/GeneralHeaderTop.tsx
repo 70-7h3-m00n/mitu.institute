@@ -72,7 +72,11 @@ const GeneralHeaderTop = ({ classNames }: TypeGeneralHeaderTopProps) => {
 
         <Popup
           trigger={() => (
-            <button className={stls.btnAccessibilityTrigger}>
+            <button
+              className={stls.btnAccessibilityTrigger}
+              aria-label='Версия для слабовидящих'
+              title='Версия для слабовидящих'
+              name='Версия для слабовидящих'>
               <IconEye classNames={[stls.icon]} />
               <span
                 className={cn(

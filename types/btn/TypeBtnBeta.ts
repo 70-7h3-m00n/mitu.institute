@@ -9,13 +9,15 @@ import {
   TypeAriaLabel,
   TypeBtnBetaVariant
 } from '@/types/index'
+import { HTMLAttributeAnchorTarget } from 'react'
 
 type TypeBtn = TypeClassNames &
   TypeChildren &
   TypeBtnTag &
   TypeBtnType &
-  TypeBtnHref &
-  TypeOnClick &
+  TypeBtnHref & {
+    target?: HTMLAttributeAnchorTarget
+  } & TypeOnClick &
   TypeBtnDisabled &
   TypeAriaLabel &
   TypeBtnBetaVariant

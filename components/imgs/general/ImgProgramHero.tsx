@@ -22,6 +22,7 @@ const ImgProgramHero = ({
         height={height}
         alt={alt || 'Курс'}
         title={title || 'Курс'}
+        priority
       />
     </>
   )

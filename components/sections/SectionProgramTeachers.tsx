@@ -44,6 +44,7 @@ const SectionProgramTeachers = ({
                     heightInitial: teacher.portrait?.height
                   })}
                   classNames={[stls.img]}
+                  alt={teacher.name}
                 />
                 <h3 className={stls.name}>{teacher.name}</h3>
                 {teacher.achievements && (

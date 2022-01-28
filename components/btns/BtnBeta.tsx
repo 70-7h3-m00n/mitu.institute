@@ -11,6 +11,7 @@ const BtnBeta = ({
   children,
   tag = 'button',
   href,
+  target,
   type,
   disabled,
   ariaLabel,
@@ -33,6 +34,8 @@ const BtnBeta = ({
       }
       type={type}
       href={href}
+      target={target}
+      rel={target === '_blank' ? 'noopener noreferrer' : undefined}
       aria-label={ariaLabel}
       disabled={disabled}
       aria-disabled={disabled}

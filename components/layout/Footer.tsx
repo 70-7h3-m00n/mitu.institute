@@ -35,7 +35,8 @@ const Footer = ({ classNames }: TypeFooterProps) => {
   const smLinks = [
     {
       href: '#',
-      val: <IconInstagram classNames={[stls.instagram, stls.smIcon]} />
+      val: <IconInstagram classNames={[stls.instagram, stls.smIcon]} />,
+      ariaLabel: 'Instagram'
     }
   ]
 
@@ -97,10 +98,12 @@ const Footer = ({ classNames }: TypeFooterProps) => {
               withoutBr
             />
             <ul className={stls.smLinks}>
-              {smLinks.map(({ href, val }, idx) => (
+              {smLinks.map(({ href, val, ariaLabel }, idx) => (
                 <li key={href + idx} className={stls.smLinkItem}>
                   <Link href={href}>
-                    <a className={stls.smLink}>{val}</a>
+                    <a className={stls.smLink} aria-label={ariaLabel}>
+                      {val}
+                    </a>
                   </Link>
                 </li>
               ))}
