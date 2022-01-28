@@ -28,6 +28,7 @@ const getStaticPropsPagePromo = async ({
         programs {
           title
           shortDescription
+          slug
           study_field {
             slug
             type
