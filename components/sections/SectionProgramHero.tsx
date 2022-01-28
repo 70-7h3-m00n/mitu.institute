@@ -10,7 +10,9 @@ import { Wrapper } from '@/components/layout'
 import { GeneralTextHighlight, GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
+import { ProgramAdmission, ProgramStudyDuration } from '@/components/program'
 import { ImgProgramHero } from '@/components/imgs'
+import { IconCheck } from '@/components/icons'
 
 type TypeSectionProgramHeroProps = TypeClassNames
 
@@ -19,7 +21,30 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
 
   if (!program?.title) return <></>
 
-  console.log(program)
+  const testimonials = [
+    {
+      val: (
+        <ProgramStudyDuration
+          studyDurationMonths={
+            Number(program.timenprice?.[0]?.studyMonthsDuration) || 12
+          }
+        />
+      ),
+      label: 'Срок обучения'
+    },
+    {
+      val: 'Дистанционная',
+      label: 'Форма обучения'
+    },
+    {
+      val: <ProgramAdmission />,
+      label: 'Зачисление'
+    },
+    {
+      val: 'Государственный диплом',
+      label: 'Диплом'
+    }
+  ]
   return (
     <section
       className={
@@ -69,7 +94,15 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
             )}
           </Popup>
         </div>
-        <div className={stls.pros}></div>
+        <ul className={stls.testimonials}>
+          {testimonials.map((testimonial, idx) => (
+            <li key={testimonial.label + idx} className={stls.testimonialItem}>
+              <IconCheck withBg classNames={[stls.testimonialIcon]} />
+              <p className={stls.testimonialVal}>{testimonial.val}</p>
+              <p className={stls.testimonialLabel}>{testimonial.label}</p>
+            </li>
+          ))}
+        </ul>
       </Wrapper>
     </section>
   )

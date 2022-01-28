@@ -5,54 +5,62 @@
 @use '@/styles/shared/onFocusVisible' as onFocusVisible
 
 .container
-  padding-top: f.px(32)
-  padding-bottom: f.px(32)
-  box-shadow: 0px 0px 45px rgba(218, 218, 218, 0.58)
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    padding-top: f.px(32)
+    padding-bottom: f.px(32)
+    box-shadow: 0px 0px 45px rgba(218, 218, 218, 0.58)
 
 .links
-  @include m.flex($jc: space-between, $ai: center)
-  margin: 0
-  padding: 0
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: space-between, $ai: center)
+    margin: 0
+    padding: 0
 
 .linkItem
-  @include m.flex
+  @include m.media(laptop, desktop)
+    @include m.flex
 
 .linkPrograms
-  position: relative
-  font-size: f.px(18)
-  font-weight: 700
-  line-height: 110%
-  padding: f.px(18) f.px(87)
-  outline: none
-  border: 2px solid
-  @include m.dye(border, c.$delta)
-  @include m.dye(c, c.$alpha)
-  transition: transform 0.1s ease-out, border-color 0.2s ease-out
-  &:active
-    transform: scale(0.98)
-  &:focus-visible
-    transform: scale(1.02)
-    @include m.dye(border, c.$alpha)
-  @include m.media(tablet, laptop, desktop)
-    &:hover
+  @include m.media(laptop, desktop)
+    position: relative
+    font-size: f.px(18)
+    font-weight: 700
+    line-height: 110%
+    padding: f.px(18) f.px(87)
+    outline: none
+    border: 2px solid
+    @include m.dye(border, c.$delta)
+    @include m.dye(c, c.$alpha)
+    transition: transform 0.1s ease-out, border-color 0.2s ease-out
+    &:active
+      transform: scale(0.98)
+    &:focus-visible
       transform: scale(1.02)
       @include m.dye(border, c.$alpha)
+    @include m.media(tablet, laptop, desktop)
+      &:hover
+        transform: scale(1.02)
+        @include m.dye(border, c.$alpha)
 
 .icon
-  position: absolute
-  top: 50%
-  right: f.px(16)
-  transform: translateY(-50%)
-  max-width: f.px(24)
+  @include m.media(laptop, desktop)
+    position: absolute
+    top: 50%
+    right: f.px(16)
+    transform: translateY(-50%)
+    max-width: f.px(24)
 
 .link
-  font-size: f.px(18)
-  @include m.dye(c, c.$omega)
-  transition: transform 0.1s ease-out, color 0.1s ease
-  &:active
-    transform: scale(0.98)
-  @include m.media(tablet, laptop, desktop)
-    &:hover
-      transform: scale(1.01)
-      @include m.dye(c, c.$beta)
-  @include onFocusVisible.highlightWithBottomLine($color: c.$beta)
+  @include m.media(laptop, desktop)
+    font-size: f.px(18)
+    @include m.dye(c, c.$omega)
+    transition: transform 0.1s ease-out, color 0.1s ease
+    &:active
+      transform: scale(0.98)
+    @include m.media(tablet, laptop, desktop)
+      &:hover
+        transform: scale(1.01)
+        @include m.dye(c, c.$beta)
+    @include onFocusVisible.highlightWithBottomLine($color: c.$beta)

@@ -1,3 +1,4 @@
+@use 'sass:math'
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
@@ -16,6 +17,9 @@
     margin-right: 100% - 68% - 25%
 
 .img
+  @include m.media(phone, tablet)
+    @include m.flex($jc: center, $ai: center)
+    margin-top: f.px(32)
   @include m.media(laptop, desktop)
     @include m.flex($d: false, $fb: 25%)
 
@@ -60,3 +64,56 @@
     min-width: f.px(263)
     &:nth-child(1)
       margin-right: f.px(49)
+
+.testimonials
+  margin: 0
+  padding: 0
+  @include m.flex($fw: wrap)
+  @include m.media(phone)
+    margin-top: f.px(72)
+  @include m.media(tablet)
+    margin-top: f.px(64)
+  @include m.media(laptop, desktop)
+    margin-top: f.px(80)
+
+$item_tld_mr: 2%
+.testimonialItem
+  @include m.media(phone, tablet)
+    @include m.flex($fb: math.div((100% - $item_tld_mr), 2), $fd: column)
+    margin-top: f.px(32)
+    &:nth-child(odd)
+      margin-right: $item_tld_mr
+    &:nth-child(-n+2)
+      margin-top: 0
+  @include m.media(laptop, desktop)
+    @include m.flex($fb: math.div((100% - $item_tld_mr * 3), 4), $fd: column)
+    margin-top: f.px(32)
+    margin-right: $item_tld_mr
+    &:nth-child(4n)
+      margin-right: 0
+    &:nth-child(-n+4)
+      margin-top: 0
+
+.testimonialIcon
+  margin-bottom: f.px(16)
+
+.testimonialVal
+  margin-bottom: 0
+  @include m.media(phone, laptop, desktop)
+    font-size: f.px(18)
+  @include m.media(tablet)
+    font-size: f.px(16)
+  font-weight: 700
+  line-height: 120%
+  @include m.dye(c, c.$alpha)
+
+.testimonialLabel
+  margin-top: f.px(8)
+  margin-bottom: 0
+  @include m.media(phone, laptop, desktop)
+    font-size: f.px(14)
+  @include m.media(tablet)
+    font-size: f.px(13)
+  font-weight: 500
+  line-height: 120%
+  @include m.dye(c, c.$psi)
