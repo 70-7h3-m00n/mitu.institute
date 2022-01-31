@@ -5,6 +5,7 @@ import GeneralHeaderBottom from '@/components/general/GeneralHeaderBottom'
 import GeneralHeaderMiddle from '@/components/general/GeneralHeaderMiddle'
 import GeneralHeaderTop from '@/components/general/GeneralHeaderTop'
 import GeneralLogo from '@/components/general/GeneralLogo'
+import GeneralNavPhoneTablet from '@/components/general/GeneralNavPhoneTablet'
 import GeneralPhoneNumber from '@/components/general/GeneralPhoneNumber'
 import GeneralPopup from '@/components/general/GeneralPopup'
 import GeneralSectionHeroPicture from '@/components/general/GeneralSectionHeroPicture'
@@ -20,6 +21,7 @@ export {
   GeneralHeaderMiddle,
   GeneralHeaderTop,
   GeneralLogo,
+  GeneralNavPhoneTablet,
   GeneralPhoneNumber,
   GeneralPopup,
   GeneralSectionHeroPicture,

@@ -21,6 +21,7 @@ import {
 } from '@/context/index'
 import { Header, Main, Footer } from '@/components/layout'
 import { HeaderPromo } from '@/components/promo'
+import { GeneralNavPhoneTablet } from '@/components/general'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false)
@@ -79,6 +80,9 @@ const App = ({ Component, pageProps, router }: AppProps) => {
                   )}
                   <Main>
                     <Component {...pageProps} />
+                    <GeneralNavPhoneTablet
+                      atPromo={router.asPath === routesFront.promo}
+                    />
                   </Main>
                   <Footer />
                 </ContextProgramState>

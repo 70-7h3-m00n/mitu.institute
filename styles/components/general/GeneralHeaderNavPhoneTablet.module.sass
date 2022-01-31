@@ -1,0 +1,46 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
+
+.container
+  @include m.media(phone, tablet)
+    position: fixed
+    z-index: 99
+    bottom: 0
+    min-width: 100%
+    max-width: 100%
+    padding: f.px(16) f.px(23)
+    box-shadow: 0px -1px 1px rgba(106, 106, 106, 0.08)
+    @include m.dye(bg, c.$upsilon)
+    @include m.dye(bg, rgba(c.$upsilon, .7))
+    backdrop-filter: blur(59px)
+  @include m.media(laptop, desktop)
+    display: none
+
+.btns
+  @include m.media(phone, tablet)
+    margin: 0
+    padding: 0
+    @include m.flex($jc: space-between)
+
+.btnItem
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $jc: center, $ai: center)
+    & + .btnItem
+      margin-left: 4%
+
+.btn
+  @include m.media(phone, tablet)
+    @include m.flex($fd: column, $jc: center, $ai: center)
+
+.label
+  @include m.media(phone, tablet)
+    font-size: f.px(13)
+    font-weight: 500
+    line-height: 120%
+    @include m.dye(c, c.$alpha)
+
+.icon
+  @include m.media(phone, tablet)
+    max-width: f.px(24)

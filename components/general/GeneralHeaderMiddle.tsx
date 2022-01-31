@@ -26,7 +26,11 @@ const GeneralHeaderMiddle = ({ classNames }: TypeGeneralHeaderMiddleProps) => {
         <div className={stls.content}>
           <GeneralLogo classNames={[stls.logo]} />
           <div className={stls.phoneAddress}>
-            <GeneralPhoneNumber withIcon withLabel />
+            <GeneralPhoneNumber
+              withIcon
+              withLabel
+              classNames={[stls.phoneNumber, stls.laptopDesktop]}
+            />
             <GeneralAddress
               classNames={[stls.address, stls.laptopDesktop]}
               withIcon

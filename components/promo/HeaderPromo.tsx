@@ -42,7 +42,7 @@ const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
           <BtnSkipNav />
-          <GeneralLogo classNames={[stls.logo]} />
+          <GeneralLogo classNames={[stls.logo]} atPromo />
           <div className={stls.contactNav}>
             <div className={stls.phoneAddress}>
               <GeneralPhoneNumber withIcon withLabel />

@@ -19,8 +19,6 @@ const Header = ({ classNames }: TypeHeaderProps) => {
   const router = useRouter()
   const { categories, curCategorySlug } = useContext(ContextCategoriesContext)
 
-  console.log(router)
-
   const links =
     categories
       ?.filter(category => category.slug && category.label)
