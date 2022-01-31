@@ -52,7 +52,7 @@ const SectionProgramForWhom = ({
           <div className={stls.right}>
             <ul className={stls.forWhom}>
               {program.forWhom
-                .filter(item => item.title?.[0].titlePart)
+                .filter(item => item.title?.[0]?.titlePart)
                 .map((item, idx) => (
                   <li
                     key={
