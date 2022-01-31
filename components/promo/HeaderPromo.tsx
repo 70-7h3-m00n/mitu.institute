@@ -1,7 +1,7 @@
 import stls from '@/styles/components/promo/HeaderPromo.module.sass'
 import { TypeLinksHeaderPromo, TypeClassNames } from '@/types/index'
 import { useRouter } from 'next/router'
-import { MouseEventHandler, useContext, useEffect } from 'react'
+import { MouseEventHandler, useContext, useEffect, useState } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesFront } from '@/config/index'
@@ -25,7 +25,12 @@ type TypeHeaderPromoProps = TypeClassNames
 
 const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
   const router = useRouter()
+  const [isBrowser, setIsBrowser] = useState(false)
   const { categories } = useContext(ContextCategoriesContext)
+
+  useEffect(() => {
+    setIsBrowser(true)
+  }, [isBrowser])
 
   const links: TypeLinksHeaderPromo =
     categories?.map(category => ({
@@ -55,7 +60,8 @@ const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
           </div>
           <Popup
             // onOpen={() => {
-            //   router.push(router.asPath, '?popupIsOpen=true', { shallow: true })
+            //   router.push(router.asPath, '#popup', { shallow: true })
+            //   // window.addEventListener('popstate', closePopup)
             // }}
             // onClose={() => {
             //   router.push(router.asPath, '?popupIsOpen=false', {
@@ -79,7 +85,15 @@ const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
             closeOnDocumentClick>
             {(close: MouseEventHandler) => {
               // router.isReady && router.query.popupIsOpen === 'true' && close()
-              // router.isReady && close()
+              // if (isBrowser) window.onhashchange = () => close()
+              // const closePopup = () => {
+              //   window.removeEventListener('popstate', closePopup)
+              //   close()
+              // }
+              // isBrowser && window.addEventListener('popstate', closePopup)
+              // router.beforePopState(e => {
+              //   console.log(e)
+              // })
               return (
                 <GeneralPopup close={close}>
                   <UIFormAlpha isPopup />
