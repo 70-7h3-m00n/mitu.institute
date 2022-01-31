@@ -14,6 +14,7 @@ import {
 } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
+import { IconElderScroll } from '@/components/icons'
 
 type TypeSectionProgramContentsProps = TypeClassNames
 
@@ -60,29 +61,33 @@ const SectionProgramContents = ({
           </ul>
         </div>
         <div className={stls.fullProgram}>
-          <div className={stls.fullProgramHeading}>
+          <div className={stls.fullProgramLeft}>
+            <IconElderScroll classNames={[stls.icon, stls.laptopDesktop]} />
+          </div>
+          <div className={stls.fullProgramRight}>
             <h2 className={stls.fullProgramTitle}>Полная программа</h2>
             <p className={stls.fullProgramDesc}>
               Оставьте свои контактные данные, чтобы мы прислали учебный план
               направления
             </p>
+            <IconElderScroll classNames={[stls.icon, stls.phone]} />
+            <Popup
+              trigger={() => (
+                <BtnAlpha variant='alpha-reverse' classNames={[stls.btn]}>
+                  Оставить заявку
+                </BtnAlpha>
+              )}
+              modal
+              lockScroll
+              nested
+              closeOnDocumentClick>
+              {(close: MouseEventHandler) => (
+                <GeneralPopup close={close}>
+                  <UIFormAlpha isPopup />
+                </GeneralPopup>
+              )}
+            </Popup>
           </div>
-          <Popup
-            trigger={() => (
-              <BtnAlpha variant='alpha-reverse' classNames={[stls.btn]}>
-                Оставить заявку
-              </BtnAlpha>
-            )}
-            modal
-            lockScroll
-            nested
-            closeOnDocumentClick>
-            {(close: MouseEventHandler) => (
-              <GeneralPopup close={close}>
-                <UIFormAlpha isPopup />
-              </GeneralPopup>
-            )}
-          </Popup>
         </div>
       </Wrapper>
     </section>

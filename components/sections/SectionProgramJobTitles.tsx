@@ -51,7 +51,7 @@ const SectionProgramJobTitles = ({
                   <p className={stls.label}>Должность:</p>
                   <h3 className={stls.position}>{jobTitle.position}</h3>
 
-                  <div className={stls.price}>
+                  {/* <div className={stls.price}>
                     <p className={stls.priceLabel}>з/п</p>
                     {jobTitle.salary && (
                       <p className={stls.salary}>
@@ -59,7 +59,7 @@ const SectionProgramJobTitles = ({
                         от {addSpacesToNumber(jobTitle.salary)} &#8381;
                       </p>
                     )}
-                  </div>
+                  </div> */}
                 </div>
               </li>
             ))}
