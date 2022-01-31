@@ -20,17 +20,6 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
   const [curCategory, setCurCategory] = useState<string | null>(
     documentCategories?.[0]?.title || null
   )
-  console.log('categories')
-  console.log(categories)
-
-  console.log('documentCategories')
-  console.log(documentCategories)
-
-  console.log('documentSubcategories')
-  console.log(documentSubcategories)
-
-  console.log('curCategory')
-  console.log(curCategory)
 
   useEffect(() => {
     setCategories({

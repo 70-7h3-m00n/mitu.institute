@@ -1,4 +1,7 @@
-import { TypeLibProgramsCategories } from '@/types/index'
+import {
+  TypeLibProgramsCategories,
+  TypeLibProgramQuestions
+} from '@/types/index'
 
 type TypePagePromoPropsQuery = {
   readonly programs:
@@ -25,6 +28,7 @@ type TypePagePromoPropsQuery = {
     | null
   // readonly land: unknown
   readonly categories: TypeLibProgramsCategories | null
+  readonly questions: TypeLibProgramQuestions
 }
 
 export default TypePagePromoPropsQuery

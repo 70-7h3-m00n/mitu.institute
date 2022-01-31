@@ -18,8 +18,6 @@ const SectionUIFormAlpha = ({
 }: TypeSectionUIFormAlphaProps) => {
   const { program } = useContext(ContextProgramContext)
 
-  if (!program) return <></>
-
   return (
     <section
       className={

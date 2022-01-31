@@ -25,7 +25,7 @@ const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
         <div className={stls.content}>
           <ul className={stls.qnas}>
             {questions
-              .filter((qna, idx) => idx < 8)
+              ?.filter((qna, idx) => idx < 8)
               .map((qna, idx) => (
                 <LisQna
                   key={(qna.question || 'SectionFAQ_qna') + idx}

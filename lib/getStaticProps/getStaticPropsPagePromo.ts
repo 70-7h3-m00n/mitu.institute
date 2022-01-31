@@ -21,6 +21,10 @@ const getStaticPropsPagePromo = async ({
           type
           slug
         }
+        questions {
+          question
+          answer
+        }
         programs {
           title
           shortDescription

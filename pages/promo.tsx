@@ -9,7 +9,8 @@ import {
   ContextCategoriesContext,
   ContextStudyFieldContext,
   ContextProgramsContext,
-  ContextProgramContext
+  ContextProgramContext,
+  ContextQuestionsContext
 } from '@/context/index'
 import {
   SectionHero,
@@ -23,10 +24,15 @@ import {
   SectionUIFormAlpha
 } from '@/components/sections'
 
-const PagePromo: NextPage<TypePagePromoProps> = ({ programs, categories }) => {
+const PagePromo: NextPage<TypePagePromoProps> = ({
+  programs,
+  categories,
+  questions
+}) => {
   const { setCategories } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { setPrograms } = useContext(ContextProgramsContext)
+  const { setQuestions } = useContext(ContextQuestionsContext)
   const { setProgram } = useContext(ContextProgramContext)
 
   useEffect(() => {
@@ -35,6 +41,7 @@ const PagePromo: NextPage<TypePagePromoProps> = ({ programs, categories }) => {
     })
     setStudyField({ payload: null })
     setPrograms({ payload: programs || null })
+    setQuestions({ payload: questions || null })
     setProgram({ payload: null })
   }, [categories])
 

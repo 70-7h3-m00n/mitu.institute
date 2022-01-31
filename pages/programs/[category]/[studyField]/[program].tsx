@@ -34,7 +34,9 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
 }) => {
   const { setCategories } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
-  const { setProgram } = useContext(ContextProgramContext)
+  const { program: programContext, setProgram } = useContext(
+    ContextProgramContext
+  )
 
   useEffect(() => {
     setCategories({
@@ -46,18 +48,22 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
 
   return (
     <>
-      <SectionProgramHero />
-      <SectionProgramForWhom />
-      <SectionProgramWhatWillYouLearn />
-      {/* <SectionProgramHowProcessGoes /> */}
-      <SectionProgramContents />
-      <SectionYourFutureDiploma />
-      <SectionProgramJobTitles />
-      <SectionUIFormAlpha title='Получить бесплатную консультацию' />
-      <SectionProgramTeachers />
-      <SectionStartWithDiscount />
-      <SectionProgramStudyCost />
-      <SectionProgramQna />
+      {programContext && (
+        <>
+          <SectionProgramHero />
+          <SectionProgramForWhom />
+          <SectionProgramWhatWillYouLearn />
+          {/* <SectionProgramHowProcessGoes /> */}
+          <SectionProgramContents />
+          <SectionYourFutureDiploma />
+          <SectionProgramJobTitles />
+          <SectionUIFormAlpha title='Получить бесплатную консультацию' />
+          <SectionProgramTeachers />
+          <SectionStartWithDiscount />
+          <SectionProgramStudyCost />
+          <SectionProgramQna />
+        </>
+      )}
     </>
   )
 }

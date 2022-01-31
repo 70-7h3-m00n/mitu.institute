@@ -1,8 +1,10 @@
 import stls from '@/styles/components/sections/SectionYourFutureDiploma.module.sass'
 import { TypeClassNames } from '@/types/index'
+import { useRouter } from 'next/router'
 import { useContext, MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
+import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
@@ -17,9 +19,8 @@ type TypeSectionYourFutureDiplomaProps = TypeClassNames
 const SectionYourFutureDiploma = ({
   classNames
 }: TypeSectionYourFutureDiplomaProps) => {
+  const router = useRouter()
   const { program } = useContext(ContextProgramContext)
-
-  if (!program) return <></>
 
   const diplomas = [
     {
