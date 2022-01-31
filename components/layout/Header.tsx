@@ -19,13 +19,16 @@ const Header = ({ classNames }: TypeHeaderProps) => {
   const router = useRouter()
   const { categories, curCategorySlug } = useContext(ContextCategoriesContext)
 
+  console.log(router)
+
   const links =
     categories
       ?.filter(category => category.slug && category.label)
       .map(category => ({
         href: `${routesFront.programs}/${category.slug}` || '#',
         val: category.label || '',
-        isActive: router.query.category === category.slug
+        isActive:
+          router.query.category === category.slug && !router.query.program
       })) || null
 
   return (
