@@ -5,6 +5,7 @@ import getStaticPathsPageStudyField from '@/lib/getStaticPaths/getStaticPathsPag
 
 // getStaticProps
 import getStaticPropsPageHome from '@/lib/getStaticProps/getStaticPropsPageHome'
+import getStaticPropsPageLegal from '@/lib/getStaticProps/getStaticPropsPageLegal'
 import getStaticPropsPageProgram from '@/lib/getStaticProps/getStaticPropsPageProgram'
 import getStaticPropsPagePrograms from '@/lib/getStaticProps/getStaticPropsPagePrograms'
 import getStaticPropsPagePromo from '@/lib/getStaticProps/getStaticPropsPagePromo'
@@ -20,6 +21,7 @@ export {
   getStaticPathsPageStudyField,
   // getStaticProps
   getStaticPropsPageHome,
+  getStaticPropsPageLegal,
   getStaticPropsPageProgram,
   getStaticPropsPagePrograms,
   getStaticPropsPagePromo,

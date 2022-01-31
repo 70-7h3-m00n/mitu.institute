@@ -15,7 +15,7 @@ const getStaticPropsPagePromo = async ({
 }> => {
   const res = await apolloClient.query<TypePageHomePropsQuery>({
     query: gql`
-      query GetStaticPropsPagePromo {
+      query GetStaticPropsPageHome {
         categories {
           label
           type

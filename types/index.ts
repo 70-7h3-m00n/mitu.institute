@@ -115,6 +115,8 @@ import type TypeLibProgramsStudyFieldsType from '@/types/lib/programs/TypeLibPro
 // page
 import type TypePageHomeProps from '@/types/page/TypePageHomeProps'
 import type TypePageHomePropsQuery from '@/types/page/TypePageHomePropsQuery'
+import type TypePageLegalProps from '@/types/page/TypePageLegalProps'
+import type TypePageLegalPropsQuery from '@/types/page/TypePageLegalPropsQuery'
 import type TypePageProgramPaths from '@/types/page/TypePageProgramPaths'
 import type TypePageProgramPathsQuery from '@/types/page/TypePageProgramPathsQuery'
 import type TypePageProgramProps from '@/types/page/TypePageProgramProps'
@@ -234,6 +236,8 @@ export {
   // page
   TypePageHomeProps,
   TypePageHomePropsQuery,
+  TypePageLegalProps,
+  TypePageLegalPropsQuery,
   TypePageProgramPaths,
   TypePageProgramPathsQuery,
   TypePageProgramProps,

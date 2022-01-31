@@ -4,14 +4,16 @@ import {
   TypePagePromoProps,
   TypePageProgramsProps,
   TypePageProgramProps,
-  TypeGetStaticPropsContext
+  TypeGetStaticPropsContext,
+  TypePageLegalProps
 } from '@/types/index'
 import { routesFront, revalidate } from '@/config/index'
 import {
   getStaticPropsPageHome,
   getStaticPropsPagePromo,
   getStaticPropsPagePrograms,
-  getStaticPropsPageProgram
+  getStaticPropsPageProgram,
+  getStaticPropsPageLegal
 } from '@/lib/index'
 
 type TypeHandleGetStaticPropsProps = {
@@ -27,6 +29,7 @@ const handleGetStaticProps = async ({
     | TypePagePromoProps
     | TypePageProgramsProps
     | TypePageProgramProps
+    | TypePageLegalProps
     | {}
   revalidate: number
 }> => {
@@ -42,6 +45,9 @@ const handleGetStaticProps = async ({
 
     case routesFront.programsCategoryStudyFieldProgram:
       return await getStaticPropsPageProgram({ context })
+
+    case routesFront.legal:
+      return await getStaticPropsPageLegal({ context })
 
     default:
       return {

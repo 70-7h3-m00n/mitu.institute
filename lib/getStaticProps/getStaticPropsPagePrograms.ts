@@ -15,7 +15,7 @@ const getStaticPropsPagePrograms = async ({
 }> => {
   const res = await apolloClient.query<TypePageProgramsPropsQuery>({
     query: gql`
-      query GetStaticPropsPageCategory {
+      query GetStaticPropsPagePrograms {
         categories {
           type
           slug

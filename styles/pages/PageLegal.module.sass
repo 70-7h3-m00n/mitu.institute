@@ -1,3 +1,135 @@
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
+
+.container
+  @include m.media(phone, tablet)
+    padding-bottom: f.px(40)
+  @include m.media(tablet)
+    padding-bottom: f.px(72)
+  @include m.media(laptop, desktop)
+    padding-bottom: f.px(80)
+
+.title
+  @include m.media(phone, tablet)
+    font-size: f.px(36)
+    margin-bottom: f.px(32)
+  @include m.media(tablet)
+    font-size: f.px(36)
+    margin-bottom: f.px(40)
+  @include m.media(laptop, desktop)
+    font-size: f.px(64)
+    margin-bottom: f.px(64)
+  line-height: 110%
+
+.content
+  @include m.media(laptop, desktop)
+    @include m.flex
+
+.left
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: 100% - 63% - 11.7%)
+    margin-right: 11.7%
+
+.right
+  @include m.media(phone)
+    margin-top: f.px(72)
+  @include m.media(tablet)
+    margin-top: f.px(64)
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: 63%)
+
+.documentCategories
+  margin: 0
+  padding: 0
+
+.documentCategoryItem
+  @include m.flex
+  margin-top: f.px(2)
+  margin-bottom: f.px(2)
+  & + .documentCategoryItem
+    border-top: 2px solid
+    @include m.dye(border, c.$delta)
+  &.active
+    & .documentCategoryItemBtn
+      & .h2
+        font-weight: 600
+        @include m.dye(c, c.$beta)
+
+.documentCategoryItemBtn
+  min-width: 100%
+  max-width: 100%
+  padding-top: f.px(24 - 2)
+  padding-bottom: f.px(24 - 2)
+  text-align: left
+
+.h2
+  margin: 0
+  @include m.media(phone)
+    font-size: f.px(18)
+  @include m.media(tablet)
+    font-size: f.px(16)
+  @include m.media(laptop, desktop)
+    font-size: f.px(18)
+  font-weight: 400
+  line-height: 110%
+
+.documentSubcategories
+  margin: 0
+  padding: 0
+
+.documentSubcategoriesItem
+  @include m.flex($fd: column)
+  @include m.media(phone)
+    & + .documentSubcategoriesItem
+      margin-top: f.px(64)
+  @include m.media(tablet)
+    & + .documentSubcategoriesItem
+      margin-top: f.px(38)
+  @include m.media(laptop, desktop)
+    & + .documentSubcategoriesItem
+      margin-top: f.px(64)
+  
+.h3
+  @include m.media(phone)
+    margin-bottom: f.px(48)
+  @include m.media(tablet)
+    margin-bottom: f.px(28)
+  @include m.media(laptop, desktop)
+    margin-bottom: f.px(48)
+  font-size: f.px(20)
+  line-height: 110%
+
+.documentSubcategoriesDocuments
+  margin: 0
+  padding: 0
+
+.documentSubcategoriesDocumentsItem
+  @include m.flex
+  @include m.media(phone)
+    & + .documentSubcategoriesDocumentsItem
+      margin-top: f.px(32)
+  @include m.media(tablet)
+    & + .documentSubcategoriesDocumentsItem
+      margin-top: f.px(24)
+  @include m.media(laptop, desktop)
+    & + .documentSubcategoriesDocumentsItem
+      margin-top: f.px(32)
+
+.documentSubcategoriesDocumentsItemLink
+  @include m.flex($ai: center)
+  @include m.media(phone)
+    font-size: f.px(14)
+  @include m.media(tablet)
+    font-size: f.px(13)
+  @include m.media(laptop, desktop)
+    font-size: f.px(14)
+  line-height: 110%
+  @include m.dye(c, c.$omega)
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      text-decoration: underline
+
+.icon
+  max-width: f.px(24)
+  margin-right: f.px(8)
