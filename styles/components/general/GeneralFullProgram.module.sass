@@ -1,0 +1,69 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/section' as section
+@use '@/styles/shared/general' as g
+
+.container
+  @include m.media(phone)
+    padding: f.px(48) f.px(24)
+  @include m.media(tablet)
+    padding: f.px(64)
+  @include m.media(laptop, desktop)
+    @include m.flex
+    padding-top: f.px(40)
+    padding-right: f.px(40)
+    padding-bottom: f.px(40)
+    padding-left: f.px(105)
+  @include m.dye(bg, c.$alpha)
+  @include m.dye(c, c.$upsilon)
+
+.left
+  @include m.media(laptop, desktop)
+    @include m.flex($jc: center, $ai: center, $fb: 26%)
+    margin-right: 12%
+
+.right
+  @include m.media(laptop, desktop)
+    @include m.flex($d: false, $fb: 100% - 26% - 12%)
+
+.title
+  margin: 0
+  @include m.media(phone)
+    font-size: f.px(47)
+  @include m.media(tablet)
+    font-size: f.px(40)
+  @include m.media(laptop, desktop)
+    font-size: f.px(48)
+  line-height: 110%
+
+.desc
+  margin-bottom: 0
+  @include m.media(phone)
+    margin-top: f.px(32)
+    font-size: f.px(20)
+  @include m.media(tablet)
+    margin-top: f.px(24)
+    font-size: f.px(18)
+  @include m.media(laptop, desktop)
+    margin-top: f.px(16)
+    font-size: f.px(20)
+  line-height: 120%
+  @include m.dye(c, c.$gamma)
+
+.icon
+  &.phone
+    @include m.media(phone)
+      margin-top: f.px(48)
+
+.btn
+  @include m.media(phone)
+    margin-top: f.px(48)
+  @include m.media(tablet, laptop, desktop)
+    margin-top: f.px(32)
+
+.phone
+  @include g.phone
+
+.laptopDesktop
+  @include g.laptopDesktop

@@ -49,7 +49,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
       <SectionProgramHero />
       <SectionProgramForWhom />
       <SectionProgramWhatWillYouLearn />
-      <SectionProgramHowProcessGoes />
+      {/* <SectionProgramHowProcessGoes /> */}
       <SectionProgramContents />
       <SectionYourFutureDiploma />
       <SectionProgramJobTitles />

@@ -1,23 +1,25 @@
 import stls from '@/styles/components/sections/SectionStartWithDiscount.module.sass'
 import { TypeClassNames } from '@/types/index'
-import { MouseEventHandler } from 'react'
+import { useContext, MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
+import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
 import { IconAlarm } from '@/components/icons'
 
-type TypeSectionStartWithDiscountProps = TypeClassNames & {
-  title?: string
-}
+type TypeSectionStartWithDiscountProps = TypeClassNames
 
 const SectionStartWithDiscount = ({
-  classNames,
-  title
+  classNames
 }: TypeSectionStartWithDiscountProps) => {
+  const { program } = useContext(ContextProgramContext)
+
+  if (!program) return <></>
+
   return (
     <section
       className={

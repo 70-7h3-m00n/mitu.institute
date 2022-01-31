@@ -1,9 +1,10 @@
 import stls from '@/styles/components/sections/SectionYourFutureDiploma.module.sass'
 import { TypeClassNames } from '@/types/index'
-import { MouseEventHandler } from 'react'
+import { useContext, MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
+import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralPopup } from '@/components/general'
 import { GeneralSectionTitle } from '@/components/general'
@@ -16,6 +17,10 @@ type TypeSectionYourFutureDiplomaProps = TypeClassNames
 const SectionYourFutureDiploma = ({
   classNames
 }: TypeSectionYourFutureDiplomaProps) => {
+  const { program } = useContext(ContextProgramContext)
+
+  if (!program) return <></>
+
   const diplomas = [
     {
       img: <ImgDiploma1 />,

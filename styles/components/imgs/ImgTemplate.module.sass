@@ -5,7 +5,8 @@
 .container
   @include m.flex
   &.containerFaded,
-  &.containerFilter
+  &.containerFilter,
+  &.containerFilterAlt
     position: relative
 
 .faded
@@ -27,6 +28,16 @@
   left: 0
   @include m.flex
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)
+
+.filterAlt
+  position: absolute
+  z-index: 1
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  @include m.flex
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)
 
 .isHidden
   display: none

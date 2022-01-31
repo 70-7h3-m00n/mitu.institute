@@ -1,20 +1,16 @@
 import stls from '@/styles/components/sections/SectionProgramContents.module.sass'
 import { TypeClassNames } from '@/types/index'
-import { MouseEventHandler } from 'react'
 import { useContext } from 'react'
 import cn from 'classnames'
-import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralSectionTitle,
-  GeneralPopup,
-  GeneralTextHighlight
+  GeneralTextHighlight,
+  GeneralFullProgram
 } from '@/components/general'
-import { UIFormAlpha } from '@/components/uiforms'
-import { BtnAlpha } from '@/components/btns'
-import { IconElderScroll } from '@/components/icons'
+import { ImgProgramContents } from '@/components/imgs'
 
 type TypeSectionProgramContentsProps = TypeClassNames
 
@@ -34,7 +30,9 @@ const SectionProgramContents = ({
       }>
       <Wrapper>
         <div className={stls.heading}>
-          <GeneralSectionTitle>Краткая программа курса</GeneralSectionTitle>
+          <GeneralSectionTitle classNames={[stls.title]}>
+            Краткая программа курса
+          </GeneralSectionTitle>
           <p className={stls.shortContentsLength}>
             <GeneralTextHighlight>
               {program.shortContents.length}{' '}
@@ -59,36 +57,9 @@ const SectionProgramContents = ({
                 </li>
               ))}
           </ul>
+          <ImgProgramContents classNames={[stls.img]} />
         </div>
-        <div className={stls.fullProgram}>
-          <div className={stls.fullProgramLeft}>
-            <IconElderScroll classNames={[stls.icon, stls.laptopDesktop]} />
-          </div>
-          <div className={stls.fullProgramRight}>
-            <h2 className={stls.fullProgramTitle}>Полная программа</h2>
-            <p className={stls.fullProgramDesc}>
-              Оставьте свои контактные данные, чтобы мы прислали учебный план
-              направления
-            </p>
-            <IconElderScroll classNames={[stls.icon, stls.phone]} />
-            <Popup
-              trigger={() => (
-                <BtnAlpha variant='alpha-reverse' classNames={[stls.btn]}>
-                  Оставить заявку
-                </BtnAlpha>
-              )}
-              modal
-              lockScroll
-              nested
-              closeOnDocumentClick>
-              {(close: MouseEventHandler) => (
-                <GeneralPopup close={close}>
-                  <UIFormAlpha isPopup />
-                </GeneralPopup>
-              )}
-            </Popup>
-          </div>
-        </div>
+        <GeneralFullProgram classNames={[stls.fullProgram]} />
       </Wrapper>
     </section>
   )

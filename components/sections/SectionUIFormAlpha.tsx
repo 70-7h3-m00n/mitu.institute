@@ -1,7 +1,9 @@
 import stls from '@/styles/components/sections/SectionUIFormAlpha.module.sass'
 import { TypeClassNames } from '@/types/index'
+import { useContext } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
+import { ContextProgramContext } from '@/context/index'
 import { GeneralTextHighlight } from '@/components/general'
 import { Wrapper } from '@/components/layout'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -14,6 +16,10 @@ const SectionUIFormAlpha = ({
   classNames,
   title
 }: TypeSectionUIFormAlphaProps) => {
+  const { program } = useContext(ContextProgramContext)
+
+  if (!program) return <></>
+
   return (
     <section
       className={

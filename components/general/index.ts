@@ -1,5 +1,6 @@
 import GeneralAddress from '@/components/general/GeneralAddress'
 import GeneralAskQuestion from '@/components/general/GeneralAskQuestion'
+import GeneralFullProgram from '@/components/general/GeneralFullProgram'
 import GeneralHeaderBottom from '@/components/general/GeneralHeaderBottom'
 import GeneralHeaderMiddle from '@/components/general/GeneralHeaderMiddle'
 import GeneralHeaderTop from '@/components/general/GeneralHeaderTop'
@@ -14,6 +15,7 @@ import GeneralTextHighlight from '@/components/general/GeneralTextHighlight'
 export {
   GeneralAddress,
   GeneralAskQuestion,
+  GeneralFullProgram,
   GeneralHeaderBottom,
   GeneralHeaderMiddle,
   GeneralHeaderTop,
