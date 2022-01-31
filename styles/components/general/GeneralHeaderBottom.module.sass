@@ -64,3 +64,5 @@
         transform: scale(1.01)
         @include m.dye(c, c.$beta)
     @include onFocusVisible.highlightWithBottomLine($color: c.$beta)
+    &.isActive
+      @include m.dye(c, c.$beta)

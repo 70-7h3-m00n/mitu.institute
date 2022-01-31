@@ -17,14 +17,15 @@ type TypeHeaderProps = TypeClassNames
 
 const Header = ({ classNames }: TypeHeaderProps) => {
   const router = useRouter()
-  const { categories } = useContext(ContextCategoriesContext)
+  const { categories, curCategorySlug } = useContext(ContextCategoriesContext)
 
   const links =
     categories
       ?.filter(category => category.slug && category.label)
       .map(category => ({
         href: `${routesFront.programs}/${category.slug}` || '#',
-        val: category.label || ''
+        val: category.label || '',
+        isActive: router.query.category === category.slug
       })) || null
 
   return (

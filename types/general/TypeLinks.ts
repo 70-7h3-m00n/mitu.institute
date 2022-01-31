@@ -6,6 +6,7 @@ type TypeLinks = {
         // href: TypeRoute | TypeAnchor
         href: string
         val: string
+        isActive?: boolean
       }[]
     | null
 }

@@ -7,7 +7,7 @@ import {
 import { MouseEventHandler, useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
-import { selectors } from '@/config/index'
+import { routesFront, selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
@@ -36,7 +36,8 @@ const SectionOurPrograms = ({
       setCategories({
         payload: { categories, curCategorySlug: category.slug || null }
       }),
-    label: category.label
+    label: category.label,
+    href: category.slug
   }))
 
   return (
@@ -54,13 +55,17 @@ const SectionOurPrograms = ({
             {btns?.map((btn, idx) => (
               <BtnAlpha
                 key={(btn.label || 'btn') + idx}
+                tag={atPrograms ? 'Link' : 'button'}
+                href={
+                  atPrograms ? `${routesFront.programs}/${btn.href}` : undefined
+                }
                 variant={
                   curCategory?.type === btn.variantType
                     ? 'epsilon'
                     : 'epsilon-reverse'
                 }
                 classNames={[stls.btn]}
-                onClick={btn.onClick}>
+                onClick={atPrograms ? undefined : btn.onClick}>
                 {btn.label}
               </BtnAlpha>
             ))}
