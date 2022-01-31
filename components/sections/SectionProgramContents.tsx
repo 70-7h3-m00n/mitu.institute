@@ -43,7 +43,7 @@ const SectionProgramContents = ({
         <p className={stls.desc}>
           Практики, которым мы учим, и методология, на которой строится курс,
           проверены не только практическим опытом преподавателей, но и строгими
-          научными исследованиями.
+          научными исследованиями
         </p>
         <div className={stls.content}>
           <ul className={stls.contents}>
