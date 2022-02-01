@@ -5,7 +5,7 @@ import { GetStaticProps } from 'next'
 import { useContext, useState, useEffect } from 'react'
 import cn from 'classnames'
 import { Wrapper } from '@/components/layout'
-import { routesFront } from '@/config/index'
+import { phoneNumber, routesFront, email, address } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { ContextCategoriesContext } from '@/context/index'
 import { IconFile } from '@/components/icons'
@@ -17,9 +17,55 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
 }) => {
   const { setCategories } = useContext(ContextCategoriesContext)
 
+  // const [curCategory, setCurCategory] = useState<string | null>(
+  //   documentCategories?.[0]?.title || null
+  // )
   const [curCategory, setCurCategory] = useState<string | null>(
-    documentCategories?.[0]?.title || null
+    'Основные сведения'
   )
+
+  const staticItems = [
+    {
+      key: 'Полное наименование',
+      val: 'Образовательная автономная некоммерческая организация высшего образования «Московский институт технологий и управления»'
+    },
+    {
+      key: 'Cокращенное наименование',
+      val: 'ОАНО ВО «МИТУ»'
+    },
+    {
+      key: 'Дата создания',
+      val: '06 июля 2020 года'
+    },
+    {
+      key: 'Учредитель образовательной организации',
+      val: 'Научная автономная некоммерческая организация «Институт профессионального образования»'
+    },
+    {
+      key: 'Местонахождение образовательной организации',
+      val: `${address.zip}, ${address.city}, ${address.street}, пом. ${address.room}`
+    },
+    {
+      key: 'Режим и график работы образовательной организации',
+      val: 'пн-пт с 9.00 до 18.00, сб. с 9.00 до 15.00'
+    },
+    {
+      key: 'Контактные телефоны образовательной организации',
+      val: phoneNumber.val
+    },
+    {
+      key: 'Адреса электронной почты образовательной организации',
+      val: email
+    },
+    {
+      key: 'Адрес официального сайта образовательной организации',
+      val: routesFront.root
+    },
+    {
+      key: 'Место осуществления образовательной деятельности',
+      val: `${address.zip}, г. ${address.city}, ${address.street}, дом ${address.house}`
+    }
+  ]
 
   useEffect(() => {
     setCategories({
@@ -34,6 +80,16 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
         <div className={stls.content}>
           <div className={stls.left}>
             <ul className={stls.documentCategories}>
+              <li
+                className={cn(stls.documentCategoryItem, {
+                  [stls.active]: 'Основные сведения' === curCategory
+                })}>
+                <button
+                  onClick={() => setCurCategory('Основные сведения' || null)}
+                  className={stls.documentCategoryItemBtn}>
+                  <h2 className={stls.h2}>Основные сведения</h2>
+                </button>
+              </li>
               {documentCategories?.map((category, idx) => (
                 <li
                   key={
@@ -54,6 +110,13 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
           </div>
           <div className={stls.right}>
             <ul className={stls.documentSubcategories}>
+              {curCategory === 'Основные сведения' &&
+                staticItems.map((item, idx) => (
+                  <li key={item.key + idx} className={stls.staticItem}>
+                    <h3 className={stls.staticItemKey}>{item.key}</h3>
+                    <p className={stls.staticItemVal}>{item.val}</p>
+                  </li>
+                ))}
               {documentSubcategories
                 ?.filter(
                   subcategory =>

@@ -4,6 +4,7 @@ import breakpoints from '@/config/breakpoints'
 import colors from '@/config/colors'
 import companyName from '@/config/companyName'
 import dev from '@/config/dev'
+import email from '@/config/email'
 import emailRegex from '@/config/emailRegex'
 import env from '@/config/env'
 import gtm from '@/config/gtm'
@@ -22,6 +23,7 @@ export {
   colors,
   companyName,
   dev,
+  email,
   emailRegex,
   env,
   gtm,
