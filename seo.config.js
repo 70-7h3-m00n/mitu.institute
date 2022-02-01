@@ -2,7 +2,7 @@ const seo = {
   openGraph: {
     type: 'website',
     locale: 'ru',
-    url: 'https://mitu.msk.ru',
+    url: 'https://mitu.institute',
     site_name: 'Московский Институт Технологий и Управления'
   },
   // twitter: {
@@ -12,11 +12,11 @@ const seo = {
   // },
   defaultTitle: 'Московский Институт Технологий и Управления',
   description: 'Обучайся в самом инновационном ВУЗЕ страны',
-  canonical: 'https://mitu.msk.ru',
-  dangerouslySetAllPagesToNoIndex: true,
-  dangerouslySetAllPagesToNoFollow: true,
-  noindex: true,
-  nofollow: true
+  canonical: 'https://mitu.institute'
+  // dangerouslySetAllPagesToNoIndex: true,
+  // dangerouslySetAllPagesToNoFollow: true
+  // noindex: true,
+  // nofollow: true
 }
 
 export default seo
