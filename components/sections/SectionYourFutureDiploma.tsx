@@ -6,7 +6,10 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { ContextProgramContext } from '@/context/index'
+import {
+  ContextCategoriesContext,
+  ContextProgramContext
+} from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralPopup } from '@/components/general'
 import { GeneralSectionTitle } from '@/components/general'
@@ -14,28 +17,62 @@ import { ImgDiploma1, ImgDiploma2, ImgDiploma3 } from '@/components/imgs'
 import { PopupImg } from '@/components/popups'
 import { BtnImgPopupTrigger } from '@/components/btns'
 
-type TypeSectionYourFutureDiplomaProps = TypeClassNames
+type TypeSectionYourFutureDiplomaProps = TypeClassNames & {
+  atPageProgram?: boolean
+}
 
 const SectionYourFutureDiploma = ({
-  classNames
+  classNames,
+  atPageProgram
 }: TypeSectionYourFutureDiplomaProps) => {
   const router = useRouter()
   const { program } = useContext(ContextProgramContext)
+  const { curCategory } = useContext(ContextCategoriesContext)
 
-  const diplomas = [
-    {
-      img: <ImgDiploma1 />,
-      label: 'Диплом бакалавра'
-    },
-    {
-      img: <ImgDiploma2 />,
-      label: 'Диплом бакалавра'
-    },
-    {
-      img: <ImgDiploma3 />,
-      label: 'Приложение к диплому'
-    }
-  ]
+  let diplomas
+
+  if (
+    (atPageProgram && curCategory?.type === 'master') ||
+    curCategory?.type === 'bachelor'
+  )
+    diplomas = [
+      {
+        img: <ImgDiploma2 />,
+        label: 'Диплом бакалавра'
+      },
+      {
+        img: <ImgDiploma3 />,
+        label: 'Приложение к диплому'
+      }
+    ]
+
+  if (atPageProgram && curCategory?.type === 'additional')
+    diplomas = [
+      {
+        img: <ImgDiploma1 />,
+        label: 'Диплом бакалавра'
+      },
+      {
+        img: <ImgDiploma3 />,
+        label: 'Приложение к диплому'
+      }
+    ]
+
+  if (!atPageProgram)
+    diplomas = [
+      {
+        img: <ImgDiploma1 />,
+        label: 'Диплом бакалавра'
+      },
+      {
+        img: <ImgDiploma2 />,
+        label: 'Диплом бакалавра'
+      },
+      {
+        img: <ImgDiploma3 />,
+        label: 'Приложение к диплому'
+      }
+    ]
 
   return (
     <section
@@ -47,12 +84,14 @@ const SectionYourFutureDiploma = ({
           Ваш будущий диплом
         </GeneralSectionTitle>
         <ul className={stls.diplomas}>
-          {diplomas.map((diploma, idx) => (
+          {diplomas?.map((diploma, idx) => (
             <li key={diploma.label + idx} className={stls.diploma}>
               <Popup
                 trigger={() => (
-                  <BtnImgPopupTrigger label={diploma.label}>
-                    {diploma.img}
+                  <BtnImgPopupTrigger
+                    label={diploma.label}
+                    classNames={[stls.trigger]}>
+                    <div className={stls.img}>{diploma.img}</div>
                   </BtnImgPopupTrigger>
                 )}
                 modal

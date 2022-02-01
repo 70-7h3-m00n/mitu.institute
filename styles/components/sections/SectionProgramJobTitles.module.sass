@@ -17,9 +17,8 @@ $item_ld_mr: 3%
 .jobTitle
   @include m.media(phone, tablet)
     @include m.flex($ai: flex-start)
-    margin-top: f.px(32)
-    &:nth-child(1)
-      margin-top: 0
+    & + .jobTitle
+      margin-top: f.px(32)
   @include m.media(laptop)
     @include m.flex($fb: math.div((100% - $item_ld_mr), 2), $ai: flex-start)
     margin-top: f.px(32)

@@ -1,3 +1,4 @@
+@use 'sass:math'
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
@@ -8,23 +9,35 @@
   @include section.gap
 
 .diplomas
-  @include m.flex($fw: wrap, $jc: space-between)
+  @include m.media(tablet, laptop, desktop)
+    @include m.flex($fw: wrap)
   margin: 0
   padding: 0
 
+$item_ld_mr: 2%
 .diploma
   @include m.media(phone)
-    @include m.flex($fd: column, $fb: 100%)
-    margin-bottom: f.px(48)
-    &:nth-last-child(1)
-      margin-bottom: 0  
+    @include m.flex($fb: 100%)
+    & + .diploma
+      margin-top: f.px(48)
   @include m.media(tablet)
-    @include m.flex($fd: column, $fb: 48%)
-    margin-bottom: f.px(40)
-    &:nth-last-child(-n+2)
-      margin-bottom: 0
+    @include m.flex($fb: math.div((100% - $item_ld_mr), 2))
+    margin-top: f.px(40)
+    &:nth-child(odd)
+      margin-right: $item_ld_mr
+    &:nth-child(-n+2)
+      margin-top: 0
   @include m.media(laptop, desktop)
-    @include m.flex($fd: column, $fb: 32%)
+    @include m.flex($fb: math.div((100% - $item_ld_mr * 2), 3))
     margin-bottom: f.px(40)
+    margin-right: $item_ld_mr
+    &:nth-child(3n)
+      margin-right: 0
     &:nth-last-child(-n+3)
       margin-bottom: 0
+
+.img
+  @include m.media(desktop)
+    position: relative
+    overflow: hidden
+    max-height: 240px

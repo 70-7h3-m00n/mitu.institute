@@ -32,7 +32,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
   gspContextParamsStudyField,
   gspContextParamsProgram
 }) => {
-  const { setCategories } = useContext(ContextCategoriesContext)
+  const { setCategories, curCategory } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { program: programContext, setProgram } = useContext(
     ContextProgramContext
@@ -55,7 +55,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           <SectionProgramWhatWillYouLearn />
           {/* <SectionProgramHowProcessGoes /> */}
           <SectionProgramContents />
-          <SectionYourFutureDiploma />
+          <SectionYourFutureDiploma atPageProgram />
           <SectionProgramJobTitles />
           <SectionUIFormAlpha title='Получить бесплатную консультацию' />
           <SectionProgramTeachers />
