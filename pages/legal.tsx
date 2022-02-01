@@ -59,7 +59,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
     },
     {
       key: 'Адрес официального сайта образовательной организации',
-      val: 'https://mitu.msk.ru'
+      val: routesFront.defaultRoot
     },
     {
       key: 'Место осуществления образовательной деятельности',
