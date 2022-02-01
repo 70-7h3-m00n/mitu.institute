@@ -55,7 +55,7 @@ const SectionAboutUniversity = ({
                   образовательного процесса в нашем институте
                 </p>
               </div>
-              <div className={cn(stls.btns, stls.btnsPhoneTabletLaptop)}>
+              <div className={cn(stls.btns)}>
                 <BtnBeta
                   variant='alpha'
                   classNames={[stls.btn, stls.btnLeft]}
@@ -65,9 +65,9 @@ const SectionAboutUniversity = ({
                   Государственная лицензия на право ведения образовательной
                   деятельности
                 </BtnBeta>
-                <BtnBeta variant='beta' classNames={[stls.btn]}>
+                {/* <BtnBeta variant='beta' classNames={[stls.btn]}>
                   Свидетельство о государственной аккредитации
-                </BtnBeta>
+                </BtnBeta> */}
               </div>
             </div>
             <div className={stls.right}>
@@ -85,7 +85,7 @@ const SectionAboutUniversity = ({
               </ul>
             </div>
           </div>
-          <div className={cn(stls.btns, stls.btnsDesktop)}>
+          {/* <div className={cn(stls.btns, stls.btnsDesktop)}>
             <BtnBeta
               variant='alpha'
               classNames={[stls.btn, stls.btnLeft]}
@@ -98,7 +98,7 @@ const SectionAboutUniversity = ({
             <BtnBeta variant='beta' classNames={[stls.btn]}>
               Свидетельство о государственной аккредитации
             </BtnBeta>
-          </div>
+          </div> */}
         </div>
       </Wrapper>
     </section>
