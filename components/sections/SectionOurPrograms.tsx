@@ -31,13 +31,13 @@ const SectionOurPrograms = ({
   )
 
   const btns = categories?.map(category => ({
-    variantType: category.type,
+    variantType: category?.type,
     onClick: () =>
       setCategories({
-        payload: { categories, curCategorySlug: category.slug || null }
+        payload: { categories, curCategorySlug: category?.slug || null }
       }),
-    label: category.label,
-    href: category.slug
+    label: category?.label,
+    href: category?.slug
   }))
 
   return (

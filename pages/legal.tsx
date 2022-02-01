@@ -23,7 +23,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
 
   useEffect(() => {
     setCategories({
-      payload: { categories, curCategorySlug: categories?.[0].slug || null }
+      payload: { categories, curCategorySlug: categories?.[0]?.slug || null }
     })
   }, [categories])
 

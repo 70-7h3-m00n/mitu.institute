@@ -21,7 +21,7 @@ const Header = ({ classNames }: TypeHeaderProps) => {
 
   const links =
     categories
-      ?.filter(category => category.slug && category.label)
+      ?.filter(category => category?.slug && category?.label)
       .map(category => ({
         href: `${routesFront.programs}/${category.slug}` || '#',
         val: category.label || '',

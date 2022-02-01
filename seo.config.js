@@ -12,11 +12,11 @@ const seo = {
   // },
   defaultTitle: 'Московский Институт Технологий и Управления',
   description: 'Обучайся в самом инновационном ВУЗЕ страны',
-  canonical: 'https://mitu.msk.ru'
-  // dangerouslySetAllPagesToNoIndex: true,
-  // dangerouslySetAllPagesToNoFollow: true
-  // noindex: true,
-  // nofollow: true
+  canonical: 'https://mitu.msk.ru',
+  dangerouslySetAllPagesToNoIndex: true,
+  dangerouslySetAllPagesToNoFollow: true,
+  noindex: true,
+  nofollow: true
 }
 
 export default seo

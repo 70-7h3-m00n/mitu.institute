@@ -35,8 +35,8 @@ const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
   const links: TypeLinksHeaderPromo =
     categories?.map(category => ({
       href: routesFront.anchorPrograms,
-      val: category.label || null,
-      payload: { categories, curCategorySlug: category.slug || null }
+      val: category?.label || null,
+      payload: { categories, curCategorySlug: category?.slug || null }
     })) || null
 
   return (

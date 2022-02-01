@@ -30,7 +30,7 @@ const contextCategoriesReducer = (
         categories: action.payload?.categories || null,
         curCategory:
           action.payload?.categories?.filter(
-            category => category.slug === action.payload?.curCategorySlug
+            category => category?.slug === action.payload?.curCategorySlug
           )?.[0] || null,
         curCategorySlug: action.payload?.curCategorySlug || null
       }

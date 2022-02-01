@@ -26,7 +26,7 @@ const Footer = ({ classNames }: TypeFooterProps) => {
 
   const navLinks =
     categories
-      ?.filter(category => category.slug && category.label)
+      ?.filter(category => category?.slug && category?.label)
       .map(category => ({
         href: `${routesFront.programs}/${category.slug}`,
         val: category.label

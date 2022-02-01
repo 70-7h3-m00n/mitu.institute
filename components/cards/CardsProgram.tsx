@@ -89,7 +89,7 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
               href={
                 `${routesFront.programs}/${
                   card?.category?.slug || 'category'
-                }/${card?.study_field?.slug || 'study-field'}/${card.slug}` ||
+                }/${card?.study_field?.slug || 'study-field'}/${card?.slug}` ||
                 '/'
               }>
               <a className={stls.btn}>
