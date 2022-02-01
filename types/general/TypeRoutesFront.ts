@@ -1,7 +1,7 @@
 import { TypeUrl, TypeRoute, TypeAnchor } from '@/types/index'
 
 type TypeRoutesFront = {
-  root: 'http://localhost:3000' | 'https://mitu.msk.ru'
+  root: string
   home: '/'
   promo: '/promo'
   contact: '/contact'

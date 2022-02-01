@@ -1,8 +1,10 @@
+import { routesFront } from '@/config/index'
+
 const seo = {
   openGraph: {
     type: 'website',
     locale: 'ru',
-    url: 'https://mitu.institute',
+    url: routesFront.root,
     site_name: 'Московский Институт Технологий и Управления'
   },
   // twitter: {
@@ -12,7 +14,7 @@ const seo = {
   // },
   defaultTitle: 'Московский Институт Технологий и Управления',
   description: 'Обучайся в самом инновационном ВУЗЕ страны',
-  canonical: 'https://mitu.institute'
+  canonical: routesFront.root
   // dangerouslySetAllPagesToNoIndex: true,
   // dangerouslySetAllPagesToNoFollow: true
   // noindex: true,

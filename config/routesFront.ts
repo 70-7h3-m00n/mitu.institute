@@ -1,8 +1,10 @@
 import { TypeRoutesFront } from '@/types/index'
-import { dev } from '@/config/index'
+import { dev, env } from '@/config/index'
 
 const routesFront: TypeRoutesFront = {
-  root: dev ? 'http://localhost:3000' : 'https://mitu.msk.ru',
+  root: dev
+    ? 'http://localhost:3000'
+    : env.nextPublicRouteFrontRoot || 'https://mitu.msk.ru',
   home: '/',
   promo: '/promo',
   contact: '/contact',

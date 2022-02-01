@@ -1,5 +1,7 @@
+import { routesFront } from '@/config/index'
+
 module.exports = {
-  siteUrl: 'https://mitu.msk.ru',
+  siteUrl: routesFront.root,
   changefreq: 'daily',
   priority: 0.7,
   sitemapSize: 5000,
