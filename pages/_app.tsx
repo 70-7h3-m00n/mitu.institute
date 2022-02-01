@@ -26,6 +26,8 @@ import { GeneralNavPhoneTablet } from '@/components/general'
 const App = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false)
 
+  //test
+
   useEffect(() => {
     // TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
