@@ -16,11 +16,11 @@ const PopupThankyou = ({ classNames, close, id }: TypePopupThankyouProps) => {
 
   useEffect(() => {
     let googleClientId = null
-    // @ts-expect-error
-    if (ga) {
-      // @ts-expect-error
-      googleClientId = ga?.getAll()?.[0]?.get('clientId')
-    }
+    // // @ts-expect-error
+    // if (ga) {
+    //   // @ts-expect-error
+    //   googleClientId = ga?.getAll()?.[0]?.get('clientId')
+    // }
     lead({ id, program, googleClientId })
   }, [])
 

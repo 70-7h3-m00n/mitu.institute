@@ -3,7 +3,7 @@ import { TypeLibProgram } from '@/types/index'
 type TypeLeadProps = {
   id: string
   program: TypeLibProgram
-  googleClientId: string
+  googleClientId: string | null
 }
 
 const lead = ({ id, program, googleClientId }: TypeLeadProps) => {
