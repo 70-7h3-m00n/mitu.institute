@@ -3,6 +3,7 @@ import base64pixel from '@/config/base64pixel'
 import breakpoints from '@/config/breakpoints'
 import colors from '@/config/colors'
 import companyName from '@/config/companyName'
+import defaultRouteFrontRoot from '@/config/defaultRouteFrontRoot'
 import dev from '@/config/dev'
 import email from '@/config/email'
 import emailRegex from '@/config/emailRegex'
@@ -22,6 +23,7 @@ export {
   breakpoints,
   colors,
   companyName,
+  defaultRouteFrontRoot,
   dev,
   email,
   emailRegex,

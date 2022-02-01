@@ -4,7 +4,7 @@ const seo = {
   openGraph: {
     type: 'website',
     locale: 'ru',
-    url: routesFront.root,
+    url: routesFront.defaultRoot,
     site_name: 'Московский Институт Технологий и Управления'
   },
   // twitter: {
@@ -14,7 +14,7 @@ const seo = {
   // },
   defaultTitle: 'Московский Институт Технологий и Управления',
   description: 'Обучайся в самом инновационном ВУЗЕ страны',
-  canonical: routesFront.root
+  canonical: routesFront.defaultRoot
   // dangerouslySetAllPagesToNoIndex: true,
   // dangerouslySetAllPagesToNoFollow: true
   // noindex: true,
