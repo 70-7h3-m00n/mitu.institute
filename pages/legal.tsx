@@ -1,9 +1,10 @@
 import stls from '@/styles/pages/PageLegal.module.sass'
 import type { NextPage } from 'next'
-import { TypePageLegalProps } from '@/types/index'
 import { GetStaticProps } from 'next'
+import { TypePageLegalProps } from '@/types/index'
 import { useContext, useState, useEffect } from 'react'
 import cn from 'classnames'
+// import papaparse from 'papaparse'
 import { Wrapper } from '@/components/layout'
 import { phoneNumber, routesFront, email, address } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
@@ -16,7 +17,6 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
   documentSubcategories
 }) => {
   const { setCategories } = useContext(ContextCategoriesContext)
-
   // const [curCategory, setCurCategory] = useState<string | null>(
   //   documentCategories?.[0]?.title || null
   // )
@@ -67,15 +67,41 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
     }
   ]
 
+  const [isBrowser, setIsBrowser] = useState(false)
+
   useEffect(() => {
     setCategories({
       payload: { categories, curCategorySlug: categories?.[0]?.slug || null }
     })
+
+    setIsBrowser(true)
   }, [categories])
 
   return (
     <section className={stls.container}>
       <Wrapper>
+        {/* {console.log(
+          isBrowser &&
+            papaparse.parse(
+              'https://res.cloudinary.com/anpmitu/raw/upload/v1643800247/test_cc5760f2b1.csv',
+              {
+                download: true,
+                complete: result => {
+                  console.log(result)
+                }
+              }
+            )
+        )}
+
+        {isBrowser &&
+          papaparse.parse(
+            'https://res.cloudinary.com/anpmitu/raw/upload/v1643800247/test_cc5760f2b1.csv',
+            {
+              download: true,
+              complete: result => <>Test</>
+            }
+          )} */}
+
         <h1 className={stls.title}>Сведения об организации</h1>
         <div className={stls.content}>
           <div className={stls.left}>
