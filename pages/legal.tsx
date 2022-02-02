@@ -10,6 +10,7 @@ import { marked } from 'marked'
 import { Wrapper } from '@/components/layout'
 import { phoneNumber, routesFront, email, address } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
+import { sortBasedOnNumericOrder } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
 import { IconFile } from '@/components/icons'
 
@@ -20,11 +21,8 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
 }) => {
   const { setCategories } = useContext(ContextCategoriesContext)
   const [curCategory, setCurCategory] = useState<string | null>(
-    documentCategories?.[0]?.title || null
+    sortBasedOnNumericOrder(documentCategories)?.[0]?.title || null
   )
-  // const [curCategory, setCurCategory] = useState<string | null>(
-  //   'Основные сведения'
-  // )
 
   // const [isBrowser, setIsBrowser] = useState(false)
 
@@ -65,13 +63,8 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
         <div className={stls.content}>
           <div className={stls.left}>
             <ul className={stls.documentCategories}>
-              {[...(documentCategories || [])]
-                ?.sort(
-                  (a, b) =>
-                    Number(a?.numeric_order?.index || Infinity) -
-                    Number(b?.numeric_order?.index || Infinity)
-                )
-                .map((category, idx) => (
+              {sortBasedOnNumericOrder(documentCategories).map(
+                (category, idx) => (
                   <li
                     key={
                       (category.title || 'PageLegal_documentCategories_item') +
@@ -86,7 +79,8 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
                       <h2 className={stls.h2}>{category.title}</h2>
                     </button>
                   </li>
-                ))}
+                )
+              )}
             </ul>
           </div>
           <div className={stls.right}>

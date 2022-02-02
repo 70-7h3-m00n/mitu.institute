@@ -15,6 +15,7 @@ import handleReferer from '@/helpers/general/handleReferer'
 import handleUtms from '@/helpers/general/handleUtms'
 import hitLeadRoute from '@/helpers/general/hitLeadRoute'
 import onSubmitForm from '@/helpers/general/onSubmitForm'
+import sortBasedOnNumericOrder from '@/helpers/general/sortBasedOnNumericOrder'
 
 // lead
 import buildLeadData from '@/helpers/lead/buildLeadData'
@@ -39,6 +40,7 @@ export {
   handleUtms,
   hitLeadRoute,
   onSubmitForm,
+  sortBasedOnNumericOrder,
   // lead
   buildLeadData,
   createLeadEmailBody,
