@@ -1,7 +1,5 @@
-import { routesFront } from '@/config/index'
-
 module.exports = {
-  siteUrl: routesFront.root,
+  siteUrl: process.env.NEXT_PUBLIC_ROUTE_FRONT_ROOT,
   changefreq: 'daily',
   priority: 0.7,
   sitemapSize: 5000,
