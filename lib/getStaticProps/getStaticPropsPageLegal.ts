@@ -23,6 +23,9 @@ const getStaticPropsPageLegal = async ({
         }
         documentCategories {
           title
+          numeric_order {
+            index
+          }
         }
         documentSubcategories {
           title

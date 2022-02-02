@@ -5,6 +5,8 @@ import { TypePageLegalProps } from '@/types/index'
 import { useContext, useState, useEffect } from 'react'
 import cn from 'classnames'
 // import papaparse from 'papaparse'
+import parse from 'html-react-parser'
+import { marked } from 'marked'
 import { Wrapper } from '@/components/layout'
 import { phoneNumber, routesFront, email, address } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
@@ -24,14 +26,14 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
   //   'Основные сведения'
   // )
 
-  const [isBrowser, setIsBrowser] = useState(false)
+  // const [isBrowser, setIsBrowser] = useState(false)
 
   useEffect(() => {
     setCategories({
       payload: { categories, curCategorySlug: categories?.[0]?.slug || null }
     })
 
-    setIsBrowser(true)
+    // setIsBrowser(true)
   }, [categories])
 
   return (
@@ -63,43 +65,32 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
         <div className={stls.content}>
           <div className={stls.left}>
             <ul className={stls.documentCategories}>
-              <li
-                className={cn(stls.documentCategoryItem, {
-                  [stls.active]: 'Основные сведения' === curCategory
-                })}>
-                <button
-                  onClick={() => setCurCategory('Основные сведения' || null)}
-                  className={stls.documentCategoryItemBtn}>
-                  <h2 className={stls.h2}>Основные сведения</h2>
-                </button>
-              </li>
-              {documentCategories?.map((category, idx) => (
-                <li
-                  key={
-                    (category.title || 'PageLegal_documentCategories_item') +
-                    idx
-                  }
-                  className={cn(stls.documentCategoryItem, {
-                    [stls.active]: category.title === curCategory
-                  })}>
-                  <button
-                    onClick={() => setCurCategory(category.title || null)}
-                    className={stls.documentCategoryItemBtn}>
-                    <h2 className={stls.h2}>{category.title}</h2>
-                  </button>
-                </li>
-              ))}
+              {[...(documentCategories || [])]
+                ?.sort(
+                  (a, b) =>
+                    Number(a?.numeric_order?.index || Infinity) -
+                    Number(b?.numeric_order?.index || Infinity)
+                )
+                .map((category, idx) => (
+                  <li
+                    key={
+                      (category.title || 'PageLegal_documentCategories_item') +
+                      idx
+                    }
+                    className={cn(stls.documentCategoryItem, {
+                      [stls.active]: category.title === curCategory
+                    })}>
+                    <button
+                      onClick={() => setCurCategory(category.title || null)}
+                      className={stls.documentCategoryItemBtn}>
+                      <h2 className={stls.h2}>{category.title}</h2>
+                    </button>
+                  </li>
+                ))}
             </ul>
           </div>
           <div className={stls.right}>
             <ul className={stls.documentSubcategories}>
-              {curCategory === 'Основные сведения' &&
-                staticItems.map((item, idx) => (
-                  <li key={item.key + idx} className={stls.staticItem}>
-                    <h3 className={stls.staticItemKey}>{item.key}</h3>
-                    <p className={stls.staticItemVal}>{item.val}</p>
-                  </li>
-                ))}
               {documentSubcategories
                 ?.filter(
                   subcategory =>
@@ -117,21 +108,27 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
                       {subcategory.documents?.map((document, idx) => (
                         <li
                           key={
-                            (document.title ||
+                            (document?.title ||
                               'PageLegal_documentSubcategories_documents_item') +
                             idx
                           }
                           className={stls.documentSubcategoriesDocumentsItem}>
-                          <a
-                            href={document.pdf?.url}
-                            target='_blank'
-                            rel='noreferrer noopener'
-                            className={
-                              stls.documentSubcategoriesDocumentsItemLink
-                            }>
-                            <IconFile classNames={[stls.icon]} />
-                            {document.title}
-                          </a>
+                          {document?.pdf?.url ? (
+                            <a
+                              href={document?.pdf?.url}
+                              target='_blank'
+                              rel='noreferrer noopener'
+                              className={
+                                stls.documentSubcategoriesDocumentsItemLink
+                              }>
+                              <IconFile classNames={[stls.icon]} />
+                              {document?.title}
+                            </a>
+                          ) : (
+                            <div className={stls.text}>
+                              {document?.text && parse(marked(document?.text))}
+                            </div>
+                          )}
                         </li>
                       ))}
                     </ul>

@@ -5,6 +5,9 @@ type TypePageLegalPropsQuery = {
   readonly documentCategories:
     | {
         title?: string
+        numeric_order?: {
+          index?: string
+        }
       }[]
     | null
   readonly documentSubcategories:
