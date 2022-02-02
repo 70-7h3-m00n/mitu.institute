@@ -15,7 +15,8 @@ const BtnAlpha = ({
   disabled,
   ariaLabel,
   variant,
-  onClick
+  onClick,
+  scroll
 }: TypeBtnAlphaProps) => {
   const isLink = tag === 'Link'
 
@@ -46,6 +47,7 @@ const BtnAlpha = ({
       className={!isLink && container}
       type={type}
       href={href}
+      scroll={scroll}
       aria-label={ariaLabel}
       disabled={disabled}
       aria-disabled={disabled}

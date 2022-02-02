@@ -18,6 +18,8 @@ type TypeBtn = TypeClassNames &
   TypeOnClick &
   TypeBtnDisabled &
   TypeAriaLabel &
-  TypeBtnAlphaVariant
+  TypeBtnAlphaVariant & {
+    scroll?: boolean
+  }
 
 export default TypeBtn

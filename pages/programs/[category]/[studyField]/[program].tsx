@@ -58,7 +58,9 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           <SectionYourFutureDiploma atPageProgram />
           <SectionProgramJobTitles />
           <SectionUIFormAlpha title='Получить бесплатную консультацию' />
-          <SectionProgramTeachers />
+          {routesFront.root === routesFront.defaultRoot && (
+            <SectionProgramTeachers />
+          )}
           <SectionStartWithDiscount />
           <SectionProgramStudyCost />
           <SectionProgramQna />

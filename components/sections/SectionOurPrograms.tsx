@@ -59,6 +59,7 @@ const SectionOurPrograms = ({
                 href={
                   atPrograms ? `${routesFront.programs}/${btn.href}` : undefined
                 }
+                scroll={false}
                 variant={
                   curCategory?.type === btn.variantType
                     ? 'epsilon'

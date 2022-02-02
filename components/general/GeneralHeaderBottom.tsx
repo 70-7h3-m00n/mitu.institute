@@ -21,7 +21,7 @@ const GeneralHeaderBottom = ({
       <Wrapper classNames={[stls.wrapper]}>
         <ul className={stls.links}>
           <li className={stls.linkItem}>
-            <Link href={routesFront.programs}>
+            <Link href={routesFront.programs} scroll={false}>
               <a className={stls.linkPrograms}>
                 Программы <IconHamburger classNames={[stls.icon]} />
               </a>
@@ -29,7 +29,7 @@ const GeneralHeaderBottom = ({
           </li>
           {links?.map((link, idx) => (
             <li key={link.val + idx} className={stls.linkItem}>
-              <Link href={link.href}>
+              <Link href={link.href} scroll={false}>
                 <a
                   className={cn(stls.link, { [stls.isActive]: link.isActive })}>
                   {link.val}
