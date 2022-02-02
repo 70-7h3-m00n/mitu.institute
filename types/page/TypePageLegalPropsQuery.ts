@@ -13,6 +13,7 @@ type TypePageLegalPropsQuery = {
         documents?:
           | {
               title?: string
+              text?: string
               pdf?: {
                 url?: string
               }

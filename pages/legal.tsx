@@ -17,55 +17,12 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
   documentSubcategories
 }) => {
   const { setCategories } = useContext(ContextCategoriesContext)
-  // const [curCategory, setCurCategory] = useState<string | null>(
-  //   documentCategories?.[0]?.title || null
-  // )
   const [curCategory, setCurCategory] = useState<string | null>(
-    'Основные сведения'
+    documentCategories?.[0]?.title || null
   )
-
-  const staticItems = [
-    {
-      key: 'Полное наименование',
-      val: 'Образовательная автономная некоммерческая организация высшего образования «Московский институт технологий и управления»'
-    },
-    {
-      key: 'Cокращенное наименование',
-      val: 'ОАНО ВО «МИТУ»'
-    },
-    {
-      key: 'Дата создания',
-      val: '06 июля 2020 года'
-    },
-    {
-      key: 'Учредитель образовательной организации',
-      val: 'Научная автономная некоммерческая организация «Институт профессионального образования»'
-    },
-    {
-      key: 'Местонахождение образовательной организации',
-      val: `${address.zip}, ${address.city}, ${address.street}, пом. ${address.room}`
-    },
-    {
-      key: 'Режим и график работы образовательной организации',
-      val: 'пн-пт с 9.00 до 18.00, сб. с 9.00 до 15.00'
-    },
-    {
-      key: 'Контактные телефоны образовательной организации',
-      val: phoneNumber.val
-    },
-    {
-      key: 'Адреса электронной почты образовательной организации',
-      val: email
-    },
-    {
-      key: 'Адрес официального сайта образовательной организации',
-      val: routesFront.defaultRoot
-    },
-    {
-      key: 'Место осуществления образовательной деятельности',
-      val: `${address.zip}, г. ${address.city}, ${address.street}, дом ${address.house}`
-    }
-  ]
+  // const [curCategory, setCurCategory] = useState<string | null>(
+  //   'Основные сведения'
+  // )
 
   const [isBrowser, setIsBrowser] = useState(false)
 

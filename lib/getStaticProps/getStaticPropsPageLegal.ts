@@ -28,6 +28,7 @@ const getStaticPropsPageLegal = async ({
           title
           documents {
             title
+            text
             pdf {
               url
             }
