@@ -98,8 +98,8 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
           {testimonials.map((testimonial, idx) => (
             <li key={testimonial.label + idx} className={stls.testimonialItem}>
               <IconCheck withBg classNames={[stls.testimonialIcon]} />
-              <p className={stls.testimonialVal}>{testimonial.val}</p>
               <p className={stls.testimonialLabel}>{testimonial.label}</p>
+              <p className={stls.testimonialVal}>{testimonial.val}</p>
             </li>
           ))}
         </ul>

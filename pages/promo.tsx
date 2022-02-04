@@ -53,8 +53,8 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
       <SectionEnterWithoutExam />
       <SectionHowTrainingGoes />
       <SectionAboutUniversity />
-      <SectionFAQ />
       <SectionYourFutureDiploma />
+      <SectionFAQ />
       <SectionUIFormAlpha />
     </>
   )

@@ -97,18 +97,7 @@ $item_tld_mr: 2%
 .testimonialIcon
   margin-bottom: f.px(16)
 
-.testimonialVal
-  margin-bottom: 0
-  @include m.media(phone, laptop, desktop)
-    font-size: f.px(18)
-  @include m.media(tablet)
-    font-size: f.px(16)
-  font-weight: 700
-  line-height: 120%
-  @include m.dye(c, c.$alpha)
-
 .testimonialLabel
-  margin-top: f.px(8)
   margin-bottom: 0
   @include m.media(phone, laptop, desktop)
     font-size: f.px(14)
@@ -117,3 +106,14 @@ $item_tld_mr: 2%
   font-weight: 500
   line-height: 120%
   @include m.dye(c, c.$psi)
+
+.testimonialVal
+  margin-top: f.px(8)
+  margin-bottom: 0
+  @include m.media(phone, laptop, desktop)
+    font-size: f.px(18)
+  @include m.media(tablet)
+    font-size: f.px(16)
+  font-weight: 700
+  line-height: 120%
+  @include m.dye(c, c.$alpha)
