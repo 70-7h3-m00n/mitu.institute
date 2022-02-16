@@ -3,7 +3,7 @@ import { TypeClassNames } from '@/types/index'
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import cn from 'classnames'
-import { routesFront } from '@/config/index'
+import { routesFront, mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
 import {
@@ -19,15 +19,32 @@ const Header = ({ classNames }: TypeHeaderProps) => {
   const router = useRouter()
   const { categories, curCategorySlug } = useContext(ContextCategoriesContext)
 
-  const links =
-    categories
-      ?.filter(category => category?.slug && category?.label)
-      .map(category => ({
-        href: `${routesFront.programs}/${category.slug}` || '#',
-        val: category.label || '',
-        isActive:
-          router.query.category === category.slug && !router.query.program
-      })) || null
+  const links = !mituinstitute
+    ? categories
+        ?.filter(category => category?.slug && category?.label)
+        .map(category => ({
+          href: `${routesFront.programs}/${category.slug}` || '#',
+          val: category.label || '',
+          isActive:
+            router.query.category === category.slug && !router.query.program
+        })) || null
+    : [
+        {
+          href: `https://lms.mitu.msk.ru`,
+          val: 'ЭИОС',
+          passHref: true
+        },
+        {
+          href: `https://lms.mitu.msk.ru`,
+          val: 'ЭБС',
+          passHref: true
+        },
+        {
+          href: `${routesFront.legal}`,
+          val: 'Сведения об образовательной организации',
+          isActive: router.asPath === routesFront.legal
+        }
+      ]
 
   return (
     <header

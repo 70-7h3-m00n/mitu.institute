@@ -29,9 +29,13 @@ const GeneralHeaderBottom = ({
           </li>
           {links?.map((link, idx) => (
             <li key={link.val + idx} className={stls.linkItem}>
-              <Link href={link.href} scroll={false}>
+              <Link href={link.href} scroll={false} passHref={link.passHref}>
                 <a
-                  className={cn(stls.link, { [stls.isActive]: link.isActive })}>
+                  className={cn(stls.link, { [stls.isActive]: link.isActive })}
+                  target={link.target}
+                  rel={
+                    link.target === '_blank' ? 'noreferrer noopener' : undefined
+                  }>
                   {link.val}
                 </a>
               </Link>

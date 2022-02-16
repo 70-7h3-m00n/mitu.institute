@@ -1,4 +1,5 @@
 import { TypeRoute, TypeAnchor } from '@/types/index'
+import { HTMLAttributeAnchorTarget } from 'react'
 
 type TypeLinks = {
   readonly links:
@@ -7,6 +8,8 @@ type TypeLinks = {
         href: string
         val: string
         isActive?: boolean
+        passHref?: boolean
+        target?: HTMLAttributeAnchorTarget
       }[]
     | null
 }

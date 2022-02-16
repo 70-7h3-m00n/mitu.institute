@@ -9,7 +9,6 @@ import email from '@/config/email'
 import emailRegex from '@/config/emailRegex'
 import env from '@/config/env'
 import gtm from '@/config/gtm'
-import mituinstitute from '@/config/mituinstitute'
 import phoneNumber from '@/config/phoneNumber'
 import prod from '@/config/prod'
 import revalidate from '@/config/revalidate'
@@ -17,6 +16,7 @@ import routesBack from '@/config/routesBack'
 import routesFront from '@/config/routesFront'
 import selectors from '@/config/selectors'
 import themeColor from '@/config/themeColor'
+import mituinstitute from '@/config/mituinstitute'
 
 export {
   address,
@@ -30,12 +30,12 @@ export {
   emailRegex,
   env,
   gtm,
-  mituinstitute,
   phoneNumber,
   prod,
   revalidate,
   routesBack,
   routesFront,
   selectors,
-  themeColor
+  themeColor,
+  mituinstitute
 }

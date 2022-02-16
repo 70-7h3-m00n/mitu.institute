@@ -3,6 +3,9 @@
 @use '@/styles/themes/default/Colors.module.sass' as c
 @use '@/styles/shared/general' as g
 
+.container
+  @include m.dye(bg, c.$zeta)
+
 .wrapper
   @include m.flex($jc: space-between)
 
