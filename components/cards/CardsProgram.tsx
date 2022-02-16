@@ -101,9 +101,9 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
                   <p className={stls.desc}>{card.shortDescription}</p>
                 </div>
                 <div className={stls.bottom}>
-                  <div className={stls.studyDuration}>
-                    <IconClock classNames={[stls.iconClock]} />
-                    {mituinstitute && (
+                  {mituinstitute && (
+                    <div className={stls.studyDuration}>
+                      <IconClock classNames={[stls.iconClock]} />
                       <ProgramStudyDuration
                         studyDurationMonths={
                           Number(card?.timenprice?.[0]?.studyMonthsDuration) ||
@@ -111,8 +111,8 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
                         }
                         monthsOnly
                       />
-                    )}
-                  </div>
+                    </div>
+                  )}
                   <div className={stls.learnMore}>
                     <div className={stls.learnMoreLabel}>Подробнее</div>
                     <IconArrowTopRight classNames={[stls.iconArrowTopRight]} />
