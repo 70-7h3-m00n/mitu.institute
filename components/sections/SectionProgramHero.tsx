@@ -4,6 +4,7 @@ import { MouseEventHandler } from 'react'
 import { useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
+import { mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
@@ -23,12 +24,14 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
 
   const testimonials = [
     {
-      val: (
+      val: mituinstitute ? (
         <ProgramStudyDuration
           studyDurationMonths={
             Number(program.timenprice?.[0]?.studyMonthsDuration) || 12
           }
         />
+      ) : (
+        '4-5 лет'
       ),
       label: 'Срок обучения'
     },
@@ -41,7 +44,9 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
       label: 'Зачисление'
     },
     {
-      val: 'Государственный диплом',
+      val: mituinstitute
+        ? 'Государственный диплом'
+        : 'Престижный диплом о высшем образовании',
       label: 'Диплом'
     }
   ]

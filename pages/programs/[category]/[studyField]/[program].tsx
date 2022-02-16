@@ -3,7 +3,7 @@ import type { NextPage } from 'next'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { TypePageProgramProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
-import { routesFront } from '@/config/index'
+import { routesFront, mituinstitute } from '@/config/index'
 import { handleGetStaticProps, handleGetStaticPaths } from '@/lib/index'
 import {
   ContextCategoriesContext,
@@ -57,7 +57,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           <SectionProgramContents />
           <SectionYourFutureDiploma atPageProgram />
           <SectionProgramJobTitles />
-          {routesFront.root === routesFront.defaultRoot &&
+          {mituinstitute &&
             curCategory?.type !== 'bachelor' &&
             curCategory?.type !== 'master' && (
               <>

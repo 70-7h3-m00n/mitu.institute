@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { MouseEventHandler, useContext, useState, useEffect } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
+import { routesFront, mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -13,7 +14,6 @@ import {
   ContextProgramsContext,
   ContextCategoriesContext
 } from '@/context/index'
-import routesFront from '@/config/routesFront'
 
 type TypeCardsProgramProps = TypeClassNames & {
   promo?: boolean
@@ -93,7 +93,9 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
                 '/'
               }>
               <a className={stls.btn}>
-                <div className={stls.label}>{card?.study_field?.label}</div>
+                {mituinstitute && (
+                  <div className={stls.label}>{card?.study_field?.label}</div>
+                )}
                 <div className={stls.top}>
                   <h3 className={stls.title}>{card.title}</h3>
                   <p className={stls.desc}>{card.shortDescription}</p>
@@ -101,12 +103,15 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
                 <div className={stls.bottom}>
                   <div className={stls.studyDuration}>
                     <IconClock classNames={[stls.iconClock]} />
-                    <ProgramStudyDuration
-                      studyDurationMonths={
-                        Number(card?.timenprice?.[0]?.studyMonthsDuration) || 0
-                      }
-                      monthsOnly
-                    />
+                    {mituinstitute && (
+                      <ProgramStudyDuration
+                        studyDurationMonths={
+                          Number(card?.timenprice?.[0]?.studyMonthsDuration) ||
+                          0
+                        }
+                        monthsOnly
+                      />
+                    )}
                   </div>
                   <div className={stls.learnMore}>
                     <div className={stls.learnMoreLabel}>Подробнее</div>

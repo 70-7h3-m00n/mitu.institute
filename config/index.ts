@@ -9,6 +9,7 @@ import email from '@/config/email'
 import emailRegex from '@/config/emailRegex'
 import env from '@/config/env'
 import gtm from '@/config/gtm'
+import mituinstitute from '@/config/mituinstitute'
 import phoneNumber from '@/config/phoneNumber'
 import prod from '@/config/prod'
 import revalidate from '@/config/revalidate'
@@ -29,6 +30,7 @@ export {
   emailRegex,
   env,
   gtm,
+  mituinstitute,
   phoneNumber,
   prod,
   revalidate,
