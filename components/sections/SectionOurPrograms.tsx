@@ -72,7 +72,7 @@ const SectionOurPrograms = ({
             ))}
           </div>
           <CardsProgram promo={promo} />
-          {!atPrograms && (
+          {promo && (
             <Popup
               trigger={() => (
                 <BtnAlpha variant='beta' classNames={[stls.btnShowMore]}>
@@ -89,6 +89,15 @@ const SectionOurPrograms = ({
                 </GeneralPopup>
               )}
             </Popup>
+          )}
+          {!promo && !atPrograms && (
+            <BtnAlpha
+              variant='beta'
+              classNames={[stls.btnShowMore]}
+              tag='Link'
+              href={`${routesFront.programs}/${curCategory?.slug}`}>
+              Показать ещё
+            </BtnAlpha>
           )}
         </div>
       </Wrapper>

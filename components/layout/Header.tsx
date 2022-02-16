@@ -19,7 +19,7 @@ const Header = ({ classNames }: TypeHeaderProps) => {
   const router = useRouter()
   const { categories, curCategorySlug } = useContext(ContextCategoriesContext)
 
-  const links = !mituinstitute
+  const links = mituinstitute
     ? categories
         ?.filter(category => category?.slug && category?.label)
         .map(category => ({
