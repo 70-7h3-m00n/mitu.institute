@@ -51,28 +51,6 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
   return (
     <section className={stls.container}>
       <Wrapper>
-        {/* {console.log(
-          isBrowser &&
-            papaparse.parse(
-              'https://res.cloudinary.com/anpmitu/raw/upload/v1645112697/test_e325e56283.csv',
-              {
-                download: true,
-                complete: result => {
-                  console.log(result)
-                }
-              }
-            )
-        )}
-
-        {isBrowser &&
-          papaparse.parse(
-            'https://res.cloudinary.com/anpmitu/raw/upload/v1645112697/test_e325e56283.csv',
-            {
-              download: true,
-              complete: result => <>Test</>
-            }
-          )} */}
-
         {console.log(table)}
         {/* {table && <iframe src={table}></iframe>} */}
         {table && parse(table)}
