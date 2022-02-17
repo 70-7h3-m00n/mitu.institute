@@ -8,6 +8,7 @@ import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 import { IconWave } from '@/components/icons'
 import { ImgForWhom } from '@/components/imgs'
+import mituinstitute from '@/config/mituinstitute'
 
 type TypeSectionProgramForWhomProps = TypeClassNames
 
@@ -28,9 +29,9 @@ const SectionProgramForWhom = ({
         <div className={stls.content}>
           <div className={stls.left}>
             <p className={stls.desc}>
-              Образовательные программы института сертифицированы и имеют
-              аккуредитацию. По окончании обучения выдается диплом о высшем
-              образовании государственного образца
+              Образовательные программы института сертифицированы и{' '}
+              {mituinstitute && 'имеют аккредитацию'}. По окончании обучения
+              выдается диплом о высшем образовании государственного образца
             </p>
             <IconWave classNames={[stls.icon]} />
             <ImgForWhom
