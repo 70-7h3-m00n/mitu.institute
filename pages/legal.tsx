@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next'
 import { TypePageLegalProps } from '@/types/index'
 import { useContext, useState, useEffect } from 'react'
 import cn from 'classnames'
-// import papaparse from 'papaparse'
+import papaparse from 'papaparse'
 import parse from 'html-react-parser'
 import { marked } from 'marked'
 import { Wrapper } from '@/components/layout'
@@ -13,6 +13,7 @@ import { handleGetStaticProps } from '@/lib/index'
 import { sortBasedOnNumericOrder } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
 import { IconFile } from '@/components/icons'
+import axios from 'axios'
 
 const PageLegal: NextPage<TypePageLegalProps> = ({
   categories,
@@ -24,15 +25,28 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
     sortBasedOnNumericOrder(documentCategories)?.[0]?.title || null
   )
 
-  // const [isBrowser, setIsBrowser] = useState(false)
+  const [isBrowser, setIsBrowser] = useState(false)
+  const [table, setTable] = useState(undefined)
 
   useEffect(() => {
     setCategories({
       payload: { categories, curCategorySlug: categories?.[0]?.slug || null }
     })
 
-    // setIsBrowser(true)
+    setIsBrowser(true)
   }, [categories])
+
+  const fetchTable = async () => {
+    const res = await axios.get(
+      'https://res.cloudinary.com/anpmitu/raw/upload/v1645114422/Sheet1_0795d848e3.html'
+    )
+    const data = await res.data
+    setTable(data)
+  }
+
+  if (isBrowser) {
+    fetchTable()
+  }
 
   return (
     <section className={stls.container}>
@@ -40,7 +54,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
         {/* {console.log(
           isBrowser &&
             papaparse.parse(
-              'https://res.cloudinary.com/anpmitu/raw/upload/v1643800247/test_cc5760f2b1.csv',
+              'https://res.cloudinary.com/anpmitu/raw/upload/v1645112697/test_e325e56283.csv',
               {
                 download: true,
                 complete: result => {
@@ -52,12 +66,16 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
 
         {isBrowser &&
           papaparse.parse(
-            'https://res.cloudinary.com/anpmitu/raw/upload/v1643800247/test_cc5760f2b1.csv',
+            'https://res.cloudinary.com/anpmitu/raw/upload/v1645112697/test_e325e56283.csv',
             {
               download: true,
               complete: result => <>Test</>
             }
           )} */}
+
+        {console.log(table)}
+        {/* {table && <iframe src={table}></iframe>} */}
+        {table && parse(table)}
 
         <h1 className={stls.title}>Сведения об организации</h1>
         <div className={stls.content}>

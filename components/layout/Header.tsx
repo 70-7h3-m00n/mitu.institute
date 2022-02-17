@@ -35,7 +35,7 @@ const Header = ({ classNames }: TypeHeaderProps) => {
           passHref: true
         },
         {
-          href: `https://lms.mitu.msk.ru`,
+          href: `https://urait.ru`,
           val: 'ЭБС',
           passHref: true
         },

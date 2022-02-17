@@ -31,16 +31,18 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
           }
         />
       ) : (
-        '4-5 лет'
+        '3.5-4.5 года'
       ),
       label: 'Срок обучения'
     },
     {
-      val: 'Дистанционная',
-      label: 'Форма обучения'
+      label: 'Форма обучения',
+      val: mituinstitute
+        ? 'Дистанционная'
+        : 'Очная, очно-заочная, заочная с приминением дистанционных технологий обучения'
     },
     {
-      val: <ProgramAdmission />,
+      val: mituinstitute ? <ProgramAdmission /> : 'Ежемесячно',
       label: 'Зачисление'
     },
     {

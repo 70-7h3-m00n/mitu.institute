@@ -23,6 +23,7 @@ import {
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
 import { ImgStudyCost } from '@/components/imgs'
+import mituinstitute from '@/config/mituinstitute'
 
 type TypeSectionProgramStudyCostProps = TypeClassNames
 
@@ -41,17 +42,23 @@ const SectionProgramStudyCost = ({
       item: (
         <span>
           Длительность обучения{' '}
-          <ProgramStudyDuration
-            studyDurationMonths={Number(
-              program.timenprice[0].studyMonthsDuration || 12
-            )}
-          />
+          {mituinstitute ? (
+            <ProgramStudyDuration
+              studyDurationMonths={Number(
+                program.timenprice[0].studyMonthsDuration || 12
+              )}
+            />
+          ) : (
+            '3.5-4.5 лет'
+          )}
         </span>
       )
     },
     {
       id: 'SectionProgramStudyCostStudyFormat',
-      item: <>Дистанционно</>
+      item: mituinstitute
+        ? 'Дистанционная'
+        : 'Очная, очно-заочная, заочная с приминением дистанционных технологий обучения'
     },
     {
       id: 'SectionProgramStudyCostProgramAdmission',
