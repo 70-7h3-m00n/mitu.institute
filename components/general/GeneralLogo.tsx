@@ -6,9 +6,16 @@ import { routesFront, companyName } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ImgLogo } from '@/components/imgs'
 
-type TypeGeneralLogoProps = TypeClassNames & { atPromo?: boolean }
+type TypeGeneralLogoProps = TypeClassNames & {
+  atPromo?: boolean
+  withTitle?: boolean
+}
 
-const GeneralLogo = ({ classNames, atPromo }: TypeGeneralLogoProps) => {
+const GeneralLogo = ({
+  classNames,
+  atPromo,
+  withTitle
+}: TypeGeneralLogoProps) => {
   return (
     <Link href={atPromo ? routesFront.promo : routesFront.home}>
       <a
@@ -16,7 +23,9 @@ const GeneralLogo = ({ classNames, atPromo }: TypeGeneralLogoProps) => {
           cn([stls.container], getClassNames({ classNames })) || undefined
         }>
         <ImgLogo classNames={[stls.logo]} />
-        <span className={stls.companyName}>{!atPromo && companyName}</span>
+        {withTitle && (
+          <span className={stls.companyName}>{!atPromo && companyName}</span>
+        )}
       </a>
     </Link>
   )

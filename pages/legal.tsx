@@ -4,7 +4,6 @@ import { GetStaticProps } from 'next'
 import { TypePageLegalProps } from '@/types/index'
 import { useContext, useState, useEffect } from 'react'
 import cn from 'classnames'
-import papaparse from 'papaparse'
 import parse from 'html-react-parser'
 import { marked } from 'marked'
 import { Wrapper } from '@/components/layout'
@@ -12,8 +11,8 @@ import { phoneNumber, routesFront, email, address } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { sortBasedOnNumericOrder } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
+import { GeneralLegalTable } from '@/components/general'
 import { IconFile } from '@/components/icons'
-import axios from 'axios'
 
 const PageLegal: NextPage<TypePageLegalProps> = ({
   categories,
@@ -25,36 +24,15 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
     sortBasedOnNumericOrder(documentCategories)?.[0]?.title || null
   )
 
-  const [isBrowser, setIsBrowser] = useState(false)
-  const [table, setTable] = useState(undefined)
-
   useEffect(() => {
     setCategories({
       payload: { categories, curCategorySlug: categories?.[0]?.slug || null }
     })
-
-    setIsBrowser(true)
   }, [categories])
-
-  const fetchTable = async () => {
-    const res = await axios.get(
-      'https://res.cloudinary.com/anpmitu/raw/upload/v1645114422/Sheet1_0795d848e3.html'
-    )
-    const data = await res.data
-    setTable(data)
-  }
-
-  if (isBrowser) {
-    fetchTable()
-  }
 
   return (
     <section className={stls.container}>
       <Wrapper>
-        {console.log(table)}
-        {/* {table && <iframe src={table}></iframe>} */}
-        {table && parse(table)}
-
         <h1 className={stls.title}>Сведения об организации</h1>
         <div className={stls.content}>
           <div className={stls.left}>
@@ -103,7 +81,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
                             idx
                           }
                           className={stls.documentSubcategoriesDocumentsItem}>
-                          {document?.pdf?.url ? (
+                          {document?.pdf?.url?.includes('.pdf') ? (
                             <a
                               href={document?.pdf?.url}
                               target='_blank'
@@ -114,6 +92,8 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
                               <IconFile classNames={[stls.icon]} />
                               {document?.title}
                             </a>
+                          ) : document?.pdf?.url?.includes('.html') ? (
+                            <GeneralLegalTable url={document?.pdf?.url} />
                           ) : (
                             <div className={stls.text}>
                               {document?.text && parse(marked(document?.text))}

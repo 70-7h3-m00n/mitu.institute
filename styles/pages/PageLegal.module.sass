@@ -10,10 +10,6 @@
   @include m.media(laptop, desktop)
     padding-bottom: f.px(80)
 
-.test
-  width: 100%
-  height: 200px
-
 .title
   @include m.media(phone, tablet)
     font-size: f.px(36)
@@ -42,6 +38,7 @@
     margin-top: f.px(64)
   @include m.media(laptop, desktop)
     @include m.flex($d: false, $fb: 63%)
+    max-width: 63%
 
 .documentCategories
   margin: 0

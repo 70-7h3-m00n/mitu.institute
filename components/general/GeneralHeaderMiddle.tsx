@@ -24,7 +24,7 @@ const GeneralHeaderMiddle = ({ classNames }: TypeGeneralHeaderMiddleProps) => {
       }>
       <Wrapper>
         <div className={stls.content}>
-          <GeneralLogo classNames={[stls.logo]} />
+          <GeneralLogo classNames={[stls.logo]} withTitle />
           <div className={stls.phoneAddress}>
             <GeneralPhoneNumber
               withIcon
