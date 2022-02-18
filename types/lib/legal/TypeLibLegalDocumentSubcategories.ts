@@ -10,6 +10,7 @@ type TypeLibLegalDocumentSubcategories = {
         pdf?: {
           url?: string
         }
+        complicatedTable?: boolean
       }[]
     | null
   document_category?: {

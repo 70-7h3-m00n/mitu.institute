@@ -94,7 +94,10 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
                                 {document?.title}
                               </a>
                             ) : document?.pdf?.url?.includes('.html') ? (
-                              <GeneralLegalTable url={document?.pdf?.url} />
+                              <GeneralLegalTable
+                                url={document?.pdf?.url}
+                                complicatedTable={document?.complicatedTable}
+                              />
                             ) : (
                               <div className={stls.text}>
                                 {document?.text &&

@@ -6,9 +6,16 @@ import axios from 'axios'
 import parse from 'html-react-parser'
 import { getClassNames } from '@/helpers/index'
 
-type TypeGeneralLegalTableProps = TypeClassNames & { url?: string | null }
+type TypeGeneralLegalTableProps = TypeClassNames & {
+  url?: string | null
+  complicatedTable?: boolean | null
+}
 
-const GeneralLegalTable = ({ classNames, url }: TypeGeneralLegalTableProps) => {
+const GeneralLegalTable = ({
+  classNames,
+  url,
+  complicatedTable
+}: TypeGeneralLegalTableProps) => {
   const [isBrowser, setIsBrowser] = useState(false)
   const [table, setTable] = useState<string | undefined>(undefined)
   const [isLoading, setIsLoading] = useState(true)
@@ -33,7 +40,12 @@ const GeneralLegalTable = ({ classNames, url }: TypeGeneralLegalTableProps) => {
   return (
     <div
       className={
-        cn(stls.container, getClassNames({ classNames })) || undefined
+        cn(
+          stls.container,
+          { [stls.regularTable]: !complicatedTable },
+          { [stls.complicatedTable]: complicatedTable },
+          getClassNames({ classNames })
+        ) || undefined
       }>
       {table &&
         parse(

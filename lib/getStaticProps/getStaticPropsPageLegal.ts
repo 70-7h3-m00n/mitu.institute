@@ -38,6 +38,7 @@ const getStaticPropsPageLegal = async ({
             pdf {
               url
             }
+            complicatedTable
           }
           document_category {
             title
