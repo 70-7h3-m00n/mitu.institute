@@ -3,7 +3,6 @@
 @use '@/styles/themes/default/Colors.module.sass' as c
 @use '@/styles/shared/general' as g
 
-
 .container
   overflow-x: auto
   max-width: 100%
@@ -20,7 +19,7 @@
         @include m.dye(bg, c.$zeta)
       & td
         min-width: 25ch
-        max-width: 25ch
+        // max-width: 25ch
         & + td
           padding-left: f.px(16) !important
         padding: f.px(8) !important
