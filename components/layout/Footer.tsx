@@ -68,9 +68,13 @@ const Footer = ({ classNames }: TypeFooterProps) => {
             <ul className={stls.privacyLinks}>
               {privacyLinks.map(({ href, val }, idx) => (
                 <li key={href + idx} className={stls.privacyLinkItem}>
-                  <Link href={href}>
-                    <a className={stls.privacyLink}>{val}</a>
-                  </Link>
+                  <a
+                    href={href}
+                    target='_blank'
+                    rel='noreferrer noopener'
+                    className={stls.privacyLink}>
+                    {val}
+                  </a>
                 </li>
               ))}
             </ul>
