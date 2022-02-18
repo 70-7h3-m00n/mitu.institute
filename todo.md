@@ -37,3 +37,4 @@
 - Figure out a better way to do context & improve categories context
 - Create and use types for graphql queries
 - Improve picture layout & styles in SectionProgramForWhom
+- Edit SEO for each page

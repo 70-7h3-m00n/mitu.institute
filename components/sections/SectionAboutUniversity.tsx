@@ -6,6 +6,7 @@ import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 import { IconCoatOfArmsRussia } from '@/components/icons'
 import { BtnBeta } from '@/components/btns'
+import mituinstitute from '@/config/mituinstitute'
 
 type TypeSectionAboutUniversityProps = TypeClassNames
 
@@ -23,7 +24,9 @@ const SectionAboutUniversity = ({
     },
     {
       title: '7 лет',
-      subtitle: 'Специализируется на дистанционном обучении'
+      subtitle: mituinstitute
+        ? 'Специализируется на дистанционном обучении'
+        : 'Специализируется на дистанционном обучении'
     },
     {
       title: '>10 000',
@@ -37,7 +40,9 @@ const SectionAboutUniversity = ({
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <Wrapper>
-        <GeneralSectionTitle>Об университете</GeneralSectionTitle>
+        <GeneralSectionTitle>
+          {mituinstitute ? 'Об университете' : 'Об Институте'}
+        </GeneralSectionTitle>
         <div className={stls.content}>
           <div className={stls.top}>
             <div className={stls.left}>

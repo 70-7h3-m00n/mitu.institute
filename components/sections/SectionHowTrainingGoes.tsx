@@ -4,6 +4,7 @@ import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle } from '@/components/general'
+import mituinstitute from '@/config/mituinstitute'
 
 type TypeSectionHowTrainingGoesProps = TypeClassNames
 
@@ -28,7 +29,7 @@ const SectionHowTrainingGoes = ({
       desc: 'Закрепляете знания и исправляете ошибки'
     },
     {
-      title: 'Получаете диплом гособразца',
+      title: mituinstitute ? 'Получаете диплом гособразца' : 'Получаете диплом',
       desc: 'Защищаете дипломную работу и дополняете ею своё портфолио'
     },
     {
