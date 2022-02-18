@@ -1,4 +1,11 @@
-type TypeSortBasedOnNumericOrderProps = any[] | null
+import {
+  TypeLibLegalDocumentCategories,
+  TypeLibLegalDocumentSubcategories
+} from '@/types/index'
+
+type TypeSortBasedOnNumericOrderProps =
+  | (TypeLibLegalDocumentCategories & TypeLibLegalDocumentSubcategories)
+  | null
 
 const sortBasedOnNumericOrder = (arr: TypeSortBasedOnNumericOrderProps) =>
   [...(arr || [])].sort(

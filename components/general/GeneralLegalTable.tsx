@@ -11,6 +11,7 @@ type TypeGeneralLegalTableProps = TypeClassNames & { url?: string | null }
 const GeneralLegalTable = ({ classNames, url }: TypeGeneralLegalTableProps) => {
   const [isBrowser, setIsBrowser] = useState(false)
   const [table, setTable] = useState<string | undefined>(undefined)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     setIsBrowser(true)
@@ -21,13 +22,13 @@ const GeneralLegalTable = ({ classNames, url }: TypeGeneralLegalTableProps) => {
       const res = await axios.get(url)
       const data = await res.data
       setTable(data)
+      setIsLoading(false)
     }
   }
 
-  if (isBrowser) {
-    fetchTable()
-    // console.log(table?.replace(/<link.*>/g, '').replace(/class=".*"/, ''))
-  }
+  if (isBrowser) fetchTable()
+
+  if (isLoading) return <>Идёт загрузка... Пожалуйста, подождите</>
 
   return (
     <div

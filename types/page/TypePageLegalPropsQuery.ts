@@ -1,32 +1,13 @@
-import { TypeLibProgramsCategories } from '@/types/index'
+import {
+  TypeLibProgramsCategories,
+  TypeLibLegalDocumentCategories,
+  TypeLibLegalDocumentSubcategories
+} from '@/types/index'
 
 type TypePageLegalPropsQuery = {
   readonly categories: TypeLibProgramsCategories | null
-  readonly documentCategories:
-    | {
-        title?: string
-        numeric_order?: {
-          index?: string
-        }
-      }[]
-    | null
-  readonly documentSubcategories:
-    | {
-        title?: string
-        documents?:
-          | {
-              title?: string
-              text?: string
-              pdf?: {
-                url?: string
-              }
-            }[]
-          | null
-        document_category?: {
-          title?: string
-        }
-      }[]
-    | null
+  readonly documentCategories: TypeLibLegalDocumentCategories | null
+  readonly documentSubcategories: TypeLibLegalDocumentSubcategories | null
 }
 
 export default TypePageLegalPropsQuery

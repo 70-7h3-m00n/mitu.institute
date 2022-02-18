@@ -59,51 +59,53 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
           </div>
           <div className={stls.right}>
             <ul className={stls.documentSubcategories}>
-              {documentSubcategories
-                ?.filter(
-                  subcategory =>
-                    subcategory.document_category?.title === curCategory
-                )
-                .map((subcategory, idx) => (
-                  <li
-                    key={
-                      (subcategory.title ||
-                        'PageLegal_documentSubcategories_item') + idx
-                    }
-                    className={stls.documentSubcategoriesItem}>
-                    <h3 className={stls.h3}>{subcategory.title}</h3>
-                    <ul className={stls.documentSubcategoriesDocuments}>
-                      {subcategory.documents?.map((document, idx) => (
-                        <li
-                          key={
-                            (document?.title ||
-                              'PageLegal_documentSubcategories_documents_item') +
-                            idx
-                          }
-                          className={stls.documentSubcategoriesDocumentsItem}>
-                          {document?.pdf?.url?.includes('.pdf') ? (
-                            <a
-                              href={document?.pdf?.url}
-                              target='_blank'
-                              rel='noreferrer noopener'
-                              className={
-                                stls.documentSubcategoriesDocumentsItemLink
-                              }>
-                              <IconFile classNames={[stls.icon]} />
-                              {document?.title}
-                            </a>
-                          ) : document?.pdf?.url?.includes('.html') ? (
-                            <GeneralLegalTable url={document?.pdf?.url} />
-                          ) : (
-                            <div className={stls.text}>
-                              {document?.text && parse(marked(document?.text))}
-                            </div>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ))}
+              {documentSubcategories &&
+                sortBasedOnNumericOrder(documentSubcategories)
+                  .filter(
+                    subcategory =>
+                      subcategory.document_category?.title === curCategory
+                  )
+                  .map((subcategory, idx) => (
+                    <li
+                      key={
+                        (subcategory.title ||
+                          'PageLegal_documentSubcategories_item') + idx
+                      }
+                      className={stls.documentSubcategoriesItem}>
+                      <h3 className={stls.h3}>{subcategory.title}</h3>
+                      <ul className={stls.documentSubcategoriesDocuments}>
+                        {subcategory.documents?.map((document, idx) => (
+                          <li
+                            key={
+                              (document?.title ||
+                                'PageLegal_documentSubcategories_documents_item') +
+                              idx
+                            }
+                            className={stls.documentSubcategoriesDocumentsItem}>
+                            {document?.pdf?.url?.includes('.pdf') ? (
+                              <a
+                                href={document?.pdf?.url}
+                                target='_blank'
+                                rel='noreferrer noopener'
+                                className={
+                                  stls.documentSubcategoriesDocumentsItemLink
+                                }>
+                                <IconFile classNames={[stls.icon]} />
+                                {document?.title}
+                              </a>
+                            ) : document?.pdf?.url?.includes('.html') ? (
+                              <GeneralLegalTable url={document?.pdf?.url} />
+                            ) : (
+                              <div className={stls.text}>
+                                {document?.text &&
+                                  parse(marked(document?.text))}
+                              </div>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
             </ul>
           </div>
         </div>

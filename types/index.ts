@@ -60,6 +60,10 @@ import type TypeLibGeneralTitle from '@/types/lib/general/TypeLibGeneralTitle'
 import type TypeLibGeneralTitleHighlight from '@/types/lib/general/TypeLibGeneralTitleHighlight'
 import type TypeLibGeneralTitleTitlePart from '@/types/lib/general/TypeLibGeneralTitleTitlePart'
 
+// lib/legal
+import type TypeLibLegalDocumentCategories from '@/types/lib/legal/TypeLibLegalDocumentCategories'
+import type TypeLibLegalDocumentSubcategories from '@/types/lib/legal/TypeLibLegalDocumentSubcategories'
+
 // lib/program
 import type TypeLibProgram from '@/types/lib/program/TypeLibProgram'
 import type TypeLibProgramCategory from '@/types/lib/program/TypeLibProgramCategory'
@@ -183,6 +187,9 @@ export {
   TypeLibGeneralTitle,
   TypeLibGeneralTitleHighlight,
   TypeLibGeneralTitleTitlePart,
+  // lib/legal
+  TypeLibLegalDocumentCategories,
+  TypeLibLegalDocumentSubcategories,
   // lib/program
   TypeLibProgram,
   TypeLibProgramCategory,
