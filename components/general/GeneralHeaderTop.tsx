@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useContext, useEffect } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
-import { routesFront } from '@/config/index'
+import { mituinstitute, routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextAccessibilityContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
@@ -60,15 +60,44 @@ const GeneralHeaderTop = ({ classNames }: TypeGeneralHeaderTopProps) => {
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <Wrapper classNames={[stls.wrapper]}>
-        <Link href={routesFront.legal}>
-          <a className={stls.linkLegal}>
-            <span className={stls.laptopDesktop}>
-              Сведения об образовательной организации
-            </span>
-            <span className={stls.tablet}>Сведения об организации</span>
-            <span className={stls.phone}>Об организации</span>
-          </a>
-        </Link>
+        <div className={stls.left}>
+          {mituinstitute ? (
+            <Link href={routesFront.legal}>
+              <a className={stls.linkLegal}>
+                <span className={stls.laptopDesktop}>
+                  Сведения об образовательной организации
+                </span>
+                <span className={stls.tablet}>Сведения об организации</span>
+                <span className={stls.phone}>Об организации</span>
+              </a>
+            </Link>
+          ) : (
+            <>
+              <a
+                href='https://lms.mitu.msk.ru'
+                className={stls.linkLegal}
+                rel='noreferrer noopener'>
+                <span className={stls.desktop}>
+                  Электронная информационно-образовательная среда
+                </span>
+                <span className={stls.laptop}>ЭИОС</span>
+                <span className={stls.tablet}>ЭИОС</span>
+                <span className={stls.phone}>ЭИОС</span>
+              </a>
+              <a
+                href='https://urait.ru'
+                className={cn(stls.linkLegal, stls.ml)}
+                rel='noreferrer noopener'>
+                <span className={stls.desktop}>
+                  Электронно-библиотечная система
+                </span>
+                <span className={stls.laptop}>ЭБС</span>
+                <span className={stls.tablet}>ЭБС</span>
+                <span className={stls.phone}>ЭБС</span>
+              </a>
+            </>
+          )}
+        </div>
 
         <Popup
           trigger={() => (

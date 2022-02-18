@@ -9,6 +9,12 @@
 .wrapper
   @include m.flex($jc: space-between)
 
+.left
+  @include m.flex($jc: center, $ai: center)
+
+.ml
+  margin-left: f.px(25)
+
 .linkLegal
   @include m.flex($ai: center)
   outline: none
@@ -100,3 +106,9 @@
 
 .tabletLaptopDesktop
   @include g.tabletLaptopDesktop
+
+.laptop
+  @include g.laptop
+
+.desktop
+  @include g.desktop
