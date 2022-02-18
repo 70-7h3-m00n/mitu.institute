@@ -22,7 +22,9 @@ const routesFront: TypeRoutesFront = {
   apiLead: '/api/lead',
   assetsImgsIconsManifestIcon512: '/assets/imgs/icons/manifest-icon-512.png',
   anchorMain: '#main',
-  anchorPrograms: '#programs'
+  anchorPrograms: '#programs',
+  policiesTerms: '/policies/terms.pdf',
+  policiesPrivacy: '/policies/privacy.pdf'
 }
 
 export default routesFront

@@ -20,6 +20,8 @@ type TypeRoutesFront = {
   assetsImgsIconsManifestIcon512: '/assets/imgs/icons/manifest-icon-512.png'
   anchorMain: '#main'
   anchorPrograms: '#programs'
+  policiesTerms: '/policies/terms.pdf'
+  policiesPrivacy: '/policies/privacy.pdf'
 }
 
 export default TypeRoutesFront

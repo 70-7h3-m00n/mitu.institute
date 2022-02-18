@@ -42,11 +42,11 @@ const Footer = ({ classNames }: TypeFooterProps) => {
 
   const privacyLinks = [
     {
-      href: '#',
+      href: routesFront.policiesPrivacy,
       val: 'Политика кофиденциальности'
     },
     {
-      href: '#',
+      href: routesFront.policiesTerms,
       val: 'Пользовательское соглашение'
     }
   ]
