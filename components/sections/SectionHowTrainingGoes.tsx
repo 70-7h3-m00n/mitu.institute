@@ -1,10 +1,10 @@
 import stls from '@/styles/components/sections/SectionHowTrainingGoes.module.sass'
 import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
+import { mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle } from '@/components/general'
-import mituinstitute from '@/config/mituinstitute'
 
 type TypeSectionHowTrainingGoesProps = TypeClassNames
 

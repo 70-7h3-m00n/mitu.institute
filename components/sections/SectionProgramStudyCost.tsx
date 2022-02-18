@@ -4,6 +4,7 @@ import { MouseEventHandler } from 'react'
 import { useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
+import { mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import {
   ContextCategoriesContext,
@@ -23,7 +24,6 @@ import {
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
 import { ImgStudyCost } from '@/components/imgs'
-import mituinstitute from '@/config/mituinstitute'
 
 type TypeSectionProgramStudyCostProps = TypeClassNames
 

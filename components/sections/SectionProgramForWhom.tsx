@@ -2,13 +2,13 @@ import stls from '@/styles/components/sections/SectionProgramForWhom.module.sass
 import { TypeClassNames } from '@/types/index'
 import { Fragment, useContext } from 'react'
 import cn from 'classnames'
+import { mituinstitute } from '@/config/index'
 import { getClassNames, getImageHeight } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 import { IconWave } from '@/components/icons'
 import { ImgForWhom } from '@/components/imgs'
-import mituinstitute from '@/config/mituinstitute'
 
 type TypeSectionProgramForWhomProps = TypeClassNames
 

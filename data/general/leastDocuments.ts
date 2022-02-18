@@ -1,4 +1,4 @@
-import mituinstitute from '@/config/mituinstitute'
+import { mituinstitute } from '@/config/index'
 
 type TypeLeastDocuments = string[]
 

@@ -1,12 +1,12 @@
 import stls from '@/styles/components/sections/SectionAboutUniversity.module.sass'
 import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
+import { mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 import { IconCoatOfArmsRussia } from '@/components/icons'
 import { BtnBeta } from '@/components/btns'
-import mituinstitute from '@/config/mituinstitute'
 
 type TypeSectionAboutUniversityProps = TypeClassNames
 
