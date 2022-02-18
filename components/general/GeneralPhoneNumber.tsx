@@ -32,11 +32,13 @@ const GeneralPhoneNumber = ({
       }
       href={phoneNumber.href}
       title='Позвонить'>
-      <div className={stls.iconAndVal}>
+      <div className={stls.content}>
         {withIcon && <IconPhone classNames={[stls.icon]} />}
-        <span>{phoneNumber.val}</span>
+        <div className={stls.numberlabel}>
+          <span>{phoneNumber.val}</span>
+          {withLabel && <span className={stls.label}>Бесплатно по России</span>}
+        </div>
       </div>
-      {withLabel && <span className={stls.label}>Бесплатно по России</span>}
     </a>
   )
 }

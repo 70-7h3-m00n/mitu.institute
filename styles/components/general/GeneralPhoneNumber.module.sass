@@ -27,11 +27,15 @@
   @include m.media(desktop)
     @include m.flex($jc: center, $ai: center)
 
-.iconAndVal
+.content
   @include m.media(laptop)
     margin-bottom: f.px(3)
   @include m.media(laptop, desktop)
     @include m.flex($jc: center, $ai: center)
+
+.numberlabel
+  @include m.media(tablet, laptop)
+    @include m.flex($fd: column)
 
 .icon
   @include m.media(phone, tablet)

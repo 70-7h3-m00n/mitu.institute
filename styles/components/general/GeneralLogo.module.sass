@@ -6,6 +6,7 @@
   position: relative
   display: flex
   align-items: center
+  margin-right: f.px(24)
   transition: transform 0.25s ease
   // max-width: f.px(97)
   &::after
@@ -32,11 +33,26 @@
 .logo
   position: relative
   z-index: 1
-  max-width: f.px(97)
+  @include m.media(phone, tablet)
+    min-width: f.px(74)
+    max-width: f.px(74)
+  @include m.media(tablet)
+    min-width: f.px(60)
+    max-width: f.px(60)
+  @include m.media(laptop, desktop)
+    min-width: f.px(97)
+    max-width: f.px(97)
 
 .companyName
-  margin-left: f.px(24)
-  font-size: f.px(18)
+  @include m.media(phone)
+    margin-left: f.px(16)
+    font-size: f.px(10)
+  @include m.media(tablet)
+    margin-left: f.px(8)
+    font-size: f.px(12)
+  @include m.media(laptop, desktop)
+    margin-left: f.px(24)
+    font-size: f.px(18)
   line-height: 140%
   text-transform: uppercase
   max-width: 27ch

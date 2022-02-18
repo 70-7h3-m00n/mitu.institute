@@ -44,7 +44,7 @@ const GeneralHeaderMiddle = ({ classNames }: TypeGeneralHeaderMiddleProps) => {
                   variant='delta'
                   classNames={[stls.btn, stls.btnAlpha]}>
                   <span className={stls.btnTextAlt}>Связаться</span>
-                  <span className={stls.btnText}>Заказать звонок</span>
+                  <span className={stls.btnText}>Заказать&nbsp;звонок</span>
                 </BtnAlpha>
               )
             }}
