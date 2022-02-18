@@ -62,15 +62,21 @@ const SectionProgramStudyCost = ({
     },
     {
       id: 'SectionProgramStudyCostProgramAdmission',
-      item: (
+      item: mituinstitute ? (
         <>
           Ближайшее зачисление <ProgramAdmission />
         </>
+      ) : (
+        'Ежемесячно'
       )
     },
     {
       id: 'SectionProgramStudyCostDiploma',
-      item: <>Государственный диплом</>,
+      item: mituinstitute ? (
+        <>Государственный диплом</>
+      ) : (
+        'Престижный диплом о высшем образовании'
+      ),
       highlight: true
     }
   ]
