@@ -50,7 +50,7 @@ const SectionYourFutureDiploma = ({
     diplomas = [
       {
         img: <ImgDiploma1 />,
-        label: 'Диплом бакалавра'
+        label: 'Диплом переподготовки'
       },
       {
         img: <ImgDiploma3 />,
