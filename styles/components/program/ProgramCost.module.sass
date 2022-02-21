@@ -3,3 +3,12 @@
 @use '@/styles/themes/default/Colors.module.sass' as c
 @use '@/styles/shared/general' as s
 @use '@/styles/shared/section' as section
+
+.perMonth
+  @include m.media(phone, tablet)
+    font-size: f.px(28)
+  @include m.media(laptop, desktop)
+    font-size: f.px(32)
+
+.phone
+  @include s.phone

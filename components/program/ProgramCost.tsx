@@ -1,3 +1,4 @@
+import stls from '@/styles/components/program/ProgramCost.module.sass'
 import { addSpacesToNumber } from '@/helpers/index'
 
 type ProgramCostProps = {
@@ -7,6 +8,7 @@ type ProgramCostProps = {
   isOneTwelfth?: boolean
   isRegular?: boolean
   withRubSign?: boolean
+  withPerMonthLabel?: boolean
 }
 
 const ProgramCost = ({
@@ -15,7 +17,8 @@ const ProgramCost = ({
   isHalf,
   isOneTwelfth,
   isRegular,
-  withRubSign
+  withRubSign,
+  withPerMonthLabel
 }: ProgramCostProps) => {
   let output = price
 
@@ -27,10 +30,18 @@ const ProgramCost = ({
 
   if (isOneTwelfth) output = Math.round(Math.ceil(output / 12) / 100) * 100
 
+  // TODO: make this more generic. This component shoudn't have styles but should have a way to control perMonth & rubSign styles
   return (
     <>
       {addSpacesToNumber(output)}
-      {withRubSign && <> &#8381;</>}
+      {withRubSign && (
+        <>
+          {' '}
+          <br className={stls.phone} />
+          &#8381;
+          {withPerMonthLabel && <span className={stls.perMonth}>/мес</span>}
+        </>
+      )}
     </>
   )
 }

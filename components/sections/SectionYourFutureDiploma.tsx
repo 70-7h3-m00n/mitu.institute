@@ -42,7 +42,7 @@ const SectionYourFutureDiploma = ({
       },
       {
         img: <ImgDiploma3 />,
-        label: 'Приложение к диплому'
+        label: 'Диплом Supplement'
       }
     ]
 
@@ -54,7 +54,7 @@ const SectionYourFutureDiploma = ({
       },
       {
         img: <ImgDiploma3 />,
-        label: 'Приложение к диплому'
+        label: 'Диплом Supplement'
       }
     ]
 
@@ -70,7 +70,7 @@ const SectionYourFutureDiploma = ({
       },
       {
         img: <ImgDiploma3 />,
-        label: 'Приложение к диплому'
+        label: 'Диплом Supplement'
       }
     ]
 

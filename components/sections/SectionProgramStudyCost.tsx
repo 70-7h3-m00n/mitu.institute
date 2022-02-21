@@ -72,11 +72,10 @@ const SectionProgramStudyCost = ({
     },
     {
       id: 'SectionProgramStudyCostDiploma',
-      item: mituinstitute ? (
-        <>Государственный диплом</>
-      ) : (
-        'Престижный диплом о высшем образовании'
-      ),
+      item: mituinstitute
+        ? // <>Государственный диплом</>
+          null
+        : 'Престижный диплом о высшем образовании',
       highlight: true
     }
   ]
@@ -96,6 +95,7 @@ const SectionProgramStudyCost = ({
     </Popup>
   )
 
+  // TODO: improve styles for this section & rub sign + phone layout
   return (
     <section
       className={
@@ -105,7 +105,7 @@ const SectionProgramStudyCost = ({
         <GeneralSectionTitle>Стоимость обучения</GeneralSectionTitle>
         <div className={stls.content}>
           <div className={stls.left}>
-            <h3 className={stls.h3}>Оплата за один семестр</h3>
+            {/* <h3 className={stls.h3}>Оплата за один семестр</h3>
             <div className={stls.prices}>
               <p className={stls.priceRegular}>
                 {' '}
@@ -115,6 +115,7 @@ const SectionProgramStudyCost = ({
                   isRegular
                   isHalf
                   withRubSign
+                  withPerMonthLabel
                 />
               </p>
               <p className={stls.priceDiscounted}>
@@ -123,9 +124,10 @@ const SectionProgramStudyCost = ({
                   discount={Number(program.timenprice[0].discount)}
                   isHalf
                   withRubSign
+                  withPerMonthLabel
                 />
               </p>
-            </div>
+            </div> */}
             <h3 className={cn(stls.h3, stls.h3Mx)}>
               Беспроцентная рассрочка на&nbsp;
               <GeneralTextHighlight>12&nbsp;месяцев</GeneralTextHighlight>
@@ -138,6 +140,7 @@ const SectionProgramStudyCost = ({
                   isRegular
                   isOneTwelfth
                   withRubSign
+                  withPerMonthLabel
                 />
               </p>
               <p className={stls.priceDiscounted}>
@@ -146,6 +149,7 @@ const SectionProgramStudyCost = ({
                   discount={Number(program.timenprice[0].discount)}
                   isOneTwelfth
                   withRubSign
+                  withPerMonthLabel
                 />
               </p>
             </div>
@@ -157,17 +161,19 @@ const SectionProgramStudyCost = ({
                   <h3 className={stls.h3}>{curCategory.label}</h3>
                 )}
                 <ul className={stls.testimonials}>
-                  {testimonials.map((testimonial, idx) => (
-                    <li key={testimonial.id} className={stls.testimonialItem}>
-                      <div className={stls.testimonialDot}></div>
-                      <div
-                        className={cn(stls.testimonial, {
-                          [stls.highlight]: testimonial.highlight
-                        })}>
-                        {testimonial.item}
-                      </div>
-                    </li>
-                  ))}
+                  {testimonials
+                    .filter(testimonial => testimonial.item)
+                    .map((testimonial, idx) => (
+                      <li key={testimonial.id} className={stls.testimonialItem}>
+                        <div className={stls.testimonialDot}></div>
+                        <div
+                          className={cn(stls.testimonial, {
+                            [stls.highlight]: testimonial.highlight
+                          })}>
+                          {testimonial.item}
+                        </div>
+                      </li>
+                    ))}
                 </ul>
               </div>
               <div className={cn(stls.btnTabletLaptopDesktop)}>{btn}</div>
