@@ -62,7 +62,7 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
                           Number(card?.timenprice?.[0]?.studyMonthsDuration) ||
                           0
                         }
-                        monthsOnly
+                        yearsOnly
                       />
                     </div>
                     <div className={stls.learnMore}>
@@ -109,7 +109,7 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
                           Number(card?.timenprice?.[0]?.studyMonthsDuration) ||
                           0
                         }
-                        monthsOnly
+                        yearsOnly
                       />
                     </div>
                   )}

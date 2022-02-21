@@ -10,12 +10,14 @@ import {
 type TypeProgramStudyDurationProps = TypeClassNames & {
   studyDurationMonths: number
   monthsOnly?: boolean
+  yearsOnly?: boolean
 }
 
 const ProgramStudyDuration = ({
   classNames,
   studyDurationMonths,
-  monthsOnly
+  monthsOnly,
+  yearsOnly
 }: TypeProgramStudyDurationProps) => {
   const years = Math.floor(+studyDurationMonths / 12)
   const months = +studyDurationMonths - 12 * years
@@ -25,9 +27,9 @@ const ProgramStudyDuration = ({
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
-      {monthsOnly ? (
-        getCasedRuMonthString({ months: studyDurationMonths })
-      ) : (
+      {monthsOnly && getCasedRuMonthString({ months: studyDurationMonths })}{' '}
+      {yearsOnly && getCasedRuYearString({ studyDurationMonths })}
+      {!monthsOnly && !yearsOnly && (
         <>
           {getCasedRuYearString({ years })} {getCasedRuMonthString({ months })}
         </>

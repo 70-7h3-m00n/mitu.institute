@@ -13,6 +13,8 @@ import {
 import {
   SectionProgramHero,
   SectionProgramForWhom,
+  SectionHowTrainingGoes,
+  SectionLeastDocuments,
   SectionProgramWhatWillYouLearn,
   SectionProgramHowProcessGoes,
   SectionProgramContents,
@@ -52,6 +54,8 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
         <>
           <SectionProgramHero />
           <SectionProgramForWhom />
+          <SectionHowTrainingGoes />
+          <SectionLeastDocuments />
           <SectionProgramWhatWillYouLearn />
           {/* <SectionProgramHowProcessGoes /> */}
           <SectionProgramContents />
