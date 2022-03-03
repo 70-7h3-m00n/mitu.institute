@@ -13,6 +13,7 @@ import phoneNumber from '@/config/phoneNumber'
 import prod from '@/config/prod'
 import revalidate from '@/config/revalidate'
 import routesBack from '@/config/routesBack'
+import routesExternal from '@/config/routesExternal'
 import routesFront from '@/config/routesFront'
 import selectors from '@/config/selectors'
 import themeColor from '@/config/themeColor'
@@ -34,6 +35,7 @@ export {
   prod,
   revalidate,
   routesBack,
+  routesExternal,
   routesFront,
   selectors,
   themeColor,
