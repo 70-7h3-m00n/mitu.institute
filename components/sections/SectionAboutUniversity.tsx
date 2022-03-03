@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/SectionAboutUniversity.module.sass'
 import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
-import { mituinstitute } from '@/config/index'
+import { routesExternal, mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
@@ -65,7 +65,7 @@ const SectionAboutUniversity = ({
                   variant='alpha'
                   classNames={[stls.btn, stls.btnLeft]}
                   tag='a'
-                  href='https://isga.obrnadzor.gov.ru/rlic/details/0B100E0A-0A0B-110B-0D10-0E13110C0C111010110E/'
+                  href={routesExternal.license}
                   target='_blank'>
                   Государственная лицензия на право ведения образовательной
                   деятельности
@@ -95,7 +95,7 @@ const SectionAboutUniversity = ({
               variant='alpha'
               classNames={[stls.btn, stls.btnLeft]}
               tag='a'
-              href='https://isga.obrnadzor.gov.ru/rlic/details/0B100E0A-0A0B-110B-0D10-0E13110C0C111010110E/'
+              href={routesExternal.license}
               target='_blank'>
               Государственная лицензия на право ведения образовательной
               деятельности
