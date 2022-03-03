@@ -25,7 +25,7 @@ import {
   SectionStartWithDiscount,
   SectionProgramStudyCost,
   SectionProgramQna,
-  SectionProgramStudyingWithUsIs
+  SectionStudyingWithUsIs
 } from '@/components/sections'
 
 const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
@@ -60,8 +60,9 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           <SectionProgramWhatWillYouLearn />
           {/* <SectionProgramHowProcessGoes /> */}
           <SectionProgramContents />
-          {mituinstitute && <SectionProgramStudyingWithUsIs />}
+          {mituinstitute && <SectionStudyingWithUsIs />}
           <SectionYourFutureDiploma atPageProgram />
+          {mituinstitute && <SectionStudyingWithUsIs />}
           <SectionProgramJobTitles />
           {mituinstitute &&
             curCategory?.type !== 'bachelor' &&

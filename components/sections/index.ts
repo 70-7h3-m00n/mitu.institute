@@ -12,7 +12,7 @@ export { default as SectionProgramHowProcessGoes } from '@/components/sections/S
 export { default as SectionProgramJobTitles } from '@/components/sections/SectionProgramJobTitles'
 export { default as SectionProgramQna } from '@/components/sections/SectionProgramQna'
 export { default as SectionProgramStudyCost } from '@/components/sections/SectionProgramStudyCost'
-export { default as SectionProgramStudyingWithUsIs } from '@/components/sections/SectionProgramStudyingWithUsIs'
+export { default as SectionStudyingWithUsIs } from '@/components/sections/SectionStudyingWithUsIs'
 export { default as SectionProgramTeachers } from '@/components/sections/SectionProgramTeachers'
 export { default as SectionProgramWhatWillYouLearn } from '@/components/sections/SectionProgramWhatWillYouLearn'
 export { default as SectionStartWithDiscount } from '@/components/sections/SectionStartWithDiscount'

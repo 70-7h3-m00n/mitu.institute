@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/SectionProgramStudyingWithUsIs.module.sass'
+import stls from '@/styles/components/sections/SectionStudyingWithUsIs.module.sass'
 import { TypeClassNames } from '@/types/index'
 import { useContext } from 'react'
 import cn from 'classnames'
@@ -8,11 +8,11 @@ import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 
-type TypeSectionProgramStudyingWithUsIsProps = TypeClassNames
+type TypeSectionStudyingWithUsIsProps = TypeClassNames
 
-const SectionProgramStudyingWithUsIs = ({
+const SectionStudyingWithUsIs = ({
   classNames
-}: TypeSectionProgramStudyingWithUsIsProps) => {
+}: TypeSectionStudyingWithUsIsProps) => {
   return (
     <section
       className={
@@ -41,4 +41,4 @@ const SectionProgramStudyingWithUsIs = ({
   )
 }
 
-export default SectionProgramStudyingWithUsIs
+export default SectionStudyingWithUsIs
