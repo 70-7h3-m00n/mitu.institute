@@ -23,6 +23,13 @@ const SectionWhyUs = ({ classNames }: TypeSectionWhyUsProps) => {
             «Московский институт технологий и управления»
           </GeneralTextHighlight>
         </GeneralSectionTitle>
+        <ul className={stls.list}>
+          {whyus.map((item, idx) => (
+            <li key={`${item}-${idx}`} className={stls.listItem}>
+              {item}
+            </li>
+          ))}
+        </ul>
       </Wrapper>
     </section>
   )

@@ -8,3 +8,12 @@
 
 .title
   max-width: 25ch
+
+.list
+  @include m.media(tablet, laptop, desktop)
+    @include m.flex($fw: wrap)
+  margin: 0
+  padding: 0
+
+.listItem
+  //
