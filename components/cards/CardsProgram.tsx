@@ -103,14 +103,19 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
                 <div className={stls.bottom}>
                   {mituinstitute && (
                     <div className={stls.studyDuration}>
-                      <IconClock classNames={[stls.iconClock]} />
-                      <ProgramStudyDuration
-                        studyDurationMonths={
-                          Number(card?.timenprice?.[0]?.studyMonthsDuration) ||
-                          0
-                        }
-                        yearsOnly
-                      />
+                      {card?.timenprice?.[0]?.studyMonthsDuration && (
+                        <>
+                          <IconClock classNames={[stls.iconClock]} />
+                          <ProgramStudyDuration
+                            studyDurationMonths={
+                              Number(
+                                card?.timenprice?.[0]?.studyMonthsDuration
+                              ) || 0
+                            }
+                            yearsOnly
+                          />
+                        </>
+                      )}
                     </div>
                   )}
                   <div className={stls.learnMore}>
