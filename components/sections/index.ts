@@ -20,4 +20,5 @@ export { default as SectionProgramWhatWillYouLearn } from '@/components/sections
 export { default as SectionStartWithDiscount } from '@/components/sections/SectionStartWithDiscount'
 export { default as SectionTrainingFormat } from '@/components/sections/SectionTrainingFormat'
 export { default as SectionUIFormAlpha } from '@/components/sections/SectionUIFormAlpha'
+export { default as SectionWhyUs } from '@/components/sections/SectionWhyUs'
 export { default as SectionYourFutureDiploma } from '@/components/sections/SectionYourFutureDiploma'

@@ -13,6 +13,7 @@ import {
 import {
   SectionProgramHero,
   SectionProgramForWhom,
+  SectionEnterWithoutExam,
   SectionHowTrainingGoes,
   SectionLeastDocuments,
   SectionProgramWhatWillYouLearn,
@@ -21,6 +22,7 @@ import {
   SectionStudyingWithUsIs,
   SectionYourFutureDiploma,
   SectionCheckLicense,
+  SectionWhyUs,
   SectionProgramJobTitles,
   SectionProgramJobTitlesWithoutPictures,
   SectionUIFormAlpha,
@@ -57,6 +59,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
         <>
           <SectionProgramHero />
           <SectionProgramForWhom />
+          <SectionEnterWithoutExam />
           <SectionHowTrainingGoes />
           <SectionLeastDocuments />
           <SectionProgramWhatWillYouLearn />
@@ -65,18 +68,19 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           {mituinstitute && <SectionStudyingWithUsIs />}
           <SectionYourFutureDiploma atPageProgram />
           {mituinstitute && <SectionCheckLicense />}
+          {mituinstitute && <SectionWhyUs />}
+          <SectionStartWithDiscount />
           {/* <SectionProgramJobTitles /> */}
           <SectionProgramJobTitlesWithoutPictures />
+          <SectionUIFormAlpha title='Получить бесплатную консультацию' />
+          <SectionProgramStudyCost />
           {mituinstitute &&
             curCategory?.type !== 'bachelor' &&
             curCategory?.type !== 'master' && (
               <>
-                <SectionUIFormAlpha title='Получить бесплатную консультацию' />
                 <SectionProgramTeachers />
               </>
             )}
-          <SectionStartWithDiscount />
-          <SectionProgramStudyCost />
           <SectionProgramQna />
         </>
       )}
