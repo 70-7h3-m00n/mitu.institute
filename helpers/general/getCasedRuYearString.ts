@@ -19,7 +19,7 @@ const getCasedRuYearString = ({
   }
 
   if (studyDurationMonths) {
-    if (studyDurationMonths % 12 === 1)
+    if (studyDurationMonths % 12 === 1 || studyDurationMonths % 12 === 0)
       return `${Math.floor((studyDurationMonths / 12) * 10) / 10} год`
 
     if (studyDurationMonths % 12 > 1 && studyDurationMonths % 12 < 5)
