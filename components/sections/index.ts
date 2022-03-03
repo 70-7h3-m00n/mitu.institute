@@ -12,6 +12,7 @@ import SectionProgramHowProcessGoes from '@/components/sections/SectionProgramHo
 import SectionProgramJobTitles from '@/components/sections/SectionProgramJobTitles'
 import SectionProgramQna from '@/components/sections/SectionProgramQna'
 import SectionProgramStudyCost from '@/components/sections/SectionProgramStudyCost'
+import SectionProgramStudyingWithUsIs from '@/components/sections/SectionProgramStudyingWithUsIs'
 import SectionProgramTeachers from '@/components/sections/SectionProgramTeachers'
 import SectionProgramWhatWillYouLearn from '@/components/sections/SectionProgramWhatWillYouLearn'
 import SectionStartWithDiscount from '@/components/sections/SectionStartWithDiscount'
@@ -34,6 +35,7 @@ export {
   SectionProgramJobTitles,
   SectionProgramQna,
   SectionProgramStudyCost,
+  SectionProgramStudyingWithUsIs,
   SectionProgramTeachers,
   SectionProgramWhatWillYouLearn,
   SectionStartWithDiscount,
