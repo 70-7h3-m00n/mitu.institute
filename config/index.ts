@@ -1,43 +1,20 @@
-import address from '@/config/address'
-import base64pixel from '@/config/base64pixel'
-import breakpoints from '@/config/breakpoints'
-import colors from '@/config/colors'
-import companyName from '@/config/companyName'
-import defaultRouteFrontRoot from '@/config/defaultRouteFrontRoot'
-import dev from '@/config/dev'
-import email from '@/config/email'
-import emailRegex from '@/config/emailRegex'
-import env from '@/config/env'
-import gtm from '@/config/gtm'
-import phoneNumber from '@/config/phoneNumber'
-import prod from '@/config/prod'
-import revalidate from '@/config/revalidate'
-import routesBack from '@/config/routesBack'
-import routesExternal from '@/config/routesExternal'
-import routesFront from '@/config/routesFront'
-import selectors from '@/config/selectors'
-import themeColor from '@/config/themeColor'
-import mituinstitute from '@/config/mituinstitute'
-
-export {
-  address,
-  base64pixel,
-  breakpoints,
-  colors,
-  companyName,
-  defaultRouteFrontRoot,
-  dev,
-  email,
-  emailRegex,
-  env,
-  gtm,
-  phoneNumber,
-  prod,
-  revalidate,
-  routesBack,
-  routesExternal,
-  routesFront,
-  selectors,
-  themeColor,
-  mituinstitute
-}
+export { default as address } from '@/config/address'
+export { default as base64pixel } from '@/config/base64pixel'
+export { default as breakpoints } from '@/config/breakpoints'
+export { default as colors } from '@/config/colors'
+export { default as companyName } from '@/config/companyName'
+export { default as defaultRouteFrontRoot } from '@/config/defaultRouteFrontRoot'
+export { default as dev } from '@/config/dev'
+export { default as email } from '@/config/email'
+export { default as emailRegex } from '@/config/emailRegex'
+export { default as env } from '@/config/env'
+export { default as gtm } from '@/config/gtm'
+export { default as phoneNumber } from '@/config/phoneNumber'
+export { default as prod } from '@/config/prod'
+export { default as revalidate } from '@/config/revalidate'
+export { default as routesBack } from '@/config/routesBack'
+export { default as routesExternal } from '@/config/routesExternal'
+export { default as routesFront } from '@/config/routesFront'
+export { default as selectors } from '@/config/selectors'
+export { default as themeColor } from '@/config/themeColor'
+export { default as mituinstitute } from '@/config/mituinstitute'
