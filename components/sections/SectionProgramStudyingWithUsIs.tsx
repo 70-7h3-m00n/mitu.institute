@@ -14,8 +14,6 @@ const SectionProgramStudyingWithUsIs = ({
 }: TypeSectionProgramStudyingWithUsIsProps) => {
   const { program } = useContext(ContextProgramContext)
 
-  if (!program?.whatYouWillLearn) return <></>
-
   return (
     <section
       className={
