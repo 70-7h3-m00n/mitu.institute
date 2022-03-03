@@ -22,6 +22,7 @@ import {
   SectionYourFutureDiploma,
   SectionCheckLicense,
   SectionProgramJobTitles,
+  SectionProgramJobTitlesWithoutPictures,
   SectionUIFormAlpha,
   SectionProgramTeachers,
   SectionStartWithDiscount,
@@ -64,7 +65,8 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           {mituinstitute && <SectionStudyingWithUsIs />}
           <SectionYourFutureDiploma atPageProgram />
           {mituinstitute && <SectionCheckLicense />}
-          <SectionProgramJobTitles />
+          {/* <SectionProgramJobTitles /> */}
+          <SectionProgramJobTitlesWithoutPictures />
           {mituinstitute &&
             curCategory?.type !== 'bachelor' &&
             curCategory?.type !== 'master' && (

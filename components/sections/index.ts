@@ -11,6 +11,7 @@ export { default as SectionProgramForWhom } from '@/components/sections/SectionP
 export { default as SectionProgramHero } from '@/components/sections/SectionProgramHero'
 export { default as SectionProgramHowProcessGoes } from '@/components/sections/SectionProgramHowProcessGoes'
 export { default as SectionProgramJobTitles } from '@/components/sections/SectionProgramJobTitles'
+export { default as SectionProgramJobTitlesWithoutPictures } from '@/components/sections/SectionProgramJobTitlesWithoutPictures'
 export { default as SectionProgramQna } from '@/components/sections/SectionProgramQna'
 export { default as SectionProgramStudyCost } from '@/components/sections/SectionProgramStudyCost'
 export { default as SectionStudyingWithUsIs } from '@/components/sections/SectionStudyingWithUsIs'
