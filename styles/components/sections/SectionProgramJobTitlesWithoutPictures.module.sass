@@ -8,76 +8,45 @@
   @include section.gap
 
 .jobTitles
-  @include m.media(laptop, desktop)
+  @include m.media(tablet, laptop, desktop)
     @include m.flex($fw: wrap)
   margin: 0
   padding: 0
 
 $item_ld_mr: 3%
 .jobTitle
-  @include m.media(phone, tablet)
+  position: relative
+  @include m.media(phone)
     @include m.flex($ai: flex-start)
     & + .jobTitle
       margin-top: f.px(32)
-  @include m.media(laptop)
-    @include m.flex($fb: math.div((100% - $item_ld_mr), 2), $ai: flex-start)
-    margin-top: f.px(32)
-    &:nth-child(odd)
-      margin-right: $item_ld_mr
+    padding-left: 10%
+  @include m.media(tablet, laptop, desktop)
+    @include m.flex($fb: math.div((100% - $item_ld_mr * 1), 2), $ai: flex-start)
+    margin-top: f.px(40)
+    margin-right: $item_ld_mr
+    &:nth-child(2n)
+      margin-right: 0
     &:nth-child(-n+2)
       margin-top: 0
-  @include m.media(desktop)
-    @include m.flex($fb: math.div((100% - $item_ld_mr * 2), 3), $ai: flex-start)
-    margin-top: f.px(32)
-    margin-right: $item_ld_mr
-    &:nth-child(3n)
-      margin-right: 0
-    &:nth-child(-n+3)
-      margin-top: 0
-  padding: f.px(24)
-  border: 2px solid
-  @include m.dye(border, c.$delta)
-
-.img
-  min-width: f.px(90)
-  margin-right: f.px(24)
-
-.label
-  margin-bottom: f.px(8)
-  @include m.media(phone, laptop, desktop)
-    font-size: f.px(14)
-  @include m.media(tablet)
-    font-size: f.px(13)
-  line-height: 110%
-  @include m.dye(c, c.$psi)
+    padding-left: 8%
+  &::before
+    content: ''
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translateY(-50%)
+    width: 7%
+    height: f.px(1)
+    @include m.dye(bg, c.$beta)
 
 .position
   max-width: 32ch
+  margin-bottom: 0
   @include m.media(phone, laptop, desktop)
-    margin-bottom: f.px(24)
-    font-size: f.px(24)
-  @include m.media(tablet)
-    margin-bottom: f.px(32)
     font-size: f.px(20)
-  line-height: 110%
-  word-break: break-word
-
-.priceLabel
-  @include m.media(phone, laptop, desktop)
-    margin-right: f.px(17)
-  @include m.media(tablet)
-    margin-right: f.px(16)
-  font-size: f.px(12)
-  font-weight: 700
-  line-height: 110%
-  @include m.dye(c, c.$beta)
-
-.price
-  @include m.flex($ai: center)
-
-.salary
-  @include m.media(phone, laptop, desktop)
-    font-size: f.px(18)
   @include m.media(tablet)
     font-size: f.px(16)
-  line-height: 110%
+  font-weight: 500
+  line-height: 120%
+  word-break: break-word
