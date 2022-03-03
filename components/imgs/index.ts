@@ -12,6 +12,7 @@ import ImgProgramContents from '@/components/imgs/general/ImgProgramContents'
 import ImgProgramHero from '@/components/imgs/general/ImgProgramHero'
 import ImgStudyCost from '@/components/imgs/general/ImgStudyCost'
 import ImgTeacher from '@/components/imgs/general/ImgTeacher'
+import ImgWhyUs from '@/components/imgs/general/ImgWhyUs'
 
 // icons
 import ImgLogo from '@/components/imgs/icons/ImgLogo'
@@ -32,6 +33,7 @@ export {
   ImgProgramHero,
   ImgStudyCost,
   ImgTeacher,
+  ImgWhyUs,
   // icons
   ImgLogo,
   ImgTemplate
