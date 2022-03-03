@@ -1,45 +1,21 @@
-import SectionAboutUniversity from '@/components/sections/SectionAboutUniversity'
-import SectionEnterWithoutExam from '@/components/sections/SectionEnterWithoutExam'
-import SectionFAQ from '@/components/sections/SectionFAQ'
-import SectionHero from '@/components/sections/SectionHero'
-import SectionHowTrainingGoes from '@/components/sections/SectionHowTrainingGoes'
-import SectionLeastDocuments from '@/components/sections/SectionLeastDocuments'
-import SectionOurPrograms from '@/components/sections/SectionOurPrograms'
-import SectionProgramContents from '@/components/sections/SectionProgramContents'
-import SectionProgramForWhom from '@/components/sections/SectionProgramForWhom'
-import SectionProgramHero from '@/components/sections/SectionProgramHero'
-import SectionProgramHowProcessGoes from '@/components/sections/SectionProgramHowProcessGoes'
-import SectionProgramJobTitles from '@/components/sections/SectionProgramJobTitles'
-import SectionProgramQna from '@/components/sections/SectionProgramQna'
-import SectionProgramStudyCost from '@/components/sections/SectionProgramStudyCost'
-import SectionProgramStudyingWithUsIs from '@/components/sections/SectionProgramStudyingWithUsIs'
-import SectionProgramTeachers from '@/components/sections/SectionProgramTeachers'
-import SectionProgramWhatWillYouLearn from '@/components/sections/SectionProgramWhatWillYouLearn'
-import SectionStartWithDiscount from '@/components/sections/SectionStartWithDiscount'
-import SectionTrainingFormat from '@/components/sections/SectionTrainingFormat'
-import SectionUIFormAlpha from '@/components/sections/SectionUIFormAlpha'
-import SectionYourFutureDiploma from '@/components/sections/SectionYourFutureDiploma'
-
-export {
-  SectionAboutUniversity,
-  SectionEnterWithoutExam,
-  SectionFAQ,
-  SectionHero,
-  SectionHowTrainingGoes,
-  SectionLeastDocuments,
-  SectionOurPrograms,
-  SectionProgramContents,
-  SectionProgramForWhom,
-  SectionProgramHero,
-  SectionProgramHowProcessGoes,
-  SectionProgramJobTitles,
-  SectionProgramQna,
-  SectionProgramStudyCost,
-  SectionProgramStudyingWithUsIs,
-  SectionProgramTeachers,
-  SectionProgramWhatWillYouLearn,
-  SectionStartWithDiscount,
-  SectionTrainingFormat,
-  SectionUIFormAlpha,
-  SectionYourFutureDiploma
-}
+export { default as SectionAboutUniversity } from '@/components/sections/SectionAboutUniversity'
+export { default as SectionEnterWithoutExam } from '@/components/sections/SectionEnterWithoutExam'
+export { default as SectionFAQ } from '@/components/sections/SectionFAQ'
+export { default as SectionHero } from '@/components/sections/SectionHero'
+export { default as SectionHowTrainingGoes } from '@/components/sections/SectionHowTrainingGoes'
+export { default as SectionLeastDocuments } from '@/components/sections/SectionLeastDocuments'
+export { default as SectionOurPrograms } from '@/components/sections/SectionOurPrograms'
+export { default as SectionProgramContents } from '@/components/sections/SectionProgramContents'
+export { default as SectionProgramForWhom } from '@/components/sections/SectionProgramForWhom'
+export { default as SectionProgramHero } from '@/components/sections/SectionProgramHero'
+export { default as SectionProgramHowProcessGoes } from '@/components/sections/SectionProgramHowProcessGoes'
+export { default as SectionProgramJobTitles } from '@/components/sections/SectionProgramJobTitles'
+export { default as SectionProgramQna } from '@/components/sections/SectionProgramQna'
+export { default as SectionProgramStudyCost } from '@/components/sections/SectionProgramStudyCost'
+export { default as SectionProgramStudyingWithUsIs } from '@/components/sections/SectionProgramStudyingWithUsIs'
+export { default as SectionProgramTeachers } from '@/components/sections/SectionProgramTeachers'
+export { default as SectionProgramWhatWillYouLearn } from '@/components/sections/SectionProgramWhatWillYouLearn'
+export { default as SectionStartWithDiscount } from '@/components/sections/SectionStartWithDiscount'
+export { default as SectionTrainingFormat } from '@/components/sections/SectionTrainingFormat'
+export { default as SectionUIFormAlpha } from '@/components/sections/SectionUIFormAlpha'
+export { default as SectionYourFutureDiploma } from '@/components/sections/SectionYourFutureDiploma'
