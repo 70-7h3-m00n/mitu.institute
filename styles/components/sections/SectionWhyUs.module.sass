@@ -1,3 +1,4 @@
+@use 'sass:math'
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
@@ -7,13 +8,66 @@
   @include section.gap
 
 .title
-  max-width: 25ch
+  @include m.media(laptop, desktop)
+    max-width: 25ch
 
+.content
+  @include m.media(laptop, desktop)
+    display: flex
+
+$img_ld_fb: 32.9%
 .list
   @include m.media(tablet, laptop, desktop)
-    @include m.flex($fw: wrap)
+    display: flex
+    flex-wrap: wrap
   margin: 0
   padding: 0
+  @include m.media(laptop, desktop)
+    flex-basis: 100% - $img_ld_fb
 
+.img
+  @include m.media(phone)
+    margin-top: f.px(48)
+  @include m.media(tablet)
+    margin-top: f.px(62)
+  @include m.media(laptop, desktop)
+    position: relative
+    overflow: hidden
+    flex-basis: $img_ld_fb
+    & > *
+      position: absolute !important
+      top: 0
+      left: 0
+      min-width: f.px(384)
+
+$listItem_before_wh: 16
+$listItem_tld_mr: 3%
 .listItem
-  //
+  display: flex
+  align-items: center
+  margin-top: f.px(32)
+  @include m.media(tablet, laptop, desktop)
+    flex-basis: math.div((100% - $listItem_tld_mr), 2)
+    &:nth-child(odd)
+      margin-right: $listItem_tld_mr
+    &:nth-child(-n+2)
+      margin-top: 0
+  &::before
+    content: ''
+    min-width: f.px($listItem_before_wh)
+    width: 100%
+    max-width: f.px($listItem_before_wh)
+    min-height: f.px($listItem_before_wh)
+    height: 100%
+    max-height: f.px($listItem_before_wh)
+    margin-right: f.px(8)
+    border-radius: 50%
+    @include m.dye(bg, c.$beta)
+
+.item
+  margin: 0
+  @include m.media(phone, laptop, desktop)
+    font-size: f.px(20)
+  @include m.media(tablet)
+    font-size: f.px(18)
+  line-height: 120%

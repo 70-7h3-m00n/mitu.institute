@@ -14,6 +14,7 @@ const ImgWhyUs = ({ classNames, width, height }: TypeImgWhyUsProps) => {
         width={width}
         height={height}
         alt={'Студенты смеются и обучаются'}
+        filterAlt
       />
     </>
   )

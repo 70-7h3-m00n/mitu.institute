@@ -7,6 +7,7 @@ import { mituinstitute } from '@/config/index'
 import { getClassNames, getImageHeight } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
+import { ImgWhyUs } from '@/components/imgs'
 
 type TypeSectionWhyUsProps = TypeClassNames
 
@@ -23,13 +24,18 @@ const SectionWhyUs = ({ classNames }: TypeSectionWhyUsProps) => {
             «Московский институт технологий и управления»
           </GeneralTextHighlight>
         </GeneralSectionTitle>
-        <ul className={stls.list}>
-          {whyus.map((item, idx) => (
-            <li key={`${item}-${idx}`} className={stls.listItem}>
-              {item}
-            </li>
-          ))}
-        </ul>
+        <div className={stls.content}>
+          <ul className={stls.list}>
+            {whyus.map((item, idx) => (
+              <li key={`${item}-${idx}`} className={stls.listItem}>
+                <p className={stls.item}>{item}</p>
+              </li>
+            ))}
+          </ul>
+          <div className={stls.img}>
+            <ImgWhyUs />
+          </div>
+        </div>
       </Wrapper>
     </section>
   )
