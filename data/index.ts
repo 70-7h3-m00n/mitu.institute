@@ -1,5 +1,3 @@
-import leastDocuments from '@/data/general/leastDocuments'
-import pros from '@/data/general/pros'
-import studyingWithUsIs from '@/data/general/studyingWithUsIs'
-
-export { leastDocuments, pros, studyingWithUsIs }
+export { default as leastDocuments } from '@/data/general/leastDocuments'
+export { default as pros } from '@/data/general/pros'
+export { default as studyingWithUsIs } from '@/data/general/studyingWithUsIs'
