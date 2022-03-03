@@ -1,5 +1,64 @@
+@use 'sass:math'
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
 @use '@/styles/shared/section' as section
-@use '@/styles/shared/general' as g
+
+.container
+  @include section.gap
+
+.title
+  max-width: 24ch
+
+.items
+  @include m.media(tablet, laptop, desktop)
+    @include m.flex($fw: wrap)
+  padding: 0
+  margin: 0
+
+$item_tld_mr: 5.3%
+.item
+  @include m.media(phone)
+    @include m.flex
+    margin-top: f.px(32)
+    &:nth-child(1)
+      margin-top: 0
+  @include m.media(tablet)
+    @include m.flex($fb: math.div((100% - $item_tld_mr), 2))
+    margin-top: f.px(32)
+    &:nth-child(odd)
+      margin-right: $item_tld_mr
+    &:nth-child(-n+2)
+      margin-top: 0
+  @include m.media(laptop, desktop)
+    @include m.flex($fb: math.div((100% - $item_tld_mr * 2), 3))
+    margin-top: f.px(32)
+    margin-right: $item_tld_mr
+    &:nth-child(3n)
+      margin-right: 0
+    &:nth-child(-n+3)
+      margin-top: 0
+
+.dot
+  min-width: f.px(16)
+  max-width: f.px(16)
+  min-height: f.px(16)
+  max-height: f.px(16)
+  @include m.media(phone, laptop, desktop)
+    margin-top: f.px(4)
+  @include m.media(tablet)
+    margin-top: f.px(2)
+  margin-right: f.px(8)
+  border-radius: 50%
+  @include m.dye(bg, c.$beta)
+
+.p
+  margin: 0
+  @include m.media(phone)
+    font-size: f.px(20)
+  @include m.media(tablet)
+    font-size: f.px(18)
+  @include m.media(laptop, desktop)
+    font-size: f.px(20)
+  font-weight: 500
+  line-height: 120%

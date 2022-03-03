@@ -2,6 +2,7 @@ import stls from '@/styles/components/sections/SectionProgramStudyingWithUsIs.mo
 import { TypeClassNames } from '@/types/index'
 import { useContext } from 'react'
 import cn from 'classnames'
+import { studyingWithUsIs } from '@/data/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
@@ -12,32 +13,28 @@ type TypeSectionProgramStudyingWithUsIsProps = TypeClassNames
 const SectionProgramStudyingWithUsIs = ({
   classNames
 }: TypeSectionProgramStudyingWithUsIsProps) => {
-  const { program } = useContext(ContextProgramContext)
-
   return (
     <section
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <Wrapper>
-        <GeneralSectionTitle>
+        <GeneralSectionTitle classNames={[stls.title]}>
           Обучение в{' '}
           <GeneralTextHighlight>
-            «Московском институте технологий и управления»
-          </GeneralTextHighlight>
+            «Московском институте технологий <br /> и управления»
+          </GeneralTextHighlight>{' '}
           — это
         </GeneralSectionTitle>
         <ul className={stls.items}>
-          {program.whatYouWillLearn
-            .filter(item => item?.item)
-            .map((item, idx) => (
-              <li
-                key={(item.item || 'WhatWillYouLearnItem') + idx}
-                className={stls.item}>
-                <div className={stls.dot}></div>
-                <p className={stls.p}>{item.item}</p>
-              </li>
-            ))}
+          {studyingWithUsIs.map((item, idx) => (
+            <li
+              key={(item || 'studyingWithUsIsItem') + idx}
+              className={stls.item}>
+              <div className={stls.dot}></div>
+              <p className={stls.p}>{item}</p>
+            </li>
+          ))}
         </ul>
       </Wrapper>
     </section>
