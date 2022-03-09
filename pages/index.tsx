@@ -53,8 +53,8 @@ const PageHome: NextPage<TypePageHomeProps> = ({
       <SectionEnterWithoutExam />
       <SectionHowTrainingGoes />
       <SectionAboutUniversity />
-      <SectionFAQ />
       <SectionYourFutureDiploma />
+      <SectionFAQ />
       <SectionUIFormAlpha />
     </>
   )
