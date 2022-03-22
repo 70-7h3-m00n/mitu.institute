@@ -59,7 +59,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
         <>
           <SectionProgramHero />
           <SectionProgramForWhom />
-          <SectionEnterWithoutExam />
+          {curCategory?.type !== 'additional' && <SectionEnterWithoutExam />}
           <SectionHowTrainingGoes />
           <SectionLeastDocuments />
           <SectionProgramWhatWillYouLearn />

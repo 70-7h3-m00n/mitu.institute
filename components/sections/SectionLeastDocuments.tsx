@@ -1,14 +1,17 @@
 import stls from '@/styles/components/sections/SectionLeastDocuments.module.sass'
 import { TypeClassNames } from '@/types/index'
-// import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import cn from 'classnames'
-import { leastDocuments } from '@/data/index'
+import { mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { ContextCategoriesContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 import { IconCheck, IconPaperPage } from '@/components/icons'
 
 type TypeSectionLeastDocumentsProps = TypeClassNames
+
+type TypeLeastDocuments = string[]
 
 const SectionLeastDocuments = ({
   classNames
@@ -26,6 +29,22 @@ const SectionLeastDocuments = ({
   //     window.removeEventListener('scroll', handleScroll)
   //   }
   // }, [])
+
+  const { curCategory } = useContext(ContextCategoriesContext)
+
+  const leastDocuments: TypeLeastDocuments = mituinstitute
+    ? curCategory?.type === 'additional'
+      ? [
+          'Законченное высшее / среднее профессиональное образование',
+          'Паспорт',
+          'Заявление на поступление'
+        ]
+      : ['Аттестат / диплом', 'Паспорт', 'Заявление на поступление']
+    : [
+        'Документ о предыдущем образовании',
+        'Паспорт',
+        'Заявление на поступление'
+      ]
 
   return (
     <section
