@@ -30,7 +30,7 @@ const SectionUIFormAlpha = ({
             <>
               <GeneralTextHighlight reverse>
                 {title ||
-                  'Оставьте заявку и узнайте минимальный проходной балл в 2021 году'}
+                  'Оставьте заявку и узнайте минимальный проходной балл в 2022 году'}
               </GeneralTextHighlight>
             </>
           }

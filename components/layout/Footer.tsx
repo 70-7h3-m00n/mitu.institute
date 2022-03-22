@@ -32,13 +32,13 @@ const Footer = ({ classNames }: TypeFooterProps) => {
         val: category.label
       })) || null
 
-  const smLinks = [
-    {
-      href: '#',
-      val: <IconInstagram classNames={[stls.instagram, stls.smIcon]} />,
-      ariaLabel: 'Instagram'
-    }
-  ]
+  // const smLinks = [
+  //   {
+  //     href: '#',
+  //     val: <IconInstagram classNames={[stls.instagram, stls.smIcon]} />,
+  //     ariaLabel: 'Instagram'
+  //   }
+  // ]
 
   const privacyLinks = [
     {
@@ -101,7 +101,7 @@ const Footer = ({ classNames }: TypeFooterProps) => {
               biggerIcon
               withoutBr
             />
-            <ul className={stls.smLinks}>
+            {/* <ul className={stls.smLinks}>
               {smLinks.map(({ href, val, ariaLabel }, idx) => (
                 <li key={href + idx} className={stls.smLinkItem}>
                   <Link href={href}>
@@ -111,7 +111,7 @@ const Footer = ({ classNames }: TypeFooterProps) => {
                   </Link>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         </div>
         <p className={stls.copy}>

@@ -33,12 +33,12 @@ const SectionProgramContents = ({
           <GeneralSectionTitle classNames={[stls.title]}>
             Краткая программа курса
           </GeneralSectionTitle>
-          <p className={stls.shortContentsLength}>
+          {/* <p className={stls.shortContentsLength}>
             <GeneralTextHighlight>
               {program.shortContents.length}{' '}
             </GeneralTextHighlight>
             тематических модулей
-          </p>
+          </p> */}
         </div>
         <p className={stls.desc}>
           Практики, которым мы учим, и методология, на которой строится курс,
