@@ -52,7 +52,7 @@ const Header = ({ classNames }: TypeHeaderProps) => {
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <BtnSkipNav />
-      {mituinstitute && <GeneralHeaderTop classNames={[stls.top]} />}
+      {!mituinstitute && <GeneralHeaderTop classNames={[stls.top]} />}
       <GeneralHeaderMiddle classNames={[stls.middle]} />
       <GeneralHeaderBottom classNames={[stls.bottom]} links={links} />
     </header>

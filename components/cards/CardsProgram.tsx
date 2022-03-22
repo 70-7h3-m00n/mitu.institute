@@ -98,15 +98,17 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
                 '/'
               }>
               <a className={stls.btn}>
-                {mituinstitute && (
+                {/* {mituinstitute && (
                   <div className={stls.label}>{card?.study_field?.label}</div>
-                )}
+                )} */}
+                <div className={stls.label}>{card?.category?.label}</div>
                 <div className={stls.top}>
+                  <p className={stls.aboveTitle}>{card?.study_field?.label}</p>
                   <h3 className={stls.title}>{card.title}</h3>
-                  <p className={stls.desc}>{card.shortDescription}</p>
+                  {/* <p className={stls.desc}>{card.shortDescription}</p> */}
                 </div>
                 <div className={stls.bottom}>
-                  {mituinstitute && (
+                  {/* {mituinstitute && (
                     <div className={stls.studyDuration}>
                       {card?.timenprice?.[0]?.studyMonthsDuration && (
                         <>
@@ -122,7 +124,7 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
                         </>
                       )}
                     </div>
-                  )}
+                  )} */}
                   <div className={stls.learnMore}>
                     <div className={stls.learnMoreLabel}>Подробнее</div>
                     <IconArrowTopRight classNames={[stls.iconArrowTopRight]} />
