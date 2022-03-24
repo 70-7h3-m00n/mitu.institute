@@ -19,9 +19,9 @@ const SectionProgramContents = ({
 }: TypeSectionProgramContentsProps) => {
   const { program } = useContext(ContextProgramContext)
 
-  if (!program?.shortContents) return <></>
-
-  console.log(program.shortContents)
+  // TODO: simplify following statement
+  if (!program?.shortContents || program?.shortContents?.length === 0)
+    return <></>
 
   return (
     <section
