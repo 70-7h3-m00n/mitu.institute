@@ -47,7 +47,9 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
     },
     {
       val: mituinstitute
-        ? 'Государственный диплом'
+        ? program?.category?.type === 'additional'
+          ? 'Диплом о переподготовке'
+          : 'Государственный диплом'
         : 'Престижный диплом о высшем образовании',
       label: 'Диплом'
     }
