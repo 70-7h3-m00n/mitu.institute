@@ -31,7 +31,7 @@ const handleGetStaticProps = async ({
     | TypePageProgramProps
     | TypePageLegalProps
     | {}
-  revalidate: number
+  revalidate: number | boolean
 }> => {
   switch (page) {
     case routesFront.home:
