@@ -14,6 +14,7 @@ type TypeImgTemplateProps = TypeClassNames &
     readonly filter?: boolean
     readonly filterAlt?: boolean
     readonly priority?: boolean
+    readonly unoptimized?: boolean
   }
 
 const ImgTemplate = ({
@@ -26,7 +27,8 @@ const ImgTemplate = ({
   faded,
   filter,
   filterAlt,
-  priority
+  priority,
+  unoptimized
 }: TypeImgTemplateProps) => {
   return (
     <div
@@ -56,6 +58,7 @@ const ImgTemplate = ({
         placeholder='blur'
         blurDataURL={base64pixel}
         priority={priority}
+        unoptimized={unoptimized}
       />
     </div>
   )
