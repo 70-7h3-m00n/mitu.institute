@@ -33,27 +33,32 @@ const handleGetStaticProps = async ({
     | {}
   revalidate: number | boolean
 }> => {
-  switch (page) {
-    case routesFront.home:
-      return await getStaticPropsPageHome({ context })
+  try {
+    switch (page) {
+      case routesFront.home:
+        return await getStaticPropsPageHome({ context })
 
-    case routesFront.promo:
-      return await getStaticPropsPagePromo({ context })
+      case routesFront.promo:
+        return await getStaticPropsPagePromo({ context })
 
-    case routesFront.programs:
-      return await getStaticPropsPagePrograms({ context })
+      case routesFront.programs:
+        return await getStaticPropsPagePrograms({ context })
 
-    case routesFront.programsCategoryStudyFieldProgram:
-      return await getStaticPropsPageProgram({ context })
+      case routesFront.programsCategoryStudyFieldProgram:
+        return await getStaticPropsPageProgram({ context })
 
-    case routesFront.legal:
-      return await getStaticPropsPageLegal({ context })
+      case routesFront.legal:
+        return await getStaticPropsPageLegal({ context })
 
-    default:
-      return {
-        props: {},
-        revalidate: revalidate.default
-      }
+      default:
+        return {
+          props: {},
+          revalidate: revalidate.default
+        }
+    }
+  } catch (err) {
+    console.log(err)
+    throw new Error(`Error at handleGetStaticProps: ${err}`)
   }
 }
 
