@@ -13,7 +13,12 @@ import {
 import { Wrapper } from '@/components/layout'
 import { GeneralPopup } from '@/components/general'
 import { GeneralSectionTitle } from '@/components/general'
-import { ImgDiploma1, ImgDiploma2, ImgDiploma3 } from '@/components/imgs'
+import {
+  ImgDiploma1,
+  ImgDiploma2,
+  ImgDiploma3,
+  ImgDiplomaTemplate
+} from '@/components/imgs'
 import { PopupImg } from '@/components/popups'
 import { BtnImgPopupTrigger } from '@/components/btns'
 
@@ -37,7 +42,7 @@ const SectionYourFutureDiploma = ({
   )
     diplomas = [
       {
-        img: <ImgDiploma1 />,
+        img: <ImgDiplomaTemplate />,
         label: 'Диплом о профессиональной переподготовке'
       },
       {
@@ -53,7 +58,7 @@ const SectionYourFutureDiploma = ({
   if (atPageProgram && curCategory?.type === 'additional')
     diplomas = [
       {
-        img: <ImgDiploma1 />,
+        img: <ImgDiplomaTemplate />,
         label: 'Диплом о профессиональной переподготовке'
       },
       {

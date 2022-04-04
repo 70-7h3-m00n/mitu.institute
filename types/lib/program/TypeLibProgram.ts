@@ -13,7 +13,8 @@ import {
   TypeLibProgramTeachers,
   TypeLibProgramQuestions,
   TypeLibProgramStudyField,
-  TypeLibProgramCategory
+  TypeLibProgramCategory,
+  TypeLibProgramQualification
 } from '@/types/index'
 
 type TypeLibProgram = {
@@ -34,6 +35,7 @@ type TypeLibProgram = {
   questions?: TypeLibProgramQuestions
   study_field?: TypeLibProgramStudyField
   category?: TypeLibProgramCategory
+  qualification?: TypeLibProgramQualification
 } | null
 
 export default TypeLibProgram

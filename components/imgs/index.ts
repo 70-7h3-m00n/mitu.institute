@@ -2,6 +2,7 @@
 export { default as ImgDiploma1 } from '@/components/imgs/diplomas/ImgDiploma1'
 export { default as ImgDiploma2 } from '@/components/imgs/diplomas/ImgDiploma2'
 export { default as ImgDiploma3 } from '@/components/imgs/diplomas/ImgDiploma3'
+export { default as ImgDiplomaTemplate } from '@/components/imgs/diplomas/ImgDiplomaTemplate'
 
 // general
 export { default as ImgForWhom } from '@/components/imgs/general/ImgForWhom'
