@@ -89,6 +89,11 @@ const Footer = ({ classNames }: TypeFooterProps) => {
                 </Link>
               </li>
             ))}
+            <li className={stls.navLinkItem}>
+              <Link href={routesFront.payment}>
+                <a className={stls.navLink}>Оплата</a>
+              </Link>
+            </li>
           </ul>
           <div className={stls.contacts}>
             <GeneralPhoneNumber
