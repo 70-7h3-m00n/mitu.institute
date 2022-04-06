@@ -18,3 +18,6 @@ export { default as ImgWhyUs } from '@/components/imgs/general/ImgWhyUs'
 // icons
 export { default as ImgLogo } from '@/components/imgs/icons/ImgLogo'
 export { default as ImgTemplate } from '@/components/imgs/ImgTemplate'
+
+// payment
+export { default as ImgWallet } from '@/components/imgs/payment/ImgWallet'

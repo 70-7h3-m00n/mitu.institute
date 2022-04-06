@@ -43,7 +43,7 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
     setPrograms({ payload: programs || null })
     setQuestions({ payload: questions || null })
     setProgram({ payload: null })
-  }, [categories])
+  }, [categories, programs, questions])
 
   return (
     <>

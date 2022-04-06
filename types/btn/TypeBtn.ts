@@ -9,6 +9,7 @@ import {
   TypeAriaLabel,
   TypeBtnAlphaVariant
 } from '@/types/index'
+import { HTMLAttributeAnchorTarget } from 'react'
 
 type TypeBtn = TypeClassNames &
   TypeChildren &
@@ -19,6 +20,7 @@ type TypeBtn = TypeClassNames &
   TypeBtnDisabled &
   TypeAriaLabel &
   TypeBtnAlphaVariant & {
+    target?: HTMLAttributeAnchorTarget
     scroll?: boolean
   }
 

@@ -43,7 +43,7 @@ const PageHome: NextPage<TypePageHomeProps> = ({
     setPrograms({ payload: programs })
     setQuestions({ payload: questions })
     setProgram({ payload: null })
-  }, [categories, programs])
+  }, [categories, programs, questions])
 
   return (
     <>

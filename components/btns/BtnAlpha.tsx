@@ -11,6 +11,7 @@ const BtnAlpha = ({
   children,
   tag = 'button',
   href,
+  target,
   type,
   disabled,
   ariaLabel,
@@ -47,6 +48,8 @@ const BtnAlpha = ({
       className={!isLink && container}
       type={type}
       href={href}
+      target={target}
+      rel={target === '_blank' ? 'noopener noreferrer' : undefined}
       scroll={isLink ? scroll : undefined}
       aria-label={ariaLabel}
       disabled={disabled}

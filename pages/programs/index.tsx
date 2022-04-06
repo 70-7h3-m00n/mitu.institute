@@ -32,7 +32,7 @@ const PagePrograms: NextPage<TypePageProgramsProps> = ({
     setPrograms({ payload: programs })
     setStudyField({ payload: null })
     setProgram({ payload: null })
-  }, [])
+  }, [categories, programs])
 
   return (
     <>

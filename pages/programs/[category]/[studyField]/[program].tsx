@@ -51,7 +51,12 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
     })
     setStudyField({ payload: gspContextParamsStudyField })
     setProgram({ payload: program || null })
-  }, [gspContextParamsCategory, gspContextParamsStudyField, program])
+  }, [
+    categories,
+    program,
+    gspContextParamsCategory,
+    gspContextParamsStudyField
+  ])
 
   return (
     <>
