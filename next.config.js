@@ -7,12 +7,15 @@ const dev = process.env.NODE_ENV !== 'production'
 module.exports = withPWA({
   reactStrictMode: true,
   poweredByHeader: false,
-  i18n: {
-    locales: ['ru', 'kz', 'uz'],
-    defaultLocale: 'ru',
-    localeDetection: false
-  },
+  trailingSlash: true,
+  // i18n: {
+  //   locales: ['ru', 'kz', 'uz'],
+  //   defaultLocale: 'ru',
+  //   localeDetection: false
+  // },
   images: {
+    loader: 'cloudinary',
+    path: 'https://res.cloudinary.com/mitu-institute/',
     domains: ['res.cloudinary.com']
   },
   pwa: {
@@ -20,17 +23,17 @@ module.exports = withPWA({
     disable: dev,
     register: true,
     scope: '/'
-  },
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        // headers: createSecureHeaders()
-        headers: createSecureHeaders({
-          referrerPolicy: 'no-referrer-when-downgrade',
-          frameGuard: false
-        })
-      }
-    ]
   }
+  // async headers() {
+  //   return [
+  //     {
+  //       source: '/:path*',
+  //       // headers: createSecureHeaders()
+  //       headers: createSecureHeaders({
+  //         referrerPolicy: 'no-referrer-when-downgrade',
+  //         frameGuard: false
+  //       })
+  //     }
+  //   ]
+  // }
 })
