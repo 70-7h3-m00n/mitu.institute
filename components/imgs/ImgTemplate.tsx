@@ -2,12 +2,13 @@ import stls from '@/styles/components/imgs/ImgTemplate.module.sass'
 import { TypeClassNames, TypeImg } from '@/types/index'
 import Image from 'next/image'
 import cn from 'classnames'
-import { base64pixel } from '@/config/index'
+import { nextexport, base64pixel } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 
 type TypeImgTemplateProps = TypeClassNames &
   TypeImg & {
-    readonly src: StaticImageData | string
+    // readonly src: StaticImageData | string
+    readonly src: any // TODO: figure out better types here
     readonly alt: string
     readonly title?: string
     readonly faded?: boolean
@@ -30,6 +31,7 @@ const ImgTemplate = ({
   priority,
   unoptimized
 }: TypeImgTemplateProps) => {
+  const Tag = nextexport ? 'img' : Image
   return (
     <div
       className={
@@ -49,12 +51,12 @@ const ImgTemplate = ({
           [stls.filterAlt]: filterAlt,
           [stls.isHidden]: !faded && !filter && !filterAlt
         })}></div>
-      <Image
+      <Tag
         src={src}
         alt={alt}
         width={width}
         height={height}
-        className={stls.img}
+        className={cn(stls.img, { [stls.nextexport]: nextexport })}
         placeholder='blur'
         blurDataURL={base64pixel}
         priority={priority}
