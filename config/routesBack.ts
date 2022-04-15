@@ -1,5 +1,5 @@
 import { TypeUrl, TypeRoute } from '@/types/index'
-import { dev, env } from '@/config/index'
+import { dev, env, nextexport } from '@/config/index'
 
 type TypeRoutesBack = {
   root: 'http://localhost:1337' | typeof env.backRouteRoot
@@ -10,8 +10,7 @@ type TypeRoutesBack = {
 }
 
 const routesBack: TypeRoutesBack = {
-  // root: dev ? 'http://localhost:1337' : env.backRouteRoot,
-  root: 'http://localhost:1337',
+  root: dev || nextexport ? 'http://localhost:1337' : env.backRouteRoot,
   home: '/',
   graphql: '/graphql',
   land: '/land',

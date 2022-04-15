@@ -103,7 +103,12 @@ const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
                 )} */}
                 <div className={stls.label}>{card?.category?.label}</div>
                 <div className={stls.top}>
-                  <p className={stls.aboveTitle}>{card?.study_field?.label}</p>
+                  {mituinstitute && (
+                    <p className={stls.aboveTitle}>
+                      {card?.study_field?.label}
+                    </p>
+                  )}
+
                   <h3 className={stls.title}>{card.title}</h3>
                   {/* <p className={stls.desc}>{card.shortDescription}</p> */}
                 </div>

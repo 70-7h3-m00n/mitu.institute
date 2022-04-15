@@ -57,10 +57,10 @@ const ImgTemplate = ({
         width={width}
         height={height}
         className={cn(stls.img, { [stls.nextexport]: nextexport })}
-        placeholder='blur'
-        blurDataURL={base64pixel}
-        priority={priority}
-        unoptimized={unoptimized}
+        {...(nextexport ? undefined : { placeholder: 'blur' })}
+        {...(nextexport ? undefined : { blurDataURL: base64pixel })}
+        {...(nextexport ? undefined : { priority })}
+        {...(nextexport ? undefined : { unoptimized })}
       />
     </div>
   )
