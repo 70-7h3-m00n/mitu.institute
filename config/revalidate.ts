@@ -2,7 +2,7 @@ import { mituinstitute } from '@/config/index'
 
 const revalidate = {
   // default: 60 * 60 * 24 * 7,
-  default: mituinstitute ? false : 60,
+  default: mituinstitute ? 60 : false,
   day: 60 * 60 * 24,
   hour: 60 * 60,
   minute: 60,
