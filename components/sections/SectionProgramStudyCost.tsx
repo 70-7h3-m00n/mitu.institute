@@ -42,15 +42,13 @@ const SectionProgramStudyCost = ({
       item: (
         <span>
           Длительность обучения{' '}
-          {mituinstitute ? (
+          {
             <ProgramStudyDuration
               studyDurationMonths={Number(
-                program.timenprice[0].studyMonthsDuration || 12
+                program.timenprice?.[0]?.studyMonthsDuration || 12
               )}
             />
-          ) : (
-            '3.5-4.5 лет'
-          )}
+          }
         </span>
       )
     },

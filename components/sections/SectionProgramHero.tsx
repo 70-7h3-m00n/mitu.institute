@@ -24,14 +24,12 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
 
   const testimonials = [
     {
-      val: mituinstitute ? (
+      val: (
         <ProgramStudyDuration
           studyDurationMonths={
             Number(program.timenprice?.[0]?.studyMonthsDuration) || 12
           }
         />
-      ) : (
-        '3.5-4.5 года'
       ),
       label: 'Срок обучения'
     },
