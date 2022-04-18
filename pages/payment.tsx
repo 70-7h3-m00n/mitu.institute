@@ -5,13 +5,14 @@ import { GetStaticProps } from 'next'
 import { useContext, useEffect, MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
-import { NextSeo } from 'next-seo'
+import { NextSeo, OrganizationJsonLd } from 'next-seo'
 import truncate from 'truncate'
 import {
   routesFront,
   routesExternal,
   companyName,
-  defaultSeoDesc
+  defaultSeoDesc,
+  company
 } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { handleGetStaticProps } from '@/lib/index'
@@ -91,6 +92,29 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
           ],
           site_name: companyName
         }}
+      />
+      <OrganizationJsonLd
+        organizationType='EducationalOrganization'
+        id={routesFront.defaultRoot}
+        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`}
+        legalName={company.fullName}
+        name={company.name}
+        address={{
+          streetAddress: `${company.address.street.typeShort} ${company.address.street.name} ${company.address.street.door}, ${company.address.street.room}`,
+          addressLocality: company.address.city,
+          postalCode: company.address.zip,
+          addressCountry: company.address.countryCode
+        }}
+        contactPoints={[
+          {
+            telephone: company.phoneNumber.val,
+            contactType: company.phoneNumber.contactType,
+            areaServed: 'US',
+            availableLanguage: company.languages
+          }
+        ]}
+        sameAs={[routesFront.defaultRoot]}
+        url={routesFront.defaultRoot}
       />
       <section className={stls.sectionHero}>
         <Wrapper>
