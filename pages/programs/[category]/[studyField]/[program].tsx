@@ -4,6 +4,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { TypePageProgramProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo, CourseJsonLd } from 'next-seo'
+import truncate from 'truncate'
 import {
   routesFront,
   companyName,
@@ -67,13 +68,15 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
   const seoParams = {
     title: `${program?.title} | ${program?.category?.label} | ${companyName}`,
     programTitle: program?.title || 'Программа',
-    desc:
+    desc: truncate(
       program?.description ||
-      program?.shortContents?.reduce(
-        (acc, cur) => acc + cur?.title + '. ',
-        ''
-      ) ||
-      defaultSeoDesc,
+        program?.shortContents?.reduce(
+          (acc, cur) => acc + cur?.title + '. ',
+          ''
+        ) ||
+        defaultSeoDesc,
+      120
+    ),
     canonical: `${routesFront.defaultRoot}${routesFront.programs}/${program?.category?.slug}/${program?.study_field?.slug}/${program?.slug}`
   }
 
