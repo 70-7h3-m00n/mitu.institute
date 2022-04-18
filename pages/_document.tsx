@@ -5,7 +5,7 @@ import Document, {
   NextScript,
   DocumentContext
 } from 'next/document'
-import { themeColor, companyName, prod, gtm } from '@/config/index'
+import { themeColor, company, prod, gtm } from '@/config/index'
 import { MetaIcons, MetaOg, MetaTwitter } from '@/components/meta'
 
 class MyDocument extends Document {
@@ -28,13 +28,13 @@ class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap'
             rel='stylesheet'
           />
-          <meta name='application-name' content={companyName} />
+          <meta name='application-name' content={company.name} />
           <meta name='apple-mobile-web-app-capable' content='yes' />
           <meta
             name='apple-mobile-web-app-status-bar-style'
             content='default'
           />
-          <meta name='apple-mobile-web-app-title' content={companyName} />
+          <meta name='apple-mobile-web-app-title' content={company.name} />
           {/* <meta name='format-detection' content='telephone=no' /> */}
           <meta name='mobile-web-app-capable' content='yes' />
           {/* <meta

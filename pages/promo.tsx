@@ -6,12 +6,7 @@ import { useContext, useEffect } from 'react'
 import { NextSeo, OrganizationJsonLd } from 'next-seo'
 import truncate from 'truncate'
 import { pros } from '@/data/index'
-import {
-  routesFront,
-  companyName,
-  defaultSeoDesc,
-  company
-} from '@/config/index'
+import { routesFront, company } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import {
   ContextCategoriesContext,
@@ -54,7 +49,7 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
   }, [categories, programs, questions])
 
   const seoParams = {
-    title: `${defaultSeoDesc} | ${companyName}`,
+    title: `${company.tagline} | ${company.name}`,
     desc: truncate(pros.join('. '), 120),
     canonical: `${routesFront.defaultRoot}${routesFront.promo}`
   }
@@ -74,11 +69,11 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
               url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
               width: 512,
               height: 512,
-              alt: companyName,
+              alt: company.name,
               type: 'image/png'
             }
           ],
-          site_name: companyName
+          site_name: company.name
         }}
       />
       <OrganizationJsonLd

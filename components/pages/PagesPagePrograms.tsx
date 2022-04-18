@@ -6,12 +6,7 @@ import { NextSeo, OrganizationJsonLd } from 'next-seo'
 import truncate from 'truncate'
 import { pros } from '@/data/index'
 import { ContextCategoriesContext } from '@/context/index'
-import {
-  routesFront,
-  companyName,
-  defaultSeoDesc,
-  company
-} from '@/config/index'
+import { routesFront, company } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { SectionOurPrograms, SectionUIFormAlpha } from '@/components/sections'
 
@@ -22,9 +17,9 @@ const SectionAboutUniversity = () => {
 
   console.log(curCategory)
   const seoParams = {
-    title: `Программы | ${
-      curCategory?.label || 'Направления'
-    } | ${companyName}`,
+    title: `Программы | ${curCategory?.label || 'Направления'} | ${
+      company.name
+    }`,
     desc: truncate(pros.join('. '), 120),
     canonical: `${routesFront.defaultRoot}${routesFront.programs}`
   }
@@ -44,11 +39,11 @@ const SectionAboutUniversity = () => {
               url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
               width: 512,
               height: 512,
-              alt: companyName,
+              alt: company.name,
               type: 'image/png'
             }
           ],
-          site_name: companyName
+          site_name: company.name
         }}
       />
       <OrganizationJsonLd

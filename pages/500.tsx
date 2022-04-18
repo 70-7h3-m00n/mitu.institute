@@ -1,15 +1,14 @@
 import stls from '@/styles/pages/Page500.module.sass'
 import truncate from 'truncate'
 import { NextSeo } from 'next-seo'
-import { routesFront, companyName } from '@/config/index'
+import { routesFront, company } from '@/config/index'
 import { Wrapper } from '@/components/layout'
-import { phoneNumber } from '@/config/index'
 
 const Page500 = () => {
   const seoParams = {
-    title: `500 - Извините! На сервере произошла непредвиденная ошибка | ${companyName}`,
+    title: `500 - Извините! На сервере произошла непредвиденная ошибка | ${company.name}`,
     desc: truncate(
-      `500 - Пожалуйста, попробуйте позже или позвоните нам по номеру ${phoneNumber.val}`,
+      `500 - Пожалуйста, попробуйте позже или позвоните нам по номеру ${company.phoneNumber.val}`,
       120
     ),
     canonical: routesFront.defaultRoot
@@ -30,11 +29,11 @@ const Page500 = () => {
               url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
               width: 512,
               height: 512,
-              alt: companyName,
+              alt: company.name,
               type: 'image/png'
             }
           ],
-          site_name: companyName
+          site_name: company.name
         }}
       />
       <Wrapper>
@@ -45,8 +44,8 @@ const Page500 = () => {
           </h2>
           <p className={stls.p}>
             Пожалуйста, попробуйте позже или позвоните нам по номеру{' '}
-            <a href={phoneNumber.href} className={stls.phoneNumber}>
-              {phoneNumber.val}
+            <a href={company.phoneNumber.href} className={stls.phoneNumber}>
+              {company.phoneNumber.val}
             </a>
           </p>
         </div>

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/general/GeneralAddress.module.sass'
 import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
-import { address } from '@/config/index'
+import { company } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { IconLocation } from '@/components/icons'
 
@@ -32,10 +32,11 @@ const GeneralAddress = ({
         />
       )}
       <div>
-        <span className='locality'>г.&nbsp;{address.city}</span>,{' '}
+        <span className='locality'>г.&nbsp;{company.address.city}</span>,{' '}
         {!withoutBr && <br className={stls.br} />}
         <span className='street-address'>
-          {address.street}, д.&nbsp;{address.house}
+          {company.address.street.name} {company.address.street.type}, д.&nbsp;
+          {company.address.street.door}
         </span>
       </div>
     </address>

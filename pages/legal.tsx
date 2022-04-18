@@ -8,15 +8,7 @@ import cn from 'classnames'
 import parse from 'html-react-parser'
 import { marked } from 'marked'
 import truncate from 'truncate'
-import {
-  phoneNumber,
-  routesFront,
-  email,
-  address,
-  companyName,
-  defaultSeoDesc,
-  company
-} from '@/config/index'
+import { routesFront, company } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 import { handleGetStaticProps } from '@/lib/index'
 import { sortBasedOnNumericOrder } from '@/helpers/index'
@@ -42,10 +34,10 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
 
   const h1 = 'Сведения об организации'
   const seoParams = {
-    title: `${h1} | ${companyName}`,
+    title: `${h1} | ${company.name}`,
     desc: truncate(
       documentCategories?.reduce((acc, cur) => acc + cur.title + '. ', '') ||
-        defaultSeoDesc,
+        company.tagline,
       120
     ),
     canonical: `${routesFront.defaultRoot}${routesFront.legal}`
@@ -66,11 +58,11 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
               url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
               width: 512,
               height: 512,
-              alt: companyName,
+              alt: company.name,
               type: 'image/png'
             }
           ],
-          site_name: companyName
+          site_name: company.name
         }}
       />
       <OrganizationJsonLd

@@ -7,13 +7,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { NextSeo, OrganizationJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import {
-  routesFront,
-  routesExternal,
-  companyName,
-  defaultSeoDesc,
-  company
-} from '@/config/index'
+import { routesFront, routesExternal, company } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { handleGetStaticProps } from '@/lib/index'
 import {
@@ -66,7 +60,7 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
 
   const h1 = 'Способы оплаты'
   const seoParams = {
-    title: `${h1} | ${companyName}`,
+    title: `${h1} | ${company.name}`,
     desc: truncate(notedPoints.join('. '), 120),
     canonical: `${routesFront.defaultRoot}${routesFront.payment}`
   }
@@ -86,11 +80,11 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
               url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
               width: 512,
               height: 512,
-              alt: companyName,
+              alt: company.name,
               type: 'image/png'
             }
           ],
-          site_name: companyName
+          site_name: company.name
         }}
       />
       <OrganizationJsonLd

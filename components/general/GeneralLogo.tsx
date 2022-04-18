@@ -2,7 +2,7 @@ import stls from '@/styles/components/general/GeneralLogo.module.sass'
 import { TypeClassNames } from '@/types/index'
 import Link from 'next/link'
 import cn from 'classnames'
-import { routesFront, companyName } from '@/config/index'
+import { routesFront, company } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ImgLogo } from '@/components/imgs'
 
@@ -24,7 +24,7 @@ const GeneralLogo = ({
         }>
         <ImgLogo classNames={[stls.logo]} />
         {withTitle && (
-          <span className={stls.companyName}>{!atPromo && companyName}</span>
+          <span className={stls.companyName}>{!atPromo && company.name}</span>
         )}
       </a>
     </Link>

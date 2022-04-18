@@ -1,14 +1,9 @@
 import truncate from 'truncate'
 import { pros } from '@/data/index'
-import {
-  routesFront,
-  companyName,
-  mituinstitute,
-  defaultSeoDesc
-} from '@/config/index'
+import { routesFront, company } from '@/config/index'
 
 const seoParams = {
-  title: `${companyName} | ${defaultSeoDesc}`,
+  title: `${company.name} | ${company.tagline}`,
   desc: truncate(pros.join('. '), 120)
 }
 
@@ -19,13 +14,13 @@ const seo = {
     title: seoParams.title,
     description: seoParams.desc,
     locale: 'ru',
-    site_name: companyName,
+    site_name: company.name,
     images: [
       {
         url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
         width: 512,
         height: 512,
-        alt: companyName,
+        alt: company.name,
         type: 'image/png'
       }
     ]

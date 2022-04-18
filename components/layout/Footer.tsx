@@ -3,7 +3,7 @@ import { TypeClassNames } from '@/types/index'
 import { useContext } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
-import { routesFront, companyName } from '@/config/index'
+import { routesFront, company } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
@@ -120,7 +120,7 @@ const Footer = ({ classNames }: TypeFooterProps) => {
           </div>
         </div>
         <p className={stls.copy}>
-          &copy; {companyName}, {new Date().getFullYear()}
+          &copy; {company.name}, {new Date().getFullYear()}
         </p>
       </Wrapper>
     </footer>

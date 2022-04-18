@@ -5,12 +5,7 @@ import { TypePageProgramProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import {
-  routesFront,
-  companyName,
-  mituinstitute,
-  defaultSeoDesc
-} from '@/config/index'
+import { routesFront, company, mituinstitute } from '@/config/index'
 import { handleGetStaticProps, handleGetStaticPaths } from '@/lib/index'
 import {
   ContextCategoriesContext,
@@ -66,7 +61,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
   ])
 
   const seoParams = {
-    title: `${program?.title} | ${program?.category?.label} | ${companyName}`,
+    title: `${program?.title} | ${program?.category?.label} | ${company.name}`,
     programTitle: program?.title || 'Программа',
     desc: truncate(
       program?.description ||
@@ -74,7 +69,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           (acc, cur) => acc + cur?.title + '. ',
           ''
         ) ||
-        defaultSeoDesc,
+        company.tagline,
       120
     ),
     canonical: `${routesFront.defaultRoot}${routesFront.programs}/${program?.category?.slug}/${program?.study_field?.slug}/${program?.slug}`
@@ -95,17 +90,17 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
               url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
               width: 512,
               height: 512,
-              alt: companyName,
+              alt: company.name,
               type: 'image/png'
             }
           ],
-          site_name: companyName
+          site_name: company.name
         }}
       />
       <CourseJsonLd
         courseName={seoParams.programTitle}
         description={seoParams.desc}
-        providerName={companyName}
+        providerName={company.name}
         providerUrl={seoParams.canonical}
       />
       {programContext && (

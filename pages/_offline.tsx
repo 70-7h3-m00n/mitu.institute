@@ -1,5 +1,5 @@
 import stls from '@/styles/pages/PageOffine.module.sass'
-import { phoneNumber } from '@/config/index'
+import { company } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 
 const PageOffline = () => {
@@ -11,8 +11,8 @@ const PageOffline = () => {
           <h2 className={stls.h2}>Подключение к сети отсутствует</h2>
           <p className={stls.p}>
             Пожалуйста, попробуйте позже или позвоните нам по номеру{' '}
-            <a href={phoneNumber.href} className={stls.phoneNumber}>
-              {phoneNumber.val}
+            <a href={company.phoneNumber.href} className={stls.phoneNumber}>
+              {company.phoneNumber.val}
             </a>
           </p>
         </div>

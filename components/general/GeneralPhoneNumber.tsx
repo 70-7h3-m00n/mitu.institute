@@ -1,7 +1,7 @@
 import stls from '@/styles/components/general/GeneralPhoneNumber.module.sass'
 import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
-import { phoneNumber } from '@/config/index'
+import { company } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { IconPhone } from '@/components/icons'
 
@@ -30,12 +30,12 @@ const GeneralPhoneNumber = ({
           getClassNames({ classNames })
         ) || undefined
       }
-      href={phoneNumber.href}
+      href={company.phoneNumber.href}
       title='Позвонить'>
       <div className={stls.content}>
         {withIcon && <IconPhone classNames={[stls.icon]} />}
         <div className={stls.numberlabel}>
-          <span>{phoneNumber.val}</span>
+          <span>{company.phoneNumber.val}</span>
           {withLabel && <span className={stls.label}>Бесплатно по России</span>}
         </div>
       </div>

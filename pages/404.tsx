@@ -1,13 +1,13 @@
 import stls from '@/styles/pages/Page404.module.sass'
 import truncate from 'truncate'
 import { NextSeo } from 'next-seo'
-import { routesFront, companyName } from '@/config/index'
+import { routesFront, company } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 import { BtnAlpha } from '@/components/btns'
 
 const Page404 = () => {
   const seoParams = {
-    title: `404 - Извините! Страница, которую Вы ищете, не может быть найдена | ${companyName}`,
+    title: `404 - Извините! Страница, которую Вы ищете, не может быть найдена | ${company.name}`,
     desc: truncate(
       '404 - возможно, запрашиваемая Вами страница была перенесена или удалена. Также возможно, Вы допустили небольшую опечатку при вводе адреса — такое случается',
       120
@@ -30,11 +30,11 @@ const Page404 = () => {
               url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
               width: 512,
               height: 512,
-              alt: companyName,
+              alt: company.name,
               type: 'image/png'
             }
           ],
-          site_name: companyName
+          site_name: company.name
         }}
       />
       <Wrapper>
