@@ -1,24 +1,47 @@
-import { routesFront } from '@/config/index'
+import truncate from 'truncate'
+import { pros } from '@/data/index'
+import {
+  routesFront,
+  companyName,
+  mituinstitute,
+  defaultSeoDesc
+} from '@/config/index'
+
+const seoParams = {
+  title: `${companyName} | ${defaultSeoDesc}`,
+  desc: truncate(pros.join('. '), 120)
+}
 
 const seo = {
   openGraph: {
     type: 'website',
-    locale: 'ru',
     url: routesFront.defaultRoot,
-    site_name: 'Московский Институт Технологий и Управления'
+    title: seoParams.title,
+    description: seoParams.desc,
+    locale: 'ru',
+    site_name: companyName,
+    images: [
+      {
+        url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
+        width: 512,
+        height: 512,
+        alt: companyName,
+        type: 'image/png'
+      }
+    ]
   },
   // twitter: {
   //   handle: '@handle',
   //   site: '@site',
   //   cardType: 'summary_large_image',
   // },
-  defaultTitle: 'Московский Институт Технологий и Управления',
-  description: 'Обучайся в самом инновационном ВУЗЕ страны',
+  defaultTitle: seoParams.title,
+  description: seoParams.desc,
   canonical: routesFront.defaultRoot
-  // dangerouslySetAllPagesToNoIndex: true,
-  // dangerouslySetAllPagesToNoFollow: true
-  // noindex: true,
-  // nofollow: true
+  // dangerouslySetAllPagesToNoIndex: !mituinstitute,
+  // dangerouslySetAllPagesToNoFollow: !mituinstitute,
+  // noindex: !mituinstitute,
+  // nofollow: !mituinstitute
 }
 
 export default seo

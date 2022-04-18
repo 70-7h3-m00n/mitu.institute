@@ -31,6 +31,7 @@
     "react-pdf": "^5.7.0",
     "react-swipeable": "^6.2.0",
     "reactjs-popup": "^2.0.5",
+    "truncate": "^3.0.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

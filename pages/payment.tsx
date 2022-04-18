@@ -5,7 +5,14 @@ import { GetStaticProps } from 'next'
 import { useContext, useEffect, MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
-import { routesFront, routesExternal } from '@/config/index'
+import { NextSeo } from 'next-seo'
+import truncate from 'truncate'
+import {
+  routesFront,
+  routesExternal,
+  companyName,
+  defaultSeoDesc
+} from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { handleGetStaticProps } from '@/lib/index'
 import {
@@ -56,11 +63,38 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
     'Пожалуйста, не забудьте указать ФИО и номер договора на странице с оплатой'
   ]
 
+  const h1 = 'Способы оплаты'
+  const seoParams = {
+    title: `${h1} | ${companyName}`,
+    desc: truncate(notedPoints.join('. '), 120),
+    canonical: `${routesFront.defaultRoot}${routesFront.payment}`
+  }
+
   return (
     <>
+      <NextSeo
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: companyName,
+              type: 'image/png'
+            }
+          ],
+          site_name: companyName
+        }}
+      />
       <section className={stls.sectionHero}>
         <Wrapper>
-          <h1 className={stls.title}>Способы оплаты</h1>
+          <h1 className={stls.title}>{h1}</h1>
           <GeneralSectionTitle classNames={[stls.GeneralSectionTitle]}>
             Банковской картой
           </GeneralSectionTitle>

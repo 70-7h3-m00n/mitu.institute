@@ -3,7 +3,13 @@ import type { NextPage } from 'next'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { TypePageProgramProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
-import { routesFront, mituinstitute } from '@/config/index'
+import { NextSeo, CourseJsonLd } from 'next-seo'
+import {
+  routesFront,
+  companyName,
+  mituinstitute,
+  defaultSeoDesc
+} from '@/config/index'
 import { handleGetStaticProps, handleGetStaticPaths } from '@/lib/index'
 import {
   ContextCategoriesContext,
@@ -58,8 +64,47 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
     gspContextParamsStudyField
   ])
 
+  const seoParams = {
+    title: `${program?.title} | ${program?.category?.label} | ${companyName}`,
+    programTitle: program?.title || 'Программа',
+    desc:
+      program?.description ||
+      program?.shortContents?.reduce(
+        (acc, cur) => acc + cur?.title + '. ',
+        ''
+      ) ||
+      defaultSeoDesc,
+    canonical: `${routesFront.defaultRoot}${routesFront.programs}/${program?.category?.slug}/${program?.study_field?.slug}/${program?.slug}`
+  }
+
   return (
     <>
+      <NextSeo
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: companyName,
+              type: 'image/png'
+            }
+          ],
+          site_name: companyName
+        }}
+      />
+      <CourseJsonLd
+        courseName={seoParams.programTitle}
+        description={seoParams.desc}
+        providerName={companyName}
+        providerUrl={seoParams.canonical}
+      />
       {programContext && (
         <>
           <SectionProgramHero />

@@ -1,10 +1,42 @@
 import stls from '@/styles/pages/Page500.module.sass'
+import truncate from 'truncate'
+import { NextSeo } from 'next-seo'
+import { routesFront, companyName } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 import { phoneNumber } from '@/config/index'
 
 const Page500 = () => {
+  const seoParams = {
+    title: `500 - Извините! На сервере произошла непредвиденная ошибка | ${companyName}`,
+    desc: truncate(
+      `500 - Пожалуйста, попробуйте позже или позвоните нам по номеру ${phoneNumber.val}`,
+      120
+    ),
+    canonical: routesFront.defaultRoot
+  }
+
   return (
     <>
+      <NextSeo
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: companyName,
+              type: 'image/png'
+            }
+          ],
+          site_name: companyName
+        }}
+      />
       <Wrapper>
         <div className={stls.content}>
           <h1 className={stls.title}>500</h1>

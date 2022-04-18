@@ -3,7 +3,10 @@ import type { NextPage } from 'next'
 import { GetStaticProps } from 'next'
 import { TypePagePromoProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
-import { routesFront } from '@/config/index'
+import { NextSeo } from 'next-seo'
+import truncate from 'truncate'
+import { pros } from '@/data/index'
+import { routesFront, companyName, defaultSeoDesc } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import {
   ContextCategoriesContext,
@@ -45,8 +48,34 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
     setProgram({ payload: null })
   }, [categories, programs, questions])
 
+  const seoParams = {
+    title: `${defaultSeoDesc} | ${companyName}`,
+    desc: truncate(pros.join('. '), 120),
+    canonical: `${routesFront.defaultRoot}${routesFront.promo}`
+  }
+
   return (
     <>
+      <NextSeo
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: companyName,
+              type: 'image/png'
+            }
+          ],
+          site_name: companyName
+        }}
+      />
       <SectionHero />
       <SectionOurPrograms promo />
       <SectionLeastDocuments />
