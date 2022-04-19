@@ -41,3 +41,5 @@ yarn-error.log*
 /public/*.js
 /public/robots.txt
 /public/sitemap.xml
+
+.vscode
