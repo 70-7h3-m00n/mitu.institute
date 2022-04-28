@@ -25,15 +25,17 @@ const lead = async (
     req.connection.remoteAddress?.toString() ||
     null
 
-  const geo2ip = new WebServiceClient(
-    env.geo2UderId || '',
-    env.geo2ApiKey || '',
-    {
-      host: env.geo2Host
-    }
-  )
-  const geo2ipData = dev ? null : await geo2ip.city(ip || '')
-  const location = dev ? null : buildUserLocation({ geo2ipData })
+  // geo2ip does not work and needs to be replaced with other service
+  // const geo2ip = new WebServiceClient(
+  //   env.geo2UderId || '',
+  //   env.geo2ApiKey || '',
+  //   {
+  //     host: env.geo2Host
+  //   }
+  // )
+  // const geo2ipData = dev ? null : await geo2ip.city(ip || '')
+  // const location = dev ? null : buildUserLocation({ geo2ipData })
+  const location = null
 
   const data = buildLeadData({ ...req.body, rootPath, ip, location })
   const subject = `Новая заявка с ${data.rootPath}!`
