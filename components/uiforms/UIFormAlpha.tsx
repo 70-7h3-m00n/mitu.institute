@@ -1,5 +1,10 @@
 import stls from '@/styles/components/uiforms/UIFormAlpha.module.sass'
-import { TypeClassNames, TypeIsPopup, TypeVariantForm } from '@/types/index'
+import {
+  TypeClassNames,
+  TypeColor,
+  TypeIsPopup,
+  TypeVariantForm
+} from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { GeneralTextHighlight } from '@/components/general'

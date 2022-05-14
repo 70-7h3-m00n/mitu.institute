@@ -6,7 +6,7 @@ import { NextSeo, OrganizationJsonLd } from 'next-seo'
 import truncate from 'truncate'
 import { pros } from '@/data/index'
 import { ContextCategoriesContext } from '@/context/index'
-import { routesFront, company } from '@/config/index'
+import { routesFront, company, colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import {
   SectionOurPrograms,

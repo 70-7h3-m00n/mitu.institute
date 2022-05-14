@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/SectionUIFormAlpha.module.sass'
-import { TypeClassNames } from '@/types/index'
+import { TypeClassNames, TypeColor } from '@/types/index'
 import { useContext } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
