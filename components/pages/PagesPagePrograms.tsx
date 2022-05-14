@@ -1,5 +1,5 @@
 import stls from '@/styles/components/pages/PagesPagePrograms.module.sass'
-import { TypeClassNames } from '@/types/index'
+import { TypeClassNames, TypeLibProgramsStudyFields } from '@/types/index'
 import { useContext } from 'react'
 import cn from 'classnames'
 import { NextSeo, OrganizationJsonLd } from 'next-seo'
@@ -8,14 +8,26 @@ import { pros } from '@/data/index'
 import { ContextCategoriesContext } from '@/context/index'
 import { routesFront, company } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { SectionOurPrograms, SectionUIFormAlpha } from '@/components/sections'
+import {
+  SectionOurPrograms,
+  SectionUIFormAlpha,
+  SectionProgramsWithFilters
+} from '@/components/sections'
 
-type TypeSectionAboutUniversityProps = {}
+type TypePagesPageProgramsProps = {
+  studyFields:
+    | {
+        type: string | null
+        slug: string | null
+        title: string | null
+      }[]
+    | null
+}
 
-const SectionAboutUniversity = () => {
+const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
   const { curCategory } = useContext(ContextCategoriesContext)
 
-  console.log(curCategory)
+  // console.log(curCategory)
   const seoParams = {
     title: `Программы | ${curCategory?.label || 'Направления'} | ${
       company.name
@@ -69,13 +81,10 @@ const SectionAboutUniversity = () => {
         sameAs={[routesFront.defaultRoot]}
         url={routesFront.defaultRoot}
       />
-      <SectionOurPrograms
-        classNames={[stls.SectionOurPrograms, stls.ourPrograms]}
-        atPrograms
-      />
-      <SectionUIFormAlpha />
+      <SectionProgramsWithFilters studyFields={studyFields} />
+      <SectionUIFormAlpha title='Поможем определиться с профессией' />
     </>
   )
 }
 
-export default SectionAboutUniversity
+export default PagesPagePrograms

@@ -36,7 +36,7 @@ const PagePrograms: NextPage<TypePageProgramsProps> = ({
 
   return (
     <>
-      <PagesPagePrograms />
+      <PagesPagePrograms studyFields={studyFields} />
     </>
   )
 }

@@ -12,6 +12,8 @@ type TypeBtnAlphaVariant = {
     | 'epsilon-reverse'
     | 'zeta'
     | 'zeta-reverse'
+    | 'eta'
+    | 'eta-reverse'
 }
 
 export default TypeBtnAlphaVariant

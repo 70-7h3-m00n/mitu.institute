@@ -1,0 +1,120 @@
+@use 'sass:math'
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/section' as section
+
+.container
+  // @include section.gap
+
+.heading
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: f.px(64)
+
+.title
+  margin: 0
+  font-size: f.px(64)
+  font-weight: 700
+  line-height: 110%
+
+.programsCounter
+  padding-left: f.px(4)
+  padding-right: f.px(4)
+  font-size: f.px(20)
+  font-weight: 700
+  line-height: 110%
+  @include m.dye(bg, c.$zeta)
+
+.searchContainer
+  display: flex
+  min-width: f.px(380)
+  width: 50.6%
+  max-width: 50.6%
+  box-shadow: 0px 0px 45px rgba(218, 218, 218, 0.58)
+
+.search
+  flex-grow: 1
+  padding-top: f.px(20)
+  padding-right: f.px(16)
+  padding-bottom: f.px(20)
+  padding-left: f.px(16)
+  border: 1px solid transparent
+  font-size: f.px(16)
+  font-weight: 400
+  line-height: 110%
+  &:focus-visible
+    outline: none
+    @include m.dye(border, c.$alpha)
+  &::placeholder
+    font-size: f.px(14)
+    @include m.dye(c, c.$chi)
+
+.iconSearchContainer
+  padding-top: f.px(16)
+  padding-right: f.px(24)
+  padding-bottom: f.px(16)
+  padding-left: f.px(24)
+  @include m.dye(bg, c.$alpha)
+
+.IconSearch
+  min-width: f.px(24)
+  max-width: f.px(24)
+  min-height: f.px(24)
+  max-height: f.px(24)
+
+.content
+  display: flex
+  margin-top: f.px(64)
+
+$left_ld_mr: 11.6%
+.left
+  flex-basis: 24%
+  margin-right: $left_ld_mr
+
+.right
+  flex-basis: 100% - 24% - $left_ld_mr
+
+.GeneralSectionTitle
+  margin-bottom: f.px(48)
+
+.filterTitle
+  margin-bottom: f.px(24)
+  font-size: f.px(18)
+  font-weight: 700
+  line-height: 110%
+
+.btnsCategories
+  display: flex
+  flex-direction: column
+
+.btnCategory
+  padding-top: f.px(19)
+  padding-bottom: f.px(19)
+  & + .btnCategory
+    margin-top: f.px(16)
+
+.studyFields
+  margin: 0
+  padding: 0
+  display: flex
+  flex-wrap: wrap
+  gap: f.px(32)
+
+.studyFieldItem
+  display: flex
+  flex-grow: 1
+
+.btnStudyField
+  min-width: 100%
+  max-width: 100%
+  padding-top: f.px(8)
+  padding-bottom: f.px(8)
+
+.highlight
+  @include m.dye(c, c.$beta)
+
+.content2
+  @include m.flex($fd: column, $jc: center, $ai: center)
+  margin-top: f.px(200)

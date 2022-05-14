@@ -100,3 +100,8 @@
     padding-right: f.px(16)
   font-size: f.px(16)
   @include btns.reverse($color: c.$alpha)
+
+.eta
+  @include btns.regular($color1: c.$delta, $color2: c.$beta)
+  &:hover
+    border-color: transparent

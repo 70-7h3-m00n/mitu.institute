@@ -25,6 +25,7 @@ import IconPaperPage from '@/components/icons/IconPaperPage'
 import IconPen from '@/components/icons/IconPen'
 import IconPhone from '@/components/icons/IconPhone'
 import IconPrograms from '@/components/icons/IconPrograms'
+import IconSearch from '@/components/icons/IconSearch'
 import IconVideoOnStand from '@/components/icons/IconVideoOnStand'
 import IconVK from '@/components/icons/IconVK'
 import IconWave from '@/components/icons/IconWave'
@@ -58,6 +59,7 @@ export {
   IconPen,
   IconPhone,
   IconPrograms,
+  IconSearch,
   IconVideoOnStand,
   IconVK,
   IconWave,
