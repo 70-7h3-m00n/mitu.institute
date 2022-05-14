@@ -10,7 +10,7 @@ type TypeCardProgramProps = TypeClassNames & {
 const CardProgram = ({ classNames, card }: TypeCardProgramProps) => {
   return (
     <>
-      <div className={stls.label}>{card.faculty.label}</div>
+      <div className={stls.label}>{card?.faculty?.label}</div>
       <div className={stls.top}>
         <h3 className={stls.title}>{card.title}</h3>
         <p className={stls.desc}>{card.desc}</p>

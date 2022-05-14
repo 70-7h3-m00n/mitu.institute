@@ -19,12 +19,14 @@ import { BtnAlpha } from '@/components/btns'
 type TypeSectionOurProgramsProps = TypeClassNames & {
   promo?: boolean
   atPrograms?: boolean
+  max?: number
 }
 
 const SectionOurPrograms = ({
   classNames,
   promo,
-  atPrograms
+  atPrograms,
+  max
 }: TypeSectionOurProgramsProps) => {
   const { categories, curCategory, setCategories } = useContext(
     ContextCategoriesContext
@@ -71,7 +73,7 @@ const SectionOurPrograms = ({
               </BtnAlpha>
             ))}
           </div>
-          <CardsProgram promo={promo} />
+          <CardsProgram promo={promo} max={max} />
           {promo && (
             <Popup
               trigger={() => (

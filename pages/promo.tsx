@@ -100,7 +100,7 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
         url={routesFront.defaultRoot}
       />
       <SectionHero />
-      <SectionOurPrograms promo />
+      <SectionOurPrograms promo max={12} />
       <SectionLeastDocuments />
       <SectionEnterWithoutExam />
       <SectionHowTrainingGoes />

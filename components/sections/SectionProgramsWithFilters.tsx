@@ -5,7 +5,7 @@ import {
   TypeLibProgramsStudyFields,
   TypePagePromoProps
 } from '@/types/index'
-import { MouseEventHandler, useContext } from 'react'
+import { MouseEventHandler, useContext, useState } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesFront, selectors } from '@/config/index'
@@ -18,7 +18,7 @@ import {
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
-import { CardsProgram } from '@/components/cards'
+import { CardProgram, CardsProgram } from '@/components/cards'
 import { BtnAlpha } from '@/components/btns'
 import { IconSearch } from '@/components/icons'
 
@@ -42,17 +42,13 @@ const SectionProgramsWithFilters = ({
   const { studyField: studyFieldContext } = useContext(ContextStudyFieldContext)
   const { programs } = useContext(ContextProgramsContext)
 
+  const [searchTerm, setSearchTerm] = useState('')
+
   const btnsCategories = categories?.map(category => ({
     variantType: category?.type,
     label: category?.label,
     href: category?.slug
   }))
-
-  console.log(studyFieldContext)
-  console.log(studyFields)
-  // const studyFields = programs?.map(program => program.study_field)
-
-  // console.log(studyFields)
 
   return (
     <section
@@ -117,7 +113,11 @@ const SectionProgramsWithFilters = ({
                   <BtnAlpha
                     key={(studyField?.title || 'btn') + idx}
                     tag={'Link'}
-                    href={`${routesFront.programs}/${curCategory?.slug}/${studyField?.slug}`}
+                    href={
+                      studyFieldContext === studyField?.slug
+                        ? `${routesFront.programs}/${curCategory?.slug}`
+                        : `${routesFront.programs}/${curCategory?.slug}/${studyField?.slug}`
+                    }
                     scroll={false}
                     variant={
                       studyFieldContext === studyField?.slug ? 'beta' : 'eta'
@@ -128,10 +128,11 @@ const SectionProgramsWithFilters = ({
                 </li>
               ))}
             </ul>
+            <CardsProgram
+              classNames={[cn(stls.cardsProgram, stls.CardsProgram)]}
+              atSectionProgramsWIthFilters
+            />
           </div>
-        </div>
-        <div className={stls.content2}>
-          <CardsProgram />
         </div>
       </Wrapper>
     </section>

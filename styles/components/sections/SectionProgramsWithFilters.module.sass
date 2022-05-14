@@ -100,7 +100,7 @@ $left_ld_mr: 11.6%
   padding: 0
   display: flex
   flex-wrap: wrap
-  gap: f.px(32)
+  gap: f.px(24) f.px(32)
 
 .studyFieldItem
   display: flex
@@ -112,9 +112,9 @@ $left_ld_mr: 11.6%
   padding-top: f.px(8)
   padding-bottom: f.px(8)
 
+.CardsProgram
+  &.cardsProgram
+    margin-top: f.px(78)
+
 .highlight
   @include m.dye(c, c.$beta)
-
-.content2
-  @include m.flex($fd: column, $jc: center, $ai: center)
-  margin-top: f.px(200)

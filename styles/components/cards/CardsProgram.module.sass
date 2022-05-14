@@ -16,19 +16,28 @@ $item_ld_mr: 2.75%
     @include m.flex($fb: 100%)
     &:nth-child(1)
       margin-top: 0
-  @include m.media(laptop)
-    @include m.flex($fb: math.div((100% - $item_ld_mr), 2))
-    &:nth-child(odd)
+  &.atSectionProgramsWIthFilters
+    @include m.media(laptop, desktop)
+      @include m.flex($fb: math.div((100% - $item_ld_mr), 2))
+      &:nth-child(odd)
+        margin-right: $item_ld_mr
+      &:nth-child(-n+2)
+        margin-top: 0
+  &.default
+    @include m.media(laptop)
+      @include m.flex($fb: math.div((100% - $item_ld_mr), 2))
+      &:nth-child(odd)
+        margin-right: $item_ld_mr
+      &:nth-child(-n+2)
+        margin-top: 0
+    @include m.media(desktop)
+      @include m.flex($fb: math.div((100% - $item_ld_mr * 2), 3))
       margin-right: $item_ld_mr
-    &:nth-child(-n+2)
-      margin-top: 0
-  @include m.media(desktop)
-    @include m.flex($fb: math.div((100% - $item_ld_mr * 2), 3))
-    margin-right: $item_ld_mr
-    &:nth-child(3n)
-      margin-right: 0
-    &:nth-child(-n+3)
-      margin-top: 0
+      &:nth-child(3n)
+        margin-right: 0
+      &:nth-child(-n+3)
+        margin-top: 0
+
   // min-height: f.px(260)
   margin-top: f.px(38)
 

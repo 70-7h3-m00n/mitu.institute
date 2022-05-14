@@ -12,39 +12,54 @@ import { ProgramStudyDuration } from '@/components/program'
 import { IconClock, IconArrowTopRight } from '@/components/icons'
 import {
   ContextProgramsContext,
-  ContextCategoriesContext
+  ContextCategoriesContext,
+  ContextStudyFieldContext
 } from '@/context/index'
 
 type TypeCardsProgramProps = TypeClassNames & {
   promo?: boolean
+  atSectionProgramsWIthFilters?: boolean
+  max?: number
 }
 
-const CardsProgram = ({ classNames, promo }: TypeCardsProgramProps) => {
+const CardsProgram = ({
+  classNames,
+  promo,
+  atSectionProgramsWIthFilters,
+  max
+}: TypeCardsProgramProps) => {
   const { programs } = useContext(ContextProgramsContext)
   const { curCategory } = useContext(ContextCategoriesContext)
-  const [cards, setCards] = useState<TypeLibPrograms | null>(null)
+  const { studyField: studyFieldContext } = useContext(ContextStudyFieldContext)
 
-  useEffect(() => {
-    curCategory?.type
-      ? setCards(
-          programs?.filter(
-            program => program?.category?.type === curCategory.type
-          ) || null
-        )
-      : setCards(programs || null)
-  }, [curCategory, programs])
+  const cards = programs
+    ?.filter(program =>
+      curCategory ? program?.category?.slug === curCategory?.slug : true
+    )
+    ?.filter(program =>
+      studyFieldContext
+        ? program?.study_field?.slug === studyFieldContext
+        : true
+    )
+    ?.filter((_, idx) => {
+      return max ? idx < max : true
+    })
 
-  if (!programs) return <></>
+  if (!programs || !cards || programs?.length === 0 || cards?.length === 0)
+    return <></>
 
   return (
     <ul
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       {cards?.map((card, idx) => (
         <li
           key={(card.title || 'CardsProgram_card') + idx}
-          className={stls.card}>
+          className={cn(stls.card, {
+            [stls.atSectionProgramsWIthFilters]: atSectionProgramsWIthFilters,
+            [stls.default]: !atSectionProgramsWIthFilters
+          })}>
           {promo ? (
             <Popup
               trigger={() => (
