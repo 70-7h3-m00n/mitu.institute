@@ -11,17 +11,26 @@
   display: flex
   justify-content: space-between
   align-items: center
-  margin-bottom: f.px(64)
+  @include m.media(phone)
+    margin-bottom: f.px(48)
+  @include m.media(tablet)
+    margin-bottom: f.px(40)
+  @include m.media(laptop, desktop)
+    margin-bottom: f.px(64)
 
 .title
   margin: 0
-  font-size: f.px(64)
+  @include m.media(phone, tablet)
+    font-size: f.px(36)
+  @include m.media(laptop, desktop)
+    font-size: f.px(64)
   font-weight: 700
   line-height: 110%
 
 .programsCounter
-  padding-left: f.px(4)
-  padding-right: f.px(4)
+  margin: 0
+  padding-left: f.px(3)
+  padding-right: f.px(3)
   font-size: f.px(20)
   font-weight: 700
   line-height: 110%
@@ -118,3 +127,11 @@ $left_ld_mr: 11.6%
 
 .highlight
   @include m.dye(c, c.$beta)
+
+.tabletLaptopDesktop
+  @include m.media(phone)
+    display: none
+    
+.phone
+  @include m.media(tablet, laptop, desktop)
+    display: none

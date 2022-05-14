@@ -59,11 +59,12 @@ const SectionProgramsWithFilters = ({
         <div className={stls.heading}>
           <h1 className={stls.title}>Программы</h1>
           <p className={stls.programsCounter}>
-            Более{' '}
+            <span className={stls.tabletLaptopDesktop}>Более </span>
             <span className={stls.highlight}>
               {Math.round((programs?.length || 100) / 10) * 10}
+              <span className={stls.phone}>+</span>
             </span>{' '}
-            программ
+            <span className={stls.tabletLaptopDesktop}>программ</span>
           </p>
         </div>
         <div className={stls.searchContainer}>
