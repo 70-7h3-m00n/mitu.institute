@@ -38,6 +38,8 @@
     @include m.flex($d: false, $fb: 65%)
     @media screen and (max-width: 650px)
       @include m.flex($d: false, $fb: 100%)
+  @include m.media(desktop)
+    padding-right: 30%
   @include m.media(laptop, desktop)
     @include m.flex($fd: column, $jc: space-between)
 
@@ -172,6 +174,7 @@
   @include m.media(phone)
     margin-top: f.px(32)
   @include m.media(tablet)
+    margin-top: f.px(32)
     margin-bottom: f.px(24)
   @include m.media(laptop, desktop)
     margin-top: f.px(32)
