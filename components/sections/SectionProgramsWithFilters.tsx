@@ -66,7 +66,7 @@ const SectionProgramsWithFilters = ({
             <span className={stls.tabletLaptopDesktop}>программ</span>
           </p>
         </div>
-        <div className={stls.searchContainer}>
+        {/* <div className={stls.searchContainer}>
           <input
             className={stls.search}
             placeholder='Введите название программы'
@@ -74,7 +74,7 @@ const SectionProgramsWithFilters = ({
           <div className={stls.iconSearchContainer}>
             <IconSearch classNames={[stls.IconSearch]} />
           </div>
-        </div>
+        </div> */}
         <div className={stls.content}>
           <div className={stls.left}>
             <div className={stls.filters}>
