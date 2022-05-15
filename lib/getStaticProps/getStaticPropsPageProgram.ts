@@ -98,8 +98,10 @@ const getStaticPropsPageProgram = async ({
             answer
           }
           study_field {
-            type
             slug
+            type
+            label
+            title
           }
           category {
             type

@@ -13,6 +13,7 @@ type TypePagePromoPropsQuery = {
           slug: string | null
           type: string | null
           label: string | null
+          title: string | null
         } | null
         category: {
           slug: string | null

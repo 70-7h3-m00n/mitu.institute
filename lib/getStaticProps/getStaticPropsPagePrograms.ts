@@ -34,6 +34,7 @@ const getStaticPropsPagePrograms = async ({
             slug
             type
             label
+            title
           }
           category {
             slug
