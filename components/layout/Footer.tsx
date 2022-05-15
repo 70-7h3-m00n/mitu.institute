@@ -94,6 +94,11 @@ const Footer = ({ classNames }: TypeFooterProps) => {
                 <a className={stls.navLink}>Оплата</a>
               </Link>
             </li>
+            <li className={stls.navLinkItem}>
+              <Link href={routesFront.contact}>
+                <a className={stls.navLink}>Контакты</a>
+              </Link>
+            </li>
           </ul>
           <div className={stls.contacts}>
             <GeneralPhoneNumber

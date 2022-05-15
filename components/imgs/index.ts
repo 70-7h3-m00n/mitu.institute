@@ -1,3 +1,7 @@
+// contact
+export { default as ImgContactMapAlmaty } from '@/components/imgs/contact/ImgContactMapAlmaty'
+export { default as ImgContactMapMoscow } from '@/components/imgs/contact/ImgContactMapMoscow'
+
 // diplomas
 export { default as ImgDiploma1 } from '@/components/imgs/diplomas/ImgDiploma1'
 export { default as ImgDiploma2 } from '@/components/imgs/diplomas/ImgDiploma2'

@@ -74,7 +74,7 @@ const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
           {
             telephone: company.phoneNumber.val,
             contactType: company.phoneNumber.contactType,
-            areaServed: 'US',
+            areaServed: company.phoneNumber.areaServed,
             availableLanguage: company.languages
           }
         ]}

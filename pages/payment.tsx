@@ -103,7 +103,7 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
           {
             telephone: company.phoneNumber.val,
             contactType: company.phoneNumber.contactType,
-            areaServed: 'US',
+            areaServed: company.phoneNumber.areaServed,
             availableLanguage: company.languages
           }
         ]}

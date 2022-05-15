@@ -1,0 +1,105 @@
+@use 'sass:math'
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as s
+@use '@/styles/shared/section' as section
+
+.title
+  margin: 0
+  @include m.media(phone)
+    margin-bottom: f.px(48)
+  @include m.media(tablet)
+    margin-bottom: f.px(40)
+  @include m.media(phone, tablet)
+    font-size: f.px(36)
+  @include m.media(laptop, desktop)
+    margin-bottom: f.px(64)
+    font-size: f.px(64)
+  font-weight: 700
+  line-height: 110%
+
+.list
+  margin: 0
+  padding: 0
+
+.listItem
+  display: flex
+  @include m.media(phone, tablet)
+    flex-direction: column
+  & + .listItem
+    margin-top: f.px(32)
+    @include m.media(tablet)
+      padding-top: f.px(47)
+    @include m.media(phone, laptop, desktop)
+      padding-top: f.px(32)
+    border-top: 1px solid
+    @include m.dye(border, c.$mu)
+
+$right_ld_ml: 2.8%
+$left_ld_db: 32.8%
+.left
+  @include m.media(laptop, desktop)
+    flex-basis: $left_ld_db
+
+.right
+  @include m.media(phone)
+    margin-top: f.px(48)
+  @include m.media(tablet)
+    margin-top: f.px(32)
+  @include m.media(laptop, desktop)
+    flex-basis: 100% - $left_ld_db - $right_ld_ml
+    margin-left: $right_ld_ml
+
+.iconContainer
+  display: flex
+  justify-content: center
+  align-items: center
+  min-width: f.px(40)
+  max-width: f.px(40)
+  min-height: f.px(40)
+  max-height: f.px(40)
+  @include m.media(tablet)
+    margin-bottom: f.px(28)
+  @include m.media(phone, laptop, desktop)
+    margin-bottom: f.px(32)
+  @include m.dye(bg, c.$zeta)
+
+.icon
+  min-width: f.px(24)
+  max-width: f.px(24)
+  min-height: f.px(24)
+  max-height: f.px(24)
+  & path
+    @include m.dye(stroke, c.$beta)
+
+.city
+  margin: 0
+  @include m.media(tablet)
+    margin-bottom: f.px(28)
+    font-size: f.px(18)
+  @include m.media(phone, laptop, desktop)
+    margin-bottom: f.px(24)
+    font-size: f.px(24)
+  font-weight: 700
+  line-height: 110%
+
+.p
+  margin: 0
+  @include m.media(tablet)
+    font-size: f.px(16)
+  @include m.media(phone, laptop, desktop)
+    font-size: f.px(18)
+  font-weight: 400
+  line-height: 120%
+  & + .p
+    margin-top: f.px(16)
+
+.link
+  color: inherit
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      text-decoration: underline
+  &:focus-visible
+    outline: none
+    text-decoration: underline
