@@ -20,13 +20,15 @@ type TypeSectionOurProgramsProps = TypeClassNames & {
   promo?: boolean
   atPrograms?: boolean
   max?: number
+  cardsStudyFields?: boolean
 }
 
 const SectionOurPrograms = ({
   classNames,
   promo,
   atPrograms,
-  max
+  max,
+  cardsStudyFields
 }: TypeSectionOurProgramsProps) => {
   const { categories, curCategory, setCategories } = useContext(
     ContextCategoriesContext
@@ -73,7 +75,11 @@ const SectionOurPrograms = ({
               </BtnAlpha>
             ))}
           </div>
-          <CardsProgram promo={promo} max={max} />
+          <CardsProgram
+            promo={promo}
+            max={max}
+            cardsStudyFields={cardsStudyFields}
+          />
           {promo && (
             <Popup
               trigger={() => (

@@ -20,13 +20,15 @@ type TypeCardsProgramProps = TypeClassNames & {
   promo?: boolean
   atSectionProgramsWIthFilters?: boolean
   max?: number
+  cardsStudyFields?: boolean
 }
 
 const CardsProgram = ({
   classNames,
   promo,
   atSectionProgramsWIthFilters,
-  max
+  max,
+  cardsStudyFields
 }: TypeCardsProgramProps) => {
   const { programs } = useContext(ContextProgramsContext)
   const { curCategory } = useContext(ContextCategoriesContext)
@@ -45,6 +47,28 @@ const CardsProgram = ({
       return max ? idx < max : true
     })
 
+  const nonUniqueStudyFields = programs
+    ?.filter(program => curCategory?.slug === program.category?.slug)
+    .map(program => program.study_field)
+
+  const studyFields: {
+    type: string | null
+    slug: string | null
+    label: string | null
+    title: string | null
+  }[] = []
+
+  nonUniqueStudyFields?.forEach(nonUniquestudyField => {
+    if (
+      nonUniquestudyField &&
+      !studyFields.some(
+        studyField => studyField.slug === nonUniquestudyField?.slug
+      )
+    ) {
+      studyFields.push(nonUniquestudyField)
+    }
+  })
+
   if (!programs || !cards || programs?.length === 0 || cards?.length === 0)
     return <></>
 
@@ -53,82 +77,87 @@ const CardsProgram = ({
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
-      {cards?.map((card, idx) => (
-        <li
-          key={(card.title || 'CardsProgram_card') + idx}
-          className={cn(stls.card, {
-            [stls.atSectionProgramsWIthFilters]: atSectionProgramsWIthFilters,
-            [stls.default]: !atSectionProgramsWIthFilters
-          })}>
-          {promo ? (
-            <Popup
-              trigger={() => (
-                <button className={stls.btn}>
-                  <div className={stls.label}>{card?.study_field?.label}</div>
-                  <div className={stls.top}>
-                    <h3 className={stls.title}>{card.title}</h3>
-                    <p className={stls.desc}>{card.shortDescription}</p>
-                  </div>
-                  <div className={stls.bottom}>
-                    <div className={stls.studyDuration}>
-                      {card?.timenprice?.[0]?.studyMonthsDuration && (
-                        <>
-                          <IconClock classNames={[stls.iconClock]} />
-                          <ProgramStudyDuration
-                            studyDurationMonths={
-                              Number(
-                                card?.timenprice?.[0]?.studyMonthsDuration
-                              ) || 0
-                            }
-                            yearsOnly
+      {!cardsStudyFields
+        ? cards?.map((card, idx) => (
+            <li
+              key={(card.title || 'CardsProgram_card') + idx}
+              className={cn(stls.card, {
+                [stls.atSectionProgramsWIthFilters]:
+                  atSectionProgramsWIthFilters,
+                [stls.default]: !atSectionProgramsWIthFilters
+              })}>
+              {promo ? (
+                <Popup
+                  trigger={() => (
+                    <button className={stls.btn}>
+                      <div className={stls.label}>
+                        {card?.study_field?.label}
+                      </div>
+                      <div className={stls.top}>
+                        <h3 className={stls.title}>{card.title}</h3>
+                        <p className={stls.desc}>{card.shortDescription}</p>
+                      </div>
+                      <div className={stls.bottom}>
+                        <div className={stls.studyDuration}>
+                          {card?.timenprice?.[0]?.studyMonthsDuration && (
+                            <>
+                              <IconClock classNames={[stls.iconClock]} />
+                              <ProgramStudyDuration
+                                studyDurationMonths={
+                                  Number(
+                                    card?.timenprice?.[0]?.studyMonthsDuration
+                                  ) || 0
+                                }
+                                yearsOnly
+                              />
+                            </>
+                          )}
+                        </div>
+                        <div className={stls.learnMore}>
+                          <div className={stls.learnMoreLabel}>Подробнее</div>
+                          <IconArrowTopRight
+                            classNames={[stls.iconArrowTopRight]}
                           />
-                        </>
-                      )}
-                    </div>
-                    <div className={stls.learnMore}>
-                      <div className={stls.learnMoreLabel}>Подробнее</div>
-                      <IconArrowTopRight
-                        classNames={[stls.iconArrowTopRight]}
-                      />
-                    </div>
-                  </div>
-                </button>
-              )}
-              modal
-              lockScroll
-              nested
-              closeOnDocumentClick>
-              {(close: MouseEventHandler) => (
-                <GeneralPopup close={close}>
-                  <UIFormAlpha isPopup />
-                </GeneralPopup>
-              )}
-            </Popup>
-          ) : (
-            <Link
-              href={
-                `${routesFront.programs}/${
-                  card?.category?.slug || 'category'
-                }/${card?.study_field?.slug || 'study-field'}/${card?.slug}` ||
-                '/'
-              }>
-              <a className={stls.btn}>
-                {/* {mituinstitute && (
+                        </div>
+                      </div>
+                    </button>
+                  )}
+                  modal
+                  lockScroll
+                  nested
+                  closeOnDocumentClick>
+                  {(close: MouseEventHandler) => (
+                    <GeneralPopup close={close}>
+                      <UIFormAlpha isPopup />
+                    </GeneralPopup>
+                  )}
+                </Popup>
+              ) : (
+                <Link
+                  href={
+                    `${routesFront.programs}/${
+                      card?.category?.slug || 'category'
+                    }/${card?.study_field?.slug || 'study-field'}/${
+                      card?.slug
+                    }` || '/'
+                  }>
+                  <a className={stls.btn}>
+                    {/* {mituinstitute && (
                   <div className={stls.label}>{card?.study_field?.label}</div>
                 )} */}
-                <div className={stls.label}>{card?.category?.label}</div>
-                <div className={stls.top}>
-                  {mituinstitute && (
-                    <p className={stls.aboveTitle}>
-                      {card?.study_field?.label}
-                    </p>
-                  )}
+                    <div className={stls.label}>{card?.category?.label}</div>
+                    <div className={stls.top}>
+                      {mituinstitute && (
+                        <p className={stls.aboveTitle}>
+                          {card?.study_field?.label}
+                        </p>
+                      )}
 
-                  <h3 className={stls.title}>{card.title}</h3>
-                  {/* <p className={stls.desc}>{card.shortDescription}</p> */}
-                </div>
-                <div className={stls.bottom}>
-                  {/* {mituinstitute && (
+                      <h3 className={stls.title}>{card.title}</h3>
+                      {/* <p className={stls.desc}>{card.shortDescription}</p> */}
+                    </div>
+                    <div className={stls.bottom}>
+                      {/* {mituinstitute && (
                     <div className={stls.studyDuration}>
                       {card?.timenprice?.[0]?.studyMonthsDuration && (
                         <>
@@ -145,16 +174,49 @@ const CardsProgram = ({
                       )}
                     </div>
                   )} */}
-                  <div className={stls.learnMore}>
-                    <div className={stls.learnMoreLabel}>Подробнее</div>
-                    <IconArrowTopRight classNames={[stls.iconArrowTopRight]} />
+                      <div className={stls.learnMore}>
+                        <div className={stls.learnMoreLabel}>Подробнее</div>
+                        <IconArrowTopRight
+                          classNames={[stls.iconArrowTopRight]}
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+              )}
+            </li>
+          ))
+        : studyFields.map((studyField, idx) => (
+            <li
+              key={`${studyField.title || 'CardsProgram__studyField'}-${idx}`}
+              className={cn(stls.card, {
+                [stls.atSectionProgramsWIthFilters]:
+                  atSectionProgramsWIthFilters,
+                [stls.default]: !atSectionProgramsWIthFilters
+              })}>
+              <Link
+                href={
+                  `${routesFront.programs}/${curCategory?.slug || 'category'}/${
+                    studyField.slug || 'study-field'
+                  }` || '/'
+                }>
+                <a className={stls.btn}>
+                  <div className={stls.label}>{curCategory?.label}</div>
+                  <div className={stls.top}>
+                    <h3 className={stls.title}>{studyField.title}</h3>
                   </div>
-                </div>
-              </a>
-            </Link>
-          )}
-        </li>
-      ))}
+                  <div className={stls.bottom}>
+                    <div className={stls.learnMore}>
+                      <div className={stls.learnMoreLabel}>Подробнее</div>
+                      <IconArrowTopRight
+                        classNames={[stls.iconArrowTopRight]}
+                      />
+                    </div>
+                  </div>
+                </a>
+              </Link>
+            </li>
+          ))}
     </ul>
   )
 }

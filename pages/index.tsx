@@ -100,7 +100,7 @@ const PageHome: NextPage<TypePageHomeProps> = ({
         url={routesFront.defaultRoot}
       />
       <SectionHero />
-      <SectionOurPrograms max={6} />
+      <SectionOurPrograms max={6} cardsStudyFields />
       <SectionLeastDocuments />
       <SectionEnterWithoutExam />
       <SectionHowTrainingGoes />

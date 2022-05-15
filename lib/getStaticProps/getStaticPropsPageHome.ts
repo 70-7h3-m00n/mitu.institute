@@ -33,6 +33,7 @@ const getStaticPropsPagePromo = async ({
             slug
             type
             label
+            title
           }
           category {
             slug
