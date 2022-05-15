@@ -60,24 +60,32 @@ const GeneralHeaderNavPhoneTablet = ({
     {
       id: 'GeneralNavPhoneTablet_contact',
       trigger: (
-        <Popup
-          trigger={() => (
-            <button className={stls.btn}>
-              <IconManager classNames={[stls.icon]} />
-              <span className={stls.label}>Контакты</span>
-            </button>
-          )}
-          modal
-          lockScroll
-          nested
-          closeOnDocumentClick>
-          {(close: MouseEventHandler) => (
-            <GeneralPopup close={close}>
-              <UIFormAlpha isPopup />
-            </GeneralPopup>
-          )}
-        </Popup>
+        <Link href={routesFront.contact}>
+          <a className={stls.btn}>
+            <IconManager classNames={[stls.icon]} />
+            <span className={stls.label}>Контакты</span>
+          </a>
+        </Link>
       )
+      // trigger: (
+      //   <Popup
+      //     trigger={() => (
+      //       <button className={stls.btn}>
+      //         <IconManager classNames={[stls.icon]} />
+      //         <span className={stls.label}>Контакты</span>
+      //       </button>
+      //     )}
+      //     modal
+      //     lockScroll
+      //     nested
+      //     closeOnDocumentClick>
+      //     {(close: MouseEventHandler) => (
+      //       <GeneralPopup close={close}>
+      //         <UIFormAlpha isPopup />
+      //       </GeneralPopup>
+      //     )}
+      //   </Popup>
+      // )
     }
   ]
   return (
