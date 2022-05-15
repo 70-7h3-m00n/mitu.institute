@@ -49,6 +49,14 @@ const SectionProgramsWithFilters = ({
   const [searchTerm, setSearchTerm] = useState('')
   const [filtersAreOpen, setFiltersAreOpen] = useState(false)
 
+  const usedStudyFieldsSlugs = Array.from(
+    new Set(
+      programs
+        ?.filter(program => program.category?.slug === curCategory?.slug)
+        .map(program => program.study_field?.slug)
+    )
+  )
+
   return (
     <section
       className={
@@ -101,30 +109,36 @@ const SectionProgramsWithFilters = ({
                 classNames={[cn(stls.GeneralProgramsFilters, stls.phoneTablet)]}
               />
               <ul className={stls.studyFields}>
-                {studyFields?.map((studyField, idx) => (
-                  <li
-                    key={`${
-                      studyField?.title ||
-                      'SectionProgramsWithFilters__studyField'
-                    }-${idx}`}
-                    className={stls.studyFieldItem}>
-                    <BtnAlpha
-                      key={(studyField?.title || 'btn') + idx}
-                      tag={'Link'}
-                      href={
-                        studyFieldContext === studyField?.slug
-                          ? `${routesFront.programs}/${curCategory?.slug}`
-                          : `${routesFront.programs}/${curCategory?.slug}/${studyField?.slug}`
-                      }
-                      scroll={false}
-                      variant={
-                        studyFieldContext === studyField?.slug ? 'beta' : 'eta'
-                      }
-                      classNames={[stls.btnStudyField]}>
-                      {studyField?.title}
-                    </BtnAlpha>
-                  </li>
-                ))}
+                {studyFields
+                  ?.filter(studyField =>
+                    usedStudyFieldsSlugs?.some(slug => slug === studyField.slug)
+                  )
+                  .map((studyField, idx) => (
+                    <li
+                      key={`${
+                        studyField?.title ||
+                        'SectionProgramsWithFilters__studyField'
+                      }-${idx}`}
+                      className={stls.studyFieldItem}>
+                      <BtnAlpha
+                        key={(studyField?.title || 'btn') + idx}
+                        tag={'Link'}
+                        href={
+                          studyFieldContext === studyField?.slug
+                            ? `${routesFront.programs}/${curCategory?.slug}`
+                            : `${routesFront.programs}/${curCategory?.slug}/${studyField?.slug}`
+                        }
+                        scroll={false}
+                        variant={
+                          studyFieldContext === studyField?.slug
+                            ? 'beta'
+                            : 'eta'
+                        }
+                        classNames={[stls.btnStudyField]}>
+                        {studyField?.title}
+                      </BtnAlpha>
+                    </li>
+                  ))}
               </ul>
             </div>
             <GeneralSectionTitle
