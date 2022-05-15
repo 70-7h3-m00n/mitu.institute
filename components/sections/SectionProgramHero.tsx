@@ -37,7 +37,7 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
       label: 'Форма обучения',
       val: mituinstitute
         ? 'Дистанционная'
-        : 'Очная, очно-заочная, заочная с приминением дистанционных технологий обучения'
+        : 'Очная, очно-заочная, заочная с применением дистанционных технологий обучения'
     },
     {
       val: mituinstitute ? <ProgramAdmission /> : 'Ежемесячно',
