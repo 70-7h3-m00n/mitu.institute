@@ -1,0 +1,24 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.filterTitle
+  margin-bottom: f.px(24)
+  font-size: f.px(18)
+  font-weight: 700
+  line-height: 110%
+
+.btnsCategories
+  display: flex
+  flex-direction: column
+
+.btnCategory
+  @include m.media(phone, tablet)
+    min-width: 100%
+    max-width: 100%
+    padding-left: 5%
+    padding-right: 5%
+  padding-top: f.px(19)
+  padding-bottom: f.px(19)
+  & + .btnCategory
+    margin-top: f.px(16)

@@ -38,9 +38,10 @@
 
 .searchContainer
   display: flex
-  min-width: f.px(380)
-  width: 50.6%
-  max-width: 50.6%
+  @include m.media(laptop, desktop)
+    min-width: f.px(380)
+    width: 50.6%
+    max-width: 50.6%
   box-shadow: 0px 0px 45px rgba(218, 218, 218, 0.58)
 
 .search
@@ -75,47 +76,87 @@
 
 .content
   display: flex
-  margin-top: f.px(64)
+  @include m.media(phone, tablet)
+    margin-top: f.px(32)
+  @include m.media(laptop, desktop)
+    margin-top: f.px(64)
 
 $left_ld_mr: 11.6%
 .left
-  flex-basis: 24%
-  margin-right: $left_ld_mr
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    flex-basis: 24%
+    margin-right: $left_ld_mr
 
 .right
-  flex-basis: 100% - 24% - $left_ld_mr
+  @include m.media(laptop, desktop)
+    flex-basis: 100% - 24% - $left_ld_mr
 
 .GeneralSectionTitle
-  margin-bottom: f.px(48)
+  @include m.media(phone)
+    margin-top: f.px(64)
+    margin-bottom: f.px(62)
+  @include m.media(tablet)
+    margin-top: f.px(64)
+    margin-bottom: f.px(54)
+  @include m.media(laptop, desktop)
+    margin-bottom: f.px(48)
 
-.filterTitle
-  margin-bottom: f.px(24)
-  font-size: f.px(18)
-  font-weight: 700
-  line-height: 110%
+.btnToggleFilters
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+    font-weight: 400
+    line-height: 110%
+    @include m.dye(c, c.$gamma)
+    &.filtersAreOpen
+      margin-bottom: f.px(40)
+      @include m.dye(c, c.$alpha)
+  @include m.media(laptop, desktop)
+    display: none
 
-.btnsCategories
-  display: flex
-  flex-direction: column
+.filtersContainer
+  @include m.media(phone)
+    flex-direction: column
+    margin-bottom: f.px(72)
+  @include m.media(tablet)
+    margin-bottom: f.px(64)
+  @include m.media(phone, tablet)
+    display: none
+    &.filtersAreOpen
+      display: flex
 
-.btnCategory
-  padding-top: f.px(19)
-  padding-bottom: f.px(19)
-  & + .btnCategory
-    margin-top: f.px(16)
+$GeneralProgramsFilters_t_mr: 9.2%
+.GeneralProgramsFilters
+  @include m.media(tablet)
+    flex-basis: math.div(100% - $GeneralProgramsFilters_t_mr, 2)
+    margin-right: $GeneralProgramsFilters_t_mr
 
 .studyFields
   margin: 0
   padding: 0
   display: flex
   flex-wrap: wrap
-  gap: f.px(24) f.px(32)
+  @include m.media(phone)
+    margin-top: f.px(48)
+  @include m.media(tablet, laptop, desktop)
+    flex-basis: math.div(100% - $GeneralProgramsFilters_t_mr, 2)
+    gap: f.px(24) f.px(32)
 
 .studyFieldItem
   display: flex
   flex-grow: 1
+  @include m.media(phone)
+    & + .studyFieldItem
+      margin-top: f.px(24)
+  @include m.media(phone, tablet)
+    min-width: 100%
+    max-width: 100%
 
 .btnStudyField
+  @include m.media(phone, tablet)
+    padding-left: 5%
+    padding-right: 5%
   min-width: 100%
   max-width: 100%
   padding-top: f.px(8)
@@ -127,6 +168,14 @@ $left_ld_mr: 11.6%
 
 .highlight
   @include m.dye(c, c.$beta)
+
+.phoneTablet
+  @include m.media(laptop, desktop)
+    display: none
+
+.laptopDesktop
+  @include m.media(phone, tablet)
+    display: none
 
 .tabletLaptopDesktop
   @include m.media(phone)

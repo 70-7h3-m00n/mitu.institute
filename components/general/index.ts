@@ -9,6 +9,7 @@ import GeneralLogo from '@/components/general/GeneralLogo'
 import GeneralNavPhoneTablet from '@/components/general/GeneralNavPhoneTablet'
 import GeneralPhoneNumber from '@/components/general/GeneralPhoneNumber'
 import GeneralPopup from '@/components/general/GeneralPopup'
+import GeneralProgramsFilters from '@/components/general/GeneralProgramsFilters'
 import GeneralSectionHeroPicture from '@/components/general/GeneralSectionHeroPicture'
 import GeneralPros from '@/components/general/GeneralPros'
 import GeneralSectionTitle from '@/components/general/GeneralSectionTitle'
@@ -26,6 +27,7 @@ export {
   GeneralNavPhoneTablet,
   GeneralPhoneNumber,
   GeneralPopup,
+  GeneralProgramsFilters,
   GeneralSectionHeroPicture,
   GeneralPros,
   GeneralSectionTitle,

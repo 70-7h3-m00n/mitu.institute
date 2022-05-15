@@ -16,7 +16,11 @@ import {
   ContextProgramsContext
 } from '@/context/index'
 import { Wrapper } from '@/components/layout'
-import { GeneralSectionTitle, GeneralPopup } from '@/components/general'
+import {
+  GeneralSectionTitle,
+  GeneralPopup,
+  GeneralProgramsFilters
+} from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { CardProgram, CardsProgram } from '@/components/cards'
 import { BtnAlpha } from '@/components/btns'
@@ -43,12 +47,7 @@ const SectionProgramsWithFilters = ({
   const { programs } = useContext(ContextProgramsContext)
 
   const [searchTerm, setSearchTerm] = useState('')
-
-  const btnsCategories = categories?.map(category => ({
-    variantType: category?.type,
-    label: category?.label,
-    href: category?.slug
-  }))
+  const [filtersAreOpen, setFiltersAreOpen] = useState(false)
 
   return (
     <section
@@ -79,56 +78,59 @@ const SectionProgramsWithFilters = ({
         <div className={stls.content}>
           <div className={stls.left}>
             <div className={stls.filters}>
-              <div className={stls.filter}>
-                <h3 className={stls.filterTitle}>Программы</h3>
-                <div className={stls.btnsCategories}>
-                  {btnsCategories?.map((btn, idx) => (
-                    <BtnAlpha
-                      key={(btn.label || 'btn') + idx}
-                      tag={'Link'}
-                      href={`${routesFront.programs}/${btn.href}`}
-                      scroll={false}
-                      variant={
-                        curCategory?.type === btn.variantType ? 'beta' : 'eta'
-                      }
-                      classNames={[stls.btnCategory]}>
-                      {btn.label}
-                    </BtnAlpha>
-                  ))}
-                </div>
-              </div>
+              <GeneralProgramsFilters />
             </div>
           </div>
           <div className={stls.right}>
-            <GeneralSectionTitle classNames={[stls.GeneralSectionTitle]}>
+            <GeneralSectionTitle
+              classNames={[stls.GeneralSectionTitle, stls.laptopDesktop]}>
               {curCategory?.label}
             </GeneralSectionTitle>
-            <ul className={stls.studyFields}>
-              {studyFields?.map((studyField, idx) => (
-                <li
-                  key={`${
-                    studyField?.title ||
-                    'SectionProgramsWithFilters__studyField'
-                  }-${idx}`}
-                  className={stls.studyFieldItem}>
-                  <BtnAlpha
-                    key={(studyField?.title || 'btn') + idx}
-                    tag={'Link'}
-                    href={
-                      studyFieldContext === studyField?.slug
-                        ? `${routesFront.programs}/${curCategory?.slug}`
-                        : `${routesFront.programs}/${curCategory?.slug}/${studyField?.slug}`
-                    }
-                    scroll={false}
-                    variant={
-                      studyFieldContext === studyField?.slug ? 'beta' : 'eta'
-                    }
-                    classNames={[stls.btnStudyField]}>
-                    {studyField?.title}
-                  </BtnAlpha>
-                </li>
-              ))}
-            </ul>
+            <button
+              className={cn(stls.btnToggleFilters, {
+                [stls.filtersAreOpen]: filtersAreOpen
+              })}
+              onClick={() => setFiltersAreOpen(!filtersAreOpen)}>
+              {filtersAreOpen ? 'Свернуть фильтры' : 'Показать фильтры'}
+            </button>
+            <div
+              className={cn(stls.filtersContainer, {
+                [stls.filtersAreOpen]: filtersAreOpen
+              })}>
+              <GeneralProgramsFilters
+                classNames={[cn(stls.GeneralProgramsFilters, stls.phoneTablet)]}
+              />
+              <ul className={stls.studyFields}>
+                {studyFields?.map((studyField, idx) => (
+                  <li
+                    key={`${
+                      studyField?.title ||
+                      'SectionProgramsWithFilters__studyField'
+                    }-${idx}`}
+                    className={stls.studyFieldItem}>
+                    <BtnAlpha
+                      key={(studyField?.title || 'btn') + idx}
+                      tag={'Link'}
+                      href={
+                        studyFieldContext === studyField?.slug
+                          ? `${routesFront.programs}/${curCategory?.slug}`
+                          : `${routesFront.programs}/${curCategory?.slug}/${studyField?.slug}`
+                      }
+                      scroll={false}
+                      variant={
+                        studyFieldContext === studyField?.slug ? 'beta' : 'eta'
+                      }
+                      classNames={[stls.btnStudyField]}>
+                      {studyField?.title}
+                    </BtnAlpha>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <GeneralSectionTitle
+              classNames={[stls.GeneralSectionTitle, stls.phoneTablet]}>
+              {curCategory?.label}
+            </GeneralSectionTitle>
             <CardsProgram
               classNames={[cn(stls.cardsProgram, stls.CardsProgram)]}
               atSectionProgramsWIthFilters
