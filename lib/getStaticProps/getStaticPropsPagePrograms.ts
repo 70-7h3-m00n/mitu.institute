@@ -20,6 +20,7 @@ const getStaticPropsPagePrograms = async ({
           type
           slug
           label
+          description
         }
         studyFields {
           type

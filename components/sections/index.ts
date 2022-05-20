@@ -15,6 +15,7 @@ export { default as SectionProgramJobTitlesWithoutPictures } from '@/components/
 export { default as SectionProgramQna } from '@/components/sections/SectionProgramQna'
 export { default as SectionProgramStudyCost } from '@/components/sections/SectionProgramStudyCost'
 export { default as SectionProgramsWithFilters } from '@/components/sections/SectionProgramsWithFilters'
+export { default as SectionProgramsWithFiltersAlt } from '@/components/sections/SectionProgramsWithFiltersAlt'
 export { default as SectionStudyingWithUsIs } from '@/components/sections/SectionStudyingWithUsIs'
 export { default as SectionProgramTeachers } from '@/components/sections/SectionProgramTeachers'
 export { default as SectionProgramWhatWillYouLearn } from '@/components/sections/SectionProgramWhatWillYouLearn'

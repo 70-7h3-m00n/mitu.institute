@@ -6,8 +6,9 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesFront, mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { GeneralPopup } from '@/components/general'
+import { GeneralPopup, GeneralTextHighlight } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
+import { SectionUIFormAlpha } from '@/components/sections'
 import { ProgramStudyDuration } from '@/components/program'
 import { IconClock, IconArrowTopRight } from '@/components/icons'
 import {
@@ -16,19 +17,29 @@ import {
   ContextStudyFieldContext
 } from '@/context/index'
 
+type TStudyFields = {
+  type: string | null
+  slug: string | null
+  title: string | null
+}[]
+
 type TypeCardsProgramProps = TypeClassNames & {
   promo?: boolean
-  atSectionProgramsWIthFilters?: boolean
+  atSectionProgramsWithFilters?: boolean
   max?: number
   cardsStudyFields?: boolean
+  appliedStudyFields?: TStudyFields
+  searchTerm?: string
 }
 
 const CardsProgram = ({
   classNames,
   promo,
-  atSectionProgramsWIthFilters,
+  atSectionProgramsWithFilters,
   max,
-  cardsStudyFields
+  cardsStudyFields,
+  appliedStudyFields,
+  searchTerm
 }: TypeCardsProgramProps) => {
   const { programs } = useContext(ContextProgramsContext)
   const { curCategory } = useContext(ContextCategoriesContext)
@@ -41,6 +52,19 @@ const CardsProgram = ({
     ?.filter(program =>
       studyFieldContext
         ? program?.study_field?.slug === studyFieldContext
+        : true
+    )
+    ?.filter(program =>
+      appliedStudyFields && appliedStudyFields.length > 0
+        ? appliedStudyFields?.some(
+            appliedStudyField =>
+              appliedStudyField?.slug === program?.study_field?.slug
+          )
+        : true
+    )
+    ?.filter(program =>
+      searchTerm
+        ? program.title?.toLowerCase().includes(searchTerm.toLowerCase())
         : true
     )
     ?.filter((_, idx) => {
@@ -70,7 +94,20 @@ const CardsProgram = ({
   })
 
   if (!programs || !cards || programs?.length === 0 || cards?.length === 0)
-    return <></>
+    return (
+      <UIFormAlpha
+        classNames={[stls.UIFormAlpha]}
+        atCardsProgram
+        title={
+          <>
+            <GeneralTextHighlight reverse>
+              По Вашему запросу ничего не найдено. Пожалуйста, свяжитесь со
+              специалистом. Мы поможем Вам подобрать подходящую программу
+            </GeneralTextHighlight>
+          </>
+        }
+      />
+    )
 
   return (
     <ul
@@ -82,9 +119,9 @@ const CardsProgram = ({
             <li
               key={(card.title || 'CardsProgram_card') + idx}
               className={cn(stls.card, {
-                [stls.atSectionProgramsWIthFilters]:
-                  atSectionProgramsWIthFilters,
-                [stls.default]: !atSectionProgramsWIthFilters
+                [stls.atSectionProgramsWithFilters]:
+                  atSectionProgramsWithFilters,
+                [stls.default]: !atSectionProgramsWithFilters
               })}>
               {promo ? (
                 <Popup
@@ -190,9 +227,9 @@ const CardsProgram = ({
             <li
               key={`${studyField.title || 'CardsProgram__studyField'}-${idx}`}
               className={cn(stls.card, {
-                [stls.atSectionProgramsWIthFilters]:
-                  atSectionProgramsWIthFilters,
-                [stls.default]: !atSectionProgramsWIthFilters
+                [stls.atSectionProgramsWithFilters]:
+                  atSectionProgramsWithFilters,
+                [stls.default]: !atSectionProgramsWithFilters
               })}>
               <Link
                 href={

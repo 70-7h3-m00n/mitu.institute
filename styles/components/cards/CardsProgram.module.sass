@@ -3,6 +3,9 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
 
+.UIFormAlpha
+  margin-top: f.px(78 / 2)
+
 .container
   @include m.media(tablet, laptop, desktop)
     @include m.flex($fw: wrap)
@@ -12,7 +15,7 @@
 
 $item_ld_mr: 2.75%
 .card
-  &.atSectionProgramsWIthFilters
+  &.atSectionProgramsWithFilters
     @include m.media(phone)
       @include m.flex($fb: 100%)
       &:nth-child(1)

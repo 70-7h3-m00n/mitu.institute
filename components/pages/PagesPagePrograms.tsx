@@ -11,7 +11,8 @@ import { getClassNames } from '@/helpers/index'
 import {
   SectionOurPrograms,
   SectionUIFormAlpha,
-  SectionProgramsWithFilters
+  SectionProgramsWithFilters,
+  SectionProgramsWithFiltersAlt
 } from '@/components/sections'
 
 type TypePagesPageProgramsProps = {
@@ -81,7 +82,7 @@ const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
         sameAs={[routesFront.defaultRoot]}
         url={routesFront.defaultRoot}
       />
-      <SectionProgramsWithFilters studyFields={studyFields} />
+      <SectionProgramsWithFiltersAlt studyFields={studyFields} />
       <SectionUIFormAlpha title='Поможем определиться с профессией' />
     </>
   )

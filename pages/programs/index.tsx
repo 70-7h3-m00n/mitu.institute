@@ -27,7 +27,8 @@ const PagePrograms: NextPage<TypePageProgramsProps> = ({
 
   useEffect(() => {
     setCategories({
-      payload: { categories, curCategorySlug: categories?.[0]?.slug || null }
+      // payload: { categories, curCategorySlug: categories?.[0]?.slug || null }
+      payload: { categories, curCategorySlug: null }
     })
     setPrograms({ payload: programs })
     setStudyField({ payload: null })

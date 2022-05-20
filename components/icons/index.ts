@@ -3,6 +3,7 @@ import IconArrowTopRight from '@/components/icons/IconArrowTopRight'
 import IconArrowTopRightAlt from '@/components/icons/IconArrowTopRightAlt'
 import IconChat from '@/components/icons/IconChat'
 import IconCheck from '@/components/icons/IconCheck'
+import IconCheckAlt from '@/components/icons/IconCheckAlt'
 import IconClock from '@/components/icons/IconClock'
 import IconCoatOfArmsRussia from '@/components/icons/IconCoatOfArmsRussia'
 import IconCross from '@/components/icons/IconCross'
@@ -13,6 +14,7 @@ import IconFacebook from '@/components/icons/IconFacebook'
 import IconFile from '@/components/icons/IconFile'
 import IconHamburger from '@/components/icons/IconHamburger'
 import IconHelp from '@/components/icons/IconHelp'
+import IconInfo from '@/components/icons/IconInfo'
 import IconInstagram from '@/components/icons/IconInstagram'
 import IconLightBulb from '@/components/icons/IconLightBulb'
 import IconLoader from '@/components/icons/IconLoader'
@@ -37,6 +39,7 @@ export {
   IconArrowTopRightAlt,
   IconChat,
   IconCheck,
+  IconCheckAlt,
   IconClock,
   IconCoatOfArmsRussia,
   IconCross,
@@ -48,6 +51,7 @@ export {
   IconFile,
   IconHamburger,
   IconHelp,
+  IconInfo,
   IconLightBulb,
   IconLoader,
   IconLocation,

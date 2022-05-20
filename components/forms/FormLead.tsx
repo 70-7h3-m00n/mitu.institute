@@ -22,9 +22,18 @@ import {
   InputSubmit
 } from '@/components/inputs'
 
-type TypeFormLeadProps = TypeClassNames & TypeIsPopup & TypeVariantForm
+type TypeFormLeadProps = TypeClassNames &
+  TypeIsPopup &
+  TypeVariantForm & {
+    atCardsProgram?: boolean
+  }
 
-const FormLead = ({ classNames, isPopup, variant }: TypeFormLeadProps) => {
+const FormLead = ({
+  classNames,
+  isPopup,
+  variant,
+  atCardsProgram
+}: TypeFormLeadProps) => {
   const { asPath } = useRouter()
   const { program } = useContext(ContextProgramContext)
 
@@ -89,7 +98,8 @@ const FormLead = ({ classNames, isPopup, variant }: TypeFormLeadProps) => {
         })}>
         <div
           className={cn(stls.inputs, {
-            [stls.inputsVariantBeta]: variant === 'beta'
+            [stls.inputsVariantBeta]: variant === 'beta',
+            [stls.atCardsProgram]: atCardsProgram
           })}>
           <InputName
             register={register}

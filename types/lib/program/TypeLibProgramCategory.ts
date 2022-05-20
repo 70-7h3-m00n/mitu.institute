@@ -8,6 +8,7 @@ type TypeLibProgramCategory = {
   type?: TypeLibProgramCategoryType
   slug?: TypeLibProgramCategorySlug
   label?: TypeLibProgramCategoryLabel
+  description?: string | null
 }
 
 export default TypeLibProgramCategory

@@ -147,7 +147,7 @@ const SectionProgramsWithFilters = ({
             </GeneralSectionTitle>
             <CardsProgram
               classNames={[cn(stls.cardsProgram, stls.CardsProgram)]}
-              atSectionProgramsWIthFilters
+              atSectionProgramsWithFilters
             />
           </div>
         </div>

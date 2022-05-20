@@ -1,0 +1,287 @@
+@use 'sass:math'
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/section' as section
+
+.container
+  // @include section.gap
+
+.heading
+  display: flex
+  justify-content: space-between
+  align-items: center
+  @include m.media(laptop, desktop)
+    margin-bottom: f.px(64)
+
+.title
+  margin: 0
+  @include m.media(phone, tablet)
+    font-size: f.px(36)
+  @include m.media(laptop, desktop)
+    font-size: f.px(64)
+  font-weight: 700
+  line-height: 110%
+
+.programsCounter
+  margin: 0
+  font-size: f.px(20)
+  font-weight: 700
+  line-height: 110%
+
+$left_ld_fb: 32.8%
+$left_ld_mr: 2.8%
+.underheading
+  position: relative
+  margin-left: $left_ld_fb + $left_ld_mr
+
+.GeneralSectionTitle
+  margin-bottom: f.px(40)
+
+.categories
+  min-height: f.px(25)
+  overflow-x: auto
+  margin: 0
+  padding: 0
+  padding-top: f.px(1)
+  padding-bottom: f.px(10)
+  display: flex
+  // flex-wrap: wrap
+  &::-webkit-scrollbar
+    height: f.px(5)
+  &::-webkit-scrollbar-thumb
+    @include m.dye(bg, rgba(c.$chi, .6))
+  @supports(gap: 32px)
+    gap: f.px(32)
+
+.categoryItem
+  display: flex
+  justify-content: center
+  align-items: center
+  & + .categoryItem
+    margin-left: f.px(32)
+  @supports(gap: 32px)
+    & + .categoryItem
+      margin-left: 0
+
+.categoryLink
+  display: flex
+  justify-content: center
+  align-items: center
+  font-size: f.px(18)
+  font-weight: 700
+  line-height: 110%
+  outline: none
+  @include m.dye(c, c.$omega)
+  &.isActive
+    @include m.dye(c, c.$beta)
+  &:focus-visible
+    text-decoration: underline
+    & .categoryInfoDescription
+      display: block
+      @supports(animation: fadeIn .3s ease-in-out forwards)
+        opacity: 0
+        animation: fadeIn .3s ease-in-out forwards
+    & .iconInfo
+      & path
+        @include m.dye(stroke, c.$upsilon)
+        &:nth-child(1)
+          @include m.dye(stroke, c.$beta)
+      @include m.dye(bg, c.$beta)
+
+.iconInfoContainer
+  margin-left: f.px(6)
+  border-radius: 50%
+  &:hover
+    & .categoryInfoDescription
+      display: block
+      @supports(animation: fadeIn .3s ease-in-out forwards)
+        opacity: 0
+        animation: fadeIn .3s ease-in-out forwards
+
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+.categoryInfoDescription
+  display: none
+  @supports(animation: fadeIn .3s ease-in-out forwards)
+    opacity: 0
+  position: absolute
+  z-index: 2
+  // bottom: f.px(24 + 23)
+  top: f.px(-45)
+  right: 0
+  min-width: 65%
+  max-width: 65%
+  padding: f.px(32) f.px(16)
+  box-shadow: 0px 0px 24px rgba(218, 218, 218, 0.58)
+  font-size: f.px(14)
+  font-weight: 400
+  line-height: 110%
+  transition: opacity 0.15s ease-in-out
+  @include m.dye(bg, c.$upsilon)
+  @include m.dye(c, c.$psi)
+  
+.iconInfo
+  min-width: f.px(24)
+  max-width: f.px(24)
+  min-height: f.px(24)
+  max-height: f.px(24)
+  border-radius: inherit
+  transition: background-color 0.15s ease-in-out
+  & path
+    transition: stroke 0.15s ease-in-out
+  &:hover
+    & path
+      @include m.dye(stroke, c.$upsilon)
+      &:nth-child(1)
+        @include m.dye(stroke, c.$beta)
+    @include m.dye(bg, c.$beta)
+
+.content
+  display: flex
+  @include m.media(phone, tablet)
+    margin-top: f.px(40)
+  @include m.media(laptop, desktop)
+    margin-top: f.px(64)
+
+.left
+  @include m.media(laptop, desktop)
+    flex-basis: $left_ld_fb
+    margin-right: $left_ld_mr
+
+.right
+  @include m.media(laptop, desktop)
+    flex-basis: 100% - $left_ld_fb - $left_ld_mr
+
+.h3
+  margin: 0
+  margin-bottom: f.px(51)
+  font-size: f.px(40)
+
+.studyFields
+  margin: 0
+  padding: 0
+  display: flex
+  flex-direction: column
+
+.studyFieldItem
+  display: flex
+  flex-basis: 100%
+  & + .studyFieldItem
+    margin-top: f.px(18 - 4)
+
+.studyFieldBtn
+  display: flex
+  align-items: center
+  flex-basis: 100%
+  outline: none
+  padding-top: f.px(2)
+  padding-bottom: f.px(2)
+  @include m.media(tablet, laptop, desktop)
+    &:hover,
+    &:focus-visible
+      & .IconCheckAltContainer
+        @include m.dye(border, c.$beta)
+      & .studyFieldTitle
+        font-weight: 500
+        @include m.dye(c, c.$beta)
+    &:active
+      transform: scale(0.99)
+
+.studyFieldTitle
+  font-size: f.px(16)
+  font-weight: 400
+  line-height: 110%
+  transition: color .15s ease-in-out, font-weight .15s ease-in-out
+  @include m.dye(c, c.$omega)
+
+.IconCheckAltContainer
+  display: flex
+  justify-content: center
+  align-items: center
+  min-width: f.px(24)
+  max-width: f.px(24)
+  min-height: f.px(24)
+  max-height: f.px(24)
+  margin-right: f.px(16)
+  border: 1px solid
+  @include m.dye(border, c.$nu)
+  transition: border-color .15s ease-in-out
+  &.isActive
+    @include m.dye(bg, c.$beta)
+
+.IconCheckAlt
+  min-width: f.px(16)
+  max-width: f.px(16)
+  min-height: f.px(16)
+  max-height: f.px(16)
+
+.searchContainer
+  position: relative
+  display: flex
+
+.searchInput
+  display: flex
+  align-items: center
+  flex-basis: 100%
+  padding-top: f.px(20)
+  padding-right: f.px(72 + 16)
+  padding-bottom: f.px(20)
+  padding-left: f.px(16)
+  border: 1px solid
+  @include m.dye(border, c.$nu)
+  &:focus-visible
+    outline: none
+    @include m.dye(border, c.$alpha)
+  &::placeholder
+    font-size: f.px(14)
+    font-weight: 400
+    line-height: 110%
+    @include m.dye(c, c.$nu)
+
+.iconSearchContainer
+  position: absolute
+  top: 0
+  right: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  min-width: f.px(72)
+  max-width: f.px(72)
+  min-height: 100%
+  max-height: 100%
+  pointer-events: none
+  @include m.dye(bg, c.$alpha)
+
+.IconSearch
+  min-width: f.px(24)
+  max-width: f.px(24)
+  min-height: f.px(24)
+  max-height: f.px(24)
+
+.CardsProgram
+  &.cardsProgram
+    margin-top: f.px(78)
+
+.highlight
+  @include m.dye(c, c.$beta)
+
+.phoneTablet
+  @include m.media(laptop, desktop)
+    display: none
+
+.laptopDesktop
+  @include m.media(phone, tablet)
+    display: none
+
+.tabletLaptopDesktop
+  @include m.media(phone)
+    display: none
+
+.phone
+  @include m.media(tablet, laptop, desktop)
+    display: none

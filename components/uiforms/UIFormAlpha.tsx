@@ -15,13 +15,15 @@ type TypeUIFormAlphaProps = TypeClassNames &
   TypeIsPopup &
   TypeVariantForm & {
     title?: ReactNode
+    atCardsProgram?: boolean
   }
 
 const UIFormAlpha = ({
   classNames,
   isPopup,
   variant,
-  title
+  title,
+  atCardsProgram
 }: TypeUIFormAlphaProps) => {
   return (
     <div
@@ -45,7 +47,12 @@ const UIFormAlpha = ({
           </>
         )}
       </h2>
-      <FormLead classNames={[stls.form]} isPopup={isPopup} variant={variant} />
+      <FormLead
+        classNames={[stls.form]}
+        isPopup={isPopup}
+        variant={variant}
+        atCardsProgram={atCardsProgram}
+      />
     </div>
   )
 }

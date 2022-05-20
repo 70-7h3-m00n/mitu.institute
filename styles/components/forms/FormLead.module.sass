@@ -9,6 +9,17 @@
   @include m.media(laptop, desktop)
     @include m.flex($jc: space-between)
 
+.atCardsProgram
+  flex-wrap: wrap
+  @include m.media(laptop, desktop)
+    & .input
+      flex-basis: 30%
+      max-width: 30%
+    & .submit
+        margin-top: f.px(14)
+        flex-basis: 100%
+        max-width: 100%
+
 .inputsVariantBeta
   @include m.media(laptop, desktop)
     @include m.flex($d: false, $fd: column)

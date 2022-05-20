@@ -7,6 +7,7 @@ type TypePageProgramsPropsQuery = {
         type: string | null
         slug: string | null
         title: string | null
+        description?: string | null
       }[]
     | null
   readonly programs: TypeLibPrograms | null
