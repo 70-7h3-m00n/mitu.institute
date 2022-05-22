@@ -20,6 +20,7 @@ const BtnBeta = ({
 }: TypeBtnBetaProps) => {
   const ParentElement = tag
   return (
+    // @ts-expect-error
     <ParentElement
       className={
         cn(
