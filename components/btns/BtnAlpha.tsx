@@ -47,13 +47,14 @@ const BtnAlpha = ({
       getClassNames({ classNames })
     ) || undefined
 
-  const Tag = tag
-  const ParentElement: any = isLink ? Link : Tag // TODO: figure out better types
+  const ParentElement = isLink ? Link : tag
   return (
+    // @ts-expect-error
     <ParentElement
-      className={!isLink && container}
-      type={type}
-      href={href}
+      className={!isLink ? container : undefined}
+      {...(type ? { type } : undefined)}
+      {...(href ? { href } : undefined)}
+      // href={href}
       target={target}
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
       scroll={isLink ? scroll : undefined}
