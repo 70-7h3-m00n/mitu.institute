@@ -3,12 +3,13 @@ import { TypeBtn } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import Link from 'next/link'
+import { FC } from 'react'
 
 type TypeBtnAlphaProps = TypeBtn & {
   title?: string
 }
 
-const BtnAlpha = ({
+const BtnAlpha: FC<TypeBtnAlphaProps> = ({
   classNames,
   children,
   tag = 'button',
@@ -21,7 +22,7 @@ const BtnAlpha = ({
   onClick,
   scroll,
   title
-}: TypeBtnAlphaProps) => {
+}) => {
   const isLink = tag === 'Link'
 
   const container =
@@ -47,14 +48,12 @@ const BtnAlpha = ({
       getClassNames({ classNames })
     ) || undefined
 
-  const ParentElement = isLink ? Link : tag
+  const ParentElement: any = isLink ? Link : tag
   return (
-    // @ts-expect-error
     <ParentElement
       className={!isLink ? container : undefined}
       {...(type ? { type } : undefined)}
       {...(href ? { href } : undefined)}
-      // href={href}
       target={target}
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
       scroll={isLink ? scroll : undefined}
