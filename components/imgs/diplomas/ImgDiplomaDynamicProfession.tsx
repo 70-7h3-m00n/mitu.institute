@@ -1,19 +1,19 @@
-import stls from '@/styles/components/imgs/diplomas/ImgDiplomaTemplate.module.sass'
+import stls from '@/styles/components/imgs/diplomas/ImgDiplomaDynamicProfession.module.sass'
 import { TypeClassNames, TypeImg } from '@/types/index'
 import { useContext } from 'react'
 import { format } from 'date-fns'
 import { ru } from 'date-fns/locale'
 import { ContextProgramContext } from '@/context/index'
 import { ImgTemplate } from '@/components/imgs'
-import defaultSrc from '@/public/assets/imgs/diplomas/diploma-1.jpg'
+import defaultSrc from '@/public/assets/imgs/diplomas/diploma-profession.jpg'
 
-type TypeImgDiplomaTemplate = TypeClassNames & TypeImg
+type TypeImgDiplomaDynamicProfession = TypeClassNames & TypeImg
 
-const ImgDiplomaTemplate = ({
+const ImgDiplomaDynamicProfession = ({
   classNames,
   width,
   height
-}: TypeImgDiplomaTemplate) => {
+}: TypeImgDiplomaDynamicProfession) => {
   const { program } = useContext(ContextProgramContext)
 
   const now = new Date()
@@ -89,7 +89,7 @@ const ImgDiplomaTemplate = ({
     `с ${fromDate} года по ${toDate} года \n\n прошел профессиональную переподготовку в Научной автономной некоммерческой организации \n «Московский Институт Профессионального Образования» \n\n по программе «${programName}» \n\n Решением \n от ${fromDateOff}${coma} протокол 0000 \n\n Диплом предоставляет право на ведение профессиональной деятельности в сфере \n\n «${programName}» \n\n и подтверждает присвоение квалификации \n ${qualification}`
   )},w_450,x_283,y_169,g_north/diploma-template_neatmm.jpg`
 
-  console.log(src)
+  // console.log(src)
   return (
     <ImgTemplate
       classNames={classNames}
@@ -112,4 +112,4 @@ const ImgDiplomaTemplate = ({
 
 // https://res.cloudinary.com/demo/image/upload/l_text:Arial_100_bold:Boston/l_text:Arial_100:%7C/g_west,fl_layer_apply,x_w_add_20/l_text:Arial_100_italic:79%C2%B0F/g_west,fl_layer_apply,x_w_add_20/photo-1430609098125-581618d0482f_xvayby
 
-export default ImgDiplomaTemplate
+export default ImgDiplomaDynamicProfession

@@ -11,7 +11,7 @@ const ImgPersonStudying = ({
   width,
   height
 }: TypeImgPersonStudyingProps) => {
-  const publicSrc = '/assets/imgs/diplomas/diploma-1.jpg'
+  const publicSrc = '@/public/assets/imgs/general/person-studying.jpg'
 
   return (
     <>

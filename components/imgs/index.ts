@@ -3,10 +3,13 @@ export { default as ImgContactMapAlmaty } from '@/components/imgs/contact/ImgCon
 export { default as ImgContactMapMoscow } from '@/components/imgs/contact/ImgContactMapMoscow'
 
 // diplomas
-export { default as ImgDiploma1 } from '@/components/imgs/diplomas/ImgDiploma1'
-export { default as ImgDiploma2 } from '@/components/imgs/diplomas/ImgDiploma2'
-export { default as ImgDiploma3 } from '@/components/imgs/diplomas/ImgDiploma3'
-export { default as ImgDiplomaTemplate } from '@/components/imgs/diplomas/ImgDiplomaTemplate'
+export { default as ImgDiplomaBachelor } from '@/components/imgs/diplomas/ImgDiplomaBachelor'
+export { default as ImgDiplomaDynamicProfession } from '@/components/imgs/diplomas/ImgDiplomaDynamicProfession'
+export { default as ImgDiplomaInstitute } from '@/components/imgs/diplomas/ImgDiplomaInstitute'
+export { default as ImgDiplomaMaster } from '@/components/imgs/diplomas/ImgDiplomaMaster'
+export { default as ImgDiplomaProfession } from '@/components/imgs/diplomas/ImgDiplomaProfession'
+export { default as ImgDiplomaSupplement } from '@/components/imgs/diplomas/ImgDiplomaSupplement'
+export { default as ImgDiplomaSupplementTwoPages } from '@/components/imgs/diplomas/ImgDiplomaSupplementTwoPages'
 
 // general
 export { default as ImgForWhom } from '@/components/imgs/general/ImgForWhom'

@@ -41,7 +41,7 @@ const SectionAboutUniversity = ({
       }>
       <Wrapper>
         <GeneralSectionTitle>
-          {mituinstitute ? 'Об университете' : 'Об Институте'}
+          {mituinstitute ? 'Об институте' : 'Об Институте'}
         </GeneralSectionTitle>
         <div className={stls.content}>
           <div className={stls.top}>
