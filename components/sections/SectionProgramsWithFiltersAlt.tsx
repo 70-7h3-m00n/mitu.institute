@@ -294,7 +294,17 @@ const SectionProgramsWithFiltersAlt = ({
                   <BtnAlpha
                     variant='beta'
                     classNames={[stls.filterBtn, stls.filterBtnRight]}>
-                    <span className={stls.btnText}>Все направления</span>
+                    <span className={stls.btnText}>
+                      {appliedStudyFields.length > 0
+                        ? appliedStudyFields.map((appliedStudyField, idx) => (
+                            <span
+                              key={`appliedStudyField-${appliedStudyField.title}-${idx}`}>
+                              {idx !== 0 && ', '}
+                              {appliedStudyField.title}
+                            </span>
+                          ))
+                        : 'Все направления'}
+                    </span>
                     <IconPointerBottom classNames={[stls.IconPointerBottom]} />
                   </BtnAlpha>
                 )}
