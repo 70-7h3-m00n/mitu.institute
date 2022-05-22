@@ -13,6 +13,8 @@ import {
 } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
+import { IconPhone } from '../icons'
+import colors from '@/config/colors'
 
 type TypeGeneralHeaderMiddleProps = TypeClassNames
 
@@ -42,8 +44,14 @@ const GeneralHeaderMiddle = ({ classNames }: TypeGeneralHeaderMiddleProps) => {
               return (
                 <BtnAlpha
                   variant='delta'
-                  classNames={[stls.btn, stls.btnAlpha]}>
-                  <span className={stls.btnTextAlt}>Связаться</span>
+                  classNames={[stls.btn, stls.btnAlpha]}
+                  title={'Заказать звонок'}>
+                  <span className={stls.btnTextAlt}>
+                    <IconPhone
+                      classNames={[stls.IconPhone]}
+                      color={colors.upsilon}
+                    />
+                  </span>
                   <span className={stls.btnText}>Заказать&nbsp;звонок</span>
                 </BtnAlpha>
               )

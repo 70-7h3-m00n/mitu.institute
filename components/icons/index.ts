@@ -26,6 +26,7 @@ import IconMortarboardAlt from '@/components/icons/IconMortarboardAlt'
 import IconPaperPage from '@/components/icons/IconPaperPage'
 import IconPen from '@/components/icons/IconPen'
 import IconPhone from '@/components/icons/IconPhone'
+import IconPointerBottom from '@/components/icons/IconPointerBottom'
 import IconPrograms from '@/components/icons/IconPrograms'
 import IconSearch from '@/components/icons/IconSearch'
 import IconVideoOnStand from '@/components/icons/IconVideoOnStand'
@@ -62,6 +63,7 @@ export {
   IconPaperPage,
   IconPen,
   IconPhone,
+  IconPointerBottom,
   IconPrograms,
   IconSearch,
   IconVideoOnStand,

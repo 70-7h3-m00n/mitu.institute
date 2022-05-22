@@ -14,13 +14,21 @@
   margin: 0
 
 $item_ld_mr: 2.75%
+$item_t_mr: 5.3%
 .card
   &.atSectionProgramsWithFilters
     @include m.media(phone)
       @include m.flex($fb: 100%)
       &:nth-child(1)
         margin-top: 0
-    @include m.media(tablet, laptop, desktop)
+    @include m.media(tablet)
+      display: flex
+      flex-basis: math.div((100% - $item_t_mr), 2)
+      &:nth-child(odd)
+        margin-right: $item_t_mr
+      &:nth-child(-n+2)
+        margin-top: 0
+    @include m.media(laptop, desktop)
       @include m.flex($fb: math.div((100% - $item_ld_mr), 2))
       &:nth-child(odd)
         margin-right: $item_ld_mr
@@ -150,6 +158,9 @@ $item_ld_mr: 2.75%
     font-size: f.px(18)
   word-break: break-word
   transition: color 0.25s ease
+
+.highligher
+  @include m.dye(bg, c.$zeta)
 
 .desc
   @include m.media(phone, laptop, desktop)

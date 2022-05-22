@@ -16,6 +16,7 @@ import {
   ContextCategoriesContext,
   ContextStudyFieldContext
 } from '@/context/index'
+import Highlighter from 'react-highlight-words'
 
 type TStudyFields = {
   type: string | null
@@ -131,7 +132,9 @@ const CardsProgram = ({
                         {card?.study_field?.label}
                       </div>
                       <div className={stls.top}>
-                        <h3 className={stls.title}>{card.title}</h3>
+                        <h3 className={stls.title}>
+                          {card?.title || 'Программа'}
+                        </h3>
                         <p className={stls.desc}>{card.shortDescription}</p>
                       </div>
                       <div className={stls.bottom}>
@@ -189,8 +192,18 @@ const CardsProgram = ({
                           {card?.study_field?.label}
                         </p>
                       )}
-
-                      <h3 className={stls.title}>{card.title}</h3>
+                      <h3 className={stls.title}>
+                        {searchTerm && card.title ? (
+                          <Highlighter
+                            highlightClassName={stls.highligher}
+                            searchWords={[searchTerm]}
+                            autoEscape={true}
+                            textToHighlight={card?.title}
+                          />
+                        ) : (
+                          card?.title || 'Программа'
+                        )}
+                      </h3>
                       {/* <p className={stls.desc}>{card.shortDescription}</p> */}
                     </div>
                     <div className={stls.bottom}>

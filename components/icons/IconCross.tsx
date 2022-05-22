@@ -1,12 +1,14 @@
 import stls from '@/styles/components/icons/IconCross.module.sass'
-import { TypeClassNames } from '@/types/index'
+import { TypeClassNames, TypeColor } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 
-type TypeIconCrossProps = TypeClassNames
+type TypeIconCrossProps = TypeClassNames & {
+  color?: TypeColor
+}
 
-const IconCross = ({ classNames }: TypeIconCrossProps) => {
+const IconCross = ({ classNames, color }: TypeIconCrossProps) => {
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
@@ -18,7 +20,7 @@ const IconCross = ({ classNames }: TypeIconCrossProps) => {
           y1='25.3343'
           x2='29.3345'
           y2='1.9998'
-          stroke={colors.kappa}
+          stroke={color || colors.kappa}
           strokeWidth='2'
           strokeLinecap='round'
           strokeLinejoin='round'
@@ -29,7 +31,7 @@ const IconCross = ({ classNames }: TypeIconCrossProps) => {
           x2='34'
           y2='-1'
           transform='matrix(-0.707107 -0.707107 -0.707107 0.707107 29.8743 26.374)'
-          stroke={colors.kappa}
+          stroke={color || colors.kappa}
           strokeWidth='2'
           strokeLinecap='round'
           strokeLinejoin='round'

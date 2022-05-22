@@ -32,13 +32,18 @@
   &.btnAlpha
     @include m.media(phone)
       min-width: auto
-      padding-right: f.px(23)
-      padding-left: f.px(23)
+      padding: f.px(8)
 
-.btnText
-  @media screen and (max-width: 437px)
-    display: none
+.IconPhone
+  min-width: f.px(24)
+  max-width: f.px(24)
+  min-height: f.px(24)
+  max-height: f.px(24)
 
 .btnTextAlt
-  @media screen and (min-width: 438px)
+  @include m.media(tablet, laptop, desktop)
+    display: none
+
+.btnText
+  @include m.media(phone)
     display: none

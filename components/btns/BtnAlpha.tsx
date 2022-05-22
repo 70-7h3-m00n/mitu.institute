@@ -4,7 +4,9 @@ import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import Link from 'next/link'
 
-type TypeBtnAlphaProps = TypeBtn
+type TypeBtnAlphaProps = TypeBtn & {
+  title?: string
+}
 
 const BtnAlpha = ({
   classNames,
@@ -17,7 +19,8 @@ const BtnAlpha = ({
   ariaLabel,
   variant,
   onClick,
-  scroll
+  scroll,
+  title
 }: TypeBtnAlphaProps) => {
   const isLink = tag === 'Link'
 
@@ -44,7 +47,7 @@ const BtnAlpha = ({
       getClassNames({ classNames })
     ) || undefined
 
-  const ParentElement = isLink ? Link : tag
+  const ParentElement: any = isLink ? Link : tag // TODO: figure out better types
   return (
     <ParentElement
       className={!isLink && container}
@@ -56,7 +59,8 @@ const BtnAlpha = ({
       aria-label={ariaLabel}
       disabled={disabled}
       aria-disabled={disabled}
-      onClick={onClick}>
+      onClick={onClick}
+      title={title}>
       {isLink ? <a className={container}>{children}</a> : children}
     </ParentElement>
   )

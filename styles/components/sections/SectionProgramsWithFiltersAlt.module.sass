@@ -17,6 +17,7 @@
 .title
   margin: 0
   @include m.media(phone, tablet)
+    margin-right: f.px(32)
     font-size: f.px(36)
   @include m.media(laptop, desktop)
     font-size: f.px(64)
@@ -28,6 +29,7 @@
   font-size: f.px(20)
   font-weight: 700
   line-height: 110%
+  text-align: right
 
 $left_ld_fb: 32.8%
 $left_ld_mr: 2.8%
@@ -182,15 +184,20 @@ $left_ld_mr: 2.8%
   padding-top: f.px(2)
   padding-bottom: f.px(2)
   @include m.media(tablet, laptop, desktop)
-    &:hover,
-    &:focus-visible
+    &:hover
       & .IconCheckAltContainer
         @include m.dye(border, c.$beta)
       & .studyFieldTitle
         font-weight: 500
         @include m.dye(c, c.$beta)
-    &:active
-      transform: scale(0.99)
+  &:focus-visible
+    & .IconCheckAltContainer
+      @include m.dye(border, c.$beta)
+    & .studyFieldTitle
+      font-weight: 500
+      @include m.dye(c, c.$beta)
+  &:active
+    transform: scale(0.99)
 
 .studyFieldTitle
   font-size: f.px(16)
@@ -262,6 +269,213 @@ $left_ld_mr: 2.8%
   max-width: f.px(24)
   min-height: f.px(24)
   max-height: f.px(24)
+
+$filterBtnLeft_mr: 5.3%
+.filterBtns
+  @include m.media(phone, tablet)
+    margin-top: f.px(40)
+    display: flex
+
+.filterBtn
+  @include m.media(phone, tablet)
+    display: flex
+    justify-content: space-between
+    align-items: center
+    min-width: initial
+    flex-basis: math.div(100% - $filterBtnLeft_mr * 1, 2)
+    font-size: f.px(14)
+  @include m.media(phone)
+    padding: f.px(16)
+    padding-top: f.px(16)
+    padding-right: 3%
+    padding-bottom: f.px(16)
+    padding-left: 3%
+  @include m.media(tablet)
+    padding: f.px(20)
+
+.btnText
+  @include m.media(phone, tablet)
+    margin-left: auto
+    margin-right: auto
+
+.IconPointerBottom
+  @include m.media(phone, tablet)
+    display: flex
+    align-items: center
+    min-width: f.px(12)
+    max-width: f.px(12)
+    min-height: f.px(12)
+    max-height: f.px(12)
+    margin-left: f.px(4)
+
+.filterBtnLeft
+  @include m.media(phone)
+    margin-right: f.px(16)
+  @include m.media(tablet)
+    margin-right: $filterBtnLeft_mr
+
+.GeneralPopup
+  @include m.media(phone, tablet)
+    display: flex
+    flex-direction: column
+    flex-grow: 1
+    min-height: 100vh
+    @include m.dye(bg, c.$upsilon)
+  @include m.media(phone)
+    padding-top: f.px(24)
+    padding-right: f.px(16)
+    padding-bottom: f.px(24)
+    padding-left: f.px(16)
+  @include m.media(tablet)
+    padding-top: f.px(32)
+    padding-right: f.px(64)
+    padding-bottom: f.px(32)
+    padding-left: f.px(64) 
+  @include m.media(laptop, desktop)
+    display: none
+
+.heading
+  @include m.media(phone, tablet)
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+.GeneralLogo
+  @include m.media(phone, tablet)
+    max-width: f.px(264)
+
+.IconCrossLink
+  @include m.media(phone, tablet)
+    outline: none
+    &:focus-visible
+      transform: scale(1.1)
+      & .IconCross
+        transform: scale(1.1)
+      & line
+        @include m.dye(stroke, c.$beta)
+
+.IconCross
+  @include m.media(phone, tablet)
+    display: flex
+    justify-content: center
+    align-items: center
+    min-width: f.px(24)
+    max-width: f.px(24)
+    min-height: f.px(24)
+    max-height: f.px(24)
+    transition: transform .15s ease-in-out, stroke .15s ease-in-out
+
+.GeneralPopupTitle
+  @include m.media(phone, tablet)
+    margin: 0
+    font-size: f.px(36)
+  @include m.media(phone)
+    margin-top: f.px(72)
+    margin-bottom: f.px(48)
+  @include m.media(tablet)
+    margin-top: f.px(64)
+    margin-bottom: f.px(42)
+
+.list
+  @include m.media(phone, tablet)
+    margin: 0
+    padding: 0
+
+.listItem
+  @include m.media(phone, tablet)
+    display: flex
+    flex-grow: 1
+    min-width: 100%
+    & + .listItem
+      position: relative
+      &::after
+        content: ''
+        position: absolute
+        top: 0
+        right: 0
+        min-width: calc(100% - f.px(24 + 16 + 1))
+        max-width: 100%
+        height: 1px
+        @include m.dye(bg, c.$delta)
+
+.listItemLink
+  @include m.media(phone, tablet)
+    display: flex
+    align-items: center
+    flex-grow: 1
+    padding-top: f.px(32)
+    padding-bottom: f.px(32)
+    outline: none
+    &.isActive
+      & .listItemLinkCircle
+        position: relative
+        padding: f.px(4)
+        &::after
+          content: ''
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -50%)
+          min-width: 100%
+          max-width: 100%
+          min-height: 100%
+          max-height: 100%
+          border-radius: inherit
+          border: 4px solid
+          @include m.dye(border, c.$upsilon)
+          @include m.dye(bg, c.$beta)
+    &:focus-visible
+      & .listItemLinkCircle
+        @include m.dye(border, c.$beta)
+      & .listItemLinkLabel
+        font-weight: 700
+        @include m.dye(c, c.$beta)
+  @include m.media(tablet)
+    &:hover
+      & .listItemLinkCircle
+        @include m.dye(border, c.$beta)
+      & .listItemLinkLabel
+        // font-weight: 700
+        @include m.dye(c, c.$beta)
+
+.listItemLinkCircle
+  @include m.media(phone, tablet)
+    align-self: flex-start
+    min-width: f.px(24)
+    max-width: f.px(24)
+    min-height: f.px(24)
+    max-height: f.px(24)
+    margin-right: f.px(16)
+    border-radius: 50%
+    border: 1px solid
+    @include m.dye(border, c.$delta)
+    transition: border .15s ease-in-out, background-color .15s ease-in-out
+
+.listItemLinkLabel
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
+    font-weight: 400
+    line-height: 110%
+    transition: color .15s ease-in-out
+    @include m.dye(c, c.$omega)
+
+.listItemLinkDescription
+  @include m.media(phone, tablet)
+    margin: 0
+    margin-top: f.px(16)
+    font-size: f.px(14)
+    font-weight: 400
+    line-height: 110%
+    @include m.dye(c, c.$psi)
+
+.BtnAlphaApplyStudyFields
+  @include m.media(phone, tablet)
+    margin-top: f.px(32)
+  @include m.media(tablet)
+    margin-top: f.px(40)
+    padding-left: 5%
+    padding-right: 5%
+    max-width: 50%
 
 .CardsProgram
   &.cardsProgram
