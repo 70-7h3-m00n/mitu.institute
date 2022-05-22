@@ -47,7 +47,8 @@ const BtnAlpha = ({
       getClassNames({ classNames })
     ) || undefined
 
-  const ParentElement: any = isLink ? Link : tag // TODO: figure out better types
+  const Tag = tag
+  const ParentElement: any = isLink ? Link : Tag // TODO: figure out better types
   return (
     <ParentElement
       className={!isLink && container}
