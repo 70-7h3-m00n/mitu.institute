@@ -87,7 +87,7 @@ const ImgDiplomaDynamicProfession = ({
     'за время обучения в период'
   )},w_410,x_283,y_145,g_north/c_fit,l_text:${PTSerif}_16_center:${encodeURIComponent(
     `с ${fromDate} года по ${toDate} года \n\n прошел профессиональную переподготовку в Научной автономной некоммерческой организации \n «Московский Институт Профессионального Образования» \n\n по программе «${programName}» \n\n Решением \n от ${fromDateOff}${coma} протокол 0000 \n\n Диплом предоставляет право на ведение профессиональной деятельности в сфере \n\n «${programName}» \n\n и подтверждает присвоение квалификации \n ${qualification}`
-  )},w_450,x_283,y_169,g_north/diploma-template_neatmm.jpg`
+  )},w_450,x_283,y_169,g_north/v1653299519/diploma-dynamic-profession_sbtu1q.jpg`
 
   // console.log(src)
   return (
