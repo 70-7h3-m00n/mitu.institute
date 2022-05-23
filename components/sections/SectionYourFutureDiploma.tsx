@@ -99,7 +99,7 @@ const SectionYourFutureDiploma = ({
         },
         {
           img: <ImgDiplomaDynamicProfession />,
-          label: 'Диплом переподготовки'
+          label: 'Диплом о профессиональной переподготовке'
         },
         {
           img: <ImgDiplomaInstitute />,
@@ -119,7 +119,7 @@ const SectionYourFutureDiploma = ({
           },
           {
             img: <ImgDiplomaDynamicProfession />,
-            label: 'Диплом о переподготовке'
+            label: 'Диплом о профессиональной переподготовке'
           },
           {
             img: <ImgDiplomaInstitute />,
@@ -139,7 +139,7 @@ const SectionYourFutureDiploma = ({
           },
           {
             img: <ImgDiplomaDynamicProfession />,
-            label: 'Диплом о переподготовке'
+            label: 'Диплом о профессиональной переподготовке'
           },
           {
             img: <ImgDiplomaInstitute />,
@@ -155,7 +155,7 @@ const SectionYourFutureDiploma = ({
         diplomas.push(
           {
             img: <ImgDiplomaDynamicProfession />,
-            label: 'Диплом бакалавра'
+            label: 'Диплом о профессиональной переподготовке'
           },
           {
             img: <ImgDiplomaInstitute />,
@@ -177,7 +177,7 @@ const SectionYourFutureDiploma = ({
         },
         {
           img: <ImgDiplomaDynamicProfession />,
-          label: 'Диплом о переподготовке'
+          label: 'Диплом о профессиональной переподготовке'
         },
         {
           img: <ImgDiplomaSupplementTwoPages />,
@@ -193,7 +193,7 @@ const SectionYourFutureDiploma = ({
           },
           {
             img: <ImgDiplomaDynamicProfession />,
-            label: 'Диплом о переподготовке'
+            label: 'Диплом о профессиональной переподготовке'
           },
           {
             img: <ImgDiplomaInstitute />,
@@ -213,7 +213,7 @@ const SectionYourFutureDiploma = ({
           },
           {
             img: <ImgDiplomaDynamicProfession />,
-            label: 'Диплом о переподготовке'
+            label: 'Диплом о профессиональной переподготовке'
           },
           {
             img: <ImgDiplomaInstitute />,
@@ -229,7 +229,7 @@ const SectionYourFutureDiploma = ({
         diplomas.push(
           {
             img: <ImgDiplomaDynamicProfession />,
-            label: 'Диплом бакалавра'
+            label: 'Диплом о профессиональной переподготовке'
           },
           {
             img: <ImgDiplomaInstitute />,
