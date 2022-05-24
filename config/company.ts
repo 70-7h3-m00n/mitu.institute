@@ -26,7 +26,7 @@ const company = {
       type: 'Проспект',
       typeShort: 'пр-т.',
       name: 'Аль-Фараби',
-      door: '17',
+      door: '17 Блок 4Б офис 1603', // TODO: figure out better keys
       room: 'БЦ Нурлы-Тау'
     }
   },
@@ -55,14 +55,20 @@ const company = {
     areaServed: ['RU', 'KZ', 'UZ']
   },
   phoneNumberKz: {
-    href: 'tel:+7-777-398-97-40',
-    val: '+7 (777) 398-97-40',
+    href: 'tel:+7-727-311-09-11',
+    val: '+7 (727) 311-09-11',
     contactType: 'Учебный отдел',
     areaServed: ['KZ']
   },
   phoneNumberKzAlt: {
-    href: 'tel:+7-727-311-15-00',
-    val: '+7 (727) 311-15-00',
+    href: 'tel:+7-771-766-22-20',
+    val: '+7 (771) 766-22-20',
+    contactType: 'Учебный отдел',
+    areaServed: ['KZ']
+  },
+  phoneNumberKzAlt2: {
+    href: 'tel:+7-771-766-22-23',
+    val: '+7 (771) 766-22-23',
     contactType: 'Учебный отдел',
     areaServed: ['KZ']
   },
