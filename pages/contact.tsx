@@ -58,7 +58,11 @@ const PageContact: NextPage<TypePageHomeProps> = ({
     {
       city: company.addressKz.city,
       address: `${company.addressKz.street.type} ${company.addressKz.street.name}, ${company.addressKz.street.door}, ${company.addressKz.street.room}`,
-      phoneNumbers: [company.phoneNumber, company.phoneNumberAlt],
+      phoneNumbers: [
+        company.phoneNumberKz,
+        company.phoneNumberKzAlt,
+        company.phoneNumberKzAlt2
+      ],
       email: company.emailKz,
       img: <ImgContactMapAlmaty classNames={[stls.img]} />
     }
