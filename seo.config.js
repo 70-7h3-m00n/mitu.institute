@@ -1,6 +1,6 @@
 import truncate from 'truncate'
 import { pros } from '@/data/index'
-import { routesFront, company } from '@/config/index'
+import { routesFront, company, mituinstitute } from '@/config/index'
 
 const seoParams = {
   title: `${company.name} | ${company.tagline}`,
