@@ -57,7 +57,7 @@ const PageContact: NextPage<TypePageHomeProps> = ({
     },
     {
       city: company.addressKz.city,
-      address: `${company.addressKz.street.type} ${company.addressKz.street.name}, ${company.addressKz.street.door}, ${company.addressKz.street.room}`,
+      address: `${company.addressKz.street.type} ${company.addressKz.street.name}, ${company.addressKz.street.door}, ${company.addressKz.street.room}, ${company.addressKz.street.block.type} ${company.addressKz.street.block.number}, ${company.addressKz.street.office.type} ${company.addressKz.street.office.number}`,
       phoneNumbers: [
         company.phoneNumberKz,
         company.phoneNumberKzAlt,

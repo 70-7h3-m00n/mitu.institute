@@ -26,7 +26,15 @@ const company = {
       type: 'Проспект',
       typeShort: 'пр-т.',
       name: 'Аль-Фараби',
-      door: '17 Блок 4Б офис 1603', // TODO: figure out better keys
+      door: '17',
+      block: {
+        type: 'Блок',
+        number: '4Б'
+      },
+      office: {
+        type: 'офис',
+        number: '1603'
+      },
       room: 'БЦ Нурлы-Тау'
     }
   },
