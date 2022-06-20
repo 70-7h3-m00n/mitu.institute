@@ -7,7 +7,7 @@ const SeoOrganizationJsonLd = () => {
       {/* <OrganizationJsonLd
         organizationType='EducationalOrganization'
         id={routesFront.defaultRoot}
-        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`}
+        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`}
         legalName={company.fullName}
         name={company.name}
         address={{

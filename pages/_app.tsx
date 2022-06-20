@@ -65,7 +65,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     <>
       <DefaultSeo {...SEO} />
       <LogoJsonLd
-        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`}
+        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`}
         url={routesFront.defaultRoot}
       />
       {/* <ContextGeneralPopupState> */}

@@ -18,6 +18,7 @@ type TypeRoutesFront = {
   programsCategoryStudyFieldProgram: '/programs/[category]/[studyField]/[program]'
   apiLead: '/api/lead'
   assetsImgsIconsManifestIcon512: '/assets/imgs/icons/manifest-icon-512.png'
+  assetsImgsIconsManifestIconBg512: '/assets/imgs/icons/manifest-icon-bg-512.png'
   anchorMain: '#main'
   anchorPrograms: '#programs'
   policiesTerms: '/policies/terms.pdf'

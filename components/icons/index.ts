@@ -28,6 +28,7 @@ import IconPen from '@/components/icons/IconPen'
 import IconPhone from '@/components/icons/IconPhone'
 import IconPointerBottom from '@/components/icons/IconPointerBottom'
 import IconPrograms from '@/components/icons/IconPrograms'
+import IconRhombusStar from '@/components/icons/IconRhombusStar'
 import IconSearch from '@/components/icons/IconSearch'
 import IconVideoOnStand from '@/components/icons/IconVideoOnStand'
 import IconVK from '@/components/icons/IconVK'
@@ -65,6 +66,7 @@ export {
   IconPhone,
   IconPointerBottom,
   IconPrograms,
+  IconRhombusStar,
   IconSearch,
   IconVideoOnStand,
   IconVK,

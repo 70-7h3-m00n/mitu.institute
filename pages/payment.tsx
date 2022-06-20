@@ -77,7 +77,7 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
           description: seoParams.desc,
           images: [
             {
-              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
+              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`,
               width: 512,
               height: 512,
               alt: company.name,
@@ -90,7 +90,7 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
       <OrganizationJsonLd
         organizationType='EducationalOrganization'
         id={routesFront.defaultRoot}
-        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`}
+        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`}
         legalName={company.fullName}
         name={company.name}
         address={{

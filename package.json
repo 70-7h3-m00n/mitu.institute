@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
-    "makeicons": "npx pwa-asset-generator ./static/logos/Logo-2647-2647.png ./public/assets/imgs/icons -p \"0\" -b \"#fff\""
+    "makeicons": "npx pwa-asset-generator ./data/public/assets/imgs/logos/Logo-bg-alt-2647-2647.png ./data/public/assets/imgs/icons -p \"0\" -b \"#fff\""
   },
   "dependencies": {
     "@apollo/client": "^3.5.7",

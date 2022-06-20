@@ -16,6 +16,7 @@ import {
   SectionProgramHero,
   SectionProgramForWhom,
   SectionEnterWithoutExam,
+  SectionCorporateProgram,
   SectionHowTrainingGoes,
   SectionLeastDocuments,
   SectionProgramWhatWillYouLearn,
@@ -46,6 +47,9 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
   const { program: programContext, setProgram } = useContext(
     ContextProgramContext
   )
+  const atAdditional =
+    program?.category?.type === 'additional' ||
+    curCategory?.type === 'additional'
 
   useEffect(() => {
     setCategories({
@@ -87,7 +91,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           description: seoParams.desc,
           images: [
             {
-              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIcon512}`,
+              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`,
               width: 512,
               height: 512,
               alt: company.name,
@@ -107,7 +111,8 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
         <>
           <SectionProgramHero />
           <SectionProgramForWhom />
-          {curCategory?.type !== 'additional' && <SectionEnterWithoutExam />}
+          {!atAdditional && <SectionEnterWithoutExam />}
+          {atAdditional && <SectionCorporateProgram />}
           <SectionHowTrainingGoes />
           <SectionLeastDocuments />
           <SectionProgramWhatWillYouLearn />

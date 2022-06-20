@@ -14,6 +14,7 @@ export { default as ImgDiplomaSupplementTwoPages } from '@/components/imgs/diplo
 // general
 export { default as ImgForWhom } from '@/components/imgs/general/ImgForWhom'
 export { default as ImgHeroLady } from '@/components/imgs/general/ImgHeroLady'
+export { default as ImgGeneralCorporateProgram } from '@/components/imgs/general/ImgGeneralCorporateProgram'
 export { default as ImgJobTitle } from '@/components/imgs/general/ImgJobTitle'
 export { default as ImgPersonStudying } from '@/components/imgs/general/ImgPersonStudying'
 export { default as ImgProgramContents } from '@/components/imgs/general/ImgProgramContents'

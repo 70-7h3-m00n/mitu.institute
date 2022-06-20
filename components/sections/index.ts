@@ -1,5 +1,6 @@
 export { default as SectionAboutUniversity } from '@/components/sections/SectionAboutUniversity'
 export { default as SectionCheckLicense } from '@/components/sections/SectionCheckLicense'
+export { default as SectionCorporateProgram } from '@/components/sections/SectionCorporateProgram'
 export { default as SectionEnterWithoutExam } from '@/components/sections/SectionEnterWithoutExam'
 export { default as SectionFAQ } from '@/components/sections/SectionFAQ'
 export { default as SectionHero } from '@/components/sections/SectionHero'

@@ -1,0 +1,60 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as s
+@use '@/styles/shared/section' as section
+
+.container 
+  @include section.gap($bottomOnly: true)
+
+.content
+  display: flex
+  padding: f.px(80)
+  @include m.dye(bg, c.$alpha)
+
+.title
+  &.specificity
+    margin-bottom: f.px(16)
+  @include m.dye(c, c.$upsilon)
+
+.p
+  margin-bottom: 0
+  font-size: f.px(24)
+  font-weight: 400
+  line-height: 120%
+  @include m.dye(c, c.$gamma)
+
+.btn
+  margin-top: f.px(32)
+
+.right
+  position: relative
+
+.ImgGeneralCorporateProgram
+  position: relative
+  min-width: f.px(200)
+  &::after
+    content: ''
+    position: absolute
+    z-index: 1
+    top: 0
+    left: 0
+    min-width: 100%
+    max-width: 100%
+    min-height: 100%
+    max-height: 100%
+    background: linear-gradient(90deg, #1143A7 0%, rgba(17, 67, 167, 0) 100%)
+
+.IconRhombusStarContainer
+  position: absolute
+  top: 0
+  right: 0
+  transform: translate(50%, -50%)
+  padding: f.px(9)
+  @include m.dye(bg, c.$beta)
+
+.IconRhombusStar
+  min-width: f.px(53)
+  max-width: f.px(53)
+  min-height: f.px(53)
+  max-height: f.px(53)
