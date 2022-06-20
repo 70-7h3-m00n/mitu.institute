@@ -22,8 +22,10 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
 
   if (!program?.title) return <></>
 
+  const atAdditional = program?.category?.type === 'additional'
+
   const testimonialDiplomaVal = mituinstitute
-    ? program?.category?.type === 'additional'
+    ? atAdditional
       ? 'Диплом о переподготовке'
       : 'Государственный диплом'
     : 'Престижный диплом о высшем образовании'
@@ -38,27 +40,30 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
           }
         />
       ),
-      hint: {
-        title: (
-          <p className={stls.testimonialStudyDurationHintTitle}>
-            Как сократить?
-          </p>
-        ),
-        content: (
-          <p className={stls.testimonialHintContentP}>
-            Можно окончить экстерном, тем самым сократив срок обучения <br />{' '}
-            <span className={stls.highlight}>
-              до{' '}
-              <ProgramStudyDuration
-                studyDurationMonths={
-                  (Number(program.timenprice?.[0]?.studyMonthsDuration) || 12) /
-                  2
-                }
-              />
-            </span>
-          </p>
-        )
-      }
+      hint: atAdditional
+        ? {
+            title: (
+              <p className={stls.testimonialStudyDurationHintTitle}>
+                Как сократить?
+              </p>
+            ),
+            content: (
+              <p className={stls.testimonialHintContentP}>
+                Можно окончить экстерном, тем самым сократив срок обучения{' '}
+                <br />{' '}
+                <span className={stls.highlight}>
+                  до{' '}
+                  <ProgramStudyDuration
+                    studyDurationMonths={
+                      (Number(program.timenprice?.[0]?.studyMonthsDuration) ||
+                        12) / 2
+                    }
+                  />
+                </span>
+              </p>
+            )
+          }
+        : null
     },
     {
       label: 'Форма обучения',
@@ -73,36 +78,43 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
     {
       label: 'Диплом',
       val: testimonialDiplomaVal,
-      hint: {
-        title: (
-          <div className={stls.testimonialDiplomaHintTitle}>
-            <IconInfo
-              classNames={[stls.IconInfo]}
-              color={colors.upsilon}
-              color2={colors.beta}
-            />
-          </div>
-        ),
-        content: (
-          <>
-            <p className={stls.testimonialHintContentP}>
-              {testimonialDiplomaVal} — это официальный документ, который
-              подтверждает прохождение программы
-            </p>
+      hint: atAdditional
+        ? {
+            title: (
+              <div className={stls.testimonialDiplomaHintTitle}>
+                <IconInfo
+                  classNames={[stls.IconInfo]}
+                  color={colors.upsilon}
+                  color2={colors.beta}
+                />
+              </div>
+            ),
+            content: (
+              <>
+                <p className={stls.testimonialHintContentP}>
+                  {testimonialDiplomaVal} — это официальный документ, который
+                  подтверждает прохождение программы
+                </p>
 
-            <p className={stls.testimonialHintContentP}>
-              Все выданные дипломы вносятся в{' '}
-              <GeneralTextHighlight>
-                ФРДО — Федеральный реестр сведений о документах об образовании
-              </GeneralTextHighlight>
-            </p>
-          </>
-        )
-      }
+                <p className={stls.testimonialHintContentP}>
+                  Все выданные дипломы вносятся в{' '}
+                  <GeneralTextHighlight>
+                    ФРДО — Федеральный реестр сведений о документах об
+                    образовании
+                  </GeneralTextHighlight>
+                </p>
+              </>
+            )
+          }
+        : null
     },
     {
-      label: 'Количество часов',
-      val: Number(program.timenprice?.[0]?.studyHours) || 546
+      ...(atAdditional
+        ? {
+            label: 'Количество часов',
+            val: Number(program.timenprice?.[0]?.studyHours) || 546
+          }
+        : undefined)
     }
   ]
   return (
@@ -122,7 +134,15 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
               <p className={stls.description}>{program.description}</p>
             )}
           </div>
-          <ImgProgramHero classNames={[stls.img]} />
+          <div className={stls.right}>
+            <ImgProgramHero classNames={[stls.img]} />
+            {/* <p className={stls.discount}>
+              Скидка <br />
+              <span className={stls.bold}>
+                — {Number(program?.timenprice?.[0]?.discount)}%
+              </span>
+            </p> */}
+          </div>
         </div>
         <div className={stls.btns}>
           <Popup
@@ -159,34 +179,41 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
           </Popup>
         </div>
         <ul className={stls.testimonials}>
-          {testimonials.map((testimonial, idx) => (
-            <li key={testimonial.label + idx} className={stls.testimonialItem}>
-              <div className={stls.testimonialTop}>
-                <IconCheck withBg />
-                {testimonial?.hint && (
-                  <Popup
-                    trigger={open => (
-                      <a
-                        href='#!'
-                        className={cn(stls.testimonialHint, {
-                          [stls.testimonialHintOpen]: open
-                        })}>
-                        {testimonial.hint.title}
-                      </a>
-                    )}
-                    position='top right'
-                    closeOnDocumentClick
-                    keepTooltipInside={`.${selectors.sectionHero}`}>
-                    <div className={stls.testimonialHintPopupContent}>
-                      {testimonial.hint.content}
-                    </div>
-                  </Popup>
-                )}
-              </div>
-              <p className={stls.testimonialLabel}>{testimonial.label}</p>
-              <p className={stls.testimonialVal}>{testimonial.val}</p>
-            </li>
-          ))}
+          {testimonials
+            .filter(testimonial => testimonial?.label)
+            .map((testimonial, idx) => (
+              <li
+                key={`${testimonial?.label}-${idx}`}
+                className={cn(stls.testimonialItem, {
+                  [stls.notAtAdditional]: !atAdditional,
+                  [stls.atAdditional]: atAdditional
+                })}>
+                <div className={stls.testimonialTop}>
+                  <IconCheck withBg />
+                  {testimonial?.hint && (
+                    <Popup
+                      trigger={open => (
+                        <a
+                          href='#!'
+                          className={cn(stls.testimonialHint, {
+                            [stls.testimonialHintOpen]: open
+                          })}>
+                          {testimonial?.hint?.title}
+                        </a>
+                      )}
+                      position='top right'
+                      closeOnDocumentClick
+                      keepTooltipInside={`.${selectors.sectionHero}`}>
+                      <div className={stls.testimonialHintPopupContent}>
+                        {testimonial?.hint?.content}
+                      </div>
+                    </Popup>
+                  )}
+                </div>
+                <p className={stls.testimonialLabel}>{testimonial.label}</p>
+                <p className={stls.testimonialVal}>{testimonial.val}</p>
+              </li>
+            ))}
         </ul>
       </Wrapper>
     </section>

@@ -17,7 +17,9 @@ const SectionProgramForWhom = ({
 }: TypeSectionProgramForWhomProps) => {
   const { program } = useContext(ContextProgramContext)
 
-  if (!program?.forWhom) return <></>
+  if (!program?.forWhom || program?.forWhom?.length === 0) return <></>
+
+  const atAdditional = program?.category?.type === 'additional'
 
   return (
     <section
@@ -30,12 +32,12 @@ const SectionProgramForWhom = ({
           <div className={stls.left}>
             <p className={stls.desc}>
               {mituinstitute
-                ? program?.category?.type === 'additional'
+                ? atAdditional
                   ? 'Образовательные программы института сертифицированы и имеют аккредитацию. По окончанию обучения выдается диплом о переподготовке'
                   : 'Образовательные программы института сертифицированы и имеют аккредитацию. По окончанию обучения выдается диплом о высшем образовании установленного образца'
                 : 'Образовательные программы института аккредитованы. По окончанию обучения выдается престижный диплом о высшем образовании'}
             </p>
-            <IconWave classNames={[stls.icon]} />
+            {!atAdditional && <IconWave classNames={[stls.icon]} />}
             <ImgForWhom
               classNames={[stls.img, stls.laptopDesktop]}
               src={program.forWhomPicture?.url}

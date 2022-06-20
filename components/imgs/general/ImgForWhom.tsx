@@ -1,8 +1,11 @@
 import stls from '@/styles/components/imgs/general/ImgForWhom.module.sass'
 import { TypeClassNames, TypeImg, TypeImgExtended } from '@/types/index'
+import { useContext } from 'react'
 import { nextexport } from '@/config/index'
+import { ContextProgramContext } from '@/context/index'
 import { ImgTemplate } from '@/components/imgs'
-import srcDefault from '@/public/assets/imgs/general/for-whom.jpg'
+import srcDefaultRegular from '@/public/assets/imgs/general/for-whom.jpg'
+import srcDefaultAdditional from '@/public/assets/imgs/general/for-whom-additional.jpg'
 
 type TypeImgForWhomProps = TypeClassNames &
   TypeImg &
@@ -19,8 +22,15 @@ const ImgForWhom = ({
   title,
   filter
 }: TypeImgForWhomProps) => {
-  const publicSrc = '/assets/imgs/general/for-whom.jpg'
+  const { program } = useContext(ContextProgramContext)
 
+  const atAdditional = program?.category?.type === 'additional'
+
+  const publicSrc = atAdditional
+    ? '/assets/imgs/general/for-whom-additional.jpg'
+    : '/assets/imgs/general/for-whom.jpg'
+
+  const srcDefault = atAdditional ? srcDefaultAdditional : srcDefaultRegular
   return (
     <>
       <ImgTemplate

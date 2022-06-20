@@ -17,14 +17,34 @@
     flex-basis: 68%
     margin-right: 100% - 68% - 25%
 
+.right
+  @include m.media(phone, tablet)
+    margin-top: f.px(32)
+  @include m.media(laptop, desktop)
+    flex-basis: 25%
+
 .img
   @include m.media(phone, tablet)
     display: flex
     justify-content: center
     align-items: center
-    margin-top: f.px(32)
-  @include m.media(laptop, desktop)
-    flex-basis: 25%
+
+.discount
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  max-width: 7ch
+  max-width: max-content
+  aspect-ratio: 1 / 1
+  margin-top: f.px(32)
+  padding: f.px(35)
+  border-radius: 50%
+  font-size: f.px(32)
+  font-weight: 400
+  line-height: 120%
+  @include m.dye(bg, c.$beta)
+  @include m.dye(c, c.$upsilon)
 
 .title
   margin: 0
@@ -82,7 +102,22 @@
     margin-top: f.px(80)
 
 $item_tld_mr: 7.2%
+$item_l_mr: 3.4%
 .testimonialItem
+  &.atAdditional
+    @include m.media(laptop)
+      flex-basis: math.div((100% - $item_l_mr * 4), 5)
+      margin-right: $item_l_mr
+      &:nth-child(5n)
+        margin-right: 0
+      &:nth-child(-n+5)
+        margin-top: 0
+    @include m.media(desktop)
+      flex-basis: math.div((100% - $item_tld_mr * 4), 5)
+      &:nth-child(5n)
+        margin-right: 0
+      &:nth-child(-n+5)
+        margin-top: 0
   display: flex
   flex-direction: column
   @include m.media(phone, tablet)
@@ -93,13 +128,14 @@ $item_tld_mr: 7.2%
     &:nth-child(-n+2)
       margin-top: 0
   @include m.media(laptop, desktop)
-    flex-basis: math.div((100% - $item_tld_mr * 4), 5)
+    flex-basis: math.div((100% - $item_tld_mr * 3), 4)
     margin-top: f.px(32)
     margin-right: $item_tld_mr
-    &:nth-child(5n)
-      margin-right: 0
-    &:nth-child(-n+5)
-      margin-top: 0
+    &.notAtAdditional
+      &:nth-child(4n)
+        margin-right: 0
+      &:nth-child(-n+4)
+        margin-top: 0
 
 .testimonialTop
   display: flex
@@ -176,3 +212,6 @@ $item_tld_mr: 7.2%
 .highlight
   font-weight: 700
   @include m.dye(c, c.$beta)
+
+.bold
+  font-weight: 700
