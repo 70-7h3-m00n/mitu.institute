@@ -8,6 +8,6 @@ type TypeLibProgramHowProcessGoes = {
   title?: TypeLibProgramHowProcessGoesTitle
   description?: TypeLibProgramHowProcessGoesDescription
   courseContainsOf?: TypeLibProgramHowProcessGoesCourseContainsOf
-}
+}[]
 
 export default TypeLibProgramHowProcessGoes

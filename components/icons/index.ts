@@ -14,6 +14,7 @@ import IconFacebook from '@/components/icons/IconFacebook'
 import IconFile from '@/components/icons/IconFile'
 import IconHamburger from '@/components/icons/IconHamburger'
 import IconHelp from '@/components/icons/IconHelp'
+import IconHowTrainingGoesDecoration1 from '@/components/icons/IconHowTrainingGoesDecoration1'
 import IconInfo from '@/components/icons/IconInfo'
 import IconInstagram from '@/components/icons/IconInstagram'
 import IconLightBulb from '@/components/icons/IconLightBulb'
@@ -53,6 +54,7 @@ export {
   IconFile,
   IconHamburger,
   IconHelp,
+  IconHowTrainingGoesDecoration1,
   IconInfo,
   IconLightBulb,
   IconLoader,
