@@ -97,6 +97,7 @@ export type { default as TypeLibProgramTeachersName } from '@/types/lib/program/
 export type { default as TypeLibProgramTimenprice } from '@/types/lib/program/TypeLibProgramTimenprice'
 export type { default as TypeLibProgramTimenpriceDiscount } from '@/types/lib/program/TypeLibProgramTimenpriceDiscount'
 export type { default as TypeLibProgramTimenpricePrice } from '@/types/lib/program/TypeLibProgramTimenpricePrice'
+export type { default as TypeLibProgramTimenpriceStudyHours } from '@/types/lib/program/TypeLibProgramTimenpriceStudyHours'
 export type { default as TypeLibProgramTimenpriceStudyMonthsDuration } from '@/types/lib/program/TypeLibProgramTimenpriceStudyMonthsDuration'
 export type { default as TypeLibProgramTitle } from '@/types/lib/program/TypeLibProgramTitle'
 export type { default as TypeLibProgramWhatYouWillLearn } from '@/types/lib/program/TypeLibProgramWhatYouWillLearn'

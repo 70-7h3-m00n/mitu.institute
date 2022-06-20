@@ -43,6 +43,7 @@ const getStaticPropsPageProgram = async ({
           }
           timenprice {
             studyMonthsDuration
+            studyHours
             price
             discount
           }

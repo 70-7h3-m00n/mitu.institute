@@ -9,19 +9,22 @@
 
 .top
   @include m.media(laptop, desktop)
-    @include m.flex($ai: flex-start)
+    display: flex
+    align-items: flex-start
 
 .heading
   @include m.media(laptop, desktop)
-    @include m.flex($d: false, $fb: 68%)
+    flex-basis: 68%
     margin-right: 100% - 68% - 25%
 
 .img
   @include m.media(phone, tablet)
-    @include m.flex($jc: center, $ai: center)
+    display: flex
+    justify-content: center
+    align-items: center
     margin-top: f.px(32)
   @include m.media(laptop, desktop)
-    @include m.flex($d: false, $fb: 25%)
+    flex-basis: 25%
 
 .title
   margin: 0
@@ -51,10 +54,11 @@
   @include m.media(phone)
     margin-top: f.px(48)
   @include m.media(tablet)
-    @include m.flex($fd: column)
+    display: flex
+    flex-direction: column
     margin-top: f.px(40)
   @include m.media(laptop, desktop)
-    @include m.flex
+    display: flex
     margin-top: f.px(56)
 
 .btn
@@ -68,7 +72,8 @@
 .testimonials
   margin: 0
   padding: 0
-  @include m.flex($fw: wrap)
+  display: flex
+  flex-wrap: wrap
   @include m.media(phone)
     margin-top: f.px(72)
   @include m.media(tablet)
@@ -76,26 +81,76 @@
   @include m.media(laptop, desktop)
     margin-top: f.px(80)
 
-$item_tld_mr: 2%
+$item_tld_mr: 7.2%
 .testimonialItem
+  display: flex
+  flex-direction: column
   @include m.media(phone, tablet)
-    @include m.flex($fb: math.div((100% - $item_tld_mr), 2), $fd: column)
+    flex-basis: math.div((100% - $item_tld_mr), 2)
     margin-top: f.px(32)
     &:nth-child(odd)
       margin-right: $item_tld_mr
     &:nth-child(-n+2)
       margin-top: 0
   @include m.media(laptop, desktop)
-    @include m.flex($fb: math.div((100% - $item_tld_mr * 3), 4), $fd: column)
+    flex-basis: math.div((100% - $item_tld_mr * 4), 5)
     margin-top: f.px(32)
     margin-right: $item_tld_mr
-    &:nth-child(4n)
+    &:nth-child(5n)
       margin-right: 0
-    &:nth-child(-n+4)
+    &:nth-child(-n+5)
       margin-top: 0
 
-.testimonialIcon
+.testimonialTop
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
   margin-bottom: f.px(16)
+
+.testimonialHint
+  margin-left: 8%
+  outline: none
+  transition: transform .15s ease-in-out
+  text-decoration-color: inherit
+  @include m.dye(c, c.$beta)
+  &:focus-visible
+    transform: scale(1.15)
+
+.testimonialHintOpen
+  transform: scale(1.15)
+  text-decoration: underline
+
+.testimonialHintContentP
+  margin-bottom: 0
+  font-size: f.px(14)
+  font-weight: 400
+  line-height: 120%
+  @include m.dye(c, c.$psi)
+
+.testimonialStudyDurationHintTitle
+  margin-bottom: 0
+  font-size: f.px(12)
+  font-weight: 700
+  line-height: 120%
+  @include m.dye(c, c.$beta)
+  
+.testimonialDiplomaHintTitle
+  border-radius: 50%
+  @include m.dye(bg, c.$beta)
+
+.IconInfo
+  min-width: f.px(21)
+  max-width: f.px(21)
+  min-height: f.px(21)
+  max-height: f.px(21)
+
+.testimonialHintPopupContent
+  min-width: 22ch
+  max-width: 22ch
+  padding: f.px(24)
+  box-shadow: 0 0 f.px(45) rgba(218, 218, 218, 0.58)
+  // transform: translateY(f.px(-5))
+  @include m.dye(bg, c.$upsilon)
 
 .testimonialLabel
   margin-bottom: 0
@@ -117,3 +172,7 @@ $item_tld_mr: 2%
   font-weight: 700
   line-height: 120%
   @include m.dye(c, c.$alpha)
+
+.highlight
+  font-weight: 700
+  @include m.dye(c, c.$beta)

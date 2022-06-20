@@ -4,7 +4,7 @@ import { MouseEventHandler } from 'react'
 import { useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
-import { mituinstitute } from '@/config/index'
+import { mituinstitute, colors, selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
@@ -13,7 +13,7 @@ import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
 import { ProgramAdmission, ProgramStudyDuration } from '@/components/program'
 import { ImgProgramHero } from '@/components/imgs'
-import { IconCheck } from '@/components/icons'
+import { IconCheck, IconInfo } from '@/components/icons'
 
 type TypeSectionProgramHeroProps = TypeClassNames
 
@@ -22,8 +22,15 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
 
   if (!program?.title) return <></>
 
+  const testimonialDiplomaVal = mituinstitute
+    ? program?.category?.type === 'additional'
+      ? 'Диплом о переподготовке'
+      : 'Государственный диплом'
+    : 'Престижный диплом о высшем образовании'
+
   const testimonials = [
     {
+      label: 'Срок обучения',
       val: (
         <ProgramStudyDuration
           studyDurationMonths={
@@ -31,7 +38,27 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
           }
         />
       ),
-      label: 'Срок обучения'
+      hint: {
+        title: (
+          <p className={stls.testimonialStudyDurationHintTitle}>
+            Как сократить?
+          </p>
+        ),
+        content: (
+          <p className={stls.testimonialHintContentP}>
+            Можно окончить экстерном, тем самым сократив срок обучения <br />{' '}
+            <span className={stls.highlight}>
+              до{' '}
+              <ProgramStudyDuration
+                studyDurationMonths={
+                  (Number(program.timenprice?.[0]?.studyMonthsDuration) || 12) /
+                  2
+                }
+              />
+            </span>
+          </p>
+        )
+      }
     },
     {
       label: 'Форма обучения',
@@ -40,22 +67,52 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
         : 'Очная, очно-заочная, заочная с применением дистанционных технологий обучения'
     },
     {
-      val: mituinstitute ? <ProgramAdmission /> : 'Ежемесячно',
-      label: 'Зачисление'
+      label: 'Зачисление',
+      val: mituinstitute ? <ProgramAdmission /> : 'Ежемесячно'
     },
     {
-      val: mituinstitute
-        ? program?.category?.type === 'additional'
-          ? 'Диплом о переподготовке'
-          : 'Государственный диплом'
-        : 'Престижный диплом о высшем образовании',
-      label: 'Диплом'
+      label: 'Диплом',
+      val: testimonialDiplomaVal,
+      hint: {
+        title: (
+          <div className={stls.testimonialDiplomaHintTitle}>
+            <IconInfo
+              classNames={[stls.IconInfo]}
+              color={colors.upsilon}
+              color2={colors.beta}
+            />
+          </div>
+        ),
+        content: (
+          <>
+            <p className={stls.testimonialHintContentP}>
+              {testimonialDiplomaVal} — это официальный документ, который
+              подтверждает прохождение программы
+            </p>
+
+            <p className={stls.testimonialHintContentP}>
+              Все выданные дипломы вносятся в{' '}
+              <GeneralTextHighlight>
+                ФРДО — Федеральный реестр сведений о документах об образовании
+              </GeneralTextHighlight>
+            </p>
+          </>
+        )
+      }
+    },
+    {
+      label: 'Количество часов',
+      val: Number(program.timenprice?.[0]?.studyHours) || 546
     }
   ]
   return (
     <section
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(
+          stls.container,
+          selectors.sectionHero,
+          getClassNames({ classNames })
+        ) || undefined
       }>
       <Wrapper>
         <div className={stls.top}>
@@ -104,7 +161,28 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
         <ul className={stls.testimonials}>
           {testimonials.map((testimonial, idx) => (
             <li key={testimonial.label + idx} className={stls.testimonialItem}>
-              <IconCheck withBg classNames={[stls.testimonialIcon]} />
+              <div className={stls.testimonialTop}>
+                <IconCheck withBg />
+                {testimonial?.hint && (
+                  <Popup
+                    trigger={open => (
+                      <a
+                        href='#!'
+                        className={cn(stls.testimonialHint, {
+                          [stls.testimonialHintOpen]: open
+                        })}>
+                        {testimonial.hint.title}
+                      </a>
+                    )}
+                    position='top right'
+                    closeOnDocumentClick
+                    keepTooltipInside={`.${selectors.sectionHero}`}>
+                    <div className={stls.testimonialHintPopupContent}>
+                      {testimonial.hint.content}
+                    </div>
+                  </Popup>
+                )}
+              </div>
               <p className={stls.testimonialLabel}>{testimonial.label}</p>
               <p className={stls.testimonialVal}>{testimonial.val}</p>
             </li>
