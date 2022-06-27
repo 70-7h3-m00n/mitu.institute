@@ -82,9 +82,20 @@
   line-height: 110%
   @include m.dye(c, c.$beta)
 
-.img
+.imgContainer
+  &.atAdditional
+    position: relative
   @include m.media(laptop, desktop)
-    @include m.flex($d: false, $fb: 33%)
+    flex-basis: 33%
+
+.IconFourSquares
+  position: absolute
+  right: 0
+  bottom: 0
+  min-width: f.px(40)
+  max-width: f.px(40)
+  min-height: f.px(40)
+  max-height: f.px(40)
 
 .fullProgram
   @include m.media(phone)

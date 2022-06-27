@@ -11,6 +11,7 @@ import {
   GeneralFullProgram
 } from '@/components/general'
 import { ImgProgramContents } from '@/components/imgs'
+import { IconFourSquares } from '@/components/icons'
 
 type TypeSectionProgramContentsProps = TypeClassNames
 
@@ -66,7 +67,15 @@ const SectionProgramContents = ({
                 </li>
               ))}
           </ul>
-          <ImgProgramContents classNames={[stls.img]} />
+          <div
+            className={cn(stls.imgContainer, {
+              [stls.atAdditional]: atAdditional
+            })}>
+            <ImgProgramContents classNames={[stls.img]} />
+            {atAdditional && (
+              <IconFourSquares classNames={[stls.IconFourSquares]} />
+            )}
+          </div>
         </div>
         {!atAdditional && (
           <GeneralFullProgram classNames={[stls.fullProgram]} />

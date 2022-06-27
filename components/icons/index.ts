@@ -13,6 +13,7 @@ import IconElderScroll from '@/components/icons/IconElderScroll'
 import IconEye from '@/components/icons/IconEye'
 import IconFacebook from '@/components/icons/IconFacebook'
 import IconFile from '@/components/icons/IconFile'
+import IconFourSquares from '@/components/icons/IconFourSquares'
 import IconHamburger from '@/components/icons/IconHamburger'
 import IconHelp from '@/components/icons/IconHelp'
 import IconHowTrainingGoesDecoration1 from '@/components/icons/IconHowTrainingGoesDecoration1'
@@ -55,6 +56,7 @@ export {
   IconInstagram,
   IconFacebook,
   IconFile,
+  IconFourSquares,
   IconHamburger,
   IconHelp,
   IconHowTrainingGoesDecoration1,
