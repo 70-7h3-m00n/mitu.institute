@@ -22,6 +22,8 @@ import {
   SectionProgramWhatWillYouLearn,
   SectionProgramHowProcessGoes,
   SectionProgramContents,
+  SectionAboutStudying,
+  SectionFullProgram,
   SectionStudyingWithUsIs,
   SectionYourFutureDiploma,
   SectionCheckLicense,
@@ -114,10 +116,12 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           {!atAdditional && <SectionEnterWithoutExam />}
           {atAdditional && <SectionCorporateProgram />}
           <SectionHowTrainingGoes />
-          <SectionLeastDocuments />
+          {!atAdditional && <SectionLeastDocuments />}
           <SectionProgramWhatWillYouLearn />
           {/* <SectionProgramHowProcessGoes /> */}
           <SectionProgramContents />
+          {atAdditional && <SectionAboutStudying />}
+          {atAdditional && <SectionFullProgram />}
           {mituinstitute && <SectionStudyingWithUsIs />}
           <SectionYourFutureDiploma atPageProgram />
           {mituinstitute && <SectionCheckLicense />}

@@ -1,0 +1,58 @@
+@use 'sass:math'
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+@use '@/styles/shared/general' as g
+@use '@/styles/shared/section' as section
+
+.container 
+  @include section.gap($topOnly: true)
+  padding-bottom: 0
+
+.list
+  @include m.media(tablet, laptop, desktop)
+    display: flex
+    flex-wrap: wrap
+  padding: 0
+  margin: 0
+
+$item_tld_mr: 5.3%
+.listItem
+  @include m.media(tablet, phone)
+    display: flex
+    margin-top: f.px(32)
+    &:nth-child(1)
+      margin-top: 0
+  @include m.media(laptop, desktop)
+    display: flex
+    flex-basis: math.div((100% - $item_tld_mr * 1), 2)
+    margin-top: f.px(32)
+    margin-right: $item_tld_mr
+    &:nth-child(2n)
+      margin-right: 0
+    &:nth-child(-n+2)
+      margin-top: 0
+
+.dot
+  min-width: f.px(16)
+  max-width: f.px(16)
+  min-height: f.px(16)
+  max-height: f.px(16)
+  @include m.media(phone, laptop, desktop)
+    margin-top: f.px(4)
+  @include m.media(tablet)
+    margin-top: f.px(2)
+  margin-right: f.px(8)
+  border-radius: 50%
+  @include m.dye(bg, c.$beta)
+
+.p
+  margin: 0
+  @include m.media(phone)
+    font-size: f.px(20)
+  @include m.media(tablet)
+    font-size: f.px(18)
+  @include m.media(laptop, desktop)
+    font-size: f.px(20)
+  font-weight: 500
+  line-height: 120%

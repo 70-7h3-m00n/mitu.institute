@@ -76,6 +76,7 @@ const getStaticPropsPageProgram = async ({
           shortContents {
             title
           }
+          shortContentsDescription
           jobTitles {
             picture {
               url
