@@ -1,4 +1,5 @@
 import IconAlarm from '@/components/icons/IconAlarm'
+import IconArrowRight from '@/components/icons/IconArrowRight'
 import IconArrowTopRight from '@/components/icons/IconArrowTopRight'
 import IconArrowTopRightAlt from '@/components/icons/IconArrowTopRightAlt'
 import IconChat from '@/components/icons/IconChat'
@@ -24,6 +25,7 @@ import IconMagnifyingGlass from '@/components/icons/IconMagnifyingGlass'
 import IconManager from '@/components/icons/IconManager'
 import IconMortarboard from '@/components/icons/IconMortarboard'
 import IconMortarboardAlt from '@/components/icons/IconMortarboardAlt'
+import IconOpenBook from '@/components/icons/IconOpenBook'
 import IconPaperPage from '@/components/icons/IconPaperPage'
 import IconPen from '@/components/icons/IconPen'
 import IconPhone from '@/components/icons/IconPhone'
@@ -38,6 +40,7 @@ import IconYoutube from '@/components/icons/IconYoutube'
 
 export {
   IconAlarm,
+  IconArrowRight,
   IconArrowTopRight,
   IconArrowTopRightAlt,
   IconChat,
@@ -63,6 +66,7 @@ export {
   IconManager,
   IconMortarboard,
   IconMortarboardAlt,
+  IconOpenBook,
   IconPaperPage,
   IconPen,
   IconPhone,

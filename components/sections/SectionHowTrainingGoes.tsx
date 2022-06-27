@@ -7,8 +7,12 @@ import { getClassNames } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle } from '@/components/general'
-import { IconHowTrainingGoesDecoration1 } from '../icons'
-import { ImgGeneralHowProcessGoesDecoration } from '../imgs'
+import {
+  IconArrowRight,
+  IconHowTrainingGoesDecoration1,
+  IconOpenBook
+} from '@/components/icons'
+import { ImgGeneralHowProcessGoesDecoration } from '@/components/imgs'
 
 type TypeSectionHowTrainingGoesProps = TypeClassNames
 
@@ -18,8 +22,6 @@ const SectionHowTrainingGoes = ({
   const { program } = useContext(ContextProgramContext)
 
   const atAdditional = program?.category?.type === 'additional'
-
-  console.log(program?.howProcessGoes)
 
   const cards =
     program?.howProcessGoes && program?.howProcessGoes?.length > 0
@@ -78,31 +80,62 @@ const SectionHowTrainingGoes = ({
         { [stls.atAdditional]: atAdditional },
         getClassNames({ classNames })
       )}>
+      {atAdditional && (
+        <div className={stls.decorations}>
+          <IconHowTrainingGoesDecoration1
+            classNames={[stls.IconHowTrainingGoesDecoration1]}
+          />
+          <ImgGeneralHowProcessGoesDecoration
+            classNames={[stls.ImgGeneralHowProcessGoesDecoration]}
+          />
+        </div>
+      )}
       <Wrapper
         classNames={[cn(stls.wrapper, { [stls.atAdditional]: atAdditional })]}>
-        {atAdditional && (
-          <div className={stls.decorations}>
-            <IconHowTrainingGoesDecoration1
-              classNames={[stls.IconHowTrainingGoesDecoration1]}
-            />
-            <ImgGeneralHowProcessGoesDecoration
-              classNames={[stls.ImgGeneralHowProcessGoesDecoration]}
-            />
-          </div>
-        )}
-
-        <GeneralSectionTitle>Как проходит обучение?</GeneralSectionTitle>
+        <GeneralSectionTitle classNames={[stls.GeneralSectionTitle]}>
+          Как проходит обучение?
+        </GeneralSectionTitle>
         <ul className={stls.cards}>
-          {cards.map((item, idx) => {
+          {cards.map((item, idx, arr) => {
             return (
               <li
                 key={`${
                   item?.title || 'SectionHowTrainingGoes__cards-card'
                 }-${idx}`}
-                className={stls.card}>
-                <div className={stls.count}>{idx + 1}</div>
-                <p className={stls.title}>{item.title}</p>
-                <p className={stls.desc}>{item.description}</p>
+                className={cn(stls.card, {
+                  [stls.atAdditional]: atAdditional
+                })}>
+                <div
+                  className={cn(stls.count, {
+                    [stls.atAdditional]: atAdditional
+                  })}>
+                  {idx + 1}
+                </div>
+                {atAdditional && (
+                  <div className={cn(stls.iconContainer)}>
+                    {arr.length - 1 === idx ? (
+                      <IconOpenBook classNames={[stls.icon]} />
+                    ) : (
+                      <>
+                        <IconArrowRight
+                          classNames={[stls.icon, stls.IconArrowRight]}
+                        />
+                      </>
+                    )}
+                  </div>
+                )}
+                <p
+                  className={cn(stls.title, {
+                    [stls.atAdditional]: atAdditional
+                  })}>
+                  {item.title}
+                </p>
+                <p
+                  className={cn(stls.desc, {
+                    [stls.atAdditional]: atAdditional
+                  })}>
+                  {item.description}
+                </p>
               </li>
             )
           })}
@@ -111,4 +144,5 @@ const SectionHowTrainingGoes = ({
     </section>
   )
 }
+
 export default SectionHowTrainingGoes

@@ -9,6 +9,7 @@ $topWithoutBorder: -$top - $borderWidth
 
 .container
   &.atAdditional
+    position: relative
     overflow: hidden
     @include m.dye(bg, c.$zeta)
   @include section.gap
@@ -17,35 +18,67 @@ $topWithoutBorder: -$top - $borderWidth
   &.atAdditional
     position: relative
 
+.GeneralSectionTitle
+  @include m.media(phone)
+    max-width: 12ch
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(68)
+  @include m.media(laptop, desktop)
+    margin-bottom: f.px(104)
+
 .decorations
   position: absolute
   top: 0
-  right: 0
+  @include m.media(phone, tablet)
+    right: f.px(40 + 16)
+  @include m.media(laptop, desktop)
+    right: f.px(100)
 
 .IconHowTrainingGoesDecoration1
-  min-width: f.px(104)
-  max-width: f.px(104)
-  min-height: f.px(104)
-  max-height: f.px(104)
+  @include m.media(phone, tablet)
+    min-width: f.px(73)
+    max-width: f.px(73)
+    min-height: f.px(73)
+    max-height: f.px(73)
+  @include m.media(laptop, desktop)
+    min-width: f.px(104)
+    max-width: f.px(104)
+    min-height: f.px(104)
+    max-height: f.px(104)
 
 .ImgGeneralHowProcessGoesDecoration
   position: absolute
   bottom: 0
   right: 0
   transform: translate(100%, 100%)
-  min-width: f.px(72)
-  max-width: f.px(72)
+  @include m.media(phone, tablet)
+    min-width: f.px(40)
+    max-width: f.px(40)
+  @include m.media(laptop, desktop)
+    min-width: f.px(72)
+    max-width: f.px(72)
 
 .cards
   display: flex
   flex-wrap: wrap
   justify-content: space-between
+  @include m.media(desktop)
+    max-width: 90%
   margin-top: 0
   margin-bottom: 0
   padding: 0
   padding-top: f.px($topWithoutBorder)
 
 .card    
+  &.atAdditional
+    @include m.media(laptop)
+      flex-basis: 48%
+    @include m.media(desktop)
+      flex-basis: 31%
+    margin-bottom: f.px(72)
+    padding: f.px(24)
+    @include m.dye(border, c.$upsilon)
+    @include m.dye(bg, c.$upsilon)
   position: relative
   display: flex
   flex-direction: column
@@ -75,6 +108,8 @@ $topWithoutBorder: -$top - $borderWidth
   @include m.dye(border, c.$delta)
 
 .count
+  &.atAdditional
+    display: none
   position: absolute
   top: f.px($top)
   left: f.px(40)
@@ -87,7 +122,28 @@ $topWithoutBorder: -$top - $borderWidth
   @include m.dye(bg, c.$zeta)
   @include m.dye(c, c.$beta)
 
+.iconContainer
+  position: absolute
+  top: 0
+  right: 0
+  padding: f.px(8)
+  transform: translateY(-100%)
+  @include m.dye(bg, c.$beta)
+
+.icon
+  min-width: f.px(24)
+  max-width: f.px(24)
+  min-height: f.px(24)
+  max-height: f.px(24)
+
+.IconArrowRight
+  @include m.media(phone, tablet)
+    transform: rotate(90deg)
+
 .title
+  &.atAdditional
+    margin-bottom: f.px(32)
+    @include m.dye(c, c.$alpha)
   margin-bottom: f.px(16)
   @include m.media(phone, laptop, desktop)
     font-size: f.px(24)
@@ -98,10 +154,12 @@ $topWithoutBorder: -$top - $borderWidth
   word-break: break-word
 
 .desc
+  &.atAdditional
+    @include m.media(phone, laptop, desktop)
+      font-size: f.px(14)
   @include m.media(phone, laptop, desktop)
     font-size: f.px(16)
   @include m.media(tablet)
     font-size: f.px(13)
   line-height: 120%
   @include m.dye(c, c.$psi)
-

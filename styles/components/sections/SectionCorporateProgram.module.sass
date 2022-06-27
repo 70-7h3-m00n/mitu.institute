@@ -9,41 +9,61 @@
 
 .content
   display: flex
-  padding: f.px(80)
+  @include m.media(phone, tablet)
+    padding-top: f.px(48)
+    padding-right: f.px(24)
+    padding-bottom: f.px(48)
+    padding-left: f.px(24)
+  @include m.media(laptop, desktop)
+    padding: f.px(80)
   @include m.dye(bg, c.$alpha)
 
 .title
   &.specificity
-    margin-bottom: f.px(16)
+    @include m.media(phone, tablet)
+      margin-bottom: f.px(32)
+    @include m.media(laptop, desktop)
+      margin-bottom: f.px(16)
   @include m.dye(c, c.$upsilon)
 
 .p
   margin-bottom: 0
-  font-size: f.px(24)
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+  @include m.media(laptop, desktop)
+    font-size: f.px(24)
   font-weight: 400
   line-height: 120%
   @include m.dye(c, c.$gamma)
 
 .btn
-  margin-top: f.px(32)
+  @include m.media(phone, tablet)
+    margin-top: f.px(48)
+  @include m.media(laptop, desktop)
+    margin-top: f.px(32)
 
 .right
-  position: relative
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    position: relative
 
 .ImgGeneralCorporateProgram
-  position: relative
-  min-width: f.px(200)
-  &::after
-    content: ''
-    position: absolute
-    z-index: 1
-    top: 0
-    left: 0
-    min-width: 100%
-    max-width: 100%
-    min-height: 100%
-    max-height: 100%
-    background: linear-gradient(90deg, #1143A7 0%, rgba(17, 67, 167, 0) 100%)
+  // @include m.media(phone, tablet)
+  @include m.media(laptop, desktop)
+    position: relative
+    min-width: f.px(200)
+    &::after
+      content: ''
+      position: absolute
+      z-index: 1
+      top: 0
+      left: 0
+      min-width: 100%
+      max-width: 100%
+      min-height: 100%
+      max-height: 100%
+      background: linear-gradient(90deg, #1143A7 0%, rgba(17, 67, 167, 0) 100%)
 
 .IconRhombusStarContainer
   position: absolute

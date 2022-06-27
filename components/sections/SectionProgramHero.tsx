@@ -136,12 +136,12 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
           </div>
           <div className={stls.right}>
             <ImgProgramHero classNames={[stls.img]} />
-            {/* <p className={stls.discount}>
+            <p className={stls.discount}>
               Скидка <br />
               <span className={stls.bold}>
                 — {Number(program?.timenprice?.[0]?.discount)}%
               </span>
-            </p> */}
+            </p>
           </div>
         </div>
         <div className={stls.btns}>
