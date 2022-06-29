@@ -26,19 +26,33 @@ $img_ld_fb: 32.9%
     flex-basis: 100% - $img_ld_fb
 
 .img
+  &.atAdditional
+    position: relative
   @include m.media(phone)
     margin-top: f.px(48)
   @include m.media(tablet)
     margin-top: f.px(62)
   @include m.media(laptop, desktop)
     position: relative
-    overflow: hidden
+    // overflow: hidden
     flex-basis: $img_ld_fb
-    & > *
-      position: absolute !important
-      top: 0
-      left: 0
-      min-width: f.px(384)
+
+.ImgWhyUs
+  @include m.media(laptop, desktop)
+    position: absolute !important
+    top: 0
+    left: 0
+    min-width: f.px(384)
+
+.IconFourSquares
+  position: absolute
+  top: 0
+  right: 0
+  transform: translateY(-50%)
+  min-width: f.px(72)
+  max-width: f.px(72)
+  min-height: f.px(72)
+  max-height: f.px(72)
 
 $listItem_before_wh: 16
 $listItem_tld_mr: 3%

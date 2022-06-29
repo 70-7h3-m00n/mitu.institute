@@ -3,15 +3,21 @@ import { TypeClassNames } from '@/types/index'
 import { Fragment, useContext } from 'react'
 import cn from 'classnames'
 import { whyus } from '@/data/index'
-import { mituinstitute } from '@/config/index'
+import { mituinstitute, colors } from '@/config/index'
 import { getClassNames, getImageHeight } from '@/helpers/index'
+import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 import { ImgWhyUs } from '@/components/imgs'
+import { IconFourSquares } from '@/components/icons'
 
 type TypeSectionWhyUsProps = TypeClassNames
 
 const SectionWhyUs = ({ classNames }: TypeSectionWhyUsProps) => {
+  const { program } = useContext(ContextProgramContext)
+
+  const atAdditional = program?.category?.type === 'additional'
+
   return (
     <section
       className={
@@ -32,8 +38,19 @@ const SectionWhyUs = ({ classNames }: TypeSectionWhyUsProps) => {
               </li>
             ))}
           </ul>
-          <div className={stls.img}>
-            <ImgWhyUs />
+          <div className={cn(stls.img, { [stls.atAdditional]: atAdditional })}>
+            <ImgWhyUs classNames={[stls.ImgWhyUs]} />
+            {atAdditional && (
+              <IconFourSquares
+                classNames={[stls.IconFourSquares]}
+                color1={colors.gamma}
+                color2={colors.upsilon}
+                fillOpacity2='0'
+                color3={colors.gamma}
+                color4={colors.upsilon}
+                fillOpacity4='0'
+              />
+            )}
           </div>
         </div>
       </Wrapper>

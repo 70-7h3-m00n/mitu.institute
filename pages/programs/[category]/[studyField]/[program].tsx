@@ -122,7 +122,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           <SectionProgramContents />
           {atAdditional && <SectionAboutStudying />}
           {atAdditional && <SectionFullProgram />}
-          {mituinstitute && <SectionStudyingWithUsIs />}
+          {mituinstitute && !atAdditional && <SectionStudyingWithUsIs />}
           <SectionYourFutureDiploma atPageProgram />
           {mituinstitute && <SectionCheckLicense />}
           {mituinstitute && <SectionWhyUs />}

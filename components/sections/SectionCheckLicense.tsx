@@ -1,7 +1,9 @@
 import stls from '@/styles/components/sections/SectionCheckLicense.module.sass'
 import { TypeClassNames } from '@/types/index'
+import { useContext } from 'react'
 import cn from 'classnames'
 import { routesExternal, mituinstitute } from '@/config/index'
+import { ContextProgramContext } from '@/context/index'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
@@ -11,6 +13,10 @@ import { BtnBeta } from '@/components/btns'
 type TypeSectionCheckLicenseProps = TypeClassNames
 
 const SectionCheckLicense = ({ classNames }: TypeSectionCheckLicenseProps) => {
+  const { program } = useContext(ContextProgramContext)
+
+  const atAdditional = program?.category?.type === 'additional'
+
   return (
     <section
       className={

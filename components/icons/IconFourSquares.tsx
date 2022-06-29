@@ -9,6 +9,10 @@ type TypeIconFourSquaresProps = TypeClassNames & {
   color2?: TypeColor
   color3?: TypeColor
   color4?: TypeColor
+  fillOpacity1?: string
+  fillOpacity2?: string
+  fillOpacity3?: string
+  fillOpacity4?: string
 }
 
 const IconFourSquares = ({
@@ -16,7 +20,11 @@ const IconFourSquares = ({
   color1,
   color2,
   color3,
-  color4
+  color4,
+  fillOpacity1,
+  fillOpacity2,
+  fillOpacity3,
+  fillOpacity4
 }: TypeIconFourSquaresProps) => {
   return (
     <div
@@ -29,6 +37,7 @@ const IconFourSquares = ({
             height='40'
             transform='matrix(-1 0 0 1 40 0.00012207)'
             fill={color2 || colors.gamma}
+            {...(fillOpacity2 ? { fillOpacity: fillOpacity2 } : undefined)}
           />
           <g clipPath='url(#clip1_2356_9013)'>
             <rect
@@ -36,6 +45,7 @@ const IconFourSquares = ({
               height='40'
               transform='matrix(-1 0 0 1 40 0.00012207)'
               fill={color3 || colors.beta}
+              {...(fillOpacity3 ? { fillOpacity: fillOpacity3 } : undefined)}
             />
           </g>
           <g clipPath='url(#clip2_2356_9013)'>
@@ -44,6 +54,7 @@ const IconFourSquares = ({
               height='40'
               transform='matrix(-1 0 0 1 40 20.0001)'
               fill={color4 || colors.delta}
+              {...(fillOpacity4 ? { fillOpacity: fillOpacity4 } : undefined)}
             />
           </g>
           <g clipPath='url(#clip3_2356_9013)'>
@@ -52,6 +63,7 @@ const IconFourSquares = ({
               height='40'
               transform='matrix(-1 0 0 1 20 20.0001)'
               fill={color3 || colors.beta}
+              {...(fillOpacity3 ? { fillOpacity: fillOpacity3 } : undefined)}
             />
           </g>
           <g clipPath='url(#clip4_2356_9013)'>
@@ -60,6 +72,7 @@ const IconFourSquares = ({
               height='40'
               transform='matrix(-1 0 0 1 20 0.00012207)'
               fill={color2 || colors.gamma}
+              {...(fillOpacity2 ? { fillOpacity: fillOpacity2 } : undefined)}
             />
           </g>
         </g>
@@ -69,6 +82,7 @@ const IconFourSquares = ({
               width='40'
               height='40'
               fill={color1 || colors.upsilon}
+              {...(fillOpacity1 ? { fillOpacity: fillOpacity1 } : undefined)}
               transform='matrix(-1 0 0 1 40 0)'
             />
           </clipPath>
@@ -77,6 +91,7 @@ const IconFourSquares = ({
               width='20'
               height='20'
               fill={color1 || colors.upsilon}
+              {...(fillOpacity1 ? { fillOpacity: fillOpacity1 } : undefined)}
               transform='matrix(-1 0 0 1 40 0)'
             />
           </clipPath>
@@ -85,6 +100,7 @@ const IconFourSquares = ({
               width='20'
               height='20'
               fill={color1 || colors.upsilon}
+              {...(fillOpacity1 ? { fillOpacity: fillOpacity1 } : undefined)}
               transform='matrix(-1 0 0 1 40 20)'
             />
           </clipPath>
@@ -93,6 +109,7 @@ const IconFourSquares = ({
               width='20'
               height='20'
               fill={color1 || colors.upsilon}
+              {...(fillOpacity1 ? { fillOpacity: fillOpacity1 } : undefined)}
               transform='matrix(-1 0 0 1 20 20)'
             />
           </clipPath>
@@ -101,6 +118,7 @@ const IconFourSquares = ({
               width='20'
               height='20'
               fill={color1 || colors.upsilon}
+              {...(fillOpacity1 ? { fillOpacity: fillOpacity1 } : undefined)}
               transform='matrix(-1 0 0 1 20 0)'
             />
           </clipPath>
