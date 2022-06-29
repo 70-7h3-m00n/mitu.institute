@@ -5,18 +5,69 @@
 @use '@/styles/shared/general' as g
 
 .container
+  &.atAdditional
+    position: relative
   @include m.media(phone)
     padding: f.px(48) f.px(24)
   @include m.media(tablet)
     padding: f.px(64)
   @include m.media(laptop, desktop)
-    @include m.flex
+    display: flex
     padding-top: f.px(40)
     padding-right: f.px(40)
     padding-bottom: f.px(40)
     padding-left: f.px(105)
   @include m.dye(bg, c.$alpha)
   @include m.dye(c, c.$upsilon)
+
+.IconFourSquares
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    position: absolute
+    bottom: 0
+    left: 5.5%
+    min-width: f.px(40)
+    max-width: f.px(40)
+    min-height: f.px(40)
+    max-height: f.px(40)
+
+.ImgGeneralFullProgramDecoration1
+  position: absolute
+  left: 0
+  min-width: f.px(40)
+  max-width: f.px(40)
+  min-height: f.px(40)
+  max-height: f.px(40)
+  @include m.media(phone, tablet)
+    bottom: 0
+  @include m.media(laptop, desktop)
+    top: 0
+
+.ImgGeneralFullProgramDecoration2
+  position: absolute
+  min-width: f.px(72)
+  max-width: f.px(72)
+  min-height: f.px(72)
+  max-height: f.px(72)
+  @include m.media(phone, tablet)
+    top: 0
+    right: 0
+  @include m.media(laptop, desktop)
+    top: f.px(73)
+    left: f.px(104)
+
+.ImgGeneralFullProgramDecoration3
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop)
+    position: absolute
+    bottom: 0
+    left: 26.7%
+    min-width: f.px(72)
+    max-width: f.px(72)
+    min-height: f.px(72)
+    max-height: f.px(72)
 
 .left
   @include m.media(laptop, desktop)
@@ -38,6 +89,8 @@
   line-height: 110%
 
 .desc
+  &.atAdditional
+    max-width: 50ch
   margin-bottom: 0
   @include m.media(phone)
     margin-top: f.px(32)
