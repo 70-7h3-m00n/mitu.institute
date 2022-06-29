@@ -7,7 +7,11 @@ import { ContextProgramContext } from '@/context/index'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
-import { IconCoatOfArmsRussia } from '@/components/icons'
+import {
+  IconCoatOfArmsRussia,
+  IconDecorationGeometricStar,
+  IconDecorationFourShadowSquares
+} from '@/components/icons'
 import { BtnBeta } from '@/components/btns'
 
 type TypeSectionCheckLicenseProps = TypeClassNames
@@ -20,8 +24,23 @@ const SectionCheckLicense = ({ classNames }: TypeSectionCheckLicenseProps) => {
   return (
     <section
       className={
-        cn(stls.container, getClassNames({ classNames })) || undefined
+        cn(
+          stls.container,
+          { [stls.atAdditional]: atAdditional },
+          getClassNames({ classNames })
+        ) || undefined
       }>
+      {atAdditional && (
+        <>
+          <IconDecorationGeometricStar
+            classNames={[stls.IconDecorationGeometricStar]}
+          />
+          <IconDecorationFourShadowSquares
+            classNames={[stls.IconDecorationFourShadowSquares]}
+          />
+          <span className={stls.square}></span>
+        </>
+      )}
       <Wrapper>
         <GeneralSectionTitle classNames={[stls.title]}>
           Проверьте лицензию

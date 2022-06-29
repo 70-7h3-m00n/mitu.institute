@@ -1,3 +1,7 @@
+// ./decorations
+import IconDecorationFourShadowSquares from '@/components/icons/decorations/IconDecorationFourShadowSquares'
+import IconDecorationGeometricStar from '@/components/icons/decorations/IconDecorationGeometricStar'
+
 import IconAlarm from '@/components/icons/IconAlarm'
 import IconArrowRight from '@/components/icons/IconArrowRight'
 import IconArrowTopRight from '@/components/icons/IconArrowTopRight'
@@ -40,6 +44,8 @@ import IconWave from '@/components/icons/IconWave'
 import IconYoutube from '@/components/icons/IconYoutube'
 
 export {
+  IconDecorationFourShadowSquares,
+  IconDecorationGeometricStar,
   IconAlarm,
   IconArrowRight,
   IconArrowTopRight,
