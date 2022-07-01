@@ -248,7 +248,10 @@
     margin-left: auto
 
 .testimonialsContainer
-  padding: f.px(40)
+  @include m.media(phone, tablet)
+    padding: f.px(24)
+  @include m.media(laptop, desktop)
+    padding: f.px(40)
   @include m.dye(bg, c.$beta)
 
 $bottomInfoItem_ld_mr: 3%
