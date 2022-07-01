@@ -19,8 +19,9 @@ const SectionProgramJobTitlesWithoutPictures = ({
 }: TypeSectionProgramJobTitlesWithoutPicturesProps) => {
   const { program } = useContext(ContextProgramContext)
 
-  if (!program?.jobTitles) return <></>
+  if (!program?.jobTitles || program?.jobTitles?.length === 0) return <></>
 
+  // console.log(program.jobTitles)
   return (
     <section
       className={
@@ -30,7 +31,7 @@ const SectionProgramJobTitlesWithoutPictures = ({
         <GeneralSectionTitle>Кем Вы сможете работать?</GeneralSectionTitle>
         <ul className={stls.jobTitles}>
           {program.jobTitles
-            .filter(jobTitle => jobTitle?.picture && jobTitle?.position)
+            .filter(jobTitle => jobTitle?.position)
             .map((jobTitle, idx) => (
               <li
                 key={(jobTitle.position || 'SectionProgramJobTitle') + idx}

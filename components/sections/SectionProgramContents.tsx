@@ -29,7 +29,11 @@ const SectionProgramContents = ({
   return (
     <section
       className={
-        cn([stls.container], getClassNames({ classNames })) || undefined
+        cn(
+          [stls.container],
+          { [stls.atAdditional]: atAdditional },
+          getClassNames({ classNames })
+        ) || undefined
       }>
       <Wrapper>
         <div className={stls.heading}>

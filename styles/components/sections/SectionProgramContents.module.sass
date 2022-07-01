@@ -5,8 +5,10 @@
 @use '@/styles/shared/general' as g
 
 .container
-  @include section.gap($topOnly: true)
-  padding-bottom: 0
+  @include section.gap
+  &.atAdditional
+    @include section.gap($topOnly: true)
+    padding-bottom: 0
 
 .heading
   @include m.media(laptop, desktop)

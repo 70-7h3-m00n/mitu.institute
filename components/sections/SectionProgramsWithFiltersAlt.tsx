@@ -240,7 +240,11 @@ const SectionProgramsWithFiltersAlt = ({
                         />
                       </a>
                     </div>
-                    <h3 className={stls.GeneralPopupTitle}>
+                    <h3
+                      className={cn(
+                        stls.GeneralPopupTitle,
+                        stls.GeneralPopupTitleChooseProgram
+                      )}>
                       Выберите программу
                     </h3>
                     <ul className={stls.list}>

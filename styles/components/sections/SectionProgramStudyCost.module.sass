@@ -1,3 +1,4 @@
+@use 'sass:math'
 @use '@/styles/utils/mixins' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/Colors.module.sass' as c
@@ -23,6 +24,9 @@
   @include m.dye(bg, c.$upsilon)
 
 .left
+  // &.atAdditional
+  //   @include m.media(phone, tablet)
+  //     position: relative
   @include m.media(laptop, desktop)
     @include m.flex($d: false, $fb: 48%)
     margin-right: 4%
@@ -32,6 +36,57 @@
     @include m.flex($jc: space-between)
   @include m.media(laptop, desktop)
     @include m.flex($jc: space-between, $fb: 48%)
+
+.discount
+  // @include m.media(phone, tablet)
+  //   position: absolute
+  //   top: 0
+  //   right: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  @include m.media(phone, tablet)
+    min-width: f.px(92)
+    max-width: f.px(92)
+    min-height: f.px(92)
+    max-height: f.px(92)
+    margin-bottom: f.px(32)
+    padding-top: f.px(24)
+    padding-left: f.px(13)
+    padding-right: f.px(13)
+    padding-bottom: f.px(24)
+    border-width: 1px
+  @include m.media(laptop, desktop)
+    min-width: f.px(149)
+    max-width: f.px(149)
+    min-height: f.px(149)
+    max-height: f.px(149)
+    margin-bottom: f.px(40)
+    padding: f.px(40)
+    border-width: 2px
+  aspect-ratio: 1 / 1
+  border-style: solid
+  @include m.dye(border, c.$beta)
+  border-radius: 50%
+  @include m.dye(c, c.$beta)
+
+.discountP
+  margin-bottom: 0
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+  @include m.media(laptop, desktop)
+    font-size: f.px(24)
+  font-weight: 400
+  line-height: 120%
+  text-align: center
+
+.discountHighlight
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop)
+    font-size: f.px(32)
+  font-weight: 700
+  line-height: 120%
 
 .rightContent
   @include m.media(tablet)
@@ -83,6 +138,7 @@
   @include m.media(phone)
     margin-bottom: f.px(32)
     font-size: f.px(24)
+    // padding-right: f.px(92 + 16)
   @include m.media(tablet)
     margin-bottom: f.px(24)
     font-size: f.px(20)
@@ -91,6 +147,9 @@
     font-size: f.px(24)
 
 .prices
+  display: flex
+  align-items: center
+  flex-wrap: wrap
   @include m.media(phone, tablet, laptop)
     margin-bottom: f.px(48)
   @include m.media(desktop)
@@ -104,11 +163,11 @@
 .priceRegular
   position: relative
   display: inline-block
+  margin-right: f.px(24)
   @include m.media(phone, tablet, laptop)
     margin-bottom: f.px(8)
   @include m.media(desktop)
     margin-bottom: 0
-    margin-right: f.px(24)
   font-size: f.px(48)
   line-height: 120%
   @include m.dye(c, c.$delta)
@@ -117,8 +176,8 @@
     position: absolute
     top: 50%
     left: 0
-    @include m.media(phone)
-      transform: rotate(-45deg) translateY(-50%)
+    // @include m.media(phone)
+    //   transform: rotate(-45deg) translateY(-50%)
     @include m.media(tablet, laptop, desktop)
       transform: translateY(-50%)
     height: 2px
@@ -187,3 +246,51 @@
     margin-top: f.px(48)
     margin-right: auto
     margin-left: auto
+
+.testimonialsContainer
+  padding: f.px(40)
+  @include m.dye(bg, c.$beta)
+
+$bottomInfoItem_ld_mr: 3%
+.bottomInfos
+  margin: 0
+  padding: 0
+  display: flex
+  flex-wrap: wrap
+
+.bottomInfoItem
+  display: flex
+  flex-direction: column
+  @include m.media(phone, tablet)
+    & + .bottomInfoItem
+      margin-top: f.px(32)
+  @include m.media(laptop, desktop)
+    flex-basis: math.div(100% - $bottomInfoItem_ld_mr * 2, 3)
+    margin-right: $bottomInfoItem_ld_mr
+    &:nth-child(3n)
+      margin-right: 0
+
+.bottomInfoTitle
+  margin-bottom: 0
+  font-size: f.px(24)
+  font-weight: 700
+  line-height: 110%
+  @include m.dye(c, c.$upsilon)
+
+.bottomInfoDesc
+  margin-top: f.px(24)
+  margin-bottom: 0
+  font-size: f.px(18)
+  font-weight: 400
+  line-height: 120%
+  @include m.dye(c, c.$upsilon)
+
+.phoneNumber
+  display: inline-block
+  @include m.dye(c, c.$upsilon)
+  outline: none
+  @include m.media(tablet, laptop, desktop)
+    &:hover
+      text-decoration: underline
+  &:focus-visible
+    text-decoration: underline

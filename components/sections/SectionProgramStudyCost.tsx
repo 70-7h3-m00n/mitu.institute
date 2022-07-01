@@ -1,10 +1,10 @@
 import stls from '@/styles/components/sections/SectionProgramStudyCost.module.sass'
 import { TypeClassNames } from '@/types/index'
-import { MouseEventHandler } from 'react'
+import { MouseEventHandler, ReactNode } from 'react'
 import { useContext } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
-import { mituinstitute } from '@/config/index'
+import { mituinstitute, company } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import {
   ContextCategoriesContext,
@@ -36,45 +36,80 @@ const SectionProgramStudyCost = ({
   if (!program?.timenprice?.[0]?.price || !program?.timenprice?.[0]?.discount)
     return <></>
 
-  const testimonials = [
-    {
-      id: 'SectionProgramStudyCostStudyDuration',
-      item: (
-        <span>
-          Длительность обучения{' '}
+  const atAdditional = program?.category?.type === 'additional'
+
+  const testimonials: {
+    id: string
+    item?: string | ReactNode | null
+    highlight?: boolean | null
+  }[] =
+    program?.studyCostDescItems && program?.studyCostDescItems?.length > 0
+      ? program.studyCostDescItems.map((item, idx) => ({
+          id: `SectionProgramStudyCostTestimonial-${idx}`,
+          item: item?.item,
+          highlight: item?.isBold
+        }))
+      : [
           {
-            <ProgramStudyDuration
-              studyDurationMonths={Number(
-                program.timenprice?.[0]?.studyMonthsDuration || 12
-              )}
-            />
+            id: 'SectionProgramStudyCostStudyDuration',
+            item: (
+              <span>
+                Длительность обучения{' '}
+                {
+                  <ProgramStudyDuration
+                    studyDurationMonths={Number(
+                      program.timenprice?.[0]?.studyMonthsDuration || 12
+                    )}
+                  />
+                }
+              </span>
+            )
+          },
+          {
+            id: 'SectionProgramStudyCostStudyFormat',
+            item: mituinstitute
+              ? 'Дистанционная'
+              : 'Очная, очно-заочная, заочная с применением дистанционных технологий обучения'
+          },
+          {
+            id: 'SectionProgramStudyCostProgramAdmission',
+            item: mituinstitute ? (
+              <>
+                Ближайшее зачисление <ProgramAdmission />
+              </>
+            ) : (
+              'Ежемесячно'
+            )
+          },
+          {
+            id: 'SectionProgramStudyCostDiploma',
+            item: mituinstitute
+              ? // <>Государственный диплом</>
+                null
+              : 'Престижный диплом о высшем образовании',
+            highlight: true
           }
-        </span>
-      )
+        ]
+
+  const bottomInfos = [
+    {
+      title: 'Возврат денег',
+      desc: 'Если вы передумаете учиться, то мы вернем полную сумму в течение первых двух недель'
     },
     {
-      id: 'SectionProgramStudyCostStudyFormat',
-      item: mituinstitute
-        ? 'Дистанционная'
-        : 'Очная, очно-заочная, заочная с применением дистанционных технологий обучения'
+      title: 'Сэкономьте 13%',
+      desc: 'Получите налоговый вычет. Все подробности у менеджера при записи на курс'
     },
     {
-      id: 'SectionProgramStudyCostProgramAdmission',
-      item: mituinstitute ? (
+      title: 'Остались вопросы?',
+      desc: (
         <>
-          Ближайшее зачисление <ProgramAdmission />
+          Позвоните или напишите нам:{' '}
+          <a className={stls.phoneNumber} href={company.phoneNumber.href}>
+            {company.phoneNumber.val}
+          </a>
         </>
-      ) : (
-        'Ежемесячно'
       )
-    },
-    {
-      id: 'SectionProgramStudyCostDiploma',
-      item: mituinstitute
-        ? // <>Государственный диплом</>
-          null
-        : 'Престижный диплом о высшем образовании',
-      highlight: true
     }
   ]
 
@@ -102,7 +137,7 @@ const SectionProgramStudyCost = ({
       <Wrapper>
         <GeneralSectionTitle>Стоимость обучения</GeneralSectionTitle>
         <div className={stls.content}>
-          <div className={stls.left}>
+          <div className={cn(stls.left, { [stls.atAdditional]: atAdditional })}>
             {/* <h3 className={stls.h3}>Оплата за один семестр</h3>
             <div className={stls.prices}>
               <p className={stls.priceRegular}>
@@ -126,7 +161,20 @@ const SectionProgramStudyCost = ({
                 />
               </p>
             </div> */}
-            <h3 className={cn(stls.h3, stls.h3Mx)}>
+            {atAdditional && (
+              <div className={stls.discount}>
+                <p className={stls.discountP}>
+                  Скидка <br />
+                  <span className={stls.discountHighlight}>
+                    <span>
+                      —&nbsp;{Number(program?.timenprice?.[0]?.discount)}%
+                    </span>
+                  </span>
+                </p>
+              </div>
+            )}
+            {/* <h3 className={cn(stls.h3, stls.h3Mx)}> */}
+            <h3 className={cn(stls.h3)}>
               Беспроцентная рассрочка на&nbsp;
               <GeneralTextHighlight>12&nbsp;месяцев</GeneralTextHighlight>
             </h3>
@@ -182,7 +230,23 @@ const SectionProgramStudyCost = ({
           </div>
         </div>
         <ImgStudyCost classNames={[stls.imgPhone]} />
-        <div className={cn(stls.btnPhone)}>{btn}</div>
+        {!atAdditional && <div className={cn(stls.btnPhone)}>{btn}</div>}
+
+        {atAdditional && (
+          <div className={stls.testimonialsContainer}>
+            <ul className={stls.bottomInfos}>
+              {bottomInfos.map((item, idx) => (
+                <li
+                  key={`${item.title}-${idx}`}
+                  className={stls.bottomInfoItem}>
+                  <h3 className={stls.bottomInfoTitle}>{item.title}</h3>
+                  <p className={stls.bottomInfoDesc}>{item.desc}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {atAdditional && <div className={cn(stls.btnPhone)}>{btn}</div>}
       </Wrapper>
     </section>
   )

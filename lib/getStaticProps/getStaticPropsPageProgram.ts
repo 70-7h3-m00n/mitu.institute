@@ -36,6 +36,7 @@ const getStaticPropsPageProgram = async ({
           title
           slug
           description
+          teachersDescription
           picture {
             url
             width
@@ -46,6 +47,10 @@ const getStaticPropsPageProgram = async ({
             studyHours
             price
             discount
+          }
+          studyCostDescItems {
+            item
+            isBold
           }
           study_form {
             label

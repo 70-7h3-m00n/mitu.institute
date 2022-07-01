@@ -1,17 +1,26 @@
 import stls from '@/styles/components/general/GeneralAskQuestion.module.sass'
 import { TypeClassNames } from '@/types/index'
-import { MouseEventHandler } from 'react'
+import { useContext, MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
+import { ContextProgramContext } from '@/context/index'
 import { GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
-import { IconPen, IconWave } from '@/components/icons'
+import {
+  IconPen,
+  IconWave,
+  IconDecorationFourShadowSquares
+} from '@/components/icons'
 
 type TypeGeneralAskQuestionProps = TypeClassNames
 
 const GeneralAskQuestion = ({ classNames }: TypeGeneralAskQuestionProps) => {
+  const { program } = useContext(ContextProgramContext)
+
+  const atAdditional = program?.category?.type === 'additional'
+
   return (
     <div
       className={
@@ -19,8 +28,18 @@ const GeneralAskQuestion = ({ classNames }: TypeGeneralAskQuestionProps) => {
       }>
       <div className={stls.top}>
         <div className={stls.icons}>
-          <IconPen classNames={[stls.iconPen]} />
-          <IconWave variant='alpha' classNames={[stls.iconWave]} />
+          {atAdditional ? (
+            <>
+              <IconDecorationFourShadowSquares
+                classNames={[stls.IconDecorationFourShadowSquares]}
+              />
+            </>
+          ) : (
+            <>
+              <IconPen classNames={[stls.iconPen]} />
+              <IconWave variant='alpha' classNames={[stls.iconWave]} />
+            </>
+          )}
         </div>
         <h3 className={stls.title}>
           У Вас есть вопросы? Оставьте заявку! И мы перезвоним Вам!

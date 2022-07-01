@@ -95,7 +95,7 @@ const SectionHowTrainingGoes = ({
         <GeneralSectionTitle classNames={[stls.GeneralSectionTitle]}>
           Как проходит обучение?
         </GeneralSectionTitle>
-        <ul className={stls.cards}>
+        <ul className={cn(stls.cards, { [stls.atAdditional]: atAdditional })}>
           {cards.map((item, idx, arr) => {
             return (
               <li

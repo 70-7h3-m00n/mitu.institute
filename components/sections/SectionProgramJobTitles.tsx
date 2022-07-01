@@ -19,7 +19,7 @@ const SectionProgramJobTitles = ({
 }: TypeSectionProgramJobTitlesProps) => {
   const { program } = useContext(ContextProgramContext)
 
-  if (!program?.jobTitles) return <></>
+  if (!program?.jobTitles || program?.jobTitles?.length === 0) return <></>
 
   return (
     <section

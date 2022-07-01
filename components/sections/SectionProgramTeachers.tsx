@@ -7,7 +7,11 @@ import Popup from 'reactjs-popup'
 import { getClassNames, getImageHeight } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
-import { GeneralSectionTitle, GeneralPopup } from '@/components/general'
+import {
+  GeneralSectionTitle,
+  GeneralPopup,
+  GeneralTextHighlight
+} from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
 import { ImgTeacher } from '@/components/imgs'
@@ -28,6 +32,14 @@ const SectionProgramTeachers = ({
       }>
       <Wrapper>
         <GeneralSectionTitle>Преподаватели</GeneralSectionTitle>
+        <p className={stls.description}>
+          {program?.teachersDescription || (
+            <>
+              Преподают ведущие российские и зарубежные эксперты с опытом{' '}
+              <GeneralTextHighlight>от 7 до 25 лет</GeneralTextHighlight>
+            </>
+          )}
+        </p>
         <ul className={stls.teachers}>
           {program.teachers
             .filter(teacher => teacher.name)

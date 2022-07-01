@@ -126,7 +126,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           <SectionYourFutureDiploma atPageProgram />
           {mituinstitute && <SectionCheckLicense />}
           {mituinstitute && <SectionWhyUs />}
-          <SectionStartWithDiscount />
+          {!atAdditional && <SectionStartWithDiscount />}
           {/* <SectionProgramJobTitles /> */}
           {mituinstitute &&
             curCategory?.type !== 'bachelor' &&
@@ -135,8 +135,11 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
                 <SectionProgramTeachers />
               </>
             )}
+          {atAdditional && <SectionStartWithDiscount />}
           <SectionProgramJobTitlesWithoutPictures />
-          <SectionUIFormAlpha title='Получить бесплатную консультацию' />
+          {!atAdditional && (
+            <SectionUIFormAlpha title='Получить бесплатную консультацию' />
+          )}
           <SectionProgramStudyCost />
           <SectionProgramQna />
         </>

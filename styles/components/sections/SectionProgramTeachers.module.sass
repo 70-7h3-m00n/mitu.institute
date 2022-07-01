@@ -7,6 +7,18 @@
 .container
   @include section.gap
 
+.description
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(40)
+    font-size: f.px(16)
+  @include m.media(laptop, desktop)
+    max-width: 58ch
+    margin-bottom: f.px(64)
+    font-size: f.px(18)
+  font-weight: 500
+  line-height: 120%
+  @include m.dye(c, c.$omega)
+
 .teachers
   @include m.media(tablet, laptop, desktop)
     @include m.flex($fw: wrap)
@@ -29,15 +41,17 @@ $item_tld_mr: 5.3%
       margin-top: 0
   @include m.media(laptop)
     @include m.flex($fd: column, $fb: math.div((100% - $item_tld_mr * 2), 3))
-    margin-top: f.px(40)
+    margin-top: f.px(56)
     margin-right: $item_tld_mr
     &:nth-child(3n)
       margin-right: 0
     &:nth-child(-n+3)
       margin-top: 0
   @include m.media(desktop)
-    @include m.flex($fd: column, $fb: math.div((100% - $item_tld_mr * 4), 5))
-    margin-top: f.px(40)
+    display: flex
+    flex-direction: column
+    flex-basis: math.div((100% - $item_tld_mr * 4), 5)
+    margin-top: f.px(56)
     margin-right: $item_tld_mr
     &:nth-child(5n)
       margin-right: 0
@@ -49,6 +63,7 @@ $item_tld_mr: 5.3%
 
 .name
   margin-bottom: 0
+  // margin-bottom: auto
   @include m.media(phone)
     font-size: f.px(20)
   @include m.media(tablet)

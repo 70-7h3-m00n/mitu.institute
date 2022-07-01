@@ -37,7 +37,7 @@ const ProgramCost = ({
       {withRubSign && (
         <>
           {' '}
-          <br className={stls.phone} />
+          {/* <br className={stls.phone} /> */}
           &#8381;
           {withPerMonthLabel && <span className={stls.perMonth}>/мес</span>}
         </>
