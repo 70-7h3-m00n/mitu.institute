@@ -57,8 +57,8 @@ const company = {
     areaServed: ['RU', 'KZ', 'UZ']
   },
   phoneNumberAlt: {
-    href: 'tel:+7-800-648-62-26',
-    val: '+7 (800) 648-62-26',
+    href: 'tel:+7-800-444-81-38',
+    val: '+7 (800) 444-81-38',
     contactType: 'Учебный отдел',
     areaServed: ['RU', 'KZ', 'UZ']
   },
