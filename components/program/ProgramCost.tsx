@@ -45,8 +45,6 @@ const ProgramCost = ({
 
   const currencySymbol = atUz ? 'сум' : atKz ? '₸' : <>&#8381;</>
 
-  console.log(addSpacesToNumber(output * 12))
-
   // TODO: make this more generic. This component shoudn't have styles but should have a way to control perMonth & rubSign styles
   return (
     <>
