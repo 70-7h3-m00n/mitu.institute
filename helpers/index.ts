@@ -11,6 +11,7 @@ import getCasesRuCourseString from '@/helpers/general/getCasesRuCourseString'
 import getCasesRuProfessionString from '@/helpers/general/getCasesRuProfessionString'
 import getClassNames from '@/helpers/general/getClassNames'
 import getImageHeight from '@/helpers/general/getImageHeight'
+import handleLocale from '@/helpers/general/handleLocale'
 import handleReferer from '@/helpers/general/handleReferer'
 import handleUtms from '@/helpers/general/handleUtms'
 import hitLeadRoute from '@/helpers/general/hitLeadRoute'
@@ -36,6 +37,7 @@ export {
   getCasesRuProfessionString,
   getClassNames,
   getImageHeight,
+  handleLocale,
   handleReferer,
   handleUtms,
   hitLeadRoute,

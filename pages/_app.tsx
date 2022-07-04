@@ -10,7 +10,12 @@ import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from 'seo.config'
 import { prod, routesFront, selectors, gtm } from '@/config/index'
-import { handleUtms, handleReferer, pageview } from '@/helpers/index'
+import {
+  handleUtms,
+  handleReferer,
+  pageview,
+  handleLocale
+} from '@/helpers/index'
 import {
   ContextAccessibilityState,
   ContextCategoriesState,
@@ -26,13 +31,12 @@ import { GeneralNavPhoneTablet } from '@/components/general'
 const App = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false)
 
-  //test
-
   useEffect(() => {
     // TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
     handleUtms({ router })
     handleReferer()
+    handleLocale({ router })
 
     NProgress.configure({
       showSpinner: false

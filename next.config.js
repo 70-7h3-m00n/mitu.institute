@@ -9,9 +9,9 @@ module.exports = withPWA({
   poweredByHeader: false,
   // trailingSlash: true,
   i18n: {
-    locales: ['ru', 'kz', 'uz'],
+    locales: ['ru', 'kk_KZ', 'uz_UZ'],
     defaultLocale: 'ru',
-    localeDetection: false
+    localeDetection: true
   },
   images: {
     // loader: 'cloudinary',

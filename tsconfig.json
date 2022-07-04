@@ -6,6 +6,7 @@
       "@/config/*": ["config/*"],
       "@/context/*": ["context/*"],
       "@/data/*": ["data/*"],
+      "@/hooks/*": ["hooks/*"],
       "@/helpers/*": ["helpers/*"],
       "@/public/*": ["public/*"],
       "@/styles/*": ["styles/*"],
