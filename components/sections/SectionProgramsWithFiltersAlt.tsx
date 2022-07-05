@@ -32,7 +32,8 @@ import {
   IconInfo,
   IconCheckAlt,
   IconPointerBottom,
-  IconCross
+  IconCross,
+  IconArrowRight
 } from '@/components/icons'
 
 type TStudyFields = {
@@ -59,6 +60,35 @@ const SectionProgramsWithFiltersAlt = ({
   const [appliedStudyFields, setAppliedStudyFields] = useState<
     TStudyFields | []
   >([])
+  const [studyFieldsShowMax, setStudyFieldsShowMax] = useState(8)
+
+  const studyFieldControlBtnShowMax = studyFieldsShowMax < Infinity && (
+    <button
+      className={cn(stls.btnShowAll, stls.btnStudyFieldControl)}
+      onClick={() => setStudyFieldsShowMax(Infinity)}>
+      Показать все{' '}
+      <IconPointerBottom
+        classNames={[stls.IconPointerBottom]}
+        color={colors.beta}
+      />
+    </button>
+  )
+
+  const studyFieldControlBtnSetDefault = appliedStudyFields?.length > 0 && (
+    <button
+      className={cn(stls.btnSetStudyFieldsToDefault, stls.btnStudyFieldControl)}
+      onClick={() => setAppliedStudyFields([])}>
+      Сбросить фильтры
+    </button>
+  )
+
+  const studyFieldsControlBtns = (studyFieldsShowMax < Infinity ||
+    appliedStudyFields?.length > 0) && (
+    <div className={stls.studyFieldsBtns}>
+      {studyFieldControlBtnShowMax}
+      {studyFieldControlBtnSetDefault}
+    </div>
+  )
 
   return (
     <section
@@ -146,57 +176,60 @@ const SectionProgramsWithFiltersAlt = ({
               Все направления
             </h3>
             <ul className={stls.studyFields}>
-              {studyFields?.map((studyField, idx) => (
-                <li
-                  key={`${studyField?.title}-${idx}`}
-                  className={stls.studyFieldItem}>
-                  <a
-                    href='#!'
-                    className={cn(stls.studyFieldBtn, {
-                      [stls.isActive]: appliedStudyFields.some(
-                        appliedStudyField =>
-                          appliedStudyField?.slug === studyField?.slug
-                      )
-                    })}
-                    onClick={() => {
-                      if (
-                        appliedStudyFields.some(
-                          appliedStudyField =>
-                            appliedStudyField?.slug === studyField?.slug
-                        )
-                      ) {
-                        setAppliedStudyFields([
-                          ...appliedStudyFields.filter(
-                            appliedStudyField =>
-                              appliedStudyField?.slug !== studyField?.slug
-                          )
-                        ])
-                      } else {
-                        setAppliedStudyFields([
-                          ...appliedStudyFields,
-                          studyField
-                        ])
-                      }
-                    }}>
-                    <div
-                      className={cn(stls.IconCheckAltContainer, {
+              {studyFields
+                ?.filter((studyField, idx) => idx < studyFieldsShowMax)
+                ?.map((studyField, idx) => (
+                  <li
+                    key={`${studyField?.title}-${idx}`}
+                    className={stls.studyFieldItem}>
+                    <a
+                      href='#!'
+                      className={cn(stls.studyFieldBtn, {
                         [stls.isActive]: appliedStudyFields.some(
                           appliedStudyField =>
                             appliedStudyField?.slug === studyField?.slug
                         )
-                      })}>
-                      <IconCheckAlt
-                        color={colors.upsilon}
-                        classNames={[stls.IconCheckAlt]}
-                      />
-                    </div>
-                    <span className={stls.studyFieldTitle}>
-                      {studyField.title}
-                    </span>
-                  </a>
-                </li>
-              ))}
+                      })}
+                      onClick={() => {
+                        if (
+                          appliedStudyFields.some(
+                            appliedStudyField =>
+                              appliedStudyField?.slug === studyField?.slug
+                          )
+                        ) {
+                          setAppliedStudyFields([
+                            ...appliedStudyFields.filter(
+                              appliedStudyField =>
+                                appliedStudyField?.slug !== studyField?.slug
+                            )
+                          ])
+                        } else {
+                          setAppliedStudyFields([
+                            ...appliedStudyFields,
+                            studyField
+                          ])
+                        }
+                      }}>
+                      <div
+                        className={cn(stls.IconCheckAltContainer, {
+                          [stls.isActive]: appliedStudyFields.some(
+                            appliedStudyField =>
+                              appliedStudyField?.slug === studyField?.slug
+                          )
+                        })}>
+                        <IconCheckAlt
+                          color={colors.upsilon}
+                          classNames={[stls.IconCheckAlt]}
+                        />
+                      </div>
+                      <span className={stls.studyFieldTitle}>
+                        {studyField.title}
+                      </span>
+                    </a>
+                  </li>
+                ))}
             </ul>
+            {studyFieldsControlBtns}
           </div>
           <div className={stls.right}>
             <div className={stls.searchContainer}>
@@ -334,59 +367,65 @@ const SectionProgramsWithFiltersAlt = ({
                     <h3 className={stls.GeneralPopupTitle}>
                       Выберите направления
                     </h3>
+                    {studyFieldControlBtnSetDefault}
                     <ul className={stls.list}>
-                      {studyFields?.map((studyField, idx) => (
-                        <li
-                          key={`${studyField?.title}-mobile-${idx}`}
-                          className={stls.studyFieldItem}>
-                          <a
-                            href='#!'
-                            className={cn(stls.studyFieldBtn, {
-                              [stls.isActive]: appliedStudyFields.some(
-                                appliedStudyField =>
-                                  appliedStudyField?.slug === studyField?.slug
-                              )
-                            })}
-                            onClick={() => {
-                              if (
-                                appliedStudyFields.some(
-                                  appliedStudyField =>
-                                    appliedStudyField?.slug === studyField?.slug
-                                )
-                              ) {
-                                setAppliedStudyFields([
-                                  ...appliedStudyFields.filter(
-                                    appliedStudyField =>
-                                      appliedStudyField?.slug !==
-                                      studyField?.slug
-                                  )
-                                ])
-                              } else {
-                                setAppliedStudyFields([
-                                  ...appliedStudyFields,
-                                  studyField
-                                ])
-                              }
-                            }}>
-                            <div
-                              className={cn(stls.IconCheckAltContainer, {
+                      {studyFields
+                        ?.filter((studyField, idx) => idx < studyFieldsShowMax)
+                        ?.map((studyField, idx) => (
+                          <li
+                            key={`${studyField?.title}-mobile-${idx}`}
+                            className={stls.studyFieldItem}>
+                            <a
+                              href='#!'
+                              className={cn(stls.studyFieldBtn, {
                                 [stls.isActive]: appliedStudyFields.some(
                                   appliedStudyField =>
                                     appliedStudyField?.slug === studyField?.slug
                                 )
-                              })}>
-                              <IconCheckAlt
-                                color={colors.upsilon}
-                                classNames={[stls.IconCheckAlt]}
-                              />
-                            </div>
-                            <span className={stls.studyFieldTitle}>
-                              {studyField.title}
-                            </span>
-                          </a>
-                        </li>
-                      ))}
+                              })}
+                              onClick={() => {
+                                if (
+                                  appliedStudyFields.some(
+                                    appliedStudyField =>
+                                      appliedStudyField?.slug ===
+                                      studyField?.slug
+                                  )
+                                ) {
+                                  setAppliedStudyFields([
+                                    ...appliedStudyFields.filter(
+                                      appliedStudyField =>
+                                        appliedStudyField?.slug !==
+                                        studyField?.slug
+                                    )
+                                  ])
+                                } else {
+                                  setAppliedStudyFields([
+                                    ...appliedStudyFields,
+                                    studyField
+                                  ])
+                                }
+                              }}>
+                              <div
+                                className={cn(stls.IconCheckAltContainer, {
+                                  [stls.isActive]: appliedStudyFields.some(
+                                    appliedStudyField =>
+                                      appliedStudyField?.slug ===
+                                      studyField?.slug
+                                  )
+                                })}>
+                                <IconCheckAlt
+                                  color={colors.upsilon}
+                                  classNames={[stls.IconCheckAlt]}
+                                />
+                              </div>
+                              <span className={stls.studyFieldTitle}>
+                                {studyField.title}
+                              </span>
+                            </a>
+                          </li>
+                        ))}
                     </ul>
+                    {studyFieldControlBtnShowMax}
                     <BtnAlpha
                       variant='beta'
                       onClick={close}
