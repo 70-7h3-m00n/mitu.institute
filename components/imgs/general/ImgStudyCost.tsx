@@ -16,7 +16,7 @@ const ImgStudyCost = ({ classNames, width, height }: TypeImgStudyCostProps) => {
         src={nextexport ? publicSrc : src}
         width={nextexport ? src.width : width}
         height={nextexport ? src.height : height}
-        alt={'Человек учиться'}
+        alt={'Человек учится'}
       />
     </>
   )
