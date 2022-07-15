@@ -20,7 +20,7 @@ const ImgPersonStudying = ({
         src={nextexport ? publicSrc : src}
         width={publicSrc ? src.width : width}
         height={publicSrc ? src.height : height}
-        alt={'Человек учиться'}
+        alt={'Человек учится'}
       />
     </>
   )
