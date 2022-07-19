@@ -16,7 +16,11 @@ import {
   ContextProgramContext
 } from '@/context/index'
 import { Wrapper } from '@/components/layout'
-import { ImgContactMapMoscow, ImgContactMapAlmaty } from '@/components/imgs'
+import {
+  ImgContactMapMoscow,
+  ImgContactMapAlmaty,
+  ImgContactMapTashkent
+} from '@/components/imgs'
 import { IconLocation } from '@/components/icons'
 
 const PageContact: NextPage<TypePageHomeProps> = ({
@@ -65,6 +69,13 @@ const PageContact: NextPage<TypePageHomeProps> = ({
       ],
       email: company.emailKz,
       img: <ImgContactMapAlmaty classNames={[stls.img]} />
+    },
+    {
+      city: company.addressUz.city,
+      address: `${company.addressUz.street.typeShort} ${company.addressUz.street.name}, ${company.addressUz.street.door}, ${company.addressUz.street.room}`,
+      phoneNumbers: [company.phoneNumberUz],
+      email: company.emailUz,
+      img: <ImgContactMapTashkent classNames={[stls.img]} />
     }
   ]
 

@@ -38,6 +38,18 @@ const company = {
       room: 'БЦ Нурлы-Тау'
     }
   },
+  addressUz: {
+    countryCode: 'UZ',
+    city: 'Ташкент',
+    zip: '100015',
+    street: {
+      type: 'Улица',
+      typeShort: 'ул.',
+      name: 'Афрасиаб',
+      door: '8а',
+      room: 'БЦ Dmaar'
+    }
+  },
   email: {
     href: mituinstitute
       ? 'mailto:info@mitu.institute'
@@ -49,6 +61,12 @@ const company = {
       ? 'mailto:almaty@mitu.institute'
       : 'mailto:almaty@mitu.msk.ru',
     val: mituinstitute ? 'almaty@mitu.institute' : 'almaty@mitu.msk.ru'
+  },
+  emailUz: {
+    href: mituinstitute
+      ? 'mailto:info@mitu.institute'
+      : 'mailto:info@mitu.msk.ru',
+    val: mituinstitute ? 'info@mitu.institute' : 'info@mitu.msk.ru'
   },
   phoneNumber: {
     href: 'tel:+7-495-648-62-26',
@@ -77,6 +95,12 @@ const company = {
   phoneNumberKzAlt2: {
     href: 'tel:+7-771-766-22-23',
     val: '+7 (771) 766-22-23',
+    contactType: 'Учебный отдел',
+    areaServed: ['KZ']
+  },
+  phoneNumberUz: {
+    href: 'tel:+998-78-122-62-26',
+    val: '+998 (78) 122-62-26',
     contactType: 'Учебный отдел',
     areaServed: ['KZ']
   },

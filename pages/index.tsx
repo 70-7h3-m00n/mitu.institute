@@ -107,7 +107,7 @@ const PageHome: NextPage<TypePageHomeProps> = ({
       <SectionAboutUniversity />
       <SectionYourFutureDiploma />
       <SectionFAQ />
-      <SectionUIFormAlpha />
+      <SectionUIFormAlpha classNames={[stls.SectionUIFormAlpha]} />
     </>
   )
 }

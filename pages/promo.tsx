@@ -107,7 +107,7 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
       <SectionAboutUniversity />
       <SectionYourFutureDiploma />
       <SectionFAQ />
-      <SectionUIFormAlpha />
+      <SectionUIFormAlpha classNames={[stls.SectionUIFormAlpha]} />
     </>
   )
 }
