@@ -4,6 +4,7 @@ import Link from 'next/link'
 import cn from 'classnames'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { IconHamburger } from '@/components/icons'
 
@@ -13,6 +14,12 @@ const GeneralHeaderBottom = ({
   classNames,
   links
 }: TypeGeneralHeaderBottomProps) => {
+  const at = useAt()
+
+  const translations = {
+    programs: at.uz ? 'Dasturlar' : 'Программы'
+  } as const
+
   return (
     <nav
       className={
@@ -23,7 +30,8 @@ const GeneralHeaderBottom = ({
           <li className={stls.linkItem}>
             <Link href={routesFront.programs} scroll={false}>
               <a className={stls.linkPrograms}>
-                Программы <IconHamburger classNames={[stls.icon]} />
+                {translations.programs}{' '}
+                <IconHamburger classNames={[stls.icon]} />
               </a>
             </Link>
           </li>

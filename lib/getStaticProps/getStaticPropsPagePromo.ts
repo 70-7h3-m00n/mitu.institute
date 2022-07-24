@@ -6,6 +6,7 @@ import {
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
 import { revalidate } from '@/config/index'
+import { getGSPLocale } from '@/helpers/index'
 
 const getStaticPropsPagePromo = async ({
   context
@@ -15,17 +16,17 @@ const getStaticPropsPagePromo = async ({
 }> => {
   const res = await apolloClient.query<TypePagePromoPropsQuery>({
     query: gql`
-      query GetStaticPropsPagePromo {
-        categories {
+      query GetStaticPropsPagePromo($locale: String) {
+        categories(locale: $locale) {
           label
           type
           slug
         }
-        questions {
+        questions(locale: $locale) {
           question
           answer
         }
-        programs {
+        programs(locale: $locale) {
           title
           shortDescription
           study_field {
@@ -44,7 +45,10 @@ const getStaticPropsPagePromo = async ({
           }
         }
       }
-    `
+    `,
+    variables: {
+      locale: getGSPLocale({ context })
+    }
   })
 
   return {

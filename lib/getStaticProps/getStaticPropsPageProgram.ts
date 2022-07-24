@@ -6,6 +6,7 @@ import {
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
 import { revalidate } from '@/config/index'
+import { getGSPLocale } from '@/helpers/index'
 
 const getStaticPropsPageProgram = async ({
   context
@@ -13,19 +14,22 @@ const getStaticPropsPageProgram = async ({
   props: TypePageProgramProps
   revalidate: number | boolean
 }> => {
+  console.log(context)
   const res = await apolloClient.query<TypePageProgramPropsQuery>({
     query: gql`
       query GetStaticPropsPageProgram(
         $category: String!
         $studyField: String!
         $program: String!
+        $locale: String
       ) {
-        categories {
+        categories(locale: $locale) {
           type
           slug
           label
         }
         programs(
+          locale: $locale
           where: {
             category: { slug: $category }
             study_field: { slug: $studyField }
@@ -122,7 +126,8 @@ const getStaticPropsPageProgram = async ({
     variables: {
       category: context?.params?.category || null,
       studyField: context?.params?.studyField || null,
-      program: context?.params?.program || null
+      program: context?.params?.program || null,
+      locale: getGSPLocale({ context })
     }
   })
 

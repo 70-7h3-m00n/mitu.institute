@@ -1,3 +1,7 @@
+// dataFetching
+import getGetStaticPathsLocale from '@/helpers/dataFetching/getGetStaticPathsLocale'
+import getGSPLocale from '@/helpers/dataFetching/getGSPLocale'
+
 // dataLayer
 import pageview from '@/helpers/dataLayer/pageview'
 import lead from '@/helpers/dataLayer/lead'
@@ -25,6 +29,9 @@ import buildLeadEmailTbodyTrs from '@/helpers/lead/buildLeadEmailTbodyTrs'
 import createLeadEmailTr from '@/helpers/lead/createLeadEmailTr'
 
 export {
+  // dataFetching
+  getGetStaticPathsLocale,
+  getGSPLocale,
   // dataLayer
   pageview,
   lead,

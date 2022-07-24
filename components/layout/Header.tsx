@@ -1,10 +1,12 @@
 import stls from '@/styles/components/layout/Header.module.sass'
 import { TypeClassNames } from '@/types/index'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import { useContext } from 'react'
 import cn from 'classnames'
 import { routesFront, mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { ContextCategoriesContext } from '@/context/index'
 import {
   GeneralHeaderTop,
@@ -17,6 +19,7 @@ type TypeHeaderProps = TypeClassNames
 
 const Header = ({ classNames }: TypeHeaderProps) => {
   const router = useRouter()
+  const at = useAt()
   const { categories, curCategorySlug } = useContext(ContextCategoriesContext)
 
   const links = mituinstitute
@@ -55,6 +58,12 @@ const Header = ({ classNames }: TypeHeaderProps) => {
       {!mituinstitute && <GeneralHeaderTop classNames={[stls.top]} />}
       <GeneralHeaderMiddle classNames={[stls.middle]} />
       <GeneralHeaderBottom classNames={[stls.bottom]} links={links} />
+      <Link href={router.asPath} locale='uz_UZ'>
+        <a>UZ</a>
+      </Link>
+      <Link href={router.asPath} locale='ru'>
+        <a>RU</a>
+      </Link>
     </header>
   )
 }

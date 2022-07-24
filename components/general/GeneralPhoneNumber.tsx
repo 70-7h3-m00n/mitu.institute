@@ -1,8 +1,8 @@
 import stls from '@/styles/components/general/GeneralPhoneNumber.module.sass'
 import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
-import { company } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt, useCompanyInfo } from '@/hooks/index'
 import { IconPhone } from '@/components/icons'
 
 type TypeGeneralPhoneNumberProps = TypeClassNames & {
@@ -17,6 +17,16 @@ const GeneralPhoneNumber = ({
   withLabel,
   onFocusReverse
 }: TypeGeneralPhoneNumberProps) => {
+  const at = useAt()
+
+  const company = useCompanyInfo()
+
+  const translations = {
+    title: at.uz ? "Qo'ng'iroq qiling" : 'Позвонить',
+    label: at.uz ? '' : 'Бесплатно по России',
+    phoneNumber: at.uz ? company.phoneNumberUz : company.phoneNumber
+  } as const
+
   return (
     <a
       className={
@@ -30,13 +40,15 @@ const GeneralPhoneNumber = ({
           getClassNames({ classNames })
         ) || undefined
       }
-      href={company.phoneNumber.href}
-      title='Позвонить'>
+      href={translations.phoneNumber.href}
+      title={translations.title}>
       <div className={stls.content}>
         {withIcon && <IconPhone classNames={[stls.icon]} />}
         <div className={stls.numberlabel}>
-          <span>{company.phoneNumber.val}</span>
-          {withLabel && <span className={stls.label}>Бесплатно по России</span>}
+          <span>{translations.phoneNumber.val}</span>
+          {withLabel && (
+            <span className={stls.label}>{translations.label}</span>
+          )}
         </div>
       </div>
     </a>

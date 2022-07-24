@@ -4,10 +4,10 @@ import { useContext } from 'react'
 import cn from 'classnames'
 import { NextSeo, OrganizationJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import { pros } from '@/data/index'
 import { ContextCategoriesContext } from '@/context/index'
 import { routesFront, company, colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { usePros } from '@/hooks/index'
 import {
   SectionOurPrograms,
   SectionUIFormAlpha,
@@ -27,6 +27,8 @@ type TypePagesPageProgramsProps = {
 
 const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
   const { curCategory } = useContext(ContextCategoriesContext)
+
+  const pros = usePros()
 
   // console.log(curCategory)
   const seoParams = {

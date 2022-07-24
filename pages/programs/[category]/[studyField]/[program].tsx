@@ -150,9 +150,14 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
 
 export default PageProgramsCategoryStudyFieldProgram
 
-export const getStaticPaths: GetStaticPaths = async () =>
+export const getStaticPaths: GetStaticPaths = async ({
+  locales,
+  defaultLocale
+}) =>
   await handleGetStaticPaths({
-    page: routesFront.programsCategoryStudyFieldProgram
+    page: routesFront.programsCategoryStudyFieldProgram,
+    locales,
+    defaultLocale
   })
 
 export const getStaticProps: GetStaticProps = async context =>

@@ -48,8 +48,15 @@ const PageProgramsCategoryStudyField: NextPage<TypePageProgramsProps> = ({
 
 export default PageProgramsCategoryStudyField
 
-export const getStaticPaths: GetStaticPaths = async () =>
-  await handleGetStaticPaths({ page: routesFront.programsCategoryStudyField })
+export const getStaticPaths: GetStaticPaths = async ({
+  locales,
+  defaultLocale
+}) =>
+  await handleGetStaticPaths({
+    page: routesFront.programsCategoryStudyField,
+    locales,
+    defaultLocale
+  })
 
 export const getStaticProps: GetStaticProps = async context =>
   await handleGetStaticProps({ page: routesFront.programs, context })

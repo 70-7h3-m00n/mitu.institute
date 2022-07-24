@@ -6,6 +6,7 @@ import {
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
 import { revalidate } from '@/config/index'
+import { getGSPLocale } from '@/helpers/index'
 
 const getStaticPropsPageLegal = async ({
   context
@@ -15,19 +16,19 @@ const getStaticPropsPageLegal = async ({
 }> => {
   const res = await apolloClient.query<TypePageLegalPropsQuery>({
     query: gql`
-      query GetStaticPropsPageLegal {
-        categories {
+      query GetStaticPropsPageLegal($locale: String) {
+        categories(locale: $locale) {
           type
           slug
           label
         }
-        documentCategories {
+        documentCategories(locale: $locale) {
           title
           numeric_order {
             index
           }
         }
-        documentSubcategories {
+        documentSubcategories(locale: $locale) {
           title
           numeric_order {
             index
@@ -45,7 +46,10 @@ const getStaticPropsPageLegal = async ({
           }
         }
       }
-    `
+    `,
+    variables: {
+      locale: getGSPLocale({ context })
+    }
   })
 
   return {

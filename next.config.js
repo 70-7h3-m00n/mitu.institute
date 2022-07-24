@@ -11,7 +11,14 @@ module.exports = withPWA({
   i18n: {
     locales: ['ru', 'kk_KZ', 'uz_UZ'],
     defaultLocale: 'ru',
-    localeDetection: true
+    localeDetection: true,
+    domains: [
+      {
+        domain: 'mitm.uz',
+        defaultLocale: 'uz_UZ',
+        http: dev
+      }
+    ]
   },
   images: {
     // loader: 'cloudinary',

@@ -1,6 +1,7 @@
 import stls from '@/styles/components/imgs/icons/ImgLogo.module.sass'
 import { TypeClassNames, TypeImg } from '@/types/index'
-import { nextexport, company } from '@/config/index'
+import { nextexport } from '@/config/index'
+import { useAt, useCompanyInfo } from '@/hooks/index'
 import { ImgTemplate } from '@/components/imgs'
 import src from '@/public/assets/imgs/icons/manifest-icon-192.png'
 
@@ -8,6 +9,10 @@ type TypeImgLogoProps = TypeClassNames & TypeImg
 
 const ImgLogo = ({ classNames, width, height }: TypeImgLogoProps) => {
   const publicSrc = '/assets/imgs/icons/manifest-icon-192.png'
+
+  const at = useAt()
+
+  const company = useCompanyInfo()
 
   return (
     <>

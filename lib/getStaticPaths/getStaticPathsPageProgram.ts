@@ -1,15 +1,24 @@
 import { TypePageProgramPaths, TypePageProgramPathsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
+import { getGetStaticPathsLocale } from '@/helpers/index'
 
-const getStaticPathsPageProgram = async (): Promise<{
+type TGetStaticPathsPageProgramsProps = {
+  locales?: string[]
+  defaultLocale?: string
+}
+
+const getStaticPathsPageProgram = async ({
+  locales,
+  defaultLocale
+}: TGetStaticPathsPageProgramsProps): Promise<{
   paths: TypePageProgramPaths
   fallback: boolean | 'blocking'
 }> => {
   const res = await apolloClient.query<TypePageProgramPathsQuery>({
     query: gql`
-      query GetStaticPathsPageProgram {
-        programs {
+      query GetStaticPathsPageProgram($locale: String) {
+        programs(locale: $locale) {
           category {
             slug
           }
@@ -19,7 +28,10 @@ const getStaticPathsPageProgram = async (): Promise<{
           slug
         }
       }
-    `
+    `,
+    variables: {
+      locale: getGetStaticPathsLocale({ defaultLocale })
+    }
   })
 
   return {

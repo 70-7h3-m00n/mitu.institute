@@ -9,7 +9,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from 'seo.config'
-import { prod, routesFront, selectors, gtm } from '@/config/index'
+import { prod, routesFront, selectors, gtm, routes } from '@/config/index'
 import {
   handleUtms,
   handleReferer,
@@ -30,6 +30,8 @@ import { GeneralNavPhoneTablet } from '@/components/general'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false)
+
+  // console.log(routes)
 
   useEffect(() => {
     // TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })

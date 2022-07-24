@@ -43,8 +43,15 @@ const PageProgramsCategory: NextPage<TypePageProgramsProps> = ({
 
 export default PageProgramsCategory
 
-export const getStaticPaths: GetStaticPaths = async () =>
-  await handleGetStaticPaths({ page: routesFront.programs })
+export const getStaticPaths: GetStaticPaths = async ({
+  locales,
+  defaultLocale
+}) =>
+  await handleGetStaticPaths({
+    page: routesFront.programs,
+    locales,
+    defaultLocale
+  })
 
 export const getStaticProps: GetStaticProps = async context =>
   await handleGetStaticProps({ page: routesFront.programs, context })
