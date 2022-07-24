@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useContext } from 'react'
 import cn from 'classnames'
-import { routesFront, mituinstitute } from '@/config/index'
+import { dev, routesFront, mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
 import { ContextCategoriesContext } from '@/context/index'
@@ -58,12 +58,16 @@ const Header = ({ classNames }: TypeHeaderProps) => {
       {!mituinstitute && <GeneralHeaderTop classNames={[stls.top]} />}
       <GeneralHeaderMiddle classNames={[stls.middle]} />
       <GeneralHeaderBottom classNames={[stls.bottom]} links={links} />
-      <Link href={router.asPath} locale='uz_UZ'>
-        <a>UZ</a>
-      </Link>
-      <Link href={router.asPath} locale='ru'>
-        <a>RU</a>
-      </Link>
+      {dev && (
+        <>
+          <Link href={router.asPath} locale='uz_UZ'>
+            <a>UZ</a>
+          </Link>
+          <Link href={router.asPath} locale='ru'>
+            <a>RU</a>
+          </Link>
+        </>
+      )}
     </header>
   )
 }
