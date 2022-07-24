@@ -1,0 +1,10 @@
+@use '@/styles/utils/mixins' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/Colors.module.sass' as c
+
+.container
+  display: flex
+  @include m.media(phone, tablet)
+    gap: f.px(8)
+  @include m.media(laptop, desktop)
+    gap: f.px(10)

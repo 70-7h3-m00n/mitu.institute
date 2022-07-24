@@ -1,7 +1,3 @@
-// dataFetching
-import getGetStaticPathsLocale from '@/helpers/dataFetching/getGetStaticPathsLocale'
-import getGSPLocale from '@/helpers/dataFetching/getGSPLocale'
-
 // dataLayer
 import pageview from '@/helpers/dataLayer/pageview'
 import lead from '@/helpers/dataLayer/lead'
@@ -14,6 +10,7 @@ import getCasedRuYearString from '@/helpers/general/getCasedRuYearString'
 import getCasesRuCourseString from '@/helpers/general/getCasesRuCourseString'
 import getCasesRuProfessionString from '@/helpers/general/getCasesRuProfessionString'
 import getClassNames from '@/helpers/general/getClassNames'
+import getCorrectLocale from '@/helpers/general/getCorrectLocale'
 import getImageHeight from '@/helpers/general/getImageHeight'
 import handleLocale from '@/helpers/general/handleLocale'
 import handleReferer from '@/helpers/general/handleReferer'
@@ -29,9 +26,6 @@ import buildLeadEmailTbodyTrs from '@/helpers/lead/buildLeadEmailTbodyTrs'
 import createLeadEmailTr from '@/helpers/lead/createLeadEmailTr'
 
 export {
-  // dataFetching
-  getGetStaticPathsLocale,
-  getGSPLocale,
   // dataLayer
   pageview,
   lead,
@@ -43,6 +37,7 @@ export {
   getCasesRuCourseString,
   getCasesRuProfessionString,
   getClassNames,
+  getCorrectLocale,
   getImageHeight,
   handleLocale,
   handleReferer,

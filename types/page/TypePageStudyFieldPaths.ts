@@ -5,6 +5,7 @@ type TypePageStudyFieldPaths = {
     category: string
     studyField: string
   }
+  locale?: string
 }[]
 
 export default TypePageStudyFieldPaths

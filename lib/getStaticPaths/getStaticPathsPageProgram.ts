@@ -1,7 +1,7 @@
 import { TypePageProgramPaths, TypePageProgramPathsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
-import { getGetStaticPathsLocale } from '@/helpers/index'
+import { getCorrectLocale } from '@/helpers/index'
 
 type TGetStaticPathsPageProgramsProps = {
   locales?: string[]
@@ -15,37 +15,85 @@ const getStaticPathsPageProgram = async ({
   paths: TypePageProgramPaths
   fallback: boolean | 'blocking'
 }> => {
-  const res = await apolloClient.query<TypePageProgramPathsQuery>({
-    query: gql`
-      query GetStaticPathsPageProgram($locale: String) {
-        programs(locale: $locale) {
-          category {
-            slug
-          }
-          study_field {
-            slug
-          }
-          slug
-        }
-      }
-    `,
-    variables: {
-      locale: getGetStaticPathsLocale({ defaultLocale })
-    }
-  })
+  const responses =
+    locales &&
+    (await Promise.all(
+      locales?.map(
+        async locale =>
+          await apolloClient.query<TypePageProgramPathsQuery>({
+            query: gql`
+              query GetStaticPathsPageProgram($locale: String) {
+                programs(locale: $locale) {
+                  category {
+                    slug
+                  }
+                  study_field {
+                    slug
+                  }
+                  slug
+                }
+              }
+            `,
+            variables: {
+              locale: getCorrectLocale({ locale })
+            }
+          })
+      )
+    ))
+
+  const dataWithLocales = responses?.map((res, idx) => ({
+    ...res.data,
+    locale: locales?.[idx]
+  }))
+
+  const paths: TypePageProgramPaths = []
+
+  dataWithLocales?.forEach(item =>
+    item.programs?.forEach(program =>
+      paths.push({
+        params: {
+          category: program?.category?.slug || 'category',
+          studyField: program?.study_field?.slug || 'studyField',
+          program: program?.slug || 'program'
+        },
+        locale: item.locale
+      })
+    )
+  )
+
+  // const res = await apolloClient.query<TypePageProgramPathsQuery>({
+  //   query: gql`
+  //     query GetStaticPathsPageProgram($locale: String) {
+  //       programs(locale: $locale) {
+  //         category {
+  //           slug
+  //         }
+  //         study_field {
+  //           slug
+  //         }
+  //         slug
+  //       }
+  //     }
+  //   `,
+  //   variables: {
+  //     locale: getCorrectLocale({ locale: defaultLocale })
+  //   }
+  // })
+
+  // const paths = Array.from(
+  //   new Set(
+  //     res.data?.programs?.map(program => ({
+  //       params: {
+  //         category: program?.category?.slug || 'category',
+  //         studyField: program?.study_field?.slug || 'studyField',
+  //         program: program?.slug || 'program'
+  //       }
+  //     }))
+  //   )
+  // )
 
   return {
-    paths: Array.from(
-      new Set(
-        res.data?.programs?.map(program => ({
-          params: {
-            category: program?.category?.slug || 'category',
-            studyField: program?.study_field?.slug || 'studyField',
-            program: program?.slug || 'program'
-          }
-        }))
-      )
-    ) || [
+    paths: paths || [
       {
         params: {
           category: 'category',

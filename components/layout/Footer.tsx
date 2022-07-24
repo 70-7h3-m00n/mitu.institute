@@ -2,15 +2,18 @@ import stls from '@/styles/components/layout/Footer.module.sass'
 import { TypeClassNames } from '@/types/index'
 import { useContext } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import cn from 'classnames'
-import { routesFront, company } from '@/config/index'
+import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
+import { useCompanyInfo } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralLogo,
   GeneralAddress,
-  GeneralPhoneNumber
+  GeneralPhoneNumber,
+  GeneralLangBtns
 } from '@/components/general'
 import {
   IconInstagram,
@@ -22,6 +25,9 @@ import {
 type TypeFooterProps = TypeClassNames
 
 const Footer = ({ classNames }: TypeFooterProps) => {
+  const router = useRouter()
+  const company = useCompanyInfo()
+
   const { categories } = useContext(ContextCategoriesContext)
 
   const navLinks =
@@ -110,6 +116,9 @@ const Footer = ({ classNames }: TypeFooterProps) => {
               withIcon
               biggerIcon
               withoutBr
+            />
+            <GeneralLangBtns
+              classNames={[stls.langBtns, stls.GeneralLangBtns]}
             />
             {/* <ul className={stls.smLinks}>
               {smLinks.map(({ href, val, ariaLabel }, idx) => (

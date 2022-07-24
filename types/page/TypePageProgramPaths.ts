@@ -4,6 +4,7 @@ type TypePageProgramPaths = {
     studyField: string
     program: string
   }
+  locale?: string
 }[]
 
 export default TypePageProgramPaths

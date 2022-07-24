@@ -134,6 +134,17 @@ $item_ld_mr: 7%
     & path
       @include m.dye(stroke, c.$upsilon)
 
+.langBtns
+  &.GeneralLangBtns
+    @include m.media(phone, tablet)
+      margin-top: f.px(24)
+    @include m.media(laptop, desktop)
+      margin-top: f.px(28)
+    & a
+      font-size: f.px(14)
+      line-height: 110%
+      @include m.dye(c, c.$upsilon)
+
 .smLinks
   margin: 0
   padding: 0

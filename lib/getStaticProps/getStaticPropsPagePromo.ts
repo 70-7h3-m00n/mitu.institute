@@ -6,7 +6,7 @@ import {
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
 import { revalidate } from '@/config/index'
-import { getGSPLocale } from '@/helpers/index'
+import { getCorrectLocale } from '@/helpers/index'
 
 const getStaticPropsPagePromo = async ({
   context
@@ -47,7 +47,7 @@ const getStaticPropsPagePromo = async ({
       }
     `,
     variables: {
-      locale: getGSPLocale({ context })
+      locale: getCorrectLocale({ locale: context?.locale })
     }
   })
 

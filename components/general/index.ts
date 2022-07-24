@@ -4,6 +4,7 @@ import GeneralFullProgram from '@/components/general/GeneralFullProgram'
 import GeneralHeaderBottom from '@/components/general/GeneralHeaderBottom'
 import GeneralHeaderMiddle from '@/components/general/GeneralHeaderMiddle'
 import GeneralHeaderTop from '@/components/general/GeneralHeaderTop'
+import GeneralLangBtns from '@/components/general/GeneralLangBtns'
 import GeneralLegalTable from '@/components/general/GeneralLegalTable'
 import GeneralLogo from '@/components/general/GeneralLogo'
 import GeneralNavPhoneTablet from '@/components/general/GeneralNavPhoneTablet'
@@ -22,6 +23,7 @@ export {
   GeneralHeaderBottom,
   GeneralHeaderMiddle,
   GeneralHeaderTop,
+  GeneralLangBtns,
   GeneralLegalTable,
   GeneralLogo,
   GeneralNavPhoneTablet,

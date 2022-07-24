@@ -11,7 +11,8 @@ import { ContextCategoriesContext } from '@/context/index'
 import {
   GeneralHeaderTop,
   GeneralHeaderMiddle,
-  GeneralHeaderBottom
+  GeneralHeaderBottom,
+  GeneralLangBtns
 } from '@/components/general'
 import { BtnSkipNav } from '@/components/btns'
 
@@ -60,12 +61,7 @@ const Header = ({ classNames }: TypeHeaderProps) => {
       <GeneralHeaderBottom classNames={[stls.bottom]} links={links} />
       {dev && (
         <>
-          <Link href={router.asPath} locale='uz_UZ'>
-            <a>UZ</a>
-          </Link>
-          <Link href={router.asPath} locale='ru'>
-            <a>RU</a>
-          </Link>
+          <GeneralLangBtns />
         </>
       )}
     </header>
