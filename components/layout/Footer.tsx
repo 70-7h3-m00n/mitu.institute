@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
-import { routesFront } from '@/config/index'
+import { mituinstitute, routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
 import { useCompanyInfo } from '@/hooks/index'
@@ -117,9 +117,12 @@ const Footer = ({ classNames }: TypeFooterProps) => {
               biggerIcon
               withoutBr
             />
-            <GeneralLangBtns
-              classNames={[stls.langBtns, stls.GeneralLangBtns]}
-            />
+            {mituinstitute && (
+              <GeneralLangBtns
+                classNames={[stls.langBtns, stls.GeneralLangBtns]}
+              />
+            )}
+
             {/* <ul className={stls.smLinks}>
               {smLinks.map(({ href, val, ariaLabel }, idx) => (
                 <li key={href + idx} className={stls.smLinkItem}>
