@@ -21,7 +21,8 @@ type TypeHandleGetStaticPathsProps = {
 
 const handleGetStaticPaths = async ({
   page,
-  locales
+  locales,
+  defaultLocale
 }: TypeHandleGetStaticPathsProps): Promise<{
   paths:
     | TypePageProgramsPaths
@@ -32,13 +33,13 @@ const handleGetStaticPaths = async ({
 }> => {
   switch (page) {
     case routesFront.programs:
-      return await getStaticPathsPagePrograms({ locales })
+      return await getStaticPathsPagePrograms({ locales, defaultLocale })
 
     case routesFront.programsCategoryStudyField:
-      return await getStaticPathsPageStudyField({ locales })
+      return await getStaticPathsPageStudyField({ locales, defaultLocale })
 
     case routesFront.programsCategoryStudyFieldProgram:
-      return await getStaticPathsPageProgram({ locales })
+      return await getStaticPathsPageProgram({ locales, defaultLocale })
 
     default:
       return {
