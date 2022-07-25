@@ -14,7 +14,7 @@ type TypeSectionFAQProps = TypeClassNames
 const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
   const { questions } = useContext(ContextQuestionsContext)
 
-  if (!questions) return <></>
+  if (!questions || questions?.length === 0) return <></>
 
   return (
     <section className={cn(stls.container, getClassNames({ classNames }))}>

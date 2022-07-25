@@ -1,18 +1,30 @@
 import stls from '@/styles/pages/PageOffine.module.sass'
-import { company } from '@/config/index'
+import { useAt, useCompanyInfo } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 
 const PageOffline = () => {
+  const at = useAt()
+  const company = useCompanyInfo()
+  const translations = {
+    h2: at.uz ? 'Tarmoqqa ulanish yo‘q' : 'Подключение к сети отсутствует',
+    p: at.uz
+      ? "Keyinroq qayta urinib ko'ring yoki bizga qo'ng'iroq qiling"
+      : 'Пожалуйста, попробуйте позже или позвоните нам по номеру',
+    phoneNumber: at.uz ? company.phoneNumberUz : company.phoneNumber
+  }
+
   return (
     <>
       <Wrapper>
         <div className={stls.content}>
           <h1 className={stls.title}>Zzz...</h1>
-          <h2 className={stls.h2}>Подключение к сети отсутствует</h2>
+          <h2 className={stls.h2}>{translations.h2}</h2>
           <p className={stls.p}>
-            Пожалуйста, попробуйте позже или позвоните нам по номеру{' '}
-            <a href={company.phoneNumber.href} className={stls.phoneNumber}>
-              {company.phoneNumber.val}
+            {translations.p}{' '}
+            <a
+              href={translations.phoneNumber.href}
+              className={stls.phoneNumber}>
+              {translations.phoneNumber.val}
             </a>
           </p>
         </div>

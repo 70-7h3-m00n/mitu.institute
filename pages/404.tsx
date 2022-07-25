@@ -2,10 +2,17 @@ import stls from '@/styles/pages/Page404.module.sass'
 import truncate from 'truncate'
 import { NextSeo } from 'next-seo'
 import { routesFront, company } from '@/config/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { BtnAlpha } from '@/components/btns'
 
 const Page404 = () => {
+  const at = useAt()
+
+  const translations = {
+    seoParamsTitle: at.uz ? '' : ''
+  }
+
   const seoParams = {
     title: `404 - Извините! Страница, которую Вы ищете, не может быть найдена | ${company.name}`,
     desc: truncate(
