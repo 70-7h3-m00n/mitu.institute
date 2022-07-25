@@ -3,6 +3,7 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { routesExternal, mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 import { IconCoatOfArmsRussia } from '@/components/icons'
@@ -13,6 +14,8 @@ type TypeSectionAboutUniversityProps = TypeClassNames
 const SectionAboutUniversity = ({
   classNames
 }: TypeSectionAboutUniversityProps) => {
+  const at = useAt()
+
   const testimonials = [
     {
       title: '10 лет',

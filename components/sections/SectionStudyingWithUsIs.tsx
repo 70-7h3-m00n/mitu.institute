@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import cn from 'classnames'
 // import { studyingWithUsIs } from '@/data/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { ContextCategoriesContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
@@ -15,6 +16,8 @@ type TypeSectionStudyingWithUsIsProps = TypeClassNames
 const SectionStudyingWithUsIs = ({
   classNames
 }: TypeSectionStudyingWithUsIsProps) => {
+  const at = useAt()
+
   const { curCategory } = useContext(ContextCategoriesContext)
 
   const studyingWithUsIs: TypeStudyingWithUsIs =

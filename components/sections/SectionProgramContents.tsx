@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralSectionTitle,
@@ -18,6 +19,8 @@ type TypeSectionProgramContentsProps = TypeClassNames
 const SectionProgramContents = ({
   classNames
 }: TypeSectionProgramContentsProps) => {
+  const at = useAt()
+
   const { program } = useContext(ContextProgramContext)
 
   const atAdditional = program?.category?.type === 'additional'

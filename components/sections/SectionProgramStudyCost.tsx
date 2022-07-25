@@ -6,6 +6,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { mituinstitute, company } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import {
   ContextCategoriesContext,
   ContextProgramContext
@@ -31,6 +32,8 @@ type TypeSectionProgramStudyCostProps = TypeClassNames
 const SectionProgramStudyCost = ({
   classNames
 }: TypeSectionProgramStudyCostProps) => {
+  const at = useAt()
+
   const company = useCompanyInfo()
   const { program } = useContext(ContextProgramContext)
   const { curCategory } = useContext(ContextCategoriesContext)

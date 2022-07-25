@@ -5,6 +5,7 @@ import cn from 'classnames'
 import { routesExternal, mituinstitute } from '@/config/index'
 import { ContextProgramContext } from '@/context/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 import {
@@ -17,6 +18,8 @@ import { BtnBeta } from '@/components/btns'
 type TypeSectionCheckLicenseProps = TypeClassNames
 
 const SectionCheckLicense = ({ classNames }: TypeSectionCheckLicenseProps) => {
+  const at = useAt()
+
   const { program } = useContext(ContextProgramContext)
 
   const atAdditional = program?.category?.type === 'additional'

@@ -5,6 +5,7 @@ import cn from 'classnames'
 // import { studyingWithUsIs } from '@/data/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralFullProgram, GeneralTextHighlight } from '@/components/general'
 
@@ -14,6 +15,7 @@ type TypeSectionFullProgramProps = TypeClassNames
 
 const SectionFullProgram = ({ classNames }: TypeSectionFullProgramProps) => {
   // const { program } = useContext(ContextCategoriesContext)
+  const at = useAt()
 
   return (
     <section

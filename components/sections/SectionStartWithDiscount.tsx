@@ -4,6 +4,7 @@ import { useContext, MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralPopup } from '@/components/general'
@@ -16,6 +17,8 @@ type TypeSectionStartWithDiscountProps = TypeClassNames
 const SectionStartWithDiscount = ({
   classNames
 }: TypeSectionStartWithDiscountProps) => {
+  const at = useAt()
+
   const { program } = useContext(ContextProgramContext)
 
   const atAdditional = program?.category?.type === 'additional'

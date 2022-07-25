@@ -6,6 +6,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { mituinstitute, colors, selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralTextHighlight, GeneralPopup } from '@/components/general'
@@ -18,6 +19,8 @@ import { IconCheck, IconInfo } from '@/components/icons'
 type TypeSectionProgramHeroProps = TypeClassNames
 
 const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
+  const at = useAt()
+
   const { program } = useContext(ContextProgramContext)
 
   if (!program?.title) return <></>

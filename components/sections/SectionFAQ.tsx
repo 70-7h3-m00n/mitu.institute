@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { ContextQuestionsContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -12,6 +13,8 @@ import { LisQna } from '@/components/lis'
 type TypeSectionFAQProps = TypeClassNames
 
 const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
+  const at = useAt()
+
   const { questions } = useContext(ContextQuestionsContext)
 
   if (!questions || questions?.length === 0) return <></>

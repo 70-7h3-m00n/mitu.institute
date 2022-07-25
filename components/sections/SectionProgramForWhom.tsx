@@ -4,6 +4,7 @@ import { Fragment, useContext } from 'react'
 import cn from 'classnames'
 import { mituinstitute } from '@/config/index'
 import { getClassNames, getImageHeight } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
@@ -15,6 +16,8 @@ type TypeSectionProgramForWhomProps = TypeClassNames
 const SectionProgramForWhom = ({
   classNames
 }: TypeSectionProgramForWhomProps) => {
+  const at = useAt()
+
   const { program } = useContext(ContextProgramContext)
 
   if (!program?.forWhom || program?.forWhom?.length === 0) return <></>

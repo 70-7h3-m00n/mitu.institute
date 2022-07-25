@@ -3,6 +3,7 @@ import { TypeClassNames } from '@/types/index'
 import { useContext } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralAskQuestion } from '@/components/general'
@@ -11,6 +12,8 @@ import { LisQna } from '@/components/lis'
 type TypeSectionProgramQnaProps = TypeClassNames
 
 const SectionProgramQna = ({ classNames }: TypeSectionProgramQnaProps) => {
+  const at = useAt()
+
   const { program } = useContext(ContextProgramContext)
 
   if (!program?.questions) return <></>

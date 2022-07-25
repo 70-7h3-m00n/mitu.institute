@@ -5,6 +5,7 @@ import cn from 'classnames'
 import { mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle } from '@/components/general'
 import {
@@ -19,6 +20,8 @@ type TypeSectionHowTrainingGoesProps = TypeClassNames
 const SectionHowTrainingGoes = ({
   classNames
 }: TypeSectionHowTrainingGoesProps) => {
+  const at = useAt()
+
   const { program } = useContext(ContextProgramContext)
 
   const atAdditional = program?.category?.type === 'additional'

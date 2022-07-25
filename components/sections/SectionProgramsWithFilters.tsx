@@ -15,6 +15,7 @@ import {
   ContextStudyFieldContext,
   ContextProgramsContext
 } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralSectionTitle,
@@ -40,6 +41,8 @@ const SectionProgramsWithFilters = ({
   classNames,
   studyFields
 }: TypeSectionProgramsWithFiltersProps) => {
+  const at = useAt()
+
   const { categories, curCategory, setCategories } = useContext(
     ContextCategoriesContext
   )

@@ -5,6 +5,7 @@ import cn from 'classnames'
 import { mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 import { IconCheck, IconPaperPage } from '@/components/icons'
@@ -16,6 +17,8 @@ type TypeLeastDocuments = string[]
 const SectionLeastDocuments = ({
   classNames
 }: TypeSectionLeastDocumentsProps) => {
+  const at = useAt()
+
   // const [offsetY, setOffsetY] = useState(0)
   // const [scrollHeight, setScollHeight] = useState(0)
   // const handleScroll = () => {

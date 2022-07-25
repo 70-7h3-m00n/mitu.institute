@@ -5,6 +5,7 @@ import cn from 'classnames'
 import { whyus } from '@/data/index'
 import { mituinstitute, colors } from '@/config/index'
 import { getClassNames, getImageHeight } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
@@ -14,6 +15,8 @@ import { IconFourSquares } from '@/components/icons'
 type TypeSectionWhyUsProps = TypeClassNames
 
 const SectionWhyUs = ({ classNames }: TypeSectionWhyUsProps) => {
+  const at = useAt()
+
   const { program } = useContext(ContextProgramContext)
 
   const atAdditional = program?.category?.type === 'additional'

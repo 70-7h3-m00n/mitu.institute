@@ -6,6 +6,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesFront, mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import {
   ContextCategoriesContext,
   ContextProgramContext
@@ -33,6 +34,8 @@ const SectionYourFutureDiploma = ({
   classNames,
   atPageProgram
 }: TypeSectionYourFutureDiplomaProps) => {
+  const at = useAt()
+
   const router = useRouter()
   const { program } = useContext(ContextProgramContext)
   const { curCategory } = useContext(ContextCategoriesContext)

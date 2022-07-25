@@ -6,6 +6,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames, getImageHeight } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralSectionTitle,
@@ -21,6 +22,8 @@ type TypeSectionProgramTeachersProps = TypeClassNames
 const SectionProgramTeachers = ({
   classNames
 }: TypeSectionProgramTeachersProps) => {
+  const at = useAt()
+
   const { program } = useContext(ContextProgramContext)
 
   if (!program?.teachers) return <></>

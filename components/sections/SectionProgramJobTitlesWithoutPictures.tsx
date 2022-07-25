@@ -7,6 +7,7 @@ import {
   getClassNames,
   getImageHeight
 } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle } from '@/components/general'
@@ -17,6 +18,8 @@ type TypeSectionProgramJobTitlesWithoutPicturesProps = TypeClassNames
 const SectionProgramJobTitlesWithoutPictures = ({
   classNames
 }: TypeSectionProgramJobTitlesWithoutPicturesProps) => {
+  const at = useAt()
+
   const { program } = useContext(ContextProgramContext)
 
   if (!program?.jobTitles || program?.jobTitles?.length === 0) return <></>

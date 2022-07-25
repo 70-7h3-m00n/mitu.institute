@@ -4,6 +4,7 @@ import { MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -15,6 +16,8 @@ type TypeProgramWithoutExamProps = TypeClassNames
 const SectionEnterWithoutExam = ({
   classNames
 }: TypeProgramWithoutExamProps) => {
+  const at = useAt()
+
   return (
     <section
       className={

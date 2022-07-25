@@ -9,9 +9,10 @@ import { Fragment, MouseEventHandler, useContext, useState } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
+import Highlighter from 'react-highlight-words'
 import { routesFront, selectors, colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import Highlighter from 'react-highlight-words'
+import { useAt } from '@/hooks/index'
 import {
   ContextCategoriesContext,
   ContextStudyFieldContext,
@@ -50,6 +51,8 @@ const SectionProgramsWithFiltersAlt = ({
   classNames,
   studyFields
 }: TypeSectionProgramsWithFiltersAltProps) => {
+  const at = useAt()
+
   const { categories, curCategory, setCategories } = useContext(
     ContextCategoriesContext
   )

@@ -5,6 +5,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesExternal, mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -17,6 +18,8 @@ type TypeSectionCorporateProgramProps = TypeClassNames
 const SectionCorporateProgram = ({
   classNames
 }: TypeSectionCorporateProgramProps) => {
+  const at = useAt()
+
   return (
     <section
       className={

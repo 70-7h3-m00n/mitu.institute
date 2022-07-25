@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { GeneralTextHighlight } from '@/components/general'
 import { Wrapper } from '@/components/layout'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -16,7 +17,14 @@ const SectionUIFormAlpha = ({
   classNames,
   title
 }: TypeSectionUIFormAlphaProps) => {
+  const at = useAt()
   const { program } = useContext(ContextProgramContext)
+
+  const translations = {
+    title: at.uz
+      ? "So'rov qoldiring va 2022 yilda eng kam o'tish ballini toping"
+      : 'Оставьте заявку и узнайте минимальный проходной балл в 2022 году'
+  }
 
   return (
     <section
@@ -29,8 +37,7 @@ const SectionUIFormAlpha = ({
           title={
             <>
               <GeneralTextHighlight reverse>
-                {title ||
-                  'Оставьте заявку и узнайте минимальный проходной балл в 2022 году'}
+                {title || translations.title}
               </GeneralTextHighlight>
             </>
           }
