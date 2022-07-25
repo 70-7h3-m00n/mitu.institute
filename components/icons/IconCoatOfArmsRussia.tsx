@@ -3,19 +3,26 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconCoatOfArmsRussiaProps = TypeClassNames
 
 const IconCoatOfArmsRussia = ({
   classNames
 }: TypeIconCoatOfArmsRussiaProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? 'Rossiya Gerbi' : 'Герб России'
+  }
+
   return (
     <div
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <svg viewBox='0 0 124 124' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <title>Герб России</title>
+        <title>{translations.title}</title>
         <path
           fillRule='evenodd'
           clipRule='evenodd'

@@ -3,16 +3,25 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconMortarboardProps = TypeClassNames
 
 const IconMortarboard = ({ classNames = [] }: TypeIconMortarboardProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz
+      ? 'Kvadrat akademik qopqoq'
+      : 'Квадратная академическая шапочка'
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 176 132' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <title>Квадратная академическая шапочка</title>
+        <title>{translations.title}</title>
         <path
           d='M36 72.8894V51.8182C36 51.1469 36.6483 50.6676 37.2907 50.8628L88.1117 66.3006C88.3012 66.3582 88.5035 66.3582 88.693 66.3006L139.514 50.8628C140.156 50.6676 140.804 51.1483 140.804 51.8196V61.8081V72.2672C140.804 72.7696 140.435 73.1935 139.937 73.2589C132.206 74.2753 117.194 76.374 112.626 77.489C108.019 78.6134 95.2752 85.5892 88.956 89.234C88.6176 89.4292 88.2017 89.4115 87.8774 89.1936C84.4585 86.8969 75.6667 81.8757 63.6842 77.489C52.141 73.2632 41.9139 73.2664 37.2042 73.91C36.5776 73.9956 36 73.5218 36 72.8894Z'
           fill={colors.eta}

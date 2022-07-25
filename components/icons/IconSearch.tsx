@@ -3,10 +3,17 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconSearchProps = TypeClassNames
 
 const IconSearch = ({ classNames }: TypeIconSearchProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? '' : ''
+  }
+
   return (
     <div
       className={

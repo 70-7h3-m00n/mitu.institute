@@ -1,6 +1,7 @@
 import stls from '@/styles/components/imgs/diplomas/ImgDiplomaSupplement.module.sass'
 import { TypeClassNames, TypeImg } from '@/types/index'
 import { nextexport } from '@/config/index'
+import { useAt } from '@/hooks/index'
 import { ImgTemplate } from '@/components/imgs'
 import src from '@/public/assets/imgs/diplomas/diploma-supplement.jpg'
 
@@ -11,7 +12,12 @@ const ImgDiplomaSupplement = ({
   width,
   height
 }: TypeImgDiplomaSupplementProps) => {
+  const at = useAt()
   const publicSrc = '/assets/imgs/diplomas/diploma-supplement.jpg'
+
+  const translations = {
+    alt: at.uz ? 'Supplement' : 'Supplement'
+  }
 
   return (
     <>
@@ -20,7 +26,7 @@ const ImgDiplomaSupplement = ({
         src={nextexport ? publicSrc : src}
         width={nextexport ? src.width : width}
         height={nextexport ? src.height : height}
-        alt={'Supplement'}
+        alt={translations.alt}
         // faded
       />
     </>

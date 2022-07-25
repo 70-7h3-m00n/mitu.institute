@@ -3,16 +3,23 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconInstagramProps = TypeClassNames
 
 const IconInstagram = ({ classNames }: TypeIconInstagramProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? 'Instagram' : 'Instagram'
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <title>Instagram</title>
+        <title>{translations.title}</title>
         <path
           d='M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z'
           stroke={colors.upsilon}

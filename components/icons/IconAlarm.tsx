@@ -3,16 +3,23 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconAlarmProps = TypeClassNames
 
 const IconAlarm = ({ classNames }: TypeIconAlarmProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? 'Budilnik' : 'Будильник'
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 142 154' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <title>Будильник</title>
+        <title>{translations.title}</title>
         <path
           d='M105.705 116.833C122.203 94.0094 117.14 60.1249 94.5978 41.5148C72.056 22.5536 40.3666 25.8893 23.8686 48.8886C14.7211 61.705 12.1076 77.8572 15.7012 92.956L15.0478 92.4293L1 99.1008L65.8488 153L68.299 136.672L67.9723 136.321C82.5102 136.321 96.3947 129.474 105.705 116.833Z'
           fill={colors.lambda}

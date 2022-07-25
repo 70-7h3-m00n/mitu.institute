@@ -3,16 +3,23 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconEyeProps = TypeClassNames
 
 const IconEye = ({ classNames }: TypeIconEyeProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? "Ko'z" : 'Глаз'
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <title>Глаз</title>
+        <title>{translations.title}</title>
         <path
           d='M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z'
           fill={colors.alpha}

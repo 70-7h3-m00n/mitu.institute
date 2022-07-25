@@ -4,6 +4,7 @@ import { useContext, useEffect } from 'react'
 import cn from 'classnames'
 import { getClassNames, lead } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { BtnAlpha } from '@/components/btns'
 
 type TypePopupThankyouProps = TypeClassNames &
@@ -12,6 +13,7 @@ type TypePopupThankyouProps = TypeClassNames &
   }
 
 const PopupThankyou = ({ classNames, close, id }: TypePopupThankyouProps) => {
+  const at = useAt()
   const { program } = useContext(ContextProgramContext)
 
   useEffect(() => {
@@ -24,18 +26,25 @@ const PopupThankyou = ({ classNames, close, id }: TypePopupThankyouProps) => {
     lead({ id, program, googleClientId })
   }, [])
 
+  const translations = {
+    thankyou: at.uz ? 'Rahmat!' : 'Спасибо!',
+    pTop: at.uz ? 'Sizning arizangiz yuborildi' : 'Ваша заявка отправлена',
+    pBottom: at.uz
+      ? "Tez orada siz bilan bog'lanamiz!"
+      : 'Мы свяжемся с Вами в ближайшее время!',
+    close: at.uz ? 'Yopish' : 'Закрыть'
+  }
+
   return (
     <div
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <p className={stls.thankyou}>Спасибо!</p>
-      <p className={cn(stls.p, stls.pTop)}>Ваша заявка отправлена</p>
-      <p className={cn(stls.p, stls.pBottom)}>
-        Мы свяжемся с Вами в ближайшее время!
-      </p>
+      <p className={stls.thankyou}>{translations.thankyou}</p>
+      <p className={cn(stls.p, stls.pTop)}>{translations.pTop}</p>
+      <p className={cn(stls.p, stls.pBottom)}>{translations.pBottom}</p>
       <BtnAlpha variant='alpha' onClick={close}>
-        Закрыть
+        {translations.close}
       </BtnAlpha>
     </div>
   )

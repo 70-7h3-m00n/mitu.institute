@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import cn from 'classnames'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import {
   ContextCategoriesContext,
   ContextStudyFieldContext,
@@ -16,6 +17,7 @@ type TypeGeneralProgramsFiltersProps = TypeClassNames
 const GeneralProgramsFilters = ({
   classNames
 }: TypeGeneralProgramsFiltersProps) => {
+  const at = useAt()
   const { categories, curCategory, setCategories } = useContext(
     ContextCategoriesContext
   )
@@ -26,13 +28,17 @@ const GeneralProgramsFilters = ({
     href: category?.slug
   }))
 
+  const translations = {
+    title: at.uz ? 'Dasturlar' : 'Программы'
+  }
+
   return (
     <div
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <div className={stls.filter}>
-        <h3 className={stls.filterTitle}>Программы</h3>
+        <h3 className={stls.filterTitle}>{translations.title}</h3>
         <div className={stls.btnsCategories}>
           {btnsCategories?.map((btn, idx) => (
             <BtnAlpha

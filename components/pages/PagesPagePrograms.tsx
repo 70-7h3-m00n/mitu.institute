@@ -7,7 +7,7 @@ import truncate from 'truncate'
 import { ContextCategoriesContext } from '@/context/index'
 import { routesFront, company, colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { usePros } from '@/hooks/index'
+import { useAt, usePros } from '@/hooks/index'
 import {
   SectionOurPrograms,
   SectionUIFormAlpha,
@@ -26,15 +26,24 @@ type TypePagesPageProgramsProps = {
 }
 
 const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
+  const at = useAt()
   const { curCategory } = useContext(ContextCategoriesContext)
 
   const pros = usePros()
 
+  const translations = {
+    programs: at.uz ? 'Dasturlar' : 'Программы',
+    studyFields: at.uz ? "O'qish yo'nalishlari" : 'Направления',
+    formTitle: at.uz
+      ? 'Keling, sizga kasb topishga yordam beramiz'
+      : 'Поможем определиться с профессией'
+  }
+
   // console.log(curCategory)
   const seoParams = {
-    title: `Программы | ${curCategory?.label || 'Направления'} | ${
-      company.name
-    }`,
+    title: `${translations.programs} | ${
+      curCategory?.label || translations.studyFields
+    } | ${company.name}`,
     desc: truncate(pros.join('. '), 120),
     canonical: `${routesFront.defaultRoot}${routesFront.programs}`
   }
@@ -85,7 +94,7 @@ const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
         url={routesFront.defaultRoot}
       />
       <SectionProgramsWithFiltersAlt studyFields={studyFields} />
-      <SectionUIFormAlpha title='Поможем определиться с профессией' />
+      <SectionUIFormAlpha title={translations.formTitle} />
     </>
   )
 }

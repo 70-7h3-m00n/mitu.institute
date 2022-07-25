@@ -4,8 +4,10 @@ import Link from 'next/link'
 import { MouseEventHandler, useContext, useState, useEffect } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
+import Highlighter from 'react-highlight-words'
 import { routesFront, mituinstitute } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { GeneralPopup, GeneralTextHighlight } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { SectionUIFormAlpha } from '@/components/sections'
@@ -16,7 +18,6 @@ import {
   ContextCategoriesContext,
   ContextStudyFieldContext
 } from '@/context/index'
-import Highlighter from 'react-highlight-words'
 
 type TStudyFields = {
   type: string | null
@@ -42,6 +43,8 @@ const CardsProgram = ({
   appliedStudyFields,
   searchTerm
 }: TypeCardsProgramProps) => {
+  const at = useAt()
+
   const { programs } = useContext(ContextProgramsContext)
   const { curCategory } = useContext(ContextCategoriesContext)
   const { studyField: studyFieldContext } = useContext(ContextStudyFieldContext)
@@ -94,6 +97,14 @@ const CardsProgram = ({
     }
   })
 
+  const translations = {
+    learnMoreLabel: at.uz ? "Batafsil ma'lumot" : 'Подробнее',
+    UIFormAlphaNotFoundTitle: at.uz
+      ? "Sizning so'rovingiz bo'yicha hech narsa topilmadi. Iltimos, murojaat qiling mutaxassis. Biz sizga to'g'ri dasturni topishga yordam beramiz"
+      : 'По Вашему запросу ничего не найдено. Пожалуйста, свяжитесь со специалистом. Мы поможем Вам подобрать подходящую программу',
+    program: at.uz ? 'Dastur' : 'Программа'
+  }
+
   if (!programs || !cards || programs?.length === 0 || cards?.length === 0)
     return (
       <UIFormAlpha
@@ -102,8 +113,7 @@ const CardsProgram = ({
         title={
           <>
             <GeneralTextHighlight reverse>
-              По Вашему запросу ничего не найдено. Пожалуйста, свяжитесь со
-              специалистом. Мы поможем Вам подобрать подходящую программу
+              {translations.UIFormAlphaNotFoundTitle}
             </GeneralTextHighlight>
           </>
         }
@@ -133,7 +143,7 @@ const CardsProgram = ({
                       </div>
                       <div className={stls.top}>
                         <h3 className={stls.title}>
-                          {card?.title || 'Программа'}
+                          {card?.title || translations.program}
                         </h3>
                         <p className={stls.desc}>{card.shortDescription}</p>
                       </div>
@@ -154,7 +164,9 @@ const CardsProgram = ({
                           )}
                         </div>
                         <div className={stls.learnMore}>
-                          <div className={stls.learnMoreLabel}>Подробнее</div>
+                          <div className={stls.learnMoreLabel}>
+                            {translations.learnMoreLabel}
+                          </div>
                           <IconArrowTopRight
                             classNames={[stls.iconArrowTopRight]}
                           />
@@ -201,7 +213,7 @@ const CardsProgram = ({
                             textToHighlight={card?.title}
                           />
                         ) : (
-                          card?.title || 'Программа'
+                          card?.title || translations.program
                         )}
                       </h3>
                       {/* <p className={stls.desc}>{card.shortDescription}</p> */}
@@ -225,7 +237,9 @@ const CardsProgram = ({
                     </div>
                   )} */}
                       <div className={stls.learnMore}>
-                        <div className={stls.learnMoreLabel}>Подробнее</div>
+                        <div className={stls.learnMoreLabel}>
+                          {translations.learnMoreLabel}
+                        </div>
                         <IconArrowTopRight
                           classNames={[stls.iconArrowTopRight]}
                         />
@@ -257,7 +271,9 @@ const CardsProgram = ({
                   </div>
                   <div className={stls.bottom}>
                     <div className={stls.learnMore}>
-                      <div className={stls.learnMoreLabel}>Подробнее</div>
+                      <div className={stls.learnMoreLabel}>
+                        {translations.learnMoreLabel}
+                      </div>
                       <IconArrowTopRight
                         classNames={[stls.iconArrowTopRight]}
                       />

@@ -3,12 +3,19 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconWaveProps = TypeClassNames & {
   variant?: 'alpha' | 'beta'
 }
 
 const IconWave = ({ classNames, variant }: TypeIconWaveProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? '' : ''
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}

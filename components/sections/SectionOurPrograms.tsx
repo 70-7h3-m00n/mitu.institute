@@ -9,6 +9,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesFront, selectors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { ContextCategoriesContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralPopup } from '@/components/general'
@@ -30,6 +31,7 @@ const SectionOurPrograms = ({
   max,
   cardsStudyFields
 }: TypeSectionOurProgramsProps) => {
+  const at = useAt()
   const { categories, curCategory, setCategories } = useContext(
     ContextCategoriesContext
   )
@@ -44,6 +46,12 @@ const SectionOurPrograms = ({
     href: category?.slug
   }))
 
+  const translations = {
+    programs: at.uz ? 'Dasturlar' : 'Программы',
+    ourCourses: at.uz ? "Bizning yo'nalishlarimiz" : 'Наши направления',
+    btnShowMore: at.uz ? "Ko'proq ko'rsatish" : 'Показать ещё'
+  }
+
   return (
     <section
       id={selectors.programs}
@@ -52,7 +60,7 @@ const SectionOurPrograms = ({
       }>
       <Wrapper classNames={[stls.wrapper]}>
         <GeneralSectionTitle classNames={[stls.title]}>
-          {atPrograms ? 'Программы' : 'Наши направления'}
+          {atPrograms ? translations.programs : translations.ourCourses}
         </GeneralSectionTitle>
         <div className={stls.content}>
           <div className={stls.btns}>
@@ -84,7 +92,7 @@ const SectionOurPrograms = ({
             <Popup
               trigger={() => (
                 <BtnAlpha variant='beta' classNames={[stls.btnShowMore]}>
-                  Показать ещё
+                  {translations.btnShowMore}
                 </BtnAlpha>
               )}
               modal
@@ -104,7 +112,7 @@ const SectionOurPrograms = ({
               classNames={[stls.btnShowMore]}
               tag='Link'
               href={`${routesFront.programs}/${curCategory?.slug}`}>
-              Показать ещё
+              {translations.btnShowMore}
             </BtnAlpha>
           )}
         </div>

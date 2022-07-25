@@ -3,7 +3,7 @@ import { TypeBtn } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import Link from 'next/link'
-import { FC, ReactNode } from 'react'
+import { FC } from 'react'
 
 type TypeBtnAlphaProps = TypeBtn & {
   title?: string

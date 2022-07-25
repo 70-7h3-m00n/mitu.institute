@@ -21,6 +21,14 @@ const ProgramCost = ({
   withRubSign,
   withPerMonthLabel
 }: ProgramCostProps) => {
+  const at = useAt()
+  const SSLocale = useSSLocale()
+
+  const translations = {
+    perMonth: at.uz ? '/oyiga' : '/мес',
+    currencySymbolSum: at.uz ? "so'm" : 'сум'
+  }
+
   let output = price
 
   if (isRegular)
@@ -31,9 +39,6 @@ const ProgramCost = ({
 
   if (isOneTwelfth) output = Math.round(Math.ceil(output / 12) / 100) * 100
 
-  const at = useAt()
-  const SSLocale = useSSLocale()
-
   const atKz =
     at.kz || SSLocale === 'kz' || SSLocale === 'kk' || SSLocale === 'kk_KZ'
 
@@ -43,7 +48,13 @@ const ProgramCost = ({
 
   if (atKz) output = output * 8.4
 
-  const currencySymbol = atUz ? 'сум' : atKz ? '₸' : <>&#8381;</>
+  const currencySymbol = atUz ? (
+    translations.currencySymbolSum
+  ) : atKz ? (
+    '₸'
+  ) : (
+    <>&#8381;</>
+  )
 
   // TODO: make this more generic. This component shoudn't have styles but should have a way to control perMonth & rubSign styles
   return (
@@ -55,7 +66,9 @@ const ProgramCost = ({
           {/* <br className={stls.phone} /> */}
           <span className={stls.currencySymbol}>
             {currencySymbol}
-            {withPerMonthLabel && <span className={stls.perMonth}>/мес</span>}
+            {withPerMonthLabel && (
+              <span className={stls.perMonth}>{translations.perMonth}</span>
+            )}
           </span>
         </>
       )}

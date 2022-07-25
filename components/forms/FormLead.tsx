@@ -13,6 +13,7 @@ import Popup from 'reactjs-popup'
 import { useForm } from 'react-hook-form'
 import { getClassNames, onSubmitForm } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { GeneralPopup } from '@/components/general'
 import { PopupLoader, PopupThankyou } from '@/components/popups'
 import {
@@ -34,6 +35,7 @@ const FormLead = ({
   variant,
   atCardsProgram
 }: TypeFormLeadProps) => {
+  const at = useAt()
   const { asPath } = useRouter()
   const { program } = useContext(ContextProgramContext)
 
@@ -54,6 +56,12 @@ const FormLead = ({
   useEffect(() => {
     isPopup && setFocus('name')
   }, [isPopup, setFocus])
+
+  const translations = {
+    agreement: at.uz
+      ? "Arizani yuborish orqali siz maxfiylik siyosati va shaxsiy ma'lumotlarni qayta ishlash shartlariga rozilik bildirasiz"
+      : 'Отправляя заявку, Вы соглашаетесь с политикой конфиденциальности и условиями обработки персональных данных'
+  }
 
   return (
     <>
@@ -146,8 +154,7 @@ const FormLead = ({
           className={cn(stls.agreement, {
             [stls.agreementVariantBeta]: variant === 'beta'
           })}>
-          Отправляя заявку, Вы соглашаетесь с политикой конфиденциальности и
-          условиями обработки персональных данных
+          {translations.agreement}
         </p>
       </form>
     </>

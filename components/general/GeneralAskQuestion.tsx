@@ -5,6 +5,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
@@ -17,9 +18,17 @@ import {
 type TypeGeneralAskQuestionProps = TypeClassNames
 
 const GeneralAskQuestion = ({ classNames }: TypeGeneralAskQuestionProps) => {
+  const at = useAt()
   const { program } = useContext(ContextProgramContext)
 
   const atAdditional = program?.category?.type === 'additional'
+
+  const translations = {
+    title: at.uz
+      ? "Sizda savollar bormi? So'rov qoldiring! Sizga qo'ng'iroq qilamiz!"
+      : 'У Вас есть вопросы? Оставьте заявку! И мы перезвоним Вам!',
+    btnValue: at.uz ? 'Kursga yozilish' : 'Задать вопрос'
+  }
 
   return (
     <div
@@ -41,14 +50,12 @@ const GeneralAskQuestion = ({ classNames }: TypeGeneralAskQuestionProps) => {
             </>
           )}
         </div>
-        <h3 className={stls.title}>
-          У Вас есть вопросы? Оставьте заявку! И мы перезвоним Вам!
-        </h3>
+        <h3 className={stls.title}>{translations.title}</h3>
       </div>
       <Popup
         trigger={() => (
           <BtnAlpha variant='gamma-reverse' classNames={[stls.btn]}>
-            Задать вопрос
+            {translations.btnValue}
           </BtnAlpha>
         )}
         modal

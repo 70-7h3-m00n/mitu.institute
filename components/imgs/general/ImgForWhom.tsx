@@ -3,6 +3,7 @@ import { TypeClassNames, TypeImg, TypeImgExtended } from '@/types/index'
 import { useContext } from 'react'
 import { nextexport } from '@/config/index'
 import { ContextProgramContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { ImgTemplate } from '@/components/imgs'
 import srcDefaultRegular from '@/public/assets/imgs/general/for-whom.jpg'
 import srcDefaultAdditional from '@/public/assets/imgs/general/for-whom-additional.jpg'
@@ -22,6 +23,7 @@ const ImgForWhom = ({
   title,
   filter
 }: TypeImgForWhomProps) => {
+  const at = useAt()
   const { program } = useContext(ContextProgramContext)
 
   const atAdditional = program?.category?.type === 'additional'
@@ -31,6 +33,11 @@ const ImgForWhom = ({
     : '/assets/imgs/general/for-whom.jpg'
 
   const srcDefault = atAdditional ? srcDefaultAdditional : srcDefaultRegular
+
+  const translations = {
+    alt: at.uz ? 'Ushbu dastur kim uchun' : 'Для кого эта программа'
+  }
+
   return (
     <>
       <ImgTemplate
@@ -38,7 +45,7 @@ const ImgForWhom = ({
         src={src || (nextexport ? publicSrc : srcDefault)}
         width={nextexport ? srcDefault.width : width}
         height={nextexport ? srcDefault.height : height}
-        alt={alt || 'Для кого эта программа'}
+        alt={alt || translations.alt}
         title={title}
         filter={filter}
       />

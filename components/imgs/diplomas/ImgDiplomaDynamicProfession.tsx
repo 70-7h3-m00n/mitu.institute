@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { format } from 'date-fns'
 import { ru } from 'date-fns/locale'
 import { ContextProgramContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { ImgTemplate } from '@/components/imgs'
 import defaultSrc from '@/public/assets/imgs/diplomas/diploma-profession.jpg'
 
@@ -14,6 +15,8 @@ const ImgDiplomaDynamicProfession = ({
   width,
   height
 }: TypeImgDiplomaDynamicProfession) => {
+  const at = useAt()
+
   const { program } = useContext(ContextProgramContext)
 
   const now = new Date()
@@ -90,11 +93,16 @@ const ImgDiplomaDynamicProfession = ({
   )},w_450,x_283,y_169,g_north/v1653299519/diploma-dynamic-profession_sbtu1q.jpg`
 
   // console.log(src)
+
+  const translations = {
+    alt: at.uz ? 'Jum Mitu tomonidan' : 'Диплом МИТУ'
+  }
+
   return (
     <ImgTemplate
       classNames={classNames}
       src={src || defaultSrc}
-      alt='Диплом МИТУ'
+      alt={translations.alt}
       width={width || 1131}
       height={height || 800}
       // brakes without this

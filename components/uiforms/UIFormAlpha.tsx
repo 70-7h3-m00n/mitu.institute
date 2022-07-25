@@ -7,6 +7,7 @@ import {
 } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { GeneralTextHighlight } from '@/components/general'
 import { FormLead } from '@/components/forms'
 import { ReactNode } from 'react'
@@ -25,6 +26,14 @@ const UIFormAlpha = ({
   title,
   atCardsProgram
 }: TypeUIFormAlphaProps) => {
+  const at = useAt()
+  const translations = {
+    textHighlight: at.uz ? 'Arizani qoldiring' : 'Оставьте заявку',
+    title: at.uz
+      ? "va dastur bo'yicha maslahat oling, shuningdek kursga kirish talablari"
+      : 'и получите консультацию по программам, а также требования для поступления на курс'
+  }
+
   return (
     <div
       className={
@@ -41,9 +50,10 @@ const UIFormAlpha = ({
         })}>
         {title || (
           <>
-            <GeneralTextHighlight reverse>Оставьте заявку</GeneralTextHighlight>{' '}
-            и получите консультацию по программам, а также требования для
-            поступления на курс
+            <GeneralTextHighlight reverse>
+              {translations.textHighlight}
+            </GeneralTextHighlight>{' '}
+            {translations.title}
           </>
         )}
       </h2>

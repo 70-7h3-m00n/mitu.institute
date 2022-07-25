@@ -3,16 +3,23 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconPenProps = TypeClassNames
 
 const IconPen = ({ classNames }: TypeIconPenProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? 'Qalam' : 'Ручка'
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 68 34' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <title>Ручка</title>
+        <title>{translations.title}</title>
         <path
           d='M67.5511 33.4497L62.1713 27.0277L5.95215 0.972656C4.69685 0.422197 3.08291 1.0644 2.45526 2.53229L1.91728 3.81669C1.28963 5.28458 1.82761 6.93596 3.08291 7.48642L59.2124 33.5415L67.5511 33.4497Z'
           fill='white'

@@ -5,6 +5,7 @@ import cn from 'classnames'
 import axios from 'axios'
 import parse from 'html-react-parser'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeGeneralLegalTableProps = TypeClassNames & {
   url?: string | null
@@ -16,6 +17,7 @@ const GeneralLegalTable = ({
   url,
   complicatedTable
 }: TypeGeneralLegalTableProps) => {
+  const at = useAt()
   const [isBrowser, setIsBrowser] = useState(false)
   const [table, setTable] = useState<string | undefined>(undefined)
   const [isLoading, setIsLoading] = useState(true)
@@ -23,6 +25,12 @@ const GeneralLegalTable = ({
   useEffect(() => {
     setIsBrowser(true)
   }, [])
+
+  const translations = {
+    loading: at.uz
+      ? 'Yuklanmoqda... Iltimos, kuting'
+      : 'Идёт загрузка... Пожалуйста, подождите'
+  }
 
   const fetchTable = async () => {
     if (url) {
@@ -35,7 +43,7 @@ const GeneralLegalTable = ({
 
   if (isBrowser) fetchTable()
 
-  if (isLoading) return <>Идёт загрузка... Пожалуйста, подождите</>
+  if (isLoading) return <>{translations.loading}</>
 
   return (
     <div

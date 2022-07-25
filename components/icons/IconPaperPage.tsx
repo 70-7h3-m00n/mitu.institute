@@ -3,16 +3,23 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconPaperPageProps = TypeClassNames
 
 const IconPaperPage = ({ classNames }: TypeIconPaperPageProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? 'Hujjat' : 'Документ'
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 280 311' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <title>Документ</title>
+        <title>{translations.title}</title>
         <path
           d='M139.385 0L1.53836 95.8649C0.307587 166.722 94.1537 314.527 137.846 309.076L275.692 213.211C251.077 214.494 160.308 101.957 139.385 0Z'
           fill='white'

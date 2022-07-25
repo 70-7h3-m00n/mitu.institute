@@ -3,16 +3,23 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconCrossAltProps = TypeClassNames
 
 const IconCrossAlt = ({ classNames }: TypeIconCrossAltProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? 'Xoch' : 'Крестик'
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <title>Крестик</title>
+        <title>{translations.title}</title>
         <path
           d='M8 1V15'
           stroke={colors.upsilon}

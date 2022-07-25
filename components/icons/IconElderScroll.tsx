@@ -3,16 +3,23 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconElderScrollProps = TypeClassNames
 
 const IconElderScroll = ({ classNames }: TypeIconElderScrollProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? "O'tish" : 'Свиток'
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 128 60' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <title>Свиток</title>
+        <title>{translations.title}</title>
         <g clipPath='url(#clip0_857_6630)'>
           <path
             d='M58.2433 43.7004L53.6016 55.3632L57.8213 54.5201L61.7598 56.9089L61.4785 44.403L58.2433 43.7004Z'

@@ -3,6 +3,7 @@ import { TypeClassNames, TypeColor } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconInfoProps = TypeClassNames & {
   color?: TypeColor
@@ -10,6 +11,12 @@ type TypeIconInfoProps = TypeClassNames & {
 }
 
 const IconInfo = ({ classNames, color, color2 }: TypeIconInfoProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? '' : ''
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}

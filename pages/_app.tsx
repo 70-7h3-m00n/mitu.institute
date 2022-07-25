@@ -29,6 +29,7 @@ import { HeaderPromo } from '@/components/promo'
 import { GeneralNavPhoneTablet } from '@/components/general'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
+  // TODO: figure out SEO (don't forget about UZ)
   const [loading, setLoading] = useState(false)
 
   // console.log(routes)

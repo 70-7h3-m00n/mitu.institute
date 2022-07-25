@@ -3,16 +3,23 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconLocationProps = TypeClassNames
 
 const IconLocation = ({ classNames }: TypeIconLocationProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? 'Manzil' : 'Локация'
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 20 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <title>Локация</title>
+        <title>{translations.title}</title>
         <path
           d='M19 10C19 17 10 23 10 23C10 23 1 17 1 10C1 7.61305 1.94821 5.32387 3.63604 3.63604C5.32387 1.94821 7.61305 1 10 1C12.3869 1 14.6761 1.94821 16.364 3.63604C18.0518 5.32387 19 7.61305 19 10Z'
           stroke={colors.alpha}

@@ -6,6 +6,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { IconHelp, IconPrograms, IconManager } from '@/components/icons'
@@ -18,6 +19,13 @@ const GeneralHeaderNavPhoneTablet = ({
   classNames,
   atPromo
 }: TypeGeneralHeaderNavPhoneTabletProps) => {
+  const at = useAt()
+  const translations = {
+    btnHelp: at.uz ? 'Yordam' : 'Помощь',
+    btnPrograms: at.uz ? 'Dasturlar' : 'Программы',
+    btnContacts: at.uz ? 'Aloqa' : 'Контакты'
+  }
+
   const btns = [
     {
       id: 'GeneralNavPhoneTablet_help',
@@ -26,7 +34,7 @@ const GeneralHeaderNavPhoneTablet = ({
           trigger={() => (
             <button className={stls.btn}>
               <IconHelp classNames={[stls.icon]} />
-              <span className={stls.label}>Помощь</span>
+              <span className={stls.label}>{translations.btnHelp}</span>
             </button>
           )}
           modal
@@ -46,13 +54,13 @@ const GeneralHeaderNavPhoneTablet = ({
       trigger: atPromo ? (
         <a className={stls.btn} href={routesFront.anchorPrograms}>
           <IconPrograms classNames={[stls.icon]} />
-          <span className={stls.label}>Программы</span>
+          <span className={stls.label}>{translations.btnPrograms}</span>
         </a>
       ) : (
         <Link href={routesFront.programs}>
           <a className={stls.btn}>
             <IconPrograms classNames={[stls.icon]} />
-            <span className={stls.label}>Программы</span>
+            <span className={stls.label}>{translations.btnPrograms}</span>
           </a>
         </Link>
       )
@@ -63,7 +71,7 @@ const GeneralHeaderNavPhoneTablet = ({
         <Link href={routesFront.contact}>
           <a className={stls.btn}>
             <IconManager classNames={[stls.icon]} />
-            <span className={stls.label}>Контакты</span>
+            <span className={stls.label}>{translations.btnContacts}</span>
           </a>
         </Link>
       )
@@ -72,7 +80,7 @@ const GeneralHeaderNavPhoneTablet = ({
       //     trigger={() => (
       //       <button className={stls.btn}>
       //         <IconManager classNames={[stls.icon]} />
-      //         <span className={stls.label}>Контакты</span>
+      //         <span className={stls.label}>{translations.btnContacts}</span>
       //       </button>
       //     )}
       //     modal

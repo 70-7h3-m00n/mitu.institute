@@ -3,12 +3,19 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconArrowTopRightAltProps = TypeClassNames
 
 const IconArrowTopRightAlt = ({
   classNames
 }: TypeIconArrowTopRightAltProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? '' : ''
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}

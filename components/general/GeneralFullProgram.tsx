@@ -5,6 +5,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { getClassNames } from '@/helpers/index'
 import { ContextProgramContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
@@ -14,9 +15,18 @@ import { ImgGeneralFullProgramDecoration } from '@/components/imgs'
 type TypeGeneralFullProgramProps = TypeClassNames
 
 const GeneralFullProgram = ({ classNames }: TypeGeneralFullProgramProps) => {
+  const at = useAt()
   const { program } = useContext(ContextProgramContext)
 
   const atAdditional = program?.category?.type === 'additional'
+
+  const translations = {
+    title: at.uz ? "To'liq dastur" : 'Полная программа',
+    desc: at.uz
+      ? "Yo'nalish o'quv dasturini yuborish uchun aloqa ma'lumotlaringizni qoldiring"
+      : 'Оставьте свои контактные данные, чтобы мы прислали учебный план направления',
+    btnValue: at.uz ? "So'rov qoldiring" : 'Оставить заявку'
+  }
 
   return (
     <div
@@ -47,10 +57,9 @@ const GeneralFullProgram = ({ classNames }: TypeGeneralFullProgramProps) => {
         )}
       </div>
       <div className={stls.right}>
-        <h2 className={stls.title}>Полная программа</h2>
+        <h2 className={stls.title}>{translations.title}</h2>
         <p className={cn(stls.desc, { [stls.atAdditional]: atAdditional })}>
-          Оставьте свои контактные данные, чтобы мы прислали учебный план
-          направления
+          {translations.desc}
         </p>
         {!atAdditional && (
           <IconElderScroll classNames={[stls.icon, stls.phone]} />
@@ -59,7 +68,7 @@ const GeneralFullProgram = ({ classNames }: TypeGeneralFullProgramProps) => {
         <Popup
           trigger={() => (
             <BtnAlpha variant='alpha-reverse' classNames={[stls.btn]}>
-              Оставить заявку
+              {translations.btnValue}
             </BtnAlpha>
           )}
           modal

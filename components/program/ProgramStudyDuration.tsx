@@ -9,6 +9,7 @@ import {
   getCasedRuYearString,
   getCasedRuMonthString
 } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeProgramStudyDurationProps = TypeClassNames & {
   studyDurationMonths: number
@@ -22,7 +23,10 @@ const ProgramStudyDuration = ({
   monthsOnly,
   yearsOnly
 }: TypeProgramStudyDurationProps) => {
+  const at = useAt()
   const { program } = useContext(ContextProgramContext)
+
+  const translations = {}
 
   const years = Math.floor(+studyDurationMonths / 12)
   const months = +studyDurationMonths - 12 * years

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import cn from 'classnames'
 import { nextexport, base64pixel } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeImgTemplateProps = TypeClassNames &
   TypeImg & {

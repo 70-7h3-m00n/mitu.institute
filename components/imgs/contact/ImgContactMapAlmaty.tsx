@@ -1,6 +1,7 @@
 import stls from '@/styles/components/imgs/general/ImgContactMapAlmaty.module.sass'
 import { TypeClassNames, TypeImg } from '@/types/index'
 import { nextexport } from '@/config/index'
+import { useAt } from '@/hooks/index'
 import { ImgTemplate } from '@/components/imgs'
 import src from '@/public/assets/imgs/contact/map-almaty.jpg'
 
@@ -11,7 +12,12 @@ const ImgContactMapAlmaty = ({
   width,
   height
 }: TypeImgContactMapAlmatyProps) => {
+  const at = useAt()
   const publicSrc = '/assets/imgs/contact/map-almaty.jpg'
+
+  const translations = {
+    alt: at.uz ? 'Biz Olmaotadagi xaritada' : 'Мы на карте в Алматы'
+  }
 
   return (
     <>
@@ -20,7 +26,7 @@ const ImgContactMapAlmaty = ({
         src={nextexport ? publicSrc : src}
         width={publicSrc ? src.width : width}
         height={publicSrc ? src.height : height}
-        alt={'Мы на карте в Алматы'}
+        alt={translations.alt}
       />
     </>
   )

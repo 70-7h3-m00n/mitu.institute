@@ -3,6 +3,7 @@ import { TypeClassNames, TypeColor } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconCheckProps = TypeClassNames & {
   withBg?: boolean
@@ -16,6 +17,12 @@ const IconCheck = ({
   color,
   noTitle
 }: TypeIconCheckProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? 'Belgisi' : 'Галочка'
+  }
+
   return (
     <div
       className={
@@ -27,7 +34,7 @@ const IconCheck = ({
       }
       aria-hidden={'true'}>
       <svg viewBox='0 0 18 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        {!noTitle && <title>Галочка</title>}
+        {!noTitle && <title>{translations.title}</title>}
         <path
           d='M17 1L6 12L1 7'
           stroke={color || colors.beta}

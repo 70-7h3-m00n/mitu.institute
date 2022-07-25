@@ -7,6 +7,7 @@ import Popup from 'reactjs-popup'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralLogo,
@@ -24,9 +25,15 @@ import { BtnAlpha, BtnSkipNav } from '@/components/btns'
 type TypeHeaderPromoProps = TypeClassNames
 
 const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
+  const at = useAt()
   const router = useRouter()
   const [isBrowser, setIsBrowser] = useState(false)
   const { categories } = useContext(ContextCategoriesContext)
+
+  const translations = {
+    btnVal: at.uz ? "Qo'ng'iroqni buyurtma qiling" : 'Заказать звонок',
+    btnValAlt: at.uz ? 'Aloqa' : 'Связаться'
+  }
 
   useEffect(() => {
     setIsBrowser(true)
@@ -74,8 +81,10 @@ const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
                 <BtnAlpha
                   variant='delta-reverse'
                   classNames={[stls.btn, stls.btnAlpha]}>
-                  <span className={stls.btnTextAlt}>Связаться</span>
-                  <span className={stls.btnText}>Заказать звонок</span>
+                  <span className={stls.btnTextAlt}>
+                    {translations.btnValAlt}
+                  </span>
+                  <span className={stls.btnText}>{translations.btnVal}</span>
                 </BtnAlpha>
               )
             }}

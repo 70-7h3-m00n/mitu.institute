@@ -3,17 +3,24 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconProgramsProps = TypeClassNames
 
 const IconPrograms = ({ classNames }: TypeIconProgramsProps) => {
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? 'Dasturlar' : 'Программы'
+  }
+
   return (
     <div
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <title>Программы</title>
+        <title>{translations.title}</title>
         <path
           d='M8 6H21'
           stroke={colors.alpha}

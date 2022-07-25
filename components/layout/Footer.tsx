@@ -7,7 +7,7 @@ import cn from 'classnames'
 import { mituinstitute, routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
-import { useCompanyInfo } from '@/hooks/index'
+import { useAt, useCompanyInfo } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralLogo,
@@ -25,6 +25,7 @@ import {
 type TypeFooterProps = TypeClassNames
 
 const Footer = ({ classNames }: TypeFooterProps) => {
+  const at = useAt()
   const router = useRouter()
   const company = useCompanyInfo()
 
@@ -46,14 +47,25 @@ const Footer = ({ classNames }: TypeFooterProps) => {
   //   }
   // ]
 
+  const translations = {
+    policiesPrivacy: at.uz
+      ? 'Maxfiylik siyosati'
+      : 'Политика кофиденциальности',
+    policiesTerms: at.uz
+      ? 'Foydalanuvchi shartnomasi'
+      : 'Пользовательское соглашение',
+    payment: at.uz ? 'Ish haqi' : 'Оплата',
+    contacts: at.uz ? 'Aloqa' : 'Контакты'
+  }
+
   const privacyLinks = [
     {
       href: routesFront.policiesPrivacy,
-      val: 'Политика кофиденциальности'
+      val: translations.policiesPrivacy
     },
     {
       href: routesFront.policiesTerms,
-      val: 'Пользовательское соглашение'
+      val: translations.policiesTerms
     }
   ]
 
@@ -97,12 +109,12 @@ const Footer = ({ classNames }: TypeFooterProps) => {
             ))}
             <li className={stls.navLinkItem}>
               <Link href={routesFront.payment}>
-                <a className={stls.navLink}>Оплата</a>
+                <a className={stls.navLink}>{translations.payment}</a>
               </Link>
             </li>
             <li className={stls.navLinkItem}>
               <Link href={routesFront.contact}>
-                <a className={stls.navLink}>Контакты</a>
+                <a className={stls.navLink}>{translations.contacts}</a>
               </Link>
             </li>
           </ul>

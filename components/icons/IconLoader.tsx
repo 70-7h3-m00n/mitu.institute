@@ -3,11 +3,18 @@ import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 type TypeIconLoaderProps = TypeClassNames
 
 const IconLoader = ({ classNames }: TypeIconLoaderProps) => {
   // <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
+  const at = useAt()
+
+  const translations = {
+    title: at.uz ? 'Yuklab olish…' : 'Загрузка...'
+  }
+
   return (
     <div
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
@@ -16,7 +23,7 @@ const IconLoader = ({ classNames }: TypeIconLoaderProps) => {
         viewBox='0 0 120 30'
         xmlns='http://www.w3.org/2000/svg'
         fill={colors.upsilon}>
-        <title>Загрузка...</title>
+        <title>{translations.title}</title>
         <circle cx='15' cy='15' r='15'>
           <animate
             attributeName='r'
