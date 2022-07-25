@@ -5,7 +5,7 @@ import { GetStaticProps } from 'next'
 import { useContext, useEffect } from 'react'
 import { NextSeo, OrganizationJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront, company } from '@/config/index'
+import { routesFront } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import {
   ContextCategoriesContext,
@@ -14,7 +14,7 @@ import {
   ContextQuestionsContext,
   ContextProgramContext
 } from '@/context/index'
-import { usePros } from '@/hooks/index'
+import { useCompanyInfo, usePros } from '@/hooks/index'
 import {
   SectionHero,
   SectionOurPrograms,
@@ -39,6 +39,8 @@ const PageHome: NextPage<TypePageHomeProps> = ({
   const { setProgram } = useContext(ContextProgramContext)
 
   const pros = usePros()
+
+  const company = useCompanyInfo()
 
   useEffect(() => {
     setCategories({

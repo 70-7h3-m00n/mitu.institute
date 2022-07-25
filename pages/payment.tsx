@@ -17,6 +17,7 @@ import {
   ContextQuestionsContext,
   ContextProgramContext
 } from '@/context/index'
+import { useCompanyInfo } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
@@ -28,6 +29,7 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
   programs,
   questions
 }) => {
+  const company = useCompanyInfo()
   const { setCategories } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { setPrograms } = useContext(ContextProgramsContext)

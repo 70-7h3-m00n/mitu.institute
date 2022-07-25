@@ -12,6 +12,7 @@ import {
   ContextStudyFieldContext,
   ContextProgramContext
 } from '@/context/index'
+import { useCompanyInfo } from '@/hooks/index'
 import {
   SectionProgramHero,
   SectionProgramForWhom,
@@ -44,6 +45,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
   gspContextParamsStudyField,
   gspContextParamsProgram
 }) => {
+  const company = useCompanyInfo()
   const { setCategories, curCategory } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { program: programContext, setProgram } = useContext(

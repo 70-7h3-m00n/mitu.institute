@@ -5,7 +5,7 @@ import { TypePagePromoProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo, OrganizationJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront, company } from '@/config/index'
+import { routesFront } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import {
   ContextCategoriesContext,
@@ -14,7 +14,7 @@ import {
   ContextProgramContext,
   ContextQuestionsContext
 } from '@/context/index'
-import { usePros } from '@/hooks/index'
+import { useCompanyInfo, usePros } from '@/hooks/index'
 import {
   SectionHero,
   SectionOurPrograms,
@@ -32,13 +32,14 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
   categories,
   questions
 }) => {
+  const company = useCompanyInfo()
+  const pros = usePros()
+
   const { setCategories } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { setPrograms } = useContext(ContextProgramsContext)
   const { setQuestions } = useContext(ContextQuestionsContext)
   const { setProgram } = useContext(ContextProgramContext)
-
-  const pros = usePros()
 
   useEffect(() => {
     setCategories({

@@ -10,6 +10,7 @@ import {
   ContextCategoriesContext,
   ContextProgramContext
 } from '@/context/index'
+import { useCompanyInfo } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import {
   GeneralSectionTitle,
@@ -30,6 +31,7 @@ type TypeSectionProgramStudyCostProps = TypeClassNames
 const SectionProgramStudyCost = ({
   classNames
 }: TypeSectionProgramStudyCostProps) => {
+  const company = useCompanyInfo()
   const { program } = useContext(ContextProgramContext)
   const { curCategory } = useContext(ContextCategoriesContext)
 

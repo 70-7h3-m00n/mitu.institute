@@ -6,7 +6,7 @@ import { TypePageHomeProps } from '@/types/index'
 import cn from 'classnames'
 import { NextSeo, OrganizationJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront, company } from '@/config/index'
+import { routesFront } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import {
   ContextCategoriesContext,
@@ -15,6 +15,7 @@ import {
   ContextQuestionsContext,
   ContextProgramContext
 } from '@/context/index'
+import { useCompanyInfo } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import {
   ImgContactMapMoscow,
@@ -28,6 +29,7 @@ const PageContact: NextPage<TypePageHomeProps> = ({
   programs,
   questions
 }) => {
+  const company = useCompanyInfo()
   const { setCategories } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { setPrograms } = useContext(ContextProgramsContext)

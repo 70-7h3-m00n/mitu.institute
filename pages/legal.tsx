@@ -13,6 +13,7 @@ import { Wrapper } from '@/components/layout'
 import { handleGetStaticProps } from '@/lib/index'
 import { sortBasedOnNumericOrder } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
+import { useCompanyInfo } from '@/hooks/index'
 import { GeneralLegalTable } from '@/components/general'
 import { IconFile } from '@/components/icons'
 
@@ -21,6 +22,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
   documentCategories,
   documentSubcategories
 }) => {
+  const company = useCompanyInfo()
   const { setCategories } = useContext(ContextCategoriesContext)
   const [curCategory, setCurCategory] = useState<string | null>(
     sortBasedOnNumericOrder(documentCategories)?.[0]?.title || null

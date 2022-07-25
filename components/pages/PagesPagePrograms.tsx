@@ -5,9 +5,9 @@ import cn from 'classnames'
 import { NextSeo, OrganizationJsonLd } from 'next-seo'
 import truncate from 'truncate'
 import { ContextCategoriesContext } from '@/context/index'
-import { routesFront, company, colors } from '@/config/index'
+import { routesFront, colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
-import { useAt, usePros } from '@/hooks/index'
+import { useAt, useCompanyInfo, usePros } from '@/hooks/index'
 import {
   SectionOurPrograms,
   SectionUIFormAlpha,
@@ -27,6 +27,7 @@ type TypePagesPageProgramsProps = {
 
 const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
   const at = useAt()
+  const company = useCompanyInfo()
   const { curCategory } = useContext(ContextCategoriesContext)
 
   const pros = usePros()
