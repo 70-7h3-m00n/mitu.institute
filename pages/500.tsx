@@ -1,14 +1,36 @@
 import stls from '@/styles/pages/Page500.module.sass'
 import truncate from 'truncate'
 import { NextSeo } from 'next-seo'
-import { routesFront, company } from '@/config/index'
+import { routesFront } from '@/config/index'
+import { useAt, useCompanyInfo } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 
 const Page500 = () => {
+  const at = useAt()
+  const company = useCompanyInfo()
+
+  const translations = {
+    seoParamsTitle: at.uz
+      ? '500 - Kechirasiz! Serverda kutilmagan xatolik yuz berdi'
+      : '500 - Извините! На сервере произошла непредвиденная ошибка',
+    seoParamsDesc: at.uz
+      ? "500 - Iltimos, keyinroq qayta urinib ko'ring yoki bizga qo'ng'iroq qiling"
+      : '500 - Пожалуйста, попробуйте позже или позвоните нам по номеру',
+    phoneNumber: at.uz ? company.phoneNumberUz : company.phoneNumber,
+    h2: at.uz ? (
+      'Kechirasiz! Serverda kutilmagan xatolik yuz berdi'
+    ) : (
+      <>Извините! На сервере произошла непредвиденная&nbsp;ошибка</>
+    ),
+    p: at.uz
+      ? "Keyinroq qayta urinib ko'ring yoki bizga qo'ng'iroq qiling"
+      : 'Пожалуйста, попробуйте позже или позвоните нам по номеру'
+  }
+
   const seoParams = {
-    title: `500 - Извините! На сервере произошла непредвиденная ошибка | ${company.name}`,
+    title: `${translations.seoParamsTitle} | ${company.name}`,
     desc: truncate(
-      `500 - Пожалуйста, попробуйте позже или позвоните нам по номеру ${company.phoneNumber.val}`,
+      `${translations.seoParamsDesc} ${translations.phoneNumber.val}`,
       120
     ),
     canonical: routesFront.defaultRoot
@@ -39,13 +61,13 @@ const Page500 = () => {
       <Wrapper>
         <div className={stls.content}>
           <h1 className={stls.title}>500</h1>
-          <h2 className={stls.h2}>
-            Извините! На сервере произошла непредвиденная&nbsp;ошибка
-          </h2>
+          <h2 className={stls.h2}>{translations.h2}</h2>
           <p className={stls.p}>
-            Пожалуйста, попробуйте позже или позвоните нам по номеру{' '}
-            <a href={company.phoneNumber.href} className={stls.phoneNumber}>
-              {company.phoneNumber.val}
+            {translations.p}{' '}
+            <a
+              href={translations.phoneNumber.href}
+              className={stls.phoneNumber}>
+              {translations.phoneNumber.val}
             </a>
           </p>
         </div>
