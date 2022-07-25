@@ -14,9 +14,6 @@ const hitLeadRoute = async ({
 }: TypeHitLeadRouteProps): Promise<
   AxiosResponse<TypeNextApiResponseLeadData>
 > =>
-  await axios.post<TypeNextApiResponseLeadData>(
-    `${routesFront.root}${routesFront.apiLead}`,
-    lead
-  )
+  await axios.post<TypeNextApiResponseLeadData>(`${routesFront.apiLead}`, lead)
 
 export default hitLeadRoute
