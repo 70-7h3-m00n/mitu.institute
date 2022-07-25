@@ -35,16 +35,40 @@ const SectionLeastDocuments = ({
 
   const { curCategory } = useContext(ContextCategoriesContext)
 
-  const leastDocuments: TypeLeastDocuments = mituinstitute
-    ? curCategory?.type === 'additional'
+  const translations = {
+    title: at.uz
+      ? "Oliy ma'lumot olish uchun sizga"
+      : 'Для получения высшего образования нужно',
+    titleHighlight: at.uz ? 'minimal hujjatlar kerak' : 'минимум документов',
+    leastDocumentAdditional: at.uz
       ? [
+          'Tugallangan oliy/oʻrta kasb-hunar taʼlimi',
+          'Pasport',
+          'Qabul qilish uchun ariza'
+        ]
+      : [
           'Законченное высшее / среднее профессиональное образование',
           'Паспорт',
           'Заявление на поступление'
+        ],
+    leastDocumentsMaster: at.uz
+      ? [
+          'Bakalavr darajasi / mutaxassis',
+          'Pasport',
+          'Qabul qilish uchun ariza'
         ]
-      : curCategory?.type === 'master'
-      ? ['Диплом бакалавра/специалиста', 'Паспорт', 'Заявление на поступление']
+      : ['Диплом бакалавра/специалиста', 'Паспорт', 'Заявление на поступление'],
+    leastDocumentsDefault: at.uz
+      ? ['Sertifikat / diplom', 'Pasport', 'Qabul qilish uchun ariza']
       : ['Аттестат / диплом', 'Паспорт', 'Заявление на поступление']
+  }
+
+  const leastDocuments: TypeLeastDocuments = mituinstitute
+    ? curCategory?.type === 'additional'
+      ? translations.leastDocumentAdditional
+      : curCategory?.type === 'master'
+      ? translations.leastDocumentsMaster
+      : translations.leastDocumentsDefault
     : [
         'Документ о предыдущем образовании',
         'Паспорт',
@@ -59,8 +83,10 @@ const SectionLeastDocuments = ({
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.left}>
           <GeneralSectionTitle classNames={[stls.title]}>
-            Для получения высшего образования нужно{' '}
-            <GeneralTextHighlight>минимум документов</GeneralTextHighlight>
+            {translations.title}{' '}
+            <GeneralTextHighlight>
+              {translations.titleHighlight}
+            </GeneralTextHighlight>
           </GeneralSectionTitle>
           <ul className={stls.leastDocuments}>
             {leastDocuments.map((document, idx) => (

@@ -40,6 +40,17 @@ const SectionYourFutureDiploma = ({
   const { program } = useContext(ContextProgramContext)
   const { curCategory } = useContext(ContextCategoriesContext)
 
+  const translations = {
+    title: at.uz ? 'Kelajakdagi diplomlaringiz' : 'Ваши будущие дипломы',
+    bachelorDiploma: at.uz ? 'Bakalavr darajasi' : 'Диплом бакалавра',
+    masterDiploma: at.uz ? 'Magistr darajasi' : 'Диплом магистра',
+    professionalRetrainingDiploma: at.uz
+      ? 'Kasbiy qayta tayyorlash diplomi'
+      : 'Диплом о профессиональной переподготовка',
+    instituteDiploma: at.uz ? 'Institut diplomi' : 'Диплом института',
+    supplementDiploma: at.uz ? "Jum Ta'minoti" : 'Диплом Supplement-'
+  }
+
   const diplomas = []
 
   // if (
@@ -49,15 +60,15 @@ const SectionYourFutureDiploma = ({
   //   diplomas = [
   //     {
   //       img: <ImgDiplomaDynamicProfession />,
-  //       label: 'Диплом о профессиональной переподготовке'
+  //       label: translations.professionalRetrainingDiploma
   //     },
   //     {
   //       img: <ImgDiplomaBachelor />,
-  //       label: 'Диплом бакалавра'
+  //       label: translations.bachelorDiploma
   //     },
   //     {
   //       img: <ImgDiplomaSupplement />,
-  //       label: 'Диплом Supplement'
+  //       label: translations.supplementDiploma
   //     }
   //   ]
 
@@ -65,11 +76,11 @@ const SectionYourFutureDiploma = ({
   //   diplomas = [
   //     {
   //       img: <ImgDiplomaDynamicProfession />,
-  //       label: 'Диплом о профессиональной переподготовке'
+  //       label: translations.professionalRetrainingDiploma
   //     },
   //     {
   //       img: <ImgDiplomaSupplement />,
-  //       label: 'Диплом Supplement'
+  //       label: translations.supplementDiploma
   //     }
   //   ]
 
@@ -77,15 +88,15 @@ const SectionYourFutureDiploma = ({
   //   diplomas = [
   //     {
   //       img: <ImgDiplomaDynamicProfession />,
-  //       label: 'Диплом о профессиональной переподготовке'
+  //       label: translations.professionalRetrainingDiploma
   //     },
   //     {
   //       img: <ImgDiplomaBachelor />,
-  //       label: 'Диплом бакалавра'
+  //       label: translations.bachelorDiploma
   //     },
   //     {
   //       img: <ImgDiplomaSupplement />,
-  //       label: 'Диплом Supplement'
+  //       label: translations.supplementDiploma
   //     }
   //   ]
 
@@ -94,23 +105,23 @@ const SectionYourFutureDiploma = ({
       diplomas.push(
         {
           img: <ImgDiplomaBachelor />,
-          label: 'Диплом бакалавра'
+          label: translations.bachelorDiploma
         },
         {
           img: <ImgDiplomaMaster />,
-          label: 'Диплом магистра'
+          label: translations.masterDiploma
         },
         {
           img: <ImgDiplomaDynamicProfession />,
-          label: 'Диплом о профессиональной переподготовке'
+          label: translations.professionalRetrainingDiploma
         },
         {
           img: <ImgDiplomaInstitute />,
-          label: 'Диплом института'
+          label: translations.instituteDiploma
         },
         {
           img: <ImgDiplomaSupplementTwoPages />,
-          label: 'Диплом Supplement'
+          label: translations.supplementDiploma
         }
       )
     } else {
@@ -118,19 +129,19 @@ const SectionYourFutureDiploma = ({
         diplomas.push(
           {
             img: <ImgDiplomaMaster />,
-            label: 'Диплом магистра'
+            label: translations.masterDiploma
           },
           {
             img: <ImgDiplomaDynamicProfession />,
-            label: 'Диплом о профессиональной переподготовке'
+            label: translations.professionalRetrainingDiploma
           },
           {
             img: <ImgDiplomaInstitute />,
-            label: 'Диплом института'
+            label: translations.instituteDiploma
           },
           {
             img: <ImgDiplomaSupplementTwoPages />,
-            label: 'Диплом Supplement'
+            label: translations.supplementDiploma
           }
         )
       }
@@ -138,19 +149,19 @@ const SectionYourFutureDiploma = ({
         diplomas.push(
           {
             img: <ImgDiplomaBachelor />,
-            label: 'Диплом бакалавра'
+            label: translations.bachelorDiploma
           },
           {
             img: <ImgDiplomaDynamicProfession />,
-            label: 'Диплом о профессиональной переподготовке'
+            label: translations.professionalRetrainingDiploma
           },
           {
             img: <ImgDiplomaInstitute />,
-            label: 'Диплом института'
+            label: translations.instituteDiploma
           },
           {
             img: <ImgDiplomaSupplementTwoPages />,
-            label: 'Диплом Supplement'
+            label: translations.supplementDiploma
           }
         )
       }
@@ -158,11 +169,11 @@ const SectionYourFutureDiploma = ({
         diplomas.push(
           {
             img: <ImgDiplomaDynamicProfession />,
-            label: 'Диплом о профессиональной переподготовке'
+            label: translations.professionalRetrainingDiploma
           },
           {
             img: <ImgDiplomaInstitute />,
-            label: 'Диплом института'
+            label: translations.instituteDiploma
           }
         )
       }
@@ -172,19 +183,19 @@ const SectionYourFutureDiploma = ({
       diplomas.push(
         {
           img: <ImgDiplomaMaster />,
-          label: 'Диплом магистра'
+          label: translations.masterDiploma
         },
         {
           img: <ImgDiplomaBachelor />,
-          label: 'Диплом бакалавра'
+          label: translations.bachelorDiploma
         },
         {
           img: <ImgDiplomaDynamicProfession />,
-          label: 'Диплом о профессиональной переподготовке'
+          label: translations.professionalRetrainingDiploma
         },
         {
           img: <ImgDiplomaSupplementTwoPages />,
-          label: 'Диплом Supplement'
+          label: translations.supplementDiploma
         }
       )
     } else {
@@ -192,19 +203,19 @@ const SectionYourFutureDiploma = ({
         diplomas.push(
           {
             img: <ImgDiplomaMaster />,
-            label: 'Диплом магистра'
+            label: translations.masterDiploma
           },
           {
             img: <ImgDiplomaDynamicProfession />,
-            label: 'Диплом о профессиональной переподготовке'
+            label: translations.professionalRetrainingDiploma
           },
           {
             img: <ImgDiplomaInstitute />,
-            label: 'Диплом института'
+            label: translations.instituteDiploma
           },
           {
             img: <ImgDiplomaSupplementTwoPages />,
-            label: 'Диплом Supplement'
+            label: translations.supplementDiploma
           }
         )
       }
@@ -212,19 +223,19 @@ const SectionYourFutureDiploma = ({
         diplomas.push(
           {
             img: <ImgDiplomaBachelor />,
-            label: 'Диплом бакалавра'
+            label: translations.bachelorDiploma
           },
           {
             img: <ImgDiplomaDynamicProfession />,
-            label: 'Диплом о профессиональной переподготовке'
+            label: translations.professionalRetrainingDiploma
           },
           {
             img: <ImgDiplomaInstitute />,
-            label: 'Диплом института'
+            label: translations.instituteDiploma
           },
           {
             img: <ImgDiplomaSupplementTwoPages />,
-            label: 'Диплом Supplement'
+            label: translations.supplementDiploma
           }
         )
       }
@@ -232,11 +243,11 @@ const SectionYourFutureDiploma = ({
         diplomas.push(
           {
             img: <ImgDiplomaDynamicProfession />,
-            label: 'Диплом о профессиональной переподготовке'
+            label: translations.professionalRetrainingDiploma
           },
           {
             img: <ImgDiplomaInstitute />,
-            label: 'Диплом института'
+            label: translations.instituteDiploma
           }
         )
       }
@@ -250,7 +261,7 @@ const SectionYourFutureDiploma = ({
       }>
       <Wrapper classNames={[stls.wrapper]}>
         <GeneralSectionTitle classNames={[stls.title]}>
-          Ваши будущие дипломы
+          {translations.title}
         </GeneralSectionTitle>
         <ul className={stls.diplomas}>
           {diplomas?.map((diploma, idx) => (

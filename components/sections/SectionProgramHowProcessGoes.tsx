@@ -15,6 +15,12 @@ const SectionProgramHowProcessGoes = ({
 }: TypeSectionProgramHowProcessGoesProps) => {
   const at = useAt()
 
+  const translations = {
+    title: at.uz
+      ? 'Trening qanday amalga oshiriladi?'
+      : 'Как проходит обучение?'
+  }
+
   const { program } = useContext(ContextProgramContext)
 
   if (!program?.howProcessGoes) return <></>
@@ -25,7 +31,7 @@ const SectionProgramHowProcessGoes = ({
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <Wrapper>
-        <GeneralSectionTitle>Как проходит обучение?</GeneralSectionTitle>
+        <GeneralSectionTitle>{translations.title}</GeneralSectionTitle>
       </Wrapper>
     </section>
   )

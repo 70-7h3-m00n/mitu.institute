@@ -18,6 +18,18 @@ const SectionEnterWithoutExam = ({
 }: TypeProgramWithoutExamProps) => {
   const at = useAt()
 
+  const translations = {
+    title: at.uz ? (
+      'Use holda harakat qilish mumkinmi?'
+    ) : (
+      <>Можно ли поступить без&nbsp;ЕГЭ?</>
+    ),
+    p: at.uz
+      ? "Arizani qoldiring va maxsus dasturda use holda oliy ma'lumot olish uchun tafsilotlarni bilib oling"
+      : 'Оставь заявку и узнай подробности, как получить высшее образование без ЕГЭ по специальной программе',
+    btnVal: at.uz ? "So'rov qoldiring" : 'Оставить заявку'
+  }
+
   return (
     <section
       className={
@@ -30,19 +42,16 @@ const SectionEnterWithoutExam = ({
               <IconMortarboard
                 classNames={[stls.icon, stls.tabletLaptopDesktop]}
               />
-              <span className={stls.text}>
-                Можно ли поступить без&nbsp;ЕГЭ?
-              </span>
+              <span className={stls.text}>{translations.title}</span>
             </h2>
           </div>
           <div className={stls.right}>
-            <p className={stls.p}>
-              Оставь заявку и узнай подробности, как получить высшее образование
-              без ЕГЭ по специальной программе
-            </p>
+            <p className={stls.p}>{translations.p}</p>
             <Popup
               trigger={() => (
-                <BtnAlpha variant='alpha-reverse'>Оставить заявку</BtnAlpha>
+                <BtnAlpha variant='alpha-reverse'>
+                  {translations.btnVal}
+                </BtnAlpha>
               )}
               modal
               lockScroll

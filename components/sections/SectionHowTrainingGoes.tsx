@@ -26,52 +26,84 @@ const SectionHowTrainingGoes = ({
 
   const atAdditional = program?.category?.type === 'additional'
 
+  const translations = {
+    title: at.uz
+      ? 'Trening qanday amalga oshiriladi?'
+      : 'Как проходит обучение?',
+    card1Title: at.uz
+      ? 'Onlayn hujjatlarni taqdim etish'
+      : 'Онлайн-подача документов',
+    card1Desc: at.uz
+      ? "Masofaviy o'qitish formati barcha hujjatlarni masofadan taqdim etishga imkon beradi"
+      : 'Дистанционный формат обучения, позволяет осуществлять  подачу всех документов удаленно',
+    card2Title: at.uz ? "Onlayn shaklda ma'ruzalar" : 'Лекции в онлайн формате',
+    card2Desc: at.uz
+      ? "Har bir talabaning shaxsiy hisobi bor, u erda ma'ruzalar o'tkaziladi. Barcha darslarning yozuvlari o'qish oxirigacha shaxsiy hisobingizda saqlanadi"
+      : 'У каждого студента есть личный кабинет, где проходят лекции. Записи всех занятий хранятся в личном кабинете до конца обучения',
+    card3Title: at.uz ? "Amaliy mashg'ulotlar" : 'Практические занятия',
+    card3Desc: at.uz
+      ? "Barcha amaliy mashg'ulotlar shaxsiy hisobimizda bizning onlayn ta'lim platformamizda o'tkaziladi"
+      : 'Все практические занятия проходят в личном кабинете на нашей образовательной онлайн платформе',
+    card4Title: at.uz ? 'Sessiyalar' : 'Сессии',
+    card4Desc: at.uz
+      ? "Imtihonlar masofaviy ta'lim tizimi orqali onlayn tarzda o'tkaziladi"
+      : 'Экзамены сдаются онлайн через систему дистанционного обучения',
+    card5Title: at.uz ? 'Tezis yozish' : 'Написание дипломной работы',
+    card5Desc: at.uz
+      ? 'Yakuniy malakaviy ish mavzusini tanlang va ilmiy rahbar bilan maslahatlashganda tezisni yozing'
+      : 'Выбираете тему выпускной квалификационной работы и при консультации научного руководителя пишете дипломную работу',
+    card6Title: at.uz ? 'Diplomni himoya qilish' : 'Защита диплома',
+    card6Desc: at.uz
+      ? "Yakuniy attestatsiya institutda o'tkaziladi. Agar xohlasangiz, masofadan o'tishingiz mumkin"
+      : 'Итоговая аттестация будет проходить в Институте. При желании можно пройти дистанционно'
+  }
+
   const cards =
     program?.howProcessGoes && program?.howProcessGoes?.length > 0
       ? program.howProcessGoes
       : [
           {
-            title: mituinstitute ? 'Онлайн-подача документов' : 'Изучайте темы',
+            title: mituinstitute ? translations.card1Title : 'Изучайте темы',
             description: mituinstitute
-              ? 'Дистанционный формат обучения, позволяет осуществлять  подачу всех документов удаленно'
+              ? translations.card1Desc
               : 'В курсе — практические видеоуроки'
           },
           {
             title: mituinstitute
-              ? 'Лекции в онлайн формате'
+              ? translations.card2Title
               : 'Выполняете задания',
             description: mituinstitute
-              ? 'У каждого студента есть личный кабинет, где проходят лекции. Записи всех занятий хранятся в личном кабинете до конца обучения'
+              ? translations.card2Desc
               : 'В том темпе, в котором Вам удобно'
           },
           {
             title: mituinstitute
-              ? 'Практические занятия'
+              ? translations.card3Title
               : 'Общайтесь с единомышленниками',
             description: mituinstitute
-              ? 'Все практические занятия проходят в личном кабинете на нашей образовательной онлайн платформе'
+              ? translations.card3Desc
               : 'У нас большое сообщество выпускников и студентов, которые всегда помогут и подскажут'
           },
           {
-            title: mituinstitute ? 'Сессии' : 'Работаете с преподавателями',
+            title: mituinstitute
+              ? translations.card4Title
+              : 'Работаете с преподавателями',
             description: mituinstitute
-              ? 'Экзамены сдаются онлайн через систему дистанционного обучения'
+              ? translations.card4Desc
               : 'Постоянное взаимодействие с высококвалифицированными преподавателями-практиками, экспертами'
           },
           {
-            title: mituinstitute
-              ? 'Написание дипломной работы'
-              : 'Получаете диплом',
+            title: mituinstitute ? translations.card5Title : 'Получаете диплом',
             description: mituinstitute
-              ? 'Выбираете тему выпускной квалификационной работы и при консультации научного руководителя пишете дипломную работу'
+              ? translations.card5Desc
               : 'Защищаете дипломную работу и дополняете ею своё портфолио'
           },
           {
             title: mituinstitute
-              ? 'Защита диплома'
+              ? translations.card6Title
               : 'Готовитесь к собеседованию',
             description: mituinstitute
-              ? 'Итоговая аттестация будет проходить в Институте. При желании можно пройти дистанционно'
+              ? translations.card6Desc
               : 'Мы поможем подготовить резюме и расскажем как вести себя на собеседовании в компаниях'
           }
         ]
@@ -96,7 +128,7 @@ const SectionHowTrainingGoes = ({
       <Wrapper
         classNames={[cn(stls.wrapper, { [stls.atAdditional]: atAdditional })]}>
         <GeneralSectionTitle classNames={[stls.GeneralSectionTitle]}>
-          Как проходит обучение?
+          {translations.title}
         </GeneralSectionTitle>
         <ul className={cn(stls.cards, { [stls.atAdditional]: atAdditional })}>
           {cards.map((item, idx, arr) => {

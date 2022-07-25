@@ -16,24 +16,50 @@ const SectionAboutUniversity = ({
 }: TypeSectionAboutUniversityProps) => {
   const at = useAt()
 
+  const translations = {
+    title: at.uz ? 'Institut haqida' : 'Об институте',
+    pTop: at.uz
+      ? "Bizning universitet ta'lim zamonaviy yondashuv uchun. Biz doimo ish beruvchilarning fikr-mulohazalarini qabul qilamiz va o'quv dasturlarini moslashtiramiz"
+      : 'Наш университет за современный подход в образовании. Мы постоянно берем обратную связь от работодателей и адаптируем учебные программы',
+    pBottomHighlight: at.uz ? 'Bizning vazifamiz' : 'Наша миссия',
+    pBottom: at.uz
+      ? "- hamma uchun ochiq bo'ladigan ta'lim tizimini yaratish. Masofaviy ta’lim belgilangan maqsad va vazifalarga to‘liq javob beradi, shuning uchun innovatsion texnologiyalar institutimizda o‘quv jarayonining ajralmas qismi hisoblanadi"
+      : '— создать систему образования, которая будет доступна каждому. Дистанционное обучение полностью отвечает поставленным целям и задачам, поэтому инновационные технологии — неотъемлемая часть образовательного процесса в нашем институте',
+    btnVal: at.uz
+      ? "Ta'lim faoliyatini amalga oshirish huquqini beruvchi davlat litsenziyasi"
+      : 'Государственная лицензия на право ведения образовательной деятельности',
+    testimonial1Title: at.uz ? '10 yil' : '10 лет',
+    testimonial1Subtitle: at.uz
+      ? "Biz ta'lim bilan shug'ullanamiz"
+      : 'Занимаемся образованием',
+    testimonial2Title: at.uz ? '>2000' : '>2000',
+    testimonial2Subtitle: at.uz ? "Hozir o'rganing" : 'Учатся прямо сейчас',
+    testimonial3Title: at.uz ? '7 yil' : '7 лет',
+    testimonial3Subtitle: at.uz
+      ? "Masofaviy ta'lim bo'yicha ixtisoslashgan"
+      : 'Специализируемся на дистанционном обучении',
+    testimonial4Title: at.uz ? '>10 000' : '>10 000',
+    testimonial4Subtitle: at.uz
+      ? "Talabalar allaqachon o'qitilgan"
+      : 'Студентов уже обучили'
+  }
+
   const testimonials = [
     {
-      title: '10 лет',
-      subtitle: 'Занимаемся образованием'
+      title: translations.testimonial1Title,
+      subtitle: translations.testimonial1Subtitle
     },
     {
-      title: '>2000',
-      subtitle: 'Учатся прямо сейчас'
+      title: translations.testimonial2Title,
+      subtitle: translations.testimonial2Subtitle
     },
     {
-      title: '7 лет',
-      subtitle: mituinstitute
-        ? 'Специализируемся на дистанционном обучении'
-        : 'Специализируемся на дистанционном обучении'
+      title: translations.testimonial3Title,
+      subtitle: translations.testimonial3Subtitle
     },
     {
-      title: '>10 000',
-      subtitle: 'Студентов уже обучили'
+      title: translations.testimonial4Title,
+      subtitle: translations.testimonial4Subtitle
     }
   ]
 
@@ -44,23 +70,18 @@ const SectionAboutUniversity = ({
       }>
       <Wrapper>
         <GeneralSectionTitle>
-          {mituinstitute ? 'Об институте' : 'Об Институте'}
+          {mituinstitute ? translations.title : 'Об Институте'}
         </GeneralSectionTitle>
         <div className={stls.content}>
           <div className={stls.top}>
             <div className={stls.left}>
               <div className={stls.pgroup}>
-                <p className={cn(stls.p, stls.pTop)}>
-                  Наш университет за современный подход в образовании. Мы
-                  постоянно берем обратную связь от работодателей и адаптируем
-                  учебные программы
-                </p>
+                <p className={cn(stls.p, stls.pTop)}>{translations.pTop}</p>
                 <p className={cn(stls.p, stls.pBottom)}>
-                  <GeneralTextHighlight alt>Наша миссия</GeneralTextHighlight> —
-                  создать систему образования, которая будет доступна каждому.
-                  Дистанционное обучение полностью отвечает поставленным целям и
-                  задачам, поэтому инновационные технологии — неотъемлемая часть
-                  образовательного процесса в нашем институте
+                  <GeneralTextHighlight alt>
+                    {translations.pBottomHighlight}
+                  </GeneralTextHighlight>
+                  {translations.pBottom}
                 </p>
               </div>
               <div className={cn(stls.btns)}>
@@ -70,8 +91,7 @@ const SectionAboutUniversity = ({
                   tag='a'
                   href={routesExternal.license}
                   target='_blank'>
-                  Государственная лицензия на право ведения образовательной
-                  деятельности
+                  {translations.btnVal}
                 </BtnBeta>
                 {/* <BtnBeta variant='beta' classNames={[stls.btn]}>
                   Свидетельство о государственной аккредитации
