@@ -53,6 +53,22 @@ const SectionProgramsWithFiltersAlt = ({
 }: TypeSectionProgramsWithFiltersAltProps) => {
   const at = useAt()
 
+  const translations = {
+    btnShowMoreVal: at.uz ? "Hammasini ko'rsatish" : 'Показать все',
+    btnResetFilters: at.uz ? 'Filtrlarni tiklash' : 'Сбросить фильтры',
+    titleLaptopDesktop: at.uz ? 'Dasturlar' : 'Программы',
+    allPrograms: at.uz ? 'Barcha dasturlar' : 'Все\u00A0программы',
+    moreThan: at.uz ? "Ko'proq" : 'Более',
+    programs: at.uz ? 'dasturlari' : 'программ',
+    allStudyFields: at.uz ? "Barcha yo'nalishlar" : 'Все направления',
+    searchPlaceholder: at.uz
+      ? 'Dastur nomini kiriting'
+      : 'Введите название программы',
+    chooseProgram: at.uz ? 'Dasturni tanlang' : 'Выберите программу',
+    chooseStudyField: at.uz ? 'Manzillarni tanlang' : 'Выберите направления',
+    apply: at.uz ? 'Murojaat qiling' : 'Применить'
+  }
+
   const { categories, curCategory, setCategories } = useContext(
     ContextCategoriesContext
   )
@@ -63,25 +79,30 @@ const SectionProgramsWithFiltersAlt = ({
   const [appliedStudyFields, setAppliedStudyFields] = useState<
     TStudyFields | []
   >([])
-  const [studyFieldsShowMax, setStudyFieldsShowMax] = useState(8)
-
-  const studyFieldControlBtnShowMax = studyFieldsShowMax < Infinity && (
-    <button
-      className={cn(stls.btnShowAll, stls.btnStudyFieldControl)}
-      onClick={() => setStudyFieldsShowMax(Infinity)}>
-      Показать все{' '}
-      <IconPointerBottom
-        classNames={[stls.IconPointerBottom]}
-        color={colors.beta}
-      />
-    </button>
+  const studyFieldsShowMaxDefault = 8
+  const [studyFieldsShowMax, setStudyFieldsShowMax] = useState(
+    studyFieldsShowMaxDefault
   )
+
+  const studyFieldControlBtnShowMax = studyFields &&
+    studyFields?.length > studyFieldsShowMaxDefault &&
+    studyFieldsShowMax < Infinity && (
+      <button
+        className={cn(stls.btnShowAll, stls.btnStudyFieldControl)}
+        onClick={() => setStudyFieldsShowMax(Infinity)}>
+        {translations.btnShowMoreVal}{' '}
+        <IconPointerBottom
+          classNames={[stls.IconPointerBottom]}
+          color={colors.beta}
+        />
+      </button>
+    )
 
   const studyFieldControlBtnSetDefault = appliedStudyFields?.length > 0 && (
     <button
       className={cn(stls.btnSetStudyFieldsToDefault, stls.btnStudyFieldControl)}
       onClick={() => setAppliedStudyFields([])}>
-      Сбросить фильтры
+      {translations.btnResetFilters}
     </button>
   )
 
@@ -101,13 +122,17 @@ const SectionProgramsWithFiltersAlt = ({
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.heading}>
           <h1 className={stls.title}>
-            <span className={stls.laptopDesktop}>Программы</span>
+            <span className={stls.laptopDesktop}>
+              {translations.titleLaptopDesktop}
+            </span>
             <span className={stls.phoneTablet}>
-              {curCategory?.label || 'Все\u00A0программы'}
+              {curCategory?.label || translations.allPrograms}
             </span>
           </h1>
           <p className={stls.programsCounter}>
-            <span className={stls.tabletLaptopDesktop}>Более </span>
+            <span className={stls.tabletLaptopDesktop}>
+              {translations.moreThan}{' '}
+            </span>
             <span
               className={stls.highlight}
               title={`${
@@ -116,12 +141,14 @@ const SectionProgramsWithFiltersAlt = ({
               {Math.round((programs?.length || 100) / 10) * 10}
               <span className={stls.phone}>+</span>
             </span>{' '}
-            <span className={stls.tabletLaptopDesktop}>программ</span>
+            <span className={stls.tabletLaptopDesktop}>
+              {translations.programs}
+            </span>
           </p>
         </div>
         <div className={cn(stls.underheading, stls.laptopDesktop)}>
           <GeneralSectionTitle classNames={[stls.GeneralSectionTitle]}>
-            {curCategory?.label || 'Все программы'}
+            {curCategory?.label || translations.allPrograms}
           </GeneralSectionTitle>
           <ul className={stls.categories}>
             <li className={stls.categoryItem}>
@@ -130,7 +157,7 @@ const SectionProgramsWithFiltersAlt = ({
                   className={cn(stls.categoryLink, {
                     [stls.isActive]: !curCategory
                   })}>
-                  Все&nbsp;программы
+                  {translations.allPrograms}
                 </a>
               </Link>
             </li>
@@ -176,7 +203,7 @@ const SectionProgramsWithFiltersAlt = ({
                     </span>
                   ))
                 : 'Все направления'} */}
-              Все направления
+              {translations.allStudyFields}
             </h3>
             <ul className={stls.studyFields}>
               {studyFields
@@ -240,8 +267,8 @@ const SectionProgramsWithFiltersAlt = ({
                 className={stls.searchInput}
                 value={searchValue}
                 onChange={e => setSearchValue(e.target.value)}
-                placeholder={'Введите название программы'}
-                title={searchValue || 'Введите название программы'}
+                placeholder={translations.searchPlaceholder}
+                title={searchValue || translations.searchPlaceholder}
               />
               <div className={stls.iconSearchContainer}>
                 <IconSearch classNames={[stls.IconSearch]} />
@@ -253,7 +280,9 @@ const SectionProgramsWithFiltersAlt = ({
                   <BtnAlpha
                     variant='beta'
                     classNames={[stls.filterBtn, stls.filterBtnLeft]}>
-                    <span className={stls.btnText}>Все программы</span>
+                    <span className={stls.btnText}>
+                      {translations.allPrograms}
+                    </span>
                     <IconPointerBottom classNames={[stls.IconPointerBottom]} />
                   </BtnAlpha>
                 )}
@@ -281,7 +310,7 @@ const SectionProgramsWithFiltersAlt = ({
                         stls.GeneralPopupTitle,
                         stls.GeneralPopupTitleChooseProgram
                       )}>
-                      Выберите программу
+                      {translations.chooseProgram}
                     </h3>
                     <ul className={stls.list}>
                       <li className={stls.listItem}>
@@ -293,7 +322,7 @@ const SectionProgramsWithFiltersAlt = ({
                             <div className={stls.listItemLinkCircle}></div>
                             <div className={stls.listItemText}>
                               <span className={stls.listItemLinkLabel}>
-                                Все программы
+                                {translations.allPrograms}
                               </span>
                             </div>
                           </a>
@@ -343,7 +372,7 @@ const SectionProgramsWithFiltersAlt = ({
                               {appliedStudyField.title}
                             </span>
                           ))
-                        : 'Все направления'}
+                        : translations.allStudyFields}
                     </span>
                     <IconPointerBottom classNames={[stls.IconPointerBottom]} />
                   </BtnAlpha>
@@ -368,7 +397,7 @@ const SectionProgramsWithFiltersAlt = ({
                       </a>
                     </div>
                     <h3 className={stls.GeneralPopupTitle}>
-                      Выберите направления
+                      {translations.chooseStudyField}
                     </h3>
                     {studyFieldControlBtnSetDefault}
                     <ul className={stls.list}>
@@ -433,7 +462,7 @@ const SectionProgramsWithFiltersAlt = ({
                       variant='beta'
                       onClick={close}
                       classNames={[stls.BtnAlphaApplyStudyFields]}>
-                      Применить
+                      {translations.apply}
                     </BtnAlpha>
                   </div>
                 )}

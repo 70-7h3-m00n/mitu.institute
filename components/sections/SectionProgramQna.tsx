@@ -16,7 +16,7 @@ const SectionProgramQna = ({ classNames }: TypeSectionProgramQnaProps) => {
 
   const { program } = useContext(ContextProgramContext)
 
-  if (!program?.questions) return <></>
+  if (!program?.questions || program?.questions?.length === 0) return <></>
 
   return (
     <section

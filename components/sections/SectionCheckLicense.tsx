@@ -20,6 +20,13 @@ type TypeSectionCheckLicenseProps = TypeClassNames
 const SectionCheckLicense = ({ classNames }: TypeSectionCheckLicenseProps) => {
   const at = useAt()
 
+  const translations = {
+    title: at.uz ? 'Litsenziyani tekshiring' : 'Проверьте лицензию',
+    btnVal: at.uz
+      ? "Ta'lim faoliyatini amalga oshirish huquqini beruvchi davlat litsenziyasi"
+      : 'Государственная лицензия на право ведения образовательной деятельности'
+  }
+
   const { program } = useContext(ContextProgramContext)
 
   const atAdditional = program?.category?.type === 'additional'
@@ -46,7 +53,7 @@ const SectionCheckLicense = ({ classNames }: TypeSectionCheckLicenseProps) => {
       )}
       <Wrapper>
         <GeneralSectionTitle classNames={[stls.title]}>
-          Проверьте лицензию
+          {translations.title}
         </GeneralSectionTitle>
         <BtnBeta
           variant='alpha'
@@ -54,7 +61,7 @@ const SectionCheckLicense = ({ classNames }: TypeSectionCheckLicenseProps) => {
           tag='a'
           href={routesExternal.license}
           target='_blank'>
-          Государственная лицензия на право ведения образовательной деятельности
+          {translations.btnVal}
         </BtnBeta>
       </Wrapper>
     </section>
