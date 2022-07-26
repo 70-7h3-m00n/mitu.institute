@@ -15,7 +15,7 @@ import {
   ContextQuestionsContext,
   ContextProgramContext
 } from '@/context/index'
-import { useCompanyInfo } from '@/hooks/index'
+import { useAt, useCompanyInfo } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import {
   ImgContactMapMoscow,
@@ -29,12 +29,17 @@ const PageContact: NextPage<TypePageHomeProps> = ({
   programs,
   questions
 }) => {
+  const at = useAt()
   const company = useCompanyInfo()
   const { setCategories } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { setPrograms } = useContext(ContextProgramsContext)
   const { setQuestions } = useContext(ContextQuestionsContext)
   const { setProgram } = useContext(ContextProgramContext)
+
+  const translations = {
+    contacts: at.uz ? 'Aloqa' : 'Контакты'
+  }
 
   useEffect(() => {
     setCategories({
@@ -46,9 +51,8 @@ const PageContact: NextPage<TypePageHomeProps> = ({
     setProgram({ payload: null })
   }, [categories, programs, questions])
 
-  const h1 = 'Контакты'
   const seoParams = {
-    title: `${h1} | ${company.name}`,
+    title: `${translations.contacts} | ${company.name}`,
     desc: `${company.tagline}`,
     canonical: `${routesFront.defaultRoot}${routesFront.legal}`
   }
@@ -128,7 +132,7 @@ const PageContact: NextPage<TypePageHomeProps> = ({
       />
       <section>
         <Wrapper>
-          <h1 className={stls.title}>{h1}</h1>
+          <h1 className={stls.title}>{translations.contacts}</h1>
 
           <ul className={stls.list}>
             {list.map((item, idx) => (

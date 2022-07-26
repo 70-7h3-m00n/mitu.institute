@@ -102,7 +102,7 @@ const company = {
     href: 'tel:+998-78-122-62-26',
     val: '+998 (78) 122-62-26',
     contactType: 'Учебный отдел',
-    areaServed: ['KZ']
+    areaServed: ['UZ']
   },
   languages: ['Russian', 'Kazakh', 'Uzbek']
 }

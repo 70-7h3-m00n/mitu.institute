@@ -2,10 +2,9 @@ import stls from '@/styles/components/sections/SectionWhyUs.module.sass'
 import { TypeClassNames } from '@/types/index'
 import { Fragment, useContext } from 'react'
 import cn from 'classnames'
-import { whyus } from '@/data/index'
 import { mituinstitute, colors } from '@/config/index'
 import { getClassNames, getImageHeight } from '@/helpers/index'
-import { useAt, useCompanyInfo } from '@/hooks/index'
+import { useAt, useCompanyInfo, useWhyUs } from '@/hooks/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
@@ -17,6 +16,7 @@ type TypeSectionWhyUsProps = TypeClassNames
 const SectionWhyUs = ({ classNames }: TypeSectionWhyUsProps) => {
   const at = useAt()
   const company = useCompanyInfo()
+  const whyus = useWhyUs()
 
   const translations = {
     title: at.uz ? 'Nima uchun' : 'Почему выбирают'

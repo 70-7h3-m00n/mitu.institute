@@ -12,7 +12,7 @@ import {
   ContextStudyFieldContext,
   ContextProgramContext
 } from '@/context/index'
-import { useCompanyInfo } from '@/hooks/index'
+import { useAt, useCompanyInfo } from '@/hooks/index'
 import {
   SectionProgramHero,
   SectionProgramForWhom,
@@ -45,7 +45,15 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
   gspContextParamsStudyField,
   gspContextParamsProgram
 }) => {
+  const at = useAt()
   const company = useCompanyInfo()
+
+  const translations = {
+    formTitle: at.uz
+      ? 'Bepul maslahat oling'
+      : 'Получить бесплатную консультацию'
+  }
+
   const { setCategories, curCategory } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
   const { program: programContext, setProgram } = useContext(
@@ -140,7 +148,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           {atAdditional && <SectionStartWithDiscount />}
           <SectionProgramJobTitlesWithoutPictures />
           {!atAdditional && (
-            <SectionUIFormAlpha title='Получить бесплатную консультацию' />
+            <SectionUIFormAlpha title={translations.formTitle} />
           )}
           <SectionProgramStudyCost />
           <SectionProgramQna />

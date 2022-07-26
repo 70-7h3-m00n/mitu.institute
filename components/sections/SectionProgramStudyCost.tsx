@@ -66,7 +66,7 @@ const SectionProgramStudyCost = ({
     discount: at.uz ? 'Chegirma ' : 'Скидка',
     installment: at.uz ? null : <>Беспроцентная рассрочка на&nbsp;</>,
     months: at.uz ? 'oy' : 'месяцев',
-    installmentAfter: at.uz ? 'davomida foizsiz uzishiga' : null
+    installmentAfter: at.uz ? ' davomida foizsiz uzishiga' : null
   }
 
   const { program } = useContext(ContextProgramContext)

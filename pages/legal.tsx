@@ -13,7 +13,7 @@ import { Wrapper } from '@/components/layout'
 import { handleGetStaticProps } from '@/lib/index'
 import { sortBasedOnNumericOrder } from '@/helpers/index'
 import { ContextCategoriesContext } from '@/context/index'
-import { useCompanyInfo } from '@/hooks/index'
+import { useAt, useCompanyInfo } from '@/hooks/index'
 import { GeneralLegalTable } from '@/components/general'
 import { IconFile } from '@/components/icons'
 
@@ -22,7 +22,37 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
   documentCategories,
   documentSubcategories
 }) => {
+  const at = useAt()
   const company = useCompanyInfo()
+
+  const translations = {
+    companyInfo: at.uz ? 'Tashkilot tafsilotlari' : 'Сведения об организации',
+    legalInfo: at.uz ? (
+      <>
+        Ta&apos;lim tashkiloti to&apos;g&apos;risidagi ma&apos;lumotlarni oshkor
+        qilish Rosobrnadzorning 2020 yil 14 avgustdagi buyrug&apos;iga muvofiq
+        831-son «Tuzilishga qo&apos;yiladigan talablarni tasdiqlash
+        to&apos;g&apos;risida ta&apos;lim tashkilotining rasmiy veb-sayti
+        axborot-telekommunikatsiya tarmog&apos;i &quot;Internet&quot; va
+        ma&apos;lumotlarni taqdim etish formati&quot; Ta&apos;lim tashkiloti
+        to&apos;g&apos;risidagi ma&apos;lumotlarni oshkor qilish
+        Rosobrnadzorning 2020 yil 14 avgustdagi buyrug&apos;iga muvofiq 831-son
+        «Tuzilishga qo&apos;yiladigan talablarni tasdiqlash
+        to&apos;g&apos;risida ta&apos;lim tashkilotining rasmiy veb-sayti
+        axborot-telekommunikatsiya tarmog&apos;i &quot;Internet&quot; va
+        ma&apos;lumotni taqdim etish formati&quot;
+      </>
+    ) : (
+      <>
+        Раскрытие информации об образовательной организации в соответствии с
+        Приказом Рособрнадзора от 14 августа 2020 г. № 831 &quot;Об утверждении
+        Требований к структуре официального сайта образовательной организации в
+        информационно-телекоммуникационной сети &quot;Интернет&quot; и формату
+        представления информации&quot;
+      </>
+    )
+  }
+
   const { setCategories } = useContext(ContextCategoriesContext)
   const [curCategory, setCurCategory] = useState<string | null>(
     sortBasedOnNumericOrder(documentCategories)?.[0]?.title || null
@@ -34,9 +64,8 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
     })
   }, [categories])
 
-  const h1 = 'Сведения об организации'
   const seoParams = {
-    title: `${h1} | ${company.name}`,
+    title: `${translations.companyInfo} | ${company.name}`,
     desc: truncate(
       documentCategories?.reduce((acc, cur) => acc + cur.title + '. ', '') ||
         company.tagline,
@@ -92,7 +121,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
       />
       <section className={stls.container}>
         <Wrapper>
-          <h1 className={stls.title}>{h1}</h1>
+          <h1 className={stls.title}>{translations.companyInfo}</h1>
           <div className={stls.content}>
             <div className={stls.left}>
               <ul className={stls.documentCategories}>
@@ -115,14 +144,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
                   )
                 )}
                 <li className={stls.documentCategoryItem}>
-                  <p className={stls.info}>
-                    Раскрытие информации об образовательной организации в
-                    соответствии с Приказом Рособрнадзора от 14 августа 2020 г.
-                    № 831 &quot;Об утверждении Требований к структуре
-                    официального сайта образовательной организации в
-                    информационно-телекоммуникационной сети &quot;Интернет&quot;
-                    и формату представления информации&quot;
-                  </p>
+                  <p className={stls.info}>{translations.legalInfo}</p>
                 </li>
               </ul>
             </div>

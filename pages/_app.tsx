@@ -2,6 +2,7 @@ import '@/styles/app.sass'
 import 'reactjs-popup/dist/index.css'
 import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import { TypeRoute } from '@/types/index'
+import Head from 'next/head'
 import Router from 'next/router'
 import Script from 'next/script'
 import { useContext, useEffect, useState } from 'react'
@@ -16,6 +17,7 @@ import {
   pageview,
   handleLocale
 } from '@/helpers/index'
+import { useCompanyInfo } from '@/hooks/index'
 import {
   ContextAccessibilityState,
   ContextCategoriesState,
@@ -29,6 +31,8 @@ import { HeaderPromo } from '@/components/promo'
 import { GeneralNavPhoneTablet } from '@/components/general'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
+  const company = useCompanyInfo()
+
   // TODO: figure out SEO (don't forget about UZ)
   const [loading, setLoading] = useState(false)
 
@@ -70,6 +74,10 @@ const App = ({ Component, pageProps, router }: AppProps) => {
 
   return (
     <>
+      <Head>
+        <meta name='application-name' content={company.name} />
+        <meta name='apple-mobile-web-app-title' content={company.name} />
+      </Head>
       <DefaultSeo {...SEO} />
       <LogoJsonLd
         logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`}
