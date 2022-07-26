@@ -33,6 +33,7 @@ import { GeneralNavPhoneTablet } from '@/components/general'
 const App = ({ Component, pageProps, router }: AppProps) => {
   const company = useCompanyInfo()
 
+  // TODO: check the translations UZ google docs to make sure the translations are correct
   // TODO: figure out SEO (don't forget about UZ)
   const [loading, setLoading] = useState(false)
 
