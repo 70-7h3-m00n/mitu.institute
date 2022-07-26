@@ -20,6 +20,20 @@ const SectionCorporateProgram = ({
 }: TypeSectionCorporateProgramProps) => {
   const at = useAt()
 
+  const translations = {
+    title: at.uz ? (
+      'Kompaniya xodimlari uchun dastur kerakmi?'
+    ) : (
+      <>
+        Нужна программа <br /> для сотрудников компании?
+      </>
+    ),
+    p: at.uz
+      ? "Agar siz xodimlaringizni o'qitishni tashkil qilishingiz kerak bo'lsa, so'rov qoldiring. Siz uchun alohida taklif tayyorladik"
+      : 'Если нужно организовать обучение своих сотрудников – оставьте заявку. Мы подготовили для Вас индивидуальное предложение',
+    learnMore: at.uz ? "Ko'proq" : 'Подробнее'
+  }
+
   return (
     <section
       className={
@@ -29,17 +43,14 @@ const SectionCorporateProgram = ({
         <div className={stls.content}>
           <div className={stls.left}>
             <GeneralSectionTitle classNames={[stls.title, stls.specificity]}>
-              Нужна программа <br /> для сотрудников компании?
+              {translations.title}
             </GeneralSectionTitle>
-            <p className={stls.p}>
-              Если нужно организовать обучение своих сотрудников – оставьте
-              заявку. Мы подготовили для Вас индивидуальное предложение
-            </p>
+            <p className={stls.p}>{translations.p}</p>
 
             <Popup
               trigger={() => (
                 <BtnAlpha classNames={[stls.btn]} variant='alpha-reverse'>
-                  Подробнее
+                  {translations.learnMore}
                 </BtnAlpha>
               )}
               modal

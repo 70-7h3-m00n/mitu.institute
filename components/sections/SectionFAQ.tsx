@@ -15,6 +15,13 @@ type TypeSectionFAQProps = TypeClassNames
 const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
   const at = useAt()
 
+  const translations = {
+    title: at.uz ? "Tez-tez so'ralamiz" : 'Нас часто спрашивают',
+    formTitle: at.uz
+      ? 'Savollar bormi? Qabul komissiyasidan maslahat oling'
+      : 'Остались вопросы? Получите консультацию приемной комиссии'
+  }
+
   const { questions } = useContext(ContextQuestionsContext)
 
   if (!questions || questions?.length === 0) return <></>
@@ -23,7 +30,7 @@ const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
     <section className={cn(stls.container, getClassNames({ classNames }))}>
       <Wrapper>
         <GeneralSectionTitle classNames={[stls.title]}>
-          Нас часто спрашивают
+          {translations.title}
         </GeneralSectionTitle>
         <div className={stls.content}>
           <ul className={stls.qnas}>
@@ -41,9 +48,7 @@ const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
           <UIFormAlpha
             classNames={[stls.form]}
             variant='beta'
-            title={
-              <>Остались вопросы? Получите консультацию приемной комиссии</>
-            }
+            title={translations.formTitle}
           />
         </div>
       </Wrapper>

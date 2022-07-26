@@ -14,6 +14,10 @@ type TypeSectionProgramQnaProps = TypeClassNames
 const SectionProgramQna = ({ classNames }: TypeSectionProgramQnaProps) => {
   const at = useAt()
 
+  const translations = {
+    title: at.uz ? "Tez-tez so'ralamiz" : 'Нас часто спрашивают'
+  }
+
   const { program } = useContext(ContextProgramContext)
 
   if (!program?.questions || program?.questions?.length === 0) return <></>
@@ -24,7 +28,7 @@ const SectionProgramQna = ({ classNames }: TypeSectionProgramQnaProps) => {
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <Wrapper>
-        <GeneralSectionTitle>Нас часто спрашивают</GeneralSectionTitle>
+        <GeneralSectionTitle>{translations.title}</GeneralSectionTitle>
         <div className={stls.content}>
           <ul className={stls.qnas}>
             {program?.questions

@@ -24,6 +24,23 @@ const SectionProgramTeachers = ({
 }: TypeSectionProgramTeachersProps) => {
   const at = useAt()
 
+  const translations = {
+    teachers: at.uz ? "O'qituvchilar" : 'Преподаватели',
+    desc: at.uz ? (
+      <>
+        <GeneralTextHighlight>7 yildan 25 yilgacha</GeneralTextHighlight>{' '}
+        bo&apos;lgan tajribaga ega etakchi rus va xorijiy ekspertlar tomonidan
+        o&apos;qitiladi
+      </>
+    ) : (
+      <>
+        Преподают ведущие российские и зарубежные эксперты с опытом{' '}
+        <GeneralTextHighlight>от 7 до 25 лет</GeneralTextHighlight>
+      </>
+    ),
+    learnAll: at.uz ? 'Hamma Narsani Bilib Oling' : 'Узнать Всех'
+  }
+
   const { program } = useContext(ContextProgramContext)
 
   if (!program?.teachers) return <></>
@@ -34,14 +51,9 @@ const SectionProgramTeachers = ({
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <Wrapper>
-        <GeneralSectionTitle>Преподаватели</GeneralSectionTitle>
+        <GeneralSectionTitle>{translations.teachers}</GeneralSectionTitle>
         <p className={stls.description}>
-          {program?.teachersDescription || (
-            <>
-              Преподают ведущие российские и зарубежные эксперты с опытом{' '}
-              <GeneralTextHighlight>от 7 до 25 лет</GeneralTextHighlight>
-            </>
-          )}
+          {program?.teachersDescription || translations.desc}
         </p>
         <ul className={stls.teachers}>
           {program.teachers
@@ -70,7 +82,9 @@ const SectionProgramTeachers = ({
         </ul>
         <div className={stls.bottom}>
           <Popup
-            trigger={() => <BtnAlpha variant='beta'>Узнать Всех</BtnAlpha>}
+            trigger={() => (
+              <BtnAlpha variant='beta'>{translations.learnAll}</BtnAlpha>
+            )}
             modal
             lockScroll
             nested

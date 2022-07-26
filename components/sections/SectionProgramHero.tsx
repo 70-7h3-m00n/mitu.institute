@@ -21,6 +21,46 @@ type TypeSectionProgramHeroProps = TypeClassNames
 const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
   const at = useAt()
 
+  const translations = {
+    studyDuration: at.uz ? 'Trening davri' : 'Срок обучения',
+    professionalRetrainingDiploma: at.uz
+      ? 'Qayta tayyorlash diplomi'
+      : 'Диплом о переподготовке',
+    stateDiploma: at.uz ? 'Davlat diplomi' : 'Государственный диплом',
+    higherEducationDiplomaNotMituinstitute: at.uz
+      ? "Oliy ma'lumot to'g'risidagi nufuzli diplom"
+      : 'Престижный диплом о высшем образовании',
+    testimonialStudyDurationHintTitle: at.uz
+      ? 'Qanday qilib kesish kerak?'
+      : 'Как сократить?',
+    testimonialHintContentP: at.uz
+      ? "Tashqi tomondan tugatilishi mumkin, shu bilan o'qish muddatini qisqartiradi"
+      : 'Можно окончить экстерном, тем самым сократив срок обучения',
+    until: at.uz ? '' : 'до',
+    untilAfter: at.uz ? 'oyga' : '',
+    studyForm: at.uz ? "Ta'lim shakli" : 'Форма обучения',
+    studyFormOnline: at.uz ? 'Masofadan turib' : 'Дистанционная',
+    studyFormOnlineAltNotMituinstitute: at.uz
+      ? 'Masofaviy ta’lim texnologiyalaridan foydalangan holda kunduzgi, sirtqi, sirtqi ta’lim'
+      : 'Очная, очно-заочная, заочная с применением дистанционных технологий обучения',
+    admission: at.uz ? 'Qabul' : 'Зачисление',
+    everyMonthNotMituinstitute: at.uz ? 'Oylik' : 'Ежемесячно',
+    diploma: at.uz ? 'Diplom' : 'Диплом',
+    testimonialHintContentP2: at.uz
+      ? "- dasturning o'tishini tasdiqlovchi rasmiy hujjat barcha"
+      : '— это официальный документ, который подтверждает прохождение программы',
+    testimonialHintContentP3: at.uz
+      ? "berilgan diplomlar frdo-ta'lim to'g'risidagi hujjatlar to'g'risidagi ma'lumotlarning Federal reestriga kiritiladi"
+      : 'Все выданные дипломы вносятся в',
+    testimonialHintContentP3Highlight: at.uz
+      ? ''
+      : 'ФРДО — Федеральный реестр сведений о документах об образовании',
+    hoursAmount: at.uz ? 'Soatlar soni' : 'Количество часов',
+    discount: at.uz ? 'Chegirma' : 'Скидка',
+    signUpForCourse: at.uz ? 'Kursga yoziling' : 'Записаться на курс',
+    askQuestion: at.uz ? 'Savol bermoq' : 'Задать вопрос'
+  }
+
   const { program } = useContext(ContextProgramContext)
 
   if (!program?.title) return <></>
@@ -29,13 +69,13 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
 
   const testimonialDiplomaVal = mituinstitute
     ? atAdditional
-      ? 'Диплом о переподготовке'
-      : 'Государственный диплом'
-    : 'Престижный диплом о высшем образовании'
+      ? translations.professionalRetrainingDiploma
+      : translations.stateDiploma
+    : translations.higherEducationDiplomaNotMituinstitute
 
   const testimonials = [
     {
-      label: 'Срок обучения',
+      label: translations.studyDuration,
       val: (
         <ProgramStudyDuration
           studyDurationMonths={
@@ -47,21 +87,21 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
         ? {
             title: (
               <p className={stls.testimonialStudyDurationHintTitle}>
-                Как сократить?
+                {translations.testimonialStudyDurationHintTitle}
               </p>
             ),
             content: (
               <p className={stls.testimonialHintContentP}>
-                Можно окончить экстерном, тем самым сократив срок обучения{' '}
-                <br />{' '}
+                {translations.testimonialHintContentP} <br />{' '}
                 <span className={stls.highlight}>
-                  до{' '}
+                  {translations.until}{' '}
                   <ProgramStudyDuration
                     studyDurationMonths={
                       (Number(program.timenprice?.[0]?.studyMonthsDuration) ||
                         12) / 2
                     }
                   />
+                  {translations.untilAfter}
                 </span>
               </p>
             )
@@ -69,17 +109,21 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
         : null
     },
     {
-      label: 'Форма обучения',
+      label: translations.studyForm,
       val: mituinstitute
-        ? 'Дистанционная'
-        : 'Очная, очно-заочная, заочная с применением дистанционных технологий обучения'
+        ? translations.studyFormOnline
+        : translations.studyFormOnlineAltNotMituinstitute
     },
     {
-      label: 'Зачисление',
-      val: mituinstitute ? <ProgramAdmission /> : 'Ежемесячно'
+      label: translations.admission,
+      val: mituinstitute ? (
+        <ProgramAdmission />
+      ) : (
+        translations.everyMonthNotMituinstitute
+      )
     },
     {
-      label: 'Диплом',
+      label: translations.diploma,
       val: testimonialDiplomaVal,
       hint: atAdditional
         ? {
@@ -95,15 +139,14 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
             content: (
               <>
                 <p className={stls.testimonialHintContentP}>
-                  {testimonialDiplomaVal} — это официальный документ, который
-                  подтверждает прохождение программы
+                  {testimonialDiplomaVal}{' '}
+                  {translations.testimonialHintContentP2}
                 </p>
 
                 <p className={stls.testimonialHintContentP}>
-                  Все выданные дипломы вносятся в{' '}
+                  {translations.testimonialHintContentP3}{' '}
                   <GeneralTextHighlight>
-                    ФРДО — Федеральный реестр сведений о документах об
-                    образовании
+                    {translations.testimonialHintContentP3Highlight}
                   </GeneralTextHighlight>
                 </p>
               </>
@@ -114,7 +157,7 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
     {
       ...(atAdditional
         ? {
-            label: 'Количество часов',
+            label: translations.hoursAmount,
             val: Number(program.timenprice?.[0]?.studyHours) || 546
           }
         : undefined)
@@ -141,7 +184,7 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
             <ImgProgramHero classNames={[stls.img]} />
             {atAdditional && (
               <p className={stls.discount}>
-                Скидка <br />
+                {translations.discount} <br />
                 <span className={stls.bold}>
                   — {Number(program?.timenprice?.[0]?.discount)}%
                 </span>
@@ -153,7 +196,7 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
           <Popup
             trigger={() => (
               <BtnAlpha variant='gamma' classNames={[stls.btn]}>
-                Записаться на курс
+                {translations.signUpForCourse}
               </BtnAlpha>
             )}
             modal
@@ -169,7 +212,7 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
           <Popup
             trigger={() => (
               <BtnAlpha variant='gamma-reverse' classNames={[stls.btn]}>
-                Задать вопрос
+                {translations.askQuestion}
               </BtnAlpha>
             )}
             modal

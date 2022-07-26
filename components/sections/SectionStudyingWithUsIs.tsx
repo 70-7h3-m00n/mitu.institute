@@ -18,26 +18,59 @@ const SectionStudyingWithUsIs = ({
 }: TypeSectionStudyingWithUsIsProps) => {
   const at = useAt()
 
-  const { curCategory } = useContext(ContextCategoriesContext)
-
-  const studyingWithUsIs: TypeStudyingWithUsIs =
-    curCategory?.type === 'bachelor' || curCategory?.type === 'master'
+  const translations = {
+    studyingWithUsIsBachelorMaster: at.uz
       ? [
+          "Masofaviy ta'lim. Dunyoning istalgan joyidan o'rganishingiz mumkin",
+          "Ish beruvchilar talablariga moslashtirilgan o'quv dasturlari",
+          "24/7 kuratorni qo'llab-quvvatlash",
+          "O'qish xarajatlarining 13 foizini qaytarish imkoniyati",
+          "Kursni yo'qotmasdan boshqa universitetlardan tarjima"
+        ]
+      : [
           'Дистанционное обучение. Можете обучаться из любой точки мира',
-          // 'Отсрочка от армии',
           'Образовательные программы, адаптированные под требования работодателей',
           'Поддержка куратора 24/7',
           'Возможность вернуть 13% от стоимости обучения',
           'Перевод из других ВУЗов без потери курса'
+        ],
+    studyingWithUsIs: at.uz
+      ? [
+          "Masofaviy ta'lim. Dunyoning istalgan joyidan o'rganishingiz mumkin",
+          "Ish beruvchilar talablariga moslashtirilgan o'quv dasturlari",
+          "24/7 kuratorni qo'llab-quvvatlash",
+          "O'qish xarajatlarining 13 foizini qaytarish imkoniyati"
         ]
       : [
           'Дистанционное обучение. Можете обучаться из любой точки мира',
-          // 'Отсрочка от армии',
           'Образовательные программы, адаптированные под требования работодателей',
           'Поддержка куратора 24/7',
           'Возможность вернуть 13% от стоимости обучения'
-          // 'Перевод из других ВУЗов без потери курса'
-        ]
+        ],
+    title: at.uz ? (
+      <>
+        <GeneralTextHighlight>
+          &quot;Moskva texnologiya va menejment instituti&quot;
+        </GeneralTextHighlight>{' '}
+        da o&apos;qish
+      </>
+    ) : (
+      <>
+        Обучение в{' '}
+        <GeneralTextHighlight>
+          «Московском институте технологий <br /> и управления»
+        </GeneralTextHighlight>{' '}
+        — это
+      </>
+    )
+  }
+
+  const { curCategory } = useContext(ContextCategoriesContext)
+
+  const studyingWithUsIs: TypeStudyingWithUsIs =
+    curCategory?.type === 'bachelor' || curCategory?.type === 'master'
+      ? translations.studyingWithUsIsBachelorMaster
+      : translations.studyingWithUsIs
 
   return (
     <section
@@ -46,11 +79,7 @@ const SectionStudyingWithUsIs = ({
       }>
       <Wrapper>
         <GeneralSectionTitle classNames={[stls.title]}>
-          Обучение в{' '}
-          <GeneralTextHighlight>
-            «Московском институте технологий <br /> и управления»
-          </GeneralTextHighlight>{' '}
-          — это
+          {translations.title}
         </GeneralSectionTitle>
         <ul className={stls.items}>
           {studyingWithUsIs.map((item, idx) => (

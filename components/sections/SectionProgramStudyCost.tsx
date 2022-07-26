@@ -33,8 +33,42 @@ const SectionProgramStudyCost = ({
   classNames
 }: TypeSectionProgramStudyCostProps) => {
   const at = useAt()
-
   const company = useCompanyInfo()
+
+  const translations = {
+    studyDuration: at.uz ? "O'qish davomiyligi" : 'Длительность обучения',
+    studyFormatOnline: at.uz ? 'Masofadan turib' : 'Дистанционная',
+    studyFormatOffline: at.uz
+      ? 'Masofaviy ta’lim texnologiyalaridan foydalangan holda kunduzgi, sirtqi, sirtqi ta’lim'
+      : 'Очная, очно-заочная, заочная с применением дистанционных технологий обучения',
+    closestAdmission: at.uz
+      ? "Eng yaqin ro'yxatga olish"
+      : 'Ближайшее зачисление',
+    everyMonth: at.uz ? 'Oylik' : 'Ежемесячно',
+    stateDiploma: at.uz
+      ? "Oliy ma'lumot to'g'risidagi nufuzli diplom"
+      : 'Престижный диплом о высшем образовании',
+    moneyBack: at.uz ? 'Pulni qaytarib berish' : 'Возврат денег',
+    moneyBackDesc: at.uz
+      ? "Agar fikringizni o'rganishni o'zgartirsangiz, dastlabki ikki hafta ichida to'liq miqdorni qaytarib beramiz"
+      : 'Если вы передумаете учиться, то мы вернем полную сумму в течение первых двух недель',
+    savePercent: at.uz ? '13ni saqlang%' : 'Сэкономьте 13%',
+    savePercentDesc: at.uz
+      ? 'Soliq imtiyozini oling. Kursga yozilayotganda menejerning barcha tafsilotlari'
+      : 'Получите налоговый вычет. Все подробности у менеджера при записи на курс',
+    questionsLeft: at.uz ? 'Savollar bormi?' : 'Остались вопросы?',
+    callOrMsgUs: at.uz
+      ? "Bizga qo'ng'iroq qiling yoki yozing"
+      : 'Позвоните или напишите нам',
+    phoneNumber: at.uz ? company.phoneNumberUz : company.phoneNumber,
+    leaveRequest: at.uz ? "So'rov qoldiring" : 'Оставить заявку',
+    studyCost: at.uz ? "O'qish narxi" : 'Стоимость обучения',
+    discount: at.uz ? 'Chegirma ' : 'Скидка',
+    installment: at.uz ? null : <>Беспроцентная рассрочка на&nbsp;</>,
+    months: at.uz ? 'oy' : 'месяцев',
+    installmentAfter: at.uz ? 'davomida foizsiz uzishiga' : null
+  }
+
   const { program } = useContext(ContextProgramContext)
   const { curCategory } = useContext(ContextCategoriesContext)
 
@@ -59,7 +93,7 @@ const SectionProgramStudyCost = ({
             id: 'SectionProgramStudyCostStudyDuration',
             item: (
               <span>
-                Длительность обучения{' '}
+                {translations.studyDuration}{' '}
                 {
                   <ProgramStudyDuration
                     studyDurationMonths={Number(
@@ -71,19 +105,19 @@ const SectionProgramStudyCost = ({
             )
           },
           {
-            id: 'SectionProgramStudyCostStudyFormat',
+            id: 'studyFormat',
             item: mituinstitute
-              ? 'Дистанционная'
-              : 'Очная, очно-заочная, заочная с применением дистанционных технологий обучения'
+              ? translations.studyFormatOnline
+              : translations.studyFormatOffline
           },
           {
             id: 'SectionProgramStudyCostProgramAdmission',
             item: mituinstitute ? (
               <>
-                Ближайшее зачисление <ProgramAdmission />
+                {translations.closestAdmission} <ProgramAdmission />
               </>
             ) : (
-              'Ежемесячно'
+              translations.everyMonth
             )
           },
           {
@@ -91,27 +125,27 @@ const SectionProgramStudyCost = ({
             item: mituinstitute
               ? // <>Государственный диплом</>
                 null
-              : 'Престижный диплом о высшем образовании',
+              : translations.stateDiploma,
             highlight: true
           }
         ]
 
   const bottomInfos = [
     {
-      title: 'Возврат денег',
-      desc: 'Если вы передумаете учиться, то мы вернем полную сумму в течение первых двух недель'
+      title: translations.moneyBack,
+      desc: translations.moneyBackDesc
     },
     {
-      title: 'Сэкономьте 13%',
-      desc: 'Получите налоговый вычет. Все подробности у менеджера при записи на курс'
+      title: translations.savePercent,
+      desc: translations.savePercentDesc
     },
     {
-      title: 'Остались вопросы?',
+      title: translations.questionsLeft,
       desc: (
         <>
-          Позвоните или напишите нам:{' '}
-          <a className={stls.phoneNumber} href={company.phoneNumber.href}>
-            {company.phoneNumber.val}
+          {translations.callOrMsgUs}:{' '}
+          <a className={stls.phoneNumber} href={translations.phoneNumber.href}>
+            {translations.phoneNumber.val}
           </a>
         </>
       )
@@ -120,7 +154,9 @@ const SectionProgramStudyCost = ({
 
   const btn = (
     <Popup
-      trigger={() => <BtnAlpha variant='gamma'>Оставить заявку</BtnAlpha>}
+      trigger={() => (
+        <BtnAlpha variant='gamma'>{translations.leaveRequest}</BtnAlpha>
+      )}
       modal
       lockScroll
       nested
@@ -140,7 +176,7 @@ const SectionProgramStudyCost = ({
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <Wrapper>
-        <GeneralSectionTitle>Стоимость обучения</GeneralSectionTitle>
+        <GeneralSectionTitle>{translations.studyCost}</GeneralSectionTitle>
         <div className={stls.content}>
           <div className={cn(stls.left, { [stls.atAdditional]: atAdditional })}>
             {/* <h3 className={stls.h3}>Оплата за один семестр</h3>
@@ -169,7 +205,7 @@ const SectionProgramStudyCost = ({
             {atAdditional && (
               <div className={stls.discount}>
                 <p className={stls.discountP}>
-                  Скидка <br />
+                  {translations.discount} <br />
                   <span className={stls.discountHighlight}>
                     <span>
                       —&nbsp;{Number(program?.timenprice?.[0]?.discount)}%
@@ -180,8 +216,11 @@ const SectionProgramStudyCost = ({
             )}
             {/* <h3 className={cn(stls.h3, stls.h3Mx)}> */}
             <h3 className={cn(stls.h3)}>
-              Беспроцентная рассрочка на&nbsp;
-              <GeneralTextHighlight>12&nbsp;месяцев</GeneralTextHighlight>
+              {translations.installment}
+              <GeneralTextHighlight>
+                12&nbsp;{translations.months}
+              </GeneralTextHighlight>
+              {translations.installmentAfter}
             </h3>
             <div className={cn(stls.prices, stls.pricesBottom)}>
               <p className={stls.priceRegular}>

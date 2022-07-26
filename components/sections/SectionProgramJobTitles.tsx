@@ -24,13 +24,20 @@ const SectionProgramJobTitles = ({
 
   if (!program?.jobTitles || program?.jobTitles?.length === 0) return <></>
 
+  const translations = {
+    title: at.uz
+      ? 'Siz kim bilan ishlashingiz mumkin?'
+      : 'Кем Вы сможете работать?',
+    positionLabel: at.uz ? 'Lavozim' : 'Должность'
+  }
+
   return (
     <section
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <Wrapper>
-        <GeneralSectionTitle>Кем Вы сможете работать?</GeneralSectionTitle>
+        <GeneralSectionTitle>{translations.title}</GeneralSectionTitle>
         <ul className={stls.jobTitles}>
           {program.jobTitles
             .filter(jobTitle => jobTitle?.picture && jobTitle?.position)
@@ -51,7 +58,7 @@ const SectionProgramJobTitles = ({
                   classNames={[stls.img]}
                 />
                 <div className={stls.content}>
-                  <p className={stls.label}>Должность:</p>
+                  <p className={stls.label}>{translations.positionLabel}:</p>
                   <h3 className={stls.position}>{jobTitle.position}</h3>
 
                   {/* <div className={stls.price}>

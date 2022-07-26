@@ -43,6 +43,13 @@ const SectionProgramsWithFilters = ({
 }: TypeSectionProgramsWithFiltersProps) => {
   const at = useAt()
 
+  const translations = {
+    programs: at.uz ? 'Dasturlar' : 'Программы',
+    moreThan: at.uz ? "Ko'proq" : 'Более',
+    hideFilters: at.uz ? 'Qaytish filtrlari' : 'Свернуть фильтры',
+    showFilters: at.uz ? "Filtrlarni ko'rsatish" : 'Показать фильтры'
+  }
+
   const { categories, curCategory, setCategories } = useContext(
     ContextCategoriesContext
   )
@@ -67,14 +74,18 @@ const SectionProgramsWithFilters = ({
       }>
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.heading}>
-          <h1 className={stls.title}>Программы</h1>
+          <h1 className={stls.title}>{translations.programs}</h1>
           <p className={stls.programsCounter}>
-            <span className={stls.tabletLaptopDesktop}>Более </span>
+            <span className={stls.tabletLaptopDesktop}>
+              {translations.moreThan}{' '}
+            </span>
             <span className={stls.highlight}>
               {Math.round((programs?.length || 100) / 10) * 10}
               <span className={stls.phone}>+</span>
             </span>{' '}
-            <span className={stls.tabletLaptopDesktop}>программ</span>
+            <span className={stls.tabletLaptopDesktop}>
+              {translations.programs.toLocaleLowerCase()}
+            </span>
           </p>
         </div>
         {/* <div className={stls.searchContainer}>
@@ -102,7 +113,9 @@ const SectionProgramsWithFilters = ({
                 [stls.filtersAreOpen]: filtersAreOpen
               })}
               onClick={() => setFiltersAreOpen(!filtersAreOpen)}>
-              {filtersAreOpen ? 'Свернуть фильтры' : 'Показать фильтры'}
+              {filtersAreOpen
+                ? translations.hideFilters
+                : translations.showFilters}
             </button>
             <div
               className={cn(stls.filtersContainer, {

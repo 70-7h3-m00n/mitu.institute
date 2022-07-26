@@ -26,20 +26,30 @@ const ProgramStudyDuration = ({
   const at = useAt()
   const { program } = useContext(ContextProgramContext)
 
-  const translations = {}
-
   const years = Math.floor(+studyDurationMonths / 12)
   const months = +studyDurationMonths - 12 * years
 
+  const translations = {
+    monthsOnly: at.uz
+      ? 'oy'
+      : getCasedRuMonthString({ months: studyDurationMonths }),
+    yearsOnly: at.uz ? 'yil' : getCasedRuYearString({ studyDurationMonths }),
+    default: at.uz ? (
+      <>
+        {years} yil {months} oy
+      </>
+    ) : (
+      <>
+        {getCasedRuYearString({ years })} {getCasedRuMonthString({ months })}
+      </>
+    )
+  }
+
   let content = (
     <>
-      {monthsOnly && getCasedRuMonthString({ months: studyDurationMonths })}{' '}
-      {yearsOnly && getCasedRuYearString({ studyDurationMonths })}
-      {!monthsOnly && !yearsOnly && (
-        <>
-          {getCasedRuYearString({ years })} {getCasedRuMonthString({ months })}
-        </>
-      )}
+      {monthsOnly && translations.monthsOnly}{' '}
+      {yearsOnly && translations.yearsOnly}
+      {!monthsOnly && !yearsOnly && translations.default}
     </>
   )
 

@@ -5,7 +5,7 @@ import cn from 'classnames'
 import { whyus } from '@/data/index'
 import { mituinstitute, colors } from '@/config/index'
 import { getClassNames, getImageHeight } from '@/helpers/index'
-import { useAt } from '@/hooks/index'
+import { useAt, useCompanyInfo } from '@/hooks/index'
 import { ContextProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
@@ -16,6 +16,11 @@ type TypeSectionWhyUsProps = TypeClassNames
 
 const SectionWhyUs = ({ classNames }: TypeSectionWhyUsProps) => {
   const at = useAt()
+  const company = useCompanyInfo()
+
+  const translations = {
+    title: at.uz ? 'Nima uchun' : 'Почему выбирают'
+  }
 
   const { program } = useContext(ContextProgramContext)
 
@@ -28,10 +33,8 @@ const SectionWhyUs = ({ classNames }: TypeSectionWhyUsProps) => {
       }>
       <Wrapper>
         <GeneralSectionTitle classNames={[stls.title]}>
-          Почему выбирают{' '}
-          <GeneralTextHighlight>
-            «Московский институт технологий и управления»
-          </GeneralTextHighlight>
+          {translations.title}{' '}
+          <GeneralTextHighlight>«{company.name}»</GeneralTextHighlight>
         </GeneralSectionTitle>
         <div className={stls.content}>
           <ul className={stls.list}>

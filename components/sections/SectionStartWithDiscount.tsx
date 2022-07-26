@@ -18,6 +18,15 @@ const SectionStartWithDiscount = ({
   classNames
 }: TypeSectionStartWithDiscountProps) => {
   const at = useAt()
+  const translations = {
+    startOffWithDiscount: at.uz
+      ? "Chegirma bilan o'rganishni boshlang"
+      : 'Начните обучаться со скидкой',
+    areThereQuestions: at.uz
+      ? "Sizda savollar bormi? So'rov qoldiring! Sizga qo'ng'iroq qilamiz!"
+      : 'У Вас есть вопросы? Оставьте заявку! Мы перезвоним Вам!',
+    leaveApplication: at.uz ? "So'rov qoldiring" : 'Оставить заявку'
+  }
 
   const { program } = useContext(ContextProgramContext)
 
@@ -57,11 +66,9 @@ const SectionStartWithDiscount = ({
           <div className={stls.inner}>
             <h2
               className={cn(stls.title, { [stls.atAdditional]: atAdditional })}>
-              Начните обучаться со скидкой
+              {translations.startOffWithDiscount}
             </h2>
-            <p className={stls.p}>
-              У Вас есть вопросы? Оставьте заявку! Мы перезвоним Вам!
-            </p>
+            <p className={stls.p}>{translations.areThereQuestions}</p>
             <Popup
               trigger={() => (
                 <BtnAlpha
@@ -69,7 +76,7 @@ const SectionStartWithDiscount = ({
                   classNames={[
                     cn(stls.btn, { [stls.atAdditional]: atAdditional })
                   ]}>
-                  Оставить заявку
+                  {translations.leaveApplication}
                 </BtnAlpha>
               )}
               modal

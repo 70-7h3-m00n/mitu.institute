@@ -20,6 +20,12 @@ const SectionProgramJobTitlesWithoutPictures = ({
 }: TypeSectionProgramJobTitlesWithoutPicturesProps) => {
   const at = useAt()
 
+  const translations = {
+    title: at.uz
+      ? 'Siz kim bilan ishlashingiz mumkin?'
+      : 'Кем Вы сможете работать?'
+  }
+
   const { program } = useContext(ContextProgramContext)
 
   if (!program?.jobTitles || program?.jobTitles?.length === 0) return <></>
@@ -31,7 +37,7 @@ const SectionProgramJobTitlesWithoutPictures = ({
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <Wrapper>
-        <GeneralSectionTitle>Кем Вы сможете работать?</GeneralSectionTitle>
+        <GeneralSectionTitle>{translations.title}</GeneralSectionTitle>
         <ul className={stls.jobTitles}>
           {program.jobTitles
             .filter(jobTitle => jobTitle?.position)

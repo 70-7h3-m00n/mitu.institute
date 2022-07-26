@@ -15,6 +15,10 @@ const SectionProgramWhatWillYouLearn = ({
 }: TypeSectionProgramWhatWillYouLearnProps) => {
   const at = useAt()
 
+  const translations = {
+    title: at.uz ? "Nima o'rganasiz?" : 'Чему Вы научитесь?'
+  }
+
   const { program } = useContext(ContextProgramContext)
 
   if (!program?.whatYouWillLearn) return <></>
@@ -25,7 +29,7 @@ const SectionProgramWhatWillYouLearn = ({
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <Wrapper>
-        <GeneralSectionTitle>Чему Вы научитесь?</GeneralSectionTitle>
+        <GeneralSectionTitle>{translations.title}</GeneralSectionTitle>
         <ul className={stls.items}>
           {program.whatYouWillLearn
             .filter(item => item?.item)

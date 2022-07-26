@@ -21,6 +21,14 @@ const SectionProgramContents = ({
 }: TypeSectionProgramContentsProps) => {
   const at = useAt()
 
+  const translations = {
+    title: at.uz ? 'Qisqa kurs dasturi' : 'Краткая программа курса',
+    modules: at.uz ? 'tematik modullar' : 'тематических модулей',
+    desc: at.uz
+      ? "Biz o'rgatadigan amaliyotlar va kursning metodologiyasi nafaqat o'qituvchilarning amaliy tajribasi, balki qat'iy ilmiy tadqiqotlar bilan ham tasdiqlangan"
+      : 'Практики, которым мы учим, и методология, на которой строится курс, проверены не только практическим опытом преподавателей, но и строгими научными исследованиями'
+  }
+
   const { program } = useContext(ContextProgramContext)
 
   const atAdditional = program?.category?.type === 'additional'
@@ -41,26 +49,20 @@ const SectionProgramContents = ({
       <Wrapper>
         <div className={stls.heading}>
           <GeneralSectionTitle classNames={[stls.title]}>
-            Краткая программа курса
+            {translations.title}
           </GeneralSectionTitle>
           {atAdditional && (
             <p className={stls.shortContentsLength}>
               <GeneralTextHighlight>
                 {program.shortContents.length}{' '}
               </GeneralTextHighlight>
-              тематических модулей
+              {translations.modules}
             </p>
           )}
         </div>
         <p className={stls.desc}>
           {program?.shortContentsDescription ||
-            (atAdditional ? null : (
-              <>
-                Практики, которым мы учим, и методология, на которой строится
-                курс, проверены не только практическим опытом преподавателей, но
-                и строгими научными исследованиями
-              </>
-            ))}
+            (atAdditional ? null : <>{translations.desc}</>)}
         </p>
         <div className={stls.content}>
           <ul className={stls.contents}>
