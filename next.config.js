@@ -5,6 +5,15 @@ const { createSecureHeaders } = require('next-secure-headers')
 const dev = process.env.NODE_ENV !== 'production'
 
 module.exports = withPWA({
+  async redirects() {
+    return [
+      {
+        source: '/promo',
+        destination: '/',
+        permanent: true
+      }
+    ]
+  },
   reactStrictMode: true,
   poweredByHeader: false,
   // trailingSlash: true,
