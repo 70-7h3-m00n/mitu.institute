@@ -75,7 +75,7 @@ const GeneralHeaderTop = ({ classNames }: TypeGeneralHeaderTopProps) => {
             <>
               <a
                 href='https://lms.mitu.msk.ru'
-                className={stls.linkLegal}
+                className={cn(stls.linkLegal, stls.mb)}
                 rel='noreferrer noopener'>
                 <span className={stls.desktop}>
                   Электронная информационно-образовательная среда
@@ -86,7 +86,7 @@ const GeneralHeaderTop = ({ classNames }: TypeGeneralHeaderTopProps) => {
               </a>
               <a
                 href='https://urait.ru'
-                className={cn(stls.linkLegal, stls.ml)}
+                className={cn(stls.linkLegal, stls.ml, stls.mb, stls.mr)}
                 rel='noreferrer noopener'>
                 <span className={stls.desktop}>
                   Электронно-библиотечная система
@@ -96,8 +96,8 @@ const GeneralHeaderTop = ({ classNames }: TypeGeneralHeaderTopProps) => {
                 <span className={stls.phone}>ЭБС</span>
               </a>
               <a
-                href='https://urait.ru'
-                className={cn(stls.linkLegal, stls.ml)}
+                href={routesFront.legal}
+                className={cn(stls.linkLegal, stls.mb)}
                 rel='noreferrer noopener'>
                 Сведения об образовательной организации
               </a>
@@ -115,7 +115,7 @@ const GeneralHeaderTop = ({ classNames }: TypeGeneralHeaderTopProps) => {
               <IconEye classNames={[stls.icon]} />
               <span
                 className={cn(
-                  stls.tabletLaptopDesktop,
+                  // stls.tabletLaptopDesktop,
                   stls.btnAccessibilityTriggerLabel
                 )}>
                 Версия для слабовидящих
