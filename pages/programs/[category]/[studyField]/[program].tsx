@@ -89,7 +89,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
         company.tagline,
       120
     ),
-    canonical: `${routesFront.defaultRoot}${routesFront.programs}/${program?.category?.slug}/${program?.study_field?.slug}/${program?.slug}`
+    canonical: `${routesFront.officialRoot}${routesFront.programs}/${program?.category?.slug}/${program?.study_field?.slug}/${program?.slug}`
   }
 
   return (
@@ -104,7 +104,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           description: seoParams.desc,
           images: [
             {
-              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`,
+              url: `${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`,
               width: 512,
               height: 512,
               alt: company.name,

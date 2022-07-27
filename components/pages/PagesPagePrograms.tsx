@@ -46,7 +46,7 @@ const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
       curCategory?.label || translations.studyFields
     } | ${company.name}`,
     desc: truncate(pros.join('. '), 120),
-    canonical: `${routesFront.defaultRoot}${routesFront.programs}`
+    canonical: `${routesFront.officialRoot}${routesFront.programs}`
   }
 
   return (
@@ -61,7 +61,7 @@ const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
           description: seoParams.desc,
           images: [
             {
-              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`,
+              url: `${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`,
               width: 512,
               height: 512,
               alt: company.name,
@@ -73,8 +73,8 @@ const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
       />
       <OrganizationJsonLd
         organizationType='EducationalOrganization'
-        id={routesFront.defaultRoot}
-        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`}
+        id={routesFront.root}
+        logo={`${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`}
         legalName={company.fullName}
         name={company.name}
         address={{
@@ -91,8 +91,8 @@ const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
             availableLanguage: company.languages
           }
         ]}
-        sameAs={[routesFront.defaultRoot]}
-        url={routesFront.defaultRoot}
+        sameAs={[routesFront.root]}
+        url={routesFront.root}
       />
       <SectionProgramsWithFiltersAlt studyFields={studyFields} />
       <SectionUIFormAlpha title={translations.formTitle} />

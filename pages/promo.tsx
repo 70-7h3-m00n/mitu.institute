@@ -54,7 +54,7 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
   const seoParams = {
     title: `${company.tagline} | ${company.name}`,
     desc: truncate(pros.join('. '), 120),
-    canonical: `${routesFront.defaultRoot}${routesFront.promo}`
+    canonical: `${routesFront.officialRoot}${routesFront.promo}`
   }
 
   return (
@@ -71,7 +71,7 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
           description: seoParams.desc,
           images: [
             {
-              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`,
+              url: `${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`,
               width: 512,
               height: 512,
               alt: company.name,
@@ -83,8 +83,8 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
       />
       <OrganizationJsonLd
         organizationType='EducationalOrganization'
-        id={routesFront.defaultRoot}
-        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`}
+        id={routesFront.root}
+        logo={`${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`}
         legalName={company.fullName}
         name={company.name}
         address={{
@@ -101,8 +101,8 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
             availableLanguage: company.languages
           }
         ]}
-        sameAs={[routesFront.defaultRoot]}
-        url={routesFront.defaultRoot}
+        sameAs={[routesFront.root]}
+        url={routesFront.root}
       />
       <SectionHero />
       <SectionOurPrograms promo max={12} />

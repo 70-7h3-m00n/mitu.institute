@@ -1,9 +1,10 @@
 import { TypeUrl, TypeRoute, TypeAnchor } from '@/types/index'
-import { defaultRouteFrontRoot } from '@/config/index'
+import { defaultRouteFrontRoot, officialRouteFrontRoot } from '@/config/index'
 
 type TypeRoutesFront = {
   root: string
   defaultRoot: 'http://localhost:3000' | typeof defaultRouteFrontRoot
+  officialRoot: 'http://localhost:3000' | typeof officialRouteFrontRoot
   home: '/'
   promo: '/promo'
   contact: '/contact'

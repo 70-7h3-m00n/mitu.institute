@@ -10,14 +10,14 @@ const seoParams = {
 const seo = {
   openGraph: {
     type: 'website',
-    url: routesFront.defaultRoot,
+    url: routesFront.officialRoot,
     title: seoParams.title,
     description: seoParams.desc,
     locale: 'ru',
     site_name: company.name,
     images: [
       {
-        url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`,
+        url: `${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`,
         width: 512,
         height: 512,
         alt: company.name,
@@ -32,7 +32,7 @@ const seo = {
   // },
   defaultTitle: seoParams.title,
   description: seoParams.desc,
-  canonical: routesFront.defaultRoot,
+  canonical: routesFront.officialRoot,
   dangerouslySetAllPagesToNoIndex: mituinstitute,
   dangerouslySetAllPagesToNoFollow: mituinstitute,
   noindex: mituinstitute,

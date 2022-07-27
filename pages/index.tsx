@@ -55,7 +55,7 @@ const PageHome: NextPage<TypePageHomeProps> = ({
   const seoParams = {
     title: `${company.name} | ${company.tagline}`,
     desc: truncate(pros.join('. '), 120),
-    canonical: routesFront.defaultRoot
+    canonical: routesFront.officialRoot
   }
 
   return (
@@ -70,7 +70,7 @@ const PageHome: NextPage<TypePageHomeProps> = ({
           description: seoParams.desc,
           images: [
             {
-              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`,
+              url: `${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`,
               width: 512,
               height: 512,
               alt: company.name,
@@ -82,8 +82,8 @@ const PageHome: NextPage<TypePageHomeProps> = ({
       />
       <OrganizationJsonLd
         organizationType='EducationalOrganization'
-        id={routesFront.defaultRoot}
-        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`}
+        id={routesFront.root}
+        logo={`${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`}
         legalName={company.fullName}
         name={company.name}
         address={{
@@ -100,8 +100,8 @@ const PageHome: NextPage<TypePageHomeProps> = ({
             availableLanguage: company.languages
           }
         ]}
-        sameAs={[routesFront.defaultRoot]}
-        url={routesFront.defaultRoot}
+        sameAs={[routesFront.root]}
+        url={routesFront.root}
       />
       <SectionHero />
       <SectionOurPrograms max={6} cardsStudyFields />

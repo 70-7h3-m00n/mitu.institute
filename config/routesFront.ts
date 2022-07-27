@@ -1,5 +1,10 @@
 import { TypeRoutesFront } from '@/types/index'
-import { dev, env, defaultRouteFrontRoot } from '@/config/index'
+import {
+  dev,
+  env,
+  defaultRouteFrontRoot,
+  officialRouteFrontRoot
+} from '@/config/index'
 
 // figure out dynamic root domain for mitm.uz
 const routesFront: TypeRoutesFront = {
@@ -7,6 +12,7 @@ const routesFront: TypeRoutesFront = {
     ? 'http://localhost:3000'
     : env.nextPublicRouteFrontRoot || defaultRouteFrontRoot,
   defaultRoot: dev ? 'http://localhost:3000' : defaultRouteFrontRoot,
+  officialRoot: dev ? 'http://localhost:3000' : officialRouteFrontRoot,
   home: '/',
   promo: '/promo',
   contact: '/contact',

@@ -71,7 +71,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
         company.tagline,
       120
     ),
-    canonical: `${routesFront.defaultRoot}${routesFront.legal}`
+    canonical: `${routesFront.officialRoot}${routesFront.legal}`
   }
 
   return (
@@ -86,7 +86,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
           description: seoParams.desc,
           images: [
             {
-              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`,
+              url: `${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`,
               width: 512,
               height: 512,
               alt: company.name,
@@ -98,8 +98,8 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
       />
       <OrganizationJsonLd
         organizationType='EducationalOrganization'
-        id={routesFront.defaultRoot}
-        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`}
+        id={routesFront.root}
+        logo={`${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`}
         legalName={company.fullName}
         name={company.name}
         address={{
@@ -116,8 +116,8 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
             availableLanguage: company.languages
           }
         ]}
-        sameAs={[routesFront.defaultRoot]}
-        url={routesFront.defaultRoot}
+        sameAs={[routesFront.root]}
+        url={routesFront.root}
       />
       <section className={stls.container}>
         <Wrapper>

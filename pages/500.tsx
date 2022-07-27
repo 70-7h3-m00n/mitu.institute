@@ -33,7 +33,7 @@ const Page500 = () => {
       `${translations.seoParamsDesc} ${translations.phoneNumber.val}`,
       120
     ),
-    canonical: routesFront.defaultRoot
+    canonical: routesFront.officialRoot
   }
 
   return (
@@ -48,7 +48,7 @@ const Page500 = () => {
           description: seoParams.desc,
           images: [
             {
-              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`,
+              url: `${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`,
               width: 512,
               height: 512,
               alt: company.name,

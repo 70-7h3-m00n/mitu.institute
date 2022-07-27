@@ -82,7 +82,7 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
   const seoParams = {
     title: `${translations.paymentMethods} | ${company.name}`,
     desc: truncate(translations.notedPoints.join('. '), 120),
-    canonical: `${routesFront.defaultRoot}${routesFront.payment}`
+    canonical: `${routesFront.officialRoot}${routesFront.payment}`
   }
 
   return (
@@ -97,7 +97,7 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
           description: seoParams.desc,
           images: [
             {
-              url: `${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`,
+              url: `${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`,
               width: 512,
               height: 512,
               alt: company.name,
@@ -109,8 +109,8 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
       />
       <OrganizationJsonLd
         organizationType='EducationalOrganization'
-        id={routesFront.defaultRoot}
-        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`}
+        id={routesFront.root}
+        logo={`${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`}
         legalName={company.fullName}
         name={company.name}
         address={{
@@ -127,8 +127,8 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
             availableLanguage: company.languages
           }
         ]}
-        sameAs={[routesFront.defaultRoot]}
-        url={routesFront.defaultRoot}
+        sameAs={[routesFront.root]}
+        url={routesFront.root}
       />
       <section className={stls.sectionHero}>
         <Wrapper>

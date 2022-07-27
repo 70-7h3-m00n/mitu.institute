@@ -81,8 +81,8 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       </Head>
       <DefaultSeo {...SEO} />
       <LogoJsonLd
-        logo={`${routesFront.defaultRoot}${routesFront.assetsImgsIconsManifestIconBg512}`}
-        url={routesFront.defaultRoot}
+        logo={`${routesFront.root}${routesFront.assetsImgsIconsManifestIconBg512}`}
+        url={routesFront.root}
       />
       {/* <ContextGeneralPopupState> */}
       <ContextAccessibilityState>
