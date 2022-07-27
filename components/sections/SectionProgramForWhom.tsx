@@ -35,7 +35,7 @@ const SectionProgramForWhom = ({
 
   if (!program?.forWhom || program?.forWhom?.length === 0) return <></>
 
-  const atAdditional = program?.category?.type === 'additional'
+  const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   return (
     <section

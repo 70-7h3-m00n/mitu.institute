@@ -11,6 +11,7 @@ import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
 import { IconElderScroll, IconFourSquares } from '@/components/icons'
 import { ImgGeneralFullProgramDecoration } from '@/components/imgs'
+import mituinstitute from '@/config/mituinstitute'
 
 type TypeGeneralFullProgramProps = TypeClassNames
 
@@ -18,7 +19,7 @@ const GeneralFullProgram = ({ classNames }: TypeGeneralFullProgramProps) => {
   const at = useAt()
   const { program } = useContext(ContextProgramContext)
 
-  const atAdditional = program?.category?.type === 'additional'
+  const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   const translations = {
     title: at.uz ? "To'liq dastur" : 'Полная программа',

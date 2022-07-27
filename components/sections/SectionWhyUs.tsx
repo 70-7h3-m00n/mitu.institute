@@ -24,7 +24,7 @@ const SectionWhyUs = ({ classNames }: TypeSectionWhyUsProps) => {
 
   const { program } = useContext(ContextProgramContext)
 
-  const atAdditional = program?.category?.type === 'additional'
+  const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   return (
     <section

@@ -65,7 +65,7 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
 
   if (!program?.title) return <></>
 
-  const atAdditional = program?.category?.type === 'additional'
+  const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   const testimonialDiplomaVal = mituinstitute
     ? atAdditional

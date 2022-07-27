@@ -11,6 +11,7 @@ import { GeneralPopup } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { BtnAlpha } from '@/components/btns'
 import { IconAlarm, IconRhombusStar } from '@/components/icons'
+import mituinstitute from '@/config/mituinstitute'
 
 type TypeSectionStartWithDiscountProps = TypeClassNames
 
@@ -30,7 +31,7 @@ const SectionStartWithDiscount = ({
 
   const { program } = useContext(ContextProgramContext)
 
-  const atAdditional = program?.category?.type === 'additional'
+  const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   return (
     <section

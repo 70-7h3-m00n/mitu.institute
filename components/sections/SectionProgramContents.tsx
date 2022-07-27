@@ -13,6 +13,7 @@ import {
 } from '@/components/general'
 import { ImgProgramContents } from '@/components/imgs'
 import { IconFourSquares } from '@/components/icons'
+import mituinstitute from '@/config/mituinstitute'
 
 type TypeSectionProgramContentsProps = TypeClassNames
 
@@ -31,7 +32,7 @@ const SectionProgramContents = ({
 
   const { program } = useContext(ContextProgramContext)
 
-  const atAdditional = program?.category?.type === 'additional'
+  const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   // TODO: simplify following statement
   if (!program?.shortContents || program?.shortContents?.length === 0)

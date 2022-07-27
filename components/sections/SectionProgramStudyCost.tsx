@@ -75,7 +75,7 @@ const SectionProgramStudyCost = ({
   if (!program?.timenprice?.[0]?.price || !program?.timenprice?.[0]?.discount)
     return <></>
 
-  const atAdditional = program?.category?.type === 'additional'
+  const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   const testimonials: {
     id: string

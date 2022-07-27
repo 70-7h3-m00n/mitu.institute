@@ -14,6 +14,7 @@ import {
   IconWave,
   IconDecorationFourShadowSquares
 } from '@/components/icons'
+import mituinstitute from '@/config/mituinstitute'
 
 type TypeGeneralAskQuestionProps = TypeClassNames
 
@@ -21,7 +22,7 @@ const GeneralAskQuestion = ({ classNames }: TypeGeneralAskQuestionProps) => {
   const at = useAt()
   const { program } = useContext(ContextProgramContext)
 
-  const atAdditional = program?.category?.type === 'additional'
+  const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   const translations = {
     title: at.uz

@@ -5,7 +5,7 @@ import { TypePagePromoProps } from '@/types/index'
 import { useContext, useEffect } from 'react'
 import { NextSeo, OrganizationJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront } from '@/config/index'
+import { mituinstitute, routesFront } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import {
   ContextCategoriesContext,
@@ -60,6 +60,8 @@ const PagePromo: NextPage<TypePagePromoProps> = ({
   return (
     <>
       <NextSeo
+        noindex
+        nofollow
         title={seoParams.title}
         description={seoParams.desc}
         canonical={seoParams.canonical}

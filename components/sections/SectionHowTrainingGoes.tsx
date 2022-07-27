@@ -24,7 +24,7 @@ const SectionHowTrainingGoes = ({
 
   const { program } = useContext(ContextProgramContext)
 
-  const atAdditional = program?.category?.type === 'additional'
+  const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   const translations = {
     title: at.uz

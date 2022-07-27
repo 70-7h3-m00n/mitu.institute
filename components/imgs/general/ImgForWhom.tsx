@@ -1,7 +1,7 @@
 import stls from '@/styles/components/imgs/general/ImgForWhom.module.sass'
 import { TypeClassNames, TypeImg, TypeImgExtended } from '@/types/index'
 import { useContext } from 'react'
-import { nextexport } from '@/config/index'
+import { mituinstitute, nextexport } from '@/config/index'
 import { ContextProgramContext } from '@/context/index'
 import { useAt } from '@/hooks/index'
 import { ImgTemplate } from '@/components/imgs'
@@ -26,7 +26,7 @@ const ImgForWhom = ({
   const at = useAt()
   const { program } = useContext(ContextProgramContext)
 
-  const atAdditional = program?.category?.type === 'additional'
+  const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   const publicSrc = atAdditional
     ? '/assets/imgs/general/for-whom-additional.jpg'

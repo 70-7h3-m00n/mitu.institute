@@ -60,8 +60,9 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
     ContextProgramContext
   )
   const atAdditional =
-    program?.category?.type === 'additional' ||
-    curCategory?.type === 'additional'
+    (program?.category?.type === 'additional' ||
+      curCategory?.type === 'additional') &&
+    mituinstitute
 
   useEffect(() => {
     setCategories({

@@ -95,6 +95,12 @@ const GeneralHeaderTop = ({ classNames }: TypeGeneralHeaderTopProps) => {
                 <span className={stls.tablet}>ЭБС</span>
                 <span className={stls.phone}>ЭБС</span>
               </a>
+              <a
+                href='https://urait.ru'
+                className={cn(stls.linkLegal, stls.ml)}
+                rel='noreferrer noopener'>
+                Сведения об образовательной организации
+              </a>
             </>
           )}
         </div>
