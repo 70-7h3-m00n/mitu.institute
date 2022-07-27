@@ -95,12 +95,11 @@ const GeneralHeaderTop = ({ classNames }: TypeGeneralHeaderTopProps) => {
                 <span className={stls.tablet}>ЭБС</span>
                 <span className={stls.phone}>ЭБС</span>
               </a>
-              <a
-                href={routesFront.legal}
-                className={cn(stls.linkLegal, stls.mb)}
-                rel='noreferrer noopener'>
-                Сведения об образовательной организации
-              </a>
+              <Link href={routesFront.legal}>
+                <a className={cn(stls.linkLegal, stls.mb)}>
+                  Сведения об образовательной организации
+                </a>
+              </Link>
             </>
           )}
         </div>
