@@ -11,6 +11,7 @@ type TypeLibLegalDocumentSubcategories = {
           url?: string
         }
         complicatedTable?: boolean
+        table?: string
       }[]
     | null
   document_category?: {

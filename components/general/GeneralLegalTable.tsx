@@ -10,13 +10,15 @@ import { useAt } from '@/hooks/index'
 type TypeGeneralLegalTableProps = TypeClassNames & {
   url?: string | null
   complicatedTable?: boolean | null
+  table?: string | null
 }
 
 const GeneralLegalTable = ({
   classNames,
   url,
   complicatedTable
-}: TypeGeneralLegalTableProps) => {
+}: // table
+TypeGeneralLegalTableProps) => {
   const at = useAt()
   const [isBrowser, setIsBrowser] = useState(false)
   const [table, setTable] = useState<string | undefined>(undefined)

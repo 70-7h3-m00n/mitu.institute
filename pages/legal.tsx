@@ -190,6 +190,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
                                 <GeneralLegalTable
                                   url={document?.pdf?.url}
                                   complicatedTable={document?.complicatedTable}
+                                  table={document?.table}
                                 />
                               ) : (
                                 <div className={stls.text}>
