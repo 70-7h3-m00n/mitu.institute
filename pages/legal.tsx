@@ -25,6 +25,25 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
   const at = useAt()
   const company = useCompanyInfo()
 
+  const categoryForApplicant = documentCategories?.find(
+    category => category?.title === 'Абитуриенту'
+  )
+
+  // const documentSubcategoriesAlt: typeof documentSubcategories = []
+  const documentSubcategoriesAlt: typeof documentSubcategories =
+    documentSubcategories
+
+  // documentSubcategories?.forEach(subcategory => {
+  //   if (subcategory?.document_category?.title === 'Документы') {
+  //     // console.log(subcategory)
+  //     documentSubcategoriesAlt.push({
+  //       ...subcategory,
+  //       document_category: categoryForApplicant
+  //     })
+  //   }
+  //   documentSubcategoriesAlt.push(subcategory)
+  // })
+
   const translations = {
     companyInfo: at.uz ? 'Tashkilot tafsilotlari' : 'Сведения об организации',
     legalInfo: at.uz ? (
@@ -150,8 +169,8 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
             </div>
             <div className={stls.right}>
               <ul className={stls.documentSubcategories}>
-                {documentSubcategories &&
-                  sortBasedOnNumericOrder(documentSubcategories)
+                {documentSubcategoriesAlt &&
+                  sortBasedOnNumericOrder(documentSubcategoriesAlt)
                     .filter(
                       subcategory =>
                         subcategory.document_category?.title === curCategory
