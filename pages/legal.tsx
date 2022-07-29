@@ -29,20 +29,20 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
     category => category?.title === 'Абитуриенту'
   )
 
-  // const documentSubcategoriesAlt: typeof documentSubcategories = []
-  const documentSubcategoriesAlt: typeof documentSubcategories =
-    documentSubcategories
+  const documentSubcategoriesAlt: typeof documentSubcategories = []
+  // const documentSubcategoriesAlt: typeof documentSubcategories =
+  //   documentSubcategories
 
-  // documentSubcategories?.forEach(subcategory => {
-  //   if (subcategory?.document_category?.title === 'Документы') {
-  //     // console.log(subcategory)
-  //     documentSubcategoriesAlt.push({
-  //       ...subcategory,
-  //       document_category: categoryForApplicant
-  //     })
-  //   }
-  //   documentSubcategoriesAlt.push(subcategory)
-  // })
+  documentSubcategories?.forEach(subcategory => {
+    if (subcategory?.document_category?.title === 'Документы') {
+      // console.log(subcategory)
+      documentSubcategoriesAlt.push({
+        ...subcategory,
+        document_category: categoryForApplicant
+      })
+    }
+    documentSubcategoriesAlt.push(subcategory)
+  })
 
   const translations = {
     companyInfo: at.uz ? 'Tashkilot tafsilotlari' : 'Сведения об организации',
