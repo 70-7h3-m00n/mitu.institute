@@ -111,7 +111,7 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
     {
       label: translations.studyForm,
       val: mituinstitute
-        ? translations.studyFormOnline
+        ? program?.study_form?.label || translations.studyFormOnline
         : translations.studyFormOnlineAltNotMituinstitute
     },
     {

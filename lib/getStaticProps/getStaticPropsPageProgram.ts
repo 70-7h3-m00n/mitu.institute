@@ -57,6 +57,7 @@ const getStaticPropsPageProgram = async ({
             isBold
           }
           study_form {
+            type
             label
           }
           forWhom {
@@ -94,6 +95,9 @@ const getStaticPropsPageProgram = async ({
             }
             position
             salary
+          }
+          studyingWithUsIt {
+            item
           }
           teachers {
             portrait {

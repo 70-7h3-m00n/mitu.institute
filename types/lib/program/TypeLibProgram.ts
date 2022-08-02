@@ -30,6 +30,11 @@ type TypeLibProgram = {
   whatYouWillLearn?: TypeLibProgramWhatYouWillLearn
   howProcessGoes?: TypeLibProgramHowProcessGoes
   shortContents?: TypeLibProgramShortContents
+  studyingWithUsIt?:
+    | {
+        item?: string | null
+      }[]
+    | null
   teachersDescription?: string | null
   shortContentsDescription?: string | null
   studyCostDescItems?: {

@@ -43,7 +43,7 @@ const SectionProgramTeachers = ({
 
   const { program } = useContext(ContextProgramContext)
 
-  if (!program?.teachers) return <></>
+  if (!program?.teachers || program?.teachers?.length === 0) return <></>
 
   return (
     <section

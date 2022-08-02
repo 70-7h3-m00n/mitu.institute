@@ -5,7 +5,10 @@ import cn from 'classnames'
 // import { studyingWithUsIs } from '@/data/index'
 import { getClassNames } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
-import { ContextCategoriesContext } from '@/context/index'
+import {
+  ContextCategoriesContext,
+  ContextProgramContext
+} from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { GeneralSectionTitle, GeneralTextHighlight } from '@/components/general'
 
@@ -17,6 +20,8 @@ const SectionStudyingWithUsIs = ({
   classNames
 }: TypeSectionStudyingWithUsIsProps) => {
   const at = useAt()
+
+  const { program } = useContext(ContextProgramContext)
 
   const translations = {
     studyingWithUsIsBachelorMaster: at.uz
@@ -67,10 +72,21 @@ const SectionStudyingWithUsIs = ({
 
   const { curCategory } = useContext(ContextCategoriesContext)
 
-  const studyingWithUsIs: TypeStudyingWithUsIs =
-    curCategory?.type === 'bachelor' || curCategory?.type === 'master'
+  const studyingWithUsIsDynamic =
+    program?.studyingWithUsIt && program?.studyingWithUsIt?.length !== 0
+      ? program?.studyingWithUsIt
+          ?.filter(item => item?.item)
+          .map(item => item.item?.toString())
+      : null
+
+  // @TODO: figure out better types
+  const studyingWithUsIs: any[] =
+    studyingWithUsIsDynamic ||
+    (curCategory?.type === 'bachelor' ||
+    curCategory?.type === 'master' ||
+    curCategory?.type === 'GVD'
       ? translations.studyingWithUsIsBachelorMaster
-      : translations.studyingWithUsIs
+      : translations.studyingWithUsIs)
 
   return (
     <section

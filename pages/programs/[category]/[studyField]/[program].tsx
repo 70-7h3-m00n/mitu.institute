@@ -139,6 +139,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           {mituinstitute && <SectionWhyUs />}
           {!atAdditional && <SectionStartWithDiscount />}
           {/* <SectionProgramJobTitles /> */}
+          {console.log(curCategory)}
           {mituinstitute &&
             curCategory?.type !== 'bachelor' &&
             curCategory?.type !== 'master' && (

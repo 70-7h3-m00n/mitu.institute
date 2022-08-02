@@ -145,7 +145,7 @@ const SectionYourFutureDiploma = ({
           }
         )
       }
-      if (curCategory?.type === 'bachelor') {
+      if (curCategory?.type === 'bachelor' || curCategory?.type === 'GVD') {
         diplomas.push(
           {
             img: <ImgDiplomaBachelor />,
@@ -219,7 +219,7 @@ const SectionYourFutureDiploma = ({
           }
         )
       }
-      if (curCategory?.type === 'bachelor') {
+      if (curCategory?.type === 'bachelor' || curCategory?.type === 'GVD') {
         diplomas.push(
           {
             img: <ImgDiplomaBachelor />,
