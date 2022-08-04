@@ -42,6 +42,9 @@ const getStaticPropsPageLegal = async ({
               url
             }
             complicatedTable
+            numeric_order {
+              index
+            }
           }
           document_category {
             title

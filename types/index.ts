@@ -62,6 +62,7 @@ export type { default as TypeLibGeneralTitleTitlePart } from '@/types/lib/genera
 
 // lib/legal
 export type { default as TypeLibLegalDocumentCategories } from '@/types/lib/legal/TypeLibLegalDocumentCategories'
+export type { default as TypeLibLegalDocumentDocuments } from '@/types/lib/legal/TypeLibLegalDocumentDocuments'
 export type { default as TypeLibLegalDocumentSubcategories } from '@/types/lib/legal/TypeLibLegalDocumentSubcategories'
 
 // lib/program

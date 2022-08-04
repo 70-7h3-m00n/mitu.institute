@@ -1,7 +1,10 @@
 import stls from '@/styles/pages/PageLegal.module.sass'
 import type { NextPage } from 'next'
 import { GetStaticProps } from 'next'
-import { TypePageLegalProps } from '@/types/index'
+import {
+  TypeLibLegalDocumentDocuments,
+  TypePageLegalProps
+} from '@/types/index'
 import { useContext, useState, useEffect } from 'react'
 import { NextSeo, OrganizationJsonLd } from 'next-seo'
 import cn from 'classnames'
@@ -184,7 +187,9 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
                         className={stls.documentSubcategoriesItem}>
                         <h3 className={stls.h3}>{subcategory.title}</h3>
                         <ul className={stls.documentSubcategoriesDocuments}>
-                          {subcategory.documents?.map((document, idx) => (
+                          {sortBasedOnNumericOrder(
+                            subcategory.documents || []
+                          )?.map((document, idx) => (
                             <li
                               key={
                                 (document?.title ||

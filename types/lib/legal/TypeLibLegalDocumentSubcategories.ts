@@ -1,19 +1,11 @@
+import { TypeLibLegalDocumentDocuments } from '@/types/index'
+
 type TypeLibLegalDocumentSubcategories = {
   title?: string
   numeric_order?: {
     index?: string
   }
-  documents?:
-    | {
-        title?: string
-        text?: string
-        pdf?: {
-          url?: string
-        }
-        complicatedTable?: boolean
-        table?: string
-      }[]
-    | null
+  documents?: TypeLibLegalDocumentDocuments | null
   document_category?: {
     title?: string
   }
