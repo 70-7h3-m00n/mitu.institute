@@ -57,42 +57,49 @@ const getStaticPropsPageLegal = async ({
     }
   })
 
-  // const fetchTable = async ({ url }: { url: string }) => {
-  //   const res = await axios.get(url)
-  //   const data = await res.data
-  //   return data
-  // }
+  const fetchTable = async ({ url }: { url: string }) => {
+    try {
+      const res = await axios.get(url)
+      const data = await res.data
+      return data
+    } catch (err) {
+      console.log(err)
+      return null
+    }
+  }
 
-  // const getDocumentSubcategoriesWithFetchedTables = async () => {
-  //   const documentSubcategories =
-  //     (await Promise.all(
-  //       (res.data?.documentSubcategories?.map(async subCategory => ({
-  //         ...subCategory,
-  //         documents:
-  //           (await Promise.all(
-  //             subCategory?.documents?.map(async document =>
-  //               document?.pdf?.url?.includes('.html')
-  //                 ? {
-  //                     ...document,
-  //                     table: await fetchTable({ url: document.pdf.url }).then(
-  //                       data => data
-  //                     )
-  //                   }
-  //                 : document
-  //             )
-  //           )) || null
-  //       })) as TypeLibLegalDocumentSubcategories) || null
-  //     )) || null
+  const getDocumentSubcategoriesWithFetchedTables = async () => {
+    const documentSubcategories =
+      (await Promise.all(
+        (res.data?.documentSubcategories?.map(async subCategory => ({
+          ...subCategory,
+          documents:
+            (subCategory?.documents &&
+              (await Promise.all(
+                subCategory.documents?.map(async document =>
+                  document?.pdf?.url?.includes('.html')
+                    ? {
+                        ...document,
+                        table: await fetchTable({ url: document.pdf.url }).then(
+                          data => data
+                        )
+                      }
+                    : document
+                )
+              ))) ||
+            null
+        })) as TypeLibLegalDocumentSubcategories) || null
+      )) || null
 
-  //   return documentSubcategories
-  // }
+    return documentSubcategories
+  }
 
-  // const documentSubcategories =
-  //   (await getDocumentSubcategoriesWithFetchedTables()) as TypeLibLegalDocumentSubcategories
+  const documentSubcategories =
+    (await getDocumentSubcategoriesWithFetchedTables()) as TypeLibLegalDocumentSubcategories
 
   const props = {
-    ...res.data
-    // documentSubcategories
+    ...res.data,
+    documentSubcategories
   }
 
   return {

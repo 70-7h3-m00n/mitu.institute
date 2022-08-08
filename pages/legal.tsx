@@ -212,7 +212,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
                                 </a>
                               ) : document?.pdf?.url?.includes('.html') ? (
                                 <GeneralLegalTable
-                                  url={document?.pdf?.url}
+                                  // url={document?.pdf?.url}
                                   complicatedTable={document?.complicatedTable}
                                   table={document?.table}
                                 />
