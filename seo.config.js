@@ -32,11 +32,11 @@ const seo = {
   // },
   defaultTitle: seoParams.title,
   description: seoParams.desc,
-  canonical: routesFront.officialRoot,
-  dangerouslySetAllPagesToNoIndex: mituinstitute,
-  dangerouslySetAllPagesToNoFollow: mituinstitute,
-  noindex: mituinstitute,
-  nofollow: mituinstitute
+  canonical: routesFront.officialRoot
+  // dangerouslySetAllPagesToNoIndex: mituinstitute,
+  // dangerouslySetAllPagesToNoFollow: mituinstitute,
+  // noindex: mituinstitute,
+  // nofollow: mituinstitute
 }
 
 export default seo
