@@ -46,7 +46,7 @@ const SectionYourFutureDiploma = ({
     masterDiploma: at.uz ? 'Magistr darajasi' : 'Диплом магистра',
     professionalRetrainingDiploma: at.uz
       ? 'Kasbiy qayta tayyorlash diplomi'
-      : 'Диплом о профессиональной переподготовка',
+      : 'Диплом о профессиональной переподготовке',
     instituteDiploma: at.uz ? 'Institut diplomi' : 'Диплом института',
     supplementDiploma: at.uz ? "Jum Ta'minoti" : 'Диплом Supplement-'
   }

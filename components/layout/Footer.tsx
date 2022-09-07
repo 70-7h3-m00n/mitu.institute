@@ -50,7 +50,7 @@ const Footer = ({ classNames }: TypeFooterProps) => {
   const translations = {
     policiesPrivacy: at.uz
       ? 'Maxfiylik siyosati'
-      : 'Политика кофиденциальности',
+      : 'Политика конфиденциальности',
     policiesTerms: at.uz
       ? 'Foydalanuvchi shartnomasi'
       : 'Пользовательское соглашение',
