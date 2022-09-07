@@ -38,7 +38,6 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false)
 
   // console.log(routes)
-  //
 
   useEffect(() => {
     // TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
