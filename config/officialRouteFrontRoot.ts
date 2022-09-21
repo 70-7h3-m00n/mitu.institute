@@ -1,3 +1,3 @@
-const officialRouteFrontRoot = 'https://mitu.msk.ru'
+const officialRouteFrontRoot = 'https://mitu.institute'
 
 export default officialRouteFrontRoot
