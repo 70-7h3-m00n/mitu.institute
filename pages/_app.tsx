@@ -1,11 +1,11 @@
 import '@/styles/app.sass'
 import 'reactjs-popup/dist/index.css'
 import type { AppProps, NextWebVitalsMetric } from 'next/app'
-import { TypeRoute } from '@/types/index'
+import { TypeLibProgram, TypeLibProgramCategory, TypeLibProgramCategorySlug, TypeLibProgramQuestions, TypeLibPrograms, TypeLibProgramsCategories, TypeRoute } from '@/types/index'
 import Head from 'next/head'
 import Router from 'next/router'
 import Script from 'next/script'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
@@ -31,18 +31,25 @@ import { HeaderPromo } from '@/components/promo'
 import { GeneralNavPhoneTablet } from '@/components/general'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
-  const [categories, setCategories] = useState(
-    {
-      categories: pageProps.categories,
-      curCategory: pageProps?.categories
-        ?.filter(category => category?.slug === (pageProps.categories?.[0]?.slug || pageProps?.gspContextParamsCategory))?.[0] || null,
-      curCategorySlug: pageProps?.gspContextParamsCategory || pageProps.categories?.[0]?.slug || null
-    }
-  )
-  const [studyField, setStudyField] = useState(null)
-  const [programs, setPrograms] = useState(pageProps.programs || null)
-  const [questions, setQuestions] = useState(pageProps.questions || null)
-  const [program, setProgram] = useState(null)
+
+  // State Data Project
+  const [categories, setCategories] = useState<{
+    categories: TypeLibProgramsCategories | null
+    curCategory?: TypeLibProgramCategory | null
+    curCategorySlug: TypeLibProgramCategorySlug | null
+  }>({
+    categories: pageProps.categories,
+    curCategory: pageProps?.categories
+      ?.filter((category: TypeLibProgramCategory) =>
+        category?.slug === (pageProps.categories?.[0]?.slug
+          || pageProps?.gspContextParamsCategory))?.[0]
+      || null,
+    curCategorySlug: pageProps?.gspContextParamsCategory || pageProps.categories?.[0]?.slug || null
+  })
+  const [studyField, setStudyField] = useState<string | null>(null)
+  const [programs, setPrograms] = useState<TypeLibPrograms | null>(pageProps.programs || null)
+  const [questions, setQuestions] = useState<TypeLibProgramQuestions | null>(pageProps.questions || null)
+  const [program, setProgram] = useState<TypeLibProgram | null>(null)
 
   const company = useCompanyInfo()
 

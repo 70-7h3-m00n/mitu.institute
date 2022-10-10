@@ -1,11 +1,12 @@
-import { createContext, Dispatch } from 'react'
+import { createContext, Dispatch, SetStateAction } from 'react'
 
 const contextStudyFieldContext = createContext<{
   studyField: string | null
-  setStudyField: Dispatch<any>
-}>({
-  studyField: null,
-  setStudyField: () => {}
-})
+  setStudyField: Dispatch<SetStateAction<string | null>>
+}>
+  ({
+    studyField: null,
+    setStudyField: () => { }
+  })
 
 export default contextStudyFieldContext
