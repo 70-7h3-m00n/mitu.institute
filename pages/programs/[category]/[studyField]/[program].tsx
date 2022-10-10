@@ -66,10 +66,10 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
 
   useEffect(() => {
     setCategories({
-      payload: { categories, curCategorySlug: gspContextParamsCategory }
+      categories, curCategorySlug: gspContextParamsCategory || null
     })
-    setStudyField({ payload: gspContextParamsStudyField })
-    setProgram({ payload: program || null })
+    setStudyField(gspContextParamsStudyField || null)
+    setProgram(program || null)
   }, [
     categories,
     program,
@@ -82,11 +82,11 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
     programTitle: program?.title || 'Программа',
     desc: truncate(
       program?.description ||
-        program?.shortContents?.reduce(
-          (acc, cur) => acc + cur?.title + '. ',
-          ''
-        ) ||
-        company.tagline,
+      program?.shortContents?.reduce(
+        (acc, cur) => acc + cur?.title + '. ',
+        ''
+      ) ||
+      company.tagline,
       120
     ),
     canonical: `${routesFront.officialRoot}${routesFront.programs}/${program?.category?.slug}/${program?.study_field?.slug}/${program?.slug}`

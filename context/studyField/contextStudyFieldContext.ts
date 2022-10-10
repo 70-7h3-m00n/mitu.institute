@@ -1,8 +1,8 @@
-import { createContext } from 'react'
+import { createContext, Dispatch } from 'react'
 
 const contextStudyFieldContext = createContext<{
   studyField: string | null
-  setStudyField: ({ payload }: { payload: string | null }) => void
+  setStudyField: Dispatch<any>
 }>({
   studyField: null,
   setStudyField: () => {}

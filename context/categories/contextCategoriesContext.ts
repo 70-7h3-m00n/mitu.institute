@@ -3,20 +3,13 @@ import {
   TypeLibProgramCategorySlug,
   TypeLibProgramsCategories
 } from '@/types/index'
-import { createContext } from 'react'
+import { createContext, Dispatch } from 'react'
 
 const contextCategoriesContext = createContext<{
   categories: TypeLibProgramsCategories | null
   curCategory: TypeLibProgramCategory | null
   curCategorySlug: TypeLibProgramCategorySlug | null
-  setCategories: ({
-    payload
-  }: {
-    payload: {
-      categories: TypeLibProgramsCategories | null
-      curCategorySlug: TypeLibProgramCategorySlug | null
-    } | null
-  }) => void
+  setCategories: Dispatch<any>
 }>({
   categories: null,
   curCategory: null,

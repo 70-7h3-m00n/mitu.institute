@@ -20,17 +20,30 @@ import {
 import { useCompanyInfo } from '@/hooks/index'
 import {
   ContextAccessibilityState,
-  ContextCategoriesState,
-  ContextStudyFieldState,
-  ContextProgramsState,
-  ContextQuestionsState,
-  ContextProgramState
+  ContextCategoriesContext,
+  ContextStudyFieldContext,
+  ContextProgramsContext,
+  ContextQuestionsContext,
+  ContextProgramContext
 } from '@/context/index'
 import { Header, Main, Footer } from '@/components/layout'
 import { HeaderPromo } from '@/components/promo'
 import { GeneralNavPhoneTablet } from '@/components/general'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
+  const [categories, setCategories] = useState(
+    {
+      categories: pageProps.categories,
+      curCategory: pageProps?.categories
+        ?.filter(category => category?.slug === (pageProps.categories?.[0]?.slug || pageProps?.gspContextParamsCategory))?.[0] || null,
+      curCategorySlug: pageProps?.gspContextParamsCategory || pageProps.categories?.[0]?.slug || null
+    }
+  )
+  const [studyField, setStudyField] = useState(null)
+  const [programs, setPrograms] = useState(pageProps.programs || null)
+  const [questions, setQuestions] = useState(pageProps.questions || null)
+  const [program, setProgram] = useState(null)
+
   const company = useCompanyInfo()
 
   // TODO: check the translations UZ google docs to make sure the translations are correct
@@ -70,7 +83,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   }, [router])
 
   if (prod) {
-    console.log = () => {}
+    console.log = () => { }
   }
 
   return (
@@ -86,11 +99,28 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       />
       {/* <ContextGeneralPopupState> */}
       <ContextAccessibilityState>
-        <ContextCategoriesState>
-          <ContextStudyFieldState>
-            <ContextProgramsState>
-              <ContextQuestionsState>
-                <ContextProgramState>
+        <ContextCategoriesContext.Provider value={{
+          categories: categories.categories,
+          curCategory: categories.curCategory,
+          curCategorySlug: categories.curCategorySlug,
+          setCategories: setCategories
+        }}>
+          <ContextStudyFieldContext.Provider value={{
+            studyField,
+            setStudyField
+          }}>
+            <ContextProgramsContext.Provider value={{
+              programs,
+              setPrograms
+            }}>
+              <ContextQuestionsContext.Provider value={{
+                questions,
+                setQuestions
+              }}>
+                <ContextProgramContext.Provider value={{
+                  program,
+                  setProgram
+                }}>
                   {router.route === routesFront.promo ? (
                     <HeaderPromo />
                   ) : (
@@ -104,11 +134,11 @@ const App = ({ Component, pageProps, router }: AppProps) => {
                     />
                   </Main>
                   <Footer />
-                </ContextProgramState>
-              </ContextQuestionsState>
-            </ContextProgramsState>
-          </ContextStudyFieldState>
-        </ContextCategoriesState>
+                </ContextProgramContext.Provider>
+              </ContextQuestionsContext.Provider>
+            </ContextProgramsContext.Provider>
+          </ContextStudyFieldContext.Provider>
+        </ContextCategoriesContext.Provider>
       </ContextAccessibilityState>
       {/* </ContextGeneralPopupState> */}
 

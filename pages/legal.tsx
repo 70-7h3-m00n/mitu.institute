@@ -82,7 +82,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
 
   useEffect(() => {
     setCategories({
-      payload: { categories, curCategorySlug: categories?.[0]?.slug || null }
+      categories, curCategorySlug: categories?.[0]?.slug || null
     })
   }, [categories])
 
@@ -90,7 +90,7 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
     title: `${translations.companyInfo} | ${company.name}`,
     desc: truncate(
       documentCategories?.reduce((acc, cur) => acc + cur.title + '. ', '') ||
-        company.tagline,
+      company.tagline,
       120
     ),
     canonical: `${routesFront.officialRoot}${routesFront.legal}`

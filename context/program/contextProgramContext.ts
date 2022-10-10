@@ -1,9 +1,9 @@
 import { TypeLibProgram } from '@/types/index'
-import { createContext } from 'react'
+import { createContext, Dispatch } from 'react'
 
 const contextProgramContext = createContext<{
   program: TypeLibProgram | null
-  setProgram: ({ payload }: { payload: TypeLibProgram }) => void
+  setProgram: Dispatch<any>
 }>({
   program: null,
   setProgram: () => {}
