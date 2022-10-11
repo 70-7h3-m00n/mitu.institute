@@ -66,7 +66,12 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
 
   useEffect(() => {
     setCategories({
-      categories, curCategorySlug: gspContextParamsCategory || null
+      categories,
+      curCategory:
+        categories?.filter(
+          category => category?.slug === gspContextParamsCategory
+        )?.[0] || null,
+      curCategorySlug: gspContextParamsCategory || null
     })
     setStudyField(gspContextParamsStudyField || null)
     setProgram(program || null)
@@ -82,11 +87,11 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
     programTitle: program?.title || 'Программа',
     desc: truncate(
       program?.description ||
-      program?.shortContents?.reduce(
-        (acc, cur) => acc + cur?.title + '. ',
-        ''
-      ) ||
-      company.tagline,
+        program?.shortContents?.reduce(
+          (acc, cur) => acc + cur?.title + '. ',
+          ''
+        ) ||
+        company.tagline,
       120
     ),
     canonical: `${routesFront.officialRoot}${routesFront.programs}/${program?.category?.slug}/${program?.study_field?.slug}/${program?.slug}`
@@ -139,7 +144,6 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
           {mituinstitute && <SectionWhyUs />}
           {!atAdditional && <SectionStartWithDiscount />}
           {/* <SectionProgramJobTitles /> */}
-          {console.log(curCategory)}
           {mituinstitute &&
             curCategory?.type !== 'bachelor' &&
             curCategory?.type !== 'master' && (

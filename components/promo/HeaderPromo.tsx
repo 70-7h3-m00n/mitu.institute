@@ -43,8 +43,15 @@ const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
     categories?.map(category => ({
       href: routesFront.anchorPrograms,
       val: category?.label || null,
-      payload: { categories, curCategorySlug: category?.slug || null }
-    })) || null
+      payload: {
+        categories,
+        curCategory:
+          categories?.filter(
+            category2 => category2?.slug === category?.slug
+          )?.[0] || null,
+        curCategorySlug: category?.slug || null
+      }
+    })) || []
 
   return (
     <header

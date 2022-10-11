@@ -40,7 +40,12 @@ const SectionOurPrograms = ({
     variantType: category?.type,
     onClick: () =>
       setCategories({
-        payload: { categories, curCategorySlug: category?.slug || null }
+        categories,
+        curCategory:
+          categories?.filter(
+            category2 => category2?.slug === category?.slug
+          )?.[0] || null,
+        curCategorySlug: category?.slug || null
       }),
     label: category?.label,
     href: category?.slug

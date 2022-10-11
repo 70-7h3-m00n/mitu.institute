@@ -1,7 +1,15 @@
 import '@/styles/app.sass'
 import 'reactjs-popup/dist/index.css'
 import type { AppProps, NextWebVitalsMetric } from 'next/app'
-import { TypeLibProgram, TypeLibProgramCategory, TypeLibProgramCategorySlug, TypeLibProgramQuestions, TypeLibPrograms, TypeLibProgramsCategories, TypeRoute } from '@/types/index'
+import {
+  TypeLibProgram,
+  TypeLibProgramCategory,
+  TypeLibProgramCategorySlug,
+  TypeLibProgramQuestions,
+  TypeLibPrograms,
+  TypeLibProgramsCategories,
+  TypeRoute
+} from '@/types/index'
 import Head from 'next/head'
 import Router from 'next/router'
 import Script from 'next/script'
@@ -31,25 +39,37 @@ import { HeaderPromo } from '@/components/promo'
 import { GeneralNavPhoneTablet } from '@/components/general'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
+  if (prod) console.log = () => undefined
 
-  // State Data Project
   const [categories, setCategories] = useState<{
     categories: TypeLibProgramsCategories | null
-    curCategory?: TypeLibProgramCategory | null
+    curCategory: TypeLibProgramCategory | null
     curCategorySlug: TypeLibProgramCategorySlug | null
   }>({
-    categories: pageProps.categories,
-    curCategory: pageProps?.categories
-      ?.filter((category: TypeLibProgramCategory) =>
-        category?.slug === (pageProps.categories?.[0]?.slug
-          || pageProps?.gspContextParamsCategory))?.[0]
-      || null,
-    curCategorySlug: pageProps?.gspContextParamsCategory || pageProps.categories?.[0]?.slug || null
+    categories: pageProps.categories || null,
+    curCategory:
+      pageProps?.categories?.filter(
+        (category: TypeLibProgramCategory) =>
+          category?.slug === pageProps.gspContextParamsCategory ||
+          category?.slug === pageProps.categories?.[0]?.slug
+      )?.[0] || null,
+    curCategorySlug:
+      pageProps?.gspContextParamsCategory ||
+      pageProps.categories?.[0]?.slug ||
+      null
   })
-  const [studyField, setStudyField] = useState<string | null>(null)
-  const [programs, setPrograms] = useState<TypeLibPrograms | null>(pageProps.programs || null)
-  const [questions, setQuestions] = useState<TypeLibProgramQuestions | null>(pageProps.questions || null)
-  const [program, setProgram] = useState<TypeLibProgram | null>(null)
+  const [studyField, setStudyField] = useState<string | null>(
+    pageProps.studyField || null
+  )
+  const [programs, setPrograms] = useState<TypeLibPrograms | null>(
+    pageProps.programs || null
+  )
+  const [questions, setQuestions] = useState<TypeLibProgramQuestions | null>(
+    pageProps.questions || null
+  )
+  const [program, setProgram] = useState<TypeLibProgram | null>(
+    pageProps.program || null
+  )
 
   const company = useCompanyInfo()
 
@@ -89,10 +109,6 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     }
   }, [router])
 
-  if (prod) {
-    console.log = () => { }
-  }
-
   return (
     <>
       <Head>
@@ -106,28 +122,33 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       />
       {/* <ContextGeneralPopupState> */}
       <ContextAccessibilityState>
-        <ContextCategoriesContext.Provider value={{
-          categories: categories.categories,
-          curCategory: categories.curCategory,
-          curCategorySlug: categories.curCategorySlug,
-          setCategories: setCategories
-        }}>
-          <ContextStudyFieldContext.Provider value={{
-            studyField,
-            setStudyField
+        <ContextCategoriesContext.Provider
+          value={{
+            categories: categories.categories,
+            curCategory: categories.curCategory,
+            curCategorySlug: categories.curCategorySlug,
+            setCategories: setCategories
           }}>
-            <ContextProgramsContext.Provider value={{
-              programs,
-              setPrograms
+          <ContextStudyFieldContext.Provider
+            value={{
+              studyField,
+              setStudyField
             }}>
-              <ContextQuestionsContext.Provider value={{
-                questions,
-                setQuestions
+            <ContextProgramsContext.Provider
+              value={{
+                programs,
+                setPrograms
               }}>
-                <ContextProgramContext.Provider value={{
-                  program,
-                  setProgram
+              <ContextQuestionsContext.Provider
+                value={{
+                  questions,
+                  setQuestions
                 }}>
+                <ContextProgramContext.Provider
+                  value={{
+                    program,
+                    setProgram
+                  }}>
                   {router.route === routesFront.promo ? (
                     <HeaderPromo />
                   ) : (

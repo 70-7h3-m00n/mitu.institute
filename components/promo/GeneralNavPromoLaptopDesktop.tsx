@@ -27,7 +27,7 @@ const GeneralNavPromoLaptopDesktop = ({
             <a
               href={href || '#'}
               className={stls.link}
-              onClick={() => setCategories({ payload })}>
+              onClick={() => setCategories(payload)}>
               {val}
             </a>
           </li>

@@ -27,7 +27,12 @@ const PageProgramsCategoryStudyField: NextPage<TypePageProgramsProps> = ({
 
   useEffect(() => {
     setCategories({
-      categories, curCategorySlug: gspContextParamsCategory || null
+      categories,
+      curCategory:
+        categories?.filter(
+          category => category?.slug === gspContextParamsCategory
+        )?.[0] || null,
+      curCategorySlug: gspContextParamsCategory || null
     })
     setStudyField(gspContextParamsStudyField || null)
     setPrograms(programs || null)
