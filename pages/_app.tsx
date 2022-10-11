@@ -41,9 +41,8 @@ import { GeneralNavPhoneTablet } from '@/components/general'
 const App = ({ Component, pageProps, router }: AppProps) => {
   if (prod) console.log = () => undefined
 
-  const props: any = pageProps
+  const props: any = pageProps // a workaround for the typescript error
 
-  console.log(pageProps)
   const [categories, setCategories] = useState<{
     categories: TypeLibProgramsCategories | null
     curCategory: TypeLibProgramCategory | null
