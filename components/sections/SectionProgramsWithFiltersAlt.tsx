@@ -281,7 +281,7 @@ const SectionProgramsWithFiltersAlt = ({
                     variant='beta'
                     classNames={[stls.filterBtn, stls.filterBtnLeft]}>
                     <span className={stls.btnText}>
-                      {translations.allPrograms}
+                      {curCategory?.label || translations.allPrograms}
                     </span>
                     <IconPointerBottom classNames={[stls.IconPointerBottom]} />
                   </BtnAlpha>
