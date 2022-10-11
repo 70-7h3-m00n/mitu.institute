@@ -27,12 +27,11 @@ const PagePrograms: NextPage<TypePageProgramsProps> = ({
 
   useEffect(() => {
     setCategories({
-      // payload: { categories, curCategorySlug: categories?.[0]?.slug || null }
-      payload: { categories, curCategorySlug: null }
+      categories, curCategorySlug: categories?.[0]?.slug || null
     })
-    setPrograms({ payload: programs })
-    setStudyField({ payload: null })
-    setProgram({ payload: null })
+    setPrograms(programs || null)
+    setStudyField(null)
+    setProgram(null)
   }, [categories, programs])
 
   return (

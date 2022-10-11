@@ -40,12 +40,12 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
 
   useEffect(() => {
     setCategories({
-      payload: { categories, curCategorySlug: categories?.[0]?.slug || null }
+      categories, curCategorySlug: categories?.[0]?.slug || null
     })
-    setStudyField({ payload: null })
-    setPrograms({ payload: programs })
-    setQuestions({ payload: questions })
-    setProgram({ payload: null })
+    setStudyField(null)
+    setPrograms(programs || null)
+    setQuestions(questions || null)
+    setProgram(null)
   }, [categories, programs, questions])
 
   const translations = {
@@ -57,17 +57,17 @@ const PagePayment: NextPage<TypePageHomeProps> = ({
     ],
     notedPoints: at.uz
       ? [
-          "To'lov uchun (kartangizning tafsilotlarini kiritish) siz Sberbank to'lov shlyuziga yo'naltirilasiz. To'lov shlyuziga ulanish va ma'lumotlarni uzatish SSL shifrlash protokoli yordamida xavfsiz rejimda amalga oshiriladi. Agar sizning bankingiz Visa, MasterCard SecureCode, MIR qabul qilish, J-Secure tomonidan tasdiqlangan Internet-to'lovlarni xavfsiz o'tkazish texnologiyasini qo'llab-quvvatlasa, to'lovni amalga oshirish uchun maxsus parol talab qilinishi mumkin",
-          "Qaytarilgan taqdirda, qaytarish muddati ta'lim materiallari olingan kundan boshlab 30 kun. O'tkazilgan mablag'larni qaytarish 5-30 ish kuni ichida bank hisobingizga o'tkaziladi (muddat bank kartangizni bergan bankka bog'liq)",
-          "Ushbu sayt 256 bitli shifrlashni qo'llab-quvvatlaydi. Shaxsiy ma'lumotlarning maxfiyligi \"Sberbank\" YOAJ tomonidan ta'minlanadi. Kiritilgan ma'lumotlar Rossiya federatsiyasi qonunlarida nazarda tutilgan hollar bundan mustasno, uchinchi shaxslarga berilmaydi. Bank kartalari bo'yicha to'lovlarni amalga oshirish Mir, Visa Int to'lov tizimlari talablariga qat'iy muvofiq holda amalga oshiriladi., MasterCard Europe Sprl, JCB",
-          "Iltimos, to'lov sahifasida shartnomaning nomi va raqamini ko'rsatishni unutmang"
-        ]
+        "To'lov uchun (kartangizning tafsilotlarini kiritish) siz Sberbank to'lov shlyuziga yo'naltirilasiz. To'lov shlyuziga ulanish va ma'lumotlarni uzatish SSL shifrlash protokoli yordamida xavfsiz rejimda amalga oshiriladi. Agar sizning bankingiz Visa, MasterCard SecureCode, MIR qabul qilish, J-Secure tomonidan tasdiqlangan Internet-to'lovlarni xavfsiz o'tkazish texnologiyasini qo'llab-quvvatlasa, to'lovni amalga oshirish uchun maxsus parol talab qilinishi mumkin",
+        "Qaytarilgan taqdirda, qaytarish muddati ta'lim materiallari olingan kundan boshlab 30 kun. O'tkazilgan mablag'larni qaytarish 5-30 ish kuni ichida bank hisobingizga o'tkaziladi (muddat bank kartangizni bergan bankka bog'liq)",
+        "Ushbu sayt 256 bitli shifrlashni qo'llab-quvvatlaydi. Shaxsiy ma'lumotlarning maxfiyligi \"Sberbank\" YOAJ tomonidan ta'minlanadi. Kiritilgan ma'lumotlar Rossiya federatsiyasi qonunlarida nazarda tutilgan hollar bundan mustasno, uchinchi shaxslarga berilmaydi. Bank kartalari bo'yicha to'lovlarni amalga oshirish Mir, Visa Int to'lov tizimlari talablariga qat'iy muvofiq holda amalga oshiriladi., MasterCard Europe Sprl, JCB",
+        "Iltimos, to'lov sahifasida shartnomaning nomi va raqamini ko'rsatishni unutmang"
+      ]
       : [
-          'Для оплаты (ввода реквизитов Вашей карты) Вы будете перенаправлены на платёжный шлюз ПАО СБЕРБАНК. Соединение с платёжным шлюзом и передача информации осуществляется в защищённом режиме с использованием протокола шифрования SSL. В случае если Ваш банк поддерживает технологию безопасного проведения интернет-платежей Verified By Visa, MasterCard SecureCode, MIR Accept, J-Secure, для проведения платежа также может потребоваться ввод специального пароля',
-          'В случае возврата, срок возврата составляет 30 дней с момента получения образовательных материалов. Возврат переведённых средств производится на Ваш банковский счёт в течение 5-30 рабочих дней (срок зависит от банка, который выдал Вашу банковскую карту)',
-          'Настоящий сайт поддерживает 256-битное шифрование. Конфиденциальность сообщаемой персональной информации обеспечивается ПАО СБЕРБАНК. Введённая информация не будет предоставлена третьим лицам за исключением случаев, предусмотренных законодательством РФ. Проведение платежей по банковским картам осуществляется в строгом соответствии с требованиями платёжных систем МИР, Visa Int., MasterCard Europe Sprl, JCB',
-          'Пожалуйста, не забудьте указать ФИО и номер договора на странице с оплатой'
-        ],
+        'Для оплаты (ввода реквизитов Вашей карты) Вы будете перенаправлены на платёжный шлюз ПАО СБЕРБАНК. Соединение с платёжным шлюзом и передача информации осуществляется в защищённом режиме с использованием протокола шифрования SSL. В случае если Ваш банк поддерживает технологию безопасного проведения интернет-платежей Verified By Visa, MasterCard SecureCode, MIR Accept, J-Secure, для проведения платежа также может потребоваться ввод специального пароля',
+        'В случае возврата, срок возврата составляет 30 дней с момента получения образовательных материалов. Возврат переведённых средств производится на Ваш банковский счёт в течение 5-30 рабочих дней (срок зависит от банка, который выдал Вашу банковскую карту)',
+        'Настоящий сайт поддерживает 256-битное шифрование. Конфиденциальность сообщаемой персональной информации обеспечивается ПАО СБЕРБАНК. Введённая информация не будет предоставлена третьим лицам за исключением случаев, предусмотренных законодательством РФ. Проведение платежей по банковским картам осуществляется в строгом соответствии с требованиями платёжных систем МИР, Visa Int., MasterCard Europe Sprl, JCB',
+        'Пожалуйста, не забудьте указать ФИО и номер договора на странице с оплатой'
+      ],
     paymentMethods: at.uz ? "To'lov usullari" : 'Способы оплаты',
     bankCard: at.uz ? 'Bank kartasi bilan' : 'Банковской картой',
     bankCardDesc: at.uz

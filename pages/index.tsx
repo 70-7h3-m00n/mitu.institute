@@ -44,12 +44,12 @@ const PageHome: NextPage<TypePageHomeProps> = ({
 
   useEffect(() => {
     setCategories({
-      payload: { categories, curCategorySlug: categories?.[0]?.slug || null }
+      categories, curCategorySlug: categories?.[0]?.slug || null
     })
-    setStudyField({ payload: null })
-    setPrograms({ payload: programs })
-    setQuestions({ payload: questions })
-    setProgram({ payload: null })
+    setStudyField(null)
+    setPrograms(programs || null)
+    setQuestions(questions || null)
+    setProgram(null)
   }, [categories, programs, questions])
 
   const seoParams = {
