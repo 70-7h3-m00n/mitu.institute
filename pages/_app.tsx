@@ -41,34 +41,35 @@ import { GeneralNavPhoneTablet } from '@/components/general'
 const App = ({ Component, pageProps, router }: AppProps) => {
   if (prod) console.log = () => undefined
 
+  const props: any = pageProps
+
+  console.log(pageProps)
   const [categories, setCategories] = useState<{
     categories: TypeLibProgramsCategories | null
     curCategory: TypeLibProgramCategory | null
     curCategorySlug: TypeLibProgramCategorySlug | null
   }>({
-    categories: pageProps?.categories || null,
+    categories: props?.categories || null,
     curCategory:
-      pageProps?.categories?.filter(
+      props?.categories?.filter(
         (category: TypeLibProgramCategory) =>
-          category?.slug === pageProps.gspContextParamsCategory ||
-          category?.slug === pageProps.categories?.[0]?.slug
+          category?.slug === props.gspContextParamsCategory ||
+          category?.slug === props.categories?.[0]?.slug
       )?.[0] || null,
     curCategorySlug:
-      pageProps?.gspContextParamsCategory ||
-      pageProps?.categories?.[0]?.slug ||
-      null
+      props?.gspContextParamsCategory || props?.categories?.[0]?.slug || null
   })
   const [studyField, setStudyField] = useState<string | null>(
-    pageProps?.studyField || null
+    props?.studyField || null
   )
   const [programs, setPrograms] = useState<TypeLibPrograms | null>(
-    pageProps?.programs || null
+    props?.programs || null
   )
   const [questions, setQuestions] = useState<TypeLibProgramQuestions | null>(
-    pageProps?.questions || null
+    props?.questions || null
   )
   const [program, setProgram] = useState<TypeLibProgram | null>(
-    pageProps?.program || null
+    props?.program || null
   )
 
   const company = useCompanyInfo()
