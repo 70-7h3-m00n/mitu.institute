@@ -46,7 +46,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     curCategory: TypeLibProgramCategory | null
     curCategorySlug: TypeLibProgramCategorySlug | null
   }>({
-    categories: pageProps.categories || null,
+    categories: pageProps?.categories || null,
     curCategory:
       pageProps?.categories?.filter(
         (category: TypeLibProgramCategory) =>
@@ -55,20 +55,20 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       )?.[0] || null,
     curCategorySlug:
       pageProps?.gspContextParamsCategory ||
-      pageProps.categories?.[0]?.slug ||
+      pageProps?.categories?.[0]?.slug ||
       null
   })
   const [studyField, setStudyField] = useState<string | null>(
-    pageProps.studyField || null
+    pageProps?.studyField || null
   )
   const [programs, setPrograms] = useState<TypeLibPrograms | null>(
-    pageProps.programs || null
+    pageProps?.programs || null
   )
   const [questions, setQuestions] = useState<TypeLibProgramQuestions | null>(
-    pageProps.questions || null
+    pageProps?.questions || null
   )
   const [program, setProgram] = useState<TypeLibProgram | null>(
-    pageProps.program || null
+    pageProps?.program || null
   )
 
   const company = useCompanyInfo()
