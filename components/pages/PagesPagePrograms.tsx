@@ -3,6 +3,7 @@ import { TypeClassNames, TypeLibProgramsStudyFields } from '@/types/index'
 import { useContext } from 'react'
 import cn from 'classnames'
 import { NextSeo, OrganizationJsonLd } from 'next-seo'
+import { useRouter } from 'next/router'
 import truncate from 'truncate'
 import { ContextCategoriesContext } from '@/context/index'
 import { routesFront, colors } from '@/config/index'
@@ -27,6 +28,7 @@ type TypePagesPageProgramsProps = {
 
 const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
   const at = useAt()
+  const router = useRouter()
   const company = useCompanyInfo()
   const { curCategory } = useContext(ContextCategoriesContext)
 
@@ -46,7 +48,7 @@ const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
       curCategory?.label || translations.studyFields
     } | ${company.name}`,
     desc: truncate(pros.join('. '), 120),
-    canonical: `${routesFront.officialRoot}${routesFront.programs}`
+    canonical: `${routesFront.officialRoot}${router.asPath}`
   }
 
   return (
