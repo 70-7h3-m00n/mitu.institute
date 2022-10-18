@@ -24,7 +24,8 @@ module.exports = {
     policies: [
       {
         userAgent: '*',
-        allow: '/'
+        allow: ['/*.css', '/*.js', '/*.jpg', '/*.png', '/*.gif', '#!'],
+        disallow: ['/promo*', '*?']
       }
     ]
   }
