@@ -1,6 +1,6 @@
 import stls from '@/styles/pages/PageContact.module.sass'
 import type { NextPage } from 'next'
-import { useContext, useEffect } from 'react'
+import { Fragment, useContext, useEffect, useState } from 'react'
 import { GetStaticProps } from 'next'
 import { TypePageHomeProps } from '@/types/index'
 import cn from 'classnames'
@@ -38,7 +38,13 @@ const PageContact: NextPage<TypePageHomeProps> = ({
   const { setProgram } = useContext(ContextProgramContext)
 
   const translations = {
-    contacts: at.uz ? 'Aloqa' : 'Контакты'
+    contacts: at.uz ? 'Aloqa' : 'Контакты',
+    showRequisites: at.uz
+      ? "Tafsilotlarni ko'rsatish"
+      : 'Показать юридические реквизиты',
+    hideRequisites: at.uz
+      ? 'Tafsilotlarni yashirish'
+      : 'Скрыть юридические реквизиты'
   }
 
   useEffect(() => {
@@ -68,7 +74,8 @@ const PageContact: NextPage<TypePageHomeProps> = ({
       address: `${company.address.street.name} ${company.address.street.type}, ${company.address.street.door}`,
       phoneNumbers: [company.phoneNumber, company.phoneNumberAlt],
       email: company.email,
-      img: <ImgContactMapMoscow classNames={[stls.img]} />
+      img: <ImgContactMapMoscow classNames={[stls.img]} />,
+      extraLegalInfo: true
     },
     {
       city: company.addressKz.city,
@@ -87,6 +94,27 @@ const PageContact: NextPage<TypePageHomeProps> = ({
       phoneNumbers: [company.phoneNumberUz],
       email: company.emailUz,
       img: <ImgContactMapTashkent classNames={[stls.img]} />
+    }
+  ]
+
+  const [extraLegalInfoShown, setExtraLegalInfoShown] = useState(false)
+
+  const extraLegalInfo = [
+    {
+      title: 'Юридические реквизиты',
+      items: [
+        'Фактический адрес: 115114, Москва, наб. Дербеневская, дом 11',
+        'Электронная почта: info@mitu.institute',
+        'Телефоны: +7 (495) 648-62-26 / +7 (800) 444-81-38',
+        'Полное наименование – Образовательная автономная некоммерческая организация дополнительного профессионального образования «Московский институт технологий и управления»',
+        'Сокращенное наименование – ОАНО ДПО «МИТУ»',
+        'Юридический адрес: 115114, г. Москва, набережная Дербеневская, д. 11, пом. 13',
+        'ИНН 9725017985',
+        'КПП 772501001',
+        'Расчетный счет 40703810138000003124 в ПАО СБЕРБАНК, к/с 30101810400000000225, БИК 044525225',
+        'ОКВЭД 85.42',
+        'ОГРН 1197700011519'
+      ]
     }
   ]
 
@@ -148,7 +176,7 @@ const PageContact: NextPage<TypePageHomeProps> = ({
                   <div className={stls.iconContainer}>
                     <IconLocation classNames={[stls.icon]} />
                   </div>
-                  <h3 className={stls.city}>{item.city}</h3>
+                  <h2 className={stls.city}>{item.city}</h2>
                   <p className={cn(stls.address, stls.p)}>{item.address}</p>
                   <p className={cn(stls.phoneNumbers, stls.p)}>
                     {item.phoneNumbers.map((number, idx) => (
@@ -170,6 +198,47 @@ const PageContact: NextPage<TypePageHomeProps> = ({
                       {item.email.val}
                     </a>
                   </p>
+                  {item?.extraLegalInfo && at.ru && (
+                    <div className={cn(stls.extraLegalInfoContainer)}>
+                      <button
+                        tabIndex={0}
+                        className={cn(
+                          stls.p,
+                          stls.link,
+                          stls.toggleExtraLegalInfo
+                        )}
+                        onClick={() =>
+                          setExtraLegalInfoShown(prevState => !prevState)
+                        }>
+                        {extraLegalInfoShown
+                          ? translations.hideRequisites
+                          : translations.showRequisites}
+                      </button>
+                      {extraLegalInfoShown && (
+                        <div className={stls.extraLegalInfoShownContainer}>
+                          {extraLegalInfo.map((info, idx) => (
+                            <Fragment key={`${info.title}-${idx}`}>
+                              <h3
+                                className={cn(
+                                  stls.p,
+                                  stls.extraLegalInfo,
+                                  stls.fw600
+                                )}>
+                                {info.title}
+                              </h3>
+                              {info.items.map((item, idx) => (
+                                <p
+                                  key={`${item}-${idx}`}
+                                  className={cn(stls.p, stls.extraLegalInfo)}>
+                                  {item}
+                                </p>
+                              ))}
+                            </Fragment>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
                 <div className={stls.right}>{item.img}</div>
               </li>

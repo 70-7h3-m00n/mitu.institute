@@ -55,7 +55,10 @@ const Footer = ({ classNames }: TypeFooterProps) => {
       ? 'Foydalanuvchi shartnomasi'
       : 'Пользовательское соглашение',
     payment: at.uz ? 'Ish haqi' : 'Оплата',
-    contacts: at.uz ? 'Aloqa' : 'Контакты'
+    contacts: at.uz ? 'Aloqa' : 'Контакты',
+    legal: at.uz
+      ? "Ta'lim tashkiloti haqida ma'lumot"
+      : 'Сведения об образовательной организации'
   }
 
   const privacyLinks = [
@@ -117,6 +120,13 @@ const Footer = ({ classNames }: TypeFooterProps) => {
                 <a className={stls.navLink}>{translations.contacts}</a>
               </Link>
             </li>
+            {/* {at.ru && (
+              <li className={stls.navLinkItem}>
+                <Link href={routesFront.legal}>
+                  <a className={stls.navLink}>{translations.legal}</a>
+                </Link>
+              </li>
+            )} */}
           </ul>
           <div className={stls.contacts}>
             <GeneralPhoneNumber

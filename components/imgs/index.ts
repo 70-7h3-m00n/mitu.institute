@@ -32,3 +32,7 @@ export { default as ImgTemplate } from '@/components/imgs/ImgTemplate'
 
 // payment
 export { default as ImgWallet } from '@/components/imgs/payment/ImgWallet'
+export { default as ImgJCB } from '@/components/imgs/payment/ImgJCB'
+export { default as ImgMasterCard } from '@/components/imgs/payment/ImgMasterCard'
+export { default as ImgMIR } from '@/components/imgs/payment/ImgMIR'
+export { default as ImgVisa } from '@/components/imgs/payment/ImgVisa'

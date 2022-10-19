@@ -84,6 +84,12 @@ $left_ld_db: 32.8%
   font-weight: 700
   line-height: 110%
 
+.extraLegalInfoContainer
+  margin-top: f.px(18)
+
+.extraLegalInfoShownContainer
+  margin-top: f.px(16)
+
 .p
   margin: 0
   @include m.media(tablet)
@@ -94,6 +100,12 @@ $left_ld_db: 32.8%
   line-height: 120%
   & + .p
     margin-top: f.px(16)
+  &.extraLegalInfo
+    @include m.media(tablet)
+      font-size: f.px(15)
+    @include m.media(phone, laptop, desktop)
+      font-size: f.px(16)
+
 
 .link
   color: inherit
@@ -103,3 +115,9 @@ $left_ld_db: 32.8%
   &:focus-visible
     outline: none
     text-decoration: underline
+
+.toggleExtraLegalInfo
+  @include m.dye(c, c.$beta)
+
+.fw600
+  font-weight: 600

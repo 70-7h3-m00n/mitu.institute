@@ -64,6 +64,7 @@ $left_lp_fb: 50%
 
 .paymentSystem
   display: flex
+  align-items: center
   & + .paymentSystem
     margin-top: f.px(24)
     padding-top: f.px(24)
@@ -71,6 +72,9 @@ $left_lp_fb: 50%
     @include m.dye(border, c.$delta)
 
 .paymentSystemP
+  display: flex
+  justify-content: center
+  align-items: center
   margin: 0
   @include m.media(phone)
     font-size: f.px(20)
@@ -80,6 +84,9 @@ $left_lp_fb: 50%
     font-size: f.px(24)
   line-height: 110%
   @include m.dye(c, c.$beta)
+
+.paymentSystemImg
+  margin-left: f.px(16)
 
 .btns
   display: flex

@@ -122,6 +122,8 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
           ],
           site_name: company.name
         }}
+        noindex
+        nofollow
       />
       <OrganizationJsonLd
         organizationType='EducationalOrganization'
