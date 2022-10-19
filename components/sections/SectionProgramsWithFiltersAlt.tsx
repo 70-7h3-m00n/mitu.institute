@@ -5,7 +5,7 @@ import {
   TypeLibProgramsStudyFields,
   TypePagePromoProps
 } from '@/types/index'
-import { Fragment, MouseEventHandler, useContext, useState } from 'react'
+import { Fragment, MouseEventHandler, useContext, useEffect, useState } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
@@ -87,8 +87,15 @@ const SectionProgramsWithFiltersAlt = ({
 
   const router = useRouter();
 
-  const filledRoutes: string[] = router.query.studyField?.split(',')
+  const filledRoutes: string[] = router.query?.studyField?.split(',');
   
+  useEffect(() => {
+    router.query?.category !== curCategory?.slug && setAppliedStudyFields([])
+  }, [curCategory, router.query?.category])
+  
+
+  console.log(router, filledRoutes);
+
   const studyFieldControlBtnShowMax = studyFields &&
     studyFields?.length > studyFieldsShowMaxDefault &&
     studyFieldsShowMax < Infinity && (
@@ -157,7 +164,7 @@ const SectionProgramsWithFiltersAlt = ({
           </GeneralSectionTitle>
           <ul className={stls.categories}>
             <li className={stls.categoryItem}>
-              <Link href={routesFront.programs}>
+              <Link href={routesFront.programs} passHref>
                 <a
                   className={cn(stls.categoryLink, {
                     [stls.isActive]: !curCategory
@@ -175,11 +182,12 @@ const SectionProgramsWithFiltersAlt = ({
                 <Link
                   href={`${routesFront.programs}/${
                     category?.slug || 'category'
-                  }`}>
+                  }`} passHref scroll={false}>
                   <a
                     className={cn(stls.categoryLink, {
                       [stls.isActive]: curCategory?.slug === category?.slug
-                    })}>
+                    })}
+                    >
                     <span className={stls.categoryLinkLabel}>
                       {category?.label?.split(' ').join('\u00A0')}
                     </span>
@@ -217,7 +225,7 @@ const SectionProgramsWithFiltersAlt = ({
                   <li
                     key={`${studyField?.title}-${idx}`}
                     className={stls.studyFieldItem}>
-                      <Link href={`#`} passHref scroll={false}>  
+                      <Link href='#' passHref scroll={false}>  
                         <a
                           className={cn(stls.studyFieldBtn, {
                             [stls.isActive]: router.query.studyField?.split(',')?.some(
@@ -245,7 +253,11 @@ const SectionProgramsWithFiltersAlt = ({
                                     appliedStudyField?.slug !== studyField?.slug
                                 )
                               ])
-                              router.push(`?studyField=${encodeURIComponent(filledRoutes.filter(
+                              router.push(`${routesFront.programs}${
+                                curCategory?.slug 
+                                ? `/${curCategory?.slug}`
+                                : ''
+                              }?studyField=${encodeURIComponent(filledRoutes?.filter(
                                 (field: string) =>
                                 field !== studyField?.slug
                               ).join(',')
@@ -258,12 +270,20 @@ const SectionProgramsWithFiltersAlt = ({
                                 studyField
                               ])
                               filledRoutes?.length > 0
-                              ? router.push(`?studyField=${
+                              ? router.push(`${routesFront.programs}${
+                                curCategory?.slug 
+                                ? `/${curCategory?.slug}`
+                                : ''
+                              }?studyField=${
                                 encodeURIComponent([...filledRoutes, studyField.slug].filter(str => str).join(','))
                               }`, undefined, { 
                                 scroll: false,
                               })
-                              : router.push(`?studyField=${encodeURIComponent(studyField.slug)}`, undefined, { 
+                              : router.push(`${routesFront.programs}${
+                                curCategory?.slug 
+                                ? `/${curCategory?.slug}`
+                                : ''
+                              }?studyField=${encodeURIComponent(studyField.slug)}`, undefined, { 
                                 scroll: false,
                                })
                             }
@@ -366,7 +386,9 @@ const SectionProgramsWithFiltersAlt = ({
                           className={stls.listItem}
                           key={`${category.label}-${idx}`}>
                           <Link
-                            href={`${routesFront.programs}/${category.slug}`}>
+                            href={`${routesFront.programs}/${category.slug}`}
+                            passHref
+                            >
                             <a
                               className={cn(stls.listItemLink, {
                                 [stls.isActive]:
