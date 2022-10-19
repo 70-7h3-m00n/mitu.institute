@@ -92,8 +92,7 @@ const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltP
   
   useEffect(() => {
     appliedStudyFields.length === 0
-    && filledRoutes
-    && filledRoutes.length > 0
+    && filledRoutes?.length > 0
     && setAppliedStudyFields([
       ...studyFields?.filter(
         studyField =>
@@ -201,6 +200,9 @@ const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltP
                     className={cn(stls.categoryLink, {
                       [stls.isActive]: curCategory?.slug === category?.slug
                     })}
+                    onClick={
+                      () => setAppliedStudyFields([])
+                    }
                     >
                     <span className={stls.categoryLinkLabel}>
                       {category?.label?.split(' ').join('\u00A0')}
