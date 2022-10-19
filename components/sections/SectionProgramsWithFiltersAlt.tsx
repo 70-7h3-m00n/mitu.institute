@@ -78,11 +78,6 @@ const SectionProgramsWithFiltersAlt = ({
   const [searchValue, setSearchValue] = useState('')
   const [searchStudyField, setSearchStudyField] = useState('');
 
-  const filterFields = (request: string, fields: TStudyFields) => {
-    if (!request) fields;
-    return fields
-  }
-
   const [appliedStudyFields, setAppliedStudyFields] = useState<
     TStudyFields | []
   >([])
