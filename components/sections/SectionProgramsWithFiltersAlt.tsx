@@ -37,6 +37,7 @@ import {
   IconArrowRight
 } from '@/components/icons'
 import { useRouter } from 'next/router'
+import React from 'react'
 
 type TStudyFields = {
   type: string | null
@@ -48,10 +49,10 @@ type TypeSectionProgramsWithFiltersAltProps = TypeClassNames & {
   studyFields: TStudyFields | null
 }
 
-const SectionProgramsWithFiltersAlt = ({
+const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltProps> = ({
   classNames,
   studyFields
-}: TypeSectionProgramsWithFiltersAltProps) => {
+}) => {
   const at = useAt()
 
   const translations = {
@@ -90,8 +91,21 @@ const SectionProgramsWithFiltersAlt = ({
   const filledRoutes: string[] = router.query?.studyField?.split(',');
   
   useEffect(() => {
-    router.query?.category !== curCategory?.slug && setAppliedStudyFields([])
-  }, [curCategory, router.query?.category])
+    appliedStudyFields.length === 0
+    && filledRoutes
+    && filledRoutes.length > 0
+    && setAppliedStudyFields([
+      ...studyFields?.filter(
+        studyField =>
+          filledRoutes.some(
+            field =>
+              field === studyField.slug
+          )
+      )
+    ])
+
+    router.query?.category === curCategory?.slug || setAppliedStudyFields([]);
+  }, [appliedStudyFields.length, curCategory, filledRoutes, router.query?.category, studyFields])
   
 
   console.log(router, filledRoutes);
