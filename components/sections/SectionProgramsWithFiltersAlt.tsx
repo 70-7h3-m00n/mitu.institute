@@ -76,6 +76,13 @@ const SectionProgramsWithFiltersAlt = ({
   const { programs } = useContext(ContextProgramsContext)
 
   const [searchValue, setSearchValue] = useState('')
+  const [searchStudyField, setSearchStudyField] = useState('');
+
+  const filterFields = (request: string, fields: TStudyFields) => {
+    if (!request) fields;
+    return fields
+  }
+
   const [appliedStudyFields, setAppliedStudyFields] = useState<
     TStudyFields | []
   >([])
@@ -399,10 +406,29 @@ const SectionProgramsWithFiltersAlt = ({
                     <h3 className={stls.GeneralPopupTitle}>
                       {translations.chooseStudyField}
                     </h3>
+                    <div className={stls.searchContainer}>
+                      <input
+                        className={stls.searchInput}
+                        value={searchStudyField}
+                        onChange={e => setSearchStudyField(e.target.value)}
+                        placeholder={translations.searchPlaceholder}
+                        title={searchValue || translations.searchPlaceholder}
+                      />
+                      <div className={stls.iconSearchContainer}>
+                        <IconSearch classNames={[stls.IconSearch]} />
+                      </div>
+                    </div>
                     {studyFieldControlBtnSetDefault}
                     <ul className={stls.list}>
                       {studyFields
                         ?.filter((studyField, idx) => idx < studyFieldsShowMax)
+                        ?.filter(studyField =>
+                          searchStudyField
+                            ? studyField.title
+                                ?.toLowerCase()
+                                .includes(searchStudyField.toLowerCase())
+                            : true
+                        )
                         ?.map((studyField, idx) => (
                           <li
                             key={`${studyField?.title}-mobile-${idx}`}
