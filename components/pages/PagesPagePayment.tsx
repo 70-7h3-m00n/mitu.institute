@@ -102,6 +102,7 @@ const PagePayment = ({
     desc: truncate(translations.notedPoints.join('. '), 120),
     canonical: `${routesFront.officialRoot}${routesFront.payment}`
   }
+  //
 
   return (
     <>
