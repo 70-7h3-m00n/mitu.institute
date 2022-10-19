@@ -36,6 +36,7 @@ import {
   IconCross,
   IconArrowRight
 } from '@/components/icons'
+import { useRouter } from 'next/router'
 
 type TStudyFields = {
   type: string | null
@@ -73,7 +74,7 @@ const SectionProgramsWithFiltersAlt = ({
     ContextCategoriesContext
   )
   const { studyField: studyFieldContext } = useContext(ContextStudyFieldContext)
-  const { programs } = useContext(ContextProgramsContext)
+  const { programs } = useContext(ContextProgramsContext)  
 
   const [searchValue, setSearchValue] = useState('')
   const [appliedStudyFields, setAppliedStudyFields] = useState<
@@ -84,6 +85,10 @@ const SectionProgramsWithFiltersAlt = ({
     studyFieldsShowMaxDefault
   )
 
+  const router = useRouter();
+
+  const filledRoutes: string[] = router.query.studyField?.split(',')
+  
   const studyFieldControlBtnShowMax = studyFields &&
     studyFields?.length > studyFieldsShowMaxDefault &&
     studyFieldsShowMax < Infinity && (
@@ -212,50 +217,78 @@ const SectionProgramsWithFiltersAlt = ({
                   <li
                     key={`${studyField?.title}-${idx}`}
                     className={stls.studyFieldItem}>
-                    <a
-                      href='#!'
-                      className={cn(stls.studyFieldBtn, {
-                        [stls.isActive]: appliedStudyFields.some(
-                          appliedStudyField =>
-                            appliedStudyField?.slug === studyField?.slug
-                        )
-                      })}
-                      onClick={() => {
-                        if (
-                          appliedStudyFields.some(
-                            appliedStudyField =>
-                              appliedStudyField?.slug === studyField?.slug
-                          )
-                        ) {
-                          setAppliedStudyFields([
-                            ...appliedStudyFields.filter(
+                      <Link href={`#`} passHref scroll={false}>  
+                        <a
+                          className={cn(stls.studyFieldBtn, {
+                            [stls.isActive]: router.query.studyField?.split(',')?.some(
+                              (linkStudyField: string) =>
+                              linkStudyField === studyField?.slug
+                              ) || appliedStudyFields.some(
                               appliedStudyField =>
-                                appliedStudyField?.slug !== studyField?.slug
+                                appliedStudyField?.slug === studyField?.slug
                             )
-                          ])
-                        } else {
-                          setAppliedStudyFields([
-                            ...appliedStudyFields,
-                            studyField
-                          ])
-                        }
-                      }}>
-                      <div
-                        className={cn(stls.IconCheckAltContainer, {
-                          [stls.isActive]: appliedStudyFields.some(
-                            appliedStudyField =>
-                              appliedStudyField?.slug === studyField?.slug
-                          )
-                        })}>
-                        <IconCheckAlt
-                          color={colors.upsilon}
-                          classNames={[stls.IconCheckAlt]}
-                        />
-                      </div>
-                      <span className={stls.studyFieldTitle}>
-                        {studyField.title}
-                      </span>
-                    </a>
+                          })}
+                          onClick={() => {
+                            if (
+                              router.query.studyField?.split(',').some(
+                                (linkStudyField: string)  =>
+                                linkStudyField === studyField?.slug
+                                ) 
+                              || appliedStudyFields.some(
+                                appliedStudyField =>
+                                  appliedStudyField?.slug === studyField?.slug
+                              )
+                            ) {
+                              setAppliedStudyFields([
+                                ...appliedStudyFields.filter(
+                                  appliedStudyField =>
+                                    appliedStudyField?.slug !== studyField?.slug
+                                )
+                              ])
+                              router.push(`?studyField=${encodeURIComponent(filledRoutes.filter(
+                                (field: string) =>
+                                field !== studyField?.slug
+                              ).join(',')
+                              )}`, undefined, { 
+                              scroll: false,
+                             })
+                            } else {
+                              setAppliedStudyFields([
+                                ...appliedStudyFields,
+                                studyField
+                              ])
+                              filledRoutes?.length > 0
+                              ? router.push(`?studyField=${
+                                encodeURIComponent([...filledRoutes, studyField.slug].filter(str => str).join(','))
+                              }`, undefined, { 
+                                scroll: false,
+                              })
+                              : router.push(`?studyField=${encodeURIComponent(studyField.slug)}`, undefined, { 
+                                scroll: false,
+                               })
+                            }
+                          }}
+                          >
+                          <div
+                            className={cn(stls.IconCheckAltContainer, {
+                              [stls.isActive]: router.query.studyField?.split(',')?.some(
+                                (linkStudyField: string)  =>
+                                linkStudyField === studyField?.slug
+                                ) || appliedStudyFields.some(
+                                appliedStudyField =>
+                                  appliedStudyField?.slug === studyField?.slug
+                              )
+                            })}>
+                            <IconCheckAlt
+                              color={colors.upsilon}
+                              classNames={[stls.IconCheckAlt]}
+                            />
+                          </div>
+                          <span className={stls.studyFieldTitle}>
+                            {studyField.title}
+                          </span>
+                        </a>
+                      </Link>
                   </li>
                 ))}
             </ul>
