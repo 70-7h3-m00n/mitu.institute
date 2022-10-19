@@ -5,7 +5,13 @@ import {
   TypeLibProgramsStudyFields,
   TypePagePromoProps
 } from '@/types/index'
-import { Fragment, MouseEventHandler, useContext, useEffect, useState } from 'react'
+import {
+  Fragment,
+  MouseEventHandler,
+  useContext,
+  useEffect,
+  useState
+} from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
@@ -49,10 +55,9 @@ type TypeSectionProgramsWithFiltersAltProps = TypeClassNames & {
   studyFields: TStudyFields | null
 }
 
-const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltProps> = ({
-  classNames,
-  studyFields
-}) => {
+const SectionProgramsWithFiltersAlt: React.FC<
+  TypeSectionProgramsWithFiltersAltProps
+> = ({ classNames, studyFields }) => {
   const at = useAt()
 
   const translations = {
@@ -75,7 +80,7 @@ const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltP
     ContextCategoriesContext
   )
   const { studyField: studyFieldContext } = useContext(ContextStudyFieldContext)
-  const { programs } = useContext(ContextProgramsContext)  
+  const { programs } = useContext(ContextProgramsContext)
 
   const [searchValue, setSearchValue] = useState('')
   const [appliedStudyFields, setAppliedStudyFields] = useState<
@@ -86,28 +91,21 @@ const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltP
     studyFieldsShowMaxDefault
   )
 
-  const router = useRouter();
+  const router = useRouter()
 
-  const filledRoutes: string[] = router.query?.studyField?.split(',');
-  
+  const filledRoutes: string[] = router.query?.studyField?.split(',')
+
   useEffect(() => {
-    appliedStudyFields.length === 0
-    && filledRoutes?.length > 0
-    && setAppliedStudyFields([
-      ...studyFields?.filter(
-        studyField =>
-          filledRoutes.some(
-            field =>
-              field === studyField.slug
-          )
-      )
-    ])
+    appliedStudyFields.length === 0 &&
+      filledRoutes?.length > 0 &&
+      setAppliedStudyFields([
+        ...studyFields?.filter(studyField =>
+          filledRoutes.some(field => field === studyField.slug)
+        )
+      ])
 
-    router.query?.category === curCategory?.slug || setAppliedStudyFields([]);
+    router.query?.category === curCategory?.slug || setAppliedStudyFields([])
   }, [curCategory, filledRoutes?.length, router.query?.category])
-  
-
-  console.log(router, filledRoutes);
 
   const studyFieldControlBtnShowMax = studyFields &&
     studyFields?.length > studyFieldsShowMaxDefault &&
@@ -177,7 +175,7 @@ const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltP
           </GeneralSectionTitle>
           <ul className={stls.categories}>
             <li className={stls.categoryItem}>
-              <Link href={routesFront.programs} passHref>
+              <Link href={routesFront.programs} passHref shallow={false}>
                 <a
                   className={cn(stls.categoryLink, {
                     [stls.isActive]: !curCategory
@@ -195,15 +193,15 @@ const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltP
                 <Link
                   href={`${routesFront.programs}/${
                     category?.slug || 'category'
-                  }`} passHref scroll={false}>
+                  }`}
+                  passHref
+                  scroll={false}
+                  shallow={false}>
                   <a
                     className={cn(stls.categoryLink, {
                       [stls.isActive]: curCategory?.slug === category?.slug
                     })}
-                    onClick={
-                      () => setAppliedStudyFields([])
-                    }
-                    >
+                    onClick={() => setAppliedStudyFields([])}>
                     <span className={stls.categoryLinkLabel}>
                       {category?.label?.split(' ').join('\u00A0')}
                     </span>
@@ -241,90 +239,120 @@ const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltP
                   <li
                     key={`${studyField?.title}-${idx}`}
                     className={stls.studyFieldItem}>
-                      <Link href='#' passHref scroll={false}>  
-                        <a
-                          className={cn(stls.studyFieldBtn, {
-                            [stls.isActive]: router.query.studyField?.split(',')?.some(
-                              (linkStudyField: string) =>
-                              linkStudyField === studyField?.slug
-                              ) || appliedStudyFields.some(
+                    <Link href='#' passHref scroll={false} shallow={false}>
+                      <a
+                        className={cn(stls.studyFieldBtn, {
+                          [stls.isActive]:
+                            router.query.studyField
+                              ?.split(',')
+                              ?.some(
+                                (linkStudyField: string) =>
+                                  linkStudyField === studyField?.slug
+                              ) ||
+                            appliedStudyFields.some(
                               appliedStudyField =>
                                 appliedStudyField?.slug === studyField?.slug
                             )
-                          })}
-                          onClick={() => {
-                            if (
-                              router.query.studyField?.split(',').some(
-                                (linkStudyField: string)  =>
-                                linkStudyField === studyField?.slug
-                                ) 
-                              || appliedStudyFields.some(
+                        })}
+                        onClick={() => {
+                          if (
+                            router.query.studyField
+                              ?.split(',')
+                              .some(
+                                (linkStudyField: string) =>
+                                  linkStudyField === studyField?.slug
+                              ) ||
+                            appliedStudyFields.some(
+                              appliedStudyField =>
+                                appliedStudyField?.slug === studyField?.slug
+                            )
+                          ) {
+                            setAppliedStudyFields([
+                              ...appliedStudyFields.filter(
                                 appliedStudyField =>
-                                  appliedStudyField?.slug === studyField?.slug
+                                  appliedStudyField?.slug !== studyField?.slug
                               )
-                            ) {
-                              setAppliedStudyFields([
-                                ...appliedStudyFields.filter(
-                                  appliedStudyField =>
-                                    appliedStudyField?.slug !== studyField?.slug
+                            ])
+                            router.push(
+                              `${routesFront.programs}${
+                                curCategory?.slug ? `/${curCategory?.slug}` : ''
+                              }?studyField=${encodeURIComponent(
+                                filledRoutes
+                                  ?.filter(
+                                    (field: string) =>
+                                      field !== studyField?.slug
+                                  )
+                                  .join(',')
+                              )}`,
+                              undefined,
+                              {
+                                scroll: false,
+                                shallow: false,
+                                shallow: false
+                              }
+                            )
+                          } else {
+                            setAppliedStudyFields([
+                              ...appliedStudyFields,
+                              studyField
+                            ])
+                            filledRoutes?.length > 0
+                              ? router.push(
+                                  `${routesFront.programs}${
+                                    curCategory?.slug
+                                      ? `/${curCategory?.slug}`
+                                      : ''
+                                  }?studyField=${encodeURIComponent(
+                                    [...filledRoutes, studyField.slug]
+                                      .filter(str => str)
+                                      .join(',')
+                                  )}`,
+                                  undefined,
+                                  {
+                                    scroll: false,
+                                    shallow: false
+                                  }
                                 )
-                              ])
-                              router.push(`${routesFront.programs}${
-                                curCategory?.slug 
-                                ? `/${curCategory?.slug}`
-                                : ''
-                              }?studyField=${encodeURIComponent(filledRoutes?.filter(
-                                (field: string) =>
-                                field !== studyField?.slug
-                              ).join(',')
-                              )}`, undefined, { 
-                              scroll: false,
-                             })
-                            } else {
-                              setAppliedStudyFields([
-                                ...appliedStudyFields,
-                                studyField
-                              ])
-                              filledRoutes?.length > 0
-                              ? router.push(`${routesFront.programs}${
-                                curCategory?.slug 
-                                ? `/${curCategory?.slug}`
-                                : ''
-                              }?studyField=${
-                                encodeURIComponent([...filledRoutes, studyField.slug].filter(str => str).join(','))
-                              }`, undefined, { 
-                                scroll: false,
-                              })
-                              : router.push(`${routesFront.programs}${
-                                curCategory?.slug 
-                                ? `/${curCategory?.slug}`
-                                : ''
-                              }?studyField=${encodeURIComponent(studyField.slug)}`, undefined, { 
-                                scroll: false,
-                               })
-                            }
-                          }}
-                          >
-                          <div
-                            className={cn(stls.IconCheckAltContainer, {
-                              [stls.isActive]: router.query.studyField?.split(',')?.some(
-                                (linkStudyField: string)  =>
-                                linkStudyField === studyField?.slug
-                                ) || appliedStudyFields.some(
+                              : router.push(
+                                  `${routesFront.programs}${
+                                    curCategory?.slug
+                                      ? `/${curCategory?.slug}`
+                                      : ''
+                                  }?studyField=${encodeURIComponent(
+                                    studyField.slug
+                                  )}`,
+                                  undefined,
+                                  {
+                                    scroll: false,
+                                    shallow: false
+                                  }
+                                )
+                          }
+                        }}>
+                        <div
+                          className={cn(stls.IconCheckAltContainer, {
+                            [stls.isActive]:
+                              router.query.studyField
+                                ?.split(',')
+                                ?.some(
+                                  (linkStudyField: string) =>
+                                    linkStudyField === studyField?.slug
+                                ) ||
+                              appliedStudyFields.some(
                                 appliedStudyField =>
                                   appliedStudyField?.slug === studyField?.slug
                               )
-                            })}>
-                            <IconCheckAlt
-                              color={colors.upsilon}
-                              classNames={[stls.IconCheckAlt]}
-                            />
-                          </div>
-                          <span className={stls.studyFieldTitle}>
-                            {studyField.title}
-                          </span>
-                        </a>
-                      </Link>
+                          })}>
+                          <IconCheckAlt
+                            color={colors.upsilon}
+                            classNames={[stls.IconCheckAlt]}
+                          />
+                        </div>
+                        <span className={stls.studyFieldTitle}>
+                          {studyField.title}
+                        </span>
+                      </a>
+                    </Link>
                   </li>
                 ))}
             </ul>
@@ -360,7 +388,7 @@ const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltP
                 nested
                 closeOnDocumentClick
                 className='SectionProgramsWithFiltersAlt_filter_popup'>
-                {(close: MouseEventHandler) =>
+                {(close: MouseEventHandler) => (
                   <div className={stls.GeneralPopup}>
                     <div className={stls.heading}>
                       <GeneralLogo classNames={[stls.GeneralLogo]} withTitle />
@@ -404,7 +432,7 @@ const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltP
                           <Link
                             href={`${routesFront.programs}/${category.slug}`}
                             passHref
-                            >
+                            shallow={false}>
                             <a
                               className={cn(stls.listItemLink, {
                                 [stls.isActive]:
@@ -426,7 +454,7 @@ const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltP
                       ))}
                     </ul>
                   </div>
-                }
+                )}
               </Popup>
 
               <Popup
@@ -478,85 +506,118 @@ const SectionProgramsWithFiltersAlt: React.FC<TypeSectionProgramsWithFiltersAltP
                           <li
                             key={`${studyField?.title}-mobile-${idx}`}
                             className={stls.studyFieldItem}>
-                            <a
-                              href='#!'
-                              className={cn(stls.studyFieldBtn, {
-                                [stls.isActive]: appliedStudyFields.some(
-                                  appliedStudyField =>
-                                    appliedStudyField?.slug === studyField?.slug
-                                )
-                              })}
-                              onClick={() => {
-                                if (
-                                  router.query.studyField?.split(',').some(
-                                    (linkStudyField: string)  =>
-                                    linkStudyField === studyField?.slug
-                                    ) 
-                                  || appliedStudyFields.some(
+                            <Link href='#!' passHref shallow={false}>
+                              <a
+                                className={cn(stls.studyFieldBtn, {
+                                  [stls.isActive]: appliedStudyFields.some(
                                     appliedStudyField =>
-                                      appliedStudyField?.slug === studyField?.slug
+                                      appliedStudyField?.slug ===
+                                      studyField?.slug
                                   )
-                                ) {
-                                  setAppliedStudyFields([
-                                    ...appliedStudyFields.filter(
+                                })}
+                                onClick={() => {
+                                  if (
+                                    router.query.studyField
+                                      ?.split(',')
+                                      .some(
+                                        (linkStudyField: string) =>
+                                          linkStudyField === studyField?.slug
+                                      ) ||
+                                    appliedStudyFields.some(
                                       appliedStudyField =>
-                                        appliedStudyField?.slug !== studyField?.slug
+                                        appliedStudyField?.slug ===
+                                        studyField?.slug
                                     )
-                                  ])
-                                  router.push(`${routesFront.programs}${
-                                    curCategory?.slug 
-                                    ? `/${curCategory?.slug}`
-                                    : ''
-                                  }?studyField=${encodeURIComponent(filledRoutes?.filter(
-                                    (field: string) =>
-                                    field !== studyField?.slug
-                                  ).join(',')
-                                  )}`, undefined, { 
-                                  scroll: false,
-                                 })
-                                } else {
-                                  setAppliedStudyFields([
-                                    ...appliedStudyFields,
-                                    studyField
-                                  ])
-                                  filledRoutes?.length > 0
-                                  ? router.push(`${routesFront.programs}${
-                                    curCategory?.slug 
-                                    ? `/${curCategory?.slug}`
-                                    : ''
-                                  }?studyField=${
-                                    encodeURIComponent([...filledRoutes, studyField.slug].filter(str => str).join(','))
-                                  }`, undefined, { 
-                                    scroll: false,
-                                  })
-                                  : router.push(`${routesFront.programs}${
-                                    curCategory?.slug 
-                                    ? `/${curCategory?.slug}`
-                                    : ''
-                                  }?studyField=${encodeURIComponent(studyField.slug)}`, undefined, { 
-                                    scroll: false,
-                                   })
-                                }
-                              }}>
-                              <div
-                                className={cn(stls.IconCheckAltContainer, {
-                                  [stls.isActive]: router.query.studyField?.split(',')?.some(
-                                    (linkStudyField: string)  =>
-                                    linkStudyField === studyField?.slug
-                                    ) || appliedStudyFields.some(
-                                    appliedStudyField =>
-                                      appliedStudyField?.slug === studyField?.slug
-                                  )
-                                })}>
-                                <IconCheckAlt
-                                  color={colors.upsilon}
-                                  classNames={[stls.IconCheckAlt]}
-                                />
-                              </div>
-                              <span className={stls.studyFieldTitle}>
-                                {studyField.title}
-                              </span>
-                            </a>
+                                  ) {
+                                    setAppliedStudyFields([
+                                      ...appliedStudyFields.filter(
+                                        appliedStudyField =>
+                                          appliedStudyField?.slug !==
+                                          studyField?.slug
+                                      )
+                                    ])
+                                    router.push(
+                                      `${routesFront.programs}${
+                                        curCategory?.slug
+                                          ? `/${curCategory?.slug}`
+                                          : ''
+                                      }?studyField=${encodeURIComponent(
+                                        filledRoutes
+                                          ?.filter(
+                                            (field: string) =>
+                                              field !== studyField?.slug
+                                          )
+                                          .join(',')
+                                      )}`,
+                                      undefined,
+                                      {
+                                        scroll: false,
+                                        shallow: false
+                                      }
+                                    )
+                                  } else {
+                                    setAppliedStudyFields([
+                                      ...appliedStudyFields,
+                                      studyField
+                                    ])
+                                    filledRoutes?.length > 0
+                                      ? router.push(
+                                          `${routesFront.programs}${
+                                            curCategory?.slug
+                                              ? `/${curCategory?.slug}`
+                                              : ''
+                                          }?studyField=${encodeURIComponent(
+                                            [...filledRoutes, studyField.slug]
+                                              .filter(str => str)
+                                              .join(',')
+                                          )}`,
+                                          undefined,
+                                          {
+                                            scroll: false,
+                                            shallow: false
+                                          }
+                                        )
+                                      : router.push(
+                                          `${routesFront.programs}${
+                                            curCategory?.slug
+                                              ? `/${curCategory?.slug}`
+                                              : ''
+                                          }?studyField=${encodeURIComponent(
+                                            studyField.slug
+                                          )}`,
+                                          undefined,
+                                          {
+                                            scroll: false,
+                                            shallow: false
+                                          }
+                                        )
+                                  }
+                                }}>
+                                <div
+                                  className={cn(stls.IconCheckAltContainer, {
+                                    [stls.isActive]:
+                                      router.query.studyField
+                                        ?.split(',')
+                                        ?.some(
+                                          (linkStudyField: string) =>
+                                            linkStudyField === studyField?.slug
+                                        ) ||
+                                      appliedStudyFields.some(
+                                        appliedStudyField =>
+                                          appliedStudyField?.slug ===
+                                          studyField?.slug
+                                      )
+                                  })}>
+                                  <IconCheckAlt
+                                    color={colors.upsilon}
+                                    classNames={[stls.IconCheckAlt]}
+                                  />
+                                </div>
+                                <span className={stls.studyFieldTitle}>
+                                  {studyField.title}
+                                </span>
+                              </a>
+                            </Link>
                           </li>
                         ))}
                     </ul>
