@@ -98,6 +98,7 @@ const SectionProgramsWithFiltersAlt: React.FC<
   useEffect(() => {
     appliedStudyFields.length === 0 &&
       filledRoutes?.length > 0 &&
+      studyFields &&
       setAppliedStudyFields([
         ...studyFields?.filter(studyField =>
           filledRoutes.some(field => field === studyField.slug)
