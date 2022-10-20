@@ -5,7 +5,13 @@ import {
   TypeLibProgramsStudyFields,
   TypePagePromoProps
 } from '@/types/index'
-import { Fragment, MouseEventHandler, useContext, useState } from 'react'
+import {
+  Fragment,
+  MouseEventHandler,
+  useContext,
+  useEffect,
+  useState
+} from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
@@ -23,7 +29,8 @@ import {
   GeneralSectionTitle,
   GeneralPopup,
   GeneralProgramsFilters,
-  GeneralLogo
+  GeneralLogo,
+  GeneralPhoneNumber
 } from '@/components/general'
 import { UIFormAlpha } from '@/components/uiforms'
 import { CardProgram, CardsProgram } from '@/components/cards'
@@ -76,7 +83,8 @@ const SectionProgramsWithFiltersAlt = ({
   const { programs } = useContext(ContextProgramsContext)
 
   const [searchValue, setSearchValue] = useState('')
-  const [searchStudyField, setSearchStudyField] = useState('');
+  const [searchStudyField, setSearchStudyField] = useState('')
+  const [filteredStudyFields, setFilteredStudyFields] = useState(studyFields)
 
   const [appliedStudyFields, setAppliedStudyFields] = useState<
     TStudyFields | []
@@ -84,6 +92,29 @@ const SectionProgramsWithFiltersAlt = ({
   const studyFieldsShowMaxDefault = 8
   const [studyFieldsShowMax, setStudyFieldsShowMax] = useState(
     studyFieldsShowMaxDefault
+  )
+
+  useEffect(() => {
+    searchStudyField
+      ? setFilteredStudyFields(
+          studyFields &&
+            studyFields?.filter(studyField =>
+              studyField.title
+                ?.toLowerCase()
+                .includes(searchStudyField.toLowerCase())
+            )
+        )
+      : setFilteredStudyFields(studyFields)
+  }, [searchStudyField, studyFields])
+
+  const nothingFound = (
+    <article key={'nothing'}>
+      <h3>К сожалению, по Вашему запросу ничего не найдено.</h3>
+      <p>
+        Пожалуйста, свяжитесь с нами по номеру
+        <GeneralPhoneNumber />
+      </p>
+    </article>
   )
 
   const studyFieldControlBtnShowMax = studyFields &&
@@ -415,70 +446,71 @@ const SectionProgramsWithFiltersAlt = ({
                     </div>
                     {studyFieldControlBtnSetDefault}
                     <ul className={stls.list}>
-                      {studyFields
-                        ?.filter((studyField, idx) => idx < studyFieldsShowMax)
-                        ?.filter(studyField =>
-                          searchStudyField
-                            ? studyField.title
-                                ?.toLowerCase()
-                                .includes(searchStudyField.toLowerCase())
-                            : true
-                        )
-                        ?.map((studyField, idx) => (
-                          <li
-                            key={`${studyField?.title}-mobile-${idx}`}
-                            className={stls.studyFieldItem}>
-                            <a
-                              href='#!'
-                              className={cn(stls.studyFieldBtn, {
-                                [stls.isActive]: appliedStudyFields.some(
-                                  appliedStudyField =>
-                                    appliedStudyField?.slug === studyField?.slug
-                                )
-                              })}
-                              onClick={() => {
-                                if (
-                                  appliedStudyFields.some(
-                                    appliedStudyField =>
-                                      appliedStudyField?.slug ===
-                                      studyField?.slug
-                                  )
-                                ) {
-                                  setAppliedStudyFields([
-                                    ...appliedStudyFields.filter(
+                      {filteredStudyFields && filteredStudyFields?.length > 0
+                        ? filteredStudyFields
+                            ?.filter(
+                              (_studyField, idx) => idx < studyFieldsShowMax
+                            )
+                            ?.map((studyField, idx) => (
+                              <li
+                                key={`${studyField?.title}-mobile-${idx}`}
+                                className={stls.studyFieldItem}>
+                                <a
+                                  href='#!'
+                                  className={cn(stls.studyFieldBtn, {
+                                    [stls.isActive]: appliedStudyFields.some(
                                       appliedStudyField =>
-                                        appliedStudyField?.slug !==
+                                        appliedStudyField?.slug ===
                                         studyField?.slug
                                     )
-                                  ])
-                                } else {
-                                  setAppliedStudyFields([
-                                    ...appliedStudyFields,
-                                    studyField
-                                  ])
-                                }
-                              }}>
-                              <div
-                                className={cn(stls.IconCheckAltContainer, {
-                                  [stls.isActive]: appliedStudyFields.some(
-                                    appliedStudyField =>
-                                      appliedStudyField?.slug ===
-                                      studyField?.slug
-                                  )
-                                })}>
-                                <IconCheckAlt
-                                  color={colors.upsilon}
-                                  classNames={[stls.IconCheckAlt]}
-                                />
-                              </div>
-                              <span className={stls.studyFieldTitle}>
-                                {studyField.title}
-                              </span>
-                            </a>
-                          </li>
-                        ))}
+                                  })}
+                                  onClick={() => {
+                                    if (
+                                      appliedStudyFields.some(
+                                        appliedStudyField =>
+                                          appliedStudyField?.slug ===
+                                          studyField?.slug
+                                      )
+                                    ) {
+                                      setAppliedStudyFields([
+                                        ...appliedStudyFields.filter(
+                                          appliedStudyField =>
+                                            appliedStudyField?.slug !==
+                                            studyField?.slug
+                                        )
+                                      ])
+                                    } else {
+                                      setAppliedStudyFields([
+                                        ...appliedStudyFields,
+                                        studyField
+                                      ])
+                                    }
+                                  }}>
+                                  <div
+                                    className={cn(stls.IconCheckAltContainer, {
+                                      [stls.isActive]: appliedStudyFields.some(
+                                        appliedStudyField =>
+                                          appliedStudyField?.slug ===
+                                          studyField?.slug
+                                      )
+                                    })}>
+                                    <IconCheckAlt
+                                      color={colors.upsilon}
+                                      classNames={[stls.IconCheckAlt]}
+                                    />
+                                  </div>
+                                  <span className={stls.studyFieldTitle}>
+                                    {studyField.title}
+                                  </span>
+                                </a>
+                              </li>
+                            ))
+                        : nothingFound}
                     </ul>
-                    {studyFieldControlBtnShowMax}
+                    {!!filteredStudyFields &&
+                      filteredStudyFields.length > 0 &&
+                      filteredStudyFields.length > studyFieldsShowMax &&
+                      studyFieldControlBtnShowMax}
                     <BtnAlpha
                       variant='beta'
                       onClick={close}
