@@ -19,7 +19,7 @@ const ImgTeacher = ({
   const publicSrc = '/assets/imgs/general/teacher.jpg'
 
   const translations = {
-    alt: at.uz ? "O'qituvchi" : 'Преподаватель'
+    alt: at.en ? 'A teacher' : at.uz ? "O'qituvchi" : 'Преподаватель'
   }
 
   return (

@@ -11,8 +11,16 @@ const PopupLoader = ({ classNames }: TypePopupLoaderProps) => {
   const at = useAt()
 
   const translations = {
-    pTop: at.uz ? 'Arizangiz yuborilmoqda...' : 'Ваша заявка отправляется...',
-    pBottom: at.uz ? 'Iltimos kuting' : 'Пожалуйста, подождите'
+    pTop: at.en
+      ? 'Sending...'
+      : at.uz
+      ? 'Arizangiz yuborilmoqda...'
+      : 'Ваша заявка отправляется...',
+    pBottom: at.en
+      ? 'Please stand by'
+      : at.uz
+      ? 'Iltimos kuting'
+      : 'Пожалуйста, подождите'
   }
 
   return (

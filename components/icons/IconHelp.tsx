@@ -11,7 +11,7 @@ const IconHelp = ({ classNames }: TypeIconHelpProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Yordam' : 'Помощь'
+    title: at.en ? 'Help' : at.uz ? 'Yordam' : 'Помощь'
   }
 
   return (

@@ -29,7 +29,7 @@ const GeneralProgramsFilters = ({
   }))
 
   const translations = {
-    title: at.uz ? 'Dasturlar' : 'Программы'
+    title: at.en ? 'Programs' : at.uz ? 'Dasturlar' : 'Программы'
   }
 
   return (

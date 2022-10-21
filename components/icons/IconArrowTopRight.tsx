@@ -11,7 +11,11 @@ const IconArrowTopRight = ({ classNames }: TypeIconArrowTopRightProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? "O'ng tomonga o'q" : 'Стрелка вверх вправо'
+    title: at.en
+      ? 'An arrow poiting top right'
+      : at.uz
+      ? "O'ng tomonga o'q"
+      : 'Стрелка вверх вправо'
   }
 
   return (

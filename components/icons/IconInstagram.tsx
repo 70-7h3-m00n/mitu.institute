@@ -11,7 +11,7 @@ const IconInstagram = ({ classNames }: TypeIconInstagramProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Instagram' : 'Instagram'
+    title: at.en ? 'Instagram' : at.uz ? 'Instagram' : 'Instagram'
   }
 
   return (

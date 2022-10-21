@@ -22,9 +22,13 @@ const GeneralPhoneNumber = ({
   const company = useCompanyInfo()
 
   const translations = {
-    title: at.uz ? "Qo'ng'iroq qiling" : 'Позвонить',
-    label: at.uz ? '' : 'Бесплатно по России',
-    phoneNumber: at.uz ? company.phoneNumberUz : company.phoneNumber
+    title: at.en ? 'Call now' : at.uz ? "Qo'ng'iroq qiling" : 'Позвонить',
+    label: at.en ? '' : at.uz ? '' : 'Бесплатно по России',
+    phoneNumber: at.en
+      ? company.phoneNumberUz
+      : at.uz
+      ? company.phoneNumberUz
+      : company.phoneNumber
   } as const
 
   return (

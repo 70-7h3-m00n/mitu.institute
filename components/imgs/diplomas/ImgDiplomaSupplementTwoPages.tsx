@@ -16,7 +16,9 @@ const ImgDiplomaSupplementTwoPages = ({
   const publicSrc = '/assets/imgs/diplomas/diploma-supplement-two-pages.jpg'
 
   const translations = {
-    alt: at.uz
+    alt: at.en
+      ? 'Supplement front and back sides'
+      : at.uz
       ? "Old va orqa tomonni qo'llab-quvvatlash"
       : 'Supplement лицевая и обратная стороны'
   }

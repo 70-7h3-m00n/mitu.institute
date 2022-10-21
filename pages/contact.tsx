@@ -38,11 +38,15 @@ const PageContact: NextPage<TypePageHomeProps> = ({
   const { setProgram } = useContext(ContextProgramContext)
 
   const translations = {
-    contacts: at.uz ? 'Aloqa' : 'Контакты',
-    showRequisites: at.uz
+    contacts: at.en ? 'Contact' : at.uz ? 'Aloqa' : 'Контакты',
+    showRequisites: at.en
+      ? 'Show legal details'
+      : at.uz
       ? "Tafsilotlarni ko'rsatish"
       : 'Показать юридические реквизиты',
-    hideRequisites: at.uz
+    hideRequisites: at.en
+      ? 'Hide legal details'
+      : at.uz
       ? 'Tafsilotlarni yashirish'
       : 'Скрыть юридические реквизиты'
   }

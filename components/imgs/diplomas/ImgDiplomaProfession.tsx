@@ -16,7 +16,9 @@ const ImgDiplomaProfession = ({
   const publicSrc = '/assets/imgs/diplomas/diploma-profession.jpg'
 
   const translations = {
-    alt: at.uz
+    alt: at.en
+      ? 'Professional retraining diploma'
+      : at.uz
       ? 'Kasbiy qayta tayyorlash diplomi'
       : 'Диплом о профессиональной переподготовке'
   }

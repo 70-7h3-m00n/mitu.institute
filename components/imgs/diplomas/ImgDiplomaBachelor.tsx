@@ -16,7 +16,11 @@ const ImgDiplomaBachelor = ({
   const publicSrc = '/assets/imgs/diplomas/diploma-bachelor.jpg'
 
   const translations = {
-    alt: at.uz ? 'Bakalavr darajasi' : 'Диплом бакалавра'
+    alt: at.en
+      ? "Bachelor's diploma"
+      : at.uz
+      ? 'Bakalavr darajasi'
+      : 'Диплом бакалавра'
   }
 
   return (

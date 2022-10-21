@@ -17,7 +17,13 @@ const SectionHero = ({ classNames }: TypeSectionHeroProps) => {
   const at = useAt()
 
   const translations = {
-    h1: at.uz ? (
+    h1: at.en ? (
+      <>
+        Study in{' '}
+        <GeneralTextHighlight>the most innovative</GeneralTextHighlight>{' '}
+        institute
+      </>
+    ) : at.uz ? (
       <>
         Mamlakatning eng{' '}
         <GeneralTextHighlight>innovatsion universitetida</GeneralTextHighlight>{' '}

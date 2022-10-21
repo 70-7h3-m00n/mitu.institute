@@ -11,7 +11,9 @@ const IconMortarboard = ({ classNames = [] }: TypeIconMortarboardProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz
+    title: at.en
+      ? 'Academic hat'
+      : at.uz
       ? 'Kvadrat akademik qopqoq'
       : 'Квадратная академическая шапочка'
   }

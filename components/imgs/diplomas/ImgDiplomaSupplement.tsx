@@ -16,7 +16,7 @@ const ImgDiplomaSupplement = ({
   const publicSrc = '/assets/imgs/diplomas/diploma-supplement.jpg'
 
   const translations = {
-    alt: at.uz ? 'Supplement' : 'Supplement'
+    alt: at.en ? 'Supplement' : at.uz ? 'Supplement' : 'Supplement'
   }
 
   return (

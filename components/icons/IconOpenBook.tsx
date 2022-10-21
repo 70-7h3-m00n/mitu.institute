@@ -13,7 +13,7 @@ const IconOpenBook = ({ classNames, color }: TypeIconOpenBookProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? '' : ''
+    title: at.en ? '' : at.uz ? '' : ''
   }
 
   return (

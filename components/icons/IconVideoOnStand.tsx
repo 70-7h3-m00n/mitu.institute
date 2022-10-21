@@ -11,7 +11,7 @@ const IconVideoOnStand = ({ classNames, style }: TypeIconVideoOnStandProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Tarkib' : 'Контент'
+    title: at.en ? 'Media stand' : at.uz ? 'Tarkib' : 'Контент'
   }
 
   return (

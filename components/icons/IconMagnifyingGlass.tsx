@@ -14,7 +14,11 @@ const IconMagnifyingGlass = ({
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Kattalashtiruvchi shisha' : 'Лупа'
+    title: at.en
+      ? 'Magnifying glass'
+      : at.uz
+      ? 'Kattalashtiruvchi shisha'
+      : 'Лупа'
   }
 
   return (

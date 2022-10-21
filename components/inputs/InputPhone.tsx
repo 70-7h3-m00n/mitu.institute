@@ -17,14 +17,24 @@ const InputPhone = ({
   const minLength = 5
 
   const translations = {
-    placeholder: at.uz ? 'Telefon raqami' : 'Номер телефона',
-    ariaLabel: at.uz
+    placeholder: at.en
+      ? 'Phone number'
+      : at.uz
+      ? 'Telefon raqami'
+      : 'Номер телефона',
+    ariaLabel: at.en
+      ? 'Type in your phone number'
+      : at.uz
       ? 'Telefon raqamingizni kiriting'
       : 'Введите Ваш номер телефона',
-    requiredMsg: at.uz
-      ? 'Iltimos, telefon raqamini kiriting'
+    requiredMsg: at.en
+      ? '*Please type in a phone number'
+      : at.uz
+      ? '*Iltimos, telefon raqamini kiriting'
       : '*Пожалуйста, введите номер телефона',
-    minLengthMsg: at.uz
+    minLengthMsg: at.en
+      ? `Please type in more than ${minLength} symbols`
+      : at.uz
       ? `*Iltimos, ${minLength} belgidan ko'proq narsani kiriting`
       : `*Пожалуйста, введите больше, чем ${minLength} символов`
   }

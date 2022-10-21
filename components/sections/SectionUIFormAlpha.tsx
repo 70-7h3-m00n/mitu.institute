@@ -21,7 +21,9 @@ const SectionUIFormAlpha = ({
   const { program } = useContext(ContextProgramContext)
 
   const translations = {
-    title: at.uz
+    title: at.en
+      ? 'Leave an application and find out the minimum passing score in 2022'
+      : at.uz
       ? "So'rov qoldiring va 2022 yilda eng kam o'tish ballini toping"
       : 'Оставьте заявку и узнайте минимальный проходной балл в 2022 году'
   }

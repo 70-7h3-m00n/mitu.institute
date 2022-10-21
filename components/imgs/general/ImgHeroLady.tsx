@@ -12,7 +12,7 @@ const ImgHeroLady = ({ classNames, width, height }: TypeImgHeroLadyProps) => {
   const publicSrc = '/assets/imgs/general/hero-lady.png'
 
   const translations = {
-    alt: at.uz ? 'Qiz kuladi' : 'Девушка улыбается'
+    alt: at.en ? "Girl's smiling" : at.uz ? 'Qiz kuladi' : 'Девушка улыбается'
   }
 
   return (

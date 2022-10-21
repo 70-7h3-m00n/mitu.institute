@@ -13,7 +13,7 @@ const IconCheckAlt = ({ classNames, color }: TypeIconCheckAltProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? '' : ''
+    title: at.en ? '' : at.uz ? '' : ''
   }
 
   return (

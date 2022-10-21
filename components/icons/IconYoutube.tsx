@@ -11,7 +11,7 @@ const IconYoutube = ({ classNames, style }: TypeIconYoutubeProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Youtube' : 'Youtube'
+    title: at.en ? 'Youtube' : at.uz ? 'Youtube' : 'Youtube'
   }
 
   return (

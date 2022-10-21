@@ -11,7 +11,7 @@ const IconFile = ({ classNames }: TypeIconFileProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Fayl' : 'Файл'
+    title: at.en ? 'A file' : at.uz ? 'Fayl' : 'Файл'
   }
 
   return (

@@ -35,7 +35,11 @@ const ImgForWhom = ({
   const srcDefault = atAdditional ? srcDefaultAdditional : srcDefaultRegular
 
   const translations = {
-    alt: at.uz ? 'Ushbu dastur kim uchun' : 'Для кого эта программа'
+    alt: at.en
+      ? 'For whom this program'
+      : at.uz
+      ? 'Ushbu dastur kim uchun'
+      : 'Для кого эта программа'
   }
 
   return (

@@ -58,7 +58,9 @@ const FormLead = ({
   }, [isPopup, setFocus])
 
   const translations = {
-    agreement: at.uz
+    agreement: at.en
+      ? 'By submitting the form, you agree to our privacy & terms of use policies'
+      : at.uz
       ? "Arizani yuborish orqali siz maxfiylik siyosati va shaxsiy ma'lumotlarni qayta ishlash shartlariga rozilik bildirasiz"
       : 'Отправляя заявку, Вы соглашаетесь с политикой конфиденциальности и условиями обработки персональных данных'
   }

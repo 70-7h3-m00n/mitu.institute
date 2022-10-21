@@ -98,11 +98,17 @@ const CardsProgram = ({
   })
 
   const translations = {
-    learnMoreLabel: at.uz ? "Batafsil ma'lumot" : 'Подробнее',
-    UIFormAlphaNotFoundTitle: at.uz
+    learnMoreLabel: at.en
+      ? 'Learn more'
+      : at.uz
+      ? "Batafsil ma'lumot"
+      : 'Подробнее',
+    UIFormAlphaNotFoundTitle: at.en
+      ? "Nothing found for your request, please contact us. We'd help you find what you're looking for!"
+      : at.uz
       ? "Sizning so'rovingiz bo'yicha hech narsa topilmadi. Iltimos, murojaat qiling mutaxassis. Biz sizga to'g'ri dasturni topishga yordam beramiz"
       : 'По Вашему запросу ничего не найдено. Пожалуйста, свяжитесь со специалистом. Мы поможем Вам подобрать подходящую программу',
-    program: at.uz ? 'Dastur' : 'Программа'
+    program: at.en ? 'Program' : at.uz ? 'Dastur' : 'Программа'
   }
 
   if (!programs || !cards || programs?.length === 0 || cards?.length === 0)

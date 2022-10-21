@@ -13,7 +13,7 @@ const IconCross = ({ classNames, color }: TypeIconCrossProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Yopish' : 'Закрыть'
+    title: at.en ? 'Close' : at.uz ? 'Yopish' : 'Закрыть'
   }
 
   return (

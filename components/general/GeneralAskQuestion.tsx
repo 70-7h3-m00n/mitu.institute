@@ -25,10 +25,16 @@ const GeneralAskQuestion = ({ classNames }: TypeGeneralAskQuestionProps) => {
   const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   const translations = {
-    title: at.uz
+    title: at.en
+      ? "You're got questions? Submit a form! We'll answer you as soon as possible"
+      : at.uz
       ? "Sizda savollar bormi? So'rov qoldiring! Sizga qo'ng'iroq qilamiz!"
       : 'У Вас есть вопросы? Оставьте заявку! И мы перезвоним Вам!',
-    btnValue: at.uz ? 'Kursga yozilish' : 'Задать вопрос'
+    btnValue: at.en
+      ? 'Ask question'
+      : at.uz
+      ? 'Kursga yozilish'
+      : 'Задать вопрос'
   }
 
   return (

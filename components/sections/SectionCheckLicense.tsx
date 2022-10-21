@@ -21,8 +21,14 @@ const SectionCheckLicense = ({ classNames }: TypeSectionCheckLicenseProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Litsenziyani tekshiring' : 'Проверьте лицензию',
-    btnVal: at.uz
+    title: at.en
+      ? 'Check the license'
+      : at.uz
+      ? 'Litsenziyani tekshiring'
+      : 'Проверьте лицензию',
+    btnVal: at.en
+      ? 'State license allows us to provide online education'
+      : at.uz
       ? "Ta'lim faoliyatini amalga oshirish huquqini beruvchi davlat litsenziyasi"
       : 'Государственная лицензия на право ведения образовательной деятельности'
   }

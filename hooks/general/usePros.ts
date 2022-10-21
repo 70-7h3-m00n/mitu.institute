@@ -3,7 +3,18 @@ import { useAt } from '@/hooks/index'
 
 const usePros = () => {
   const at = useAt()
-  return at.uz
+  return at.en
+    ? [
+        'State diploma',
+        'Installment plan from the institute without overpayments',
+        'Acceptance of foreign citizens',
+        'Distance learning. You can study from your region',
+        'Diplomas are quoted around the world',
+        'Monthly enrollment on any program',
+        'Easy to combine with work',
+        'Strong faculty and practicing teachers'
+      ]
+    : at.uz
     ? [
         'Davlat jum',
         "Institutdan ortiqcha to'lovsiz to'lash",

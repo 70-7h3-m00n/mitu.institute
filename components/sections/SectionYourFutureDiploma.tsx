@@ -41,14 +41,36 @@ const SectionYourFutureDiploma = ({
   const { curCategory } = useContext(ContextCategoriesContext)
 
   const translations = {
-    title: at.uz ? 'Kelajakdagi diplomlaringiz' : 'Ваши будущие дипломы',
-    bachelorDiploma: at.uz ? 'Bakalavr darajasi' : 'Диплом бакалавра',
-    masterDiploma: at.uz ? 'Magistr darajasi' : 'Диплом магистра',
-    professionalRetrainingDiploma: at.uz
+    title: at.en
+      ? 'Your future diplomas'
+      : at.uz
+      ? 'Kelajakdagi diplomlaringiz'
+      : 'Ваши будущие дипломы',
+    bachelorDiploma: at.en
+      ? 'Bachelor diploma'
+      : at.uz
+      ? 'Bakalavr darajasi'
+      : 'Диплом бакалавра',
+    masterDiploma: at.en
+      ? 'Master diploma'
+      : at.uz
+      ? 'Magistr darajasi'
+      : 'Диплом магистра',
+    professionalRetrainingDiploma: at.en
+      ? 'Professional Retraining Diploma'
+      : at.uz
       ? 'Kasbiy qayta tayyorlash diplomi'
       : 'Диплом о профессиональной переподготовке',
-    instituteDiploma: at.uz ? 'Institut diplomi' : 'Диплом института',
-    supplementDiploma: at.uz ? "Jum Ta'minoti" : 'Диплом Supplement-'
+    instituteDiploma: at.en
+      ? 'Institute Diploma'
+      : at.uz
+      ? 'Institut diplomi'
+      : 'Диплом института',
+    supplementDiploma: at.en
+      ? 'Supplement'
+      : at.uz
+      ? "Jum Ta'minoti"
+      : 'Диплом Supplement-'
   }
 
   const diplomas = []

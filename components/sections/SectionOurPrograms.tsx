@@ -52,9 +52,17 @@ const SectionOurPrograms = ({
   }))
 
   const translations = {
-    programs: at.uz ? 'Dasturlar' : 'Программы',
-    ourCourses: at.uz ? "Bizning yo'nalishlarimiz" : 'Наши направления',
-    btnShowMore: at.uz ? "Ko'proq ko'rsatish" : 'Показать ещё'
+    programs: at.en ? 'Programs' : at.uz ? 'Dasturlar' : 'Программы',
+    ourCourses: at.en
+      ? 'Our study fields'
+      : at.uz
+      ? "Bizning yo'nalishlarimiz"
+      : 'Наши направления',
+    btnShowMore: at.en
+      ? 'Show more'
+      : at.uz
+      ? "Ko'proq ko'rsatish"
+      : 'Показать ещё'
   }
 
   return (

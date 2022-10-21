@@ -11,7 +11,7 @@ const IconCrossAlt = ({ classNames }: TypeIconCrossAltProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Xoch' : 'Крестик'
+    title: at.en ? 'A cross' : at.uz ? 'Xoch' : 'Крестик'
   }
 
   return (

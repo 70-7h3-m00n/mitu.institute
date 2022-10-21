@@ -16,7 +16,9 @@ const SectionProgramHowProcessGoes = ({
   const at = useAt()
 
   const translations = {
-    title: at.uz
+    title: at.en
+      ? 'How process goes?'
+      : at.uz
       ? 'Trening qanday amalga oshiriladi?'
       : 'Как проходит обучение?'
   }

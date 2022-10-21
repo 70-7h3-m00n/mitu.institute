@@ -25,8 +25,13 @@ const SectionProgramTeachers = ({
   const at = useAt()
 
   const translations = {
-    teachers: at.uz ? "O'qituvchilar" : 'Преподаватели',
-    desc: at.uz ? (
+    teachers: at.en ? 'Teachers' : at.uz ? "O'qituvchilar" : 'Преподаватели',
+    desc: at.en ? (
+      <>
+        Leading experts with teaching experience of{' '}
+        <GeneralTextHighlight>7 up to 25 years</GeneralTextHighlight>
+      </>
+    ) : at.uz ? (
       <>
         <GeneralTextHighlight>7 yildan 25 yilgacha</GeneralTextHighlight>{' '}
         bo&apos;lgan tajribaga ega etakchi rus va xorijiy ekspertlar tomonidan
@@ -38,7 +43,11 @@ const SectionProgramTeachers = ({
         <GeneralTextHighlight>от 7 до 25 лет</GeneralTextHighlight>
       </>
     ),
-    learnAll: at.uz ? 'Hamma Narsani Bilib Oling' : 'Узнать Всех'
+    learnAll: at.en
+      ? 'Get to know all'
+      : at.uz
+      ? 'Hamma Narsani Bilib Oling'
+      : 'Узнать Всех'
   }
 
   const { program } = useContext(ContextProgramContext)

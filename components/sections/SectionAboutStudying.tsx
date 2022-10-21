@@ -19,8 +19,16 @@ const SectionAboutStudying = ({
   const at = useAt()
 
   const translations = {
-    title: at.uz ? "Ta'lim haqida" : 'Об обучении',
-    list: at.uz
+    title: at.en ? 'About education' : at.uz ? "Ta'lim haqida" : 'Об обучении',
+    list: at.en
+      ? [
+          'Only relevant content',
+          'Online first approach with flexible schedule',
+          'We track market changes and update our programs accordingly',
+          "We do research to find out what's and develop new programs",
+          'We never stop researching and developing our programs based on the market needs'
+        ]
+      : at.uz
       ? [
           'Faqat haqiqiy tarkib',
           "Dastur asosiy faoliyatdan ajralmasdan uzoq formatda o'tish uchun qulay bo'lishi uchun ishlab chiqilgan",

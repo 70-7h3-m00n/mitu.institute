@@ -16,7 +16,11 @@ const ImgContactMapAlmaty = ({
   const publicSrc = '/assets/imgs/contact/map-almaty.jpg'
 
   const translations = {
-    alt: at.uz ? 'Biz Olmaotadagi xaritada' : 'Мы на карте в Алматы'
+    alt: at.en
+      ? 'Our Almaty location'
+      : at.uz
+      ? 'Biz Olmaotadagi xaritada'
+      : 'Мы на карте в Алматы'
   }
 
   return (

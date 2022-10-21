@@ -95,7 +95,7 @@ const ImgDiplomaDynamicProfession = ({
   // console.log(src)
 
   const translations = {
-    alt: at.uz ? 'Jum Mitu tomonidan' : 'Диплом МИТУ'
+    alt: at.en ? 'MITM diploma' : at.uz ? 'Jum Mitu tomonidan' : 'Диплом МИТУ'
   }
 
   return (

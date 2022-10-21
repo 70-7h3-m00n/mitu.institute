@@ -12,7 +12,9 @@ const ImgWhyUs = ({ classNames, width, height }: TypeImgWhyUsProps) => {
   const publicSrc = '/assets/imgs/general/why-us.jpg'
 
   const translations = {
-    alt: at.uz
+    alt: at.en
+      ? 'Students are having fun and studying'
+      : at.uz
       ? "Talabalar kulishadi va o'rganadilar"
       : 'Студенты смеются и обучаются'
   }

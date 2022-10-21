@@ -22,11 +22,17 @@ const GeneralFullProgram = ({ classNames }: TypeGeneralFullProgramProps) => {
   const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   const translations = {
-    title: at.uz ? "To'liq dastur" : 'Полная программа',
-    desc: at.uz
+    title: at.en
+      ? 'Full program'
+      : at.uz
+      ? "To'liq dastur"
+      : 'Полная программа',
+    desc: at.en
+      ? 'Submit a form so we could send you the full curriculum plan'
+      : at.uz
       ? "Yo'nalish o'quv dasturini yuborish uchun aloqa ma'lumotlaringizni qoldiring"
       : 'Оставьте свои контактные данные, чтобы мы прислали учебный план направления',
-    btnValue: at.uz ? "So'rov qoldiring" : 'Оставить заявку'
+    btnValue: at.en ? 'Submit' : at.uz ? "So'rov qoldiring" : 'Оставить заявку'
   }
 
   return (

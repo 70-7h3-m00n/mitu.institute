@@ -21,7 +21,11 @@ const ImgGeneralCorporateProgram = ({
   const publicSrc = '/assets/imgs/general/corporate-program.jpg'
 
   const translations = {
-    alt: at.uz ? "Korporativ ta'lim" : 'Корпоративное обучение'
+    alt: at.en
+      ? 'Corporate education'
+      : at.uz
+      ? "Korporativ ta'lim"
+      : 'Корпоративное обучение'
   }
 
   return (

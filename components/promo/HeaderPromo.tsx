@@ -31,8 +31,12 @@ const HeaderPromo = ({ classNames }: TypeHeaderPromoProps) => {
   const { categories } = useContext(ContextCategoriesContext)
 
   const translations = {
-    btnVal: at.uz ? "Qo'ng'iroqni buyurtma qiling" : 'Заказать звонок',
-    btnValAlt: at.uz ? 'Aloqa' : 'Связаться'
+    btnVal: at.en
+      ? 'Request a call'
+      : at.uz
+      ? "Qo'ng'iroqni buyurtma qiling"
+      : 'Заказать звонок',
+    btnValAlt: at.en ? 'Contact' : at.uz ? 'Aloqa' : 'Связаться'
   }
 
   useEffect(() => {

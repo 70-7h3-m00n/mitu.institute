@@ -19,15 +19,19 @@ const SectionEnterWithoutExam = ({
   const at = useAt()
 
   const translations = {
-    title: at.uz ? (
+    title: at.en ? (
+      'Is is possible to enter without exams?'
+    ) : at.uz ? (
       'Use holda harakat qilish mumkinmi?'
     ) : (
       <>Можно ли поступить без&nbsp;ЕГЭ?</>
     ),
-    p: at.uz
+    p: at.en
+      ? 'Submit a form to learn more and find our how to get higher education without entry exams with the special program'
+      : at.uz
       ? "Arizani qoldiring va maxsus dasturda use holda oliy ma'lumot olish uchun tafsilotlarni bilib oling"
       : 'Оставь заявку и узнай подробности, как получить высшее образование без ЕГЭ по специальной программе',
-    btnVal: at.uz ? "So'rov qoldiring" : 'Оставить заявку'
+    btnVal: at.en ? 'Submit' : at.uz ? "So'rov qoldiring" : 'Оставить заявку'
   }
 
   return (

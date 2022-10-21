@@ -16,7 +16,11 @@ const SectionProgramWhatWillYouLearn = ({
   const at = useAt()
 
   const translations = {
-    title: at.uz ? "Nima o'rganasiz?" : 'Чему Вы научитесь?'
+    title: at.en
+      ? 'What would you learn?'
+      : at.uz
+      ? "Nima o'rganasiz?"
+      : 'Чему Вы научитесь?'
   }
 
   const { program } = useContext(ContextProgramContext)

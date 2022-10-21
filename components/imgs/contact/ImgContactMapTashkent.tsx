@@ -16,7 +16,11 @@ const ImgContactMapTashkent = ({
   const publicSrc = '/assets/imgs/contact/map-tashkent.jpg'
 
   const translations = {
-    alt: at.uz ? 'Biz Olmatoshkent xaritada' : 'Мы на карте в Ташкенте'
+    alt: at.en
+      ? 'Our Tashkent location'
+      : at.uz
+      ? 'Biz Olmatoshkent xaritada'
+      : 'Мы на карте в Ташкенте'
   }
 
   return (

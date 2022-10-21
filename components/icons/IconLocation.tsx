@@ -11,7 +11,7 @@ const IconLocation = ({ classNames }: TypeIconLocationProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Manzil' : 'Локация'
+    title: at.en ? 'Location' : at.uz ? 'Manzil' : 'Локация'
   }
 
   return (

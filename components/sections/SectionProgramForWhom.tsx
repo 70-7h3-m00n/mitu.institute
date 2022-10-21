@@ -19,14 +19,24 @@ const SectionProgramForWhom = ({
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Ushbu dastur kim uchun?' : 'Для кого эта программа?',
-    descAdditional: at.uz
+    title: at.en
+      ? 'For whom this program is for?'
+      : at.uz
+      ? 'Ushbu dastur kim uchun?'
+      : 'Для кого эта программа?',
+    descAdditional: at.en
+      ? 'Our educational programs are certified and accredited. Upon completion of training, a diploma of retraining is issued'
+      : at.uz
       ? "Institutning o'quv dasturlari sertifikatlangan va akkreditatsiyadan o'tgan. O'qishni tugatgandan so'ng, belgilangan shakldagi oliy ma'lumot to'g'risida diplom beriladi"
       : 'Образовательные программы института сертифицированы и имеют аккредитацию. По окончанию обучения выдается диплом о переподготовке',
-    descNotAdditional: at.uz
+    descNotAdditional: at.en
+      ? "The Institute's educational programs are certified and accredited. Upon completion of training, a diploma of higher education of the established sample is issued"
+      : at.uz
       ? "Institutning ta'lim dasturlari sertifikatlangan va akkreditatsiya qilingan. O‘qishni tugatgandan so‘ng belgilangan namunadagi oliy ma’lumot to‘g‘risidagi diplom beriladi"
       : 'Образовательные программы института сертифицированы и имеют аккредитацию. По окончанию обучения выдается диплом о высшем образовании установленного образца',
-    descNotMituinstitute: at.uz
+    descNotMituinstitute: at.en
+      ? 'The educational programs of the institute are accredited. Upon graduation, a prestigious diploma of higher education is issued'
+      : at.uz
       ? "Institutning ta'lim dasturlari akkreditatsiyadan o'tgan. O'qishni tugatgandan so'ng, oliy ma'lumot to'g'risidagi nufuzli diplom beriladi"
       : 'Образовательные программы института аккредитованы. По окончанию обучения выдается престижный диплом о высшем образовании'
   }

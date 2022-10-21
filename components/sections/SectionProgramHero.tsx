@@ -22,43 +22,89 @@ const SectionProgramHero = ({ classNames }: TypeSectionProgramHeroProps) => {
   const at = useAt()
 
   const translations = {
-    studyDuration: at.uz ? 'Trening davri' : 'Срок обучения',
-    professionalRetrainingDiploma: at.uz
+    studyDuration: at.en
+      ? 'Study duration'
+      : at.uz
+      ? 'Trening davri'
+      : 'Срок обучения',
+    professionalRetrainingDiploma: at.en
+      ? 'Retraining diploma'
+      : at.uz
       ? 'Qayta tayyorlash diplomi'
       : 'Диплом о переподготовке',
-    stateDiploma: at.uz ? 'Davlat diplomi' : 'Государственный диплом',
-    higherEducationDiplomaNotMituinstitute: at.uz
+    stateDiploma: at.en
+      ? 'State diploma'
+      : at.uz
+      ? 'Davlat diplomi'
+      : 'Государственный диплом',
+    higherEducationDiplomaNotMituinstitute: at.en
+      ? 'Prestigious diploma of higher education'
+      : at.uz
       ? "Oliy ma'lumot to'g'risidagi nufuzli diplom"
       : 'Престижный диплом о высшем образовании',
-    testimonialStudyDurationHintTitle: at.uz
+    testimonialStudyDurationHintTitle: at.en
+      ? 'How to cut it?'
+      : at.uz
       ? 'Qanday qilib kesish kerak?'
       : 'Как сократить?',
-    testimonialHintContentP: at.uz
+    testimonialHintContentP: at.en
+      ? 'You can graduate as an external student, thereby reducing the period of study'
+      : at.uz
       ? "Tashqi tomondan tugatilishi mumkin, shu bilan o'qish muddatini qisqartiradi"
       : 'Можно окончить экстерном, тем самым сократив срок обучения',
-    until: at.uz ? '' : 'до',
-    untilAfter: at.uz ? 'oyga' : '',
-    studyForm: at.uz ? "Ta'lim shakli" : 'Форма обучения',
-    studyFormOnline: at.uz ? 'Masofadan turib' : 'Дистанционная',
-    studyFormOnlineAltNotMituinstitute: at.uz
+    until: at.en ? 'until' : at.uz ? '' : 'до',
+    untilAfter: at.en ? '' : at.uz ? 'oyga' : '',
+    studyForm: at.en
+      ? 'Study format'
+      : at.uz
+      ? "Ta'lim shakli"
+      : 'Форма обучения',
+    studyFormOnline: at.en
+      ? 'remote'
+      : at.uz
+      ? 'Masofadan turib'
+      : 'Дистанционная',
+    studyFormOnlineAltNotMituinstitute: at.en
+      ? 'Full-time, part-time, part-time with the use of distance learning technologies'
+      : at.uz
       ? 'Masofaviy ta’lim texnologiyalaridan foydalangan holda kunduzgi, sirtqi, sirtqi ta’lim'
       : 'Очная, очно-заочная, заочная с применением дистанционных технологий обучения',
-    admission: at.uz ? 'Qabul' : 'Зачисление',
-    everyMonthNotMituinstitute: at.uz ? 'Oylik' : 'Ежемесячно',
-    diploma: at.uz ? 'Diplom' : 'Диплом',
-    testimonialHintContentP2: at.uz
+    admission: at.en ? 'Enrollment' : at.uz ? 'Qabul' : 'Зачисление',
+    everyMonthNotMituinstitute: at.en
+      ? 'Monthly'
+      : at.uz
+      ? 'Oylik'
+      : 'Ежемесячно',
+    diploma: at.en ? 'Diploma' : at.uz ? 'Diplom' : 'Диплом',
+    testimonialHintContentP2: at.en
+      ? 'is an official document that confirms the completion of the program'
+      : at.uz
       ? "- dasturning o'tishini tasdiqlovchi rasmiy hujjat barcha"
       : '— это официальный документ, который подтверждает прохождение программы',
-    testimonialHintContentP3: at.uz
+    testimonialHintContentP3: at.en
+      ? 'All issued diplomas are entered into'
+      : at.uz
       ? "berilgan diplomlar frdo-ta'lim to'g'risidagi hujjatlar to'g'risidagi ma'lumotlarning Federal reestriga kiritiladi"
       : 'Все выданные дипломы вносятся в',
     testimonialHintContentP3Highlight: at.uz
-      ? ''
+      ? 'FRDE - Federal Register of Information on Documents of Education'
       : 'ФРДО — Федеральный реестр сведений о документах об образовании',
-    hoursAmount: at.uz ? 'Soatlar soni' : 'Количество часов',
-    discount: at.uz ? 'Chegirma' : 'Скидка',
-    signUpForCourse: at.uz ? 'Kursga yoziling' : 'Записаться на курс',
-    askQuestion: at.uz ? 'Savol bermoq' : 'Задать вопрос'
+    hoursAmount: at.en
+      ? 'Number of hours'
+      : at.uz
+      ? 'Soatlar soni'
+      : 'Количество часов',
+    discount: at.en ? 'Discount' : at.uz ? 'Chegirma' : 'Скидка',
+    signUpForCourse: at.en
+      ? 'Sign up for a course'
+      : at.uz
+      ? 'Kursga yoziling'
+      : 'Записаться на курс',
+    askQuestion: at.en
+      ? 'Ask a question'
+      : at.uz
+      ? 'Savol bermoq'
+      : 'Задать вопрос'
   }
 
   const { program } = useContext(ContextProgramContext)

@@ -24,8 +24,14 @@ const GeneralHeaderMiddle = ({ classNames }: TypeGeneralHeaderMiddleProps) => {
 
   const translations = {
     btn: {
-      title: at.uz ? "Qo'ng'iroqni buyurtma qiling" : 'Заказать звонок',
-      value: at.uz ? (
+      title: at.en
+        ? 'Request a call'
+        : at.uz
+        ? "Qo'ng'iroqni buyurtma qiling"
+        : 'Заказать звонок',
+      value: at.en ? (
+        <>Request&nbsp;a&nbsp;call</>
+      ) : at.uz ? (
         <>Qo&apos;ng&apos;iroqni buyurtma qiling</>
       ) : (
         <>Заказать&nbsp;звонок</>

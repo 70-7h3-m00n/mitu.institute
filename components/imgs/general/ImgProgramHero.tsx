@@ -19,7 +19,7 @@ const ImgProgramHero = ({
   const publicSrc = '/assets/imgs/general/program-hero.png'
 
   const translations = {
-    alt: at.uz ? 'Kurs' : 'Курс'
+    alt: at.en ? 'A course' : at.uz ? 'Kurs' : 'Курс'
   }
 
   return (

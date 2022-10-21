@@ -17,9 +17,15 @@ const InputName = ({
   const maxLength = 32
 
   const translations = {
-    placeholder: at.uz ? 'Ism' : 'Имя',
-    ariaLabel: at.uz ? 'Ismingizni kiriting' : 'Введите Ваше имя',
-    maxLengthMsg: at.uz
+    placeholder: at.en ? 'Name' : at.uz ? 'Ism' : 'Имя',
+    ariaLabel: at.en
+      ? 'Type in your name'
+      : at.uz
+      ? 'Ismingizni kiriting'
+      : 'Введите Ваше имя',
+    maxLengthMsg: at.en
+      ? `Please type in less than ${maxLength} characrets`
+      : at.uz
       ? `*Iltimos, ${maxLength} belgidan kamroq kiriting`
       : `*Пожалуйста, введите меньше, чем ${maxLength} символа`
   }

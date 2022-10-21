@@ -30,11 +30,21 @@ const ProgramStudyDuration = ({
   const months = +studyDurationMonths - 12 * years
 
   const translations = {
-    monthsOnly: at.uz
+    monthsOnly: at.en
+      ? 'month'
+      : at.uz
       ? 'oy'
       : getCasedRuMonthString({ months: studyDurationMonths }),
-    yearsOnly: at.uz ? 'yil' : getCasedRuYearString({ studyDurationMonths }),
-    default: at.uz ? (
+    yearsOnly: at.en
+      ? 'year'
+      : at.uz
+      ? 'yil'
+      : getCasedRuYearString({ studyDurationMonths }),
+    default: at.en ? (
+      <>
+        {years} year{years > 1 && 's'} {months} month{months > 1 && 's'}
+      </>
+    ) : at.uz ? (
       <>
         {years} yil {months} oy
       </>

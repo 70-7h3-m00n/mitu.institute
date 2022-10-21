@@ -23,7 +23,7 @@ const InputSubmit = ({ classNames, variant, errors }: TypeInputSubmitProps) => {
   const isError = !!errors.name || !!errors.phone || !!errors.email
 
   const translations = {
-    btnValue: at.uz ? "So'rov qoldiring" : 'Оставить заявку'
+    btnValue: at.en ? 'Submit' : at.uz ? "So'rov qoldiring" : 'Оставить заявку'
   }
 
   return (

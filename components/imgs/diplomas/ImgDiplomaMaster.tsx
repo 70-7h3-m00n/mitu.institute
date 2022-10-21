@@ -16,7 +16,11 @@ const ImgDiplomaMaster = ({
   const publicSrc = '/assets/imgs/diplomas/diploma-master.jpg'
 
   const translations = {
-    alt: at.uz ? 'Magistr darajasi' : 'Диплом магистра'
+    alt: at.en
+      ? 'Master diploma'
+      : at.uz
+      ? 'Magistr darajasi'
+      : 'Диплом магистра'
   }
 
   return (

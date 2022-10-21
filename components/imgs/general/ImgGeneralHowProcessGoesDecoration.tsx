@@ -21,7 +21,7 @@ const ImgGeneralHowProcessGoesDecoration = ({
   const publicSrc = '/assets/imgs/general/how-process-goes-decoration.png'
 
   const translations = {
-    alt: at.uz ? 'Dekoratsiya' : 'Декорация'
+    alt: at.en ? 'Decoration' : at.uz ? 'Dekoratsiya' : 'Декорация'
   }
 
   return (

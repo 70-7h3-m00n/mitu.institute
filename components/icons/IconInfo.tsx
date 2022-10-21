@@ -14,7 +14,7 @@ const IconInfo = ({ classNames, color, color2 }: TypeIconInfoProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? '' : ''
+    title: at.en ? '' : at.uz ? '' : ''
   }
 
   return (

@@ -16,7 +16,11 @@ const ImgContactMapMoscow = ({
   const publicSrc = '/assets/imgs/contact/map-moscow.jpg'
 
   const translations = {
-    alt: at.uz ? 'Biz Moskvadagi xaritada' : 'Мы на карте в Москве'
+    alt: at.en
+      ? 'Our Moscow location'
+      : at.uz
+      ? 'Biz Moskvadagi xaritada'
+      : 'Мы на карте в Москве'
   }
 
   return (

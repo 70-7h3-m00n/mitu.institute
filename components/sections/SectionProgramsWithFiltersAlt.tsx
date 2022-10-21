@@ -54,19 +54,45 @@ const SectionProgramsWithFiltersAlt = ({
   const at = useAt()
 
   const translations = {
-    btnShowMoreVal: at.uz ? "Hammasini ko'rsatish" : 'Показать все',
-    btnResetFilters: at.uz ? 'Filtrlarni tiklash' : 'Сбросить фильтры',
-    titleLaptopDesktop: at.uz ? 'Dasturlar' : 'Программы',
-    allPrograms: at.uz ? 'Barcha dasturlar' : 'Все\u00A0программы',
-    moreThan: at.uz ? "Ko'proq" : 'Более',
-    programs: at.uz ? 'dasturlari' : 'программ',
-    allStudyFields: at.uz ? "Barcha yo'nalishlar" : 'Все направления',
-    searchPlaceholder: at.uz
+    btnShowMoreVal: at.en
+      ? 'Show all'
+      : at.uz
+      ? "Hammasini ko'rsatish"
+      : 'Показать все',
+    btnResetFilters: at.en
+      ? 'Clear filters'
+      : at.uz
+      ? 'Filtrlarni tiklash'
+      : 'Сбросить фильтры',
+    titleLaptopDesktop: at.en ? 'Programs' : at.uz ? 'Dasturlar' : 'Программы',
+    allPrograms: at.en
+      ? 'All\u00A0programs'
+      : at.uz
+      ? 'Barcha dasturlar'
+      : 'Все\u00A0программы',
+    moreThan: at.en ? 'More than' : at.uz ? "Ko'proq" : 'Более',
+    programs: at.en ? 'programs' : at.uz ? 'dasturlari' : 'программ',
+    allStudyFields: at.en
+      ? 'All study fields'
+      : at.uz
+      ? "Barcha yo'nalishlar"
+      : 'Все направления',
+    searchPlaceholder: at.en
+      ? 'Type in program name'
+      : at.uz
       ? 'Dastur nomini kiriting'
       : 'Введите название программы',
-    chooseProgram: at.uz ? 'Dasturni tanlang' : 'Выберите программу',
-    chooseStudyField: at.uz ? 'Manzillarni tanlang' : 'Выберите направления',
-    apply: at.uz ? 'Murojaat qiling' : 'Применить'
+    chooseProgram: at.en
+      ? 'Choose program'
+      : at.uz
+      ? 'Dasturni tanlang'
+      : 'Выберите программу',
+    chooseStudyField: at.en
+      ? 'Choose study field'
+      : at.uz
+      ? 'Manzillarni tanlang'
+      : 'Выберите направления',
+    apply: at.en ? 'Apply' : at.uz ? 'Murojaat qiling' : 'Применить'
   }
 
   const { categories, curCategory, setCategories } = useContext(

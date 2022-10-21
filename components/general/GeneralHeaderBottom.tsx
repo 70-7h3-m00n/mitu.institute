@@ -17,7 +17,7 @@ const GeneralHeaderBottom = ({
   const at = useAt()
 
   const translations = {
-    programs: at.uz ? 'Dasturlar' : 'Программы'
+    programs: at.en ? 'Programs' : at.uz ? 'Dasturlar' : 'Программы'
   } as const
 
   return (

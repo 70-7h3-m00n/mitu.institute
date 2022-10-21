@@ -3,18 +3,18 @@ import { useAt } from '@/hooks/index'
 const ProgramAdmission = () => {
   const at = useAt()
   const translations = {
-    january: at.uz ? 'yanvar' : 'января',
-    february: at.uz ? 'fevral' : 'февраля',
-    march: at.uz ? 'mart' : 'марта',
-    april: at.uz ? 'aprel' : 'апреля',
-    may: at.uz ? 'may' : 'мая',
-    june: at.uz ? 'iyun' : 'июня',
-    july: at.uz ? 'iyul' : 'июля',
-    august: at.uz ? 'avgust' : 'августа',
-    september: at.uz ? 'sentyabr' : 'сентября',
-    october: at.uz ? 'oktyabr' : 'октября',
-    november: at.uz ? 'noyabr' : 'ноября',
-    december: at.uz ? 'dekabr' : 'декабря'
+    january: at.en ? 'January' : at.uz ? 'yanvar' : 'января',
+    february: at.en ? 'February' : at.uz ? 'fevral' : 'февраля',
+    march: at.en ? 'March' : at.uz ? 'mart' : 'марта',
+    april: at.en ? 'April' : at.uz ? 'aprel' : 'апреля',
+    may: at.en ? 'May' : at.uz ? 'may' : 'мая',
+    june: at.en ? 'June' : at.uz ? 'iyun' : 'июня',
+    july: at.en ? 'July' : at.uz ? 'iyul' : 'июля',
+    august: at.en ? 'August' : at.uz ? 'avgust' : 'августа',
+    september: at.en ? 'September' : at.uz ? 'sentyabr' : 'сентября',
+    october: at.en ? 'October' : at.uz ? 'oktyabr' : 'октября',
+    november: at.en ? 'November' : at.uz ? 'noyabr' : 'ноября',
+    december: at.en ? 'December' : at.uz ? 'dekabr' : 'декабря'
   }
 
   const currentDate = new Date()

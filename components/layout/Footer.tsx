@@ -48,15 +48,21 @@ const Footer = ({ classNames }: TypeFooterProps) => {
   // ]
 
   const translations = {
-    policiesPrivacy: at.uz
+    policiesPrivacy: at.en
+      ? 'Privacy policy'
+      : at.uz
       ? 'Maxfiylik siyosati'
       : 'Политика конфиденциальности',
-    policiesTerms: at.uz
+    policiesTerms: at.en
+      ? 'Terms of use'
+      : at.uz
       ? 'Foydalanuvchi shartnomasi'
       : 'Пользовательское соглашение',
-    payment: at.uz ? 'Ish haqi' : 'Оплата',
-    contacts: at.uz ? 'Aloqa' : 'Контакты',
-    legal: at.uz
+    payment: at.en ? 'Payment' : at.uz ? 'Ish haqi' : 'Оплата',
+    contacts: at.en ? 'Contact' : at.uz ? 'Aloqa' : 'Контакты',
+    legal: at.en
+      ? 'Legal'
+      : at.uz
       ? "Ta'lim tashkiloti haqida ma'lumot"
       : 'Сведения об образовательной организации'
   }

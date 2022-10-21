@@ -28,8 +28,14 @@ const UIFormAlpha = ({
 }: TypeUIFormAlphaProps) => {
   const at = useAt()
   const translations = {
-    textHighlight: at.uz ? 'Arizani qoldiring' : 'Оставьте заявку',
-    title: at.uz
+    textHighlight: at.en
+      ? 'Submit'
+      : at.uz
+      ? 'Arizani qoldiring'
+      : 'Оставьте заявку',
+    title: at.en
+      ? 'and get advice on the programs, as well as the requirements for admission to the course'
+      : at.uz
       ? "va dastur bo'yicha maslahat oling, shuningdek kursga kirish talablari"
       : 'и получите консультацию по программам, а также требования для поступления на курс'
   }

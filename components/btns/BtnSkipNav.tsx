@@ -8,7 +8,11 @@ const BtnSkipNav = () => {
 
   const translations = {
     btn: {
-      value: at.uz ? "Navigatsiyani o'tkazib yuborish" : 'Пропустить навигацию'
+      value: at.en
+        ? 'Skip navigation'
+        : at.uz
+        ? "Navigatsiyani o'tkazib yuborish"
+        : 'Пропустить навигацию'
     }
   } as const
 

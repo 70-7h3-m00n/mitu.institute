@@ -19,7 +19,7 @@ const SectionWhyUs = ({ classNames }: TypeSectionWhyUsProps) => {
   const whyus = useWhyUs()
 
   const translations = {
-    title: at.uz ? 'Nima uchun' : 'Почему выбирают'
+    title: at.en ? 'Why us' : at.uz ? 'Nima uchun' : 'Почему выбирают'
   }
 
   const { program } = useContext(ContextProgramContext)

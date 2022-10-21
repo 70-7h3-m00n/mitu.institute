@@ -35,9 +35,15 @@ const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
   const pros = usePros()
 
   const translations = {
-    programs: at.uz ? 'Dasturlar' : 'Программы',
-    studyFields: at.uz ? "O'qish yo'nalishlari" : 'Направления',
-    formTitle: at.uz
+    programs: at.en ? 'Programs' : at.uz ? 'Dasturlar' : 'Программы',
+    studyFields: at.en
+      ? 'Study fields'
+      : at.uz
+      ? "O'qish yo'nalishlari"
+      : 'Направления',
+    formTitle: at.en
+      ? "We'd help you figure out your profession"
+      : at.uz
       ? 'Keling, sizga kasb topishga yordam beramiz'
       : 'Поможем определиться с профессией'
   }

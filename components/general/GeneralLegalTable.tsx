@@ -29,7 +29,7 @@ const GeneralLegalTable = ({
   // }, [])
 
   // const translations = {
-  //   loading: at.uz
+  //   loading: at.en ? '' : at.uz
   //     ? 'Yuklanmoqda... Iltimos, kuting'
   //     : 'Идёт загрузка... Пожалуйста, подождите'
   // }

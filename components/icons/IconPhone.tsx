@@ -13,7 +13,7 @@ const IconPhone = ({ classNames, color }: TypeIconPhoneProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Telefon telefoni' : 'Телефонная трубка'
+    title: at.en ? 'Handset' : at.uz ? 'Telefon telefoni' : 'Телефонная трубка'
   }
 
   return (

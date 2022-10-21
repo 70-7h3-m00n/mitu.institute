@@ -21,7 +21,7 @@ const ImgGeneralFullProgramDecoration = ({
   const publicSrc = '/assets/imgs/general/full-program-decoration.png'
 
   const translations = {
-    alt: at.uz ? 'Dekoratsiya' : 'Декорация'
+    alt: at.en ? 'Decoration' : at.uz ? 'Dekoratsiya' : 'Декорация'
   }
 
   return (

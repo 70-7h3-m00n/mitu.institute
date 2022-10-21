@@ -23,6 +23,9 @@ const GeneralLangBtns = ({ classNames }: TypeGeneralLangBtnsProps) => {
       <Link href={href} locale='ru'>
         <a className={stls.link}>RU</a>
       </Link>
+      <Link href={href} locale='en_US'>
+        <a className={stls.link}>EN</a>
+      </Link>
     </div>
   )
 }

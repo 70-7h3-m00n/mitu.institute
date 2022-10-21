@@ -19,7 +19,11 @@ const ImgJobTitle = ({
   const publicSrc = '/assets/imgs/general/job-title.jpg'
 
   const translations = {
-    alt: at.uz ? 'Inson ishlaydi' : 'Человек работает'
+    alt: at.en
+      ? 'Person is working'
+      : at.uz
+      ? 'Inson ishlaydi'
+      : 'Человек работает'
   }
 
   return (

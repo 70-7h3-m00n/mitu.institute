@@ -21,7 +21,9 @@ const SectionProgramJobTitlesWithoutPictures = ({
   const at = useAt()
 
   const translations = {
-    title: at.uz
+    title: at.en
+      ? 'Your job titles after the program'
+      : at.uz
       ? 'Siz kim bilan ishlashingiz mumkin?'
       : 'Кем Вы сможете работать?'
   }

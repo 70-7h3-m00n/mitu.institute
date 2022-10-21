@@ -12,7 +12,7 @@ const IconLoader = ({ classNames }: TypeIconLoaderProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Yuklab olish…' : 'Загрузка...'
+    title: at.en ? 'Loading...' : at.uz ? 'Yuklab olish…' : 'Загрузка...'
   }
 
   return (

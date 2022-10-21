@@ -20,13 +20,21 @@ const SectionStartWithDiscount = ({
 }: TypeSectionStartWithDiscountProps) => {
   const at = useAt()
   const translations = {
-    startOffWithDiscount: at.uz
+    startOffWithDiscount: at.en
+      ? 'Get started with a discount'
+      : at.uz
       ? "Chegirma bilan o'rganishni boshlang"
       : 'Начните обучаться со скидкой',
-    areThereQuestions: at.uz
+    areThereQuestions: at.en
+      ? 'You have questions? Leave a request! We will call you back!'
+      : at.uz
       ? "Sizda savollar bormi? So'rov qoldiring! Sizga qo'ng'iroq qilamiz!"
       : 'У Вас есть вопросы? Оставьте заявку! Мы перезвоним Вам!',
-    leaveApplication: at.uz ? "So'rov qoldiring" : 'Оставить заявку'
+    leaveApplication: at.en
+      ? 'Submit'
+      : at.uz
+      ? "So'rov qoldiring"
+      : 'Оставить заявку'
   }
 
   const { program } = useContext(ContextProgramContext)

@@ -27,33 +27,65 @@ const SectionHowTrainingGoes = ({
   const atAdditional = program?.category?.type === 'additional' && mituinstitute
 
   const translations = {
-    title: at.uz
+    title: at.en
+      ? 'How training goes?'
+      : at.uz
       ? 'Trening qanday amalga oshiriladi?'
       : 'Как проходит обучение?',
-    card1Title: at.uz
+    card1Title: at.en
+      ? 'Documents submission online'
+      : at.uz
       ? 'Onlayn hujjatlarni taqdim etish'
       : 'Онлайн-подача документов',
-    card1Desc: at.uz
+    card1Desc: at.en
+      ? 'Online education allows to work with any documents remotely'
+      : at.uz
       ? "Masofaviy o'qitish formati barcha hujjatlarni masofadan taqdim etishga imkon beradi"
       : 'Дистанционный формат обучения, позволяет осуществлять  подачу всех документов удаленно',
-    card2Title: at.uz ? "Onlayn shaklda ma'ruzalar" : 'Лекции в онлайн формате',
-    card2Desc: at.uz
+    card2Title: at.en
+      ? 'Online lectures'
+      : at.uz
+      ? "Onlayn shaklda ma'ruzalar"
+      : 'Лекции в онлайн формате',
+    card2Desc: at.en
+      ? 'Each student has an online account where lectures happen. The recording of lectures are stored in the account too!'
+      : at.uz
       ? "Har bir talabaning shaxsiy hisobi bor, u erda ma'ruzalar o'tkaziladi. Barcha darslarning yozuvlari o'qish oxirigacha shaxsiy hisobingizda saqlanadi"
       : 'У каждого студента есть личный кабинет, где проходят лекции. Записи всех занятий хранятся в личном кабинете до конца обучения',
-    card3Title: at.uz ? "Amaliy mashg'ulotlar" : 'Практические занятия',
-    card3Desc: at.uz
+    card3Title: at.en
+      ? 'Practice lessons'
+      : at.uz
+      ? "Amaliy mashg'ulotlar"
+      : 'Практические занятия',
+    card3Desc: at.en
+      ? 'All the practice happens online using our educational platform'
+      : at.uz
       ? "Barcha amaliy mashg'ulotlar shaxsiy hisobimizda bizning onlayn ta'lim platformamizda o'tkaziladi"
       : 'Все практические занятия проходят в личном кабинете на нашей образовательной онлайн платформе',
-    card4Title: at.uz ? 'Sessiyalar' : 'Сессии',
-    card4Desc: at.uz
+    card4Title: at.en ? 'Sessions' : at.uz ? 'Sessiyalar' : 'Сессии',
+    card4Desc: at.en
+      ? 'Exams happen online using our educational platform'
+      : at.uz
       ? "Imtihonlar masofaviy ta'lim tizimi orqali onlayn tarzda o'tkaziladi"
       : 'Экзамены сдаются онлайн через систему дистанционного обучения',
-    card5Title: at.uz ? 'Tezis yozish' : 'Написание дипломной работы',
-    card5Desc: at.uz
+    card5Title: at.en
+      ? 'Graduate work'
+      : at.uz
+      ? 'Tezis yozish'
+      : 'Написание дипломной работы',
+    card5Desc: at.en
+      ? 'Choose the interestring for you topic and work on graduate work with the help of your mentor'
+      : at.uz
       ? 'Yakuniy malakaviy ish mavzusini tanlang va ilmiy rahbar bilan maslahatlashganda tezisni yozing'
       : 'Выбираете тему выпускной квалификационной работы и при консультации научного руководителя пишете дипломную работу',
-    card6Title: at.uz ? 'Diplomni himoya qilish' : 'Защита диплома',
-    card6Desc: at.uz
+    card6Title: at.en
+      ? 'Thesis defense'
+      : at.uz
+      ? 'Diplomni himoya qilish'
+      : 'Защита диплома',
+    card6Desc: at.en
+      ? "Thesis defense normally happens offline but it's totally possible to do it online"
+      : at.uz
       ? "Yakuniy attestatsiya institutda o'tkaziladi. Agar xohlasangiz, masofadan o'tishingiz mumkin"
       : 'Итоговая аттестация будет проходить в Институте. При желании можно пройти дистанционно'
   }

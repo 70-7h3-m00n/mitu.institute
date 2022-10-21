@@ -12,7 +12,11 @@ const ImgStudyCost = ({ classNames, width, height }: TypeImgStudyCostProps) => {
   const publicSrc = '/assets/imgs/general/study-cost.jpg'
 
   const translations = {
-    alt: at.uz ? "Inson o'rganadi" : 'Человек учится'
+    alt: at.en
+      ? 'Person is studying'
+      : at.uz
+      ? "Inson o'rganadi"
+      : 'Человек учится'
   }
 
   return (

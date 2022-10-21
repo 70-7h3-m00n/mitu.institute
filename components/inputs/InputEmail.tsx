@@ -18,14 +18,20 @@ const InputEmail = ({
   const maxLength = 64
 
   const translations = {
-    placeholder: at.uz ? 'Email' : 'Email',
-    ariaLabel: at.uz
+    placeholder: at.en ? 'Email' : at.uz ? 'Email' : 'Email',
+    ariaLabel: at.en
+      ? 'Please type in your email'
+      : at.uz
       ? 'Elektron pochtangizni kiriting'
       : 'Введите Вашу электронную почту',
-    patternMsg: at.uz
+    patternMsg: at.en
+      ? 'Please type in a correct email'
+      : at.uz
       ? "Iltimos, to'g'ri elektron pochta manzilini kiriting"
       : 'Пожалуйста, введите корректный email',
-    maxLengthMsg: at.uz
+    maxLengthMsg: at.en
+      ? `*Please type in less than ${maxLength} symbols`
+      : at.uz
       ? `*Iltimos, ${maxLength} belgidan kamroq kiriting`
       : `*Пожалуйста, введите меньше, чем ${maxLength} символа`
   }

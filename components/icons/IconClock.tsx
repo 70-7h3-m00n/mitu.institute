@@ -11,7 +11,7 @@ const IconChat = ({ classNames }: TypeIconChatProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Soat' : 'Часы'
+    title: at.en ? 'Clock' : at.uz ? 'Soat' : 'Часы'
   }
 
   return (

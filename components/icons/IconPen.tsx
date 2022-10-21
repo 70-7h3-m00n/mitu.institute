@@ -11,7 +11,7 @@ const IconPen = ({ classNames }: TypeIconPenProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Qalam' : 'Ручка'
+    title: at.en ? 'A pen' : at.uz ? 'Qalam' : 'Ручка'
   }
 
   return (

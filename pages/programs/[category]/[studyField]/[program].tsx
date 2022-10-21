@@ -49,7 +49,7 @@ const PageProgramsCategoryStudyFieldProgram: NextPage<TypePageProgramProps> = ({
   const company = useCompanyInfo()
 
   const translations = {
-    formTitle: at.uz
+    formTitle: at.en ? 'Get free consultation' : at.uz
       ? 'Bepul maslahat oling'
       : 'Получить бесплатную консультацию'
   }

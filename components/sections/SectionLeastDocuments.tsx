@@ -36,11 +36,23 @@ const SectionLeastDocuments = ({
   const { curCategory } = useContext(ContextCategoriesContext)
 
   const translations = {
-    title: at.uz
+    title: at.en
+      ? "For the higher education you'd need"
+      : at.uz
       ? "Oliy ma'lumot olish uchun sizga"
       : 'Для получения высшего образования нужно',
-    titleHighlight: at.uz ? 'minimal hujjatlar kerak' : 'минимум документов',
-    leastDocumentAdditional: at.uz
+    titleHighlight: at.en
+      ? 'the least documents'
+      : at.uz
+      ? 'minimal hujjatlar kerak'
+      : 'минимум документов',
+    leastDocumentAdditional: at.en
+      ? [
+          'Higher / secondary education diploma',
+          'Passport',
+          'Admission application'
+        ]
+      : at.uz
       ? [
           'Tugallangan oliy/oʻrta kasb-hunar taʼlimi',
           'Pasport',
@@ -51,14 +63,22 @@ const SectionLeastDocuments = ({
           'Паспорт',
           'Заявление на поступление'
         ],
-    leastDocumentsMaster: at.uz
+    leastDocumentsMaster: at.en
+      ? [
+          'Higher/secondary education diploma',
+          'Passport',
+          'Admission application'
+        ]
+      : at.uz
       ? [
           'Bakalavr darajasi / mutaxassis',
           'Pasport',
           'Qabul qilish uchun ariza'
         ]
       : ['Диплом бакалавра/специалиста', 'Паспорт', 'Заявление на поступление'],
-    leastDocumentsDefault: at.uz
+    leastDocumentsDefault: at.en
+      ? ['Certificate / diploma', 'Passport', 'Admission application']
+      : at.uz
       ? ['Sertifikat / diplom', 'Pasport', 'Qabul qilish uchun ariza']
       : ['Аттестат / диплом', 'Паспорт', 'Заявление на поступление']
   }

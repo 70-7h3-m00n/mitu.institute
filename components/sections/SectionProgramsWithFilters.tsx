@@ -44,10 +44,18 @@ const SectionProgramsWithFilters = ({
   const at = useAt()
 
   const translations = {
-    programs: at.uz ? 'Dasturlar' : 'Программы',
-    moreThan: at.uz ? "Ko'proq" : 'Более',
-    hideFilters: at.uz ? 'Qaytish filtrlari' : 'Свернуть фильтры',
-    showFilters: at.uz ? "Filtrlarni ko'rsatish" : 'Показать фильтры'
+    programs: at.en ? 'Programs' : at.uz ? 'Dasturlar' : 'Программы',
+    moreThan: at.en ? 'More than' : at.uz ? "Ko'proq" : 'Более',
+    hideFilters: at.en
+      ? 'Hid filters'
+      : at.uz
+      ? 'Qaytish filtrlari'
+      : 'Свернуть фильтры',
+    showFilters: at.en
+      ? 'Show filters'
+      : at.uz
+      ? "Filtrlarni ko'rsatish"
+      : 'Показать фильтры'
   }
 
   const { categories, curCategory, setCategories } = useContext(

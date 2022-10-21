@@ -23,12 +23,19 @@ const GeneralAddress = ({
 
   const translations = {
     address: {
-      city: at.uz ? (
+      city: at.en ? (
+        company.address.city
+      ) : at.uz ? (
         company.addressUz.city
       ) : (
         <>г.&nbsp;{company.address.city}</>
       ),
-      street: at.uz ? (
+      street: at.en ? (
+        <>
+          {company.address.street.name} {company.address.street.type}
+          {company.address.street.door}
+        </>
+      ) : at.uz ? (
         <>
           {company.addressUz.street.name}{' '}
           {company.addressUz.street.type.toLocaleLowerCase()},{' '}

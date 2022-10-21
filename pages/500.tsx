@@ -10,19 +10,31 @@ const Page500 = () => {
   const company = useCompanyInfo()
 
   const translations = {
-    seoParamsTitle: at.uz
+    seoParamsTitle: at.en
+      ? '500 - Sorry! An unexpected error occurred on the server'
+      : at.uz
       ? '500 - Kechirasiz! Serverda kutilmagan xatolik yuz berdi'
       : '500 - Извините! На сервере произошла непредвиденная ошибка',
-    seoParamsDesc: at.uz
+    seoParamsDesc: at.en
+      ? '500 - Please try again later or call us'
+      : at.uz
       ? "500 - Iltimos, keyinroq qayta urinib ko'ring yoki bizga qo'ng'iroq qiling"
       : '500 - Пожалуйста, попробуйте позже или позвоните нам по номеру',
-    phoneNumber: at.uz ? company.phoneNumberUz : company.phoneNumber,
-    h2: at.uz ? (
+    phoneNumber: at.en
+      ? company.phoneNumber
+      : at.uz
+      ? company.phoneNumberUz
+      : company.phoneNumber,
+    h2: at.en ? (
+      <>Sorry! An unexpected&nbsp;error occurred on the server</>
+    ) : at.uz ? (
       'Kechirasiz! Serverda kutilmagan xatolik yuz berdi'
     ) : (
       <>Извините! На сервере произошла непредвиденная&nbsp;ошибка</>
     ),
-    p: at.uz
+    p: at.en
+      ? 'Pleaes try again later or call us'
+      : at.uz
       ? "Keyinroq qayta urinib ko'ring yoki bizga qo'ng'iroq qiling"
       : 'Пожалуйста, попробуйте позже или позвоните нам по номеру'
   }

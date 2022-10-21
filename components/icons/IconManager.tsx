@@ -11,7 +11,7 @@ const IconManager = ({ classNames }: TypeIconManagerProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Boshqaruvchi' : 'Менеджер'
+    title: at.en ? 'Manager' : at.uz ? 'Boshqaruvchi' : 'Менеджер'
   }
 
   return (

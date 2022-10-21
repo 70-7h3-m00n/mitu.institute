@@ -21,9 +21,9 @@ const GeneralHeaderNavPhoneTablet = ({
 }: TypeGeneralHeaderNavPhoneTabletProps) => {
   const at = useAt()
   const translations = {
-    btnHelp: at.uz ? 'Yordam' : 'Помощь',
-    btnPrograms: at.uz ? 'Dasturlar' : 'Программы',
-    btnContacts: at.uz ? 'Aloqa' : 'Контакты'
+    btnHelp: at.en ? 'Help' : at.uz ? 'Yordam' : 'Помощь',
+    btnPrograms: at.en ? 'Programs' : at.uz ? 'Dasturlar' : 'Программы',
+    btnContacts: at.en ? 'Contact' : at.uz ? 'Aloqa' : 'Контакты'
   }
 
   const btns = [

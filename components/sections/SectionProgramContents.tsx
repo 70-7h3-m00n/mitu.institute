@@ -23,9 +23,19 @@ const SectionProgramContents = ({
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Qisqa kurs dasturi' : 'Краткая программа курса',
-    modules: at.uz ? 'tematik modullar' : 'тематических модулей',
-    desc: at.uz
+    title: at.en
+      ? 'Brief program contents'
+      : at.uz
+      ? 'Qisqa kurs dasturi'
+      : 'Краткая программа курса',
+    modules: at.en
+      ? 'special modules'
+      : at.uz
+      ? 'tematik modullar'
+      : 'тематических модулей',
+    desc: at.en
+      ? 'The practices we teach and the methodology on which the course is based are verified not only by the practical experience of teachers, but also by rigorous scientific research'
+      : at.uz
       ? "Biz o'rgatadigan amaliyotlar va kursning metodologiyasi nafaqat o'qituvchilarning amaliy tajribasi, balki qat'iy ilmiy tadqiqotlar bilan ham tasdiqlangan"
       : 'Практики, которым мы учим, и методология, на которой строится курс, проверены не только практическим опытом преподавателей, но и строгими научными исследованиями'
   }

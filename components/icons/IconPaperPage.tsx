@@ -11,7 +11,7 @@ const IconPaperPage = ({ classNames }: TypeIconPaperPageProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Hujjat' : 'Документ'
+    title: at.en ? 'a document' : at.uz ? 'Hujjat' : 'Документ'
   }
 
   return (

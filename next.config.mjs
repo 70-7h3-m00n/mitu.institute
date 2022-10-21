@@ -15,7 +15,7 @@ const createConfig = async (phase, { defaultConfig }) => {
     poweredByHeader: false,
     // trailingSlash: true,
     i18n: {
-      locales: ['ru', 'kk_KZ', 'uz_UZ'],
+      locales: ['ru', 'kk_KZ', 'uz_UZ', 'en_US', 'en_GB'],
       defaultLocale: 'ru',
       localeDetection: true,
       domains: [

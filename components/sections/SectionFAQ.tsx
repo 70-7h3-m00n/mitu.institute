@@ -16,8 +16,14 @@ const SectionFAQ = ({ classNames = [] }: TypeSectionFAQProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? "Tez-tez so'ralamiz" : 'Нас часто спрашивают',
-    formTitle: at.uz
+    title: at.en
+      ? 'We often get asked'
+      : at.uz
+      ? "Tez-tez so'ralamiz"
+      : 'Нас часто спрашивают',
+    formTitle: at.en
+      ? 'Are there more questions left? Submit a form to get a consultation'
+      : at.uz
       ? 'Savollar bormi? Qabul komissiyasidan maslahat oling'
       : 'Остались вопросы? Получите консультацию приемной комиссии'
   }

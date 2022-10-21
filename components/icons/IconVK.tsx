@@ -11,7 +11,7 @@ const IconVK = ({ classNames }: TypeIconVKProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'VK' : 'VK'
+    title: at.en ? 'VK' : at.uz ? 'VK' : 'VK'
   }
 
   return (

@@ -12,7 +12,7 @@ const ImgWallet = ({ classNames, width, height }: TypeImgWalletProps) => {
   const publicSrc = '/assets/imgs/payment/wallet.jpg'
 
   const translations = {
-    alt: at.uz ? 'Hamyon' : 'Кошелек'
+    alt: at.en ? 'A wallet' : at.uz ? 'Hamyon' : 'Кошелек'
   }
 
   return (

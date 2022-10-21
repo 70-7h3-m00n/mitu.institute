@@ -15,7 +15,11 @@ const SectionProgramQna = ({ classNames }: TypeSectionProgramQnaProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? "Tez-tez so'ralamiz" : 'Нас часто спрашивают'
+    title: at.en
+      ? 'Frequently asked questions'
+      : at.uz
+      ? "Tez-tez so'ralamiz"
+      : 'Нас часто спрашивают'
   }
 
   const { program } = useContext(ContextProgramContext)

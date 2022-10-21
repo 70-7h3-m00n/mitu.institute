@@ -24,7 +24,15 @@ const SectionStudyingWithUsIs = ({
   const { program } = useContext(ContextProgramContext)
 
   const translations = {
-    studyingWithUsIsBachelorMaster: at.uz
+    studyingWithUsIsBachelorMaster: at.en
+      ? [
+          'Distance learning. You can study from anywhere in the world',
+          'Educational programs adapted to the requirements of employers',
+          'Curator support 24/7',
+          'Possibility to return 13% of the cost of training',
+          'Transfer from other universities without losing the course'
+        ]
+      : at.uz
       ? [
           "Masofaviy ta'lim. Dunyoning istalgan joyidan o'rganishingiz mumkin",
           "Ish beruvchilar talablariga moslashtirilgan o'quv dasturlari",
@@ -39,7 +47,14 @@ const SectionStudyingWithUsIs = ({
           'Возможность вернуть 13% от стоимости обучения',
           'Перевод из других ВУЗов без потери курса'
         ],
-    studyingWithUsIs: at.uz
+    studyingWithUsIs: at.en
+      ? [
+          'Distance learning. You can study from anywhere in the world',
+          'Educational programs adapted to the requirements of employers',
+          'Curator support 24/7',
+          'Possibility to return 13% of the cost of training'
+        ]
+      : at.uz
       ? [
           "Masofaviy ta'lim. Dunyoning istalgan joyidan o'rganishingiz mumkin",
           "Ish beruvchilar talablariga moslashtirilgan o'quv dasturlari",
@@ -52,7 +67,15 @@ const SectionStudyingWithUsIs = ({
           'Поддержка куратора 24/7',
           'Возможность вернуть 13% от стоимости обучения'
         ],
-    title: at.uz ? (
+    title: at.en ? (
+      <>
+        Studying in{' '}
+        <GeneralTextHighlight>
+          Moscow Institute of Technology and Management
+        </GeneralTextHighlight>{' '}
+        is
+      </>
+    ) : at.uz ? (
       <>
         <GeneralTextHighlight>
           &quot;Moskva texnologiya va menejment instituti&quot;

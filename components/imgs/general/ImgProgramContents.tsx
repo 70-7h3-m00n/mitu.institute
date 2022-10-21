@@ -16,7 +16,7 @@ const ImgProgramContents = ({
   const publicSrc = '/assets/imgs/general/program-contents.jpg'
 
   const translations = {
-    alt: at.uz ? 'Qiz kuladi' : 'Девушка улыбается'
+    alt: at.en ? 'Girl is smiling' : at.uz ? 'Qiz kuladi' : 'Девушка улыбается'
   }
 
   return (

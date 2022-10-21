@@ -21,17 +21,21 @@ const SectionCorporateProgram = ({
   const at = useAt()
 
   const translations = {
-    title: at.uz ? (
+    title: at.en ? (
+      'Need corporate program for the employees?'
+    ) : at.uz ? (
       'Kompaniya xodimlari uchun dastur kerakmi?'
     ) : (
       <>
         Нужна программа <br /> для сотрудников компании?
       </>
     ),
-    p: at.uz
+    p: at.en
+      ? 'Submit a form to get our special offer for the corporate education'
+      : at.uz
       ? "Agar siz xodimlaringizni o'qitishni tashkil qilishingiz kerak bo'lsa, so'rov qoldiring. Siz uchun alohida taklif tayyorladik"
       : 'Если нужно организовать обучение своих сотрудников – оставьте заявку. Мы подготовили для Вас индивидуальное предложение',
-    learnMore: at.uz ? "Ko'proq" : 'Подробнее'
+    learnMore: at.en ? 'Learn more' : at.uz ? "Ko'proq" : 'Подробнее'
   }
 
   return (

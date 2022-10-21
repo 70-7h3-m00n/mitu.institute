@@ -11,7 +11,7 @@ const IconAlarm = ({ classNames }: TypeIconAlarmProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Budilnik' : 'Будильник'
+    title: at.en ? 'An alarm' : at.uz ? 'Budilnik' : 'Будильник'
   }
 
   return (

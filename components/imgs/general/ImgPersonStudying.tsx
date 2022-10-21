@@ -16,7 +16,11 @@ const ImgPersonStudying = ({
   const publicSrc = '@/public/assets/imgs/general/person-studying.jpg'
 
   const translations = {
-    alt: at.uz ? "Inson o'rganadi" : 'Человек учится'
+    alt: at.en
+      ? 'Person is studying'
+      : at.uz
+      ? "Inson o'rganadi"
+      : 'Человек учится'
   }
 
   return (

@@ -20,7 +20,7 @@ const IconCheck = ({
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Belgisi' : 'Галочка'
+    title: at.en ? 'Check mark' : at.uz ? 'Belgisi' : 'Галочка'
   }
 
   return (

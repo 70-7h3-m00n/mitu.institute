@@ -25,10 +25,12 @@ const SectionProgramJobTitles = ({
   if (!program?.jobTitles || program?.jobTitles?.length === 0) return <></>
 
   const translations = {
-    title: at.uz
+    title: at.en
+      ? 'Your job titles after the program'
+      : at.uz
       ? 'Siz kim bilan ishlashingiz mumkin?'
       : 'Кем Вы сможете работать?',
-    positionLabel: at.uz ? 'Lavozim' : 'Должность'
+    positionLabel: at.en ? 'Position' : at.uz ? 'Lavozim' : 'Должность'
   }
 
   return (

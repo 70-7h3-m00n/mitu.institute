@@ -11,7 +11,7 @@ const IconEye = ({ classNames }: TypeIconEyeProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? "Ko'z" : 'Глаз'
+    title: at.en ? 'An eye' : at.uz ? "Ko'z" : 'Глаз'
   }
 
   return (

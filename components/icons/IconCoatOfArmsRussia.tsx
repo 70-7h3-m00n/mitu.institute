@@ -13,7 +13,7 @@ const IconCoatOfArmsRussia = ({
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Rossiya Gerbi' : 'Герб России'
+    title: at.en ? '' : at.uz ? 'Rossiya Gerbi' : 'Герб России'
   }
 
   return (

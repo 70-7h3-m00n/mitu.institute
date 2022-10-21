@@ -11,7 +11,7 @@ const IconFacebook = ({ classNames }: TypeIconFacebookProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Facebook' : 'Facebook'
+    title: at.en ? 'Facebook' : at.uz ? 'Facebook' : 'Facebook'
   }
 
   return (

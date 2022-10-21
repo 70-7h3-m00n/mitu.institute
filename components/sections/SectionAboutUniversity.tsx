@@ -17,29 +17,49 @@ const SectionAboutUniversity = ({
   const at = useAt()
 
   const translations = {
-    title: at.uz ? 'Institut haqida' : 'Об институте',
-    pTop: at.uz
+    title: at.en ? 'About us' : at.uz ? 'Institut haqida' : 'Об институте',
+    pTop: at.en
+      ? 'We stand for the modern approach to education. We take a feedback from the employers to keep on updating our programs'
+      : at.uz
       ? "Bizning universitet ta'lim zamonaviy yondashuv uchun. Biz doimo ish beruvchilarning fikr-mulohazalarini qabul qilamiz va o'quv dasturlarini moslashtiramiz"
       : 'Наш университет за современный подход в образовании. Мы постоянно берем обратную связь от работодателей и адаптируем учебные программы',
-    pBottomHighlight: at.uz ? 'Bizning vazifamiz' : 'Наша миссия',
-    pBottom: at.uz
+    pBottomHighlight: at.en
+      ? 'The mission statement'
+      : at.uz
+      ? 'Bizning vazifamiz'
+      : 'Наша миссия',
+    pBottom: at.en
+      ? '- to create the education system which would be affordable for everybody. The online education goes a long way with our mission so the innovative technologies is a huge part of our educational process'
+      : at.uz
       ? "- hamma uchun ochiq bo'ladigan ta'lim tizimini yaratish. Masofaviy ta’lim belgilangan maqsad va vazifalarga to‘liq javob beradi, shuning uchun innovatsion texnologiyalar institutimizda o‘quv jarayonining ajralmas qismi hisoblanadi"
       : '— создать систему образования, которая будет доступна каждому. Дистанционное обучение полностью отвечает поставленным целям и задачам, поэтому инновационные технологии — неотъемлемая часть образовательного процесса в нашем институте',
-    btnVal: at.uz
+    btnVal: at.en
+      ? 'State licence that allows us to provide online education'
+      : at.uz
       ? "Ta'lim faoliyatini amalga oshirish huquqini beruvchi davlat litsenziyasi"
       : 'Государственная лицензия на право ведения образовательной деятельности',
-    testimonial1Title: at.uz ? '10 yil' : '10 лет',
-    testimonial1Subtitle: at.uz
+    testimonial1Title: at.en ? '10 years' : at.uz ? '10 yil' : '10 лет',
+    testimonial1Subtitle: at.en
+      ? 'On the market'
+      : at.uz
       ? "Biz ta'lim bilan shug'ullanamiz"
       : 'Занимаемся образованием',
-    testimonial2Title: at.uz ? '>2000' : '>2000',
-    testimonial2Subtitle: at.uz ? "Hozir o'rganing" : 'Учатся прямо сейчас',
-    testimonial3Title: at.uz ? '7 yil' : '7 лет',
-    testimonial3Subtitle: at.uz
+    testimonial2Title: at.en ? '>2000' : at.uz ? '>2000' : '>2000',
+    testimonial2Subtitle: at.en
+      ? 'Studying now'
+      : at.uz
+      ? "Hozir o'rganing"
+      : 'Учатся прямо сейчас',
+    testimonial3Title: at.en ? '7 years' : at.uz ? '7 yil' : '7 лет',
+    testimonial3Subtitle: at.en
+      ? 'specializing in online education'
+      : at.uz
       ? "Masofaviy ta'lim bo'yicha ixtisoslashgan"
       : 'Специализируемся на дистанционном обучении',
-    testimonial4Title: at.uz ? '>10 000' : '>10 000',
-    testimonial4Subtitle: at.uz
+    testimonial4Title: at.en ? '>10 000' : at.uz ? '>10 000' : '>10 000',
+    testimonial4Subtitle: at.en
+      ? 'Graduates'
+      : at.uz
       ? "Talabalar allaqachon o'qitilgan"
       : 'Студентов уже обучили'
   }

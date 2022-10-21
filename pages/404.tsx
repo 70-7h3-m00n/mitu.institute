@@ -11,18 +11,29 @@ const Page404 = () => {
   const company = useCompanyInfo()
 
   const translations = {
-    seoParamsTitle: at.uz
+    seoParamsTitle: at.en
+      ? `404 - Sorry! The page you're looking for can't be found | ${company.name}`
+      : at.uz
       ? `404 - Kechirasiz! Siz izlayotgan sahifa topilmadi | ${company.name}`
       : `404 - Извините! Страница, которую Вы ищете, не может быть найдена | ${company.name}`,
-    seoParamsDesc: at.uz
+    seoParamsDesc: at.en
+      ? '404 - The page you requested may have been moved or removed. It is also possible that you made a small typo when entering the address - this happens'
+      : at.uz
       ? "404 - Siz so'ragan sahifa ko'chirilgan yoki o'chirilgan bo'lishi mumkin. Manzilni kiritishda siz kichik xatoga yo'l qo'ygan bo'lishingiz mumkin - bu sodir bo'ladi"
       : '404 - возможно, запрашиваемая Вами страница была перенесена или удалена. Также возможно, Вы допустили небольшую опечатку при вводе адреса — такое случается',
-    h2: at.uz ? (
+    h2: at.en ? (
+      'Sorry! The page you are looking for can not be found'
+    ) : at.uz ? (
       'Kechirasiz! Siz izlayotgan sahifa topilmadi'
     ) : (
       <>Извините! Страница, которую Вы ищете, не может быть&nbsp;найдена</>
     ),
-    p: at.uz ? (
+    p: at.en ? (
+      <>
+        The page you requested may have been moved or removed. Also perhaps you
+        made a small typo when entering the address - it&nbsp;happens
+      </>
+    ) : at.uz ? (
       "Siz so'ragan sahifa ko'chirilgan yoki o'chirilgan bo'lishi mumkin. Manzilni kiritishda siz kichik xatoga yo'l qo'ygan bo'lishingiz mumkin - bu sodir bo'ladi"
     ) : (
       <>
@@ -31,7 +42,11 @@ const Page404 = () => {
         такое&nbsp;случается
       </>
     ),
-    btnValue: at.uz ? 'Asosiy sahifaga qayting' : 'Вернуться на главную'
+    btnValue: at.en
+      ? 'Go back to the home page'
+      : at.uz
+      ? 'Asosiy sahifaga qayting'
+      : 'Вернуться на главную'
   }
 
   const seoParams = {

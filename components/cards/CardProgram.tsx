@@ -12,7 +12,11 @@ type TypeCardProgramProps = TypeClassNames & {
 const CardProgram = ({ classNames, card }: TypeCardProgramProps) => {
   const at = useAt()
   const translations = {
-    learnMoreLabel: at.uz ? "Batafsil ma'lumot" : 'Подробнее'
+    learnMoreLabel: at.en
+      ? 'Learn more'
+      : at.uz
+      ? "Batafsil ma'lumot"
+      : 'Подробнее'
   }
   return (
     <>

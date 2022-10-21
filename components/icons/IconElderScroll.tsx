@@ -11,7 +11,7 @@ const IconElderScroll = ({ classNames }: TypeIconElderScrollProps) => {
   const at = useAt()
 
   const translations = {
-    title: at.uz ? "O'tish" : 'Свиток'
+    title: at.en ? 'Whistle' : at.uz ? "O'tish" : 'Свиток'
   }
 
   return (

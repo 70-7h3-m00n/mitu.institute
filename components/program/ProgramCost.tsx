@@ -25,8 +25,8 @@ const ProgramCost = ({
   const SSLocale = useSSLocale()
 
   const translations = {
-    perMonth: at.uz ? '/oy' : '/мес',
-    currencySymbolSum: at.uz ? "so'm" : 'сум'
+    perMonth: at.en ? '/month' : at.uz ? '/oy' : '/мес',
+    currencySymbolSum: at.en ? "so'm" : at.uz ? "so'm" : 'сум'
   }
 
   let output = price

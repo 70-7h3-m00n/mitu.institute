@@ -10,6 +10,7 @@ const useAt = () => {
   // const getProgramTitle = asPath.split('/')[4]
 
   return {
+    en: locale === 'en' || locale === 'en_US' || locale === 'en_GB',
     ru: locale === 'ru',
     kz:
       locale === 'kz' ||

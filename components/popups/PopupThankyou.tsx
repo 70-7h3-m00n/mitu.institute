@@ -27,12 +27,18 @@ const PopupThankyou = ({ classNames, close, id }: TypePopupThankyouProps) => {
   }, [])
 
   const translations = {
-    thankyou: at.uz ? 'Rahmat!' : 'Спасибо!',
-    pTop: at.uz ? 'Sizning arizangiz yuborildi' : 'Ваша заявка отправлена',
-    pBottom: at.uz
+    thankyou: at.en ? 'Thank you!' : at.uz ? 'Rahmat!' : 'Спасибо!',
+    pTop: at.en
+      ? 'Your request has been submitted'
+      : at.uz
+      ? 'Sizning arizangiz yuborildi'
+      : 'Ваша заявка отправлена',
+    pBottom: at.en
+      ? "We'll contact you soon!"
+      : at.uz
       ? "Tez orada siz bilan bog'lanamiz!"
       : 'Мы свяжемся с Вами в ближайшее время!',
-    close: at.uz ? 'Yopish' : 'Закрыть'
+    close: at.en ? 'Close' : at.uz ? 'Yopish' : 'Закрыть'
   }
 
   return (

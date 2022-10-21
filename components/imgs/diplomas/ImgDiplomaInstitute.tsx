@@ -16,7 +16,11 @@ const ImgDiplomaInstitute = ({
   const publicSrc = '/assets/imgs/diplomas/diploma-institute.jpg'
 
   const translations = {
-    alt: at.uz ? 'Institut diplomi' : 'Диплом института'
+    alt: at.en
+      ? 'Institute diploma'
+      : at.uz
+      ? 'Institut diplomi'
+      : 'Диплом института'
   }
 
   return (

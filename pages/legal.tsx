@@ -48,8 +48,21 @@ const PageLegal: NextPage<TypePageLegalProps> = ({
   })
 
   const translations = {
-    companyInfo: at.uz ? 'Tashkilot tafsilotlari' : 'Сведения об организации',
-    legalInfo: at.uz ? (
+    companyInfo: at.en
+      ? 'legal'
+      : at.uz
+      ? 'Tashkilot tafsilotlari'
+      : 'Сведения об организации',
+    legalInfo: at.en ? (
+      <>
+        Disclosure of information about an educational organization in
+        accordance with Order of Rosobrnadzor dated August 14, 2020 No. 831
+        &quot;On approval Requirements for the structure of the official website
+        of an educational organization in information and telecommunication
+        network &quot;Internet&quot; and format presentation of
+        information&quot;
+      </>
+    ) : at.uz ? (
       <>
         Ta&apos;lim tashkiloti to&apos;g&apos;risidagi ma&apos;lumotlarni oshkor
         qilish Rosobrnadzorning 2020 yil 14 avgustdagi buyrug&apos;iga muvofiq
