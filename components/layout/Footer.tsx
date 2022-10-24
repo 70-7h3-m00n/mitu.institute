@@ -58,7 +58,16 @@ const Footer = ({ classNames }: TypeFooterProps) => {
       : at.uz
       ? 'Foydalanuvchi shartnomasi'
       : 'Пользовательское соглашение',
-    payment: at.en ? 'Payment' : at.uz ? 'Ish haqi' : 'Оплата',
+    paymentHigher: at.en
+      ? 'Higher education payment'
+      : at.uz
+      ? "Oliy ta'lim uchun to'lov"
+      : 'Оплата высшего образования',
+    paymentAdditional: at.en
+      ? 'Professional retraining payment'
+      : at.uz
+      ? "Qo'shimcha ta'lim uchun to'lov"
+      : 'Оплата дополнительного образования',
     contacts: at.en ? 'Contact' : at.uz ? 'Aloqa' : 'Контакты',
     legal: at.en
       ? 'Legal'
@@ -117,8 +126,13 @@ const Footer = ({ classNames }: TypeFooterProps) => {
               </li>
             ))}
             <li className={stls.navLinkItem}>
-              <Link href={routesFront.payment}>
-                <a className={stls.navLink}>{translations.payment}</a>
+              <Link href={routesFront.paymentHigherEducation}>
+                <a className={stls.navLink}>{translations.paymentHigher}</a>
+              </Link>
+            </li>
+            <li className={stls.navLinkItem}>
+              <Link href={routesFront.paymentAdditionalEducation}>
+                <a className={stls.navLink}>{translations.paymentAdditional}</a>
               </Link>
             </li>
             <li className={stls.navLinkItem}>

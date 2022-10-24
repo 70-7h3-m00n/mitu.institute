@@ -9,6 +9,8 @@ type TypeRoutesFront = {
   promo: '/promo'
   contact: '/contact'
   payment: '/payment'
+  paymentHigherEducation: '/payment/higherEducation'
+  paymentAdditionalEducation: '/payment/additionalEducation'
   legal: '/legal'
   programs: '/programs'
   programsCategory: '/programs/[category]'
