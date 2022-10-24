@@ -16,6 +16,7 @@ const PagePaymentAdditionalEducation: NextPage<TypePageHomeProps> = ({
         categories={categories}
         programs={programs}
         questions={questions}
+        type='additional'
       />
     </>
   )

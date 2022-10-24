@@ -28,10 +28,20 @@ import ImgMir from '../imgs/payment/ImgMIR'
 const PagePayment = ({
   categories,
   programs,
-  questions
-}: TypePageHomeProps) => {
+  questions,
+  type
+}: TypePageHomeProps & {
+  type: 'higherEdu' | 'additional'
+}) => {
   const at = useAt()
   const company = useCompanyInfo()
+
+  const paymentLink =
+    type === 'additional'
+      ? 'https://3dsec.sberbank.ru/shortlink/2Mi9ZtR1'
+      : type === 'higherEdu'
+      ? 'https://securepayments.sberbank.ru/sc/EvSIIXuWbJTxeSsI'
+      : 'https://securepayments.sberbank.ru/sc/EvSIIXuWbJTxeSsI'
 
   const { setCategories } = useContext(ContextCategoriesContext)
   const { setStudyField } = useContext(ContextStudyFieldContext)
@@ -196,7 +206,7 @@ const PagePayment = ({
               variant='delta'
               classNames={[stls.btnVDelta]}
               tag='a'
-              href={routesExternal.payment}
+              href={paymentLink}
               target={'_blank'}>
               {translations.bankCardPayment}
             </BtnAlpha>
