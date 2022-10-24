@@ -32,7 +32,7 @@ const GeneralAddress = ({
       ),
       street: at.en ? (
         <>
-          {company.address.street.name} {company.address.street.type}
+          {company.address.street.name} {company.address.street.type}{' '}
           {company.address.street.door}
         </>
       ) : at.uz ? (

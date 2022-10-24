@@ -8,10 +8,11 @@ const getCorrectLocale = ({ locale }: TGetCorrectLocaleProps) => {
     : locale === 'kk_KZ'
     ? 'kk'
     : locale === 'en_US'
-    ? 'en'
+    ? 'ru'
     : locale === 'en_GB'
-    ? 'en'
+    ? 'ru'
     : undefined
+  // * why ru here? because in our strapi content managers were working with en locale while adding ru content & so now ru locale would be english and en locale would be ru
 }
 
 export default getCorrectLocale
