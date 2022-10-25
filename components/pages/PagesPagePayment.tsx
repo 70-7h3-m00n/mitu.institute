@@ -103,6 +103,16 @@ const PagePayment = ({
           'Настоящий сайт поддерживает 256-битное шифрование. Конфиденциальность сообщаемой персональной информации обеспечивается ПАО СБЕРБАНК. Введённая информация не будет предоставлена третьим лицам за исключением случаев, предусмотренных законодательством РФ. Проведение платежей по банковским картам осуществляется в строгом соответствии с требованиями платёжных систем МИР, Visa Int., MasterCard Europe Sprl, JCB',
           'Пожалуйста, не забудьте указать ФИО и номер договора на странице с оплатой'
         ],
+    titleAdditional: at.en
+      ? 'Payment for additional education'
+      : at.uz
+      ? "Qo'shimcha ta'lim uchun to'lov"
+      : 'Оплата дополнительного образования',
+    titleHigher: at.en
+      ? 'Payment for higher education'
+      : at.uz
+      ? "Oliy ta'lim uchun to'lov"
+      : 'Оплата высшего образования',
     paymentMethods: at.en
       ? 'Payment methods'
       : at.uz
@@ -114,10 +124,10 @@ const PagePayment = ({
       ? 'Bank kartasi bilan'
       : 'Банковской картой',
     bankCardDesc: at.en
-      ? ''
+      ? 'To pay for tuition using a bank card, below on this page, you must click the Payment by bank card button. Payment is made through PJSC SBERBANK using bank cards of the following payment systems:'
       : at.uz
       ? "O'qish uchun to'lovni amalga oshirish uchun, bank kartasidan foydalanib, quyidagi sahifada siz bank kartasi bilan to'lov tugmasini bosishingiz kerak. To'lov quyidagi to'lov tizimlarining bank kartalaridan foydalangan holda Sberbank PJSC orqali amalga oshiriladi:"
-      : 'To pay for tuition using a bank card, below on this page, you must click the Payment by bank card button. Payment is made through PJSC SBERBANK using bank cards of the following payment systems:',
+      : 'Для проведения оплаты обучения, с помощью банковской карты, ниже на этой странице необходимо нажать кнопку Оплата банковской картой. Оплата происходит через ПАО СБЕРБАНК с использованием банковских карт следующих платёжных систем:',
     bankCardPayment: at.en
       ? 'Pay with debit card'
       : at.uz
@@ -180,7 +190,13 @@ const PagePayment = ({
       />
       <section className={stls.sectionHero}>
         <Wrapper>
-          <h1 className={stls.title}>{translations.paymentMethods}</h1>
+          <h1 className={stls.title}>
+            {type === 'additional'
+              ? translations.titleAdditional
+              : type === 'higherEdu'
+              ? translations.titleHigher
+              : translations.titleHigher}
+          </h1>
           <GeneralSectionTitle classNames={[stls.GeneralSectionTitle]}>
             {translations.bankCard}
           </GeneralSectionTitle>
