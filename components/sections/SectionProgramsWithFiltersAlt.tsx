@@ -13,6 +13,7 @@ import {
   useState
 } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import Highlighter from 'react-highlight-words'
@@ -42,8 +43,6 @@ import {
   IconCross,
   IconArrowRight
 } from '@/components/icons'
-import { useRouter } from 'next/router'
-import React from 'react'
 
 type TStudyFields = {
   type: string | null
@@ -55,9 +54,10 @@ type TypeSectionProgramsWithFiltersAltProps = TypeClassNames & {
   studyFields: TStudyFields | null
 }
 
-const SectionProgramsWithFiltersAlt: React.FC<
-  TypeSectionProgramsWithFiltersAltProps
-> = ({ classNames, studyFields }) => {
+const SectionProgramsWithFiltersAlt = ({
+  classNames,
+  studyFields
+}: TypeSectionProgramsWithFiltersAltProps) => {
   const at = useAt()
 
   const translations = {
@@ -93,20 +93,23 @@ const SectionProgramsWithFiltersAlt: React.FC<
 
   const router = useRouter()
 
-  const filledRoutes: string[] = router.query?.studyField?.split(',')
+  const queryStudyFields = router.query?.studyField
+    ? decodeURIComponent(router.query?.studyField?.toString()).split(',')
+    : undefined
 
   useEffect(() => {
     appliedStudyFields.length === 0 &&
-      filledRoutes?.length > 0 &&
+      queryStudyFields &&
+      queryStudyFields.length > 0 &&
       studyFields &&
       setAppliedStudyFields([
         ...studyFields?.filter(studyField =>
-          filledRoutes.some(field => field === studyField.slug)
+          queryStudyFields.some(field => field === studyField.slug)
         )
       ])
 
     router.query?.category === curCategory?.slug || setAppliedStudyFields([])
-  }, [curCategory, filledRoutes?.length, router.query?.category])
+  }, [curCategory, queryStudyFields?.length, router.query?.category])
 
   const studyFieldControlBtnShowMax = studyFields &&
     studyFields?.length > studyFieldsShowMaxDefault &&
@@ -245,6 +248,7 @@ const SectionProgramsWithFiltersAlt: React.FC<
                         className={cn(stls.studyFieldBtn, {
                           [stls.isActive]:
                             router.query.studyField
+                              ?.toString()
                               ?.split(',')
                               ?.some(
                                 (linkStudyField: string) =>
@@ -258,6 +262,7 @@ const SectionProgramsWithFiltersAlt: React.FC<
                         onClick={() => {
                           if (
                             router.query.studyField
+                              ?.toString()
                               ?.split(',')
                               .some(
                                 (linkStudyField: string) =>
@@ -275,20 +280,28 @@ const SectionProgramsWithFiltersAlt: React.FC<
                               )
                             ])
                             router.push(
-                              `${routesFront.programs}${
-                                curCategory?.slug ? `/${curCategory?.slug}` : ''
-                              }?studyField=${encodeURIComponent(
-                                filledRoutes
-                                  ?.filter(
-                                    (field: string) =>
-                                      field !== studyField?.slug
-                                  )
-                                  .join(',')
-                              )}`,
+                              {
+                                pathname: `${routesFront.programs}${
+                                  curCategory?.slug
+                                    ? `/${curCategory?.slug}`
+                                    : ''
+                                }`,
+                                query: {
+                                  ...router.query,
+                                  studyField: queryStudyFields
+                                    ? encodeURIComponent(
+                                        queryStudyFields
+                                          ?.filter(
+                                            field => field !== studyField?.slug
+                                          )
+                                          .join(',')
+                                      )
+                                    : undefined
+                                }
+                              },
                               undefined,
                               {
                                 scroll: false,
-                                shallow: false,
                                 shallow: false
                               }
                             )
@@ -297,17 +310,23 @@ const SectionProgramsWithFiltersAlt: React.FC<
                               ...appliedStudyFields,
                               studyField
                             ])
-                            filledRoutes?.length > 0
+                            queryStudyFields && queryStudyFields.length > 0
                               ? router.push(
-                                  `${routesFront.programs}${
-                                    curCategory?.slug
-                                      ? `/${curCategory?.slug}`
-                                      : ''
-                                  }?studyField=${encodeURIComponent(
-                                    [...filledRoutes, studyField.slug]
-                                      .filter(str => str)
-                                      .join(',')
-                                  )}`,
+                                  {
+                                    pathname: `${routesFront.programs}${
+                                      curCategory?.slug
+                                        ? `/${curCategory?.slug}`
+                                        : ''
+                                    }`,
+                                    query: {
+                                      ...router.query,
+                                      studyField: encodeURIComponent(
+                                        [...queryStudyFields, studyField.slug]
+                                          .filter(str => str)
+                                          .join(',')
+                                      )
+                                    }
+                                  },
                                   undefined,
                                   {
                                     scroll: false,
@@ -315,13 +334,17 @@ const SectionProgramsWithFiltersAlt: React.FC<
                                   }
                                 )
                               : router.push(
-                                  `${routesFront.programs}${
-                                    curCategory?.slug
-                                      ? `/${curCategory?.slug}`
-                                      : ''
-                                  }?studyField=${encodeURIComponent(
-                                    studyField.slug
-                                  )}`,
+                                  {
+                                    pathname: `${routesFront.programs}${
+                                      curCategory?.slug
+                                        ? `/${curCategory?.slug}`
+                                        : ''
+                                    }`,
+                                    query: {
+                                      ...router.query,
+                                      studyField: studyField.slug || undefined
+                                    }
+                                  },
                                   undefined,
                                   {
                                     scroll: false,
@@ -334,6 +357,7 @@ const SectionProgramsWithFiltersAlt: React.FC<
                           className={cn(stls.IconCheckAltContainer, {
                             [stls.isActive]:
                               router.query.studyField
+                                ?.toString()
                                 ?.split(',')
                                 ?.some(
                                   (linkStudyField: string) =>
@@ -519,6 +543,7 @@ const SectionProgramsWithFiltersAlt: React.FC<
                                 onClick={() => {
                                   if (
                                     router.query.studyField
+                                      ?.toString()
                                       ?.split(',')
                                       .some(
                                         (linkStudyField: string) =>
@@ -538,18 +563,26 @@ const SectionProgramsWithFiltersAlt: React.FC<
                                       )
                                     ])
                                     router.push(
-                                      `${routesFront.programs}${
-                                        curCategory?.slug
-                                          ? `/${curCategory?.slug}`
-                                          : ''
-                                      }?studyField=${encodeURIComponent(
-                                        filledRoutes
-                                          ?.filter(
-                                            (field: string) =>
-                                              field !== studyField?.slug
-                                          )
-                                          .join(',')
-                                      )}`,
+                                      {
+                                        pathname: `${routesFront.programs}${
+                                          curCategory?.slug
+                                            ? `/${curCategory?.slug}`
+                                            : ''
+                                        }`,
+                                        query: {
+                                          ...router.query,
+                                          studyField: queryStudyFields
+                                            ? encodeURIComponent(
+                                                queryStudyFields
+                                                  ?.filter(
+                                                    field =>
+                                                      field !== studyField?.slug
+                                                  )
+                                                  .join(',')
+                                              )
+                                            : undefined
+                                        }
+                                      },
                                       undefined,
                                       {
                                         scroll: false,
@@ -561,17 +594,28 @@ const SectionProgramsWithFiltersAlt: React.FC<
                                       ...appliedStudyFields,
                                       studyField
                                     ])
-                                    filledRoutes?.length > 0
+
+                                    queryStudyFields &&
+                                    queryStudyFields.length > 0
                                       ? router.push(
-                                          `${routesFront.programs}${
-                                            curCategory?.slug
-                                              ? `/${curCategory?.slug}`
-                                              : ''
-                                          }?studyField=${encodeURIComponent(
-                                            [...filledRoutes, studyField.slug]
-                                              .filter(str => str)
-                                              .join(',')
-                                          )}`,
+                                          {
+                                            pathname: `${routesFront.programs}${
+                                              curCategory?.slug
+                                                ? `/${curCategory?.slug}`
+                                                : ''
+                                            }`,
+                                            query: {
+                                              ...router.query,
+                                              studyField: encodeURIComponent(
+                                                [
+                                                  ...queryStudyFields,
+                                                  studyField.slug
+                                                ]
+                                                  .filter(str => str)
+                                                  .join(',')
+                                              )
+                                            }
+                                          },
                                           undefined,
                                           {
                                             scroll: false,
@@ -579,13 +623,21 @@ const SectionProgramsWithFiltersAlt: React.FC<
                                           }
                                         )
                                       : router.push(
-                                          `${routesFront.programs}${
-                                            curCategory?.slug
-                                              ? `/${curCategory?.slug}`
-                                              : ''
-                                          }?studyField=${encodeURIComponent(
-                                            studyField.slug
-                                          )}`,
+                                          {
+                                            pathname: `${routesFront.programs}${
+                                              curCategory?.slug
+                                                ? `/${curCategory?.slug}`
+                                                : ''
+                                            }`,
+                                            query: {
+                                              ...router.query,
+                                              studyField: studyField.slug
+                                                ? encodeURIComponent(
+                                                    studyField.slug
+                                                  )
+                                                : undefined
+                                            }
+                                          },
                                           undefined,
                                           {
                                             scroll: false,
@@ -598,6 +650,7 @@ const SectionProgramsWithFiltersAlt: React.FC<
                                   className={cn(stls.IconCheckAltContainer, {
                                     [stls.isActive]:
                                       router.query.studyField
+                                        ?.toString()
                                         ?.split(',')
                                         ?.some(
                                           (linkStudyField: string) =>
