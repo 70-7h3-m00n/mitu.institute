@@ -38,7 +38,7 @@ const PagePayment = ({
 
   const paymentLink =
     type === 'additional'
-      ? 'https://3dsec.sberbank.ru/shortlink/2Mi9ZtR1'
+      ? 'https://securepayments.sberbank.ru/shortlink/SM7xK6rO'
       : type === 'higherEdu'
       ? 'https://securepayments.sberbank.ru/sc/EvSIIXuWbJTxeSsI'
       : 'https://securepayments.sberbank.ru/sc/EvSIIXuWbJTxeSsI'
