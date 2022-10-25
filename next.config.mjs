@@ -15,13 +15,13 @@ const createConfig = async (phase, { defaultConfig }) => {
     poweredByHeader: false,
     // trailingSlash: true,
     i18n: {
-      locales: ['ru', 'kk_KZ', 'uz_UZ', 'en_US', 'en_GB'],
+      locales: ['ru', 'kk-KZ', 'uz-UZ', 'en-US', 'en-GB'],
       defaultLocale: 'ru',
       localeDetection: true,
       domains: [
         {
           domain: 'mitm.uz',
-          defaultLocale: 'uz_UZ',
+          defaultLocale: 'uz-UZ',
           http: dev
         }
       ]

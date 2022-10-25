@@ -40,9 +40,9 @@ const ProgramCost = ({
   if (isOneTwelfth) output = Math.round(Math.ceil(output / 12) / 100) * 100
 
   const atKz =
-    at.kz || SSLocale === 'kz' || SSLocale === 'kk' || SSLocale === 'kk_KZ'
+    at.kz || SSLocale === 'kz' || SSLocale === 'kk' || SSLocale === 'kk-KZ'
 
-  const atUz = at.uz || SSLocale === 'uz' || SSLocale === 'uz_UZ'
+  const atUz = at.uz || SSLocale === 'uz' || SSLocale === 'uz-UZ'
 
   if (atUz) output = output * 140
 

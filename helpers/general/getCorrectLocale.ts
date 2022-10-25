@@ -3,13 +3,13 @@ type TGetCorrectLocaleProps = {
 }
 
 const getCorrectLocale = ({ locale }: TGetCorrectLocaleProps) => {
-  return locale === 'uz_UZ'
+  return locale === 'uz-UZ'
     ? 'uz'
-    : locale === 'kk_KZ'
+    : locale === 'kk-KZ'
     ? 'kk'
-    : locale === 'en_US'
+    : locale === 'en-US'
     ? 'ru'
-    : locale === 'en_GB'
+    : locale === 'en-GB'
     ? 'ru'
     : undefined
   // * why ru here? because in our strapi content managers were working with en locale while adding ru content & so now ru locale would be english and en locale would be ru

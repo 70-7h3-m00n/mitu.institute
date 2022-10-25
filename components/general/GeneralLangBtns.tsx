@@ -17,13 +17,13 @@ const GeneralLangBtns = ({ classNames }: TypeGeneralLangBtnsProps) => {
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <Link href={href} locale='uz_UZ'>
+      <Link href={href} locale='uz-UZ'>
         <a className={stls.link}>UZ</a>
       </Link>
       <Link href={href} locale='ru'>
         <a className={stls.link}>RU</a>
       </Link>
-      <Link href={href} locale='en_US'>
+      <Link href={href} locale='en-US'>
         <a className={stls.link}>EN</a>
       </Link>
     </div>

@@ -10,20 +10,20 @@ const useAt = () => {
   // const getProgramTitle = asPath.split('/')[4]
 
   return {
-    en: locale === 'en' || locale === 'en_US' || locale === 'en_GB',
+    en: locale === 'en' || locale === 'en-US' || locale === 'en-GB',
     ru: locale === 'ru',
     kz:
       locale === 'kz' ||
       locale === 'kk' ||
-      locale === 'kk_KZ' ||
+      locale === 'kk-KZ' ||
       query.locale === 'kz' ||
       query.locale === 'kk' ||
-      query.locale === 'kk_KZ',
+      query.locale === 'kk-KZ',
     uz:
       locale === 'uz' ||
-      locale === 'uz_UZ' ||
+      locale === 'uz-UZ' ||
       query.locale === 'uz' ||
-      query.locale === 'uz_UZ'
+      query.locale === 'uz-UZ'
   }
 }
 
