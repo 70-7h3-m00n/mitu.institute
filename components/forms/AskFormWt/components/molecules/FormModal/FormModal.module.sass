@@ -1,0 +1,44 @@
+@use '@/styles/utils/mixins' as m
+
+.form
+    position: fixed
+    right: 0
+    bottom: 0
+    display: flex
+    flex-direction: column
+    width: 375px
+    margin-left: auto
+    padding: 27px 35px
+    background-color: #fff
+    cursor: auto
+    @include m.media(tablet, phone)
+        width: 100%
+        bottom: 72px
+
+.close
+    position: absolute
+    top: -28px
+    right: 10px
+    width: 22px
+    height: 22px
+    cursor: pointer
+    @include m.media(tablet, phone)
+        top: -25px
+        right: 5px
+
+.questionTextarea
+    width: 305px
+    height: 70px
+    margin-bottom: 9px
+    padding: 14px
+    font-size: 16px
+    border: solid 1px #636363
+    caret-color: #ff3535
+    resize: none
+    border-radius: 0
+    &::placeholder
+        font-family: 'Styrene', Arial, Tahoma, sans-serif
+        color: #adadad
+        padding-left: 6px
+    @include m.media(phone)
+        width: 100%

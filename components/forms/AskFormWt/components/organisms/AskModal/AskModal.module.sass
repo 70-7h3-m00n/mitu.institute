@@ -1,0 +1,31 @@
+@use '@/styles/utils/mixins' as m
+
+.container
+    position: fixed
+    bottom: 0
+    right: 0
+    z-index: 99
+    transition: 0.5
+    @include m.media(tablet, phone)
+        bottom: 72px
+    &.overlay
+        transform: scale(1)
+        top: 0
+        left: 0
+        background-color: rgba(0,0,0,.5)
+
+.messages
+    position: fixed
+    bottom: 27px
+    right: 35px
+    width: 58px
+    height: 58px
+    background-color: #27C500
+    border-radius: 50%
+    cursor: pointer
+    transition: background-color .3s ease-out
+    &:hover
+        background-color: lighten(#27C500, 2%)
+    @include m.media(tablet, phone)
+        right: 10px
+        bottom: 80px
