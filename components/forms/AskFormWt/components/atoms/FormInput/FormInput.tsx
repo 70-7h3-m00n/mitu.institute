@@ -69,7 +69,7 @@ const FormInput: React.FC<Props> = ({
             <input
               ref={inputRef}
               type='text'
-              className={stls.input}
+              className={cn(stls.input, isDirty && !isValid && stls.disabled)}
               name={currentVerification.validationType}
               value={contact}
               onChange={handleContact}

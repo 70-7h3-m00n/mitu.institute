@@ -52,9 +52,11 @@ const Buttons: React.FC<Props> = ({
       ) : (
         <button
           type='submit'
-          className={stls.buttonSubmit}
-          onClick={submit}
-          disabled={isDirty && !isValid}>
+          className={cn(
+            stls.buttonSubmit,
+            isDirty && !isValid && stls.disabled
+          )}
+          onClick={submit}>
           Отправить
         </button>
       )}

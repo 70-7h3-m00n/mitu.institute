@@ -32,10 +32,7 @@ const FormModal: React.FC<Props> = ({
       noValidate
       className={stls.wrap}
       onMouseDown={e => e.stopPropagation()}
-      onSubmit={e => {
-        e.preventDefault()
-        onSubmitForm({ howToContact, id })
-      }}>
+      onSubmit={e => e.preventDefault()}>
       <IoMdClose className={stls.close} onClick={togleFormShown} />
       {contactPath.includes('submit') ? (
         <FormSubmitted />
