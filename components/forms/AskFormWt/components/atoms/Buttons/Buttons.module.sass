@@ -1,0 +1,88 @@
+@use '@/styles/utils/mixins' as m
+
+.wrap
+    display: flex
+    flex-wrap: wrap
+    gap: 4px
+    width: 100%
+    justify-content: center
+    margin-top: 10px
+.methodWrap
+    gap: 11px
+    margin: 0
+
+.whereTo
+    width: 100%
+    font-size: 16px
+    font-weight: 500
+    margin-bottom: 5px
+
+.buttonWays
+    height: 32px
+    flex-grow: 1
+    width: 30%
+    color: white
+
+.waysSvg
+    width: 20px
+
+.buttonMethods, .buttonSubmit
+    display: flex
+    justify-content: center
+    align-items: center
+    color: white
+    background-color: #ff3535
+    width: 100%
+    text-transform: uppercase
+    padding: 12px 70px
+    &:hover
+        background-color: #ef3535
+    @include m.media(phone)
+        padding: 12px 70px 14px 52px
+    &:nth-child(2)
+        .methodName
+            transform: translateX(-5px)
+
+.buttonSubmit
+    &:disabled
+        background-color: gray
+
+.methodName
+    display: flex
+    align-items: center
+    justify-content: center
+    & > *:first-child
+        margin-right: 15px
+
+.methodSvg
+    width: 20px
+
+.telegramButton
+    background-color: #00A3FF
+    &:hover
+        background-color: lighten(#00A3FF, 5%)
+
+.whatsAppButton
+    background-color: #1BC100
+    &:hover
+        background-color: lighten(#1BC100, 5%)
+
+.viberButton
+    background-color: #9300C7
+    &:hover
+        background-color: lighten(#9300C7, 5%)
+
+.vkButton
+    background-color: #368CDC
+    &:hover
+        background-color: lighten(#368CDC, 5%)
+
+.mobilePhoneButton
+    background-color: #0050E3
+    &:hover
+        background-color: lighten(#0050E3, 5%)
+
+.emailButton
+    background-color: #FF6600
+    &:hover
+        background-color: lighten(#FF6600, 5%)

@@ -1,28 +1,32 @@
 import React from 'react'
 import { TbMessages } from 'react-icons/tb'
-import { useFormContext } from '../../../hooks'
 import { FormModal } from '../../molecules'
 import stls from './AskModal.module.sass'
 import cn from 'classnames'
+import { AskFormState } from '../../../types'
 
-const AskModal = () => {
-  const { isFormHidden, handleHideForm } = useFormContext()
+interface Props {
+  askFormState: AskFormState
+}
+
+const AskModal: React.FC<Props> = ({ askFormState }): JSX.Element => {
+  const { isFormShown, ...formState } = askFormState
+  const { togleFormShown } = formState
   return (
-    <div
-      className={cn(stls.container, !isFormHidden && stls.overlay)}
-      onMouseDown={handleHideForm}>
-      {!isFormHidden ? (
-        <FormModal />
+    <section
+      className={cn(stls.container, isFormShown && stls.overlay)}
+      onMouseDown={togleFormShown}>
+      {isFormShown ? (
+        <FormModal {...formState} />
       ) : (
         <TbMessages
-          color={'white'}
           className={stls.messages}
-          onClick={handleHideForm}
+          onClick={togleFormShown}
           strokeWidth={1}
           viewBox='-5 -5 33 33'
         />
       )}
-    </div>
+    </section>
   )
 }
 

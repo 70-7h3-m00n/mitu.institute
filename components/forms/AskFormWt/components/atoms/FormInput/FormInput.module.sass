@@ -1,0 +1,64 @@
+@use '@/styles/utils/mixins' as m
+
+.questionTextarea
+    margin-top: 27px
+    width: 305px
+    height: 70px
+    padding: 14px
+    font-size: 16px
+    border: solid 1px #636363
+    caret-color: #ff3535
+    resize: none
+    border-radius: 0
+    &::placeholder
+        font-family: 'Styrene', Arial, Tahoma, sans-serif
+        color: #adadad
+        padding-left: 6px
+    @include m.media(tablet,phone)
+        width: 100%
+
+.inputContainer
+    position: relative
+    width: 100%
+
+.input
+    width: 100%
+    padding: 10px 3px
+    border-radius: 0
+    border: none
+    border-bottom: solid 1px #000
+    font-size: 16px
+    &:active
+        background-color: #fff
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active
+        -webkit-transition: color 9999s ease-out, background-color 9999s ease-out
+        -webkit-transition-delay: 9999s
+        font-size: 16px !important
+
+
+.inputPlaceholder
+    position: absolute
+    top: -5px
+    left: 0
+    font-size: 16px
+    color: #000
+    transition: all .3s ease-out
+    pointer-events: none
+    &.inputPlaceholderSmallRed, &.inputPlaceholderSmallBlack
+        top: -15px
+        font-size: 13px
+        color: #ff3535
+    &.inputPlaceholderSmallBlack
+        color: #000
+
+.error
+    width: 100%
+    text-align: center
+    height: 30px
+    background-color: red
+    display: none
+.noValid
+    display: block

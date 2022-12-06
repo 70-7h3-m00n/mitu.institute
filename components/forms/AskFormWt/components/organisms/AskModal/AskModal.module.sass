@@ -5,21 +5,20 @@
     bottom: 0
     right: 0
     z-index: 99
-    transition: 0.5
     @include m.media(tablet, phone)
         bottom: 72px
     &.overlay
-        transform: scale(1)
         top: 0
         left: 0
         background-color: rgba(0,0,0,.5)
 
 .messages
     position: fixed
-    bottom: 27px
-    right: 35px
+    bottom: 25px
+    right: 25px
     width: 58px
     height: 58px
+    color: white
     background-color: #27C500
     border-radius: 50%
     cursor: pointer

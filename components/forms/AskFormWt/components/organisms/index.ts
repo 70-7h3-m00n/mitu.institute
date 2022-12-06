@@ -1,1 +1,3 @@
-export { AskModal } from './AskModal'
+import AskModal from './AskModal'
+
+export { AskModal }

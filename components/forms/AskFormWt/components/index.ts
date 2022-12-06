@@ -1,2 +1,3 @@
-export { FormModal } from './molecules'
-export { AskModal } from './organisms'
+import { AskModal } from './organisms'
+
+export { AskModal }
