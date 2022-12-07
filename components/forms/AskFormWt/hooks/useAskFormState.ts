@@ -1,21 +1,17 @@
-import { useRouter } from 'next/router'
-import { Reducer, useReducer, useRef } from 'react'
+import { Reducer, useReducer, useRef, useState } from 'react'
 import { pathSeparator, prevPathFlag } from '../config'
 import { waysToContact } from '../data'
 import { UseAskFormState } from '../types'
-import {
-  contactPathReducer,
-  howToContactReducer,
-  isValidReducer
-} from '../utils'
+import { contactPathReducer, isValidReducer } from '../utils'
 import { useInput } from './useInput'
-import { createSubmit, createHandleBeforeSubmit } from '../utils'
+import { createSubmit } from '../utils'
+import { HowToContact } from '../types/howToContact'
+import { useCreateHandleBeforeSubmit } from './useCreateHandleBeforeSubmit'
 
 export const useAskFormState: UseAskFormState = ({ addFields, routeFront }) => {
-  const router = useRouter()
   const inputRef = useRef<HTMLInputElement>(null)
   const [contactPath, setContactPath] = useReducer(contactPathReducer, '')
-  const [howToContact, setHowToContact] = useReducer(howToContactReducer, null)
+  const [howToContact, setHowToContact] = useState<HowToContact>(null)
   const [isValid, setIsValid] = useReducer(isValidReducer, false)
   const [contact, handleContact, resetContact, isDirty, setIsDirty] =
     useInput('')
@@ -43,20 +39,16 @@ export const useAskFormState: UseAskFormState = ({ addFields, routeFront }) => {
     setIsValid()
     setIsDirty()
   }
-  const handleBeforeSubmit = createHandleBeforeSubmit({
+  const handleBeforeSubmit = useCreateHandleBeforeSubmit({
     addFields,
     contact,
     contactPath,
-    howToContact,
-    router,
     setHowToContact,
     currentVerification,
     isValid,
     inputRef
   })
-
   const submit = createSubmit({ setContactPath, howToContact, routeFront })
-
   return {
     isValid,
     setIsValid,

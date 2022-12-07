@@ -1,11 +1,5 @@
 import { Reducer } from 'react'
 import { pathSeparator, prevPathFlag } from '../config'
-import { HowToContactReducer } from '../types'
-
-export const howToContactReducer: HowToContactReducer = (
-  _prevValue,
-  newValue
-) => newValue
 
 export const contactPathReducer: Reducer<string, string> = (prev, newValue) => {
   if (!prev) return newValue

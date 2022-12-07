@@ -18,7 +18,7 @@ import { AddFields } from './AddFields'
 import { SubmitName } from './SubmitName'
 import { Submit } from './Submit'
 import { CreateSubmit } from './CreateSubmit'
-import { CreateHandleBeforeSubmit } from './CreateHandleBeforeSubmit'
+import { UseCreateHandleBeforeSubmit } from './UseCreateHandleBeforeSubmit'
 
 export type {
   ContactWay,
@@ -43,5 +43,5 @@ export type {
   SubmitName,
   Submit,
   CreateSubmit,
-  CreateHandleBeforeSubmit
+  UseCreateHandleBeforeSubmit
 }
