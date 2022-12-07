@@ -1,21 +1,19 @@
 import React from 'react'
 import { AskModal } from './components'
-import { useAskFormState, useOnSubmitForm } from './hooks'
+import { useAskFormState } from './hooks'
 import { AddFields, TypeRoutesFront } from './types'
 
 interface Props {
   addFields?: AddFields
   at?: Record<string, string>
-  routesFront?: TypeRoutesFront
+  routeFront?: TypeRoutesFront
 }
 
 export const AskForm: React.FC<Props> = ({
   addFields,
-  routesFront
+  routeFront
 }): JSX.Element => {
-  const askFormState = useAskFormState(addFields)
-  const { howToContact, contactPath } = askFormState
-  useOnSubmitForm(howToContact, contactPath, routesFront)
+  const askFormState = useAskFormState({ addFields, routeFront })
   return <AskModal askFormState={askFormState} />
 }
 

@@ -81,6 +81,4 @@ export const waysToContact: ContactWay[] = [
   }
 ]
 
-export const pathSeparator = ' / '
-
 export default waysToContact

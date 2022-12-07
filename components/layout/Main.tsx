@@ -18,8 +18,8 @@ const Main = ({ classNames, children }: TypeMainProps) => {
       }>
       {children}
       <AskFormWt
-        addFields={{ programTitle: program?.title }}
-        routesFront={routesFront}
+        addFields={{ program: program?.title }}
+        routeFront={routesFront.apiLead}
       />
     </main>
   )

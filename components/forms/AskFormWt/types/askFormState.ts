@@ -1,6 +1,7 @@
 import React, { Dispatch } from 'react'
 import { ValidationRules } from './contactWays'
 import { HowToContact } from './howToContact'
+import { Submit } from './Submit'
 import { HandleValue } from './useInput'
 
 export interface AskFormState {
@@ -11,14 +12,15 @@ export interface AskFormState {
   contact: string
   handleContact: HandleValue
   isValid: boolean
-  setIsValid: React.Dispatch<React.SetStateAction<boolean>>
+  setIsValid: React.DispatchWithoutAction
   isFormShown: boolean
   togleFormShown: React.DispatchWithoutAction
   isStageSubmit: boolean
-  submit: () => void
+  handleBeforeSubmit: () => void
   isDirty: boolean
   setIsDirty: Dispatch<boolean | void>
   prev: () => void
   inputRef: React.MutableRefObject<HTMLInputElement | null>
   currentVerification: ValidationRules
+  submit: Submit
 }

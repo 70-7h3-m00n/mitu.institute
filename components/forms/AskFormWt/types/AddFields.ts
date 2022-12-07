@@ -1,4 +1,4 @@
 interface Fields {
-  programTitle?: string
+  program?: string
 }
 export type AddFields = (Partial<Record<string, string>> & Fields) | null

@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
+import { apiLead } from '../config'
 import {
   LeadValues,
   TypeNextApiResponseLeadData,
@@ -7,15 +8,19 @@ import {
 
 type TypeHitLeadRouteProps = {
   lead: LeadValues
-  routesFront?: TypeRoutesFront
+  routeFront?: TypeRoutesFront
 }
 
 const hitLeadRoute = async ({
   lead,
-  routesFront = { apiLead: '/api/contact' }
+  routeFront = apiLead
 }: TypeHitLeadRouteProps): Promise<
   AxiosResponse<TypeNextApiResponseLeadData>
 > =>
-  await axios.post<TypeNextApiResponseLeadData>(`${routesFront?.apiLead}`, lead)
+  await axios.post<
+    TypeNextApiResponseLeadData,
+    AxiosResponse<TypeNextApiResponseLeadData>,
+    LeadValues
+  >(`${routeFront}`, lead)
 
 export default hitLeadRoute

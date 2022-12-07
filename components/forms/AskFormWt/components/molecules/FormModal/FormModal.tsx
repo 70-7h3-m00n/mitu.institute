@@ -3,8 +3,8 @@ import { IoMdClose } from 'react-icons/io'
 import stls from './FormModal.module.sass'
 import { AskFormState } from '../../../types'
 import { Buttons, ContactTitle, FormInput, FormSubmitted } from '../../atoms'
-import { onSubmitForm } from '../../../utils'
 import { v4 as uuidv4 } from 'uuid'
+import { submitName } from '../../../config'
 
 type Props = Omit<AskFormState, 'isFormShown'>
 
@@ -19,12 +19,13 @@ const FormModal: React.FC<Props> = ({
   isStageSubmit,
   isValid,
   setIsValid,
-  submit,
+  handleBeforeSubmit,
   isDirty,
   setIsDirty,
   prev,
   inputRef,
-  currentVerification
+  currentVerification,
+  submit
 }): JSX.Element => {
   const id = uuidv4()
   return (
@@ -32,9 +33,9 @@ const FormModal: React.FC<Props> = ({
       noValidate
       className={stls.wrap}
       onMouseDown={e => e.stopPropagation()}
-      onSubmit={e => e.preventDefault()}>
+      onSubmit={submit}>
       <IoMdClose className={stls.close} onClick={togleFormShown} />
-      {contactPath.includes('submit') ? (
+      {contactPath.includes(submitName) ? (
         <FormSubmitted />
       ) : (
         <>
@@ -42,26 +43,30 @@ const FormModal: React.FC<Props> = ({
             <ContactTitle contactPath={contactPath} prev={prev} />
           )}
           <FormInput
-            contact={contact}
-            handleContact={handleContact}
-            contactPath={contactPath}
-            howToContact={howToContact}
-            setHowToContact={setHowToContact}
-            isStageSubmit={isStageSubmit}
-            isValid={isValid}
-            setIsValid={setIsValid}
-            isDirty={isDirty}
-            setIsDirty={setIsDirty}
-            inputRef={inputRef}
-            currentVerification={currentVerification}
+            {...{
+              contact,
+              handleContact,
+              contactPath,
+              howToContact,
+              setHowToContact,
+              isStageSubmit,
+              isValid,
+              setIsValid,
+              isDirty,
+              setIsDirty,
+              inputRef,
+              currentVerification
+            }}
           />
           <Buttons
-            contactPath={contactPath}
-            setContactPath={setContactPath}
-            isStageSubmit={isStageSubmit}
-            submit={submit}
-            isDirty={isDirty}
-            isValid={isValid}
+            {...{
+              contactPath,
+              setContactPath,
+              isStageSubmit,
+              handleBeforeSubmit,
+              isDirty,
+              isValid
+            }}
           />
         </>
       )}

@@ -1,17 +1,25 @@
-import { LeadValues, TypeReferer, TypeRoutesFront, TypeUtms } from '../types'
+import { submitName } from '../config'
+import {
+  AskFormState,
+  LeadValues,
+  TypeReferer,
+  TypeRoutesFront,
+  TypeUtms
+} from '../types'
 import { HowToContact } from '../types/howToContact'
 import hitLeadRoute from './hitLeadRoute'
 
 type onSubmitFormProps = {
   howToContact?: HowToContact
-  routesFront?: TypeRoutesFront
+  routeFront?: TypeRoutesFront
   readonly id: string
-}
+} & Pick<AskFormState, 'setContactPath'>
 
 const onSubmitForm = async ({
   howToContact,
   id,
-  routesFront
+  routeFront,
+  setContactPath
 }: onSubmitFormProps) => {
   const utms: TypeUtms = JSON.parse(sessionStorage.getItem('utms') || '{}')
   const referer: TypeReferer = JSON.parse(
@@ -30,15 +38,13 @@ const onSubmitForm = async ({
     },
     referer
   }
-  const req = await hitLeadRoute({ lead, routesFront })
-    .then(res => res)
+  await hitLeadRoute({ lead, routeFront })
     .then(res =>
-      !res
-        ? console.log('Данные не отправились')
-        : res.status === 200
-        ? console.log(res.data.msg)
+      res.status === 200
+        ? (console.log(res.data.msg), setContactPath(submitName))
         : console.log(res.data.msg, res.data.err)
     )
+    .catch(err => console.log(err))
 }
 
 export default onSubmitForm

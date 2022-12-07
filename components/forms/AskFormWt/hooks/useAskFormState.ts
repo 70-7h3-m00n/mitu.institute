@@ -1,36 +1,24 @@
 import { useRouter } from 'next/router'
 import { Reducer, useReducer, useRef } from 'react'
-import { pathSeparator, waysToContact } from '../data'
-import { AddFields, HowToContactReducer, UseAskFormState } from '../types'
-import { contactPathReducer } from '../utils'
+import { pathSeparator, prevPathFlag } from '../config'
+import { waysToContact } from '../data'
+import { UseAskFormState } from '../types'
+import {
+  contactPathReducer,
+  howToContactReducer,
+  isValidReducer
+} from '../utils'
 import { useInput } from './useInput'
+import { createSubmit, createHandleBeforeSubmit } from '../utils'
 
-export const useAskFormState: UseAskFormState = addFields => {
+export const useAskFormState: UseAskFormState = ({ addFields, routeFront }) => {
   const router = useRouter()
   const inputRef = useRef<HTMLInputElement>(null)
-  const [isValid, setIsValid] = useReducer<Reducer<boolean, boolean | void>>(
-    (_prev, value) => (typeof value === 'boolean' ? value : false),
-    false
-  )
   const [contactPath, setContactPath] = useReducer(contactPathReducer, '')
+  const [howToContact, setHowToContact] = useReducer(howToContactReducer, null)
+  const [isValid, setIsValid] = useReducer(isValidReducer, false)
   const [contact, handleContact, resetContact, isDirty, setIsDirty] =
     useInput('')
-  const initHowToContact = (addFields: AddFields) => addFields
-  const [howToContact, setHowToContact] = useReducer<
-    HowToContactReducer,
-    AddFields
-  >(
-    (prevValue, newValue) =>
-      !newValue
-        ? initHowToContact(addFields || null)
-        : Object.fromEntries(
-            Object.entries({ ...prevValue, ...newValue }).filter(
-              prop => prop[1]
-            )
-          ),
-    addFields || null,
-    initHowToContact
-  )
   const [isFormShown, togleFormShown] = useReducer<Reducer<boolean, void>>(
     isShown => {
       isShown && setHowToContact(null),
@@ -50,30 +38,24 @@ export const useAskFormState: UseAskFormState = addFields => {
       way => way.contactMethods.length === 1 && way.name.includes(contactPath)
     ) || contactPath.includes(pathSeparator)
   const prev = () => {
-    setContactPath('prev')
+    setContactPath(prevPathFlag)
     resetContact()
     setIsValid()
     setIsDirty()
   }
-  const submit = () =>
-    (contact &&
-      isValid &&
-      (setHowToContact({
-        contactWay:
-          contactPath.substring(0, contactPath.indexOf(pathSeparator)) ||
-          contactPath,
-        contactMethod: contactPath.includes(pathSeparator)
-          ? contactPath.substring(
-              contactPath.indexOf(pathSeparator) + pathSeparator.length
-            )
-          : '',
-        [currentVerification.validationType]: contact,
-        leadPage: router.asPath,
-        question: howToContact?.question?.replace(/\n/g, ' ')
-      }),
-      resetContact(),
-      setContactPath('submit'))) ||
-    inputRef.current?.focus()
+  const handleBeforeSubmit = createHandleBeforeSubmit({
+    addFields,
+    contact,
+    contactPath,
+    howToContact,
+    router,
+    setHowToContact,
+    currentVerification,
+    isValid,
+    inputRef
+  })
+
+  const submit = createSubmit({ setContactPath, howToContact, routeFront })
 
   return {
     isValid,
@@ -85,13 +67,14 @@ export const useAskFormState: UseAskFormState = addFields => {
     howToContact,
     setHowToContact,
     isStageSubmit,
-    submit,
+    handleBeforeSubmit,
     isFormShown,
     togleFormShown,
     isDirty,
     setIsDirty,
     prev,
     inputRef,
-    currentVerification
+    currentVerification,
+    submit
   }
 }

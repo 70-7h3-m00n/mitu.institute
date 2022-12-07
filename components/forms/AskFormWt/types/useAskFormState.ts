@@ -1,4 +1,10 @@
 import { AddFields } from './AddFields'
 import { AskFormState } from './askFormState'
+import TypeRoutesFront from './TypeRoutesFront'
 
-export type UseAskFormState = (addFields?: AddFields) => AskFormState
+interface Props {
+  addFields?: AddFields
+  routeFront?: TypeRoutesFront
+}
+
+export type UseAskFormState = (prpos: Props) => AskFormState

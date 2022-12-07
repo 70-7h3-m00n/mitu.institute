@@ -12,10 +12,13 @@ import { UseAskFormState } from './useAskFormState'
 import TypeUtms from './TypeUtms'
 import TypeReferer from './TypeReferer'
 import { LeadValues } from './LeadValues'
-import { OnSubmitForm } from './useOnSubmitForm'
 import TypeNextApiResponseLeadData from './TypeNextApiResponseLeadData'
 import TypeRoutesFront from './TypeRoutesFront'
 import { AddFields } from './AddFields'
+import { SubmitName } from './SubmitName'
+import { Submit } from './Submit'
+import { CreateSubmit } from './CreateSubmit'
+import { CreateHandleBeforeSubmit } from './CreateHandleBeforeSubmit'
 
 export type {
   ContactWay,
@@ -34,8 +37,11 @@ export type {
   TypeUtms,
   TypeReferer,
   LeadValues,
-  OnSubmitForm,
   AddFields,
   TypeNextApiResponseLeadData,
-  TypeRoutesFront
+  TypeRoutesFront,
+  SubmitName,
+  Submit,
+  CreateSubmit,
+  CreateHandleBeforeSubmit
 }

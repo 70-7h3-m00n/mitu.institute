@@ -10,7 +10,7 @@ type Props = Pick<
   | 'contactPath'
   | 'setContactPath'
   | 'isStageSubmit'
-  | 'submit'
+  | 'handleBeforeSubmit'
   | 'isDirty'
   | 'isValid'
 >
@@ -19,10 +19,14 @@ const Buttons: React.FC<Props> = ({
   contactPath,
   setContactPath,
   isStageSubmit,
-  submit,
+  handleBeforeSubmit,
   isDirty,
   isValid
 }): JSX.Element => {
+  enum buttonTypes {
+    submit = 'submit',
+    button = 'button'
+  }
   return (
     <div className={cn(stls.wrap, !isStageSubmit && stls.methodWrap)}>
       {!contactPath ? (
@@ -51,12 +55,12 @@ const Buttons: React.FC<Props> = ({
         ))
       ) : (
         <button
-          type='submit'
+          type={isDirty && !isValid ? buttonTypes.button : buttonTypes.submit}
           className={cn(
             stls.buttonSubmit,
             isDirty && !isValid && stls.disabled
           )}
-          onClick={submit}>
+          onClick={handleBeforeSubmit}>
           Отправить
         </button>
       )}
