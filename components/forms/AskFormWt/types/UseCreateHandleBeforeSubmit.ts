@@ -1,5 +1,4 @@
-import { NextRouter } from 'next/router'
-import { Dispatch, RefObject, SetStateAction } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { AddFields } from './AddFields'
 import { ValidationRules } from './contactWays'
 import { HowToContact } from './howToContact'
@@ -11,7 +10,6 @@ interface Props {
   addFields?: AddFields
   currentVerification: ValidationRules
   isValid: boolean
-  inputRef: RefObject<HTMLInputElement>
 }
 
 export type UseCreateHandleBeforeSubmit = (props: Props) => () => void

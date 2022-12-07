@@ -10,12 +10,11 @@ export const useCreateHandleBeforeSubmit: UseCreateHandleBeforeSubmit = ({
   contactPath,
   setHowToContact,
   currentVerification,
-  isValid,
-  inputRef
+  isValid
 }) => {
   const router = useRouter()
   return () => {
-    if (!contact || !isValid) return inputRef.current?.focus()
+    if (!isValid) return
     const createLeadData: SetStateAction<HowToContact> = prev =>
       Object.fromEntries(
         Object.entries({

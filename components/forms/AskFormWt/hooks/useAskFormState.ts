@@ -45,10 +45,15 @@ export const useAskFormState: UseAskFormState = ({ addFields, routeFront }) => {
     contactPath,
     setHowToContact,
     currentVerification,
-    isValid,
-    inputRef
+    isValid
   })
-  const submit = createSubmit({ setContactPath, howToContact, routeFront })
+  const submit = createSubmit({
+    setContactPath,
+    howToContact,
+    routeFront,
+    inputRef,
+    isValid
+  })
   return {
     isValid,
     setIsValid,
