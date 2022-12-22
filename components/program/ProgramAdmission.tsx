@@ -35,6 +35,8 @@ const ProgramAdmission = () => {
     translations.november,
     translations.december
   ]
+
+  return <>27 {months[11]}</>
   return (
     <>
       {currentDay < 20 ? '20' : '5'} {/* 20{' '} */}
