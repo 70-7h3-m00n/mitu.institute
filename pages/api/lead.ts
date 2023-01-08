@@ -35,13 +35,15 @@ const lead = async (
     `(select(0)from(select(sleep(15)))a)`,
     `1' waitfor delay '0:0:15' --`,
     `if(now()=sysdate(),sleep(15),0)`,
-    `1'||DBMS_PIPE.RECEIVE_MESSAGE(CHR(98)||CHR(98)||CHR(98),15)||'`,
     `1' OR 2+736-736-1=0+0+0+1 --`,
     `cN0jC4Mt'; waitfor delay '0:0:15' --`,
     `ghovjnjv'||DBMS_PIPE.RECEIVE_MESSAGE(CHR(98)||CHR(98)||CHR(98),15)||'`,
     `'||DBMS_PIPE.RECEIVE_MESSAGE(CHR(98)||CHR(98)||CHR(98),15)||'`,
     `-1)) OR 326=(SELECT 326 FROM PG_SLEEP(15))--`,
-    `@@1lTcl`
+    `@@1lTcl`,
+    `-1 OR 2+337-337-1=0+0+0+1`,
+    `@@2fLXq`,
+    `176.67.86.167`
   ]
 
   if (
