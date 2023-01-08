@@ -33,12 +33,19 @@ const lead = async (
     `(select(0)from(select(sleep(15)))v)/*'+(select(0)from(select(sleep(15)))v)+'"+(select(0)from(select(sleep(15)))v)+"*/`,
     `pyFGFP1s') OR 56=(SELECT 56 FROM PG_SLEEP(15))--`,
     `(select(0)from(select(sleep(15)))a)`,
-    `1' waitfor delay '0:0:15' --`
+    `1' waitfor delay '0:0:15' --`,
+    `if(now()=sysdate(),sleep(15),0)`,
+    `1'||DBMS_PIPE.RECEIVE_MESSAGE(CHR(98)||CHR(98)||CHR(98),15)||'`,
+    `1' OR 2+736-736-1=0+0+0+1 --`,
+    `cN0jC4Mt'; waitfor delay '0:0:15' --`,
+    `ghovjnjv'||DBMS_PIPE.RECEIVE_MESSAGE(CHR(98)||CHR(98)||CHR(98),15)||'`,
+    `'||DBMS_PIPE.RECEIVE_MESSAGE(CHR(98)||CHR(98)||CHR(98),15)||'`,
+    `-1)) OR 326=(SELECT 326 FROM PG_SLEEP(15))--`
   ]
 
   if (
     bodyFields.some((field: string) => {
-      const bodyField = req.body?.[field]?.toLowerCase()?.trim()
+      const bodyField = req.body?.[field]?.toString()?.toLowerCase()?.trim()
 
       return spamValues.some(spamValue =>
         bodyField?.includes(spamValue.toLowerCase().trim())
