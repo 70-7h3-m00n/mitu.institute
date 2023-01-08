@@ -40,7 +40,8 @@ const lead = async (
     `cN0jC4Mt'; waitfor delay '0:0:15' --`,
     `ghovjnjv'||DBMS_PIPE.RECEIVE_MESSAGE(CHR(98)||CHR(98)||CHR(98),15)||'`,
     `'||DBMS_PIPE.RECEIVE_MESSAGE(CHR(98)||CHR(98)||CHR(98),15)||'`,
-    `-1)) OR 326=(SELECT 326 FROM PG_SLEEP(15))--`
+    `-1)) OR 326=(SELECT 326 FROM PG_SLEEP(15))--`,
+    `@@1lTcl`
   ]
 
   if (
@@ -50,38 +51,6 @@ const lead = async (
       return spamValues.some(spamValue =>
         bodyField?.includes(spamValue.toLowerCase().trim())
       )
-
-      // return (
-      //   bodyField.includes(`1 wait fordelay`.toLowerCase().trim()) ||
-      //   bodyField.includes(
-      //     `1*DBMS_PIPE.RECEIVE_MESSAGE(CHR(99)||CHR(99)||CHR(99),15)`
-      //       .toLowerCase()
-      //       .trim()
-      //   ) ||
-      //   bodyField.includes(`OR 2+736-736-1=0+0+0+1`.toLowerCase().trim()) ||
-      //   bodyField.includes(`555-666-0606`.toLowerCase().trim()) ||
-      //   bodyField.includes(
-      //     `9qmh1xar'; waitfor delay '0:0:15' --`.toLowerCase().trim()
-      //   ) ||
-      //   bodyField.includes(
-      //     `	-1" OR 2+652-652-1=0+0+0+1 --`.toLowerCase().trim()
-      //   ) ||
-      //   bodyField.includes(`ghovjnjv`.toLowerCase().trim()) ||
-      //   bodyField.includes(
-      //     `(select(0)from(select(sleep(15)))v)/*'+(select(0)from(select(sleep(15)))v)+'"+(select(0)from(select(sleep(15)))v)+"*/`
-      //       .toLowerCase()
-      //       .trim()
-      //   ) ||
-      //   bodyField.includes(
-      //     `pyFGFP1s') OR 56=(SELECT 56 FROM PG_SLEEP(15))--`
-      //       .toLowerCase()
-      //       .trim()
-      //   ) ||
-      //   bodyField.includes(`@@t5xeD`.toLowerCase().trim()) ||
-      //   bodyField.includes(
-      //     `if(now()=sysdate(),sleep(15),0)`.toLowerCase().trim()
-      //   )
-      // )
     })
   ) {
     // * tricking the attacker
