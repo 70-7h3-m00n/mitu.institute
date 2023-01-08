@@ -17,10 +17,15 @@ const lead = async (
 ) => {
   if (req.body) process.env.TZ = 'Europe/Moscow'
 
-  // prevent spam
+  // TODO: refactor this
+  // * preventing spam
   const bodyFields = (req?.body && Object.keys(req.body)) || undefined
 
-  if (!bodyFields || !bodyFields?.length) return
+  if (!bodyFields || !bodyFields?.length) {
+    // * Fields can not be empty
+    res.status(500).json({ msg: 'Unexpected server error' })
+    return
+  }
 
   const spamValues = [
     `1 wait fordelay`,
