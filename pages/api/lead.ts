@@ -23,29 +23,37 @@ const lead = async (
   if (!bodyFields || !bodyFields?.length) return
 
   if (
-    bodyFields.some(
-      (field: string) =>
-        req.body?.[field]
-          ?.toLowerCase()
-          .trim()
-          .includes(`1 wait fordelay`.toLowerCase().trim()) ||
-        req.body?.[field]
-          ?.toLowerCase()
-          .trim()
-          .includes(
-            `1*DBMS_PIPE.RECEIVE_MESSAGE(CHR(99)||CHR(99)||CHR(99),15)`
-              .toLowerCase()
-              .trim()
-          ) ||
-        req.body?.[field]
-          ?.toLowerCase()
-          .trim()
-          .includes(`OR 2+736-736-1=0+0+0+1`.toLowerCase().trim()) ||
-        req.body?.[field]
-          ?.toLowerCase()
-          .trim()
-          .includes(`555-666-0606`.toLowerCase().trim())
-    )
+    bodyFields.some((field: string) => {
+      const bodyField = req.body?.[field]?.toLowerCase().trim()
+
+      return (
+        bodyField.includes(`1 wait fordelay`.toLowerCase().trim()) ||
+        bodyField.includes(
+          `1*DBMS_PIPE.RECEIVE_MESSAGE(CHR(99)||CHR(99)||CHR(99),15)`
+            .toLowerCase()
+            .trim()
+        ) ||
+        bodyField.includes(`OR 2+736-736-1=0+0+0+1`.toLowerCase().trim()) ||
+        bodyField.includes(`555-666-0606`.toLowerCase().trim()) ||
+        bodyField.includes(
+          `9qmh1xar'; waitfor delay '0:0:15' --`.toLowerCase().trim()
+        ) ||
+        bodyField.includes(
+          `	-1" OR 2+652-652-1=0+0+0+1 --`.toLowerCase().trim()
+        ) ||
+        bodyField.includes(`ghovjnjv`.toLowerCase().trim()) ||
+        bodyField.includes(
+          `(select(0)from(select(sleep(15)))v)/*'+(select(0)from(select(sleep(15)))v)+'"+(select(0)from(select(sleep(15)))v)+"*/`
+            .toLowerCase()
+            .trim()
+        ) ||
+        bodyField.includes(
+          `pyFGFP1s') OR 56=(SELECT 56 FROM PG_SLEEP(15))--`
+            .toLowerCase()
+            .trim()
+        )
+      )
+    })
   )
     return
 
