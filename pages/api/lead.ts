@@ -51,7 +51,8 @@ const lead = async (
           `pyFGFP1s') OR 56=(SELECT 56 FROM PG_SLEEP(15))--`
             .toLowerCase()
             .trim()
-        )
+        ) ||
+        bodyField.includes(`@@t5xeD`.toLowerCase().trim())
       )
     })
   )
