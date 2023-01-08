@@ -22,41 +22,65 @@ const lead = async (
 
   if (!bodyFields || !bodyFields?.length) return
 
+  const spamValues = [
+    `1 wait fordelay`,
+    `1*DBMS_PIPE.RECEIVE_MESSAGE(CHR(99)||CHR(99)||CHR(99),15)`,
+    `OR 2+736-736-1=0+0+0+1`,
+    `555-666-0606`,
+    `9qmh1xar'; waitfor delay '0:0:15' --`,
+    `	-1" OR 2+652-652-1=0+0+0+1 --`,
+    `ghovjnjv`,
+    `(select(0)from(select(sleep(15)))v)/*'+(select(0)from(select(sleep(15)))v)+'"+(select(0)from(select(sleep(15)))v)+"*/`,
+    `pyFGFP1s') OR 56=(SELECT 56 FROM PG_SLEEP(15))--`,
+    `(select(0)from(select(sleep(15)))a)`,
+    `1' waitfor delay '0:0:15' --`
+  ]
+
   if (
     bodyFields.some((field: string) => {
-      const bodyField = req.body?.[field]?.toLowerCase().trim()
+      const bodyField = req.body?.[field]?.toLowerCase()?.trim()
 
-      return (
-        bodyField.includes(`1 wait fordelay`.toLowerCase().trim()) ||
-        bodyField.includes(
-          `1*DBMS_PIPE.RECEIVE_MESSAGE(CHR(99)||CHR(99)||CHR(99),15)`
-            .toLowerCase()
-            .trim()
-        ) ||
-        bodyField.includes(`OR 2+736-736-1=0+0+0+1`.toLowerCase().trim()) ||
-        bodyField.includes(`555-666-0606`.toLowerCase().trim()) ||
-        bodyField.includes(
-          `9qmh1xar'; waitfor delay '0:0:15' --`.toLowerCase().trim()
-        ) ||
-        bodyField.includes(
-          `	-1" OR 2+652-652-1=0+0+0+1 --`.toLowerCase().trim()
-        ) ||
-        bodyField.includes(`ghovjnjv`.toLowerCase().trim()) ||
-        bodyField.includes(
-          `(select(0)from(select(sleep(15)))v)/*'+(select(0)from(select(sleep(15)))v)+'"+(select(0)from(select(sleep(15)))v)+"*/`
-            .toLowerCase()
-            .trim()
-        ) ||
-        bodyField.includes(
-          `pyFGFP1s') OR 56=(SELECT 56 FROM PG_SLEEP(15))--`
-            .toLowerCase()
-            .trim()
-        ) ||
-        bodyField.includes(`@@t5xeD`.toLowerCase().trim())
+      return spamValues.some(spamValue =>
+        bodyField?.includes(spamValue.toLowerCase().trim())
       )
+
+      // return (
+      //   bodyField.includes(`1 wait fordelay`.toLowerCase().trim()) ||
+      //   bodyField.includes(
+      //     `1*DBMS_PIPE.RECEIVE_MESSAGE(CHR(99)||CHR(99)||CHR(99),15)`
+      //       .toLowerCase()
+      //       .trim()
+      //   ) ||
+      //   bodyField.includes(`OR 2+736-736-1=0+0+0+1`.toLowerCase().trim()) ||
+      //   bodyField.includes(`555-666-0606`.toLowerCase().trim()) ||
+      //   bodyField.includes(
+      //     `9qmh1xar'; waitfor delay '0:0:15' --`.toLowerCase().trim()
+      //   ) ||
+      //   bodyField.includes(
+      //     `	-1" OR 2+652-652-1=0+0+0+1 --`.toLowerCase().trim()
+      //   ) ||
+      //   bodyField.includes(`ghovjnjv`.toLowerCase().trim()) ||
+      //   bodyField.includes(
+      //     `(select(0)from(select(sleep(15)))v)/*'+(select(0)from(select(sleep(15)))v)+'"+(select(0)from(select(sleep(15)))v)+"*/`
+      //       .toLowerCase()
+      //       .trim()
+      //   ) ||
+      //   bodyField.includes(
+      //     `pyFGFP1s') OR 56=(SELECT 56 FROM PG_SLEEP(15))--`
+      //       .toLowerCase()
+      //       .trim()
+      //   ) ||
+      //   bodyField.includes(`@@t5xeD`.toLowerCase().trim()) ||
+      //   bodyField.includes(
+      //     `if(now()=sysdate(),sleep(15),0)`.toLowerCase().trim()
+      //   )
+      // )
     })
-  )
+  ) {
+    // * tricking the attacker
+    res.status(200).json({ msg: 'Email is sent' })
     return
+  }
 
   const protocol = req.headers['x-forwarded-proto']
   const rootPath = `${protocol ? `${protocol}://` : ''}${req.headers.host}`
