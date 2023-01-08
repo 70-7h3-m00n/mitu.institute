@@ -55,7 +55,9 @@ const buildLeadData = ({
     postalCode: location?.postalCode?.toString() || null,
     programTitle: programTitle?.toString() || null,
     utmSource:
-      (utms && utms.utm_source?.toString()) || referer?.toString() || null,
+      (utms && utms.utm_source?.toString()) ||
+      JSON.stringify(referer || '') ||
+      null,
     utmMedium: (utms && utms.utm_medium?.toString()) || null,
     utmCampaign: (utms && utms.utm_campaign?.toString()) || null,
     utmContent: (utms && utms.utm_content?.toString()) || null,
