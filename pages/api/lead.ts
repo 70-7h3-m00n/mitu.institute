@@ -61,8 +61,10 @@ const lead = async (
     })
   ) {
     // * tricking the attacker
-    res.status(200).json({ msg: 'Email is sent' })
-    return
+    return setTimeout(() => {
+      res.status(200).json({ msg: 'Email is sent' })
+      return
+    }, Math.floor(Math.random() * 7532))
   }
 
   const protocol = req.headers['x-forwarded-proto']
