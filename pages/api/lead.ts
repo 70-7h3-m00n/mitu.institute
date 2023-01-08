@@ -15,7 +15,39 @@ const lead = async (
   req: NextApiRequest,
   res: NextApiResponse<TypeNextApiResponseLeadData | Error>
 ) => {
-  process.env.TZ = 'Europe/Moscow'
+  if (req.body) process.env.TZ = 'Europe/Moscow'
+
+  // prevent spam
+  const bodyFields = (req?.body && Object.keys(req.body)) || undefined
+
+  if (!bodyFields || !bodyFields?.length) return
+
+  if (
+    bodyFields.some(
+      (field: string) =>
+        req.body?.[field]
+          ?.toLowerCase()
+          .trim()
+          .includes(`1 wait fordelay`.toLowerCase().trim()) ||
+        req.body?.[field]
+          ?.toLowerCase()
+          .trim()
+          .includes(
+            `1*DBMS_PIPE.RECEIVE_MESSAGE(CHR(99)||CHR(99)||CHR(99),15)`
+              .toLowerCase()
+              .trim()
+          ) ||
+        req.body?.[field]
+          ?.toLowerCase()
+          .trim()
+          .includes(`OR 2+736-736-1=0+0+0+1`.toLowerCase().trim()) ||
+        req.body?.[field]
+          ?.toLowerCase()
+          .trim()
+          .includes(`555-666-0606`.toLowerCase().trim())
+    )
+  )
+    return
 
   const protocol = req.headers['x-forwarded-proto']
   const rootPath = `${protocol ? `${protocol}://` : ''}${req.headers.host}`
