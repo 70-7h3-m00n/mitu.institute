@@ -28,8 +28,8 @@ const BtnImgPopupTrigger = ({
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-label={ariaLabel}
       onClick={onClick}>
-      <div className={stls.img}>{children}</div>
-      <div className={stls.label}>{label}</div>
+      <span className={stls.img}>{children}</span>
+      <span className={stls.label}>{label}</span>
     </button>
   )
 }

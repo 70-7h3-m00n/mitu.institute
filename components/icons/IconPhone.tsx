@@ -17,7 +17,7 @@ const IconPhone = ({ classNames, color }: TypeIconPhoneProps) => {
   }
 
   return (
-    <div
+    <span
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -30,7 +30,7 @@ const IconPhone = ({ classNames, color }: TypeIconPhoneProps) => {
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

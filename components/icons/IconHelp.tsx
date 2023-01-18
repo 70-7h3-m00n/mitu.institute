@@ -15,7 +15,7 @@ const IconHelp = ({ classNames }: TypeIconHelpProps) => {
   }
 
   return (
-    <div
+    <span
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
@@ -43,7 +43,7 @@ const IconHelp = ({ classNames }: TypeIconHelpProps) => {
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

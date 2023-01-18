@@ -22,7 +22,7 @@ const IconMortarboardAlt = ({
   }
 
   return (
-    <div
+    <span
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       style={style}
       aria-hidden={'true'}>
@@ -33,7 +33,7 @@ const IconMortarboardAlt = ({
           fill={colors.delta}
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

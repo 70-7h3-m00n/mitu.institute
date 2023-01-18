@@ -20,7 +20,7 @@ const IconPointerBottom = ({
   }
 
   return (
-    <div
+    <span
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -32,7 +32,7 @@ const IconPointerBottom = ({
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

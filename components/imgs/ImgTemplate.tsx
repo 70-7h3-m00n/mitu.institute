@@ -34,7 +34,7 @@ const ImgTemplate = ({
 }: TypeImgTemplateProps) => {
   const Tag = nextexport ? 'img' : Image
   return (
-    <div
+    <span
       className={
         cn(
           [stls.container],
@@ -45,13 +45,13 @@ const ImgTemplate = ({
         ) || undefined
       }
       title={title}>
-      <div
+      <span
         className={cn({
           [stls.faded]: faded,
           [stls.filter]: filter,
           [stls.filterAlt]: filterAlt,
           [stls.isHidden]: !faded && !filter && !filterAlt
-        })}></div>
+        })}></span>
       <Tag
         src={src}
         alt={alt}
@@ -63,7 +63,7 @@ const ImgTemplate = ({
         {...(nextexport ? undefined : { priority })}
         {...(nextexport ? undefined : { unoptimized })}
       />
-    </div>
+    </span>
   )
 }
 

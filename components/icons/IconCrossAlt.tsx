@@ -15,7 +15,7 @@ const IconCrossAlt = ({ classNames }: TypeIconCrossAltProps) => {
   }
 
   return (
-    <div
+    <span
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -35,7 +35,7 @@ const IconCrossAlt = ({ classNames }: TypeIconCrossAltProps) => {
           strokeLinejoin='round'
         />
       </svg>
-    </div>
+    </span>
   )
 }
 
