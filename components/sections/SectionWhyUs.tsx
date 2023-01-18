@@ -55,6 +55,7 @@ const SectionWhyUs = ({ classNames }: TypeSectionWhyUsProps) => {
                 color3={colors.gamma}
                 color4={colors.upsilon}
                 fillOpacity4='0'
+                id='2356_9015'
               />
             )}
           </div>

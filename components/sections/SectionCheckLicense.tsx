@@ -53,6 +53,7 @@ const SectionCheckLicense = ({ classNames }: TypeSectionCheckLicenseProps) => {
           />
           <IconDecorationFourShadowSquares
             classNames={[stls.IconDecorationFourShadowSquares]}
+            id='2356_9336'
           />
           <span className={stls.square}></span>
         </>

@@ -5,17 +5,18 @@ import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
 
-type TypeIconDecorationFourShadowSquaresProps = TypeClassNames & {
-  color1?: TypeColor
-  color2?: TypeColor
-  color3?: TypeColor
-}
+type TColorsCount = 1 | 2 | 3
+
+type TypeIconDecorationFourShadowSquaresProps = TypeClassNames &
+  Partial<Record<`color${TColorsCount}`, TypeColor>> &
+  Record<'id', string>
 
 const IconDecorationFourShadowSquares = ({
   classNames,
   color1,
   color2,
-  color3
+  color3,
+  id
 }: TypeIconDecorationFourShadowSquaresProps) => {
   const at = useAt()
 
@@ -28,9 +29,9 @@ const IconDecorationFourShadowSquares = ({
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 72 72' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <g clipPath='url(#clip0_2356_9335)'>
+        <g clipPath={`url(#clip0_${id})`}>
           <rect width='72' height='72.4091' fill={color1 || colors.gamma} />
-          <g clipPath='url(#clip1_2356_9335)'>
+          <g clipPath={`url(#clip1_${id})`}>
             <path
               d='M0 20.0032L15.9617 36.1613H36.1078V16.1581L20.1462 0L0 20.0032Z'
               fill={color2 || colors.beta}
@@ -60,10 +61,10 @@ const IconDecorationFourShadowSquares = ({
           </g>
         </g>
         <defs>
-          <clipPath id='clip0_2356_9335'>
+          <clipPath id={`clip0_${id}`}>
             <rect width='72' height='72' fill='white' />
           </clipPath>
-          <clipPath id='clip1_2356_9335'>
+          <clipPath id={`clip1_${id}`}>
             <rect width='72' height='72.4091' fill='white' />
           </clipPath>
         </defs>

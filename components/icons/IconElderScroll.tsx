@@ -5,9 +5,11 @@ import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
 
-type TypeIconElderScrollProps = TypeClassNames
+type TypeIconElderScrollProps = TypeClassNames & {
+  id: string
+}
 
-const IconElderScroll = ({ classNames }: TypeIconElderScrollProps) => {
+const IconElderScroll = ({ classNames, id }: TypeIconElderScrollProps) => {
   const at = useAt()
 
   const translations = {
@@ -20,7 +22,7 @@ const IconElderScroll = ({ classNames }: TypeIconElderScrollProps) => {
       aria-hidden={'true'}>
       <svg viewBox='0 0 128 60' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>{translations.title}</title>
-        <g clipPath='url(#clip0_857_6630)'>
+        <g clipPath={`url(#clip0_${id})`}>
           <path
             d='M58.2433 43.7004L53.6016 55.3632L57.8213 54.5201L61.7598 56.9089L61.4785 44.403L58.2433 43.7004Z'
             fill='white'
@@ -123,7 +125,7 @@ const IconElderScroll = ({ classNames }: TypeIconElderScrollProps) => {
           />
         </g>
         <defs>
-          <clipPath id='clip0_857_6630'>
+          <clipPath id={`clip0_${id}`}>
             <rect width='128' height='60' fill='white' />
           </clipPath>
         </defs>
