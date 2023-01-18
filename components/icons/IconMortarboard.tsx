@@ -19,7 +19,7 @@ const IconMortarboard = ({ classNames = [] }: TypeIconMortarboardProps) => {
   }
 
   return (
-    <div
+    <span
       className={cn(stls.container, getClassNames({ classNames })) || undefined}
       aria-hidden={'true'}>
       <svg viewBox='0 0 176 132' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -37,7 +37,7 @@ const IconMortarboard = ({ classNames = [] }: TypeIconMortarboardProps) => {
           fill={colors.eta}
         />
       </svg>
-    </div>
+    </span>
   )
 }
 

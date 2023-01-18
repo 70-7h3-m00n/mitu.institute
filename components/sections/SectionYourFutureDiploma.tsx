@@ -293,7 +293,7 @@ const SectionYourFutureDiploma = ({
                   <BtnImgPopupTrigger
                     label={diploma.label}
                     classNames={[stls.trigger]}>
-                    <div className={stls.img}>{diploma.img}</div>
+                    <span className={stls.img}>{diploma.img}</span>
                   </BtnImgPopupTrigger>
                 )}
                 modal
