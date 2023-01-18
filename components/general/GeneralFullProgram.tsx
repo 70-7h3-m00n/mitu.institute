@@ -46,7 +46,7 @@ const GeneralFullProgram = ({ classNames }: TypeGeneralFullProgramProps) => {
       }>
       {atAdditional && (
         <>
-          <IconFourSquares classNames={[stls.IconFourSquares]} />
+          <IconFourSquares classNames={[stls.IconFourSquares]} id='2356_9013' />
           <ImgGeneralFullProgramDecoration
             classNames={[stls.ImgGeneralFullProgramDecoration1]}
           />
@@ -60,7 +60,10 @@ const GeneralFullProgram = ({ classNames }: TypeGeneralFullProgramProps) => {
       )}
       <div className={cn(stls.left, { [stls.atAdditional]: atAdditional })}>
         {!atAdditional && (
-          <IconElderScroll classNames={[stls.icon, stls.laptopDesktop]} />
+          <IconElderScroll
+            classNames={[stls.icon, stls.laptopDesktop]}
+            id='857_6630'
+          />
         )}
       </div>
       <div className={stls.right}>
@@ -69,7 +72,7 @@ const GeneralFullProgram = ({ classNames }: TypeGeneralFullProgramProps) => {
           {translations.desc}
         </p>
         {!atAdditional && (
-          <IconElderScroll classNames={[stls.icon, stls.phone]} />
+          <IconElderScroll classNames={[stls.icon, stls.phone]} id='857_6631' />
         )}
 
         <Popup
