@@ -1,0 +1,28 @@
+@use '@/styles/utils/mixins' as m
+
+.wrap
+    position: relative
+    display: flex
+    width: 375px
+    justify-content: center
+    align-items: center
+    padding: 20px
+    margin-bottom: 35px
+    background-color: #f7f7f7
+    font-size: 14px
+    font-weight: normal
+    line-height: 18px
+    color: #808080
+    @include m.media(tablet, phone)
+        width: 100vw
+
+.arrow
+    position: absolute
+    top: 20px
+    left: 25px
+    width: 16px
+    height: 16px
+    stroke-width: 50
+    cursor: pointer
+    color: grey
+    opacity: .65
