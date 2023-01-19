@@ -6,6 +6,10 @@ type TypeLeadClientValues = TypeFormAlphaValues & {
   readonly leadPage: string
   readonly utms: TypeUtms
   readonly referer: TypeReferer
+  readonly question?: string | null
+  readonly contactWay?: string | null
+  readonly contactMethod?: string | null
+  readonly vk?: string | null
 }
 
 export default TypeLeadClientValues

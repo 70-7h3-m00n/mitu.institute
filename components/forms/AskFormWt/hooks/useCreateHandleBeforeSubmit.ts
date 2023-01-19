@@ -13,6 +13,7 @@ export const useCreateHandleBeforeSubmit: UseCreateHandleBeforeSubmit = ({
   isValid
 }) => {
   const router = useRouter()
+
   return () => {
     if (!isValid) return
     const createLeadData: SetStateAction<HowToContact> = prev =>
@@ -32,6 +33,7 @@ export const useCreateHandleBeforeSubmit: UseCreateHandleBeforeSubmit = ({
           ...addFields
         }).filter(prop => prop[1])
       )
+
     setHowToContact(createLeadData)
   }
 }
