@@ -1,0 +1,27 @@
+@use '@/styles/utils/mixins' as m
+
+.wrap
+    position: fixed
+    right: 0
+    bottom: 0
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 375px
+    margin-left: auto
+    background-color: #fff
+    padding: 0 35px 27px
+    @include m.media(tablet, phone)
+        width: 100%
+
+.close
+    position: absolute
+    top: -28px
+    right: 5px
+    width: 22px
+    height: 22px
+    color: #AEAEAE
+    cursor: pointer
+    @include m.media(tablet, phone)
+        display: none
