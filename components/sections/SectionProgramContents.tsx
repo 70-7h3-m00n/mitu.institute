@@ -93,7 +93,10 @@ const SectionProgramContents = ({
             })}>
             <ImgProgramContents classNames={[stls.img]} />
             {atAdditional && (
-              <IconFourSquares classNames={[stls.IconFourSquares]} />
+              <IconFourSquares
+                classNames={[stls.IconFourSquares]}
+                id='2356_9014'
+              />
             )}
           </div>
         </div>

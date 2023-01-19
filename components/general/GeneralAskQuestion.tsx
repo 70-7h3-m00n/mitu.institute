@@ -48,6 +48,7 @@ const GeneralAskQuestion = ({ classNames }: TypeGeneralAskQuestionProps) => {
             <>
               <IconDecorationFourShadowSquares
                 classNames={[stls.IconDecorationFourShadowSquares]}
+                id='2356_9335'
               />
             </>
           ) : (
