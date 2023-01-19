@@ -38,8 +38,6 @@ import { Header, Main, Footer } from '@/components/layout'
 import { HeaderPromo } from '@/components/promo'
 import { GeneralNavPhoneTablet } from '@/components/general'
 
-// test
-
 const App = ({ Component, pageProps, router }: AppProps) => {
   if (prod) console.log = () => undefined
 
