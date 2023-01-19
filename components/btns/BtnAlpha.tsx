@@ -3,7 +3,7 @@ import { TypeBtn } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import Link from 'next/link'
-import { FC, ComponentPropsWithRef } from 'react'
+import { FC, ComponentPropsWithRef, createElement } from 'react'
 
 type TypeBtnAlphaProps = TypeBtn & {
   title?: string
@@ -12,7 +12,7 @@ type TypeBtnAlphaProps = TypeBtn & {
 const BtnAlpha: FC<TypeBtnAlphaProps> = ({
   classNames,
   children,
-  tag: Tag = 'button',
+  tag = 'button',
   href,
   target,
   type,
@@ -23,7 +23,7 @@ const BtnAlpha: FC<TypeBtnAlphaProps> = ({
   scroll,
   title
 }) => {
-  const isLink = Tag === 'Link'
+  const isLink = tag === 'Link'
 
   const container =
     cn(
@@ -50,6 +50,19 @@ const BtnAlpha: FC<TypeBtnAlphaProps> = ({
 
   // TODO: improve types
 
+  const props = {
+    className: container,
+    type: type as undefined,
+    ...(href ? { href } : {}),
+    target,
+    rel: target === '_blank' ? 'noopener noreferrer' : undefined,
+    'aria-label': ariaLabel,
+    disabled,
+    'aria-disabled': disabled,
+    onClick,
+    title
+  }
+
   if (isLink)
     return (
       <Link
@@ -68,21 +81,23 @@ const BtnAlpha: FC<TypeBtnAlphaProps> = ({
       </Link>
     )
 
-  return (
-    <Tag
-      className={container}
-      type={type as undefined}
-      {...(href ? { href } : undefined)}
-      target={target}
-      rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-      aria-label={ariaLabel}
-      disabled={disabled}
-      aria-disabled={disabled}
-      onClick={onClick}
-      title={title}>
-      {children}
-    </Tag>
-  )
+  return createElement(tag, props, children)
+
+  // return (
+  //   <Tag
+  //     className={container}
+  //     type={type as undefined}
+  //     {...(href ? { href } : undefined)}
+  //     target={target}
+  //     rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+  //     aria-label={ariaLabel}
+  //     disabled={disabled}
+  //     aria-disabled={disabled}
+  //     onClick={onClick}
+  //     title={title}>
+  //     {children}
+  //   </Tag>
+  // )
 }
 
 export default BtnAlpha
