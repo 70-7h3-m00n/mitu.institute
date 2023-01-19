@@ -3,7 +3,7 @@ import { TypeBtn } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, ComponentPropsWithRef } from 'react'
 
 type TypeBtnAlphaProps = TypeBtn & {
   title?: string
@@ -48,23 +48,40 @@ const BtnAlpha: FC<TypeBtnAlphaProps> = ({
       getClassNames({ classNames })
     ) || undefined
 
-  const ParentElement = isLink ? Link : Tag
+  // TODO: improve types
+
+  if (isLink)
+    return (
+      <Link
+        href={href as ComponentPropsWithRef<typeof Link>['href']}
+        scroll={scroll}
+        target={target}
+        rel={target === '_blank' ? 'noopener noreferrer' : undefined}>
+        <a
+          className={container}
+          title={title}
+          onClick={onClick}
+          aria-label={ariaLabel}
+          aria-disabled={disabled}>
+          {children}
+        </a>
+      </Link>
+    )
+
   return (
-    // @ts-expect-error
-    <ParentElement
-      className={!isLink ? container : undefined}
-      {...(type ? { type } : undefined)}
+    <Tag
+      className={container}
+      type={type as undefined}
       {...(href ? { href } : undefined)}
       target={target}
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-      scroll={isLink ? scroll : undefined}
       aria-label={ariaLabel}
       disabled={disabled}
       aria-disabled={disabled}
       onClick={onClick}
       title={title}>
-      {isLink ? <a className={container}>{children}</a> : children}
-    </ParentElement>
+      {children}
+    </Tag>
   )
 }
 
