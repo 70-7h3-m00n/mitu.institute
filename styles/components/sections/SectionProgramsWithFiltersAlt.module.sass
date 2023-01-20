@@ -210,6 +210,7 @@ $left_ld_mr: 2.8%
   &:active
     transform: scale(0.99)
 
+
 .studyFieldTitle
   font-size: f.px(16)
   font-weight: 400
@@ -444,7 +445,29 @@ $filterBtnLeft_t_mr: 5.3%
     &.GeneralPopupTitleChooseProgram
       margin-bottom: f.px(40 - 32)
     margin-bottom: f.px(40)
-    
+
+.GeneralPopupStudyFieldsSearchContainer
+  position: relative
+  margin-bottom: f.px(40)
+  
+.GeneralPopupStudyFieldsSearch
+  padding-top: f.px(20)
+  padding-right: f.px( 60 + 16)
+  padding-bottom: f.px(20)
+  padding-left: f.px(16) 
+  min-width: 100%
+  max-width: 100%
+  border: 1px solid
+  @include m.dye(border,  c.$nu)
+  outline: none
+  &:focus
+    @include m.dye(border, c.$alpha)
+  &::placeholder
+    @include m.dye(c, c.$nu)
+
+.highligher
+  @include m.dye(bg, c.$zeta)
+
 
 .list
   @include m.media(phone, tablet)

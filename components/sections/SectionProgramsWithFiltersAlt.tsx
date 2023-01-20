@@ -5,7 +5,13 @@ import {
   TypeLibProgramsStudyFields,
   TypePagePromoProps
 } from '@/types/index'
-import { Fragment, MouseEventHandler, useContext, useState } from 'react'
+import {
+  Fragment,
+  MouseEventHandler,
+  useContext,
+  useEffect,
+  useState
+} from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
@@ -36,6 +42,7 @@ import {
   IconCross,
   IconArrowRight
 } from '@/components/icons'
+import { useRouter } from 'next/router'
 
 type TStudyFields = {
   type: string | null
@@ -52,6 +59,7 @@ const SectionProgramsWithFiltersAlt = ({
   studyFields
 }: TypeSectionProgramsWithFiltersAltProps) => {
   const at = useAt()
+  const router = useRouter()
 
   const translations = {
     btnShowMoreVal: at.en
@@ -92,7 +100,12 @@ const SectionProgramsWithFiltersAlt = ({
       : at.uz
       ? 'Manzillarni tanlang'
       : 'Выберите направления',
-    apply: at.en ? 'Apply' : at.uz ? 'Murojaat qiling' : 'Применить'
+    apply: at.en ? 'Apply' : at.uz ? 'Murojaat qiling' : 'Применить',
+    searchStudyFieldPlaceholder: at.en
+      ? 'Type in study field name'
+      : at.uz
+      ? "Yo'nalish nomini kiriting"
+      : 'Введите название направления'
   }
 
   const { categories, curCategory, setCategories } = useContext(
@@ -102,9 +115,27 @@ const SectionProgramsWithFiltersAlt = ({
   const { programs } = useContext(ContextProgramsContext)
 
   const [searchValue, setSearchValue] = useState('')
+  const [studyFieldsSearchValue, setStudyFieldsSearchValue] = useState('')
+
+  const urlParamStudyField =
+    router.asPath
+      .split('?')[1]
+      ?.split('&')
+      ?.find(param => param.includes('studyFields'))
+      ?.split('=')[1]
+      ?.split('%252B') || null
+
   const [appliedStudyFields, setAppliedStudyFields] = useState<
     TStudyFields | []
-  >([])
+  >(
+    (urlParamStudyField &&
+      urlParamStudyField?.length !== 0 &&
+      studyFields?.filter(
+        studyField =>
+          studyField.slug && urlParamStudyField?.includes(studyField.slug)
+      )) ||
+      []
+  )
   const studyFieldsShowMaxDefault = 8
   const [studyFieldsShowMax, setStudyFieldsShowMax] = useState(
     studyFieldsShowMaxDefault
@@ -124,13 +155,17 @@ const SectionProgramsWithFiltersAlt = ({
       </button>
     )
 
-  const studyFieldControlBtnSetDefault = appliedStudyFields?.length > 0 && (
-    <button
-      className={cn(stls.btnSetStudyFieldsToDefault, stls.btnStudyFieldControl)}
-      onClick={() => setAppliedStudyFields([])}>
-      {translations.btnResetFilters}
-    </button>
-  )
+  const studyFieldControlBtnSetDefault = appliedStudyFields?.length > 0 &&
+    !router?.query?.studyField && (
+      <button
+        className={cn(
+          stls.btnSetStudyFieldsToDefault,
+          stls.btnStudyFieldControl
+        )}
+        onClick={() => setAppliedStudyFields([])}>
+        {translations.btnResetFilters}
+      </button>
+    )
 
   const studyFieldsControlBtns = (studyFieldsShowMax < Infinity ||
     appliedStudyFields?.length > 0) && (
@@ -139,6 +174,43 @@ const SectionProgramsWithFiltersAlt = ({
       {studyFieldControlBtnSetDefault}
     </div>
   )
+
+  useEffect(() => {
+    if (router.query?.studyField && studyFields?.length === 1) {
+      setAppliedStudyFields(studyFields)
+    }
+
+    // const isNotAlreadyInThere = !appliedStudyFields?.map(studyField => studyField?.slug)?.filter(item => item)?.includes()
+
+    if (
+      !router.query?.studyField
+      // &&isNotAlreadyInThere
+    ) {
+      router.replace(
+        {
+          pathname: `${routesFront.programs}${
+            (router.query?.category && `/${router.query?.category}`) || ''
+          }`,
+          query: {
+            ...((appliedStudyFields?.length && {
+              studyFields: encodeURIComponent(
+                appliedStudyFields.map(item => item.slug).join('+')
+              )
+            }) ||
+              '')
+          }
+        },
+        undefined,
+        { shallow: true }
+      )
+    }
+
+    if (studyFieldsSearchValue) {
+      setStudyFieldsShowMax(Infinity)
+    } else {
+      setStudyFieldsShowMax(studyFieldsShowMaxDefault)
+    }
+  }, [studyFieldsSearchValue, appliedStudyFields])
 
   return (
     <section
@@ -247,6 +319,13 @@ const SectionProgramsWithFiltersAlt = ({
                         )
                       })}
                       onClick={() => {
+                        if (router?.query?.studyField)
+                          router.push(
+                            (router.query.category &&
+                              `${routesFront.programs}/${router.query.category}`) ||
+                              routesFront.programs
+                          )
+
                         if (
                           appliedStudyFields.some(
                             appliedStudyField =>
@@ -425,10 +504,31 @@ const SectionProgramsWithFiltersAlt = ({
                     <h3 className={stls.GeneralPopupTitle}>
                       {translations.chooseStudyField}
                     </h3>
+                    <div
+                      className={stls.GeneralPopupStudyFieldsSearchContainer}>
+                      <input
+                        className={stls.GeneralPopupStudyFieldsSearch}
+                        onChange={event =>
+                          setStudyFieldsSearchValue(event.target.value)
+                        }
+                        value={studyFieldsSearchValue}
+                        placeholder={translations.searchStudyFieldPlaceholder}
+                      />
+                      <div className={stls.iconSearchContainer}>
+                        <IconSearch classNames={[stls.IconSearch]} />
+                      </div>
+                    </div>
                     {studyFieldControlBtnSetDefault}
                     <ul className={stls.list}>
                       {studyFields
                         ?.filter((studyField, idx) => idx < studyFieldsShowMax)
+                        ?.filter(studyField =>
+                          studyFieldsSearchValue
+                            ? studyField.title
+                                ?.toLowerCase()
+                                .includes(studyFieldsSearchValue.toLowerCase())
+                            : true
+                        )
                         ?.map((studyField, idx) => (
                           <li
                             key={`${studyField?.title}-mobile-${idx}`}
@@ -442,6 +542,12 @@ const SectionProgramsWithFiltersAlt = ({
                                 )
                               })}
                               onClick={() => {
+                                router.push(
+                                  (router.query.category &&
+                                    `${routesFront.programs}/${router.query.category}`) ||
+                                    routesFront.programs
+                                )
+
                                 if (
                                   appliedStudyFields.some(
                                     appliedStudyField =>
@@ -477,7 +583,16 @@ const SectionProgramsWithFiltersAlt = ({
                                 />
                               </div>
                               <span className={stls.studyFieldTitle}>
-                                {studyField.title}
+                                {studyFieldsSearchValue && studyField.title ? (
+                                  <Highlighter
+                                    highlightClassName={stls.highligher}
+                                    searchWords={[studyFieldsSearchValue]}
+                                    autoEscape={true}
+                                    textToHighlight={studyField?.title}
+                                  />
+                                ) : (
+                                  studyField.title
+                                )}
                               </span>
                             </a>
                           </li>

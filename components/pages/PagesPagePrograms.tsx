@@ -102,7 +102,15 @@ const PagesPagePrograms = ({ studyFields }: TypePagesPageProgramsProps) => {
         sameAs={[routesFront.root]}
         url={routesFront.root}
       />
-      <SectionProgramsWithFiltersAlt studyFields={studyFields} />
+      <SectionProgramsWithFiltersAlt
+        studyFields={
+          studyFields?.filter(studyField =>
+            router?.query?.studyField
+              ? studyField.slug === router?.query?.studyField
+              : true
+          ) || null
+        }
+      />
       <SectionUIFormAlpha title={translations.formTitle} />
     </>
   )
