@@ -85,6 +85,11 @@ const SectionProgramsWithFiltersAlt = ({
       : at.uz
       ? "Barcha yo'nalishlar"
       : 'Все направления',
+    singleStudyField: at.en
+      ? 'Study field'
+      : at.uz
+      ? "Yo'nalish"
+      : 'Направление',
     searchPlaceholder: at.en
       ? 'Type in program name'
       : at.uz
@@ -130,14 +135,7 @@ const SectionProgramsWithFiltersAlt = ({
   const [appliedStudyFields, setAppliedStudyFields] = useState<
     TStudyFields | []
   >(
-    (router.query?.studyField && studyFields?.length === 1 && studyFields) ||
-      (urlParamStudyField &&
-        urlParamStudyField?.length !== 0 &&
-        studyFields?.filter(
-          studyField =>
-            studyField.slug && urlParamStudyField?.includes(studyField.slug)
-        )) ||
-      []
+    (router.query?.studyField && studyFields?.length === 1 && studyFields) || []
   )
   const studyFieldsShowMaxDefault = 8
   const [studyFieldsShowMax, setStudyFieldsShowMax] = useState(
@@ -192,40 +190,45 @@ const SectionProgramsWithFiltersAlt = ({
     </div>
   )
 
-  const handleStudyFieldsURLQuery = () => {
-    if (!router.query?.studyField) {
-      router.replace(
-        {
-          pathname: `${routesFront.programs}${
-            (router.query?.category && `/${router.query?.category}`) || ''
-          }`,
-          query:
-            (appliedStudyFields?.length !== 0 && {
-              studyFields: encodeURIComponent(
-                appliedStudyFields.map(item => item.slug).join('+')
-              )
-            }) ||
-            undefined
-        },
-        undefined,
-        { shallow: true }
-      )
-
-      // setAppliedStudyFields(
-      //   studyFields?.filter(
-      //     studyField =>
-      //       studyField?.slug && urlParamStudyField?.includes(studyField.slug)
-      //   ) || []
-      // )
-    }
-  }
-
+  const [useEffectFirstRun, setUseEffectFirstRun] = useState(true)
   useEffect(() => {
     // if (router.query?.studyField && studyFields?.length === 1) {
     //   setAppliedStudyFields(studyFields)
     // }
 
-    // handleStudyFieldsURLQuery()
+    const handleStudyFieldsURLQuery = () => {
+      console.log('test')
+      console.log('appliedStudyFields ', appliedStudyFields)
+      if (!router.query?.studyField) {
+        router.replace(
+          {
+            pathname: `${routesFront.programs}${
+              (router.query?.category && `/${router.query?.category}`) || ''
+            }`,
+            query:
+              (appliedStudyFields?.length !== 0 && {
+                studyFields: encodeURIComponent(
+                  appliedStudyFields.map(item => item.slug).join('+')
+                )
+              }) ||
+              undefined
+          },
+          undefined,
+          { shallow: true }
+        )
+
+        // setAppliedStudyFields(
+        //   studyFields?.filter(
+        //     studyField =>
+        //       studyField?.slug && urlParamStudyField?.includes(studyField.slug)
+        //   ) || []
+        // )
+      }
+    }
+    if (useEffectFirstRun) {
+      console.log('TEST TEST TEST TEST TEST')
+      handleStudyFieldsURLQuery()
+    }
 
     // if (
     //   urlParamStudyField &&
@@ -244,7 +247,8 @@ const SectionProgramsWithFiltersAlt = ({
     } else {
       setStudyFieldsShowMax(studyFieldsShowMaxDefault)
     }
-  }, [studyFieldsSearchValue, appliedStudyFields, router.query?.studyField])
+    setUseEffectFirstRun(true)
+  }, [studyFieldsSearchValue, useEffectFirstRun, router.query?.studyField])
 
   return (
     <section
@@ -335,7 +339,8 @@ const SectionProgramsWithFiltersAlt = ({
                     </span>
                   ))
                 : 'Все направления'} */}
-              {translations.allStudyFields}
+              {(router?.query?.studyField && translations.singleStudyField) ||
+                translations.allStudyFields}
             </h3>
             <ul className={stls.studyFields}>
               {studyFields
@@ -513,7 +518,9 @@ const SectionProgramsWithFiltersAlt = ({
                               {appliedStudyField.title}
                             </span>
                           ))
-                        : translations.allStudyFields}
+                        : (router?.query?.studyField &&
+                            translations.singleStudyField) ||
+                          translations.allStudyFields}
                     </span>
                     <IconPointerBottom classNames={[stls.IconPointerBottom]} />
                   </BtnAlpha>
