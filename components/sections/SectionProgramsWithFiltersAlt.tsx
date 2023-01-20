@@ -175,6 +175,8 @@ const SectionProgramsWithFiltersAlt = ({
     </div>
   )
 
+  const [useEffectHasRunOneTime, setUseEffectHasRunOneTime] = useState(false)
+
   useEffect(() => {
     if (router.query?.studyField && studyFields?.length === 1) {
       setAppliedStudyFields(studyFields)
@@ -205,11 +207,25 @@ const SectionProgramsWithFiltersAlt = ({
       )
     }
 
+    if (
+      urlParamStudyField &&
+      urlParamStudyField?.length !== 0 &&
+      !useEffectHasRunOneTime
+    ) {
+      setAppliedStudyFields(
+        studyFields?.filter(
+          studyField =>
+            studyField.slug && urlParamStudyField?.includes(studyField.slug)
+        ) || []
+      )
+    }
+
     if (studyFieldsSearchValue) {
       setStudyFieldsShowMax(Infinity)
     } else {
       setStudyFieldsShowMax(studyFieldsShowMaxDefault)
     }
+    setUseEffectHasRunOneTime(true)
   }, [studyFieldsSearchValue, appliedStudyFields])
 
   return (
