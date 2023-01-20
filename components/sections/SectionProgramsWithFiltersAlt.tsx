@@ -175,19 +175,8 @@ const SectionProgramsWithFiltersAlt = ({
     </div>
   )
 
-  const [useEffectHasRunOneTime, setUseEffectHasRunOneTime] = useState(false)
-
-  useEffect(() => {
-    if (router.query?.studyField && studyFields?.length === 1) {
-      setAppliedStudyFields(studyFields)
-    }
-
-    // const isNotAlreadyInThere = !appliedStudyFields?.map(studyField => studyField?.slug)?.filter(item => item)?.includes()
-
-    if (
-      !router.query?.studyField
-      // &&isNotAlreadyInThere
-    ) {
+  const handleStudyFieldsURLQuery = () => {
+    if (!router.query?.studyField) {
       router.replace(
         {
           pathname: `${routesFront.programs}${
@@ -206,26 +195,32 @@ const SectionProgramsWithFiltersAlt = ({
         { shallow: true }
       )
     }
+  }
 
-    if (
-      urlParamStudyField &&
-      urlParamStudyField?.length !== 0 &&
-      !useEffectHasRunOneTime
-    ) {
-      setAppliedStudyFields(
-        studyFields?.filter(
-          studyField =>
-            studyField.slug && urlParamStudyField?.includes(studyField.slug)
-        ) || []
-      )
+  useEffect(() => {
+    if (router.query?.studyField && studyFields?.length === 1) {
+      setAppliedStudyFields(studyFields)
     }
+
+    handleStudyFieldsURLQuery()
+
+    // if (
+    //   urlParamStudyField &&
+    //   urlParamStudyField?.length !== 0
+    // ) {
+    //   setAppliedStudyFields(
+    //     studyFields?.filter(
+    //       studyField =>
+    //         studyField.slug && urlParamStudyField?.includes(studyField.slug)
+    //     ) || []
+    //   )
+    // }
 
     if (studyFieldsSearchValue) {
       setStudyFieldsShowMax(Infinity)
     } else {
       setStudyFieldsShowMax(studyFieldsShowMaxDefault)
     }
-    setUseEffectHasRunOneTime(true)
   }, [studyFieldsSearchValue, appliedStudyFields])
 
   return (
@@ -354,11 +349,13 @@ const SectionProgramsWithFiltersAlt = ({
                                 appliedStudyField?.slug !== studyField?.slug
                             )
                           ])
+                          handleStudyFieldsURLQuery()
                         } else {
                           setAppliedStudyFields([
                             ...appliedStudyFields,
                             studyField
                           ])
+                          handleStudyFieldsURLQuery()
                         }
                       }}>
                       <div
@@ -578,11 +575,13 @@ const SectionProgramsWithFiltersAlt = ({
                                         studyField?.slug
                                     )
                                   ])
+                                  handleStudyFieldsURLQuery()
                                 } else {
                                   setAppliedStudyFields([
                                     ...appliedStudyFields,
                                     studyField
                                   ])
+                                  handleStudyFieldsURLQuery()
                                 }
                               }}>
                               <div
