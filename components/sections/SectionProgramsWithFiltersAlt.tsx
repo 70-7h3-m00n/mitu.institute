@@ -125,7 +125,7 @@ const SectionProgramsWithFiltersAlt = ({
       ?.split('=')[1]
       ?.split('%252B') || null
 
-  console.log(urlParamStudyField)
+  console.log('urlParamStudyField: ', urlParamStudyField)
 
   const [appliedStudyFields, setAppliedStudyFields] = useState<
     TStudyFields | []
@@ -144,7 +144,7 @@ const SectionProgramsWithFiltersAlt = ({
     (studyFieldsSearchValue && Infinity) || studyFieldsShowMaxDefault
   )
 
-  console.log(appliedStudyFields)
+  console.log('appliedStudyFields: ', appliedStudyFields)
 
   const studyFieldControlBtnShowMax = studyFields &&
     studyFields?.length > studyFieldsShowMaxDefault &&
@@ -174,7 +174,7 @@ const SectionProgramsWithFiltersAlt = ({
               pathname: `${routesFront.programs}${
                 (router.query?.category && `/${router.query?.category}`) || ''
               }`,
-              query: {}
+              query: undefined
             },
             undefined,
             { shallow: true }
@@ -199,19 +199,24 @@ const SectionProgramsWithFiltersAlt = ({
           pathname: `${routesFront.programs}${
             (router.query?.category && `/${router.query?.category}`) || ''
           }`,
-          query: {
-            ...((appliedStudyFields?.length && {
+          query:
+            (appliedStudyFields?.length !== 0 && {
               studyFields: encodeURIComponent(
                 appliedStudyFields.map(item => item.slug).join('+')
               )
             }) ||
-              {} ||
-              '')
-          }
+            undefined
         },
         undefined,
         { shallow: true }
       )
+
+      // setAppliedStudyFields(
+      //   studyFields?.filter(
+      //     studyField =>
+      //       studyField?.slug && urlParamStudyField?.includes(studyField.slug)
+      //   ) || []
+      // )
     }
   }
 
@@ -220,7 +225,7 @@ const SectionProgramsWithFiltersAlt = ({
     //   setAppliedStudyFields(studyFields)
     // }
 
-    handleStudyFieldsURLQuery()
+    // handleStudyFieldsURLQuery()
 
     // if (
     //   urlParamStudyField &&
@@ -375,8 +380,6 @@ const SectionProgramsWithFiltersAlt = ({
                             studyField
                           ])
                         }
-
-                        handleStudyFieldsURLQuery()
                       }}>
                       <div
                         className={cn(stls.IconCheckAltContainer, {
@@ -604,7 +607,6 @@ const SectionProgramsWithFiltersAlt = ({
                                     studyField
                                   ])
                                 }
-                                handleStudyFieldsURLQuery()
                               }}>
                               <div
                                 className={cn(stls.IconCheckAltContainer, {
