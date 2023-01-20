@@ -125,21 +125,26 @@ const SectionProgramsWithFiltersAlt = ({
       ?.split('=')[1]
       ?.split('%252B') || null
 
+  console.log(urlParamStudyField)
+
   const [appliedStudyFields, setAppliedStudyFields] = useState<
     TStudyFields | []
   >(
-    (urlParamStudyField &&
-      urlParamStudyField?.length !== 0 &&
-      studyFields?.filter(
-        studyField =>
-          studyField.slug && urlParamStudyField?.includes(studyField.slug)
-      )) ||
+    (router.query?.studyField && studyFields?.length === 1 && studyFields) ||
+      (urlParamStudyField &&
+        urlParamStudyField?.length !== 0 &&
+        studyFields?.filter(
+          studyField =>
+            studyField.slug && urlParamStudyField?.includes(studyField.slug)
+        )) ||
       []
   )
   const studyFieldsShowMaxDefault = 8
   const [studyFieldsShowMax, setStudyFieldsShowMax] = useState(
-    studyFieldsShowMaxDefault
+    (studyFieldsSearchValue && Infinity) || studyFieldsShowMaxDefault
   )
+
+  console.log(appliedStudyFields)
 
   const studyFieldControlBtnShowMax = studyFields &&
     studyFields?.length > studyFieldsShowMaxDefault &&
@@ -162,7 +167,19 @@ const SectionProgramsWithFiltersAlt = ({
           stls.btnSetStudyFieldsToDefault,
           stls.btnStudyFieldControl
         )}
-        onClick={() => setAppliedStudyFields([])}>
+        onClick={() => {
+          setAppliedStudyFields([])
+          router.replace(
+            {
+              pathname: `${routesFront.programs}${
+                (router.query?.category && `/${router.query?.category}`) || ''
+              }`,
+              query: {}
+            },
+            undefined,
+            { shallow: true }
+          )
+        }}>
         {translations.btnResetFilters}
       </button>
     )
@@ -188,6 +205,7 @@ const SectionProgramsWithFiltersAlt = ({
                 appliedStudyFields.map(item => item.slug).join('+')
               )
             }) ||
+              {} ||
               '')
           }
         },
@@ -198,9 +216,9 @@ const SectionProgramsWithFiltersAlt = ({
   }
 
   useEffect(() => {
-    if (router.query?.studyField && studyFields?.length === 1) {
-      setAppliedStudyFields(studyFields)
-    }
+    // if (router.query?.studyField && studyFields?.length === 1) {
+    //   setAppliedStudyFields(studyFields)
+    // }
 
     handleStudyFieldsURLQuery()
 
@@ -221,7 +239,7 @@ const SectionProgramsWithFiltersAlt = ({
     } else {
       setStudyFieldsShowMax(studyFieldsShowMaxDefault)
     }
-  }, [studyFieldsSearchValue, appliedStudyFields])
+  }, [studyFieldsSearchValue, appliedStudyFields, router.query?.studyField])
 
   return (
     <section
@@ -330,12 +348,14 @@ const SectionProgramsWithFiltersAlt = ({
                         )
                       })}
                       onClick={() => {
-                        if (router?.query?.studyField)
+                        if (router?.query?.studyField) {
                           router.push(
                             (router.query.category &&
                               `${routesFront.programs}/${router.query.category}`) ||
                               routesFront.programs
                           )
+                          return
+                        }
 
                         if (
                           appliedStudyFields.some(
@@ -343,20 +363,20 @@ const SectionProgramsWithFiltersAlt = ({
                               appliedStudyField?.slug === studyField?.slug
                           )
                         ) {
-                          setAppliedStudyFields([
-                            ...appliedStudyFields.filter(
+                          setAppliedStudyFields(
+                            appliedStudyFields.filter(
                               appliedStudyField =>
                                 appliedStudyField?.slug !== studyField?.slug
                             )
-                          ])
-                          handleStudyFieldsURLQuery()
+                          )
                         } else {
                           setAppliedStudyFields([
                             ...appliedStudyFields,
                             studyField
                           ])
-                          handleStudyFieldsURLQuery()
                         }
+
+                        handleStudyFieldsURLQuery()
                       }}>
                       <div
                         className={cn(stls.IconCheckAltContainer, {
@@ -555,11 +575,14 @@ const SectionProgramsWithFiltersAlt = ({
                                 )
                               })}
                               onClick={() => {
-                                router.push(
-                                  (router.query.category &&
-                                    `${routesFront.programs}/${router.query.category}`) ||
-                                    routesFront.programs
-                                )
+                                if (router?.query?.studyField) {
+                                  router.push(
+                                    (router.query.category &&
+                                      `${routesFront.programs}/${router.query.category}`) ||
+                                      routesFront.programs
+                                  )
+                                  return
+                                }
 
                                 if (
                                   appliedStudyFields.some(
@@ -575,14 +598,13 @@ const SectionProgramsWithFiltersAlt = ({
                                         studyField?.slug
                                     )
                                   ])
-                                  handleStudyFieldsURLQuery()
                                 } else {
                                   setAppliedStudyFields([
                                     ...appliedStudyFields,
                                     studyField
                                   ])
-                                  handleStudyFieldsURLQuery()
                                 }
+                                handleStudyFieldsURLQuery()
                               }}>
                               <div
                                 className={cn(stls.IconCheckAltContainer, {
