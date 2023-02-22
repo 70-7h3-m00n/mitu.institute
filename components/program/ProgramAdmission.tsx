@@ -36,10 +36,11 @@ const ProgramAdmission = () => {
     translations.december
   ]
 
+  return <>28 {months[1]}</>
   // return <>10 {months[0]}</>
   return (
     <>
-      {currentDay < 20 ? '20' : '5'} {/* 20{' '} */}
+      {currentDay < 20 ? '20' : '5'} 20{' '}
       {(() => {
         let output
         if (currentDay < 20) {
