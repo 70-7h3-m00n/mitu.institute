@@ -36,7 +36,7 @@ const ProgramAdmission = () => {
     translations.december
   ]
 
-  return <>28 {months[1]}</>
+  return <>10 {months[2]}</>
   // return <>10 {months[0]}</>
   return (
     <>
