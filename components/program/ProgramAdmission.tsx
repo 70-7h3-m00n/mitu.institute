@@ -1,5 +1,15 @@
 import { useAt } from '@/hooks/index'
 
+const setLastDayOfMonth = (currentDate: Date) => {
+  currentDate.setMonth(currentDate.getMonth() + 1)
+  currentDate.setDate(0)
+}
+
+const setNextDay = (currentDate: Date, currentDay: number) =>
+  currentDay <= 20
+    ? currentDate.setDate(currentDay <= 10 ? 10 : 20)
+    : setLastDayOfMonth(currentDate)
+
 const ProgramAdmission = () => {
   const at = useAt()
   const translations = {
@@ -19,7 +29,9 @@ const ProgramAdmission = () => {
 
   const currentDate = new Date()
   const currentDay = currentDate.getDate()
-  let currentMonth = currentDate.getMonth()
+  const currentMonth = currentDate.getMonth()
+
+  setNextDay(currentDate, currentDay)
 
   const months = [
     translations.january,
@@ -36,22 +48,9 @@ const ProgramAdmission = () => {
     translations.december
   ]
 
-  return <>10 {months[2]}</>
-  // return <>10 {months[0]}</>
   return (
     <>
-      {currentDay < 20 ? '20' : '5'} 20{' '}
-      {(() => {
-        let output
-        if (currentDay < 20) {
-          output = months[currentMonth]
-        } else {
-          currentMonth === 11
-            ? (output = months[0])
-            : (output = months[currentMonth + 1])
-        }
-        return output
-      })()}
+      {currentDate.getDate()} {months[currentMonth]}
     </>
   )
 }
