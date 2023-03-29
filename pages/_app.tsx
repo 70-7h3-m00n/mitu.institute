@@ -155,7 +155,6 @@ const App = ({ Component, pageProps, router }: AppProps) => {
                     <Header />
                   )}
                   <Main>
-                    {/* @ts-expect-error */}
                     <Component {...pageProps} />
                     <GeneralNavPhoneTablet
                       atPromo={router.asPath === routesFront.promo}
