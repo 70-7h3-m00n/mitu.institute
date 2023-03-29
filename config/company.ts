@@ -45,7 +45,7 @@ const company = {
     street: {
       type: 'Улица',
       typeShort: 'ул.',
-      name: 'Афрасиаб',
+      name: 'Афросиаб',
       door: '8а',
       room: 'БЦ Dmaar'
     }

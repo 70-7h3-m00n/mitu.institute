@@ -73,7 +73,7 @@ const useCompanyInfo = () => {
       street: {
         type: at.en ? 'Street' : at.uz ? "Ko'chasi" : 'Улица',
         typeShort: at.en ? 'St.' : at.uz ? "Ko'chasi" : 'ул.',
-        name: at.en ? 'Afrasiab' : at.uz ? 'Afrosiyob' : 'Афрасиаб',
+        name: at.en ? 'Afrosiab' : at.uz ? 'Afrosiyob' : 'Афросиаб',
         door: at.en ? '8a' : at.uz ? '8a' : '8а',
         room: at.en ? 'Business center Dmaar' : at.uz ? 'Dmaar' : 'БЦ Dmaar'
       }
