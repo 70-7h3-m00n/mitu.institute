@@ -86,8 +86,8 @@ const PageContact: NextPage<TypePageHomeProps> = ({
       address: `${company.addressKz.street.type} ${company.addressKz.street.name}, ${company.addressKz.street.door}, ${company.addressKz.street.room}, ${company.addressKz.street.block.type} ${company.addressKz.street.block.number}, ${company.addressKz.street.office.type} ${company.addressKz.street.office.number}`,
       phoneNumbers: [
         company.phoneNumberKz,
-        company.phoneNumberKzAlt,
-        company.phoneNumberKzAlt2
+        company.phoneNumberKzAlt
+        // company.phoneNumberKzAlt2
       ],
       email: company.emailKz,
       img: <ImgContactMapAlmaty classNames={[stls.img]} />
@@ -232,7 +232,7 @@ const PageContact: NextPage<TypePageHomeProps> = ({
                               </h3>
                               {info.items.map((item, idx) => (
                                 <p
-                                  key={`${item}-${idx}`}
+                                  key={`P_item__${item}-${idx}`}
                                   className={cn(stls.p, stls.extraLegalInfo)}>
                                   {item}
                                 </p>
