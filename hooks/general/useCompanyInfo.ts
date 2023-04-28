@@ -99,8 +99,8 @@ const useCompanyInfo = () => {
       areaServed: ['RU', 'KZ', 'UZ']
     },
     phoneNumberKz: {
-      href: 'tel:+7-727-311-09-11',
-      val: '+7 (727) 311-09-11',
+      href: 'tel:+7-771-766-22-24',
+      val: '+7 (771) 766-22-24',
       contactType: at.en
         ? 'Training Division'
         : at.uz
@@ -109,16 +109,6 @@ const useCompanyInfo = () => {
       areaServed: ['KZ']
     },
     phoneNumberKzAlt: {
-      href: 'tel:+7-771-766-22-20',
-      val: '+7 (771) 766-22-20',
-      contactType: at.en
-        ? 'Training Division'
-        : at.uz
-        ? "O'quv bo'limi"
-        : 'Учебный отдел',
-      areaServed: ['KZ']
-    },
-    phoneNumberKzAlt2: {
       href: 'tel:+7-771-766-22-23',
       val: '+7 (771) 766-22-23',
       contactType: at.en
@@ -128,6 +118,12 @@ const useCompanyInfo = () => {
         : 'Учебный отдел',
       areaServed: ['KZ']
     },
+    // phoneNumberKzAlt2: {
+    //   href: '',
+    //   val: '',
+    //   contactType: at.en ? '' : at.uz ? '' : '',
+    //   areaServed: ['KZ']
+    // },
     phoneNumberUz: {
       href: 'tel:+998-78-122-62-26',
       val: '+998 (78) 122-62-26',
