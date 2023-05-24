@@ -3,6 +3,8 @@ import { TypeNextApiResponseLeadData } from '@/types/index'
 import url from 'url'
 import http from 'http'
 import { WebServiceClient } from '@maxmind/geoip2-node'
+import { getCookie} from 'cookies-next'
+import axios from 'axios'
 import nodemailer from 'nodemailer'
 import { dev, env } from '@/config/index'
 import {
@@ -16,6 +18,16 @@ const lead = async (
   res: NextApiResponse<TypeNextApiResponseLeadData | Error>
 ) => {
   if (req.body) process.env.TZ = 'Europe/Moscow'
+
+  //  ROISTAT BEGIN
+  const roistatVisit = getCookie('roistat_visit', { req, res })
+  await axios.request({
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: `https://cloud.roistat.com/api/proxy/1.0/leads/add?roistat=${roistatVisit}&key=YjEzZGExNmM1ZDU1MDFjYmYzYTVkZjY2Y2E5OGUzMjE6MjMzNDgx&title=Новая заявка с сайта&name=${req.body.name}&email=${req.body.email}&phone=${req.body.phoneNumber}&is_skip_sending=1`,
+    headers: {}
+  })
+  //  ROISTAT END
 
   // TODO: refactor this
   // * preventing spam
