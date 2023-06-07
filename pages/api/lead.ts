@@ -21,10 +21,11 @@ const lead = async (
 
   //  ROISTAT BEGIN
   const roistatVisit = getCookie('roistat_visit', { req, res })
+  const encodedRoistatVisit = encodeURIComponent(String(roistatVisit))
   await axios.request({
     method: 'get',
     maxBodyLength: Infinity,
-    url: `https://cloud.roistat.com/api/proxy/1.0/leads/add?roistat=${roistatVisit}&key=YjEzZGExNmM1ZDU1MDFjYmYzYTVkZjY2Y2E5OGUzMjE6MjMzNDgx&title=newOffer&name=${req.body.name ?? ''}&email=${req.body.email ?? ''}&phone=${req.body.phoneNumber ?? ''}&is_skip_sending=1`,
+    url: `https://cloud.roistat.com/api/proxy/1.0/leads/add?roistat=${roistatVisit}&key=YjEzZGExNmM1ZDU1MDFjYmYzYTVkZjY2Y2E5OGUzMjE6MjMzNDgx&title=newOffer&name=${encodeURIComponent(req.body.name  ?? '')}&email=${encodeURIComponent(req.body.email ?? '')}&phone=${encodeURIComponent(req.body.phoneNumber ?? '')}&is_skip_sending=1`,
     headers: {}
   })
   //  ROISTAT END
