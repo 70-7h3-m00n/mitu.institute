@@ -20,13 +20,13 @@ const lead = async (
   if (req.body) process.env.TZ = 'Europe/Moscow'
 
   //  ROISTAT BEGIN
-  // const roistatVisit = getCookie('roistat_visit', { req, res })
-  // await axios.request({
-  //   method: 'get',
-  //   maxBodyLength: Infinity,
-  //   url: `https://cloud.roistat.com/api/proxy/1.0/leads/add?roistat=${roistatVisit}&key=YjEzZGExNmM1ZDU1MDFjYmYzYTVkZjY2Y2E5OGUzMjE6MjMzNDgx&title=Новая заявка с сайта&name=${req.body.name}&email=${req.body.email}&phone=${req.body.phoneNumber}&is_skip_sending=1`,
-  //   headers: {}
-  // })
+  const roistatVisit = getCookie('roistat_visit', { req, res })
+  await axios.request({
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: `https://cloud.roistat.com/api/proxy/1.0/leads/add?roistat=${roistatVisit}&key=YjEzZGExNmM1ZDU1MDFjYmYzYTVkZjY2Y2E5OGUzMjE6MjMzNDgx&title=newOffer&name=${req.body.name}&email=${req.body.email}&phone=${req.body.phoneNumber}&is_skip_sending=1`,
+    headers: {}
+  })
   //  ROISTAT END
 
   // TODO: refactor this
@@ -132,7 +132,7 @@ const lead = async (
       html
     })
 
-    console.log('Message sent: %s', emailRes.messageId)
+    console.log('Message sent:', emailRes.messageId)
     // res.setHeader('Cache-Control', 'max-age=0, s-maxage=86400')
     res.status(200).json({ msg: 'Email is sent' })
   } catch (err) {
