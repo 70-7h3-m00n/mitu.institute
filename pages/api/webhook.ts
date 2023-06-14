@@ -8,7 +8,9 @@ const webhook = async (
   if (req.body) process.env.TZ = 'Europe/Moscow'
 
 // console.log('req.body is empty:', !Boolean(req.body))
-console.log('Received webhook data:', req)
+console.log('Received webhook data cookies:', req.cookies)
+
+console.log('Received webhook data query:', req.query)
 
 
   res.status(200).json( {msg: 'success'})
