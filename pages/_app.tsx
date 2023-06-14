@@ -11,7 +11,7 @@ import {
   TypeRoute
 } from '@/types/index'
 import Head from 'next/head'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 import Script from 'next/script'
 import { useEffect, useState } from 'react'
 import NProgress from 'nprogress'
@@ -41,6 +41,8 @@ import { GeneralNavPhoneTablet } from '@/components/general'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   if (prod) console.log = () => undefined
+
+  const route = useRouter()
 
   const props: any = pageProps // a workaround for the typescript error
 
@@ -86,7 +88,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     handleUtms({ router })
     handleReferer()
     handleLocale({ router })
-    handleCookiesExpiration({ router })
+    handleCookiesExpiration({ route })
 
     NProgress.configure({
       showSpinner: false

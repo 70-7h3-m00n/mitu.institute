@@ -65,7 +65,8 @@ const buildLeadData = ({
     utmMedium: (utms && utms.utm_medium?.toString()) || null,
     utmCampaign: (utms && utms.utm_campaign?.toString()) || null,
     utmContent: (utms && utms.utm_content?.toString()) || null,
-    utmTerm: (utms && utms.utm_term?.toString()) || null
+    utmTerm: (utms && utms.utm_term?.toString()) || null,
+    clUid: (utms && utms.cl_uid?.toString()) || null
   }
   return output
 }

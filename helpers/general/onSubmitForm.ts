@@ -7,8 +7,9 @@ import {
 import { v4 as uuidv4 } from 'uuid'
 
 import { Dispatch, SetStateAction } from 'react'
-import { hitLeadRoute } from '@/helpers/index'
+import { hitLeadRoute, hitWebhookRoute } from '@/helpers/index'
 import { UseFormReset } from 'react-hook-form'
+import { getCookies } from 'cookies-next'
 
 type onSubmitFormProps = {
   readonly formValues: TypeFormAlphaValues
@@ -50,7 +51,26 @@ const onSubmitForm = async ({
     referer
   }
 
+  
   const req = await hitLeadRoute({ lead })
+
+  
+  const cookies = getCookies();
+  
+  const lastUtmSource = cookies.utm_source
+  const lastUtmCampaign = cookies.utm_campaign
+  const lastClkUid = cookies.cl_uid
+  
+  const leadHook = {
+     ...formValues,
+    utms: { 
+    utm_source: lastUtmSource,
+    utm_campaign: lastUtmCampaign,
+    cl_uid: lastClkUid,
+  } 
+}
+
+  await hitWebhookRoute({ leadHook })
   if (req.status === 200) {
     // console.log(req.data.msg)
     setLoaderIsOpen(false)

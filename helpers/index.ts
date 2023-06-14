@@ -17,6 +17,7 @@ import handleReferer from '@/helpers/general/handleReferer'
 import handleUtms from '@/helpers/general/handleUtms'
 import handleCookiesExpiration from '@/helpers/general/handleCookiesExpiration'
 import hitLeadRoute from '@/helpers/general/hitLeadRoute'
+import hitWebhookRoute from '@/helpers/general/hitWebhookRoute'
 import onSubmitForm from '@/helpers/general/onSubmitForm'
 import sortBasedOnNumericOrder from '@/helpers/general/sortBasedOnNumericOrder'
 
@@ -45,6 +46,7 @@ export {
   handleUtms,
   handleCookiesExpiration,
   hitLeadRoute,
+  hitWebhookRoute,
   onSubmitForm,
   sortBasedOnNumericOrder,
   // lead

@@ -158,6 +158,10 @@ const buildLeadEmailTbodyTrs = ({ data }: TypebuildLeadEmailTbodyTrsProps) => [
     tdVal: data.utmTerm || ''
   },
   {
+    tdKey: 'Клик ID',
+    tdVal: data.clUid || ''
+  },
+  {
     tdKey: 'Дубль',
     tdVal: ''
   }

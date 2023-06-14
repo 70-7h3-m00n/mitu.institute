@@ -2,34 +2,22 @@ import { setCookie, getCookies } from 'cookies-next';
 import { NextRouter } from 'next/router'
 
 type TypeHandleUtmsProps = {
-  readonly router: NextRouter
+  readonly route: NextRouter
 }
 
-const handleCookiesExpiration = ({ router }: TypeHandleUtmsProps) => {
-    const { cl_uid, utm_source, utm_campaign } = router.query;
+const handleCookiesExpiration = ({ route }: TypeHandleUtmsProps) => {
 
-    console.log('cookies: ', cl_uid, utm_source, utm_campaign)
+const utms = route.asPath.split('?')[1].split('&').map(el => ({[el.split('=')[0]]: el.split('=')[1]}))
 
     const cookieExpiration = new Date();
     cookieExpiration.setDate(cookieExpiration.getDate() + 90);
 
-    setCookie('cl_uid', cl_uid, {
-      expires: cookieExpiration,
-      path: '/',
-    });
-    setCookie('utm_source', utm_source, {
-      expires: cookieExpiration,
-      path: '/',
-    });
-    setCookie('utm_campaign', utm_campaign, {
-      expires: cookieExpiration,
-      path: '/',
-    });
-
-    const cookies = getCookies();
-
-    const lastUtmSource = cookies.utm_source || '';
-    const lastUtmCampaign = cookies.utm_campaign || '';
+    Object.keys(utms).forEach((key, idx) => {
+            const value = Object.values(utms[key as any])[0] 
+            setCookie(Object.keys(utms[idx]).toString(), value, {
+              expires: cookieExpiration,
+              path: '/',
+            })})
 
 }
 

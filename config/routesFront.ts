@@ -29,6 +29,7 @@ const routesFront: TypeRoutesFront = {
   programsCategoryStudyFieldProgram:
     '/programs/[category]/[studyField]/[program]',
   apiLead: '/api/lead',
+  apiWebhook: '/api/webhook',
   assetsImgsIconsManifestIcon512: '/assets/imgs/icons/manifest-icon-512.png',
   assetsImgsIconsManifestIconBg512:
     '/assets/imgs/icons/manifest-icon-bg-512.png',
