@@ -38,6 +38,7 @@ export type { default as TypeImgExtended } from '@/types/general/TypeImgExtended
 export type { default as TypeInput } from '@/types/general/TypeInput'
 export type { default as TypeIsPopup } from '@/types/general/TypeIsPopup'
 export type { default as TypeLeadClientValues } from '@/types/general/TypeLeadClientValues'
+export type { default as TypeLeadHookValues } from '@/types/general/TypeLeadHookValues'
 export type { default as TypeLinks } from '@/types/general/TypeLinks'
 export type { default as TypeLinksHeaderPromo } from '@/types/general/TypeLinksHeaderPromo'
 export type { default as TypeNextApiResponseLeadData } from '@/types/general/TypeNextApiResponseLeadData'
