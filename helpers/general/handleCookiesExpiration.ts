@@ -8,6 +8,8 @@ type TypeHandleUtmsProps = {
 const handleCookiesExpiration = ({ router }: TypeHandleUtmsProps) => {
     const { cl_uid, utm_source, utm_campaign } = router.query;
 
+    console.log('cookies: ', cl_uid, utm_source, utm_campaign)
+
     const cookieExpiration = new Date();
     cookieExpiration.setDate(cookieExpiration.getDate() + 90);
 
