@@ -3,7 +3,7 @@ import { TypeNextApiResponseLeadData } from '@/types/index'
 import url from 'url'
 import http from 'http'
 import { WebServiceClient } from '@maxmind/geoip2-node'
-import { getCookie} from 'cookies-next'
+import { getCookie } from 'cookies-next'
 import axios from 'axios'
 import nodemailer from 'nodemailer'
 import { dev, env } from '@/config/index'
@@ -21,7 +21,6 @@ const lead = async (
 
   //  ROISTAT BEGIN
   const roistatVisit = getCookie('roistat_visit', { req, res })
-
   const encodedRoistatVisit = encodeURIComponent(String(roistatVisit))
   await axios.request({
     method: 'get',

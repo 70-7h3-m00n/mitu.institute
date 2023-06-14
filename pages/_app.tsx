@@ -23,7 +23,8 @@ import {
   handleUtms,
   handleReferer,
   pageview,
-  handleLocale
+  handleLocale,
+  handleCookiesExpiration
 } from '@/helpers/index'
 import { useCompanyInfo } from '@/hooks/index'
 import {
@@ -85,6 +86,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     handleUtms({ router })
     handleReferer()
     handleLocale({ router })
+    handleCookiesExpiration({ router })
 
     NProgress.configure({
       showSpinner: false
