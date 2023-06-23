@@ -55,7 +55,9 @@ const onSubmitForm = async ({
   const req = await hitLeadRoute({ lead })
 
   
-  const cookies = getCookies();
+  const cookies = getCookies()
+
+  console.log(cookies)
   
   const lastUtmSource = cookies.utm_source
   const lastUtmCampaign = cookies.utm_campaign

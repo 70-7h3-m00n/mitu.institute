@@ -7,17 +7,21 @@ type TypeHandleUtmsProps = {
 
 const handleCookiesExpiration = ({ route }: TypeHandleUtmsProps) => {
 
-const utms = route.asPath.split('?')[1].split('&').map(el => ({[el.split('=')[0]]: el.split('=')[1]}))
+const utms = route.asPath.split('?')?.[1]?.split('&')?.map(el => ({[el.split('=')[0]]: el.split('=')[1]}))
 
     const cookieExpiration = new Date();
     cookieExpiration.setDate(cookieExpiration.getDate() + 90);
 
-    Object.keys(utms).forEach((key, idx) => {
+    if(utms) {
+        Object?.keys(utms)?.forEach((key, idx) => {
             const value = Object.values(utms[key as any])[0] 
             setCookie(Object.keys(utms[idx]).toString(), value, {
-              expires: cookieExpiration,
-              path: '/',
+                expires: cookieExpiration,
+                path: '/',
             })})
+        }
+
+        
 
 }
 

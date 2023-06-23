@@ -80,7 +80,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   // TODO: figure out SEO (don't forget about UZ)
   const [loading, setLoading] = useState(false)
 
-  // console.log(routes)
+  console.log(route)
 
   useEffect(() => {
     // TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
