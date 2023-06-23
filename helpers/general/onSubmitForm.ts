@@ -55,22 +55,24 @@ const onSubmitForm = async ({
   const req = await hitLeadRoute({ lead })
 
   
-  const cookies = getCookies();
-  
-  const lastUtmSource = cookies.utm_source
-  const lastUtmCampaign = cookies.utm_campaign
-  const lastClkUid = cookies.cl_uid
-  
-  const leadHook = {
-     ...formValues,
-    utms: { 
-    utm_source: lastUtmSource,
-    utm_campaign: lastUtmCampaign,
-    cl_uid: lastClkUid,
-  } 
-}
+//   const cookies = getCookies()
 
-  await hitWebhookRoute({ leadHook })
+//   console.log(cookies)
+  
+//   const lastUtmSource = cookies.utm_source
+//   const lastUtmCampaign = cookies.utm_campaign
+//   const lastClkUid = cookies.cl_uid
+  
+//   const leadHook = {
+//      ...formValues,
+//     utms: { 
+//     utm_source: lastUtmSource,
+//     utm_campaign: lastUtmCampaign,
+//     cl_uid: lastClkUid,
+//   } 
+// }
+
+//   await hitWebhookRoute({ leadHook })
   if (req.status === 200) {
     // console.log(req.data.msg)
     setLoaderIsOpen(false)
