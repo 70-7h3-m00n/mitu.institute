@@ -17,4 +17,4 @@
 //     await axios.post<TypeNextApiResponseLeadData>(`${routesFront.apiWebhook}`, leadHook)
   
 //   export default hitWebhookRoute
-  
+  export default {}
