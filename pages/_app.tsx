@@ -42,7 +42,7 @@ import { GeneralNavPhoneTablet } from '@/components/general'
 const App = ({ Component, pageProps, router }: AppProps) => {
   if (prod) console.log = () => undefined
 
-  // const route = useRouter()
+  const route = useRouter()
 
   const props: any = pageProps // a workaround for the typescript error
 
@@ -86,7 +86,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     handleUtms({ router })
     handleReferer()
     handleLocale({ router })
-    // handleCookiesExpiration({ route })
+    handleCookiesExpiration({ route })
 
     NProgress.configure({
       showSpinner: false
