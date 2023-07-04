@@ -20,6 +20,7 @@ import hitLeadRoute from '@/helpers/general/hitLeadRoute'
 import hitWebhookRoute from '@/helpers/general/hitWebhookRoute'
 import onSubmitForm from '@/helpers/general/onSubmitForm'
 import sortBasedOnNumericOrder from '@/helpers/general/sortBasedOnNumericOrder'
+import generateYmlCatalog from '@/helpers/general/generateYmlCatalog'
 
 // lead
 import buildLeadData from '@/helpers/lead/buildLeadData'
@@ -49,6 +50,7 @@ export {
   hitWebhookRoute,
   onSubmitForm,
   sortBasedOnNumericOrder,
+  generateYmlCatalog,
   // lead
   buildLeadData,
   createLeadEmailBody,

@@ -24,7 +24,8 @@ import {
   handleReferer,
   pageview,
   handleLocale,
-  handleCookiesExpiration
+  handleCookiesExpiration,
+  generateYmlCatalog
 } from '@/helpers/index'
 import { useCompanyInfo } from '@/hooks/index'
 import {
@@ -83,6 +84,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
   useEffect(() => {
     // TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })
 
+    // generateYmlCatalog()
     handleUtms({ router })
     handleReferer()
     handleLocale({ router })
