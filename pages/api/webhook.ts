@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { TypeNextApiResponseLeadData } from '@/types/index'
 import axios from 'axios'
 
-const AFFISE_SECURE = 'asdasd123123'
+const AFFISE_SECURE = '011b594659b3d712d7da31ff85cca3e4'
 
 const webhook = async (
   req: NextApiRequest,
