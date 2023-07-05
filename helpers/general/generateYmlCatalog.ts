@@ -1,4 +1,4 @@
-// import fs from 'fs'
+// // import fs from 'fs'
 // import xml2js from 'xml2js'
 // import axios, { AxiosResponse} from "axios";
 
@@ -59,7 +59,9 @@
 //       },
 //       body: JSON.stringify({ query })
 //     })
+//     console.log('response', response)
 //     const products: Product[] = response.data
+//     console.log('products', products)
 //     return products
 // }
 
@@ -128,13 +130,13 @@
 
 // const xml = builder.buildObject(ymlCatalog)
 
-// fs.writeFile('yandex_feed.xml', xml, function (err: any) {
-//     if (err) {
-//         console.error('Something went wrong', err);
-//     } else {
-//         console.log('File created successfully');
-//     }
-// })
+// // fs.writeFile('yandex_feed.xml', xml, function (err: any) {
+// //     if (err) {
+// //         console.error('Something went wrong', err);
+// //     } else {
+// //         console.log('File created successfully');
+// //     }
+// // })
 // }
 
 
