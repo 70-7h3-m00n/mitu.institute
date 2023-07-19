@@ -107,16 +107,19 @@ const lead = async (
 
 
   // F5 BEGIN
-  const f5 = await axios.request({
-    method: 'POST',
-    maxBodyLength: Infinity,
-    url: `https://tglk.ru/in/YMNnks9zDCEBwoR5`,
-    // url: 'https://webhook.site/e49a8082-42e0-4a7d-aa1c-a076e4a5ff8c',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    data
-  })
+  try {
+    const f5 = await axios.request({
+      method: 'POST',
+      maxBodyLength: Infinity,
+      url: `https://tglk.ru/in/YMNnks9zDCEBwoR5`,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data
+    })
+  } catch (e) {
+    console.error(e)
+  }
   //  F5 END
 
   const transporter = nodemailer.createTransport({
