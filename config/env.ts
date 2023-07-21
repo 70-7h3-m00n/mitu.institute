@@ -1,5 +1,6 @@
 type TypeEnv = {
   nextPublicGtmId?: string
+  nextPublicGtmIdV4?: string
   nextPublicRouteFrontRoot?: string
   smtpHost?: string
   smtpPort?: number
@@ -16,6 +17,7 @@ type TypeEnv = {
 
 const env: TypeEnv = {
   nextPublicGtmId: process.env.NEXT_PUBLIC_GTM_ID,
+  nextPublicGtmIdV4: process.env.NEXT_PUBLIC_GTM_ID_V4,
   nextPublicRouteFrontRoot: process.env.NEXT_PUBLIC_ROUTE_FRONT_ROOT,
   smtpHost: process.env.SMTP_HOST,
   smtpPort: Number(process.env.SMTP_PORT),
