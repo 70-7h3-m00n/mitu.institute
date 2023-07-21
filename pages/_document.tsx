@@ -5,7 +5,7 @@ import Document, {
   NextScript,
   DocumentContext
 } from 'next/document'
-import { themeColor, company, prod, gtm } from '@/config/index'
+import { themeColor, company, prod, gtm, gtmV4 } from '@/config/index'
 import { MetaIcons, MetaOg, MetaTwitter } from '@/components/meta'
 
 class MyDocument extends Document {

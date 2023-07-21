@@ -6,6 +6,7 @@ import { buildUserLocation } from '@/helpers/index'
 type TypeBuildLeadDataProps = TypeLeadClientValues & {
   rootPath: string
   ip: string
+  gclUid: string
   location: Awaited<ReturnType<typeof buildUserLocation>>
 }
 
@@ -24,7 +25,8 @@ const buildLeadData = ({
   referer,
   rootPath,
   ip,
-  location
+  location,
+  gclUid
 }: TypeBuildLeadDataProps) => {
   const now = new Date()
 
@@ -66,7 +68,8 @@ const buildLeadData = ({
     utmCampaign: (utms && utms.utm_campaign?.toString()) || null,
     utmContent: (utms && utms.utm_content?.toString()) || null,
     utmTerm: (utms && utms.utm_term?.toString()) || null,
-    clUid: (utms && utms.cl_uid?.toString()) || null
+    clUid: (utms && utms.cl_uid?.toString()) || null,
+    gclUid: gclUid || null
   }
   return output
 }

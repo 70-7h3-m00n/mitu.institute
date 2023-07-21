@@ -19,6 +19,8 @@ const lead = async (
 ) => {
   if (req.body) process.env.TZ = 'Europe/Moscow'
 
+  const gclUid = getCookie('gclUid', { req, res })
+
   //  ROISTAT BEGIN
   const roistatVisit = getCookie('roistat_visit', { req, res })
   const encodedRoistatVisit = encodeURIComponent(String(roistatVisit))
@@ -101,7 +103,7 @@ const lead = async (
   // const location = dev ? null : buildUserLocation({ geo2ipData })
   const location = null
 
-  const data = buildLeadData({ ...req.body, rootPath, ip, location })
+  const data = buildLeadData({ ...req.body, rootPath, ip, location, gclUid })
   const subject = `Новая заявка с ${data.rootPath}!`
   const html = createLeadEmailBody({ data, subject })
 

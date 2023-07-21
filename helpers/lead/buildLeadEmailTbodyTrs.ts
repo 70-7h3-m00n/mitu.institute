@@ -127,7 +127,7 @@ const buildLeadEmailTbodyTrs = ({ data }: TypebuildLeadEmailTbodyTrsProps) => [
   },
   {
     tdKey: 'Google Client ID',
-    tdVal: ''
+    tdVal: data.gclUid || ''
   },
   {
     tdKey: 'Yandex Metrics ID',
