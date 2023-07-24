@@ -173,7 +173,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       </ContextAccessibilityState>
       {/* </ContextGeneralPopupState> */}
 
-      {!prod && (
+      {prod && (
         <>
         <Script
           id={selectors.gtm}
