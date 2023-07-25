@@ -18,7 +18,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from 'seo.config'
-import { prod, routesFront, selectors, gtm, routes } from '@/config/index'
+import { prod, routesFront, selectors, gtm, routes, gtmV4 } from '@/config/index'
 import {
   handleUtms,
   handleReferer,
@@ -188,7 +188,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       />
        <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${gtm}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${gtmV4}`}
           />
           <Script
             id='gtag'
@@ -196,8 +196,8 @@ const App = ({ Component, pageProps, router }: AppProps) => {
               __html: `window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${gtm}');
-            gtag('get', '${gtm}', 'client_id', function(clientId) {
+            gtag('config', '${gtmV4}');
+            gtag('get', '${gtmV4}', 'client_id', function(clientId) {
               console.log(clientId); // выводим clientId в консоль
               document.cookie = "gclUid=" + clientId; // сохраняем clientId в cookie
             });`
