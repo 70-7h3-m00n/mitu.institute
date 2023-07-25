@@ -107,7 +107,6 @@ const lead = async (
   const subject = `Новая заявка с ${data.rootPath}!`
   const html = createLeadEmailBody({ data, subject })
 
-
   // F5 BEGIN
   try {
     const f5 = await axios.request({
@@ -119,6 +118,7 @@ const lead = async (
       },
       data
     })
+    // console.log('!!!!!!!!!!!', f5)
   } catch (e) {
     console.error(e)
   }
