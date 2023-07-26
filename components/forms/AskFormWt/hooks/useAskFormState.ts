@@ -12,7 +12,7 @@ export const useAskFormState: UseAskFormState = ({ addFields, routeFront }) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [contactPath, setContactPath] = useReducer(contactPathReducer, '')
   const [howToContact, setHowToContact] = useState<HowToContact>(null)
-  console.log(howToContact)
+  // console.log(howToContact)
   const [isValid, setIsValid] = useReducer(isValidReducer, false)
   const [contact, handleContact, resetContact, isDirty, setIsDirty] =
     useInput('')
