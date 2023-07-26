@@ -18,7 +18,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from 'seo.config'
-import { prod, routesFront, selectors, gtm, routes, gtmV4 } from '@/config/index'
+import { prod, routesFront, selectors, gtm, routes, gtmV4, yandexMetrikaId } from '@/config/index'
 import {
   handleUtms,
   handleReferer,
@@ -198,11 +198,33 @@ const App = ({ Component, pageProps, router }: AppProps) => {
             gtag('js', new Date());
             gtag('config', '${gtmV4}');
             gtag('get', '${gtmV4}', 'client_id', function(clientId) {
-              console.log(clientId); // выводим clientId в консоль
-              document.cookie = "gclUid=" + clientId; // сохраняем clientId в cookie
+              document.cookie = "gclUid=" + clientId;
             });`
             }}
           />
+          {/* <!-- Yandex.Metrika counter --> */}
+          <Script id='yandex_metrika' 
+            dangerouslySetInnerHTML={{
+            __html: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+            
+            ym(87354555, "init", {
+              clickmap:true,
+              trackLinks:true,
+              accurateTrackBounce:true,
+              webvisor:true,
+              ecommerce:"dataLayer"
+            });
+            ym(87354555, 'getClientID', function(clientID) {
+                document.cookie = "ymclUid=" + clientID;
+                });`
+          }} />
+          <noscript><div><img src="https://mc.yandex.ru/watch/92116660" style={{position:'absolute', left:'-9999px'}} alt="" /></div></noscript>
+          {/* <!-- /Yandex.Metrika counter --> */}
       </>
       )}
         <Script
