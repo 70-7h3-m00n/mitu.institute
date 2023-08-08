@@ -37,3 +37,32 @@
     font-size: f.px(24)
   line-height: 110%
   transition: color 0.25s ease
+
+  .tooltip-container
+  position: relative
+  display: inline-block
+
+  .tooltip-text
+    visibility: hidden
+    width: 260px
+    height: 99px 
+    color: #6A6A6A
+    text-align: center
+    border-radius: 4px
+    padding: 24px
+    position: absolute
+    z-index: 1000
+    bottom: 2rem
+    font-size: 14px
+    right: 0
+    transform: translateX(100%)
+    opacity: 0
+    line-height: 120%
+    background: white
+    inset: -8rem
+    transition: opacity 0.3s, visibility 0.3s
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1)
+
+  &:hover .tooltip-text
+    visibility: visible
+    opacity: 1
