@@ -42,6 +42,8 @@ import IconVideoOnStand from '@/components/icons/IconVideoOnStand'
 import IconVK from '@/components/icons/IconVK'
 import IconWave from '@/components/icons/IconWave'
 import IconYoutube from '@/components/icons/IconYoutube'
+import IconInfoSubtract from '@/components/icons/IconInfoSubtract'
+import IconInfoSubtractReverse from '@/components/icons/IconInfoSubtractReverse'
 
 export {
   IconDecorationFourShadowSquares,
@@ -85,5 +87,7 @@ export {
   IconVideoOnStand,
   IconVK,
   IconWave,
-  IconYoutube
+  IconYoutube,
+  IconInfoSubtract,
+  IconInfoSubtractReverse
 }
