@@ -27,23 +27,15 @@ const BtnImgPopupTrigger = ({
 }: TypeBtnImgPopupTriggerProps) => {
   const [clicked, setClicked] = useState(false)
 
-  useEffect(() => {
-    const element = document.getElementById("tooltip-popup__info")
+  const handleMouseEnter = () => {
+    setClicked(true);
+    console.log("Mouse entered the element");
+  }
 
-    if (element ) {
-
-      element.addEventListener("mouseenter", () => {
-        setClicked(true)
-        console.log("Mouse entered the element")
-      })
-      
-      element.addEventListener("mouseleave", () => {
-        setClicked(false)
-        console.log("Mouse left the element")
-      })
-    }
-
-  }, [])
+  const handleMouseLeave = () => {
+    setClicked(false);
+    console.log("Mouse left the element");
+  }
 
   const at = useAt()
   const translations = {
@@ -94,11 +86,20 @@ const BtnImgPopupTrigger = ({
           marginTop: 0
         }} className={stls.label}>{label}</span>
         {
-        label === translations.bachelorDiploma &&
+        label === translations.professionalRetrainingDiploma &&
         <> 
-        <div id='tooltip-popup__info' style={{
-          marginLeft: '1rem'
-        }} className={stls['tooltip-container']}>
+        <div 
+        id='tooltip-popup__info' 
+        className={stls['tooltip-container']}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        style={{
+            marginLeft: '1rem',
+            width: '21.5px',
+            minWidth: '21.5px',
+            height: '21.5px',
+            minHeight: '21.5px'
+          }}>
           {
             !clicked ? 
             <IconInfoSubtract /> :
