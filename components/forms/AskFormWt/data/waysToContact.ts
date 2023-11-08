@@ -55,14 +55,14 @@ export const waysToContact: ContactWay[] = [
     validationRules: validationRules[0],
     contactButtonClass: 'viberButton'
   },
-  {
-    name: 'VK',
-    stageStep: 2,
-    svg: SlSocialVkontakte,
-    contactMethods: [contactMethods[1]],
-    validationRules: validationRules[1],
-    contactButtonClass: 'vkButton'
-  },
+  // {
+  //   name: 'VK',
+  //   stageStep: 2,
+  //   svg: SlSocialVkontakte,
+  //   contactMethods: [contactMethods[1]],
+  //   validationRules: validationRules[1],
+  //   contactButtonClass: 'vkButton'
+  // },
   {
     name: 'Телефон',
     stageStep: 2,
