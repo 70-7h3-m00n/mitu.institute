@@ -81,10 +81,10 @@ const Footer = ({ classNames }: TypeFooterProps) => {
       href: routesFront.policiesPrivacy,
       val: translations.policiesPrivacy
     },
-    {
-      href: routesFront.policiesTerms,
-      val: translations.policiesTerms
-    }
+    // {
+    //   href: routesFront.policiesTerms,
+    //   val: translations.policiesTerms
+    // }
   ]
 
   return (
