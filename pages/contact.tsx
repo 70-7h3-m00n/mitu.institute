@@ -202,7 +202,7 @@ const PageContact: NextPage<TypePageHomeProps> = ({
                       {item.email.val}
                     </a>
                   </p>
-                  {item?.extraLegalInfo && at.ru && (
+                  {/* {item?.extraLegalInfo && at.ru && (
                     <div className={cn(stls.extraLegalInfoContainer)}>
                       <button
                         tabIndex={0}
@@ -242,7 +242,7 @@ const PageContact: NextPage<TypePageHomeProps> = ({
                         </div>
                       )}
                     </div>
-                  )}
+                  )} */}
                 </div>
                 <div className={stls.right}>{item.img}</div>
               </li>
