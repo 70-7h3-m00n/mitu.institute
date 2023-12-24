@@ -50,7 +50,7 @@ const ProgramAdmission = () => {
 
   return (
     <>
-      {currentDate.getDate()} {months[currentMonth]}
+      {/* currentDate.getDate() */ 27} {months[currentMonth]}
     </>
   )
 }
