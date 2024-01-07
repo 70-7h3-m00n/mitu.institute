@@ -57,7 +57,7 @@ const ProgramStudyDuration = ({
 
   let content = (
     <>
-      {monthsOnly && /* translations.monthsOnly */ 27}{' '}
+      {monthsOnly && translations.monthsOnly}{' '}
       {yearsOnly && translations.yearsOnly}
       {!monthsOnly && !yearsOnly && translations.default}
     </>
