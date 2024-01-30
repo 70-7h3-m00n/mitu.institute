@@ -44,7 +44,7 @@ const SectionAboutUniversity = ({
       : at.uz
       ? "Biz ta'lim bilan shug'ullanamiz"
       : 'Занимаемся образованием',
-    testimonial2Title: at.en ? '>2000' : at.uz ? '>2000' : '>2000',
+    testimonial2Title: at.en ? '>8500' : at.uz ? '>8500' : '>8500',
     testimonial2Subtitle: at.en
       ? 'Studying now'
       : at.uz
