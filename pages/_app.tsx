@@ -221,7 +221,11 @@ const App = ({ Component, pageProps, router }: AppProps) => {
             });
             ym(87354555, 'getClientID', function(clientID) {
                 document.cookie = "ymclUid=" + clientID;
-                });`
+                });
+            ym(87354555, "userParams", {
+              _ym_uid:document.cookie.replace(/(?:(?:^|.*;\s*)_ym_uid\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
+              _ym_counter:document.cookie.replace(/(?:(?:^|.*;\s*)_ym_counter\s*\=\s*([^;]*).*$)|^.*$/, "$1") || 87354555
+            });`
           }} />
           <noscript><div><img src="https://mc.yandex.ru/watch/92116660" style={{position:'absolute', left:'-9999px'}} alt="" /></div></noscript>
           {/* <!-- /Yandex.Metrika counter --> */}

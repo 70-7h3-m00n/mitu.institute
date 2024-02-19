@@ -134,6 +134,14 @@ const buildLeadEmailTbodyTrs = ({ data }: TypebuildLeadEmailTbodyTrsProps) => [
     tdVal: data.ymclUid || ''
   },
   {
+    tdKey: 'ClientID',
+    tdVal: data._ym_uid || ''
+  },
+  {
+    tdKey: 'Номер счетчика метрики',
+    tdVal: data._ym_counter || '87354555'
+  },
+  {
     tdKey: 'Устройство пользователя',
     tdVal: ''
   },
