@@ -21,16 +21,18 @@ const lead = async (
 
   const gclUid = getCookie('gclUid', { req, res })
   const ymclUid = getCookie('ymclUid', { req, res })
+  const _ym_uid = getCookie('_ym_uid', { req, res })
+  const _ym_counter = getCookie('_ym_counter', { req, res })
 
   //  ROISTAT BEGIN
   const roistatVisit = getCookie('roistat_visit', { req, res })
   const encodedRoistatVisit = encodeURIComponent(String(roistatVisit))
-  await axios.request({
-    method: 'get',
-    maxBodyLength: Infinity,
-    url: `https://cloud.roistat.com/api/proxy/1.0/leads/add?roistat=${roistatVisit}&key=YjEzZGExNmM1ZDU1MDFjYmYzYTVkZjY2Y2E5OGUzMjE6MjMzNDgx&title=newOffer&name=${encodeURIComponent(req.body.name  ?? '')}&email=${encodeURIComponent(req.body.email ?? '')}&phone=${encodeURIComponent(req.body.phone ?? '')}&is_skip_sending=1`,
-    headers: {}
-  })
+  // await axios.request({
+  //   method: 'get',
+  //   maxBodyLength: Infinity,
+  //   url: `https://cloud.roistat.com/api/proxy/1.0/leads/add?roistat=${roistatVisit}&key=YjEzZGExNmM1ZDU1MDFjYmYzYTVkZjY2Y2E5OGUzMjE6MjMzNDgx&title=newOffer&name=${encodeURIComponent(req.body.name  ?? '')}&email=${encodeURIComponent(req.body.email ?? '')}&phone=${encodeURIComponent(req.body.phone ?? '')}&is_skip_sending=1`,
+  //   headers: {}
+  // })
   //  ROISTAT END
 
   // TODO: refactor this
@@ -104,25 +106,25 @@ const lead = async (
   // const location = dev ? null : buildUserLocation({ geo2ipData })
   const location = null
 
-  const data = buildLeadData({ ...req.body, rootPath, ip, location, gclUid, ymclUid })
+  const data = buildLeadData({ ...req.body, rootPath, ip, location, gclUid, ymclUid, _ym_uid, _ym_counter })
   const subject = `Новая заявка с ${data.rootPath}!`
   const html = createLeadEmailBody({ data, subject })
 
   // F5 BEGIN
-  try {
-    const f5 = await axios.request({
-      method: 'POST',
-      maxBodyLength: Infinity,
-      url: `https://tglk.ru/in/YMNnks9zDCEBwoR5`,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      data
-    })
-    // console.log('!!!!!!!!!!!', f5)
-  } catch (e) {
-    console.error(e)
-  }
+  // try {
+  //   const f5 = await axios.request({
+  //     method: 'POST',
+  //     maxBodyLength: Infinity,
+  //     url: `https://tglk.ru/in/YMNnks9zDCEBwoR5`,
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     data
+  //   })
+  //   // console.log('!!!!!!!!!!!', f5)
+  // } catch (e) {
+  //   console.error(e)
+  // }
   //  F5 END
 
   const transporter = nodemailer.createTransport({
