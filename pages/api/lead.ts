@@ -27,12 +27,12 @@ const lead = async (
   //  ROISTAT BEGIN
   const roistatVisit = getCookie('roistat_visit', { req, res })
   const encodedRoistatVisit = encodeURIComponent(String(roistatVisit))
-  // await axios.request({
-  //   method: 'get',
-  //   maxBodyLength: Infinity,
-  //   url: `https://cloud.roistat.com/api/proxy/1.0/leads/add?roistat=${roistatVisit}&key=YjEzZGExNmM1ZDU1MDFjYmYzYTVkZjY2Y2E5OGUzMjE6MjMzNDgx&title=newOffer&name=${encodeURIComponent(req.body.name  ?? '')}&email=${encodeURIComponent(req.body.email ?? '')}&phone=${encodeURIComponent(req.body.phone ?? '')}&is_skip_sending=1`,
-  //   headers: {}
-  // })
+  await axios.request({
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: `https://cloud.roistat.com/api/proxy/1.0/leads/add?roistat=${roistatVisit}&key=YjEzZGExNmM1ZDU1MDFjYmYzYTVkZjY2Y2E5OGUzMjE6MjMzNDgx&title=newOffer&name=${encodeURIComponent(req.body.name  ?? '')}&email=${encodeURIComponent(req.body.email ?? '')}&phone=${encodeURIComponent(req.body.phone ?? '')}&is_skip_sending=1`,
+    headers: {}
+  })
   //  ROISTAT END
 
   // TODO: refactor this
@@ -111,20 +111,20 @@ const lead = async (
   const html = createLeadEmailBody({ data, subject })
 
   // F5 BEGIN
-  // try {
-  //   const f5 = await axios.request({
-  //     method: 'POST',
-  //     maxBodyLength: Infinity,
-  //     url: `https://tglk.ru/in/YMNnks9zDCEBwoR5`,
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     data
-  //   })
-  //   // console.log('!!!!!!!!!!!', f5)
-  // } catch (e) {
-  //   console.error(e)
-  // }
+  try {
+    const f5 = await axios.request({
+      method: 'POST',
+      maxBodyLength: Infinity,
+      url: `https://tglk.ru/in/YMNnks9zDCEBwoR5`,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data
+    })
+    // console.log('!!!!!!!!!!!', f5)
+  } catch (e) {
+    console.error(e)
+  }
   //  F5 END
 
   const transporter = nodemailer.createTransport({
