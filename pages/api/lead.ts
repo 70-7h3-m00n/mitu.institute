@@ -3,7 +3,7 @@ import { TypeNextApiResponseLeadData } from '@/types/index'
 import url from 'url'
 import http from 'http'
 import { WebServiceClient } from '@maxmind/geoip2-node'
-import { getCookie } from 'cookies-next'
+import { getCookie, getCookies } from 'cookies-next'
 import axios from 'axios'
 import nodemailer from 'nodemailer'
 import { dev, env } from '@/config/index'
@@ -30,7 +30,11 @@ const lead = async (
   await axios.request({
     method: 'get',
     maxBodyLength: Infinity,
-    url: `https://cloud.roistat.com/api/proxy/1.0/leads/add?roistat=${roistatVisit}&key=YjEzZGExNmM1ZDU1MDFjYmYzYTVkZjY2Y2E5OGUzMjE6MjMzNDgx&title=newOffer&name=${encodeURIComponent(req.body.name  ?? '')}&email=${encodeURIComponent(req.body.email ?? '')}&phone=${encodeURIComponent(req.body.phone ?? '')}&is_skip_sending=1`,
+    url: `https://cloud.roistat.com/api/proxy/1.0/leads/add?roistat=${roistatVisit}&key=YjEzZGExNmM1ZDU1MDFjYmYzYTVkZjY2Y2E5OGUzMjE6MjMzNDgx&title=newOffer&name=${encodeURIComponent(
+      req.body.name ?? ''
+    )}&email=${encodeURIComponent(
+      req.body.email ?? ''
+    )}&phone=${encodeURIComponent(req.body.phone ?? '')}&is_skip_sending=1`,
     headers: {}
   })
   //  ROISTAT END
@@ -106,7 +110,16 @@ const lead = async (
   // const location = dev ? null : buildUserLocation({ geo2ipData })
   const location = null
 
-  const data = buildLeadData({ ...req.body, rootPath, ip, location, gclUid, ymclUid, _ym_uid, _ym_counter })
+  const data = buildLeadData({
+    ...req.body,
+    rootPath,
+    ip,
+    location,
+    gclUid,
+    ymclUid,
+    _ym_uid,
+    _ym_counter
+  })
   const subject = `Новая заявка с ${data.rootPath}!`
   const html = createLeadEmailBody({ data, subject })
 
@@ -121,7 +134,7 @@ const lead = async (
       },
       data
     })
-    // console.log('!!!!!!!!!!!', f5)
+    // console.log('F5 !!!!!!!!!!!', f5)
   } catch (e) {
     console.error(e)
   }
@@ -155,7 +168,7 @@ const lead = async (
       html
     })
 
-    console.log('Message sent:', emailRes.messageId)
+    // console.log('Message sent:', emailRes.messageId)
     // res.setHeader('Cache-Control', 'max-age=0, s-maxage=86400')
     res.status(200).json({ msg: 'Email is sent' })
   } catch (err) {
