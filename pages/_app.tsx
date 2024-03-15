@@ -18,7 +18,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from 'seo.config'
-import { prod, routesFront, selectors, gtm, gtmV4 } from '@/config/index'
+import { prod, routesFront, selectors, gtm, gtmV4, dev } from '@/config/index'
 import {
   handleUtms,
   handleReferer,
@@ -38,6 +38,7 @@ import {
 import { Header, Main, Footer } from '@/components/layout'
 import { HeaderPromo } from '@/components/promo'
 import { GeneralNavPhoneTablet } from '@/components/general'
+import { env } from '@/config/index'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   if (prod) console.log = () => undefined
@@ -211,21 +212,17 @@ const App = ({ Component, pageProps, router }: AppProps) => {
             k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
             (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-            ym(87354555, "init", {
+            ym(${env.ym_counter}, "init", {
               clickmap:true,
               trackLinks:true,
               accurateTrackBounce:true,
               webvisor:true,
               ecommerce:"dataLayer"
             });
-            ym(87354555, 'getClientID', function(clientID) {
+            ym(${env.ym_counter}, 'getClientID', function(clientID) {
               document.cookie = "ymclUid=" + clientID;
-              document.cookie = "_ym_counter=" + 87354555;
-                });
-            ym(87354555, "userParams", {
-              _ym_uid:document.cookie.replace(/(?:(?:^|.*;\s*)_ym_uid\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
-              _ym_counter:document.cookie.replace(/(?:(?:^|.*;\s*)_ym_counter\s*\=\s*([^;]*).*$)|^.*$/, "$1") || 87354555
-            });`
+              document.cookie = "_ym_counter=" + ${env.ym_counter};
+                });`
             }}
           />
           <noscript>
