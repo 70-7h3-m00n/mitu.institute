@@ -139,7 +139,7 @@ const buildLeadEmailTbodyTrs = ({ data }: TypebuildLeadEmailTbodyTrsProps) => [
   },
   {
     tdKey: 'Номер счетчика метрики',
-    tdVal: data._ym_counter || '87354555'
+    tdVal: data._ym_counter
   },
   {
     tdKey: 'Устройство пользователя',

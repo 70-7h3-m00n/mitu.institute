@@ -22,7 +22,7 @@ const lead = async (
   const gclUid = getCookie('gclUid', { req, res })
   const ymclUid = getCookie('ymclUid', { req, res })
   const _ym_uid = getCookie('_ym_uid', { req, res })
-  const _ym_counter = getCookie('_ym_counter', { req, res })
+  const _ym_counter = getCookie('_ym_counter', { req, res }) || env.ym_counter
 
   //  ROISTAT BEGIN
   const roistatVisit = getCookie('roistat_visit', { req, res })
