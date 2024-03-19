@@ -222,7 +222,11 @@ const App = ({ Component, pageProps, router }: AppProps) => {
             ym(${env.ym_counter}, 'getClientID', function(clientID) {
               document.cookie = "ymclUid=" + clientID;
               document.cookie = "_ym_counter=" + ${env.ym_counter};
-                });`
+                });
+            ym(${env.ym_counter}, "userParams", {
+              _ym_uid:document.cookie.replace(/(?:(?:^|.*;\s*)_ym_uid\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
+              _ym_counter:document.cookie.replace(/(?:(?:^|.*;\s*)_ym_counter\s*\=\s*([^;]*).*$)|^.*$/, "$1") || ${env.ym_counter}
+            });`
             }}
           />
           <noscript>
