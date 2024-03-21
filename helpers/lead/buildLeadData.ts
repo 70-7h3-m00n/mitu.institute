@@ -9,8 +9,8 @@ type TypeBuildLeadDataProps = TypeLeadClientValues & {
   ip: string
   gclUid: string
   ymclUid: string
-  _ym_uid: string
   _ym_counter: string
+  _ym_uid?: string
   location: Awaited<ReturnType<typeof buildUserLocation>>
 }
 
@@ -78,8 +78,8 @@ const buildLeadData = ({
     clUid: (utms && utms.cl_uid?.toString()) || null,
     gclUid: (gclUid && gclUid.toString()) || null,
     ymclUid: (ymclUid && ymclUid.toString()) || null,
-    _ym_uid: (_ym_uid && _ym_uid.toString()) || null,
-    _ym_counter: _ym_counter.toString()
+    _ym_uid: _ym_uid || null,
+    _ym_counter: _ym_counter
   }
   return output
 }
