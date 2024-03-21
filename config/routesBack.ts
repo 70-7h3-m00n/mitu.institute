@@ -10,7 +10,8 @@ type TypeRoutesBack = {
 }
 
 const routesBack: TypeRoutesBack = {
-  root: dev || nextexport ? 'http://localhost:1337' : env.backRouteRoot,
+  // root: dev || nextexport ? 'http://localhost:1337' : env.backRouteRoot,
+  root: env.backRouteRoot,
   home: '/',
   graphql: '/graphql',
   land: '/land',
