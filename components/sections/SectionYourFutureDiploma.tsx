@@ -21,7 +21,8 @@ import {
   ImgDiplomaMaster,
   ImgDiplomaProfession,
   ImgDiplomaSupplement,
-  ImgDiplomaSupplementTwoPages
+  ImgDiplomaSupplementTwoPages,
+  ImgDiplomaCollege
 } from '@/components/imgs'
 import { PopupImg } from '@/components/popups'
 import { BtnImgPopupTrigger } from '@/components/btns'
@@ -36,8 +37,6 @@ const SectionYourFutureDiploma = ({
 }: TypeSectionYourFutureDiplomaProps) => {
   const at = useAt()
 
-  const router = useRouter()
-  const { program } = useContext(ContextProgramContext)
   const { curCategory } = useContext(ContextCategoriesContext)
 
   const translations = {
@@ -70,57 +69,15 @@ const SectionYourFutureDiploma = ({
       ? 'Supplement'
       : at.uz
       ? "Jum Ta'minoti"
-      : 'Диплом Supplement-'
+      : 'Диплом Supplement-',
+    collegeDiploma: at.en
+      ? 'Diploma of secondary vocational education'
+      : at.uz
+      ? "O'rta kasb-hunar ta'limi diplomi"
+      : 'Диплом о среднем профессиональном образовании'
   }
 
   const diplomas = []
-
-  // if (
-  //   (atPageProgram && curCategory?.type === 'master') ||
-  //   curCategory?.type === 'bachelor'
-  // )
-  //   diplomas = [
-  //     {
-  //       img: <ImgDiplomaDynamicProfession />,
-  //       label: translations.professionalRetrainingDiploma
-  //     },
-  //     {
-  //       img: <ImgDiplomaBachelor />,
-  //       label: translations.bachelorDiploma
-  //     },
-  //     {
-  //       img: <ImgDiplomaSupplement />,
-  //       label: translations.supplementDiploma
-  //     }
-  //   ]
-
-  // if (atPageProgram && curCategory?.type === 'additional')
-  //   diplomas = [
-  //     {
-  //       img: <ImgDiplomaDynamicProfession />,
-  //       label: translations.professionalRetrainingDiploma
-  //     },
-  //     {
-  //       img: <ImgDiplomaSupplement />,
-  //       label: translations.supplementDiploma
-  //     }
-  //   ]
-
-  // if (!atPageProgram)
-  //   diplomas = [
-  //     {
-  //       img: <ImgDiplomaDynamicProfession />,
-  //       label: translations.professionalRetrainingDiploma
-  //     },
-  //     {
-  //       img: <ImgDiplomaBachelor />,
-  //       label: translations.bachelorDiploma
-  //     },
-  //     {
-  //       img: <ImgDiplomaSupplement />,
-  //       label: translations.supplementDiploma
-  //     }
-  //   ]
 
   if (mituinstitute) {
     if (!atPageProgram) {
@@ -198,6 +155,12 @@ const SectionYourFutureDiploma = ({
             label: translations.instituteDiploma
           }
         )
+      }
+      if (curCategory?.type === 'college') {
+        diplomas.push({
+          img: <ImgDiplomaCollege />,
+          label: translations.collegeDiploma
+        })
       }
     }
   } else {

@@ -18,14 +18,13 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from 'seo.config'
-import { prod, routesFront, selectors, gtm, routes, gtmV4, yandexMetrikaId } from '@/config/index'
+import { prod, routesFront, selectors, gtm, gtmV4, dev } from '@/config/index'
 import {
   handleUtms,
   handleReferer,
   pageview,
   handleLocale,
-  handleCookiesExpiration,
-  generateYmlCatalog
+  handleCookiesExpiration
 } from '@/helpers/index'
 import { useCompanyInfo } from '@/hooks/index'
 import {
@@ -39,6 +38,7 @@ import {
 import { Header, Main, Footer } from '@/components/layout'
 import { HeaderPromo } from '@/components/promo'
 import { GeneralNavPhoneTablet } from '@/components/general'
+import { env } from '@/config/index'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   if (prod) console.log = () => undefined
@@ -175,18 +175,18 @@ const App = ({ Component, pageProps, router }: AppProps) => {
 
       {prod && (
         <>
-        <Script
-          id={selectors.gtm}
-          dangerouslySetInnerHTML={{
-            __html: `
+          <Script
+            id={selectors.gtm}
+            dangerouslySetInnerHTML={{
+              __html: `
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','${gtm}');`
-      }}
-      />
-       <script
+            }}
+          />
+          <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${gtmV4}`}
           />
@@ -203,45 +203,55 @@ const App = ({ Component, pageProps, router }: AppProps) => {
             }}
           />
           {/* <!-- Yandex.Metrika counter --> */}
-          <Script id='yandex_metrika' 
+          <Script
+            id='yandex_metrika'
             dangerouslySetInnerHTML={{
-            __html: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+              __html: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
             m[i].l=1*new Date();
             for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
             k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
             (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-            
-            ym(87354555, "init", {
+            ym(${env.ym_counter}, "init", {
               clickmap:true,
               trackLinks:true,
               accurateTrackBounce:true,
               webvisor:true,
               ecommerce:"dataLayer"
             });
-            ym(87354555, 'getClientID', function(clientID) {
-                document.cookie = "ymclUid=" + clientID;
+            ym(${env.ym_counter}, 'getClientID', function(clientID) {
+              document.cookie = "ymclUid=" + clientID;
+              document.cookie = "_ym_counter=" + ${env.ym_counter};
                 });
-            ym(87354555, "userParams", {
+            ym(${env.ym_counter}, "userParams", {
               _ym_uid:document.cookie.replace(/(?:(?:^|.*;\s*)_ym_uid\s*\=\s*([^;]*).*$)|^.*$/, "$1"),
-              _ym_counter:document.cookie.replace(/(?:(?:^|.*;\s*)_ym_counter\s*\=\s*([^;]*).*$)|^.*$/, "$1") || 87354555
+              _ym_counter:document.cookie.replace(/(?:(?:^|.*;\s*)_ym_counter\s*\=\s*([^;]*).*$)|^.*$/, "$1") || ${env.ym_counter}
             });`
-          }} />
-          <noscript><div><img src="https://mc.yandex.ru/watch/92116660" style={{position:'absolute', left:'-9999px'}} alt="" /></div></noscript>
+            }}
+          />
+          <noscript>
+            <div>
+              <img
+                src='https://mc.yandex.ru/watch/92116660'
+                style={{ position: 'absolute', left: '-9999px' }}
+                alt=''
+              />
+            </div>
+          </noscript>
           {/* <!-- /Yandex.Metrika counter --> */}
-      </>
+        </>
       )}
-        <Script
-            id='roistat-counter'
-            dangerouslySetInnerHTML={{
-                __html: `(function(w, d, s, h, id) {
+      <Script
+        id='roistat-counter'
+        dangerouslySetInnerHTML={{
+          __html: `(function(w, d, s, h, id) {
                 w.roistatProjectId = id; w.roistatHost = h;
                 var p = d.location.protocol == "https:" ? "https://" : "http://";
                 var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);
                 var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
                 })(window, document, 'script', 'cloud.roistat.com', '46751d07945ec38697681458052a865d');`
-            }}
-        />
+        }}
+      />
     </>
   )
 }

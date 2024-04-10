@@ -14,6 +14,7 @@ type TypeEnv = {
   geo2ApiKey?: string
   geo2Host?: string
   backRouteRoot?: string
+  ym_counter: string
 }
 
 const env: TypeEnv = {
@@ -31,7 +32,8 @@ const env: TypeEnv = {
   geo2UderId: process.env.GEO2_USER_ID,
   geo2ApiKey: process.env.GEO2_APIKEY,
   geo2Host: process.env.GEO2_HOST,
-  backRouteRoot: process.env.BACK_ROUTE_ROOT
+  backRouteRoot: process.env.BACK_ROUTE_ROOT,
+  ym_counter: process.env.YM_COUNTER as string
 }
 
 export default env

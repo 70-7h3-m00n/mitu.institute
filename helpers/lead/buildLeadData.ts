@@ -2,14 +2,15 @@ import { TypeLeadClientValues } from '@/types/index'
 import { v4 as uuidv4 } from 'uuid'
 import { format } from 'date-fns'
 import { buildUserLocation } from '@/helpers/index'
+import { env } from '@/config/index'
 
 type TypeBuildLeadDataProps = TypeLeadClientValues & {
   rootPath: string
   ip: string
   gclUid: string
   ymclUid: string
-  _ym_uid: string
   _ym_counter: string
+  _ym_uid?: string
   location: Awaited<ReturnType<typeof buildUserLocation>>
 }
 
@@ -77,8 +78,8 @@ const buildLeadData = ({
     clUid: (utms && utms.cl_uid?.toString()) || null,
     gclUid: (gclUid && gclUid.toString()) || null,
     ymclUid: (ymclUid && ymclUid.toString()) || null,
-    _ym_uid: (_ym_uid && _ym_uid.toString()) || null,
-    _ym_counter: (_ym_counter && _ym_counter.toString()) || null
+    _ym_uid: _ym_uid || null,
+    _ym_counter: _ym_counter
   }
   return output
 }
