@@ -11,6 +11,7 @@ export { default as ImgDiplomaMaster } from '@/components/imgs/diplomas/ImgDiplo
 export { default as ImgDiplomaProfession } from '@/components/imgs/diplomas/ImgDiplomaProfession'
 export { default as ImgDiplomaSupplement } from '@/components/imgs/diplomas/ImgDiplomaSupplement'
 export { default as ImgDiplomaSupplementTwoPages } from '@/components/imgs/diplomas/ImgDiplomaSupplementTwoPages'
+export { default as ImgDiplomaCollege } from '@/components/imgs/diplomas/ImgDiplomaCollege'
 
 // general
 export { default as ImgForWhom } from '@/components/imgs/general/ImgForWhom'
