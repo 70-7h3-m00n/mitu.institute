@@ -20,12 +20,14 @@ const SectionUIFormAlpha = ({
   const at = useAt()
   const { program } = useContext(ContextProgramContext)
 
+  const currentYear = new Date().getFullYear();
+
   const translations = {
     title: at.en
-      ? 'Leave an application and find out the minimum passing score in 2023'
+      ? `Leave an application and find out the minimum passing score in ${currentYear}`
       : at.uz
-      ? "So'rov qoldiring va 2023 yilda eng kam o'tish ballini toping"
-      : 'Оставьте заявку и узнайте минимальный проходной балл в 2023 году'
+      ? `So'rov qoldiring va ${currentYear} yilda eng kam o'tish ballini toping`
+      : `Оставьте заявку и узнайте минимальный проходной балл в ${currentYear} году`
   }
 
   return (
