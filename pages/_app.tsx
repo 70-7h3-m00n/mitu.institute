@@ -190,6 +190,11 @@ const App = ({ Component, pageProps, router }: AppProps) => {
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${gtmV4}`}
           />
+          <script
+            src='https://dmp.one/sync?stock_key=7a438b865087a667bd6df8e60ad470cf'
+            async
+            // eslint-disable-next-line react/no-unknown-property
+            charSet='UTF-8'></script>
           <Script
             id='gtag'
             dangerouslySetInnerHTML={{
